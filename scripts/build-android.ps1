@@ -1,0 +1,23 @@
+param([string]$Flutter = 'C:\src\flutter\bin\flutter.bat')
+$ErrorActionPreference = 'Stop'
+$fqRoot = Split-Path -Parent $PSScriptRoot
+$fqSource = Join-Path $fqRoot 'mobile'
+# Flutter 3.24 Windows shader compiler can crash on non-ASCII paths.
+# Build an isolated copy; never move or delete the working source tree.
+$fqBuildRoot = Join-Path $env:LOCALAPPDATA 'FocusQuestTools\build'
+$fqStage = Join-Path $fqBuildRoot ('fq-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
+New-Item -ItemType Directory -Path $fqStage -Force | Out-Null
+& robocopy $fqSource $fqStage /E /XD build .dart_tool .gradle /XF local.properties /NFL /NDL /NJH /NJS /NP
+if ($LASTEXITCODE -ge 8) { throw "Source copy failed: $LASTEXITCODE" }
+Push-Location $fqStage
+try {
+    & $Flutter pub get --offline
+    if ($LASTEXITCODE -ne 0) { throw 'Dependency resolution failed' }
+    & $Flutter build apk --debug --target-platform android-arm64 --no-pub
+    if ($LASTEXITCODE -ne 0) { throw 'Android build failed' }
+    $fqOutput = Join-Path $fqRoot 'output\android'
+    New-Item -ItemType Directory -Path $fqOutput -Force | Out-Null
+    Copy-Item -LiteralPath (Join-Path $fqStage 'build\app\outputs\flutter-apk\app-debug.apk') -Destination (Join-Path $fqOutput 'FocusQuest-debug.apk') -Force
+    Write-Output "APK: $fqOutput\FocusQuest-debug.apk"
+    Write-Output "Build workspace retained: $fqStage"
+} finally { Pop-Location }

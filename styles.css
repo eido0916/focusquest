@@ -1,0 +1,181 @@
+:root {
+  color-scheme: dark;
+  font-family:
+    Inter, "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #080c1b;
+  color: #f8f9ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(103, 82, 255, 0.32), transparent 35%),
+    radial-gradient(circle at 100% 70%, rgba(25, 207, 172, 0.2), transparent 34%),
+    #080c1b;
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(100% - 32px, 680px);
+  margin: 0 auto;
+  padding: 64px 0;
+}
+
+.hero {
+  margin-bottom: 32px;
+}
+
+.eyebrow,
+.label {
+  margin: 0 0 8px;
+  color: #8e9aff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 9vw, 4.75rem);
+  letter-spacing: -0.06em;
+}
+
+.subtitle {
+  margin: 12px 0 0;
+  color: #aeb5cf;
+}
+
+.quest-card,
+.status-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(19, 25, 52, 0.82);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(16px);
+}
+
+.quest-card {
+  padding: clamp(24px, 6vw, 44px);
+  border-radius: 28px;
+}
+
+.quest-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+}
+
+.level {
+  flex: 0 0 auto;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(103, 82, 255, 0.22);
+  color: #b8b1ff;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.timer {
+  margin: 52px 0 28px;
+  text-align: center;
+  font-size: clamp(4rem, 18vw, 7.5rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  line-height: 1;
+}
+
+.progress-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #6752ff, #19cfac);
+  transition: width 0.4s ease;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.controls button {
+  min-height: 52px;
+  border-radius: 15px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.primary-button {
+  background: #f8f9ff;
+  color: #11152c;
+}
+
+.secondary-button {
+  padding-inline: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #dce0f2;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.status-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.status-card span {
+  color: #9fa7c3;
+  font-size: 0.86rem;
+}
+
+.status-card strong,
+.status-card strong span {
+  color: #f8f9ff;
+  font-size: 1.25rem;
+}
+
+@media (max-width: 480px) {
+  .app-shell {
+    padding: 36px 0;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+}

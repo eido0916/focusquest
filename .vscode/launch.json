@@ -1,0 +1,7 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {"name": "FocusQuest Android", "request": "launch", "type": "dart", "cwd": "${workspaceFolder}/mobile", "program": "${workspaceFolder}/mobile/lib/main.dart"},
+    {"name": "FocusQuest 診断プレビュー（保存なし）", "request": "launch", "type": "dart", "cwd": "${workspaceFolder}/mobile", "program": "${workspaceFolder}/mobile/lib/main_preview.dart"}
+  ]
+}
