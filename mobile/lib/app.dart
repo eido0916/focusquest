@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'core/game_controller.dart';
 import 'core/theme/app_theme.dart';
 import 'core/widgets/quest_widgets.dart';
-import 'features/adventure/adventure_screen.dart';
 import 'features/character/presentation/character_screen.dart';
 import 'features/diagnosis/presentation/diagnosis_screen.dart';
 import 'features/focus/presentation/focus_screen.dart';
@@ -66,7 +65,6 @@ class _QuestShellState extends State<QuestShell> {
           controller: controller,
           onFocus: focus,
           onNavigate: (tab) => setState(() => _tab = tab)),
-      AdventureScreen(controller: controller),
       CharacterScreen(controller: controller),
       GachaScreen(controller: controller),
       SettingsScreen(controller: controller)
@@ -74,7 +72,7 @@ class _QuestShellState extends State<QuestShell> {
     return Scaffold(
         body: SafeArea(
             child: QuestBackdrop(
-                dim: _tab == 0 || _tab == 1 ? .12 : .48,
+                dim: _tab == 2 ? .28 : .14,
                 child: Center(
                     child: ConstrainedBox(
                         constraints: const BoxConstraints(maxWidth: 640),

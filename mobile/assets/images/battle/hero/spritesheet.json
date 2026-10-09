@@ -1,0 +1,176 @@
+{
+  "image": "spritesheet.png",
+  "frameSize": {
+    "width": 192,
+    "height": 272
+  },
+  "columns": 15,
+  "rows": 2,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.9705882352941176
+  },
+  "animations": {
+    "run": {
+      "row": 0,
+      "frameCount": 14,
+      "stepTime": 0.075,
+      "loop": true,
+      "frames": [
+        {
+          "file": "frames/run/run_01.png",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "file": "frames/run/run_02.png",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "file": "frames/run/run_03.png",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "file": "frames/run/run_04.png",
+          "column": 3,
+          "row": 0
+        },
+        {
+          "file": "frames/run/run_05.png",
+          "column": 4,
+          "row": 0
+        },
+        {
+          "file": "frames/run/run_06.png",
+          "column": 5,
+          "row": 0
+        },
+        {
+          "file": "frames/run/run_07.png",
+          "column": 6,
+          "row": 0
+        },
+        {
+          "file": "frames/run/run_08.png",
+          "column": 7,
+          "row": 0
+        },
+        {
+          "file": "frames/run/run_09.png",
+          "column": 8,
+          "row": 0
+        },
+        {
+          "file": "frames/run/run_10.png",
+          "column": 9,
+          "row": 0
+        },
+        {
+          "file": "frames/run/run_11.png",
+          "column": 10,
+          "row": 0
+        },
+        {
+          "file": "frames/run/run_12.png",
+          "column": 11,
+          "row": 0
+        },
+        {
+          "file": "frames/run/run_13.png",
+          "column": 12,
+          "row": 0
+        },
+        {
+          "file": "frames/run/run_14.png",
+          "column": 13,
+          "row": 0
+        }
+      ]
+    },
+    "attack": {
+      "row": 1,
+      "frameCount": 15,
+      "stepTime": 0.015,
+      "loop": false,
+      "frames": [
+        {
+          "file": "frames/attack/attack_01.png",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "file": "frames/attack/attack_02.png",
+          "column": 1,
+          "row": 1
+        },
+        {
+          "file": "frames/attack/attack_03.png",
+          "column": 2,
+          "row": 1
+        },
+        {
+          "file": "frames/attack/attack_04.png",
+          "column": 3,
+          "row": 1
+        },
+        {
+          "file": "frames/attack/attack_05.png",
+          "column": 4,
+          "row": 1
+        },
+        {
+          "file": "frames/attack/attack_06.png",
+          "column": 5,
+          "row": 1
+        },
+        {
+          "file": "frames/attack/attack_07.png",
+          "column": 6,
+          "row": 1
+        },
+        {
+          "file": "frames/attack/attack_08.png",
+          "column": 7,
+          "row": 1
+        },
+        {
+          "file": "frames/attack/attack_09.png",
+          "column": 8,
+          "row": 1
+        },
+        {
+          "file": "frames/attack/attack_10.png",
+          "column": 9,
+          "row": 1
+        },
+        {
+          "file": "frames/attack/attack_11.png",
+          "column": 10,
+          "row": 1
+        },
+        {
+          "file": "frames/attack/attack_12.png",
+          "column": 11,
+          "row": 1
+        },
+        {
+          "file": "frames/attack/attack_13.png",
+          "column": 12,
+          "row": 1
+        },
+        {
+          "file": "frames/attack/attack_14.png",
+          "column": 13,
+          "row": 1
+        },
+        {
+          "file": "frames/attack/attack_15.png",
+          "column": 14,
+          "row": 1
+        }
+      ]
+    }
+  }
+}

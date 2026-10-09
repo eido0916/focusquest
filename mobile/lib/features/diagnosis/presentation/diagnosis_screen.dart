@@ -30,7 +30,7 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
                   style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: 24),
               const Text(
-                  'スマホを置いて過ごした時間で、仲間が成長します。\n集中 → 報酬 → 育成 → 冒険 → 新しい仲間。\nまずは4つの質問から、最初の職業を見つけましょう。'),
+                  'スマホを置いて過ごした時間で、仲間が世界を旅して成長します。\n集中と冒険 → 報酬 → 育成 → 次の集中。\nまずは4つの質問から、最初の職業を見つけましょう。'),
               const SizedBox(height: 24),
               FilledButton(
                   onPressed: () => setState(() => _step = 0),
@@ -93,7 +93,7 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
                   style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: 24),
               const Text(
-                  '1. ホームで集中時間を選ぶ\n\n2. スマホを置いて、自分の時間に集中する\n\n3. 報酬でレベルアップし、冒険や召喚へ\n\nあなたのペースで、物語を進めましょう。'),
+                  '1. ホームで集中時間を選ぶ\n\n2. 集中中、仲間が自動で冒険する\n\n3. 報酬でレベルアップし、装備や召喚へ\n\nあなたのペースで、物語を進めましょう。'),
               const SizedBox(height: 24),
               if (_error != null) Text(_error!),
               FilledButton(
@@ -115,7 +115,7 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
                             if (mounted) setState(() => _busy = false);
                           }
                         },
-                  child: Text(_busy ? '保存中…' : '冒険をはじめる')),
+                  child: Text(_busy ? '保存中…' : '旅をはじめる')),
             ],
           ]),
         ));

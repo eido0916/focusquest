@@ -82,7 +82,7 @@ void main() {
     await tester.tap(find.text('この仲間と進む'));
     await tester.pumpAndSettle();
     expect(savedType, isNull);
-    await tester.tap(find.text('冒険をはじめる'));
+    await tester.tap(find.text('旅をはじめる'));
     await tester.pumpAndSettle();
     expect(savedType, 'mage');
   });

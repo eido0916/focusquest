@@ -6,12 +6,10 @@ class Reward {
   const Reward(
       {this.exp = 0,
       this.coins = 0,
-      this.adventureProgress = 0,
       this.defeatedEnemies = 0,
       this.items = const []});
   final int exp;
   final int coins;
-  final int adventureProgress;
   final int defeatedEnemies;
   final List<String> items;
 }
@@ -25,7 +23,6 @@ class RewardService {
     return Reward(
         exp: minutes * GameBalance.expPerMinute,
         coins: minutes * GameBalance.coinsPerThirtyMinutes ~/ 30,
-        adventureProgress: minutes,
         items: random.nextDouble() < 0.2 ? ['wooden_sword'] : []);
   }
 

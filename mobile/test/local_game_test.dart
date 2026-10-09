@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:flutter_test/flutter_test.dart';
@@ -7,7 +6,6 @@ import 'package:focusquest/data/game_catalog.dart';
 import 'package:focusquest/data/local_player_repository.dart';
 import 'package:focusquest/features/focus/data/usage_monitor.dart';
 import 'package:focusquest/features/focus/domain/focus_session.dart';
-import 'package:focusquest/game/battle/battle_engine.dart';
 import 'support/memory_repository.dart';
 
 class TestUsage extends UsageMonitor {
@@ -22,30 +20,7 @@ class TestUsage extends UsageMonitor {
 
 void main() {
   test(
-      'continuous adventure reserves next enemy and rejects old battle callback',
-      () async {
-    var now = DateTime(2026, 10, 3, 9);
-    final controller =
-        GameController(MemoryRepository(), clock: () => now, random: Random(2));
-    await controller.load();
-    await controller.onboard(GameCatalog.types[3]!);
-    await controller.startFocus(30);
-    now = now.add(const Duration(minutes: 30));
-    await controller.finishFocus();
-    await controller.beginBattle();
-    final first = controller.battleEngine();
-    while (first.outcome == BattleOutcome.running) {
-      first.update(0.1);
-    }
-    await controller.finishBattle(first, continueAdventure: true);
-    expect(controller.state!.pendingBattle, isNotNull);
-    expect(controller.state!.pendingBattle!['id'], isNot(first.battleId));
-    final before = controller.state!.toJson();
-    await controller.finishBattle(first, continueAdventure: true);
-    expect(controller.state!.toJson(), before);
-  });
-  test(
-      'disk persisted complete loop: diagnosis, focus, growth, battle, summon, restart',
+      'disk persisted complete loop: diagnosis, focus, growth, summon, restart',
       () async {
     final directory = await Directory.systemTemp.createTemp('focusquest-test-');
     addTearDown(() => directory.delete(recursive: true));
@@ -61,17 +36,6 @@ void main() {
     expect(controller.state!.activeCharacter!.level, 3);
     expect(controller.state!.coins, 100);
     expect(await controller.finishFocus(), isNull);
-    await controller.beginBattle();
-    final engine = controller.battleEngine();
-    for (var i = 0; i < 10000 && engine.outcome == BattleOutcome.running; i++) {
-      engine.update(0.1);
-    }
-    expect(engine.outcome, BattleOutcome.victory);
-    await controller.finishBattle(engine);
-    expect(controller.state!.stage, 2);
-    final coins = controller.state!.coins;
-    await controller.finishBattle(engine);
-    expect(controller.state!.coins, coins);
     final summon = await controller.summon(1);
     expect(summon.prizes.length, 1);
     expect(controller.state!.gachaHistory.length, 1);
@@ -145,8 +109,7 @@ void main() {
     expect(controller.state!.coins, 100);
     expect(controller.state!.sessions.length, 1);
   });
-  test(
-      'interrupted focus and battle restore and 10 summons persist every result',
+  test('interrupted focus restores and 10 summons persist every result',
       () async {
     final repo = MemoryRepository();
     var now = DateTime(2026, 10, 3, 9);
@@ -161,19 +124,11 @@ void main() {
       await controller.finishFocus();
     }
     expect(controller.state!.coins, 1000);
-    await controller.beginBattle();
-    final before = jsonEncode(controller.state!.pendingBattle);
     controller = GameController(repo, clock: () => now, random: Random(5));
     await controller.load();
-    expect(jsonEncode(controller.state!.pendingBattle), before);
-    final engine = controller.battleEngine();
-    while (engine.outcome == BattleOutcome.running) {
-      engine.update(0.1);
-    }
-    await controller.finishBattle(engine);
     final result = await controller.summon(10);
     expect(result.prizes.length, 10);
     expect(controller.state!.gachaHistory.single['prizes'], hasLength(10));
-    expect(controller.state!.coins, 10);
+    expect(controller.state!.coins, 0);
   });
 }

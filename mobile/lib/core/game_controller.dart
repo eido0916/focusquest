@@ -5,7 +5,6 @@ import '../data/player_repository.dart';
 import '../data/player_state.dart';
 import '../features/character/domain/character.dart';
 import '../features/character/domain/progression_service.dart';
-import '../features/character/domain/stats.dart';
 import '../features/diagnosis/domain/diagnosis_service.dart';
 import '../features/focus/data/usage_monitor.dart';
 import '../features/focus/domain/focus_ledger.dart';
@@ -13,7 +12,6 @@ import '../features/focus/domain/focus_service.dart';
 import '../features/focus/domain/focus_session.dart';
 import '../features/focus/domain/reward_service.dart';
 import '../features/gacha/domain/gacha_service.dart';
-import '../game/battle/battle_engine.dart';
 
 class GameController extends ChangeNotifier {
   GameController(this.repository,
@@ -78,7 +76,6 @@ class GameController extends ChangeNotifier {
       }));
   Future<void> startFocus(int minutes) => _action(() async {
         final s = state!;
-        if (s.pendingBattle != null) throw StateError('先に冒険を完了してください。');
         if (s.monitoring && !await monitor.hasAccess()) {
           throw StateError('使用状況へのアクセスを許可するか、タイマーのみを選んでください。');
         }
@@ -158,8 +155,8 @@ class GameController extends ChangeNotifier {
         return result;
       });
   Future<void> equip(String itemId) => _action(() => _save((s) {
-        if (s.pendingBattle != null || activeFocus != null) {
-          throw StateError('集中・冒険の完了後に装備を変更できます。');
+        if (activeFocus != null) {
+          throw StateError('集中の完了後に装備を変更できます。');
         }
         final hero = ProgressionService().equip(
             s.activeCharacter!, GameCatalog.equipment[itemId]!, s.inventory);
@@ -177,8 +174,8 @@ class GameController extends ChangeNotifier {
         return s.copyWith(characters: characters);
       }));
   Future<void> selectCharacter(String id) => _action(() => _save((s) {
-        if (activeFocus != null || s.pendingBattle != null) {
-          throw StateError('集中・冒険中は仲間を変更できません。');
+        if (activeFocus != null) {
+          throw StateError('集中中は仲間を変更できません。');
         }
         if (!s.characters.containsKey(id)) throw StateError('仲間が見つかりません。');
         return s.copyWith(activeCharacterId: id);
@@ -193,87 +190,4 @@ class GameController extends ChangeNotifier {
                 monitoring: enabled,
                 targetPackages: List.unmodifiable(packages));
           }));
-  Future<void> beginBattle() => _action(() => _save(_reserveBattle));
-  PlayerState _reserveBattle(PlayerState s) {
-    if (s.pendingBattle != null) return s;
-    if (activeFocus != null) throw StateError('集中が終わってから冒険しましょう。');
-    if (s.adventureProgress < 5) throw StateError('冒険には集中で得られる進行度が5必要です。');
-    return s
-        .copyWith(adventureProgress: s.adventureProgress - 5, pendingBattle: {
-      'id': _id(),
-      'seed': random.nextInt(1 << 30),
-      'stage': s.stage,
-      'characterId': s.activeCharacterId,
-      'stats': ProgressionService()
-          .stats(s.activeCharacter!, GameCatalog.equipment)
-          .toJson(),
-    });
-  }
-
-  BattleEngine battleEngine() {
-    final pending = state!.pendingBattle!;
-    final stage = pending['stage'] as int;
-    return BattleEngine(
-        battleId: pending['id'] as String,
-        player: Fighter(state!.characters[pending['characterId']]!.name,
-            Stats.fromJson(Map<String, dynamic>.from(pending['stats'] as Map))),
-        enemy: Fighter(
-            '森のスライム Lv.$stage',
-            Stats(
-                hp: 30 + stage * 8,
-                attack: 5 + stage * 2,
-                defense: stage,
-                speed: 7 + stage ~/ 3)),
-        random: Random(pending['seed'] as int));
-  }
-
-  Future<Reward> finishBattle(BattleEngine engine,
-          {bool continueAdventure = false}) =>
-      _action(() async {
-        if (engine.outcome == BattleOutcome.running) {
-          throw StateError('戦闘が続いています。');
-        }
-        final pending = state!.pendingBattle;
-        if (pending == null || engine.battleId != pending['id']) {
-          return const Reward();
-        }
-        final won = engine.outcome == BattleOutcome.victory;
-        final reward =
-            RewardService(Random(pending['seed'] as int)).battle(won ? 1 : 0);
-        await _save((s) {
-          final id = pending['id'] as String;
-          if (s.appliedOperations.contains('battle:$id')) return s;
-          final hero = s.characters[pending['characterId']]!;
-          final inventory = {...s.inventory};
-          for (final item in reward.items) {
-            inventory[item] = (inventory[item] ?? 0) + 1;
-          }
-          return s.copyWith(
-              coins: s.coins + reward.coins,
-              stage: s.stage + (won ? 1 : 0),
-              characters: {
-                ...s.characters,
-                hero.id: ProgressionService().addExp(hero, reward.exp)
-              },
-              inventory: inventory,
-              clearBattle: true,
-              appliedOperations: {...s.appliedOperations, 'battle:$id'},
-              battleHistory: [
-                ...s.battleHistory,
-                {
-                  'id': id,
-                  'at': clock().toIso8601String(),
-                  'victory': won,
-                  'exp': reward.exp,
-                  'coins': reward.coins,
-                  'items': reward.items,
-                  'stage': pending['stage']
-                }
-              ]);
-        });
-        if (continueAdventure && won && state!.adventureProgress >= 5) {
-          await _save(_reserveBattle);
-        }
-        return reward;
-      });
 }

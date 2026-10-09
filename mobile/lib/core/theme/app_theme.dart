@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const forest = Color(0xff0b201f);
-  static const gold = Color(0xffd5b574);
-  static const parchment = Color(0xffeddbb6);
-  static const ink = Color(0xff30281d);
+  static const forest = Color(0xff061827);
+  static const navy = Color(0xff082744);
+  static const royalBlue = Color(0xff07559d);
+  static const gold = Color(0xffe4c16c);
+  static const parchment = Color(0xfffff1cf);
+  static const ink = Color(0xff352819);
 
   static ThemeData get dark {
     final base = ThemeData(brightness: Brightness.dark, useMaterial3: true);
@@ -15,13 +17,13 @@ class AppTheme {
       colorScheme: const ColorScheme.dark(
           primary: gold,
           onPrimary: ink,
-          secondary: Color(0xff79c8b3),
-          surface: Color(0xff142e2b),
-          onSurface: Color(0xfff3e8d0)),
+          secondary: Color(0xff75e8ed),
+          surface: navy,
+          onSurface: parchment),
       scaffoldBackgroundColor: forest,
       textTheme: base.textTheme.apply(bodyColor: parchment, displayColor: gold),
       appBarTheme: const AppBarTheme(
-          backgroundColor: forest,
+          backgroundColor: Colors.transparent,
           foregroundColor: gold,
           centerTitle: true,
           elevation: 0,
@@ -34,9 +36,9 @@ class AppTheme {
       iconTheme: const IconThemeData(color: gold),
       filledButtonTheme: FilledButtonThemeData(
           style: FilledButton.styleFrom(
-              backgroundColor: const Color(0xff1c5146),
-              foregroundColor: const Color(0xffffe4a6),
-              disabledBackgroundColor: const Color(0xff384740),
+              backgroundColor: royalBlue,
+              foregroundColor: Colors.white,
+              disabledBackgroundColor: const Color(0xff344755),
               disabledForegroundColor: const Color(0xffc2bba9),
               minimumSize: const Size(48, 54),
               shape: shape,
@@ -55,13 +57,13 @@ class AppTheme {
               foregroundColor: gold, minimumSize: const Size(48, 48))),
       inputDecorationTheme: InputDecorationTheme(
           filled: true,
-          fillColor: const Color(0xff132d2a),
+          fillColor: const Color(0xee082744),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(4),
               borderSide: const BorderSide(color: gold))),
       chipTheme: base.chipTheme.copyWith(
           backgroundColor: forest,
-          selectedColor: const Color(0xff396051),
+          selectedColor: royalBlue,
           side: const BorderSide(color: gold),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(4))),
@@ -70,8 +72,8 @@ class AppTheme {
           surfaceTintColor: Colors.transparent,
           shape: shape),
       progressIndicatorTheme: const ProgressIndicatorThemeData(
-          color: Color(0xff72cbbb),
-          linearTrackColor: Color(0xff263d36),
+          color: Color(0xff69ebed),
+          linearTrackColor: Color(0xff173851),
           linearMinHeight: 7),
       listTileTheme:
           const ListTileThemeData(iconColor: gold, textColor: parchment),

@@ -16,18 +16,14 @@ void main() {
       uid: 'test-user', activeCharacterId: 'hero', characters: {'hero': hero});
   final session = FocusSession(
       id: 's1', startedAt: DateTime(2026, 10, 1, 9), durationMinutes: 30);
-  const reward = Reward(
-      exp: 300, coins: 100, adventureProgress: 30, items: ['wooden_sword']);
+  const reward = Reward(exp: 300, coins: 100, items: ['wooden_sword']);
   final ledger = FocusLedger();
-  test(
-      'atomic focus settlement awards growth, money, progress and inventory once',
-      () {
+  test('atomic focus settlement awards growth, money and inventory once', () {
     final active = ledger.begin(initial, session);
     final settled = ledger.settle(active, 's1', FocusStatus.succeeded, reward);
     expect(settled.activeCharacter!.level, 3);
     expect(settled.activeCharacter!.currentExp, 50);
     expect(settled.coins, 100);
-    expect(settled.adventureProgress, 30);
     expect(settled.inventory['wooden_sword'], 1);
     final restored = PlayerState.fromJson(settled.toJson());
     final retried =
@@ -54,5 +50,19 @@ void main() {
         throwsStateError);
     expect(() => ledger.settle(active, 's1', FocusStatus.active, reward),
         throwsStateError);
+  });
+  test('legacy adventure fields are accepted but removed on next save', () {
+    final legacy = initial.toJson()
+      ..['adventureProgress'] = 25
+      ..['stage'] = 4
+      ..['pendingBattle'] = {'id': 'old-battle'}
+      ..['battleHistory'] = [
+        {'id': 'finished-battle'}
+      ];
+    final migrated = PlayerState.fromJson(legacy).toJson();
+    expect(migrated, isNot(contains('adventureProgress')));
+    expect(migrated, isNot(contains('stage')));
+    expect(migrated, isNot(contains('pendingBattle')));
+    expect(migrated, isNot(contains('battleHistory')));
   });
 }

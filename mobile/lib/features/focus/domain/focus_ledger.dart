@@ -29,7 +29,6 @@ class FocusLedger {
     }
     var characters = state.characters;
     var coins = state.coins;
-    var progress = state.adventureProgress;
     final inventory = {...state.inventory};
     if (status == FocusStatus.succeeded) {
       final hero = state.activeCharacter;
@@ -39,7 +38,6 @@ class FocusLedger {
         hero.id: ProgressionService().addExp(hero, reward.exp)
       };
       coins += reward.coins;
-      progress += reward.adventureProgress;
       for (final item in reward.items) {
         inventory[item] = (inventory[item] ?? 0) + 1;
       }
@@ -47,7 +45,6 @@ class FocusLedger {
     return state.copyWith(
         characters: characters,
         coins: coins,
-        adventureProgress: progress,
         inventory: inventory,
         sessions: {...state.sessions, sessionId: session.finish(status)},
         appliedOperations: {...state.appliedOperations, operation});

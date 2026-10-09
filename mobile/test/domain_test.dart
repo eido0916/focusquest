@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:focusquest/core/assets/asset_catalog.dart';
 import 'package:focusquest/core/config/game_balance.dart';
 import 'package:focusquest/data/game_catalog.dart';
 import 'package:focusquest/features/character/domain/character.dart';
@@ -12,7 +11,6 @@ import 'package:focusquest/features/focus/domain/focus_session.dart';
 import 'package:focusquest/features/focus/domain/reward_service.dart';
 import 'package:focusquest/features/focus/domain/streak_service.dart';
 import 'package:focusquest/features/gacha/domain/gacha_service.dart';
-import 'package:focusquest/game/battle/battle_engine.dart';
 
 class FixedRandom implements Random {
   FixedRandom(this.ticket, [this.fraction = 0.5]);
@@ -110,13 +108,12 @@ void main() {
           () => focus.start(id: 's', now: start, minutes: 30, monitored: true),
           throwsArgumentError);
     });
-    test('30 minutes awards 300 EXP, 100 coins and 30 progress', () {
+    test('30 minutes awards 300 EXP and 100 coins', () {
       final session = focus
           .start(id: 's', now: start, minutes: 30)
           .finish(FocusStatus.succeeded);
       final reward = RewardService(FixedRandom(0, 0)).focus(session);
-      expect(
-          [reward.exp, reward.coins, reward.adventureProgress], [300, 100, 30]);
+      expect([reward.exp, reward.coins], [300, 100]);
       expect(reward.items, ['wooden_sword']);
     });
   });
@@ -186,40 +183,6 @@ void main() {
       expect(() => service.draw(count: 2, balance: 1000), throwsArgumentError);
       expect(
           () => GachaService(random: Random(), pool: []), throwsArgumentError);
-    });
-  });
-  group('Battle', () {
-    test('minimum damage and critical defense arithmetic', () {
-      expect(
-          BattleEngine.damage(
-              const Stats(attack: 5), const Stats(defense: 100)),
-          1);
-      expect(
-          BattleEngine.damage(const Stats(attack: 20), const Stats(defense: 5),
-              critical: true),
-          25);
-    });
-    test('victory stops attacks and dead enemy cannot retaliate', () {
-      final engine = BattleEngine(
-          player: Fighter('hero', const Stats(attack: 100, speed: 12)),
-          enemy: Fighter('slime', const Stats(hp: 10, speed: 12)),
-          random: FixedRandom(0));
-      for (var i = 0; i < 4; i++) {
-        engine.update(0.25);
-      }
-      expect(engine.outcome, BattleOutcome.victory);
-      expect(engine.enemy.pose, ActorPose.death);
-      expect(engine.player.hp, 100);
-      expect(engine.update(1), isEmpty);
-    });
-    test('faster enemy can defeat hero; no negative HP', () {
-      final engine = BattleEngine(
-          player: Fighter('hero', const Stats(hp: 1, speed: 1)),
-          enemy: Fighter('slime', const Stats(attack: 100, speed: 48)),
-          random: FixedRandom(0));
-      engine.update(0.25);
-      expect(engine.outcome, BattleOutcome.defeat);
-      expect(engine.player.hp, 0);
     });
   });
   group('Diagnosis', () {

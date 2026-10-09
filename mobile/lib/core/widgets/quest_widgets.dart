@@ -10,36 +10,46 @@ class QuestCard extends StatelessWidget {
   final bool parchment;
   final String? caption;
   @override
-  Widget build(BuildContext context) => Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      padding: const EdgeInsets.all(4),
-      decoration: BoxDecoration(
-          color: const Color(0xf00c151c),
-          borderRadius: BorderRadius.circular(6),
-          border: Border.all(color: const Color(0xffdbd8c6), width: 1.5),
-          boxShadow: const [
-            BoxShadow(
-                color: Colors.black54, blurRadius: 8, offset: Offset(0, 3))
-          ]),
+  Widget build(BuildContext context) => CustomPaint(
+      painter: _GoldFramePainter(parchment: parchment),
       child: Container(
-          padding: const EdgeInsets.all(12),
+          margin: const EdgeInsets.only(bottom: 10),
+          padding: const EdgeInsets.all(5),
           decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xff626b6c)),
-              borderRadius: BorderRadius.circular(2)),
-          child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                if (caption != null) ...[
-                  Text(caption!,
-                      style: const TextStyle(
-                          color: AppTheme.gold,
-                          fontSize: 12,
-                          letterSpacing: 2)),
-                  const SizedBox(height: 8),
-                ],
-                child,
-              ])));
+              gradient: parchment
+                  ? const LinearGradient(
+                      colors: [Color(0xfffff3d2), Color(0xffe4c994)])
+                  : const LinearGradient(
+                      colors: [Color(0xf5092948), Color(0xf5041729)]),
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: AppTheme.gold, width: 1.4),
+              boxShadow: const [
+                BoxShadow(
+                    color: Colors.black54, blurRadius: 8, offset: Offset(0, 3))
+              ]),
+          child: Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                  border: Border.all(
+                      color: parchment
+                          ? const Color(0xff9f7840)
+                          : const Color(0xff80672f)),
+                  borderRadius: BorderRadius.circular(4)),
+              child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (caption != null) ...[
+                      Text(caption!,
+                          style: TextStyle(
+                              color: parchment ? AppTheme.ink : AppTheme.gold,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1.5)),
+                      const SizedBox(height: 8),
+                    ],
+                    child,
+                  ]))));
 }
 
 class QuestBackdrop extends StatelessWidget {
@@ -48,8 +58,8 @@ class QuestBackdrop extends StatelessWidget {
   final double dim;
   @override
   Widget build(BuildContext context) => Stack(fit: StackFit.expand, children: [
-        Image.asset('assets/images/enchanted_forest.png',
-            fit: BoxFit.cover, alignment: const Alignment(.35, 0)),
+        Image.asset('assets/images/ui/sunlit_kingdom.png',
+            fit: BoxFit.cover, alignment: Alignment.topCenter),
         ColoredBox(color: Colors.black.withOpacity(dim)),
         const DecoratedBox(
             decoration: BoxDecoration(
@@ -57,9 +67,9 @@ class QuestBackdrop extends StatelessWidget {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-              Color(0x1008161c),
-              Color(0x0008161c),
-              Color(0xce08161c)
+              Color(0x05061627),
+              Color(0x10061627),
+              Color(0xda061627)
             ]))),
         child,
       ]);
@@ -146,7 +156,13 @@ class QuestNavigation extends StatelessWidget {
   final ValueChanged<int> onSelect;
   @override
   Widget build(BuildContext context) {
-    const labels = ['ホーム', '冒険', '仲間', '召喚', 'その他'];
+    const labels = ['ホーム', 'キャラクター', '召喚', '設定'];
+    const icons = [
+      Icons.home_rounded,
+      Icons.people_alt_rounded,
+      Icons.diamond_rounded,
+      Icons.more_horiz_rounded
+    ];
     return ColoredBox(
         color: const Color(0xff0c151c),
         child: SafeArea(
@@ -155,7 +171,7 @@ class QuestNavigation extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(10, 4, 10, 8),
                 child: Row(
                     children: List.generate(
-                        5,
+                        labels.length,
                         (i) => Expanded(
                             child: Semantics(
                                 selected: selected == i,
@@ -163,7 +179,7 @@ class QuestNavigation extends StatelessWidget {
                                 child: InkWell(
                                     onTap: () => onSelect(i),
                                     child: Container(
-                                    height: 52,
+                                        height: 52,
                                         alignment: Alignment.center,
                                         decoration: BoxDecoration(
                                             border: Border.all(
@@ -175,13 +191,121 @@ class QuestNavigation extends StatelessWidget {
                                                 : Colors.transparent,
                                             borderRadius:
                                                 BorderRadius.circular(3)),
-                                        child: Text(labels[i],
-                                            style: TextStyle(
-                                                fontSize: 13,
-                                                color: selected == i
-                                                    ? AppTheme.gold
-                                                    : const Color(0xffcbcbbf))))))))))));
+                                        child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(icons[i],
+                                                  size: 21,
+                                                  color: selected == i
+                                                      ? AppTheme.gold
+                                                      : const Color(
+                                                          0xffd9d1bd)),
+                                              const SizedBox(height: 2),
+                                              Text(labels[i],
+                                                  style: TextStyle(
+                                                      fontSize: 11,
+                                                      color: selected == i
+                                                          ? AppTheme.gold
+                                                          : const Color(
+                                                              0xffd9d1bd)))
+                                            ]))))))))));
   }
+}
+
+class HeroArtwork extends StatelessWidget {
+  const HeroArtwork(
+      {super.key, this.height = 360, this.alignment = Alignment.bottomCenter});
+  final double height;
+  final Alignment alignment;
+  @override
+  Widget build(BuildContext context) =>
+      Image.asset('assets/images/ui/hero_swordsman.png',
+          height: height,
+          fit: BoxFit.contain,
+          alignment: alignment,
+          filterQuality: FilterQuality.high);
+}
+
+class QuestActionButton extends StatelessWidget {
+  const QuestActionButton(
+      {super.key,
+      required this.label,
+      required this.icon,
+      this.onTap,
+      this.compact = false});
+  final String label;
+  final IconData icon;
+  final VoidCallback? onTap;
+  final bool compact;
+  @override
+  Widget build(BuildContext context) => Opacity(
+      opacity: onTap == null ? .48 : 1,
+      child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(12),
+          child: Container(
+              height: compact ? 72 : 92,
+              padding: const EdgeInsets.symmetric(horizontal: 18),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: AppTheme.gold, width: 2),
+                  gradient: const LinearGradient(colors: [
+                    Color(0xff0b65b9),
+                    Color(0xff06396f),
+                    Color(0xff082744)
+                  ]),
+                  boxShadow: const [
+                    BoxShadow(
+                        color: Colors.black54,
+                        blurRadius: 8,
+                        offset: Offset(0, 4))
+                  ]),
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Icon(icon, color: AppTheme.gold, size: compact ? 26 : 36),
+                const SizedBox(width: 14),
+                Flexible(
+                    child: Text(label,
+                        style: TextStyle(
+                            fontFamily: 'serif',
+                            fontSize: compact ? 19 : 25,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white))),
+                const SizedBox(width: 10),
+                const Icon(Icons.chevron_right_rounded, color: AppTheme.gold)
+              ]))));
+}
+
+class _GoldFramePainter extends CustomPainter {
+  const _GoldFramePainter({required this.parchment});
+  final bool parchment;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final p = Paint()
+      ..color = parchment ? const Color(0xff9b7536) : AppTheme.gold;
+    const d = 10.0;
+    for (final corner in [
+      const Offset(0, 0),
+      Offset(size.width, 0),
+      Offset(0, size.height),
+      Offset(size.width, size.height)
+    ]) {
+      final sx = corner.dx == 0 ? 1.0 : -1.0;
+      final sy = corner.dy == 0 ? 1.0 : -1.0;
+      final path = Path()
+        ..moveTo(corner.dx, corner.dy + sy * d * 2)
+        ..lineTo(corner.dx + sx * d, corner.dy + sy * d)
+        ..lineTo(corner.dx + sx * d * 2, corner.dy)
+        ..lineTo(corner.dx + sx * d * .7, corner.dy + sy * d * .7)
+        ..close();
+      canvas.drawPath(path, p);
+    }
+  }
+
+  @override
+  bool shouldRepaint(_GoldFramePainter oldDelegate) =>
+      oldDelegate.parchment != parchment;
 }
 
 Future<void> runAction(
