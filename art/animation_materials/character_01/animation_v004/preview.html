@@ -1,0 +1,17 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><title>右向き走行 / 24fps</title>
+<style>body{margin:0;background:#edf2f7;color:#20364c;font:16px system-ui;padding:28px}h1{font-size:24px}section{display:flex;flex-wrap:wrap;gap:20px}article{background:white;border-radius:16px;padding:16px}canvas{background:repeating-conic-gradient(#edf2f7 0% 25%,#fff 0% 50%) 50%/24px 24px;max-width:100%;width:384px;height:384px}button,input{margin:8px}#travel{width:960px;height:560px;max-width:100%}.meta{color:#61768b}</style>
+<h1>右向き走行モーション</h1><p class="meta">24fps · 24フレーム · 1秒ループ · 透過PNG · 2D / ドット絵</p>
+<button id="toggle">一時停止</button><button id="step">1フレーム進める</button><label>フレーム <input id="seek" type="range" min="0" max="23" value="0"></label><span id="counter"></span>
+<section><article><h2>2Dイラスト</h2><canvas id="illustration" width="256" height="256"></canvas></article><article><h2>ドット絵</h2><canvas id="pixel" width="256" height="256"></canvas></article></section>
+<h2>右へ移動するプレビュー</h2><canvas id="travel" width="960" height="560"></canvas>
+<p class="meta">連番の正確な表示時間は各フレーム1/24秒。GIFでは40/50msを配分して周期を合わせています。移動表示は3秒で開始位置へ戻ります。</p>
+<script>
+const styles=['illustration','pixel'],sheets={},ctx={};let playing=true,frame=0,travelFrame=0,last=performance.now(),acc=0;
+const ready=Promise.all(styles.map(s=>new Promise(resolve=>{ctx[s]=document.getElementById(s).getContext('2d');ctx[s].imageSmoothingEnabled=s!=='pixel';const img=new Image();img.onload=()=>{sheets[s]=img;resolve()};img.src=s+'/runtime/run_spritesheet.png'})));
+const travel=document.getElementById('travel').getContext('2d');
+function draw(){styles.forEach((s,i)=>{const x=frame%6*256,y=Math.floor(frame/6)*256;ctx[s].clearRect(0,0,256,256);ctx[s].drawImage(sheets[s],x,y,256,256,0,0,256,256)});document.getElementById('seek').value=frame;document.getElementById('counter').textContent='F'+String(frame).padStart(2,'0');travel.fillStyle='#dbe4ed';travel.fillRect(0,0,960,560);styles.forEach((s,i)=>{const ground=250+270*i;travel.strokeStyle='#98aabf';travel.beginPath();travel.moveTo(20,ground);travel.lineTo(940,ground);travel.stroke();travel.fillStyle='#20364c';travel.font='16px system-ui';travel.fillText(s+' / RIGHT / 24 FPS',24,24+i*270);travel.imageSmoothingEnabled=s!=='pixel';const f=travelFrame%24;travel.drawImage(sheets[s],f%6*256,Math.floor(f/6)*256,256,256,Math.round(165+171.875*travelFrame/24)-128,ground-224,256,256)})}
+document.getElementById('toggle').onclick=()=>{playing=!playing;document.getElementById('toggle').textContent=playing?'一時停止':'再生'};
+document.getElementById('step').onclick=()=>{playing=false;document.getElementById('toggle').textContent='再生';frame=(frame+1)%24;travelFrame=(travelFrame+1)%72;draw()};
+document.getElementById('seek').oninput=e=>{playing=false;document.getElementById('toggle').textContent='再生';frame=+e.target.value;travelFrame=frame;draw()};
+ready.then(()=>{draw();requestAnimationFrame(function tick(now){const dt=now-last;last=now;if(playing){acc+=dt;const n=Math.floor(acc/(1000/24));if(n){acc-=n*1000/24;frame=(frame+n)%24;travelFrame=(travelFrame+n)%72;draw()}}else acc=0;requestAnimationFrame(tick)})});
+</script></html>

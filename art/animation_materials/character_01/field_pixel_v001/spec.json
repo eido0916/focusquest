@@ -1,0 +1,18 @@
+{
+  "width": 128,
+  "height": 128,
+  "mode": "RGBA",
+  "logical_grid": 64,
+  "scaling": "NEAREST 2x",
+  "visible_bounds": [
+    22,
+    16,
+    104,
+    118
+  ],
+  "alpha_values": [
+    0,
+    255
+  ],
+  "opaque_colors": 24
+}

@@ -1,0 +1,40 @@
+{
+  "fps": 24,
+  "frame_count": 24,
+  "cycle_seconds": 1,
+  "direction": "right",
+  "root_motion": "none",
+  "references": [
+    "reference/run_poses.png"
+  ],
+  "styles": {
+    "illustration": {
+      "sheet": "illustration/runtime/run_spritesheet.png",
+      "columns": 6,
+      "rows": 4,
+      "frame_size": [
+        256,
+        256
+      ],
+      "pivot": [
+        128,
+        224
+      ],
+      "frame_time_seconds": 0.041666666666666664
+    },
+    "pixel": {
+      "sheet": "pixel/runtime/run_spritesheet.png",
+      "columns": 6,
+      "rows": 4,
+      "frame_size": [
+        256,
+        256
+      ],
+      "pivot": [
+        128,
+        224
+      ],
+      "frame_time_seconds": 0.041666666666666664
+    }
+  }
+}

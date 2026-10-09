@@ -1,0 +1,677 @@
+{
+  "schema_version": 1,
+  "asset_id": "character_01",
+  "spec_version": "0.1",
+  "fps": 24,
+  "canvas": [
+    1024,
+    1024
+  ],
+  "runtime_canvas": [
+    256,
+    256
+  ],
+  "root_pivot_256": [
+    128,
+    224
+  ],
+  "facing": "right_3quarter",
+  "root_motion": "none",
+  "alpha_mode": "straight",
+  "downsample_method": "Pillow LANCZOS",
+  "status": "animation_prototype",
+  "parts": [
+    {
+      "id": "head",
+      "file": "../parts/head.png",
+      "position_256": [
+        112,
+        32
+      ],
+      "size_256": [
+        40,
+        43
+      ],
+      "pivot_world_256": [
+        130,
+        71
+      ],
+      "pivot_local_px": [
+        108.0,
+        259.39534883720927
+      ],
+      "native_size": [
+        240,
+        286
+      ],
+      "atlas_bbox": [
+        37,
+        13,
+        277,
+        299
+      ],
+      "parent": "torso",
+      "draw_order": 90
+    },
+    {
+      "id": "torso",
+      "file": "../parts/torso.png",
+      "position_256": [
+        108,
+        66
+      ],
+      "size_256": [
+        43,
+        53
+      ],
+      "pivot_world_256": [
+        130,
+        78
+      ],
+      "pivot_local_px": [
+        108.46511627906978,
+        60.0
+      ],
+      "native_size": [
+        212,
+        265
+      ],
+      "atlas_bbox": [
+        362,
+        31,
+        574,
+        296
+      ],
+      "parent": "pelvis",
+      "draw_order": 65
+    },
+    {
+      "id": "pelvis",
+      "file": "../parts/pelvis.png",
+      "position_256": [
+        108,
+        109
+      ],
+      "size_256": [
+        44,
+        36
+      ],
+      "pivot_world_256": [
+        130,
+        128
+      ],
+      "pivot_local_px": [
+        127.0,
+        136.69444444444446
+      ],
+      "native_size": [
+        254,
+        259
+      ],
+      "atlas_bbox": [
+        621,
+        39,
+        875,
+        298
+      ],
+      "parent": "root",
+      "draw_order": 45
+    },
+    {
+      "id": "upper_arm_L",
+      "file": "../parts/upper_arm_L.png",
+      "position_256": [
+        105,
+        78
+      ],
+      "size_256": [
+        20,
+        34
+      ],
+      "pivot_world_256": [
+        117,
+        81
+      ],
+      "pivot_local_px": [
+        88.8,
+        22.764705882352942
+      ],
+      "native_size": [
+        148,
+        258
+      ],
+      "atlas_bbox": [
+        948,
+        29,
+        1096,
+        287
+      ],
+      "parent": "torso",
+      "draw_order": 15
+    },
+    {
+      "id": "forearm_L",
+      "file": "../parts/forearm_L.png",
+      "position_256": [
+        101,
+        103
+      ],
+      "size_256": [
+        20,
+        36
+      ],
+      "pivot_world_256": [
+        112,
+        107
+      ],
+      "pivot_local_px": [
+        85.25,
+        28.0
+      ],
+      "native_size": [
+        155,
+        252
+      ],
+      "atlas_bbox": [
+        1196,
+        47,
+        1351,
+        299
+      ],
+      "parent": "upper_arm_L",
+      "draw_order": 16
+    },
+    {
+      "id": "hand_L",
+      "file": "../parts/hand_L.png",
+      "position_256": [
+        104,
+        132
+      ],
+      "size_256": [
+        14,
+        21
+      ],
+      "pivot_world_256": [
+        111,
+        134
+      ],
+      "pivot_local_px": [
+        63.5,
+        19.80952380952381
+      ],
+      "native_size": [
+        127,
+        208
+      ],
+      "atlas_bbox": [
+        94,
+        344,
+        221,
+        552
+      ],
+      "parent": "forearm_L",
+      "draw_order": 17
+    },
+    {
+      "id": "upper_arm_R",
+      "file": "../parts/upper_arm_R.png",
+      "position_256": [
+        138,
+        77
+      ],
+      "size_256": [
+        21,
+        34
+      ],
+      "pivot_world_256": [
+        146,
+        80
+      ],
+      "pivot_local_px": [
+        67.04761904761904,
+        22.58823529411765
+      ],
+      "native_size": [
+        176,
+        256
+      ],
+      "atlas_bbox": [
+        329,
+        310,
+        505,
+        566
+      ],
+      "parent": "torso",
+      "draw_order": 70
+    },
+    {
+      "id": "forearm_R",
+      "file": "../parts/forearm_R.png",
+      "position_256": [
+        145,
+        101
+      ],
+      "size_256": [
+        20,
+        38
+      ],
+      "pivot_world_256": [
+        152,
+        106
+      ],
+      "pivot_local_px": [
+        60.9,
+        31.842105263157894
+      ],
+      "native_size": [
+        174,
+        242
+      ],
+      "atlas_bbox": [
+        635,
+        320,
+        809,
+        562
+      ],
+      "parent": "upper_arm_R",
+      "draw_order": 71
+    },
+    {
+      "id": "hand_R",
+      "file": "../parts/hand_R.png",
+      "position_256": [
+        151,
+        130
+      ],
+      "size_256": [
+        19,
+        20
+      ],
+      "pivot_world_256": [
+        158,
+        133
+      ],
+      "pivot_local_px": [
+        68.1578947368421,
+        31.349999999999998
+      ],
+      "native_size": [
+        185,
+        209
+      ],
+      "atlas_bbox": [
+        941,
+        338,
+        1126,
+        547
+      ],
+      "parent": "forearm_R",
+      "draw_order": 100
+    },
+    {
+      "id": "thigh_L",
+      "file": "../parts/thigh_L.png",
+      "position_256": [
+        111,
+        133
+      ],
+      "size_256": [
+        21,
+        42
+      ],
+      "pivot_world_256": [
+        121,
+        136
+      ],
+      "pivot_local_px": [
+        77.61904761904762,
+        18.142857142857142
+      ],
+      "native_size": [
+        163,
+        254
+      ],
+      "atlas_bbox": [
+        1193,
+        316,
+        1356,
+        570
+      ],
+      "parent": "pelvis",
+      "draw_order": 10
+    },
+    {
+      "id": "shin_L",
+      "file": "../parts/shin_L.png",
+      "position_256": [
+        111,
+        168
+      ],
+      "size_256": [
+        20,
+        46
+      ],
+      "pivot_world_256": [
+        121,
+        172
+      ],
+      "pivot_local_px": [
+        67.0,
+        21.73913043478261
+      ],
+      "native_size": [
+        134,
+        250
+      ],
+      "atlas_bbox": [
+        76,
+        573,
+        210,
+        823
+      ],
+      "parent": "thigh_L",
+      "draw_order": 11
+    },
+    {
+      "id": "foot_L",
+      "file": "../parts/foot_L.png",
+      "position_256": [
+        111,
+        207
+      ],
+      "size_256": [
+        29,
+        17
+      ],
+      "pivot_world_256": [
+        121,
+        211
+      ],
+      "pivot_local_px": [
+        71.72413793103449,
+        37.1764705882353
+      ],
+      "native_size": [
+        208,
+        158
+      ],
+      "atlas_bbox": [
+        345,
+        665,
+        553,
+        823
+      ],
+      "parent": "shin_L",
+      "draw_order": 12
+    },
+    {
+      "id": "thigh_R",
+      "file": "../parts/thigh_R.png",
+      "position_256": [
+        131,
+        133
+      ],
+      "size_256": [
+        21,
+        42
+      ],
+      "pivot_world_256": [
+        141,
+        136
+      ],
+      "pivot_local_px": [
+        84.28571428571428,
+        17.928571428571427
+      ],
+      "native_size": [
+        177,
+        251
+      ],
+      "atlas_bbox": [
+        619,
+        573,
+        796,
+        824
+      ],
+      "parent": "pelvis",
+      "draw_order": 30
+    },
+    {
+      "id": "shin_R",
+      "file": "../parts/shin_R.png",
+      "position_256": [
+        131,
+        168
+      ],
+      "size_256": [
+        20,
+        46
+      ],
+      "pivot_world_256": [
+        141,
+        172
+      ],
+      "pivot_local_px": [
+        66.0,
+        21.304347826086957
+      ],
+      "native_size": [
+        132,
+        245
+      ],
+      "atlas_bbox": [
+        938,
+        574,
+        1070,
+        819
+      ],
+      "parent": "thigh_R",
+      "draw_order": 31
+    },
+    {
+      "id": "foot_R",
+      "file": "../parts/foot_R.png",
+      "position_256": [
+        131,
+        207
+      ],
+      "size_256": [
+        29,
+        17
+      ],
+      "pivot_world_256": [
+        141,
+        211
+      ],
+      "pivot_local_px": [
+        68.96551724137932,
+        36.23529411764706
+      ],
+      "native_size": [
+        200,
+        154
+      ],
+      "atlas_bbox": [
+        1175,
+        666,
+        1375,
+        820
+      ],
+      "parent": "shin_R",
+      "draw_order": 32
+    },
+    {
+      "id": "sword",
+      "file": "../parts/sword.png",
+      "position_256": [
+        153,
+        99
+      ],
+      "size_256": [
+        52,
+        57
+      ],
+      "pivot_world_256": [
+        163,
+        145
+      ],
+      "pivot_local_px": [
+        59.807692307692314,
+        200.94736842105263
+      ],
+      "native_size": [
+        311,
+        249
+      ],
+      "atlas_bbox": [
+        12,
+        831,
+        323,
+        1080
+      ],
+      "parent": "hand_R",
+      "draw_order": 95
+    },
+    {
+      "id": "cape_upper",
+      "file": "../parts/cape_upper.png",
+      "position_256": [
+        99,
+        65
+      ],
+      "size_256": [
+        63,
+        39
+      ],
+      "pivot_world_256": [
+        130,
+        75
+      ],
+      "pivot_local_px": [
+        145.15873015873015,
+        48.717948717948715
+      ],
+      "native_size": [
+        295,
+        190
+      ],
+      "atlas_bbox": [
+        293,
+        852,
+        588,
+        1042
+      ],
+      "parent": "torso",
+      "draw_order": 80
+    },
+    {
+      "id": "cape_lower",
+      "file": "../parts/cape_lower.png",
+      "position_256": [
+        104,
+        84
+      ],
+      "size_256": [
+        56,
+        112
+      ],
+      "pivot_world_256": [
+        113,
+        86
+      ],
+      "pivot_local_px": [
+        43.392857142857146,
+        5.071428571428571
+      ],
+      "native_size": [
+        270,
+        284
+      ],
+      "atlas_bbox": [
+        612,
+        823,
+        882,
+        1107
+      ],
+      "parent": "torso",
+      "draw_order": 0
+    },
+    {
+      "id": "skirt_back",
+      "file": "../parts/skirt_back.png",
+      "position_256": [
+        106,
+        130
+      ],
+      "size_256": [
+        25,
+        29
+      ],
+      "pivot_world_256": [
+        119,
+        132
+      ],
+      "pivot_local_px": [
+        120.64,
+        13.724137931034482
+      ],
+      "native_size": [
+        232,
+        199
+      ],
+      "atlas_bbox": [
+        895,
+        864,
+        1127,
+        1063
+      ],
+      "parent": "pelvis",
+      "draw_order": 40
+    },
+    {
+      "id": "skirt_front",
+      "file": "../parts/skirt_front.png",
+      "position_256": [
+        124,
+        129
+      ],
+      "size_256": [
+        24,
+        30
+      ],
+      "pivot_world_256": [
+        135,
+        132
+      ],
+      "pivot_local_px": [
+        110.0,
+        19.8
+      ],
+      "native_size": [
+        240,
+        198
+      ],
+      "atlas_bbox": [
+        1153,
+        858,
+        1393,
+        1056
+      ],
+      "parent": "pelvis",
+      "draw_order": 55
+    }
+  ],
+  "clips": {
+    "idle": {
+      "duration_seconds": 2,
+      "frame_count": 48,
+      "loop": true
+    },
+    "run": {
+      "duration_seconds": 1,
+      "frame_count": 24,
+      "loop": true
+    }
+  }
+}

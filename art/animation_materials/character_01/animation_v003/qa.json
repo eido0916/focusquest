@@ -1,0 +1,36 @@
+{
+  "illustration": {
+    "frame_count": 24,
+    "fps": 24,
+    "duration_seconds": 1,
+    "visible_bounds_256": [
+      87,
+      28,
+      221,
+      227
+    ],
+    "safe_bounds_pass": true,
+    "bone_endpoint_error_max_px": 2.842170943040401e-14,
+    "contact_ankle_y_error_max_px": 0.0,
+    "opaque_colors": 35693,
+    "pixel_grid": null,
+    "loop_joints_match": true
+  },
+  "pixel": {
+    "frame_count": 24,
+    "fps": 24,
+    "duration_seconds": 1,
+    "visible_bounds_256": [
+      82,
+      34,
+      218,
+      224
+    ],
+    "safe_bounds_pass": true,
+    "bone_endpoint_error_max_px": 3.1776437161565096e-14,
+    "contact_ankle_y_error_max_px": 0.0,
+    "opaque_colors": 31,
+    "pixel_grid": 128,
+    "loop_joints_match": true
+  }
+}

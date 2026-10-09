@@ -1,0 +1,22 @@
+{
+  "contact_front_leg_extended": true,
+  "contact_front_foot_ahead": true,
+  "contact_rear_heel_folded": true,
+  "down_hip_lower_than_contact": true,
+  "passing_support_ankle_under_hip": true,
+  "push_off_knee_forward": true,
+  "flight_both_feet_off_ground": true,
+  "flight_hip_higher": true,
+  "opposite_contact_at_frame12": true,
+  "arms_opposite_to_front_leg": true,
+  "contact_knee_angle_degrees": 163.22776902358018,
+  "key_frames": [
+    0,
+    2,
+    4,
+    6,
+    9,
+    12
+  ],
+  "source": "reference/run_poses.png"
+}

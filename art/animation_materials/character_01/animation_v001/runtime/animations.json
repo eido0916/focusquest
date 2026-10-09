@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "asset_id": "character_01",
+  "spec_version": "0.1",
+  "fps": 24,
+  "canvas": [
+    1024,
+    1024
+  ],
+  "runtime_canvas": [
+    256,
+    256
+  ],
+  "root_pivot_256": [
+    128,
+    224
+  ],
+  "facing": "right_3quarter",
+  "root_motion": "none",
+  "alpha_mode": "straight",
+  "downsample_method": "Pillow LANCZOS",
+  "status": "animation_prototype",
+  "clips": {
+    "idle": {
+      "duration_seconds": 2,
+      "frame_count": 48,
+      "loop": true
+    },
+    "run": {
+      "duration_seconds": 1,
+      "frame_count": 24,
+      "loop": true
+    }
+  },
+  "animations": [
+    {
+      "duration_seconds": 2,
+      "frame_count": 48,
+      "loop": true,
+      "id": "idle",
+      "files": [
+        "idle/character_01_idle_0000.png",
+        "idle/character_01_idle_0001.png",
+        "idle/character_01_idle_0002.png",
+        "idle/character_01_idle_0003.png",
+        "idle/character_01_idle_0004.png",
+        "idle/character_01_idle_0005.png",
+        "idle/character_01_idle_0006.png",
+        "idle/character_01_idle_0007.png",
+        "idle/character_01_idle_0008.png",
+        "idle/character_01_idle_0009.png",
+        "idle/character_01_idle_0010.png",
+        "idle/character_01_idle_0011.png",
+        "idle/character_01_idle_0012.png",
+        "idle/character_01_idle_0013.png",
+        "idle/character_01_idle_0014.png",
+        "idle/character_01_idle_0015.png",
+        "idle/character_01_idle_0016.png",
+        "idle/character_01_idle_0017.png",
+        "idle/character_01_idle_0018.png",
+        "idle/character_01_idle_0019.png",
+        "idle/character_01_idle_0020.png",
+        "idle/character_01_idle_0021.png",
+        "idle/character_01_idle_0022.png",
+        "idle/character_01_idle_0023.png",
+        "idle/character_01_idle_0024.png",
+        "idle/character_01_idle_0025.png",
+        "idle/character_01_idle_0026.png",
+        "idle/character_01_idle_0027.png",
+        "idle/character_01_idle_0028.png",
+        "idle/character_01_idle_0029.png",
+        "idle/character_01_idle_0030.png",
+        "idle/character_01_idle_0031.png",
+        "idle/character_01_idle_0032.png",
+        "idle/character_01_idle_0033.png",
+        "idle/character_01_idle_0034.png",
+        "idle/character_01_idle_0035.png",
+        "idle/character_01_idle_0036.png",
+        "idle/character_01_idle_0037.png",
+        "idle/character_01_idle_0038.png",
+        "idle/character_01_idle_0039.png",
+        "idle/character_01_idle_0040.png",
+        "idle/character_01_idle_0041.png",
+        "idle/character_01_idle_0042.png",
+        "idle/character_01_idle_0043.png",
+        "idle/character_01_idle_0044.png",
+        "idle/character_01_idle_0045.png",
+        "idle/character_01_idle_0046.png",
+        "idle/character_01_idle_0047.png"
+      ]
+    },
+    {
+      "duration_seconds": 1,
+      "frame_count": 24,
+      "loop": true,
+      "id": "run",
+      "files": [
+        "run/character_01_run_0000.png",
+        "run/character_01_run_0001.png",
+        "run/character_01_run_0002.png",
+        "run/character_01_run_0003.png",
+        "run/character_01_run_0004.png",
+        "run/character_01_run_0005.png",
+        "run/character_01_run_0006.png",
+        "run/character_01_run_0007.png",
+        "run/character_01_run_0008.png",
+        "run/character_01_run_0009.png",
+        "run/character_01_run_0010.png",
+        "run/character_01_run_0011.png",
+        "run/character_01_run_0012.png",
+        "run/character_01_run_0013.png",
+        "run/character_01_run_0014.png",
+        "run/character_01_run_0015.png",
+        "run/character_01_run_0016.png",
+        "run/character_01_run_0017.png",
+        "run/character_01_run_0018.png",
+        "run/character_01_run_0019.png",
+        "run/character_01_run_0020.png",
+        "run/character_01_run_0021.png",
+        "run/character_01_run_0022.png",
+        "run/character_01_run_0023.png"
+      ]
+    }
+  ]
+}
