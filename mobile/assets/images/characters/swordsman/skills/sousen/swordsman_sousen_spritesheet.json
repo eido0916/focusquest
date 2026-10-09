@@ -1,0 +1,1391 @@
+{
+  "image": "swordsman_sousen_spritesheet.png",
+  "frameCount": 35,
+  "sourceOrder": [
+    "ChatGPT 画像 2026年10月9日 17_28_42-1.png",
+    "ChatGPT 画像 2026年10月9日 17_28_43-2.png",
+    "ChatGPT 画像 2026年10月9日 17_28_43-3.png",
+    "ChatGPT 画像 2026年10月9日 17_28_45-5.png",
+    "ChatGPT 画像 2026年10月9日 17_28_46-6.png",
+    "ChatGPT 画像 2026年10月9日 17_28_47-7.png",
+    "ChatGPT 画像 2026年10月9日 17_28_48-8.png"
+  ],
+  "sourceFrameSize": {
+    "width": 672,
+    "height": 704
+  },
+  "frameSize": {
+    "width": 336,
+    "height": 352
+  },
+  "sheet": {
+    "columns": 5,
+    "rows": 7
+  },
+  "anchor": {
+    "x": 0.49702380952380953,
+    "y": 0.953125,
+    "sourcePixels": {
+      "x": 334,
+      "y": 671
+    }
+  },
+  "animation": {
+    "name": "swordsmanSousen",
+    "displayName": "蒼閃",
+    "loop": false,
+    "durationMs": 3165,
+    "damageFrame": 23,
+    "damageTimeMs": 1860,
+    "effectFrames": [
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "stepTimesMs": [
+      70,
+      70,
+      70,
+      70,
+      70,
+      90,
+      90,
+      90,
+      90,
+      90,
+      100,
+      100,
+      100,
+      100,
+      100,
+      90,
+      90,
+      90,
+      90,
+      90,
+      55,
+      55,
+      55,
+      120,
+      120,
+      180,
+      140,
+      140,
+      100,
+      100,
+      70,
+      70,
+      70,
+      70,
+      70
+    ]
+  },
+  "frames": [
+    {
+      "index": 1,
+      "file": "frames/sousen_01.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_42-1.png",
+      "sourceBbox": [
+        8,
+        150,
+        446,
+        669
+      ],
+      "sourceAnchor": {
+        "x": 238,
+        "y": 648
+      },
+      "canvasOffset": {
+        "x": 104,
+        "y": 173
+      },
+      "durationMs": 70,
+      "startMs": 0,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 2,
+      "file": "frames/sousen_02.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_42-1.png",
+      "sourceBbox": [
+        439,
+        145,
+        832,
+        674
+      ],
+      "sourceAnchor": {
+        "x": 643,
+        "y": 659
+      },
+      "canvasOffset": {
+        "x": 130,
+        "y": 157
+      },
+      "durationMs": 70,
+      "startMs": 70,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 3,
+      "file": "frames/sousen_03.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_42-1.png",
+      "sourceBbox": [
+        830,
+        161,
+        1263,
+        672
+      ],
+      "sourceAnchor": {
+        "x": 1096,
+        "y": 658
+      },
+      "canvasOffset": {
+        "x": 68,
+        "y": 174
+      },
+      "durationMs": 70,
+      "startMs": 140,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 4,
+      "file": "frames/sousen_04.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_42-1.png",
+      "sourceBbox": [
+        1292,
+        149,
+        1692,
+        679
+      ],
+      "sourceAnchor": {
+        "x": 1513,
+        "y": 663
+      },
+      "canvasOffset": {
+        "x": 113,
+        "y": 157
+      },
+      "durationMs": 70,
+      "startMs": 210,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 5,
+      "file": "frames/sousen_05.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_42-1.png",
+      "sourceBbox": [
+        1736,
+        154,
+        2172,
+        674
+      ],
+      "sourceAnchor": {
+        "x": 1979,
+        "y": 661
+      },
+      "canvasOffset": {
+        "x": 91,
+        "y": 164
+      },
+      "durationMs": 70,
+      "startMs": 280,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 6,
+      "file": "frames/sousen_06.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_43-2.png",
+      "sourceBbox": [
+        8,
+        144,
+        454,
+        655
+      ],
+      "sourceAnchor": {
+        "x": 233,
+        "y": 635
+      },
+      "canvasOffset": {
+        "x": 109,
+        "y": 180
+      },
+      "durationMs": 90,
+      "startMs": 350,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 7,
+      "file": "frames/sousen_07.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_43-2.png",
+      "sourceBbox": [
+        450,
+        141,
+        848,
+        654
+      ],
+      "sourceAnchor": {
+        "x": 667,
+        "y": 640
+      },
+      "canvasOffset": {
+        "x": 117,
+        "y": 172
+      },
+      "durationMs": 90,
+      "startMs": 440,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 8,
+      "file": "frames/sousen_08.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_43-2.png",
+      "sourceBbox": [
+        865,
+        161,
+        1310,
+        655
+      ],
+      "sourceAnchor": {
+        "x": 1084,
+        "y": 641
+      },
+      "canvasOffset": {
+        "x": 115,
+        "y": 191
+      },
+      "durationMs": 90,
+      "startMs": 530,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 9,
+      "file": "frames/sousen_09.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_43-2.png",
+      "sourceBbox": [
+        1268,
+        149,
+        1753,
+        657
+      ],
+      "sourceAnchor": {
+        "x": 1488,
+        "y": 643
+      },
+      "canvasOffset": {
+        "x": 114,
+        "y": 177
+      },
+      "durationMs": 90,
+      "startMs": 620,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 10,
+      "file": "frames/sousen_10.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_43-2.png",
+      "sourceBbox": [
+        1729,
+        149,
+        2172,
+        657
+      ],
+      "sourceAnchor": {
+        "x": 1930,
+        "y": 643
+      },
+      "canvasOffset": {
+        "x": 133,
+        "y": 177
+      },
+      "durationMs": 90,
+      "startMs": 710,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 11,
+      "file": "frames/sousen_11.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_43-3.png",
+      "sourceBbox": [
+        28,
+        231,
+        459,
+        660
+      ],
+      "sourceAnchor": {
+        "x": 238,
+        "y": 647
+      },
+      "canvasOffset": {
+        "x": 124,
+        "y": 255
+      },
+      "durationMs": 100,
+      "startMs": 800,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 12,
+      "file": "frames/sousen_12.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_43-3.png",
+      "sourceBbox": [
+        471,
+        232,
+        877,
+        660
+      ],
+      "sourceAnchor": {
+        "x": 695,
+        "y": 647
+      },
+      "canvasOffset": {
+        "x": 110,
+        "y": 256
+      },
+      "durationMs": 100,
+      "startMs": 900,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 13,
+      "file": "frames/sousen_13.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_43-3.png",
+      "sourceBbox": [
+        875,
+        241,
+        1306,
+        660
+      ],
+      "sourceAnchor": {
+        "x": 1109,
+        "y": 647
+      },
+      "canvasOffset": {
+        "x": 100,
+        "y": 265
+      },
+      "durationMs": 100,
+      "startMs": 1000,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 14,
+      "file": "frames/sousen_14.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_43-3.png",
+      "sourceBbox": [
+        1270,
+        248,
+        1740,
+        660
+      ],
+      "sourceAnchor": {
+        "x": 1542,
+        "y": 647
+      },
+      "canvasOffset": {
+        "x": 62,
+        "y": 272
+      },
+      "durationMs": 100,
+      "startMs": 1100,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 15,
+      "file": "frames/sousen_15.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_43-3.png",
+      "sourceBbox": [
+        1712,
+        257,
+        2172,
+        659
+      ],
+      "sourceAnchor": {
+        "x": 1932,
+        "y": 646
+      },
+      "canvasOffset": {
+        "x": 114,
+        "y": 282
+      },
+      "durationMs": 100,
+      "startMs": 1200,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 16,
+      "file": "frames/sousen_16.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_45-5.png",
+      "sourceBbox": [
+        1,
+        299,
+        462,
+        672
+      ],
+      "sourceAnchor": {
+        "x": 190,
+        "y": 659
+      },
+      "canvasOffset": {
+        "x": 145,
+        "y": 311
+      },
+      "durationMs": 90,
+      "startMs": 1300,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 17,
+      "file": "frames/sousen_17.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_45-5.png",
+      "sourceBbox": [
+        444,
+        178,
+        895,
+        672
+      ],
+      "sourceAnchor": {
+        "x": 732,
+        "y": 659
+      },
+      "canvasOffset": {
+        "x": 46,
+        "y": 190
+      },
+      "durationMs": 90,
+      "startMs": 1390,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 18,
+      "file": "frames/sousen_18.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_45-5.png",
+      "sourceBbox": [
+        877,
+        122,
+        1353,
+        674
+      ],
+      "sourceAnchor": {
+        "x": 1143,
+        "y": 659
+      },
+      "canvasOffset": {
+        "x": 68,
+        "y": 134
+      },
+      "durationMs": 90,
+      "startMs": 1480,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 19,
+      "file": "frames/sousen_19.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_45-5.png",
+      "sourceBbox": [
+        1316,
+        64,
+        1757,
+        674
+      ],
+      "sourceAnchor": {
+        "x": 1557,
+        "y": 659
+      },
+      "canvasOffset": {
+        "x": 93,
+        "y": 76
+      },
+      "durationMs": 90,
+      "startMs": 1570,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 20,
+      "file": "frames/sousen_20.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_45-5.png",
+      "sourceBbox": [
+        1759,
+        0,
+        2171,
+        674
+      ],
+      "sourceAnchor": {
+        "x": 2025,
+        "y": 659
+      },
+      "canvasOffset": {
+        "x": 68,
+        "y": 12
+      },
+      "durationMs": 90,
+      "startMs": 1660,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 21,
+      "file": "frames/sousen_21.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_46-6.png",
+      "sourceBbox": [
+        14,
+        14,
+        452,
+        658
+      ],
+      "sourceAnchor": {
+        "x": 272,
+        "y": 645
+      },
+      "canvasOffset": {
+        "x": 76,
+        "y": 40
+      },
+      "durationMs": 55,
+      "startMs": 1750,
+      "damage": false,
+      "effect": true
+    },
+    {
+      "index": 22,
+      "file": "frames/sousen_22.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_46-6.png",
+      "sourceBbox": [
+        438,
+        98,
+        926,
+        658
+      ],
+      "sourceAnchor": {
+        "x": 742,
+        "y": 645
+      },
+      "canvasOffset": {
+        "x": 30,
+        "y": 124
+      },
+      "durationMs": 55,
+      "startMs": 1805,
+      "damage": false,
+      "effect": true
+    },
+    {
+      "index": 23,
+      "file": "frames/sousen_23.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_46-6.png",
+      "sourceBbox": [
+        856,
+        270,
+        1393,
+        659
+      ],
+      "sourceAnchor": {
+        "x": 1178,
+        "y": 645
+      },
+      "canvasOffset": {
+        "x": 12,
+        "y": 296
+      },
+      "durationMs": 55,
+      "startMs": 1860,
+      "damage": true,
+      "effect": true
+    },
+    {
+      "index": 24,
+      "file": "frames/sousen_24.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_46-6.png",
+      "sourceBbox": [
+        1298,
+        283,
+        1831,
+        665
+      ],
+      "sourceAnchor": {
+        "x": 1587,
+        "y": 652
+      },
+      "canvasOffset": {
+        "x": 45,
+        "y": 302
+      },
+      "durationMs": 120,
+      "startMs": 1915,
+      "damage": false,
+      "effect": true
+    },
+    {
+      "index": 25,
+      "file": "frames/sousen_25.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_46-6.png",
+      "sourceBbox": [
+        1748,
+        288,
+        2169,
+        670
+      ],
+      "sourceAnchor": {
+        "x": 2017,
+        "y": 656
+      },
+      "canvasOffset": {
+        "x": 65,
+        "y": 303
+      },
+      "durationMs": 120,
+      "startMs": 2035,
+      "damage": false,
+      "effect": true
+    },
+    {
+      "index": 26,
+      "file": "frames/sousen_26.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_47-7.png",
+      "sourceBbox": [
+        0,
+        228,
+        530,
+        638
+      ],
+      "sourceAnchor": {
+        "x": 204,
+        "y": 625
+      },
+      "canvasOffset": {
+        "x": 130,
+        "y": 274
+      },
+      "durationMs": 180,
+      "startMs": 2155,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 27,
+      "file": "frames/sousen_27.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_47-7.png",
+      "sourceBbox": [
+        448,
+        185,
+        882,
+        639
+      ],
+      "sourceAnchor": {
+        "x": 693,
+        "y": 625
+      },
+      "canvasOffset": {
+        "x": 89,
+        "y": 231
+      },
+      "durationMs": 140,
+      "startMs": 2335,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 28,
+      "file": "frames/sousen_28.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_47-7.png",
+      "sourceBbox": [
+        896,
+        158,
+        1304,
+        641
+      ],
+      "sourceAnchor": {
+        "x": 1115,
+        "y": 628
+      },
+      "canvasOffset": {
+        "x": 115,
+        "y": 201
+      },
+      "durationMs": 140,
+      "startMs": 2475,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 29,
+      "file": "frames/sousen_29.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_47-7.png",
+      "sourceBbox": [
+        1316,
+        144,
+        1721,
+        642
+      ],
+      "sourceAnchor": {
+        "x": 1526,
+        "y": 629
+      },
+      "canvasOffset": {
+        "x": 124,
+        "y": 186
+      },
+      "durationMs": 100,
+      "startMs": 2615,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 30,
+      "file": "frames/sousen_30.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_47-7.png",
+      "sourceBbox": [
+        1746,
+        181,
+        2172,
+        640
+      ],
+      "sourceAnchor": {
+        "x": 1971,
+        "y": 627
+      },
+      "canvasOffset": {
+        "x": 109,
+        "y": 225
+      },
+      "durationMs": 100,
+      "startMs": 2715,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 31,
+      "file": "frames/sousen_31.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_48-8.png",
+      "sourceBbox": [
+        5,
+        174,
+        416,
+        618
+      ],
+      "sourceAnchor": {
+        "x": 237,
+        "y": 604
+      },
+      "canvasOffset": {
+        "x": 102,
+        "y": 241
+      },
+      "durationMs": 70,
+      "startMs": 2815,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 32,
+      "file": "frames/sousen_32.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_48-8.png",
+      "sourceBbox": [
+        430,
+        151,
+        833,
+        617
+      ],
+      "sourceAnchor": {
+        "x": 642,
+        "y": 603
+      },
+      "canvasOffset": {
+        "x": 122,
+        "y": 219
+      },
+      "durationMs": 70,
+      "startMs": 2885,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 33,
+      "file": "frames/sousen_33.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_48-8.png",
+      "sourceBbox": [
+        857,
+        176,
+        1280,
+        625
+      ],
+      "sourceAnchor": {
+        "x": 1099,
+        "y": 611
+      },
+      "canvasOffset": {
+        "x": 92,
+        "y": 236
+      },
+      "durationMs": 70,
+      "startMs": 2955,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 34,
+      "file": "frames/sousen_34.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_48-8.png",
+      "sourceBbox": [
+        1307,
+        176,
+        1707,
+        621
+      ],
+      "sourceAnchor": {
+        "x": 1520,
+        "y": 608
+      },
+      "canvasOffset": {
+        "x": 121,
+        "y": 239
+      },
+      "durationMs": 70,
+      "startMs": 3025,
+      "damage": false,
+      "effect": false
+    },
+    {
+      "index": 35,
+      "file": "frames/sousen_35.png",
+      "source": "ChatGPT 画像 2026年10月9日 17_28_48-8.png",
+      "sourceBbox": [
+        1716,
+        166,
+        2170,
+        609
+      ],
+      "sourceAnchor": {
+        "x": 1960,
+        "y": 591
+      },
+      "canvasOffset": {
+        "x": 90,
+        "y": 246
+      },
+      "durationMs": 70,
+      "startMs": 3095,
+      "damage": false,
+      "effect": false
+    }
+  ],
+  "extraction": [
+    {
+      "source": "ChatGPT 画像 2026年10月9日 17_28_42-1.png",
+      "segmentation": "alpha-components",
+      "actors": [
+        {
+          "actor": 1,
+          "bbox": [
+            8,
+            150,
+            446,
+            669
+          ],
+          "waist": [
+            238,
+            648
+          ]
+        },
+        {
+          "actor": 2,
+          "bbox": [
+            439,
+            145,
+            832,
+            674
+          ],
+          "waist": [
+            643,
+            659
+          ]
+        },
+        {
+          "actor": 3,
+          "bbox": [
+            830,
+            161,
+            1263,
+            672
+          ],
+          "waist": [
+            1096,
+            658
+          ]
+        },
+        {
+          "actor": 4,
+          "bbox": [
+            1292,
+            149,
+            1692,
+            679
+          ],
+          "waist": [
+            1513,
+            663
+          ]
+        },
+        {
+          "actor": 5,
+          "bbox": [
+            1736,
+            154,
+            2172,
+            674
+          ],
+          "waist": [
+            1979,
+            661
+          ]
+        }
+      ]
+    },
+    {
+      "source": "ChatGPT 画像 2026年10月9日 17_28_43-2.png",
+      "segmentation": "alpha-components",
+      "actors": [
+        {
+          "actor": 1,
+          "bbox": [
+            8,
+            144,
+            454,
+            655
+          ],
+          "waist": [
+            233,
+            635
+          ]
+        },
+        {
+          "actor": 2,
+          "bbox": [
+            450,
+            141,
+            848,
+            654
+          ],
+          "waist": [
+            667,
+            640
+          ]
+        },
+        {
+          "actor": 3,
+          "bbox": [
+            865,
+            161,
+            1310,
+            655
+          ],
+          "waist": [
+            1084,
+            641
+          ]
+        },
+        {
+          "actor": 4,
+          "bbox": [
+            1268,
+            149,
+            1753,
+            657
+          ],
+          "waist": [
+            1488,
+            643
+          ]
+        },
+        {
+          "actor": 5,
+          "bbox": [
+            1729,
+            149,
+            2172,
+            657
+          ],
+          "waist": [
+            1930,
+            643
+          ]
+        }
+      ]
+    },
+    {
+      "source": "ChatGPT 画像 2026年10月9日 17_28_43-3.png",
+      "segmentation": "alpha-components",
+      "actors": [
+        {
+          "actor": 1,
+          "bbox": [
+            28,
+            231,
+            459,
+            660
+          ],
+          "waist": [
+            238,
+            647
+          ]
+        },
+        {
+          "actor": 2,
+          "bbox": [
+            471,
+            232,
+            877,
+            660
+          ],
+          "waist": [
+            695,
+            647
+          ]
+        },
+        {
+          "actor": 3,
+          "bbox": [
+            875,
+            241,
+            1306,
+            660
+          ],
+          "waist": [
+            1109,
+            647
+          ]
+        },
+        {
+          "actor": 4,
+          "bbox": [
+            1270,
+            248,
+            1740,
+            660
+          ],
+          "waist": [
+            1542,
+            647
+          ]
+        },
+        {
+          "actor": 5,
+          "bbox": [
+            1712,
+            257,
+            2172,
+            659
+          ],
+          "waist": [
+            1932,
+            646
+          ]
+        }
+      ]
+    },
+    {
+      "source": "ChatGPT 画像 2026年10月9日 17_28_45-5.png",
+      "segmentation": "alpha-components",
+      "actors": [
+        {
+          "actor": 1,
+          "bbox": [
+            1,
+            299,
+            462,
+            672
+          ],
+          "waist": [
+            190,
+            659
+          ]
+        },
+        {
+          "actor": 2,
+          "bbox": [
+            444,
+            178,
+            895,
+            672
+          ],
+          "waist": [
+            732,
+            659
+          ]
+        },
+        {
+          "actor": 3,
+          "bbox": [
+            877,
+            122,
+            1353,
+            674
+          ],
+          "waist": [
+            1143,
+            659
+          ]
+        },
+        {
+          "actor": 4,
+          "bbox": [
+            1316,
+            64,
+            1757,
+            674
+          ],
+          "waist": [
+            1557,
+            659
+          ]
+        },
+        {
+          "actor": 5,
+          "bbox": [
+            1759,
+            0,
+            2171,
+            674
+          ],
+          "waist": [
+            2025,
+            659
+          ]
+        }
+      ]
+    },
+    {
+      "source": "ChatGPT 画像 2026年10月9日 17_28_46-6.png",
+      "segmentation": "alpha-geodesic",
+      "actors": [
+        {
+          "actor": 1,
+          "bbox": [
+            14,
+            14,
+            452,
+            658
+          ],
+          "waist": [
+            272,
+            645
+          ]
+        },
+        {
+          "actor": 2,
+          "bbox": [
+            438,
+            98,
+            926,
+            658
+          ],
+          "waist": [
+            742,
+            645
+          ]
+        },
+        {
+          "actor": 3,
+          "bbox": [
+            856,
+            270,
+            1393,
+            659
+          ],
+          "waist": [
+            1178,
+            645
+          ]
+        },
+        {
+          "actor": 4,
+          "bbox": [
+            1298,
+            283,
+            1831,
+            665
+          ],
+          "waist": [
+            1587,
+            652
+          ]
+        },
+        {
+          "actor": 5,
+          "bbox": [
+            1748,
+            288,
+            2169,
+            670
+          ],
+          "waist": [
+            2017,
+            656
+          ]
+        }
+      ]
+    },
+    {
+      "source": "ChatGPT 画像 2026年10月9日 17_28_47-7.png",
+      "segmentation": "alpha-geodesic",
+      "actors": [
+        {
+          "actor": 1,
+          "bbox": [
+            0,
+            228,
+            530,
+            638
+          ],
+          "waist": [
+            204,
+            625
+          ]
+        },
+        {
+          "actor": 2,
+          "bbox": [
+            448,
+            185,
+            882,
+            639
+          ],
+          "waist": [
+            693,
+            625
+          ]
+        },
+        {
+          "actor": 3,
+          "bbox": [
+            896,
+            158,
+            1304,
+            641
+          ],
+          "waist": [
+            1115,
+            628
+          ]
+        },
+        {
+          "actor": 4,
+          "bbox": [
+            1316,
+            144,
+            1721,
+            642
+          ],
+          "waist": [
+            1526,
+            629
+          ]
+        },
+        {
+          "actor": 5,
+          "bbox": [
+            1746,
+            181,
+            2172,
+            640
+          ],
+          "waist": [
+            1971,
+            627
+          ]
+        }
+      ]
+    },
+    {
+      "source": "ChatGPT 画像 2026年10月9日 17_28_48-8.png",
+      "segmentation": "alpha-components",
+      "actors": [
+        {
+          "actor": 1,
+          "bbox": [
+            5,
+            174,
+            416,
+            618
+          ],
+          "waist": [
+            237,
+            604
+          ]
+        },
+        {
+          "actor": 2,
+          "bbox": [
+            430,
+            151,
+            833,
+            617
+          ],
+          "waist": [
+            642,
+            603
+          ]
+        },
+        {
+          "actor": 3,
+          "bbox": [
+            857,
+            176,
+            1280,
+            625
+          ],
+          "waist": [
+            1099,
+            611
+          ]
+        },
+        {
+          "actor": 4,
+          "bbox": [
+            1307,
+            176,
+            1707,
+            621
+          ],
+          "waist": [
+            1520,
+            608
+          ]
+        },
+        {
+          "actor": 5,
+          "bbox": [
+            1716,
+            166,
+            2170,
+            609
+          ],
+          "waist": [
+            1960,
+            591
+          ]
+        }
+      ]
+    }
+  ]
+}

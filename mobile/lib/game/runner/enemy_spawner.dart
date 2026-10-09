@@ -7,13 +7,16 @@ class EnemySpawner extends Component {
   EnemySpawner(this.state);
   final BattleStateController state;
   final Map<int, EnemyComponent> _visible = {};
-  int _attack = 0;
+  final Map<int, int> _seenDamage = {};
   @override
   void update(double dt) {
     super.update(dt);
     final ids = state.enemies.map((e) => e.id).toSet();
     for (final id in _visible.keys.toList()) {
-      if (!ids.contains(id)) _visible.remove(id)!.removeFromParent();
+      if (!ids.contains(id)) {
+        _visible.remove(id)!.removeFromParent();
+        _seenDamage.remove(id);
+      }
     }
     for (final enemy in state.enemies) {
       if (!_visible.containsKey(enemy.id)) {
@@ -21,10 +24,12 @@ class EnemySpawner extends Component {
         _visible[enemy.id] = component;
         add(component);
       }
-    }
-    if (_attack != state.attackSerial) {
-      _attack = state.attackSerial;
-      if (state.attackAge < .1) add(DamageTextComponent(330, 128));
+      // A single Sousen impact can damage several enemies on the same tick.
+      // Track each enemy, not just the last global hit, to show the whole sweep.
+      if (enemy.damageSerial > (_seenDamage[enemy.id] ?? 0)) {
+        add(DamageTextComponent(enemy.x, enemy.lastDamage));
+      }
+      _seenDamage[enemy.id] = enemy.damageSerial;
     }
   }
 }

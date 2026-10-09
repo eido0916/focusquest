@@ -58,7 +58,10 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
                   child: AspectRatio(
                       aspectRatio: 16 / 9,
                       child: Stack(fit: StackFit.expand, children: [
-                        Image.asset('assets/images/ui/sunlit_battlefield.png',
+                        // Matching fallback while Flame decodes the scrolling
+                        // scenery; the game owns the animated background.
+                        Image.asset(
+                            'assets/images/ui/forest_meadow_battlefield.png',
                             fit: BoxFit.cover,
                             filterQuality: FilterQuality.high),
                         GameWidget(game: _game),
