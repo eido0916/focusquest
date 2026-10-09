@@ -1,0 +1,98 @@
+{
+  "checks": [
+    {
+      "frame": 0,
+      "bounds": [
+        44,
+        82,
+        100,
+        112
+      ],
+      "rgba_pixel_grid_margin_pass": true,
+      "body_effect_recomposition_exact": true
+    },
+    {
+      "frame": 1,
+      "bounds": [
+        46,
+        88,
+        106,
+        112
+      ],
+      "rgba_pixel_grid_margin_pass": true,
+      "body_effect_recomposition_exact": true
+    },
+    {
+      "frame": 2,
+      "bounds": [
+        52,
+        68,
+        108,
+        112
+      ],
+      "rgba_pixel_grid_margin_pass": true,
+      "body_effect_recomposition_exact": true
+    },
+    {
+      "frame": 3,
+      "bounds": [
+        24,
+        76,
+        96,
+        106
+      ],
+      "rgba_pixel_grid_margin_pass": true,
+      "body_effect_recomposition_exact": true
+    },
+    {
+      "frame": 4,
+      "bounds": [
+        16,
+        86,
+        80,
+        112
+      ],
+      "rgba_pixel_grid_margin_pass": true,
+      "body_effect_recomposition_exact": true
+    },
+    {
+      "frame": 5,
+      "bounds": [
+        30,
+        68,
+        86,
+        108
+      ],
+      "rgba_pixel_grid_margin_pass": true,
+      "body_effect_recomposition_exact": true
+    },
+    {
+      "frame": 6,
+      "bounds": [
+        40,
+        82,
+        96,
+        110
+      ],
+      "rgba_pixel_grid_margin_pass": true,
+      "body_effect_recomposition_exact": true
+    },
+    {
+      "frame": 7,
+      "bounds": [
+        44,
+        82,
+        100,
+        112
+      ],
+      "rgba_pixel_grid_margin_pass": true,
+      "body_effect_recomposition_exact": true
+    }
+  ],
+  "common_opaque_colors": 23,
+  "ready_return_exact": true,
+  "source_size": [
+    1774,
+    887
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "clips": {
+    "run_then_attack": {
+      "metadata": "run_then_attack/animation.json",
+      "gif": "run_then_attack/preview/animation.gif",
+      "frames": 52,
+      "duration_seconds": 2.1666666666666665
+    },
+    "run_then_skill": {
+      "metadata": "run_then_skill/animation.json",
+      "gif": "run_then_skill/preview/animation.gif",
+      "frames": 64,
+      "duration_seconds": 2.6666666666666665
+    }
+  },
+  "original_assets": {
+    "run": "original_assets/run",
+    "stationary_attack": "original_assets/attack",
+    "stationary_skill": "original_assets/skill"
+  },
+  "alignment_logical64": {
+    "run": {
+      "resize_canvas": 48,
+      "paste": [
+        -1,
+        14
+      ]
+    },
+    "attack": {
+      "resize_canvas": 58,
+      "paste": [
+        -7,
+        5
+      ]
+    },
+    "skill": "existing 128px frames unchanged"
+  },
+  "notice": "Stationary actions after run; simultaneous running attacks have not been created."
+}

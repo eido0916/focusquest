@@ -1,0 +1,165 @@
+{
+  "frames": [
+    {
+      "frame": 0,
+      "bounds": [
+        24,
+        36,
+        116,
+        118
+      ],
+      "ground_y_max": 117,
+      "dimension_alpha_pixel_grid_pass": true
+    },
+    {
+      "frame": 1,
+      "bounds": [
+        20,
+        30,
+        92,
+        118
+      ],
+      "ground_y_max": 117,
+      "dimension_alpha_pixel_grid_pass": true
+    },
+    {
+      "frame": 2,
+      "bounds": [
+        20,
+        12,
+        100,
+        118
+      ],
+      "ground_y_max": 117,
+      "dimension_alpha_pixel_grid_pass": true
+    },
+    {
+      "frame": 3,
+      "bounds": [
+        28,
+        16,
+        108,
+        118
+      ],
+      "ground_y_max": 117,
+      "dimension_alpha_pixel_grid_pass": true
+    },
+    {
+      "frame": 4,
+      "bounds": [
+        22,
+        36,
+        126,
+        118
+      ],
+      "ground_y_max": 117,
+      "dimension_alpha_pixel_grid_pass": true
+    },
+    {
+      "frame": 5,
+      "bounds": [
+        20,
+        38,
+        120,
+        118
+      ],
+      "ground_y_max": 117,
+      "dimension_alpha_pixel_grid_pass": true
+    },
+    {
+      "frame": 6,
+      "bounds": [
+        22,
+        36,
+        116,
+        118
+      ],
+      "ground_y_max": 117,
+      "dimension_alpha_pixel_grid_pass": true
+    },
+    {
+      "frame": 7,
+      "bounds": [
+        24,
+        36,
+        116,
+        118
+      ],
+      "ground_y_max": 117,
+      "dimension_alpha_pixel_grid_pass": true
+    }
+  ],
+  "common_opaque_colors": 24,
+  "ready_return_exact_match": true,
+  "unique_poses": 7,
+  "normalization": [
+    {
+      "frame": 0,
+      "translation_logical": [
+        4,
+        0
+      ],
+      "boot_ground_y": 58
+    },
+    {
+      "frame": 1,
+      "translation_logical": [
+        2,
+        0
+      ],
+      "boot_ground_y": 58
+    },
+    {
+      "frame": 2,
+      "translation_logical": [
+        2,
+        0
+      ],
+      "boot_ground_y": 58
+    },
+    {
+      "frame": 3,
+      "translation_logical": [
+        2,
+        0
+      ],
+      "boot_ground_y": 58
+    },
+    {
+      "frame": 4,
+      "translation_logical": [
+        3,
+        5
+      ],
+      "boot_ground_y": 58
+    },
+    {
+      "frame": 5,
+      "translation_logical": [
+        0,
+        5
+      ],
+      "boot_ground_y": 58
+    },
+    {
+      "frame": 6,
+      "translation_logical": [
+        2,
+        5
+      ],
+      "boot_ground_y": 58
+    },
+    {
+      "frame": 7,
+      "translation_logical": [
+        3,
+        5
+      ],
+      "boot_ground_y": 58
+    }
+  ],
+  "generated_master_size": [
+    1774,
+    887
+  ]
+}

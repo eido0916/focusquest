@@ -1,0 +1,4 @@
+# Preserve delivered bytes so file_manifest SHA-256 stays reproducible.
+* -text
+* whitespace=cr-at-eol
+*.md whitespace=cr-at-eol,-blank-at-eol

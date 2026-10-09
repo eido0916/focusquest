@@ -1,0 +1,69 @@
+{
+  "frames": [
+    {
+      "frame": 0,
+      "visible_bounds": [
+        18,
+        16,
+        114,
+        116
+      ],
+      "dimension_alpha_pixel_grid_pass": true
+    },
+    {
+      "frame": 1,
+      "visible_bounds": [
+        18,
+        14,
+        114,
+        112
+      ],
+      "dimension_alpha_pixel_grid_pass": true
+    },
+    {
+      "frame": 2,
+      "visible_bounds": [
+        18,
+        18,
+        114,
+        118
+      ],
+      "dimension_alpha_pixel_grid_pass": true
+    },
+    {
+      "frame": 3,
+      "visible_bounds": [
+        18,
+        16,
+        114,
+        116
+      ],
+      "dimension_alpha_pixel_grid_pass": true
+    },
+    {
+      "frame": 4,
+      "visible_bounds": [
+        20,
+        14,
+        116,
+        110
+      ],
+      "dimension_alpha_pixel_grid_pass": true
+    },
+    {
+      "frame": 5,
+      "visible_bounds": [
+        18,
+        18,
+        114,
+        118
+      ],
+      "dimension_alpha_pixel_grid_pass": true
+    }
+  ],
+  "unique_frames": 6,
+  "generated_master_size": [
+    1536,
+    1024
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "illustration": {
+    "serialized_matrix_recomposition_exact_frames": 24,
+    "sword_grip_error_max_px": 1.4210854715202004e-14
+  },
+  "pixel": {
+    "serialized_matrix_recomposition_exact_frames": 24,
+    "sword_grip_error_max_px": 3.1776437161565096e-14
+  }
+}
