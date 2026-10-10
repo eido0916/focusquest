@@ -32,13 +32,13 @@ class AdventureScreen extends StatelessWidget {
     final pending = state.adventureRun;
     return ListView(padding: const EdgeInsets.all(16), children: [
       QuestCard(
-          caption: 'プレイアブルステージ · 全16ステージ',
+          caption: 'プレイアブルステージ · 全36ステージ',
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-            const Text('剣士で巡る、4つの舞台',
+            const Text('剣士で巡る、9つの舞台',
                 style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
-            const Text('草原・幽霊船・火山・魔王城。\nタップで攻撃、3回命中でスキル解放。',
+            const Text('草原から湿地・氷晶洞窟・星界の祭壇へ。\nタップで攻撃、3回命中でスキル解放。',
                 style: TextStyle(height: 1.6)),
             const SizedBox(height: 12),
             QuestCommand(

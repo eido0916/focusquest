@@ -88,18 +88,21 @@ class _PlayableStageSelectionPageState
                               label: Text('${_character.name} · キャラクター変更')),
                           const SizedBox(height: 12),
                         ],
-                        const Text('16のステージを巡る冒険',
-                            style: TextStyle(
+                        Text('${PlayableStageCatalog.stages.length}のステージを巡る冒険',
+                            style: const TextStyle(
                                 fontSize: 23,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'SunlitSerif')),
                         const SizedBox(height: 8),
                         Text(
                             '好きなステージに挑戦できます。各ステージは3フェーズ。\n'
-                            '4・8・12・16の最後にボスが待ち受けます。 クリア ${_cleared.length} / 16',
+                            '各エリアの4ステージ目にはボスが待ち受けます。 クリア ${_cleared.length} / ${PlayableStageCatalog.stages.length}',
                             style: const TextStyle(fontSize: 12, height: 1.7)),
                         const SizedBox(height: 20),
-                        for (var area = 0; area < 4; area++) _area(area),
+                        for (var area = 0;
+                            area < PlayableStageCatalog.areas.length;
+                            area++)
+                          _area(area),
                       ])))));
 
   Widget _area(int area) => Padding(

@@ -7,6 +7,8 @@ from PIL import Image
 
 root = Path(__file__).resolve().parent.parent
 source = next(path for path in [
+    root / 'art/workspace_materials/FocusQuest_pixel_keyframes_v013',
+    root.parent / 'FocusQuest_pixel_keyframes_v013',
     root / 'art/workspace_materials/FocusQuest_pixel_keyframes_v012',
     root.parent / 'FocusQuest_pixel_keyframes_v012',
     root / 'art/workspace_materials/FocusQuest_pixel_keyframes_v011',
@@ -34,10 +36,11 @@ for female in [False, True]:
             motions[f'{character}_{action}'] = f'{folder}/{original}'
         if (source / folder / 'idle').exists():
             motions[f'{character}_idle'] = f'{folder}/idle'
-for enemy in ['slime', 'goblin', 'dracula']:
+for enemy in ['slime', 'goblin', 'dracula', 'mob_bat', 'mob_wolf', 'mob_skeleton', 'mob_poison_mushroom', 'mob_imp']:
     for action in ['locomotion', 'attack', 'defeat']:
-        motions[f'{enemy}_{action}'] = f'enemies/{enemy}/{action}'
-for boss in ['boss_goblin_king', 'boss_dullahan', 'boss_fire_dragon', 'boss_cyclops']:
+        source_action = 'walk' if enemy.startswith('mob_') and action == 'locomotion' else action
+        motions[f'{enemy}_{action}'] = f'enemies/{enemy}/{source_action}'
+for boss in ['boss_goblin_king', 'boss_dullahan', 'boss_fire_dragon', 'boss_cyclops', 'boss_lich', 'boss_minotaur', 'boss_stone_golem', 'boss_cerberus', 'boss_demon_lord']:
     for action in ['locomotion', 'attack', 'defeat']:
         source_action = 'walk' if action == 'locomotion' else action
         motions[f'{boss}_{action}'] = f'enemies/{boss}/{source_action}'

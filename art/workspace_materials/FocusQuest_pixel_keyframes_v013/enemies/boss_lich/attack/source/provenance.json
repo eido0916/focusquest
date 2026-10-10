@@ -1,0 +1,9 @@
+{
+  "source_folder": "FocusQuest_pixel_keyframes_v013/source/enemies_v013/boss_lich/attack",
+  "keyframe_sources": [
+    "FocusQuest_pixel_keyframes_v013/source/enemies_v013/boss_lich/attack/frames/frame_000.png",
+    "FocusQuest_pixel_keyframes_v013/source/enemies_v013/boss_lich/attack/frames/frame_001.png",
+    "FocusQuest_pixel_keyframes_v013/source/enemies_v013/boss_lich/attack/frames/frame_002.png",
+    "FocusQuest_pixel_keyframes_v013/source/enemies_v013/boss_lich/attack/frames/frame_003.png"
+  ]
+}

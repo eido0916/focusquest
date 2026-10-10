@@ -1,0 +1,13 @@
+{
+  "fps": 24,
+  "loop_in_game": false,
+  "events": [],
+  "reference": "unchanged idle keyframes",
+  "logical_grid": [
+    64,
+    64
+  ],
+  "head_hair_height_logical_px": 19,
+  "ground_logical_px": 57,
+  "production": "Redrawn with built-in imagegen; once normalized for export. All playback images are exact original-frame holds."
+}

@@ -10,7 +10,7 @@ flutter run -t lib/main_playable_stage.dart
 
 Windows用のビルドと起動はリポジトリ直下で `powershell -ExecutionPolicy Bypass -File scripts/run-playable-stage.ps1` を実行します。日本語パスによるWindowsビルドの問題を避け、ユーザーフォルダーの英数字パスにビルド用コピーを作ります。
 
-通常アプリの初期プレイヤーはcharacter_01の剣士です。単独デモは男女10職業、計20キャラクターから選べます。16ステージは自由に選択でき、各ステージには3フェーズの戦闘があります。
+通常アプリの初期プレイヤーはcharacter_01の剣士です。単独デモは男女10職業、計20キャラクターから選べます。36ステージは自由に選択でき、各ステージには3フェーズの戦闘があります。[5背景と新しい敵の追加](STAGE_EXPANSION_V013.md)も参照してください。
 
 デモ専用画面は `lib/features/playable_stage/demo/demo_character_selection_page.dart` に分離しています。通常アプリの冒険画面はこの画面を使用しません。デモでも選択を外すには `flutter run -t lib/main_playable_stage.dart --dart-define=DEMO_CHARACTER_SELECTION=false` とします。ビルド時も同じフラグで無効化できます。ステージ選択の「キャラクター変更」はデモから渡したコールバックがある場合だけ表示し、クリア履歴を保持して変更できます。
 
@@ -40,9 +40,14 @@ Windows用のビルドと起動はリポジトリ直下で `powershell -Executio
 | 1〜4 | 草原 | 4: ゴブリンキング |
 | 5〜8 | 幽霊船 | 8: 騎乗デュラハン |
 | 9〜12 | 火山 | 12: 火竜 |
-| 13〜16 | 魔王城 | 16: サイクロプス |
+| 13〜16 | 毒茸の湿地 | 16: ケルベロス |
+| 17〜20 | 砂漠の迷宮 | 20: ミノタウロス |
+| 21〜24 | 氷晶洞窟 | 24: 石のゴーレム |
+| 25〜28 | 月影の墓地 | 28: リッチ |
+| 29〜32 | 星界の祭壇 | 32: サイクロプス |
+| 33〜36 | 魔王城 | 36: 魔王 |
 
-第1フェーズはスライム2体、第2フェーズはゴブリン3体、第3フェーズはドラキュラ3体が同時に登場します。4の倍数のステージでは最後をボス1体＋取り巻きゴブリン2体に置き換えます。各敵が個別のHP・攻撃待ち時間・原画再生・撃破状態を持ち、全員の撃破原画が終了してから次のフェーズへ進みます。攻撃は手前の生存敵を自動で狙い、余剰ダメージは次の敵へ持ち越しません。ボスの描画倍率はプレイヤーの3倍で、縮小画面でも64px論理格子の整数倍・ポイントサンプリングを維持します。
+従来の4エリア（草原・幽霊船・火山・魔王城）の第1フェーズはスライム2体、第2フェーズはゴブリン3体、第3フェーズはドラキュラ3体が同時に登場します。4の倍数のステージでは最後をボス1体＋取り巻きゴブリン2体に置き換えます。各敵が個別のHP・攻撃待ち時間・原画再生・撃破状態を持ち、全員の撃破原画が終了してから次のフェーズへ進みます。攻撃は手前の生存敵を自動で狙い、余剰ダメージは次の敵へ持ち越しません。ボスの描画倍率はプレイヤーの3倍で、縮小画面でも64px論理格子の整数倍・ポイントサンプリングを維持します。
 
 フェーズ間は走り続け、赤い丸ボタンで通常攻撃、青い丸ボタンでスキルを行います。通常攻撃を3回命中させると各職業のスキルが使えます。行動中は両ボタンを無効にし、周囲のリングで次の行動までの進行を表示します。3フェーズをクリアすると1.4秒後にステージ選択へ戻り、選択したカードにCLEARを表示します。敗北時は同じステージを再挑戦するか、選択画面へ戻れます。各挑戦は選択キャラクターのHP全回復・ゲージ0・第1フェーズから開始します。
 
@@ -54,13 +59,13 @@ CLEAR表示は選択画面が開いている間保持します。これは固定
 
 音源は `scripts/build-stage-audio.py` がNumPyで合成した16bit/44.1kHz WAVで、第三者の録音や既存曲を使用していません。通常戦132BPM、ボス戦156BPMです。音源と再生成用のmanifestは `mobile/assets/audio/playable_stage/` にあります。再生成にはPythonとNumPyが必要です。再生には `audioplayers 6.1.0` を使用しています。
 
-原画PNGをJSONの24fpsタイムラインに従って切り替え、保持中は同一画像を表示します。キャラクターの拡大は64px論理格子を物理ピクセルで整数倍、ポイントサンプリングで描画します。移動はワールド座標で管理します。素材を変形・補間せず、敵の消滅も描いた原画を一度だけ再生します。`scripts/package-flutter-stage.py` がv012の使用素材（87動作・749原画、旧剣士エイリアスを含む）をコピーし、PNGとRGBAのSHA-256を検証してmanifestに保存します。実行時は選択キャラクターとステージ内の敵の素材だけ読み込みます。待機素材のない職業は通常攻撃の最初の構え原画を保持します。元素材は変更しません。
+原画PNGをJSONの24fpsタイムラインに従って切り替え、保持中は同一画像を表示します。キャラクターの拡大は64px論理格子を物理ピクセルで整数倍、ポイントサンプリングで描画します。移動はワールド座標で管理します。素材を変形・補間せず、敵の消滅も描いた原画を一度だけ再生します。`scripts/package-flutter-stage.py` がv013の使用素材（117動作・879原画、旧剣士エイリアスを含む）をコピーし、PNGとRGBAのSHA-256を検証してmanifestに保存します。実行時は選択キャラクターとステージ内の敵の素材だけ読み込みます。待機素材のない職業は通常攻撃の最初の構え原画を保持します。元素材は変更しません。
 
 縦画面・横画面、一時停止、アプリがバックグラウンドに移った際の停止に対応します。復帰後は再開ボタンで進めます。
 
 ```powershell
 flutter analyze --no-pub
-flutter test --no-pub test/playable_stage_battle_test.dart test/playable_stage_page_test.dart test/playable_stage_selection_test.dart test/playable_stage_combat_audio_test.dart test/playable_stage_party_test.dart test/playable_stage_demo_test.dart test/playable_stage_contact_test.dart test/playable_stage_ranged_test.dart
+flutter test --no-pub test/playable_stage_battle_test.dart test/playable_stage_page_test.dart test/playable_stage_selection_test.dart test/playable_stage_combat_audio_test.dart test/playable_stage_party_test.dart test/playable_stage_demo_test.dart test/playable_stage_contact_test.dart test/playable_stage_ranged_test.dart test/playable_stage_expansion_test.dart
 ```
 
 このPCではAndroidのシェーダーコンパイラも日本語パスで停止します。APKの作成は、上記Windowsスクリプトでコピーを更新した後、英数字パスで行います。
@@ -70,11 +75,11 @@ cd "$env:USERPROFILE\FocusQuestTools\stage-build"
 flutter build apk --debug -t lib/main_playable_stage.dart
 ```
 
-2026-10-10確認: 静的解析に問題なし。プレイアブルステージ関連47テスト通過。16ステージの進行、4背景の読み込み、4ボスの配置、3画面サイズ、クリア後の自動復帰と次の挑戦の初期化に加え、20キャラクターの素材と攻撃イベント、全20キャラクターのステージ16クリア、速度による操作ロックと実ダメージ、個別敵の撃破、近接攻撃の接近、男女8体の遠距離通常攻撃・着弾時の判定、弓と銃の3連射、移動するボスへの大氷結、飛び道具の対象固定と停止・再開、敵とボスの命中時の距離と帰還、同時攻撃・対象固定、縦横画面の接触時の表示、デモ専用画面と棒グラフ、赤・青の円形操作、命中率・クリティカル率の境界、ゲージ、音声イベントの一度だけの発火、BGM切り替え・ミュート・一時停止・破棄を検証しています。`tool/stage_audio_smoke.dart` をWindows Releaseで実行し、2曲と全9効果音のネイティブ再生・停止・破棄が成功しました（`FOCUSQUEST_NATIVE_AUDIO_OK`）。WAV全11ファイルの形式・無音でないこと・クリッピングがないことも確認しました。
+2026-10-10確認: 静的解析に問題なし。プレイアブルステージ関連58テスト通過。36ステージの進行、9背景の読み込み、9ボスの配置、3画面サイズ、クリア後の自動復帰と次の挑戦の初期化に加え、20キャラクターの素材と攻撃イベント、全20キャラクターのステージ16クリア、速度による操作ロックと実ダメージ、個別敵の撃破、近接攻撃の接近、男女8体の遠距離通常攻撃・着弾時の判定、弓と銃の3連射、移動するボスへの大氷結、飛び道具の対象固定と停止・再開、敵とボスの命中時の距離と帰還、同時攻撃・対象固定、縦横画面の接触時の表示、デモ専用画面と棒グラフ、赤・青の円形操作、命中率・クリティカル率の境界、ゲージ、音声イベントの一度だけの発火、BGM切り替え・ミュート・一時停止・破棄を検証しています。`tool/stage_audio_smoke.dart` をWindows Releaseで実行し、2曲と全9効果音のネイティブ再生・停止・破棄が成功しました（`FOCUSQUEST_NATIVE_AUDIO_OK`）。WAV全11ファイルの形式・無音でないこと・クリッピングがないことも確認しました。
 
-遠距離攻撃対応の配布物は `output/playable-stage/FocusQuest-ranged-combat-windows-v005.zip` と `FocusQuest-ranged-combat-debug-v005.apk` です。Windows ZIPはフォルダー全体を展開し、`focusquest.exe` を起動します。以前のv004も保持します。Android実機の動作確認は端末未接続のため未実施です。
+遠距離攻撃対応の配布物は `output/playable-stage/FocusQuest-final-castle-windows-v008.zip` と `FocusQuest-final-castle-debug-v008.apk` です。Windows ZIPはフォルダー全体を展開し、`focusquest.exe` を起動します。以前のv004・v005も保持します。Android実機の動作確認は端末未接続のため未実施です。
 
-前回、既存画面を含む全体テストでは画面はみ出しなど6件の失敗が発生し、別のテストが終了しなかったため停止しました。今回の47テスト通過は、アプリ全体のテスト通過を意味しません。
+前回、既存画面を含む全体テストでは画面はみ出しなど6件の失敗が発生し、別のテストが終了しなかったため停止しました。今回の58テスト通過は、アプリ全体のテスト通過を意味しません。
 
 # このPCの開発環境
 

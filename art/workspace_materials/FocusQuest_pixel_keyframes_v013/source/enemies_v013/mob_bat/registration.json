@@ -1,0 +1,139 @@
+{
+  "fixed_scale_all_actions": 0.1556420233463035,
+  "shared_bounds": [
+    127,
+    331,
+    384,
+    480
+  ],
+  "poses": [
+    {
+      "action": "walk",
+      "keyframe": 0,
+      "whole_original_registration_px": [
+        127,
+        314
+      ]
+    },
+    {
+      "action": "walk",
+      "keyframe": 1,
+      "whole_original_registration_px": [
+        127,
+        315
+      ]
+    },
+    {
+      "action": "walk",
+      "keyframe": 2,
+      "whole_original_registration_px": [
+        127,
+        300
+      ]
+    },
+    {
+      "action": "walk",
+      "keyframe": 3,
+      "whole_original_registration_px": [
+        127,
+        314
+      ]
+    },
+    {
+      "action": "attack",
+      "keyframe": 0,
+      "whole_original_registration_px": [
+        127,
+        314
+      ]
+    },
+    {
+      "action": "attack",
+      "keyframe": 1,
+      "whole_original_registration_px": [
+        127,
+        320
+      ]
+    },
+    {
+      "action": "attack",
+      "keyframe": 2,
+      "whole_original_registration_px": [
+        127,
+        311
+      ]
+    },
+    {
+      "action": "attack",
+      "keyframe": 3,
+      "whole_original_registration_px": [
+        127,
+        314
+      ]
+    },
+    {
+      "action": "hurt",
+      "keyframe": 0,
+      "whole_original_registration_px": [
+        127,
+        330
+      ]
+    },
+    {
+      "action": "hurt",
+      "keyframe": 1,
+      "whole_original_registration_px": [
+        127,
+        333
+      ]
+    },
+    {
+      "action": "hurt",
+      "keyframe": 2,
+      "whole_original_registration_px": [
+        127,
+        329
+      ]
+    },
+    {
+      "action": "hurt",
+      "keyframe": 3,
+      "whole_original_registration_px": [
+        127,
+        330
+      ]
+    },
+    {
+      "action": "defeat",
+      "keyframe": 0,
+      "whole_original_registration_px": [
+        127,
+        358
+      ]
+    },
+    {
+      "action": "defeat",
+      "keyframe": 1,
+      "whole_original_registration_px": [
+        127,
+        364
+      ]
+    },
+    {
+      "action": "defeat",
+      "keyframe": 2,
+      "whole_original_registration_px": [
+        127,
+        357
+      ]
+    },
+    {
+      "action": "defeat",
+      "keyframe": 3,
+      "whole_original_registration_px": [
+        127,
+        350
+      ]
+    }
+  ]
+}

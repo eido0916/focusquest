@@ -74,7 +74,8 @@ void main() {
     fast.dispose();
     slow.dispose();
   });
-  test('all twenty heroes can clear stage 16 with attack and skill', () async {
+  test('all twenty heroes can clear the final castle with attack and skill',
+      () async {
     for (final hero in PlayableCharacters.all) {
       final battle = PlayableStageBattle(
           stage: PlayableStageCatalog.stages.last,

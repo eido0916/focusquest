@@ -51,8 +51,10 @@ class _PlayableStagePageState extends State<PlayableStagePage>
           enemy.attackDuration = motion.duration;
           enemy.hitTick = motion.eventTick(
               'attack_active_or_release',
-              motion.eventTick('boss_attack_hit',
-                  motion.eventTick('fire_breath_start', 11)));
+              motion.eventTick(
+                  'enemy_attack_hit',
+                  motion.eventTick('boss_attack_hit',
+                      motion.eventTick('fire_breath_start', 11))));
           enemy.defeatDuration =
               _assets!.motions['${enemy.definition.id}_defeat']!.duration;
         }

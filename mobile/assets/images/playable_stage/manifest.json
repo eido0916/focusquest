@@ -1,5 +1,5 @@
 {
-  "source": "FocusQuest_pixel_keyframes_v012",
+  "source": "FocusQuest_pixel_keyframes_v013",
   "motions": [
     "hero_idle",
     "hero_run",
@@ -76,6 +76,21 @@
     "dracula_locomotion",
     "dracula_attack",
     "dracula_defeat",
+    "mob_bat_locomotion",
+    "mob_bat_attack",
+    "mob_bat_defeat",
+    "mob_wolf_locomotion",
+    "mob_wolf_attack",
+    "mob_wolf_defeat",
+    "mob_skeleton_locomotion",
+    "mob_skeleton_attack",
+    "mob_skeleton_defeat",
+    "mob_poison_mushroom_locomotion",
+    "mob_poison_mushroom_attack",
+    "mob_poison_mushroom_defeat",
+    "mob_imp_locomotion",
+    "mob_imp_attack",
+    "mob_imp_defeat",
     "boss_goblin_king_locomotion",
     "boss_goblin_king_attack",
     "boss_goblin_king_defeat",
@@ -87,7 +102,22 @@
     "boss_fire_dragon_defeat",
     "boss_cyclops_locomotion",
     "boss_cyclops_attack",
-    "boss_cyclops_defeat"
+    "boss_cyclops_defeat",
+    "boss_lich_locomotion",
+    "boss_lich_attack",
+    "boss_lich_defeat",
+    "boss_minotaur_locomotion",
+    "boss_minotaur_attack",
+    "boss_minotaur_defeat",
+    "boss_stone_golem_locomotion",
+    "boss_stone_golem_attack",
+    "boss_stone_golem_defeat",
+    "boss_cerberus_locomotion",
+    "boss_cerberus_attack",
+    "boss_cerberus_defeat",
+    "boss_demon_lord_locomotion",
+    "boss_demon_lord_attack",
+    "boss_demon_lord_defeat"
   ],
   "files": [
     {
@@ -3985,6 +4015,396 @@
       "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
     },
     {
+      "file": "mob_bat_locomotion_000.png",
+      "source": "enemies/mob_bat/walk/keyframes/frame_000.png",
+      "sha256": "0bd968256d74f9c6f7e2395743421ad2eb5b82f9c0fc818605a5bc7ed3583a20",
+      "rgba_sha256": "2de8d706d73467bc8f93dc5d52793ef8d1caa5ebf6fca106453b48a3f1d23549"
+    },
+    {
+      "file": "mob_bat_locomotion_001.png",
+      "source": "enemies/mob_bat/walk/keyframes/frame_001.png",
+      "sha256": "3bd66490e01f60e08ee64faa6edefd36580e50e895ed9485aaecddfa76c933fc",
+      "rgba_sha256": "d86610eff1db29871b8bf905366964180ba8c6a15ee17e7d2956426bdcd17b2b"
+    },
+    {
+      "file": "mob_bat_locomotion_002.png",
+      "source": "enemies/mob_bat/walk/keyframes/frame_002.png",
+      "sha256": "8174ef9919d7f931df626b4bed17e08d842909c232fbad7b5eb78742189a350e",
+      "rgba_sha256": "364c4ac5b60e7214a5290290811958f0dd6359fde8bf8ec8f46593d4e995d580"
+    },
+    {
+      "file": "mob_bat_locomotion_003.png",
+      "source": "enemies/mob_bat/walk/keyframes/frame_003.png",
+      "sha256": "bc526e18df811592322f5992b654c71d8379acfae5ef5f032bce23f9304d32b3",
+      "rgba_sha256": "9de84ab05e05d8a618ffd9b7680274305dfad51c316bac7492f1050c2d1aecfa"
+    },
+    {
+      "file": "mob_bat_attack_000.png",
+      "source": "enemies/mob_bat/attack/keyframes/frame_000.png",
+      "sha256": "6948139038aef44aeed4d557c22af7779b5a6cff7575b42cb0f9ca689e8877a4",
+      "rgba_sha256": "89fff00b4a449976f0425ef6edd5354a19bfaac2201fa0747a1885ca77572a55"
+    },
+    {
+      "file": "mob_bat_attack_001.png",
+      "source": "enemies/mob_bat/attack/keyframes/frame_001.png",
+      "sha256": "690e463d0deb850ed89974b8c76d388e7c1f7a58b5233ff00562c53e98ce20f0",
+      "rgba_sha256": "c4c9888bcc4fc77b0b87f1cf5e52bf4ba305d3fea6570e458062a2677a35b7ac"
+    },
+    {
+      "file": "mob_bat_attack_002.png",
+      "source": "enemies/mob_bat/attack/keyframes/frame_002.png",
+      "sha256": "6428332034b8e403c645e2ca3eee75c645159becaacab2d5c3b17bca311efd02",
+      "rgba_sha256": "3a299b3ecb05c7a08e60df42a2dbfe8e58550407946441d40b52761553a3ad98"
+    },
+    {
+      "file": "mob_bat_attack_003.png",
+      "source": "enemies/mob_bat/attack/keyframes/frame_003.png",
+      "sha256": "ee5eb0eea94ae6851786f4ef2dba61742b75e74802d80f1f49751127c0ed77b5",
+      "rgba_sha256": "11d77f4b38bd02d8e64bb6a931e392a4b369667fe4660e333581aa5ee692e10d"
+    },
+    {
+      "file": "mob_bat_defeat_000.png",
+      "source": "enemies/mob_bat/defeat/keyframes/frame_000.png",
+      "sha256": "1d5f8bcd3022d72a41a430e5f830718e04602689d3cd5f3ba575af034614dff6",
+      "rgba_sha256": "0a3380f5a49e1ec4f62f333f909dcfd922de95e51ad4986b1ccc0c37032f7712"
+    },
+    {
+      "file": "mob_bat_defeat_001.png",
+      "source": "enemies/mob_bat/defeat/keyframes/frame_001.png",
+      "sha256": "6cd918356c31937d8fe6d039f2fc1e6641bd36bf570f487998685cb78046c18e",
+      "rgba_sha256": "3194c7ecfdc43684ee7fd616ded4a2c07e8975550f067b7e65d4fee54a2869c7"
+    },
+    {
+      "file": "mob_bat_defeat_002.png",
+      "source": "enemies/mob_bat/defeat/keyframes/frame_002.png",
+      "sha256": "14fe0c2ce4eec67a38651c07afc25e40137d9ffdaf02d10fb0c6c19e4bb68bb6",
+      "rgba_sha256": "5562c402ebef9332d098fcba49e12cc66188ef725ba54ed30a87f159b972c44d"
+    },
+    {
+      "file": "mob_bat_defeat_003.png",
+      "source": "enemies/mob_bat/defeat/keyframes/frame_003.png",
+      "sha256": "f211ebf1d7a6d16e11bd707b076c8eb16c7fce1a2d1e85f53325c474e724c552",
+      "rgba_sha256": "9a5280e34bff279338a3928bd94014c7977aff547bb88becbf51115f6ad6a72f"
+    },
+    {
+      "file": "mob_bat_defeat_004.png",
+      "source": "enemies/mob_bat/defeat/keyframes/frame_004.png",
+      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
+      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+    },
+    {
+      "file": "mob_wolf_locomotion_000.png",
+      "source": "enemies/mob_wolf/walk/keyframes/frame_000.png",
+      "sha256": "0df2a1405abdb7f27298de68d15d57e3937c9a54f9d2e19c4ceef02fdc9f0734",
+      "rgba_sha256": "987cc807217c48f70773708f61c11069ebb60ecc4e19c7809b3fae48f2df3971"
+    },
+    {
+      "file": "mob_wolf_locomotion_001.png",
+      "source": "enemies/mob_wolf/walk/keyframes/frame_001.png",
+      "sha256": "12eaec440625ba642677b3d6958d3743e1f87675e34325accd317ab14026b8e6",
+      "rgba_sha256": "4a9c201a63499ea872ec9ff8cf6518510011b52bd7ec4e923aeb055582cc2751"
+    },
+    {
+      "file": "mob_wolf_locomotion_002.png",
+      "source": "enemies/mob_wolf/walk/keyframes/frame_002.png",
+      "sha256": "8a552e696889f358a373248cb7a6e0cc81acba650f039de0d8b7cdbdb828b449",
+      "rgba_sha256": "0fa332264d71e05facfaf5f30fbe62d655ca428ac733e86ec1a44a17883afada"
+    },
+    {
+      "file": "mob_wolf_locomotion_003.png",
+      "source": "enemies/mob_wolf/walk/keyframes/frame_003.png",
+      "sha256": "e6429fd582855b0eab3628c793c00ac2541fa0e7bb32a29b022d7d7ddbf61876",
+      "rgba_sha256": "bafe03366f7c0e6046131eb7cb94a79f0ab6da4979a2ed03ce66f98ce7d94745"
+    },
+    {
+      "file": "mob_wolf_attack_000.png",
+      "source": "enemies/mob_wolf/attack/keyframes/frame_000.png",
+      "sha256": "e1c5c23e4c9b45c234ef0a9a905d7d01ea36d108c6dd14a3b545463b605a857c",
+      "rgba_sha256": "9d90245ed4a29449c02d7b417ee04acd386600919c774f827486f99b95fe612c"
+    },
+    {
+      "file": "mob_wolf_attack_001.png",
+      "source": "enemies/mob_wolf/attack/keyframes/frame_001.png",
+      "sha256": "02db1fea66078e115e1b10d3bf17c77280224056d517c6b332c801659e8d00dc",
+      "rgba_sha256": "7a720aa003034e6367b5c3c5782b9e742468d895c9e4e902576266948c5917de"
+    },
+    {
+      "file": "mob_wolf_attack_002.png",
+      "source": "enemies/mob_wolf/attack/keyframes/frame_002.png",
+      "sha256": "347344649145e34dca49ac4bb51a0891f6b44aca05d1669c916ad54bde0dda1a",
+      "rgba_sha256": "b32e2e21a1bc81d0c3403a5738d5e5b8615bb56c6ccb723338c1545e9e9f6aae"
+    },
+    {
+      "file": "mob_wolf_attack_003.png",
+      "source": "enemies/mob_wolf/attack/keyframes/frame_003.png",
+      "sha256": "2e02122a0f2347716903031a4fb2c35296d9f3de7ceb004127c66973af7d414f",
+      "rgba_sha256": "c1fe39dcc6f3a0a7349af06b235b77764c9cf86c994c1b247328e6aaa402c75a"
+    },
+    {
+      "file": "mob_wolf_defeat_000.png",
+      "source": "enemies/mob_wolf/defeat/keyframes/frame_000.png",
+      "sha256": "54fb3807cb3080cc5dc18edf0ef4fcdc1de8db1f5a25f36d8fe9e65f0c993efd",
+      "rgba_sha256": "db6761d0f767dc7e3f77074f9e9d69e351e89d4259bacd497651b47ae2495d02"
+    },
+    {
+      "file": "mob_wolf_defeat_001.png",
+      "source": "enemies/mob_wolf/defeat/keyframes/frame_001.png",
+      "sha256": "2d76dcac915e03f789a2a5a466c59426ae5e54466a03314043aa3800a42388ce",
+      "rgba_sha256": "bab31120e50c78ac5f9ea012003db2c444e9be9b52362523eb1c13bc6335dead"
+    },
+    {
+      "file": "mob_wolf_defeat_002.png",
+      "source": "enemies/mob_wolf/defeat/keyframes/frame_002.png",
+      "sha256": "caab40e3804f7d30019958a6481002ba1dec34d6c060d6fd54ac2ac9bfa6c5cb",
+      "rgba_sha256": "b35d78d59a1125d9724b6b0391ad40840775775e9217c0632fa514a82384fafd"
+    },
+    {
+      "file": "mob_wolf_defeat_003.png",
+      "source": "enemies/mob_wolf/defeat/keyframes/frame_003.png",
+      "sha256": "36ec7bda4884541f6a97798a0bb198b891f79496b5c4568095afa9f6454fcc07",
+      "rgba_sha256": "e97aeae8499b602d5df36af162bca99d6cc331470a17f120637fe5bf46591ed2"
+    },
+    {
+      "file": "mob_wolf_defeat_004.png",
+      "source": "enemies/mob_wolf/defeat/keyframes/frame_004.png",
+      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
+      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+    },
+    {
+      "file": "mob_skeleton_locomotion_000.png",
+      "source": "enemies/mob_skeleton/walk/keyframes/frame_000.png",
+      "sha256": "2f3f64d74453124d5d208ae5ab800e8c1930480582354d9d5e38f0c94619edac",
+      "rgba_sha256": "8ae7249922791d6fe81f6b51e5021b5406bbe4f592b3786b22b8796f63d03c8f"
+    },
+    {
+      "file": "mob_skeleton_locomotion_001.png",
+      "source": "enemies/mob_skeleton/walk/keyframes/frame_001.png",
+      "sha256": "b3a46d9b5547bba2301977272427a520b0753d0993214b3b9232398bbfbf5846",
+      "rgba_sha256": "2828fd71b61f50d99726411d0fa492c5fd55fb2982f6c5d376fc0564b352dca1"
+    },
+    {
+      "file": "mob_skeleton_locomotion_002.png",
+      "source": "enemies/mob_skeleton/walk/keyframes/frame_002.png",
+      "sha256": "b8b8a02d0acf271a242639efc84c45300b450e81d5e6257fca0ecdb32986236d",
+      "rgba_sha256": "fc4d60765c2e76e3db0fb01bf2390b7f9838e1cb5f84b26b43401783327978d8"
+    },
+    {
+      "file": "mob_skeleton_locomotion_003.png",
+      "source": "enemies/mob_skeleton/walk/keyframes/frame_003.png",
+      "sha256": "5a76c067131f30fc3367f29d3b140985def9991bd66077a8f33d1cc100ff840e",
+      "rgba_sha256": "0ceb6b55f2fe16ccc669573ba5c6b068306af19689e1fdd7f9c6febecc4942b6"
+    },
+    {
+      "file": "mob_skeleton_attack_000.png",
+      "source": "enemies/mob_skeleton/attack/keyframes/frame_000.png",
+      "sha256": "dced9c095f1f5a0484a40f27d1e9aff843b1606d3ddb10b4d0d667637b4f1944",
+      "rgba_sha256": "2ee5f9bd56adbbfb45b160af77d1083d42f7a2aef247f7917d32603c80db2b00"
+    },
+    {
+      "file": "mob_skeleton_attack_001.png",
+      "source": "enemies/mob_skeleton/attack/keyframes/frame_001.png",
+      "sha256": "8967c4ff14912580e4eca532ba106912e932a532f920c8274759a84b58aae52e",
+      "rgba_sha256": "9bb15f1982507fe3c8cea9dd85a8e362ef9cbc582d33ea9a999b0521206df379"
+    },
+    {
+      "file": "mob_skeleton_attack_002.png",
+      "source": "enemies/mob_skeleton/attack/keyframes/frame_002.png",
+      "sha256": "f73707e80928a118249fdf6f76d3a1899efc53288877a9b40a34a87455bbe633",
+      "rgba_sha256": "c6b449b09e0dcb82807bf8b7a661139ebed32da59779675d7872b58391ddedad"
+    },
+    {
+      "file": "mob_skeleton_attack_003.png",
+      "source": "enemies/mob_skeleton/attack/keyframes/frame_003.png",
+      "sha256": "948ae5985347751532e15c80b2e4f6924e06077bbe473f6760aef70dd117a24d",
+      "rgba_sha256": "dc990852851ba1722b614349dff2902577d1622a392faa32bce278d9b4fe7d7e"
+    },
+    {
+      "file": "mob_skeleton_defeat_000.png",
+      "source": "enemies/mob_skeleton/defeat/keyframes/frame_000.png",
+      "sha256": "216e5bab5bf4bc09a202c50fef5722fa9d040f1b255ce68dc291ece7a4640e8a",
+      "rgba_sha256": "d4931ac5925d56a8b4ac788d79875ea8a684184bdab37d987f428f5aebc552ad"
+    },
+    {
+      "file": "mob_skeleton_defeat_001.png",
+      "source": "enemies/mob_skeleton/defeat/keyframes/frame_001.png",
+      "sha256": "57e22988b0a5f21c5df09c2b8e15e65568b6f50f53dfa9aa92c7a0ca83d9d6b6",
+      "rgba_sha256": "1aed0ba07ae5b66a608d8ac701ea056e39e53b88f10c94bbf394bd6b38e48072"
+    },
+    {
+      "file": "mob_skeleton_defeat_002.png",
+      "source": "enemies/mob_skeleton/defeat/keyframes/frame_002.png",
+      "sha256": "396c21b46ffe3890060eb290f27b378af36f8e8de7167c083d3a8ddfa9c2d357",
+      "rgba_sha256": "e45db0a92f856ec81098482b72ea54d855c1e03449204091ad6acc943df15637"
+    },
+    {
+      "file": "mob_skeleton_defeat_003.png",
+      "source": "enemies/mob_skeleton/defeat/keyframes/frame_003.png",
+      "sha256": "87587e50696a7632cce47969ad3177d88224ce5cc41bbe539537b533bc55dcf4",
+      "rgba_sha256": "ec5a18ea2d3ef1d861543666c18bd823a42b78ab4e2b5047833a50069053ecd9"
+    },
+    {
+      "file": "mob_skeleton_defeat_004.png",
+      "source": "enemies/mob_skeleton/defeat/keyframes/frame_004.png",
+      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
+      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+    },
+    {
+      "file": "mob_poison_mushroom_locomotion_000.png",
+      "source": "enemies/mob_poison_mushroom/walk/keyframes/frame_000.png",
+      "sha256": "a325ea6f6c408900153817930e10ac63b9bcd12cdb0df9b7c922212d22778830",
+      "rgba_sha256": "8f1ef340d008f76c854abfc5c225e93e3ae41dc57dcafe6847a3fa1c914484db"
+    },
+    {
+      "file": "mob_poison_mushroom_locomotion_001.png",
+      "source": "enemies/mob_poison_mushroom/walk/keyframes/frame_001.png",
+      "sha256": "478eaca7769204e6d01b421005954feda771b4042d48e86ac77f4e1ba5b3bddd",
+      "rgba_sha256": "6d58e1e1736d81008fc9deda4114529bcaa069a612c3c3df7d6bb94ef107fe21"
+    },
+    {
+      "file": "mob_poison_mushroom_locomotion_002.png",
+      "source": "enemies/mob_poison_mushroom/walk/keyframes/frame_002.png",
+      "sha256": "1acafb115741547304b7a3d6e7c144fcd883545ae671d054de76a50dcf58c0e9",
+      "rgba_sha256": "736f8d3a3f182e7f0a347b8854b0b560f726470b74d07ee348d3fe459e8baeeb"
+    },
+    {
+      "file": "mob_poison_mushroom_locomotion_003.png",
+      "source": "enemies/mob_poison_mushroom/walk/keyframes/frame_003.png",
+      "sha256": "6c4da4a26203b113246dff7b3d7ae55b3006ac8c7c09cc624e72b6c0642ded94",
+      "rgba_sha256": "fe864b07b68de11114004d8052cfbccfb5c7e08c400333a69fe8db966871ea9d"
+    },
+    {
+      "file": "mob_poison_mushroom_attack_000.png",
+      "source": "enemies/mob_poison_mushroom/attack/keyframes/frame_000.png",
+      "sha256": "3b08e5d55c31f2e31ec70f3c832f1f88675463143d5321552e2048b2a70c2841",
+      "rgba_sha256": "ae47bf6672105ab7a61dbaa5f647ff501b2850332b300835314e51312532c4f5"
+    },
+    {
+      "file": "mob_poison_mushroom_attack_001.png",
+      "source": "enemies/mob_poison_mushroom/attack/keyframes/frame_001.png",
+      "sha256": "ecc72217d35ed549f5291ded39cab121a300c1cdcc6edec6b55b5b5a79d2f58a",
+      "rgba_sha256": "3b1127ca2677cb78aba32508f938de8e4a52e5a2bd956ef391e94d4e524b7fcf"
+    },
+    {
+      "file": "mob_poison_mushroom_attack_002.png",
+      "source": "enemies/mob_poison_mushroom/attack/keyframes/frame_002.png",
+      "sha256": "3d555333bcb77149cd300efa022f96c900948eea66628aea2fd58aa752309f8d",
+      "rgba_sha256": "0b928527a296db3b113c6e110a77070036912171d88f887a6b730f1de337b799"
+    },
+    {
+      "file": "mob_poison_mushroom_attack_003.png",
+      "source": "enemies/mob_poison_mushroom/attack/keyframes/frame_003.png",
+      "sha256": "6f75306b4d93714ed17b437787a52a554d05f78afea2f6bf2e26c602bed962e1",
+      "rgba_sha256": "f2a8f3cc85a1a8ebe2f4f0c6afba673ff7902a58cb96b526660992a69c5d65cc"
+    },
+    {
+      "file": "mob_poison_mushroom_defeat_000.png",
+      "source": "enemies/mob_poison_mushroom/defeat/keyframes/frame_000.png",
+      "sha256": "a75d1409e7c2df5c248215ddca5302b7a46337d3cfc134d875090692c6f1fa42",
+      "rgba_sha256": "4f6e50bbd7acdade82c27f7ea2828f6c63c06cfe211a14382f6df7340bc21fe2"
+    },
+    {
+      "file": "mob_poison_mushroom_defeat_001.png",
+      "source": "enemies/mob_poison_mushroom/defeat/keyframes/frame_001.png",
+      "sha256": "a91da670e79809099d2a433ea84f40fa6e0ad192973d3f620be70d06b9dd27a1",
+      "rgba_sha256": "6f2c03d3688c31850581bb1343d7b42cd28fa49b62e212ed80e1b52921a2c661"
+    },
+    {
+      "file": "mob_poison_mushroom_defeat_002.png",
+      "source": "enemies/mob_poison_mushroom/defeat/keyframes/frame_002.png",
+      "sha256": "93b60866053c60a78d314a64c1564bdbd2f7f931c291502e15970a43babdafd2",
+      "rgba_sha256": "97317d54aea1499755b75ac59d265e86a56f4f821876aed3757999a77845aaa6"
+    },
+    {
+      "file": "mob_poison_mushroom_defeat_003.png",
+      "source": "enemies/mob_poison_mushroom/defeat/keyframes/frame_003.png",
+      "sha256": "f916219cb0273e141c1a7d3e34c0730b8dbb271f649e3da0d2161978a1274a2d",
+      "rgba_sha256": "58da4883d5e43dc6b34b91aa4e5d3650e6eefac68c71f2ed0ec557b7b6136be0"
+    },
+    {
+      "file": "mob_poison_mushroom_defeat_004.png",
+      "source": "enemies/mob_poison_mushroom/defeat/keyframes/frame_004.png",
+      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
+      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+    },
+    {
+      "file": "mob_imp_locomotion_000.png",
+      "source": "enemies/mob_imp/walk/keyframes/frame_000.png",
+      "sha256": "7f86c56c01b28f4bc4864a70a83cb98ad53b30e31e68ca0ee92a6f59f6bcb2d0",
+      "rgba_sha256": "47ecf6071099b10a030677aafa2aae786c9d55e55cd04bd985affe89395cd4cb"
+    },
+    {
+      "file": "mob_imp_locomotion_001.png",
+      "source": "enemies/mob_imp/walk/keyframes/frame_001.png",
+      "sha256": "3e85c8d5cef4afdabc57ccfb320da32fc805b01d9869f7d1ca81b4f5e70d6373",
+      "rgba_sha256": "0705fd859e87404a6918fe077ca7c8560ea9f77617162d9619b217caaf648e47"
+    },
+    {
+      "file": "mob_imp_locomotion_002.png",
+      "source": "enemies/mob_imp/walk/keyframes/frame_002.png",
+      "sha256": "d7cfd658efd96a65155d3cc54a0ae5414aa53abdd226cd8db52b1e8472a7a05f",
+      "rgba_sha256": "22a2280f53770da6bb4d2089ab7c277d7933f65b16a2c97eb4bf168062913482"
+    },
+    {
+      "file": "mob_imp_locomotion_003.png",
+      "source": "enemies/mob_imp/walk/keyframes/frame_003.png",
+      "sha256": "aff2594ea75029fc40ddda522e391c4d88671e761eaee25cdf69229873e2f45d",
+      "rgba_sha256": "b9a57966ffd1007e4dd9532db4488fbf9dc6c9055f9daa7248ca5096ecdd865f"
+    },
+    {
+      "file": "mob_imp_attack_000.png",
+      "source": "enemies/mob_imp/attack/keyframes/frame_000.png",
+      "sha256": "cb845e2082dff6f7824778fcf27ce4f972480f4c57668b4267fd2c37e8604803",
+      "rgba_sha256": "8ffe96824c2b923d84c295fca615c3ab42d966b3f528c466e1419b8a79708bd3"
+    },
+    {
+      "file": "mob_imp_attack_001.png",
+      "source": "enemies/mob_imp/attack/keyframes/frame_001.png",
+      "sha256": "4e038098e47c908b8dc437ac13d920eb84a353861ecf0de7b036481d273b5ead",
+      "rgba_sha256": "e79a6eedfd2f5f8ae33e22e59f15a32cf1e483239bd92508d394b061944c39b5"
+    },
+    {
+      "file": "mob_imp_attack_002.png",
+      "source": "enemies/mob_imp/attack/keyframes/frame_002.png",
+      "sha256": "7214f296cf02eaabe48b6d6f8b95a045bde93deb9560891bd45db701f65dba84",
+      "rgba_sha256": "0e5f728d1a7b09bf31c8c58f05150b2f490df0cbe102fc5dbd0c6e3490d6f624"
+    },
+    {
+      "file": "mob_imp_attack_003.png",
+      "source": "enemies/mob_imp/attack/keyframes/frame_003.png",
+      "sha256": "c950da1dcd8e7229571894b7cc0a483efc68cf734b973863ccb1e074095f7410",
+      "rgba_sha256": "3675562b042205314a2f55f5aef34f9b9c0ce3a872b3a9bf3c580b734789bb82"
+    },
+    {
+      "file": "mob_imp_defeat_000.png",
+      "source": "enemies/mob_imp/defeat/keyframes/frame_000.png",
+      "sha256": "a3bd0b5cb5ca5ceeecca5fa584ed4c4b52daacfd122e355dc33db47347b637e2",
+      "rgba_sha256": "7ffd91f471de232ea0c0c1171ae4a36efacb7e0647d33d8bea06197308ec96ae"
+    },
+    {
+      "file": "mob_imp_defeat_001.png",
+      "source": "enemies/mob_imp/defeat/keyframes/frame_001.png",
+      "sha256": "719d088af9a0f8dc71d46e210a7293e609f4f401b5289dbd9782be88e0ae8b9a",
+      "rgba_sha256": "e55f04f019d667ad0c3bfce2937d18737a3ce8a97710e90e5a4d2f17f0f21179"
+    },
+    {
+      "file": "mob_imp_defeat_002.png",
+      "source": "enemies/mob_imp/defeat/keyframes/frame_002.png",
+      "sha256": "7ad10b8c4664e29707a0be998ea03a5ec248185651804130e3cad307974f801d",
+      "rgba_sha256": "32002d6fa0fec6f8875ede859269b6094b37ad76c42da544cc8d9c5c37210aa1"
+    },
+    {
+      "file": "mob_imp_defeat_003.png",
+      "source": "enemies/mob_imp/defeat/keyframes/frame_003.png",
+      "sha256": "a178958a4a0ee9e56614119f393f1ac8f09972f11becd6934479ff3aa522a0aa",
+      "rgba_sha256": "fc484316b793edd93b9d1ed132cdff7da90814572db262fb54f567f2c3afc14a"
+    },
+    {
+      "file": "mob_imp_defeat_004.png",
+      "source": "enemies/mob_imp/defeat/keyframes/frame_004.png",
+      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
+      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+    },
+    {
       "file": "boss_goblin_king_locomotion_000.png",
       "source": "enemies/boss_goblin_king/walk/keyframes/frame_000.png",
       "sha256": "a612df92364f332957e438e5d8118f45aab874514aec38c978d78ef236e42f63",
@@ -4581,6 +5001,396 @@
     {
       "file": "boss_cyclops_defeat_008.png",
       "source": "enemies/boss_cyclops/defeat/keyframes/frame_008.png",
+      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
+      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+    },
+    {
+      "file": "boss_lich_locomotion_000.png",
+      "source": "enemies/boss_lich/walk/keyframes/frame_000.png",
+      "sha256": "e7f60e3f4b20eff8399b5c753ddfcc3dda1ab8b335c30ea5f12104ca01d84fa3",
+      "rgba_sha256": "bdbf873f1c79ab426dfb3002b2c5f1f69b26cf1e2f23e8d8a349bc371fda2a3a"
+    },
+    {
+      "file": "boss_lich_locomotion_001.png",
+      "source": "enemies/boss_lich/walk/keyframes/frame_001.png",
+      "sha256": "abf94b94ea520ecdea79c2ce05acd7853a890e97207e1952fbb1db2300447171",
+      "rgba_sha256": "50f3426dc9702443ddec25b66d9eac65675eccc0f202abc177050734b6873dd9"
+    },
+    {
+      "file": "boss_lich_locomotion_002.png",
+      "source": "enemies/boss_lich/walk/keyframes/frame_002.png",
+      "sha256": "e526a435267edca3d39bf54d0e22e3404d42b0b0f3735c9e379a9528297c692b",
+      "rgba_sha256": "a5a251b713dd65c136af0c39ee059afdcac989b9b65acdba0d3ddbf17a6a18ea"
+    },
+    {
+      "file": "boss_lich_locomotion_003.png",
+      "source": "enemies/boss_lich/walk/keyframes/frame_003.png",
+      "sha256": "e4a880f2f178a80821d7341f278c87a46c781c4b57b794e5eea116c26131c69d",
+      "rgba_sha256": "99e4326b9a4e796d7b3715beb0be01b4ad4b9a8a55c2ef75e470a75479e74558"
+    },
+    {
+      "file": "boss_lich_attack_000.png",
+      "source": "enemies/boss_lich/attack/keyframes/frame_000.png",
+      "sha256": "1b799a7159a2d597d0f9931b5a59bb03c970eb9c8c6662452109f8bcd69fce2e",
+      "rgba_sha256": "0ca187e30b7e8d2edf124a0bbdece648db9cdd4c9fa545ae52aad046d53de48c"
+    },
+    {
+      "file": "boss_lich_attack_001.png",
+      "source": "enemies/boss_lich/attack/keyframes/frame_001.png",
+      "sha256": "7964545bbf6c2955967500882c1676beffdddb224e6b49817bdc851e65d0e52e",
+      "rgba_sha256": "2777bc8160db7efe4421e1502335fc9acf0d20bd32ab085cd3e56cb32718bc2d"
+    },
+    {
+      "file": "boss_lich_attack_002.png",
+      "source": "enemies/boss_lich/attack/keyframes/frame_002.png",
+      "sha256": "aab710cb8f84dba840d3326138c862d89d5736af8b298d688add535dc3b598d9",
+      "rgba_sha256": "5d4d9b0419b21e260bd7ff781c5ffa423f52f5487bfc856b3e7ab5cbf07e4102"
+    },
+    {
+      "file": "boss_lich_attack_003.png",
+      "source": "enemies/boss_lich/attack/keyframes/frame_003.png",
+      "sha256": "5a7676027c7afa3733ab3a8d326ae009508e397b4cc40624d5898d6aa3b43d00",
+      "rgba_sha256": "c88d50651e3c432b9f7c2dba7fff64a074c18eaed0369d6dd70378c1373d4fe5"
+    },
+    {
+      "file": "boss_lich_defeat_000.png",
+      "source": "enemies/boss_lich/defeat/keyframes/frame_000.png",
+      "sha256": "660eb3c0ce5618c4b3afb89c325d737f269ae96edbb4aeb8b2af40ae6d568d94",
+      "rgba_sha256": "ea4197b62ee4d81f55859d247c102a2d11f68b9e8bb0fdb01291b8c8aef4def7"
+    },
+    {
+      "file": "boss_lich_defeat_001.png",
+      "source": "enemies/boss_lich/defeat/keyframes/frame_001.png",
+      "sha256": "eb163a712fe641f3a429694903d886542a4999410307eb0978ac34ffce91bb1b",
+      "rgba_sha256": "dcab1aed471553084f899c1a56825125bf2b8897e7559fccb9179f329bef4cca"
+    },
+    {
+      "file": "boss_lich_defeat_002.png",
+      "source": "enemies/boss_lich/defeat/keyframes/frame_002.png",
+      "sha256": "7734257caff0443afdb165d7ec624f9f8e9769a835f68b040d0faefd9e462e1d",
+      "rgba_sha256": "f284c0c6f670b7774bea5f0d88e9b086d8a2b7ed3489d622487bda6c91fff1d4"
+    },
+    {
+      "file": "boss_lich_defeat_003.png",
+      "source": "enemies/boss_lich/defeat/keyframes/frame_003.png",
+      "sha256": "0fc920bc22a445149da3db294458332c1f9742eb3e3159fefe2ae04523baed6d",
+      "rgba_sha256": "8dee71da3b6071fb0630ae918ac459d61d5c35986a356554789d141970edf361"
+    },
+    {
+      "file": "boss_lich_defeat_004.png",
+      "source": "enemies/boss_lich/defeat/keyframes/frame_004.png",
+      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
+      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+    },
+    {
+      "file": "boss_minotaur_locomotion_000.png",
+      "source": "enemies/boss_minotaur/walk/keyframes/frame_000.png",
+      "sha256": "d255afb6beb47a539e87abb0cb399aeab73fd4e34d39cc3d067677af21ea7ade",
+      "rgba_sha256": "b052c4a71953a89edd5db9411a891339207a1e15aadff9068ecf91a2ffd6084b"
+    },
+    {
+      "file": "boss_minotaur_locomotion_001.png",
+      "source": "enemies/boss_minotaur/walk/keyframes/frame_001.png",
+      "sha256": "dee04008b122841bb2898b1a7d0188dcd58546b17c2c0e011b7cabf70df527c4",
+      "rgba_sha256": "669b49b2e5a4aae7d407197bf71af2118a75c4330ce1b51d8326353bf5758d2b"
+    },
+    {
+      "file": "boss_minotaur_locomotion_002.png",
+      "source": "enemies/boss_minotaur/walk/keyframes/frame_002.png",
+      "sha256": "e6a0f3d808ee3bb40a372c57fdacccf407bb6878b77dac251142e5ef49cab275",
+      "rgba_sha256": "5bd16eb21f8c7feccaf6dfa9b0142dc43ee3f16d74788a89a965cc521b0a8845"
+    },
+    {
+      "file": "boss_minotaur_locomotion_003.png",
+      "source": "enemies/boss_minotaur/walk/keyframes/frame_003.png",
+      "sha256": "dffd69afc969ec2f9e549f671e5410d1c878707f312e97993f3135e472913c92",
+      "rgba_sha256": "6a9a4d31620e328af6be0c36ffb95b498f03b48ba5bfe5dbfe5716602932c1ad"
+    },
+    {
+      "file": "boss_minotaur_attack_000.png",
+      "source": "enemies/boss_minotaur/attack/keyframes/frame_000.png",
+      "sha256": "72008a1fcb757e5a4aa47cf301c1c18b9f94b11e26af84ef651daafea1ce1108",
+      "rgba_sha256": "cf770a2813c0f460930d19b3c166bf54bbafde1aed6692a01b66410078bf5d17"
+    },
+    {
+      "file": "boss_minotaur_attack_001.png",
+      "source": "enemies/boss_minotaur/attack/keyframes/frame_001.png",
+      "sha256": "abf7cfdf798ba19cf463e70511af84fc4d95c14aa65f85e304bb7c35497953c2",
+      "rgba_sha256": "9031957e246edcf6aec6f972088ed8386e57ed9883d13012f2d85eb3936d658a"
+    },
+    {
+      "file": "boss_minotaur_attack_002.png",
+      "source": "enemies/boss_minotaur/attack/keyframes/frame_002.png",
+      "sha256": "edb33477230c49542d4ee15914116ed3cc56805670b41ad63826c5cc2e550fc5",
+      "rgba_sha256": "6f53435baedffc4f5fcc5b4fb23abc6eb5bd4ea3cce5a4d6c1d044ebb6c09113"
+    },
+    {
+      "file": "boss_minotaur_attack_003.png",
+      "source": "enemies/boss_minotaur/attack/keyframes/frame_003.png",
+      "sha256": "46f25ec28e8ff2ed9ec2a57cbb09113812f55d9bcb891640d77b4c393671c442",
+      "rgba_sha256": "fb2dc679057761b1fb87d57fc7e4dc6013baa28cff4d8d74c6e54e7c1b420274"
+    },
+    {
+      "file": "boss_minotaur_defeat_000.png",
+      "source": "enemies/boss_minotaur/defeat/keyframes/frame_000.png",
+      "sha256": "f57a3ec30d272af1f26b6bdf88a348b25df8c84c1b598d9389f4f560aa5b1545",
+      "rgba_sha256": "3bb14cfe8d712b2ed7eb305626032fd8aed6af69e8e3797e27392eab42f0d555"
+    },
+    {
+      "file": "boss_minotaur_defeat_001.png",
+      "source": "enemies/boss_minotaur/defeat/keyframes/frame_001.png",
+      "sha256": "5ccab2f6c30a06f3ca6ffa5c67cf7141640838f84f1bd7130483a10d48f745bd",
+      "rgba_sha256": "2e10b8c43f41b61048ec3e62e387021b9be7e52efecb42e530364ce9a1fbbba7"
+    },
+    {
+      "file": "boss_minotaur_defeat_002.png",
+      "source": "enemies/boss_minotaur/defeat/keyframes/frame_002.png",
+      "sha256": "fb34292b4988b1d9d3c1b0c91ae5fdd749bf7dd0d119a22ef8396481009d7f7e",
+      "rgba_sha256": "912bdb1360c267cec28b2ce0a2d1708be091ed659349bb70b8d2f5ce96ff0339"
+    },
+    {
+      "file": "boss_minotaur_defeat_003.png",
+      "source": "enemies/boss_minotaur/defeat/keyframes/frame_003.png",
+      "sha256": "4fb9bfbbde3dbae8f2bd19109e3558b5bd0969585c0f5b6e3c63e7ba3f22f13c",
+      "rgba_sha256": "5c4446c68d5499ddc88a2de045b5209439d8034dc7475b074dd943ae3df82406"
+    },
+    {
+      "file": "boss_minotaur_defeat_004.png",
+      "source": "enemies/boss_minotaur/defeat/keyframes/frame_004.png",
+      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
+      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+    },
+    {
+      "file": "boss_stone_golem_locomotion_000.png",
+      "source": "enemies/boss_stone_golem/walk/keyframes/frame_000.png",
+      "sha256": "4fdb90ed7d7ef5789c3c9fea44c371a279db573f9d3d159737dc31bf639ad03b",
+      "rgba_sha256": "754839acb1ec46dbfd127b941a5bed77e4029b1157f5150d3d971ba366df7c58"
+    },
+    {
+      "file": "boss_stone_golem_locomotion_001.png",
+      "source": "enemies/boss_stone_golem/walk/keyframes/frame_001.png",
+      "sha256": "66032a6ab11e22eeb25e48c3b400fd05accb8cf3a6e8a9c57812f33542f48853",
+      "rgba_sha256": "5ec1617fe0c606cef6595bdfe204b83ea2fecf22add62416ff5494492ac235c1"
+    },
+    {
+      "file": "boss_stone_golem_locomotion_002.png",
+      "source": "enemies/boss_stone_golem/walk/keyframes/frame_002.png",
+      "sha256": "78a01ff083606c26ae95dd6eab4314dca3f83c8c0cb3242e1bd4b235fdbe9ec8",
+      "rgba_sha256": "e0af5d158da21d860b380410aa179c5c2e21e0f6bce9775f473aaf257a8ad4b2"
+    },
+    {
+      "file": "boss_stone_golem_locomotion_003.png",
+      "source": "enemies/boss_stone_golem/walk/keyframes/frame_003.png",
+      "sha256": "69dcfd929773b26a42dfd0227a21baa38b8261c08e8edeb6f063d659e024805e",
+      "rgba_sha256": "995e3427ec4959c46386035c63d4dd1776d714d2958228ba795668ee0b9e7cc1"
+    },
+    {
+      "file": "boss_stone_golem_attack_000.png",
+      "source": "enemies/boss_stone_golem/attack/keyframes/frame_000.png",
+      "sha256": "c76abdcce3bc283fcd12d5af34636102443a280024e163ce090786661b40122d",
+      "rgba_sha256": "8a3b3e28ce5a6969c7562bd81cd8a6e638fcc746304e94a4f553a54b76cd6df1"
+    },
+    {
+      "file": "boss_stone_golem_attack_001.png",
+      "source": "enemies/boss_stone_golem/attack/keyframes/frame_001.png",
+      "sha256": "1fe637e5829d769d89ee264807f7afab049eaeab48eb44850f89834883565ce6",
+      "rgba_sha256": "f026b759fc6240c8c2aca1c7dc2e246fd2a300ecbb0151d480ece98a909fb754"
+    },
+    {
+      "file": "boss_stone_golem_attack_002.png",
+      "source": "enemies/boss_stone_golem/attack/keyframes/frame_002.png",
+      "sha256": "cb4850a4e25029e193d39030fd116580febb1fbf47b7f14ef97cd025b8621ce3",
+      "rgba_sha256": "17b8ee874581fca746b64ac602598cb9bfd00c3b03e7eaf3322d98da8d8843ff"
+    },
+    {
+      "file": "boss_stone_golem_attack_003.png",
+      "source": "enemies/boss_stone_golem/attack/keyframes/frame_003.png",
+      "sha256": "92dd599ec1cc11a6bdef110692cd0a195aa07a4b72508a923222563528b77979",
+      "rgba_sha256": "f083da4fb2c70bddfeb49d175ede7015a86c5bb9781196ef287febfd63fbc3e1"
+    },
+    {
+      "file": "boss_stone_golem_defeat_000.png",
+      "source": "enemies/boss_stone_golem/defeat/keyframes/frame_000.png",
+      "sha256": "5b25eaf8fae7fd860835b5282d74bfb333dd605b93f5246a213c785b487e3ba7",
+      "rgba_sha256": "df118cf5ff3bf94ba65c2fd6752400c5e923f1558177c4d244e2355f16d91c4c"
+    },
+    {
+      "file": "boss_stone_golem_defeat_001.png",
+      "source": "enemies/boss_stone_golem/defeat/keyframes/frame_001.png",
+      "sha256": "2347422bee145d84c595a8628448c8ff7dd005a524425197e696dfd893fb4422",
+      "rgba_sha256": "81e2dda2f583f7e4e951d1023824b14579237e388a93ad67e61f6465bfd41a65"
+    },
+    {
+      "file": "boss_stone_golem_defeat_002.png",
+      "source": "enemies/boss_stone_golem/defeat/keyframes/frame_002.png",
+      "sha256": "14da5db8dbf3d6535add031488ad7cddf2613077dc9cc869fa9072758587b943",
+      "rgba_sha256": "228e3984e571d8cfc4ded17ada70bc62be050301f6ba95b640d394a2b28f7ab6"
+    },
+    {
+      "file": "boss_stone_golem_defeat_003.png",
+      "source": "enemies/boss_stone_golem/defeat/keyframes/frame_003.png",
+      "sha256": "fba678b03d1967d7e6ae4a48f2afeb8963c27f2ba84b3dfe48119ac629928a08",
+      "rgba_sha256": "c404c851842e24ce0acaa6875c734be6ea2de3d1eb59db1d3afe911a386c5af6"
+    },
+    {
+      "file": "boss_stone_golem_defeat_004.png",
+      "source": "enemies/boss_stone_golem/defeat/keyframes/frame_004.png",
+      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
+      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+    },
+    {
+      "file": "boss_cerberus_locomotion_000.png",
+      "source": "enemies/boss_cerberus/walk/keyframes/frame_000.png",
+      "sha256": "cabb0caa3fa99e5bc81c60dbab1b28ba5af600a8966a8d4573af8aa49c4e0834",
+      "rgba_sha256": "ce03ac4f4ebcfb27ee51026679db51428d71ea86e6dbf51597caeab705397cb2"
+    },
+    {
+      "file": "boss_cerberus_locomotion_001.png",
+      "source": "enemies/boss_cerberus/walk/keyframes/frame_001.png",
+      "sha256": "776897ff55d797d0128b37df3a3ffc5cc615e38968542f4c1c03609d303e7f7c",
+      "rgba_sha256": "371fa6b70e09357fd28297513e9b71a5092b2cacc0950a8d58272bac19687939"
+    },
+    {
+      "file": "boss_cerberus_locomotion_002.png",
+      "source": "enemies/boss_cerberus/walk/keyframes/frame_002.png",
+      "sha256": "978b0ecd6a4551a5bd139ca0282d4d3b015d5bba2010df882cf632e7e8d809a9",
+      "rgba_sha256": "1097bfc47677ac5460178c5211d4a95a77801adeb54391594bf4906ba16930bf"
+    },
+    {
+      "file": "boss_cerberus_locomotion_003.png",
+      "source": "enemies/boss_cerberus/walk/keyframes/frame_003.png",
+      "sha256": "2ceffb0932e407c83ce5fa1ed9aa85ea75d9347925e068aa1e281bebdf66bb32",
+      "rgba_sha256": "1d819ce692f44e480cf74d433d9c5bb91d723f8b0426e9d9d60c20743a700c88"
+    },
+    {
+      "file": "boss_cerberus_attack_000.png",
+      "source": "enemies/boss_cerberus/attack/keyframes/frame_000.png",
+      "sha256": "12d74e4b06d99bdc5df344b881d3db8a94ae4badc8b6b901ba8a81b866bd5e90",
+      "rgba_sha256": "9714e83df94a632cd97a96d016669792333ce3eec93538d25aabb9fd7a2bb3cf"
+    },
+    {
+      "file": "boss_cerberus_attack_001.png",
+      "source": "enemies/boss_cerberus/attack/keyframes/frame_001.png",
+      "sha256": "fefdc81d96013e51b4325ae8cf877f72c58f1e44813b721b99d7a6d9c568880e",
+      "rgba_sha256": "0f17e0f6c97db1d5955cd8df80d9e8162cc85dbd13f60de202f6f73c11c4f3cb"
+    },
+    {
+      "file": "boss_cerberus_attack_002.png",
+      "source": "enemies/boss_cerberus/attack/keyframes/frame_002.png",
+      "sha256": "ddef2db417e7ddd4e97b659a2dbbf663953ab984d492f55fe855522f59351dbf",
+      "rgba_sha256": "592dced05e82555e5edd581ba603d9682acb0a490871c6a7212dcbeda8990164"
+    },
+    {
+      "file": "boss_cerberus_attack_003.png",
+      "source": "enemies/boss_cerberus/attack/keyframes/frame_003.png",
+      "sha256": "92a49d777e5a8a4ea1ec8bf4e07ac8a5917eeef77d41722f2c947cc40711908d",
+      "rgba_sha256": "9da8275769f32fc6078bd1fa93d2512ef6936af308cd1d9e9d3bd82777d6155d"
+    },
+    {
+      "file": "boss_cerberus_defeat_000.png",
+      "source": "enemies/boss_cerberus/defeat/keyframes/frame_000.png",
+      "sha256": "8e4ed421c783ba8684f536a5ae4063de30c82eba0e8fbfc17b119d6f261046f5",
+      "rgba_sha256": "0cce0edee5ad6b91fc50006d0667581b22402baa5dba00788d3ef0bf71757042"
+    },
+    {
+      "file": "boss_cerberus_defeat_001.png",
+      "source": "enemies/boss_cerberus/defeat/keyframes/frame_001.png",
+      "sha256": "4aa2eff146eda1f15e530efd7ff86656a412d08416cb91474cc19fda4d50fdd7",
+      "rgba_sha256": "492356b99f4f34933b297558ebee51ce65b6ebf9bf667b3336a40a32ae88173b"
+    },
+    {
+      "file": "boss_cerberus_defeat_002.png",
+      "source": "enemies/boss_cerberus/defeat/keyframes/frame_002.png",
+      "sha256": "a0f3c70421099f5ad4c1215b2ad3d09fa1b2cf00121f0c24477c48e4a7b768af",
+      "rgba_sha256": "50d3b795986c85f2c0a103c677dad11f2c72d33547d0215e5a323e57b0280803"
+    },
+    {
+      "file": "boss_cerberus_defeat_003.png",
+      "source": "enemies/boss_cerberus/defeat/keyframes/frame_003.png",
+      "sha256": "7a32c92ac643f51cc8a23a563dbf7c5d6e37360025b42af03fa805c592581dd7",
+      "rgba_sha256": "93552cb22f2eceab04d4097cc507697253271cd961a63a59c0c8988ee4f2075d"
+    },
+    {
+      "file": "boss_cerberus_defeat_004.png",
+      "source": "enemies/boss_cerberus/defeat/keyframes/frame_004.png",
+      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
+      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+    },
+    {
+      "file": "boss_demon_lord_locomotion_000.png",
+      "source": "enemies/boss_demon_lord/walk/keyframes/frame_000.png",
+      "sha256": "4e796c151c88af42b35fc5f9961c8953d9452e395374ab84c94594d444263fc9",
+      "rgba_sha256": "a19538e91fc8864fd568c99f4834f0c4605ad7d1e3f833047de49ce4e9f5eaee"
+    },
+    {
+      "file": "boss_demon_lord_locomotion_001.png",
+      "source": "enemies/boss_demon_lord/walk/keyframes/frame_001.png",
+      "sha256": "52e687fbbc670d042c6eacd7e2f524aac7425b131b61eca699852839f31fe6b5",
+      "rgba_sha256": "fb4df9591400832b48a7d36ad08e3bc550a094d5be65a816136e9f3ec5652580"
+    },
+    {
+      "file": "boss_demon_lord_locomotion_002.png",
+      "source": "enemies/boss_demon_lord/walk/keyframes/frame_002.png",
+      "sha256": "28d22c8e9baff0376f9a1c173246c70ab4fedc7d3f76db6ab912ca92440a22f1",
+      "rgba_sha256": "e622b60108c518c9653317f78971629d71841a8b0f5c005f99ebf58c2c241425"
+    },
+    {
+      "file": "boss_demon_lord_locomotion_003.png",
+      "source": "enemies/boss_demon_lord/walk/keyframes/frame_003.png",
+      "sha256": "d59492e54d02f1de0f03ee617ea4d770fbc7b9b146de562b6ccabbc338511226",
+      "rgba_sha256": "27a48f7cd16446356dc0bc1cb3db66bc986b360de9444edd772aa63ed9e205df"
+    },
+    {
+      "file": "boss_demon_lord_attack_000.png",
+      "source": "enemies/boss_demon_lord/attack/keyframes/frame_000.png",
+      "sha256": "47d1996758d6d3c29cbe652c2aa4a69e4ccae768284b98ca84578656c7fdde7a",
+      "rgba_sha256": "9c88a9ea3ce82c00d0d55e0506a5d246c19f847e2587fc38b161f56591574bf9"
+    },
+    {
+      "file": "boss_demon_lord_attack_001.png",
+      "source": "enemies/boss_demon_lord/attack/keyframes/frame_001.png",
+      "sha256": "ead748e41ccb1f9a8d39b6833c4985fa81ff3a1241dc97769f88c02eabb4183d",
+      "rgba_sha256": "0a61e8c11910938a3e06615b509180a6e545d4f1b19e3de0316e48551788bf10"
+    },
+    {
+      "file": "boss_demon_lord_attack_002.png",
+      "source": "enemies/boss_demon_lord/attack/keyframes/frame_002.png",
+      "sha256": "917f2ab0c33c1b284c980d7dea85afb9d763d07aad0d71580bb7cc2f49197423",
+      "rgba_sha256": "e520d4c73db91784f736835df531114fe0500a93ce196dbc47d37eafcfd9b1b6"
+    },
+    {
+      "file": "boss_demon_lord_attack_003.png",
+      "source": "enemies/boss_demon_lord/attack/keyframes/frame_003.png",
+      "sha256": "434fa4999533846505ffff356c9bfbba3ea6fb5f9c26b6be54546dd4e2ddca28",
+      "rgba_sha256": "bffe712fdfaa3ac3ced6c1c51be5162ed6b97574e48dd1f55d72bfdf97010c56"
+    },
+    {
+      "file": "boss_demon_lord_defeat_000.png",
+      "source": "enemies/boss_demon_lord/defeat/keyframes/frame_000.png",
+      "sha256": "7b5db9e6f8b2c4f83fbb567ba360090a745a469762bf9749313a33e7675c8514",
+      "rgba_sha256": "153a9f8880b5ade5c1c0871b798da41ce1ede4c9ce0d2bb96e0b97bcd937eebe"
+    },
+    {
+      "file": "boss_demon_lord_defeat_001.png",
+      "source": "enemies/boss_demon_lord/defeat/keyframes/frame_001.png",
+      "sha256": "b311fb9e28df82d4006e789af1012d1ab6e9c3be22e92072e10e072efa62cd76",
+      "rgba_sha256": "e2dafce3e843c1381a8b16a728497076989dba367cc479227789fc5e4dc46ace"
+    },
+    {
+      "file": "boss_demon_lord_defeat_002.png",
+      "source": "enemies/boss_demon_lord/defeat/keyframes/frame_002.png",
+      "sha256": "de2dc517b4932c5c60fcd9fd23d1f7519bd54900aea4e031ce08e84d9fd98e8a",
+      "rgba_sha256": "131880c7823247233cf75e0e9b6a5b93a59f94c23f7033bf9a0cdda49acf94c9"
+    },
+    {
+      "file": "boss_demon_lord_defeat_003.png",
+      "source": "enemies/boss_demon_lord/defeat/keyframes/frame_003.png",
+      "sha256": "5e8582a6f9ed7e291662f6bb2b5ac01114ecbdf62ca8cccde12afedc30ad6181",
+      "rgba_sha256": "be3c81763daf0752b0f5936f7d8375e41c724f75cd7300be4be5de5515786fdf"
+    },
+    {
+      "file": "boss_demon_lord_defeat_004.png",
+      "source": "enemies/boss_demon_lord/defeat/keyframes/frame_004.png",
       "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
       "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
     }

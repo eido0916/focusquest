@@ -25,7 +25,7 @@ void main() {
   tearDownAll(() => assets.dispose());
   test('every area loads its background and only its selected enemies',
       () async {
-    for (final number in [1, 4, 8, 12, 16]) {
+    for (final number in [1, 4, 8, 12, 16, 20, 24, 28, 32, 36]) {
       final stage = PlayableStageCatalog.stages[number - 1];
       final loaded = await PlayableStageAssets.load(stage: stage);
       try {
@@ -45,19 +45,24 @@ void main() {
       }
     }
   });
-  test('16 stages have four backgrounds and exactly four final-phase bosses',
+  test('36 stages have nine backgrounds and exactly nine final-phase bosses',
       () {
     final stages = PlayableStageCatalog.stages;
     expect(
-        stages.map((stage) => stage.number), List.generate(16, (i) => i + 1));
+        stages.map((stage) => stage.number), List.generate(36, (i) => i + 1));
     expect(stages.map((stage) => stage.area), [
       ...List.filled(4, '草原'),
       ...List.filled(4, '幽霊船'),
       ...List.filled(4, '火山'),
+      ...List.filled(4, '毒茸の湿地'),
+      ...List.filled(4, '砂漠の迷宮'),
+      ...List.filled(4, '氷晶洞窟'),
+      ...List.filled(4, '月影の墓地'),
+      ...List.filled(4, '星界の祭壇'),
       ...List.filled(4, '魔王城'),
     ]);
     expect(stages.where((stage) => stage.hasBoss).map((stage) => stage.number),
-        [4, 8, 12, 16]);
+        [4, 8, 12, 16, 20, 24, 28, 32, 36]);
     expect(
         stages
             .where((stage) => stage.hasBoss)
@@ -66,7 +71,12 @@ void main() {
           'boss_goblin_king',
           'boss_dullahan',
           'boss_fire_dragon',
-          'boss_cyclops'
+          'boss_cerberus',
+          'boss_minotaur',
+          'boss_stone_golem',
+          'boss_lich',
+          'boss_cyclops',
+          'boss_demon_lord',
         ]);
     for (final stage in stages) {
       expect(stage.opponents.length, 3);
@@ -94,7 +104,7 @@ void main() {
     const Size(390, 844),
     const Size(844, 390)
   ]) {
-    testWidgets('selection exposes all 16 stages without overflow at $size',
+    testWidgets('selection exposes all 36 stages without overflow at $size',
         (tester) async {
       tester.view.physicalSize = size;
       tester.view.devicePixelRatio = 1;
@@ -128,7 +138,26 @@ void main() {
           image.dispose();
         });
       }
-      for (final number in [1, 4, 5, 8, 9, 12, 13, 16]) {
+      for (final number in [
+        1,
+        4,
+        5,
+        8,
+        9,
+        12,
+        13,
+        16,
+        17,
+        20,
+        21,
+        24,
+        25,
+        28,
+        29,
+        32,
+        33,
+        36
+      ]) {
         await tester.scrollUntilVisible(
             find.byKey(Key('select-stage-$number')), 180,
             scrollable: find.byType(Scrollable).first);

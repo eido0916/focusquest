@@ -1,0 +1,88 @@
+{
+  "fps": 24,
+  "loop_in_game": false,
+  "holds_ticks": [
+    2,
+    3,
+    3,
+    4
+  ],
+  "display_frame_sequence": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3
+  ],
+  "events": [
+    {
+      "event": "damage_reaction",
+      "tick": 2,
+      "keyframe": 1
+    }
+  ],
+  "direction": "left",
+  "interpolation": "none",
+  "part_transforms": false,
+  "crossfade": false,
+  "root_offsets_px": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      6,
+      0
+    ],
+    [
+      6,
+      0
+    ],
+    [
+      6,
+      0
+    ],
+    [
+      12,
+      0
+    ],
+    [
+      12,
+      0
+    ],
+    [
+      12,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "root_motion_space": "world_px_absolute_offset",
+  "reference": "Generated original character design, existing enemies used as pixel style reference",
+  "production": "Drawn pixel originals with fixed production sampling; no intermediate poses or image transforms at runtime."
+}
