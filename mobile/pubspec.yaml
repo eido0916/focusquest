@@ -59,15 +59,23 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
+    - assets/images/adventure/
+    - assets/images/portraits/male/
+    - assets/images/portraits/female/
+    - assets/images/diagnosis/old-king-magic-stone.png
     - assets/images/enchanted_forest.png
     - assets/images/ui/
+    - assets/images/enemies/
     - assets/images/battle/hero_rig/
     - assets/images/characters/swordsman/attack/swordsman_attack_spritesheet.png
     - assets/images/characters/swordsman/attack/swordsman_attack_spritesheet.json
     - assets/images/characters/swordsman/skills/sousen/swordsman_sousen_spritesheet.png
     - assets/images/characters/swordsman/skills/sousen/swordsman_sousen_spritesheet.json
+    - assets/images/characters/swordsman/skills/sousen/blue_ground_wave.png
     - assets/images/characters/swordsman/skills/run_slash/
     - assets/images/characters/swordsman/normal_attack/
+    - assets/images/characters/female_swordsman/normal_attack/
+    - assets/images/characters/female_swordsman/skill/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

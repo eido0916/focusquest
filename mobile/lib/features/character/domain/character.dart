@@ -7,6 +7,7 @@ class Character {
       required this.name,
       required this.characterType,
       required this.baseStats,
+      this.appearance = 'male',
       this.level = 1,
       this.currentExp = 0,
       this.rarity = 'N',
@@ -15,6 +16,7 @@ class Character {
   final String id;
   final String name;
   final String characterType;
+  final String appearance;
   final String rarity;
   final int level;
   final int currentExp;
@@ -27,6 +29,7 @@ class Character {
           id: id,
           name: name,
           characterType: characterType,
+          appearance: appearance,
           baseStats: baseStats,
           rarity: rarity,
           level: level ?? this.level,
@@ -36,6 +39,7 @@ class Character {
         'id': id,
         'name': name,
         'characterType': characterType,
+        'appearance': appearance,
         'rarity': rarity,
         'level': level,
         'currentExp': currentExp,
@@ -46,6 +50,7 @@ class Character {
       id: json['id'] as String,
       name: json['name'] as String,
       characterType: json['characterType'] as String,
+      appearance: json['appearance'] as String? ?? 'male',
       baseStats:
           Stats.fromJson(Map<String, dynamic>.from(json['baseStats'] as Map)),
       rarity: json['rarity'] as String,

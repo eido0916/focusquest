@@ -8,7 +8,7 @@ import 'package:focusquest/data/game_catalog.dart';
 import 'support/memory_repository.dart';
 
 void main() {
-  testWidgets('phone UI: focus battle -> reward -> summon -> inventory',
+  testWidgets('phone UI: focus EXP -> adventure reward -> summon -> inventory',
       (tester) async {
     tester.view.physicalSize = const Size(390, 844);
     tester.view.devicePixelRatio = 1;
@@ -31,14 +31,39 @@ void main() {
     expect(find.text('タイマーに戻る'), findsOneWidget);
     await tester.tap(find.text('タイマーに戻る'));
     await tester.pumpAndSettle();
+    expect(find.text('戦いの様子を見る'), findsOneWidget);
+    await tester.ensureVisible(find.text('戦いの様子を見る'));
+    await tester.tap(find.text('戦いの様子を見る'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(find.text('タイマーに戻る'), findsOneWidget);
+    expect(controller.state!.coins, 0);
+    await tester.tap(find.text('タイマーに戻る'));
+    await tester.pumpAndSettle();
+    expect(controller.state!.adventureRun, isNull);
     now = now.add(const Duration(minutes: 30));
     await tester.pump(const Duration(seconds: 1));
     await tester.pumpAndSettle();
     expect(find.text('集中クエスト達成！'), findsOneWidget);
-    expect(controller.state!.coins, 100);
+    expect(controller.state!.coins, 0);
     await tester.tap(find.text('閉じる'));
     await tester.pumpAndSettle();
     await tester.pageBack();
+    await tester.pumpAndSettle();
+    await tester.tap(find.descendant(
+        of: find.byType(QuestNavigation), matching: find.text('冒険')));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('冒険に出発する').first);
+    await tester.tap(find.text('冒険に出発する').first);
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 1));
+    now = now.add(const Duration(minutes: 5));
+    await tester.pump(const Duration(milliseconds: 200));
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.text('勝利！'), findsOneWidget);
+    expect(controller.state!.coins, 100);
+    await tester.ensureVisible(find.text('冒険の書へ戻る'));
+    await tester.tap(find.text('冒険の書へ戻る'));
     await tester.pumpAndSettle();
     await tester.tap(find.descendant(
         of: find.byType(QuestNavigation), matching: find.text('召喚')));

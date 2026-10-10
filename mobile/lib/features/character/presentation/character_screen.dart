@@ -4,6 +4,7 @@ import '../../../core/theme/app_theme.dart';
 import '../../../core/widgets/quest_widgets.dart';
 import '../../../data/game_catalog.dart';
 import '../domain/progression_service.dart';
+import '../../diagnosis/presentation/job_portrait.dart';
 
 class CharacterScreen extends StatelessWidget {
   const CharacterScreen({super.key, required this.controller});
@@ -27,68 +28,50 @@ class CharacterScreen extends StatelessWidget {
             Text('${hero.rarity}  Lv.${hero.level}',
                 style: const TextStyle(color: AppTheme.gold)),
           ])),
-          SizedBox(
-              height: 430,
-              child: Stack(children: [
-                const Positioned(
-                    left: -42,
-                    top: 0,
-                    bottom: 0,
-                    width: 330,
-                    child: HeroArtwork(height: 430)),
-                Positioned(
-                    right: 0,
-                    top: 18,
-                    width: 235,
-                    child: QuestCard(
-                      caption: hero.name,
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Lv. ${hero.level}　戦士',
+          Column(children: [
+            JobPortrait(
+                typeId: hero.characterType,
+                appearance: hero.appearance,
+                height: 320),
+            QuestCard(
+              caption: hero.name,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                        'Lv. ${hero.level}　${GameCatalog.types.values.firstWhere((type) => type.typeId == hero.characterType, orElse: () => GameCatalog.types[15]!).job}',
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold)),
+                    const SizedBox(height: 8),
+                    Text('EXP  ${hero.currentExp} / ${hero.requiredExp}',
+                        style: const TextStyle(fontSize: 12)),
+                    LinearProgressIndicator(
+                        value: hero.currentExp / hero.requiredExp),
+                    const Divider(),
+                    for (final row in [
+                      (Icons.favorite_rounded, 'HP', '${stats.hp}'),
+                      (Icons.flash_on_rounded, '攻撃力', '${stats.attack}'),
+                      (Icons.shield_rounded, '防御力', '${stats.defense}'),
+                      (Icons.directions_run_rounded, '素早さ', '${stats.speed}'),
+                      (
+                        Icons.auto_awesome_rounded,
+                        '会心率',
+                        '${(stats.criticalRate * 100).round()}%'
+                      ),
+                    ])
+                      Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 5),
+                          child: Row(children: [
+                            Icon(row.$1, size: 17, color: AppTheme.gold),
+                            const SizedBox(width: 8),
+                            Expanded(child: Text(row.$2)),
+                            Text(row.$3,
                                 style: const TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold)),
-                            const SizedBox(height: 8),
-                            Text(
-                                'EXP  ${hero.currentExp} / ${hero.requiredExp}',
-                                style: const TextStyle(fontSize: 12)),
-                            LinearProgressIndicator(
-                                value: hero.currentExp / hero.requiredExp),
-                            const Divider(),
-                            for (final row in [
-                              (Icons.favorite_rounded, 'HP', '${stats.hp}'),
-                              (
-                                Icons.flash_on_rounded,
-                                '攻撃力',
-                                '${stats.attack}'
-                              ),
-                              (Icons.shield_rounded, '防御力', '${stats.defense}'),
-                              (
-                                Icons.directions_run_rounded,
-                                '素早さ',
-                                '${stats.speed}'
-                              ),
-                              (
-                                Icons.auto_awesome_rounded,
-                                '会心率',
-                                '${(stats.criticalRate * 100).round()}%'
-                              ),
-                            ])
-                              Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 5),
-                                  child: Row(children: [
-                                    Icon(row.$1,
-                                        size: 17, color: AppTheme.gold),
-                                    const SizedBox(width: 8),
-                                    Expanded(child: Text(row.$2)),
-                                    Text(row.$3,
-                                        style: const TextStyle(
-                                            fontWeight: FontWeight.bold)),
-                                  ])),
-                          ]),
-                    )),
-              ])),
+                                    fontWeight: FontWeight.bold)),
+                          ])),
+                  ]),
+            ),
+          ]),
           QuestCard(
               caption: '装備',
               child: Column(

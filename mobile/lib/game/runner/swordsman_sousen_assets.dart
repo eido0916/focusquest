@@ -5,6 +5,7 @@ import 'package:flame/game.dart';
 import 'package:flame/sprite.dart';
 import 'package:flutter/services.dart';
 import 'swordsman_sousen_timing.dart';
+import 'sousen_ground_wave_component.dart';
 
 /// Flame-ready data for the non-looping 35-frame initial skill, 蒼閃.
 class SwordsmanSousenAssets {
@@ -14,6 +15,7 @@ class SwordsmanSousenAssets {
     required this.anchor,
     required this.duration,
     required this.damageTime,
+    required this.groundWaveFrames,
   });
 
   static const _assetDirectory =
@@ -24,6 +26,7 @@ class SwordsmanSousenAssets {
   final Anchor anchor;
   final Duration duration;
   final Duration damageTime;
+  final List<Sprite> groundWaveFrames;
 
   static Future<SwordsmanSousenAssets> load(FlameGame game) async {
     final raw = await rootBundle.loadString(
@@ -50,7 +53,10 @@ class SwordsmanSousenAssets {
     );
     // Runtime timing is shared with combat, rather than the original export's
     // delays. All 35 poses and the existing atlas stay in their original order.
-    final stepTimes = SwordsmanSousenTiming.stepTimes;
+    const stepTimes = SwordsmanSousenTiming.stepTimes;
+    final waveImage = await game.images.load(
+      'characters/swordsman/skills/sousen/blue_ground_wave.png',
+    );
 
     return SwordsmanSousenAssets._(
       animation: SpriteAnimation.variableSpriteList(
@@ -68,6 +74,13 @@ class SwordsmanSousenAssets {
       damageTime: Duration(
           milliseconds:
               (SwordsmanSousenTiming.damageTimeSeconds * 1000).round()),
+      groundWaveFrames: SousenGroundWaveComponent.sourceRects
+          .map((rect) => Sprite(
+                waveImage,
+                srcPosition: Vector2(rect.left, rect.top),
+                srcSize: Vector2(rect.width, rect.height),
+              ))
+          .toList(growable: false),
     );
   }
 }

@@ -12,4 +12,6 @@ class SwordsmanSousenTiming {
   ];
   static const durationSeconds = 3.165;
   static const damageTimeSeconds = 1.860; // Start of frame 23.
+  // Frame 24 is the downward follow-through, after the horizontal slash pose.
+  static const groundWaveTimeSeconds = damageTimeSeconds + .055;
 }

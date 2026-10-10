@@ -18,13 +18,13 @@ void main() {
       id: 's1', startedAt: DateTime(2026, 10, 1, 9), durationMinutes: 30);
   const reward = Reward(exp: 300, coins: 100, items: ['wooden_sword']);
   final ledger = FocusLedger();
-  test('atomic focus settlement awards growth, money and inventory once', () {
+  test('atomic focus settlement awards only growth once', () {
     final active = ledger.begin(initial, session);
     final settled = ledger.settle(active, 's1', FocusStatus.succeeded, reward);
     expect(settled.activeCharacter!.level, 3);
     expect(settled.activeCharacter!.currentExp, 50);
-    expect(settled.coins, 100);
-    expect(settled.inventory['wooden_sword'], 1);
+    expect(settled.coins, 0);
+    expect(settled.inventory, isEmpty);
     final restored = PlayerState.fromJson(settled.toJson());
     final retried =
         ledger.settle(restored, 's1', FocusStatus.succeeded, reward);

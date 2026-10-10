@@ -34,8 +34,11 @@ void main() {
     final controller = GameController(MemoryRepository());
     await controller.load();
     await tester.pumpWidget(FocusQuestApp(controller: controller));
-    expect(find.text('集中を、あなたの力に。'), findsOneWidget);
+    expect(find.text('老王'), findsOneWidget);
+    expect(find.byKey(const Key('magic-stone')), findsOneWidget);
     expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox.shrink());
+    controller.dispose();
   });
   testWidgets('login validates fields, handles errors and allows retry',
       (tester) async {
@@ -49,6 +52,7 @@ void main() {
         find.byType(TextFormField).at(0), 'player@example.com');
     await tester.enterText(find.byType(TextFormField).at(1), 'test-password');
     await tester.ensureVisible(find.widgetWithText(FilledButton, 'ログイン'));
+    await tester.pumpAndSettle();
     await tester.tap(find.widgetWithText(FilledButton, 'ログイン'));
     await tester.pumpAndSettle();
     expect(auth.requests, 1);
@@ -58,32 +62,91 @@ void main() {
     await tester.pumpAndSettle();
     expect(auth.requests, 2);
   });
-  testWidgets(
-      'diagnosis requires all answers and finishes tutorial before saving',
+  testWidgets('identity, two pages, review, result and save retry',
       (tester) async {
+    String? savedName;
+    String? savedAppearance;
     String? savedType;
+    var fail = true;
     await tester.pumpWidget(MaterialApp(
         theme: AppTheme.dark,
-        home: DiagnosisScreen(onComplete: (type) async {
+        home: DiagnosisScreen(onComplete: (type, name, appearance) async {
+          if (fail) throw StateError('disk full');
           savedType = type.typeId;
+          savedName = name;
+          savedAppearance = appearance;
         })));
-    await tester.tap(find.text('性格診断をはじめる'));
+    await tester.tap(find.byKey(const Key('magic-stone')));
+    await tester.pump(const Duration(milliseconds: 750));
     await tester.pumpAndSettle();
-    for (var i = 0; i < 4; i++) {
-      await tester.tap(find.text('どちらでもない'));
-      await tester.pump();
-      final next = find.text(i == 3 ? '診断結果を見る' : '次へ');
+    final start = find.text('▶  石の問いに答える');
+    await tester.ensureVisible(start);
+    await tester.pumpAndSettle();
+    await tester.tap(start);
+    await tester.pumpAndSettle();
+    expect(find.text('名前を入力してください。'), findsOneWidget);
+    await tester.enterText(find.byKey(const Key('adventurer-name')), '  アオイ  ');
+    await tester.ensureVisible(find.byKey(const Key('appearance-female')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('appearance-female')));
+    await tester.ensureVisible(start);
+    await tester.pumpAndSettle();
+    await tester.tap(start);
+    await tester.pumpAndSettle();
+    for (var page = 0; page < 2; page++) {
+      final next = find.text(page == 0 ? '▶  次の5問へ' : '▶  診断結果を見る');
       await tester.ensureVisible(next);
+      await tester.pumpAndSettle();
+      expect(
+          tester
+              .widget<OutlinedButton>(find.ancestor(
+                  of: next, matching: find.byType(OutlinedButton)))
+              .onPressed,
+          isNull);
+      for (var i = page * 5 + 1; i <= page * 5 + 5; i++) {
+        final option = find.byKey(Key('q$i-1'));
+        await tester.ensureVisible(option);
+        await tester.pumpAndSettle();
+        await tester.tap(option);
+        await tester.pump();
+      }
+      await tester.ensureVisible(next);
+      await tester.pumpAndSettle();
       await tester.tap(next);
       await tester.pumpAndSettle();
     }
     expect(savedType, isNull);
-    expect(find.text('静かな探究者'), findsOneWidget);
-    await tester.tap(find.text('この仲間と進む'));
+    expect(find.text('剣士'), findsOneWidget);
+    expect(find.text('迷う前に、一歩踏み出す'), findsOneWidget);
+    await tester.ensureVisible(find.text('答えを見直す'));
     await tester.pumpAndSettle();
+    await tester.tap(find.text('答えを見直す'));
+    await tester.pumpAndSettle();
+    expect(
+        tester
+            .widget<RadioListTile<int>>(find.byKey(const Key('q6-1')))
+            .groupValue,
+        1);
+    final result = find.text('▶  診断結果を見る');
+    await tester.ensureVisible(result);
+    await tester.pumpAndSettle();
+    await tester.tap(result);
+    await tester.pumpAndSettle();
+    final begin = find.text('▶  冒険に進む');
+    await tester.ensureVisible(begin);
+    await tester.pumpAndSettle();
+    await tester.tap(begin);
+    await tester.pumpAndSettle();
+    expect(find.text('冒険の記録を保存できませんでした。もう一度お試しください。'), findsOneWidget);
     expect(savedType, isNull);
-    await tester.tap(find.text('旅をはじめる'));
+    fail = false;
+    await tester.ensureVisible(begin);
     await tester.pumpAndSettle();
-    expect(savedType, 'mage');
+    await tester.tap(begin);
+    await tester.pumpAndSettle();
+    expect(savedType, 'warrior');
+    expect(savedName, 'アオイ');
+    expect(savedAppearance, 'female');
+    expect(tester.takeException(), isNull);
   });
 }
