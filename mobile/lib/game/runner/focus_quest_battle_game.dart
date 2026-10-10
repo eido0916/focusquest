@@ -8,6 +8,7 @@ import 'hero_component.dart';
 import 'swordsman_run_attack_assets.dart';
 import 'swordsman_sousen_assets.dart';
 import 'enemy_spawner.dart';
+import 'enemy_motion_assets.dart';
 import 'run_slash_assets.dart';
 
 class FocusQuestBattleGame extends FlameGame {
@@ -22,9 +23,10 @@ class FocusQuestBattleGame extends FlameGame {
   @override
   Future<void> onLoad() async {
     final scenery = await images.load('ui/forest_meadow_battlefield.png');
+    final enemyAssets = await EnemyMotionAssets.load(this);
     await addAll([
       BackgroundComponent(state, image: scenery),
-      EnemySpawner(state),
+      EnemySpawner(state, enemyAssets),
     ]);
     // Image decoding can take more than one frame on a physical device. Keep
     // the battle clock responsive while the visual asset finishes loading.

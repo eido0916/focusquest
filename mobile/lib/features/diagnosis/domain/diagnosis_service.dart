@@ -2,11 +2,17 @@ import '../../character/domain/stats.dart';
 
 class DiagnosisQuestion {
   const DiagnosisQuestion(this.id, this.text, this.axis,
-      {this.reversed = false});
+      {this.reversed = false,
+      this.optionA = '',
+      this.optionB = '',
+      this.weight = 1});
   final String id;
   final String text;
   final int axis;
   final bool reversed;
+  final String optionA;
+  final String optionB;
+  final int weight;
 }
 
 class PersonalityType {
@@ -29,7 +35,7 @@ class PersonalityType {
 
 class DiagnosisService {
   const DiagnosisService(
-      {required this.questions, required this.types, this.axes = 2});
+      {required this.questions, required this.types, this.axes = 4});
   final List<DiagnosisQuestion> questions;
   final Map<int, PersonalityType> types;
   final int axes;
@@ -37,10 +43,12 @@ class DiagnosisService {
     final scores = List.filled(axes, 0);
     for (final question in questions) {
       final value = answers[question.id];
-      if (value == null || value < 1 || value > 5) {
-        throw ArgumentError('すべての質問に1〜5で回答してください。');
+      if (value == null || (value != 1 && value != 2)) {
+        throw ArgumentError('すべての質問でAまたはBを選んでください。');
       }
-      scores[question.axis] += (value - 3) * (question.reversed ? -1 : 1);
+      scores[question.axis] += (value == 1 ? 1 : -1) *
+          question.weight *
+          (question.reversed ? -1 : 1);
     }
     var mask = 0;
     for (var axis = 0; axis < axes; axis++) {

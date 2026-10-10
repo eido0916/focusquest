@@ -12,6 +12,7 @@ import '../features/focus/domain/focus_service.dart';
 import '../features/focus/domain/focus_session.dart';
 import '../features/focus/domain/reward_service.dart';
 import '../features/gacha/domain/gacha_service.dart';
+import '../features/adventure/domain/adventure.dart';
 
 class GameController extends ChangeNotifier {
   GameController(this.repository,
@@ -62,20 +63,24 @@ class GameController extends ChangeNotifier {
     state = await repository.transact(uid, change);
   }
 
-  Future<void> onboard(PersonalityType type) => _action(() => _save((s) {
-        if (s.onboardingComplete) return s;
-        final hero = Character(
-            id: 'starter',
-            name: type.job,
-            characterType: type.typeId,
-            baseStats: type.stats);
-        return s.copyWith(
-            onboardingComplete: true,
-            activeCharacterId: hero.id,
-            characters: {hero.id: hero});
-      }));
+  Future<void> onboard(PersonalityType type,
+          {String? name, String appearance = 'male'}) =>
+      _action(() => _save((s) {
+            if (s.onboardingComplete) return s;
+            final hero = Character(
+                id: 'starter',
+                name: name?.trim().isNotEmpty == true ? name!.trim() : type.job,
+                appearance: appearance,
+                characterType: type.typeId,
+                baseStats: type.stats);
+            return s.copyWith(
+                onboardingComplete: true,
+                activeCharacterId: hero.id,
+                characters: {hero.id: hero});
+          }));
   Future<void> startFocus(int minutes) => _action(() async {
         final s = state!;
+        if (s.adventureRun != null) throw StateError('冒険の結果を確認してから集中できます。');
         if (s.monitoring && !await monitor.hasAccess()) {
           throw StateError('使用状況へのアクセスを許可するか、タイマーのみを選んでください。');
         }
@@ -155,6 +160,7 @@ class GameController extends ChangeNotifier {
         return result;
       });
   Future<void> equip(String itemId) => _action(() => _save((s) {
+        if (s.adventureRun != null) throw StateError('冒険の終了後に装備を変更できます。');
         if (activeFocus != null) {
           throw StateError('集中の完了後に装備を変更できます。');
         }
@@ -174,6 +180,7 @@ class GameController extends ChangeNotifier {
         return s.copyWith(characters: characters);
       }));
   Future<void> selectCharacter(String id) => _action(() => _save((s) {
+        if (s.adventureRun != null) throw StateError('冒険の終了後に仲間を変更できます。');
         if (activeFocus != null) {
           throw StateError('集中中は仲間を変更できません。');
         }
@@ -190,4 +197,69 @@ class GameController extends ChangeNotifier {
                 monitoring: enabled,
                 targetPackages: List.unmodifiable(packages));
           }));
+
+  Future<void> startAdventure(String stageId) => _action(() async {
+        final id = _id();
+        final seed = random.nextInt(1 << 30);
+        final startedAt = clock();
+        await _save((s) {
+          if (s.adventureRun != null) throw StateError('進行中の冒険があります。');
+          if (s.sessions.values.any((f) => f.status == FocusStatus.active)) {
+            throw StateError('集中が終わってから冒険に出発しましょう。');
+          }
+          if (!AdventureCatalog.unlocked(stageId, s.clearedStages)) {
+            throw StateError('前のステージをクリアしてください。');
+          }
+          final hero = s.activeCharacter;
+          if (hero == null) throw StateError('キャラクターを決定してください。');
+          return s.copyWith(
+              adventureRun: AdventureRun(
+                  id: id,
+                  stageId: stageId,
+                  heroName: hero.name,
+                  seed: seed,
+                  startedAt: startedAt,
+                  stats:
+                      ProgressionService().stats(hero, GameCatalog.equipment)));
+        });
+      });
+
+  Future<AdventureRecord> finishAdventure(String runId) => _action(() async {
+        AdventureRecord? record;
+        final now = clock();
+        await _save((s) {
+          if (s.lastAdventure?.runId == runId) {
+            record = s.lastAdventure;
+            return s;
+          }
+          final run = s.adventureRun;
+          if (run == null || run.id != runId) throw StateError('冒険が見つかりません。');
+          final battle = AdventureBattle.simulate(run);
+          if (battle.revealed(run, now) < battle.events.length) {
+            throw StateError('戦闘はまだ進行中です。');
+          }
+          final stage = AdventureCatalog.stage(run.stageId);
+          final firstClear = battle.won && !s.clearedStages.contains(stage.id);
+          record = AdventureRecord(
+              runId: run.id,
+              stageId: stage.id,
+              won: battle.won,
+              coins: firstClear ? stage.coins : 0,
+              item: firstClear ? stage.item : null);
+          return s.copyWith(
+              clearAdventureRun: true,
+              lastAdventure: record,
+              clearedStages: {...s.clearedStages, if (battle.won) stage.id},
+              coins: s.coins + record!.coins,
+              inventory: {
+                ...s.inventory,
+                if (firstClear) stage.item: (s.inventory[stage.item] ?? 0) + 1
+              },
+              appliedOperations: {
+                ...s.appliedOperations,
+                'adventure:${run.id}'
+              });
+        });
+        return record!;
+      });
 }

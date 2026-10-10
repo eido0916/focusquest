@@ -3,6 +3,7 @@ import '../../core/game_controller.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/quest_widgets.dart';
 import '../focus/domain/streak_service.dart';
+import '../diagnosis/presentation/job_portrait.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen(
@@ -23,55 +24,56 @@ class HomeScreen extends StatelessWidget {
     return ListView(
         padding: const EdgeInsets.fromLTRB(14, 18, 14, 22),
         children: [
-          SizedBox(
-              height: 268,
-              child: Stack(children: [
-                const Positioned(
-                    left: 0,
-                    right: 120,
-                    bottom: -12,
-                    child: HeroArtwork(height: 280)),
-                Positioned(
-                    right: 0,
-                    bottom: 8,
-                    width: 210,
-                    child: QuestCard(
-                      caption: '旅の記録',
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text('陽光の王道',
-                                style: TextStyle(
-                                    fontFamily: 'serif',
-                                    fontSize: 19,
-                                    fontWeight: FontWeight.bold)),
-                            const SizedBox(height: 8),
-                            Text('累計 ${summary.totalMinutes}分'),
-                            Text('${state.coins} ポイント'),
-                          ]),
-                    )),
-                Positioned(
-                    left: 0,
-                    top: 4,
-                    width: 190,
-                    child: QuestCard(
-                      caption: hero.name,
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Lv. ${hero.level}　${hero.rarity}',
-                                style: const TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold)),
-                            const SizedBox(height: 8),
-                            Text(
-                                'EXP  ${hero.currentExp} / ${hero.requiredExp}',
-                                style: const TextStyle(fontSize: 12)),
-                            const SizedBox(height: 5),
-                            LinearProgressIndicator(
-                                value: hero.currentExp / hero.requiredExp),
-                          ]),
-                    )),
-              ])),
+          Row(children: [
+            Expanded(
+                flex: 4,
+                child: JobPortrait(
+                    typeId: hero.characterType,
+                    appearance: hero.appearance,
+                    height: 280)),
+            Expanded(
+                flex: 6,
+                child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                          child: QuestCard(
+                        caption: '旅の記録',
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text('陽光の王道',
+                                  style: TextStyle(
+                                      fontFamily: 'serif',
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.bold)),
+                              const SizedBox(height: 8),
+                              Text('累計 ${summary.totalMinutes}分'),
+                              Text('${state.coins} ポイント'),
+                            ]),
+                      )),
+                      SizedBox(
+                          child: QuestCard(
+                        caption: hero.name,
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Lv. ${hero.level}　${hero.rarity}',
+                                  style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold)),
+                              const SizedBox(height: 8),
+                              Text(
+                                  'EXP  ${hero.currentExp} / ${hero.requiredExp}',
+                                  style: const TextStyle(fontSize: 12)),
+                              const SizedBox(height: 5),
+                              LinearProgressIndicator(
+                                  value: hero.currentExp / hero.requiredExp),
+                            ]),
+                      )),
+                    ])),
+          ]),
           const QuestCard(
               parchment: true,
               child: Text(
@@ -97,6 +99,12 @@ class HomeScreen extends StatelessWidget {
             label: controller.activeFocus == null ? '集中をはじめる' : '集中へ戻る',
             icon: Icons.explore_rounded,
             onTap: onFocus,
+          ),
+          const SizedBox(height: 12),
+          QuestActionButton(
+            label: controller.state!.adventureRun == null ? '冒険に出発する' : '冒険へ戻る',
+            icon: Icons.map_outlined,
+            onTap: () => onNavigate(4),
           ),
           const SizedBox(height: 12),
           Row(children: [

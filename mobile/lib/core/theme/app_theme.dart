@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const forest = Color(0xff061827);
-  static const navy = Color(0xff082744);
-  static const royalBlue = Color(0xff07559d);
-  static const gold = Color(0xffe4c16c);
-  static const parchment = Color(0xfffff1cf);
+  static const forest = Color(0xff080c18);
+  static const navy = Color(0xff0c1222);
+  static const royalBlue = Color(0xff263952);
+  static const gold = Color(0xfff1f2fa);
+  static const parchment = Color(0xfff1f2fa);
   static const ink = Color(0xff352819);
 
   static ThemeData get dark {

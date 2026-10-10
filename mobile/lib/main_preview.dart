@@ -7,13 +7,14 @@ void main() => runApp(MaterialApp(
     title: 'FocusQuest 診断プレビュー',
     theme: AppTheme.dark,
     home: Builder(
-        builder: (context) => DiagnosisScreen(onComplete: (type) async {
+        builder: (context) =>
+            DiagnosisScreen(onComplete: (type, name, appearance) async {
               await showDialog<void>(
                   context: context,
                   builder: (context) => AlertDialog(
                         title: const Text('診断プレビュー完了'),
-                        content:
-                            Text('${type.job}を選択しました。\nこのプレビューではデータを保存しません。'),
+                        content: Text(
+                            '$name（${type.job}）として旅立ちます。\nこのプレビューではデータを保存しません。'),
                         actions: [
                           TextButton(
                               onPressed: () => Navigator.pop(context),

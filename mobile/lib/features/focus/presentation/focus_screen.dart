@@ -4,8 +4,8 @@ import '../../../core/config/game_balance.dart';
 import '../../../core/game_controller.dart';
 import '../../../core/widgets/quest_widgets.dart';
 import '../domain/focus_session.dart';
+import '../../diagnosis/presentation/job_portrait.dart';
 import 'battle_replay_page.dart';
-import '../../../game/runner/battle_state_controller.dart';
 
 class FocusScreen extends StatefulWidget {
   const FocusScreen({super.key, required this.controller});
@@ -21,7 +21,6 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
   bool _settling = false;
   bool _automaticFailed = false;
   bool _battleOpen = false;
-  BattleResultData? _battleResult;
   String? _error;
   @override
   void initState() {
@@ -60,13 +59,12 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
 
   Future<void> _openBattle() async {
     final session = widget.controller.activeFocus;
-    if (session == null || _battleOpen) return;
+    if (session == null || _battleOpen || _settling) return;
     setState(() => _battleOpen = true);
     try {
-      _battleResult = await Navigator.of(context).push<BattleResultData>(
-          MaterialPageRoute(
-              builder: (_) => BattleReplayPage(
-                  session: session, clock: widget.controller.clock)));
+      await Navigator.of(context).push(MaterialPageRoute<void>(
+          builder: (_) => BattleReplayPage(
+              session: session, clock: widget.controller.clock)));
     } finally {
       if (mounted) {
         setState(() => _battleOpen = false);
@@ -94,7 +92,7 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                             ? '集中を中断しました'
                             : '集中クエスト未達成'),
                     content: Text(succeeded
-                        ? '${result.durationMinutes}分の集中を達成しました。\nEXP +${result.durationMinutes * 10}\nポイント +${result.durationMinutes * 100 ~/ 30}\n獲得アイテムはキャラクター画面で確認できます。'
+                        ? '${result.durationMinutes}分の集中を達成しました。\nEXP +${result.durationMinutes * GameBalance.expPerMinute}\n育てた力で、冒険に挑戦しましょう。'
                         : cancel
                             ? '報酬はありません。また次の集中で挑戦しましょう。'
                             : '対象アプリの使用、または使用状況を確認できなかったため、報酬はありません。'),
@@ -129,28 +127,27 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
               child: ListView(
                   padding: const EdgeInsets.fromLTRB(20, 64, 20, 24),
                   children: [
-                SizedBox(
-                    height: 180,
-                    child: Stack(children: [
-                      const Positioned(
-                          left: -20,
-                          bottom: -65,
-                          child: HeroArtwork(height: 250)),
-                      Positioned(
-                          right: 0,
-                          top: 24,
-                          width: 235,
-                          child: QuestCard(
-                              caption: 'FOCUS QUEST',
-                              child: Text(
-                                  session == null
-                                      ? '静かな決意が、旅路を照らす。'
-                                      : '集中するほど、仲間は前へ進む。',
-                                  style: const TextStyle(
-                                      fontFamily: 'serif',
-                                      fontSize: 17,
-                                      height: 1.5))))
-                    ])),
+                Row(children: [
+                  SizedBox(
+                      width: 96,
+                      child: JobPortrait(
+                          typeId:
+                              controller.state!.activeCharacter!.characterType,
+                          appearance:
+                              controller.state!.activeCharacter!.appearance,
+                          height: 128)),
+                  Expanded(
+                      child: QuestCard(
+                          caption: 'FOCUS QUEST',
+                          child: Text(
+                              session == null
+                                  ? '静かな決意が、旅路を照らす。'
+                                  : '集中の積み重ねが、冒険の力になる。',
+                              style: const TextStyle(
+                                  fontFamily: 'serif',
+                                  fontSize: 17,
+                                  height: 1.5))))
+                ]),
                 QuestCard(
                     caption: session == null ? '集中時間を選ぶ' : '集中クエスト進行中',
                     child: Column(
@@ -195,18 +192,17 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                                           if (mounted) {
                                             setState(() {
                                               _automaticFailed = false;
-                                              _battleResult = null;
                                             });
                                             await _openBattle();
                                           }
                                         })),
                           ] else ...[
                             TextButton(
-                                onPressed: _openBattle,
+                                onPressed: controller.busy || _settling
+                                    ? null
+                                    : _openBattle,
                                 child: const Text('戦いの様子を見る')),
-                            if (_battleResult != null)
-                              Text('集中中の討伐 ${_battleResult!.defeatedCount}体'),
-                            const SizedBox(height: 32),
+                            const Text('集中で得られる報酬はEXPです。'),
                             const SizedBox(height: 32),
                             Text(
                                 '${seconds ~/ 60}:${(seconds % 60).toString().padLeft(2, '0')}',

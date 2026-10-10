@@ -28,8 +28,6 @@ class FocusLedger {
       throw StateError('集中セッションを確定できません。');
     }
     var characters = state.characters;
-    var coins = state.coins;
-    final inventory = {...state.inventory};
     if (status == FocusStatus.succeeded) {
       final hero = state.activeCharacter;
       if (hero == null) throw StateError('キャラクターがありません。');
@@ -37,15 +35,9 @@ class FocusLedger {
         ...characters,
         hero.id: ProgressionService().addExp(hero, reward.exp)
       };
-      coins += reward.coins;
-      for (final item in reward.items) {
-        inventory[item] = (inventory[item] ?? 0) + 1;
-      }
     }
     return state.copyWith(
         characters: characters,
-        coins: coins,
-        inventory: inventory,
         sessions: {...state.sessions, sessionId: session.finish(status)},
         appliedOperations: {...state.appliedOperations, operation});
   }

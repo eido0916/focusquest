@@ -8,6 +8,7 @@ import 'features/focus/presentation/focus_screen.dart';
 import 'features/gacha/presentation/gacha_screen.dart';
 import 'features/home/home_screen.dart';
 import 'features/settings/settings_screen.dart';
+import 'features/adventure/presentation/adventure_screen.dart';
 
 class FocusQuestApp extends StatelessWidget {
   const FocusQuestApp({super.key, required this.controller});
@@ -38,7 +39,9 @@ class FocusQuestApp extends StatelessWidget {
                   body: Center(child: CircularProgressIndicator()));
             }
             if (!controller.state!.onboardingComplete) {
-              return DiagnosisScreen(onComplete: controller.onboard);
+              return DiagnosisScreen(
+                  onComplete: (type, name, appearance) => controller
+                      .onboard(type, name: name, appearance: appearance));
             }
             return QuestShell(controller: controller);
           }));
@@ -67,7 +70,8 @@ class _QuestShellState extends State<QuestShell> {
           onNavigate: (tab) => setState(() => _tab = tab)),
       CharacterScreen(controller: controller),
       GachaScreen(controller: controller),
-      SettingsScreen(controller: controller)
+      SettingsScreen(controller: controller),
+      AdventureScreen(controller: controller)
     ];
     return Scaffold(
         body: SafeArea(

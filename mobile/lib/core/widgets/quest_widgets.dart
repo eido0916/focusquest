@@ -20,7 +20,7 @@ class QuestCard extends StatelessWidget {
                   ? const LinearGradient(
                       colors: [Color(0xfffff3d2), Color(0xffe4c994)])
                   : const LinearGradient(
-                      colors: [Color(0xf5092948), Color(0xf5041729)]),
+                      colors: [Color(0xf5080c18), Color(0xf5080c18)]),
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: AppTheme.gold, width: 1.4),
               boxShadow: const [
@@ -33,7 +33,7 @@ class QuestCard extends StatelessWidget {
                   border: Border.all(
                       color: parchment
                           ? const Color(0xff9f7840)
-                          : const Color(0xff80672f)),
+                          : const Color(0xffa9afbd)),
                   borderRadius: BorderRadius.circular(4)),
               child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -156,12 +156,13 @@ class QuestNavigation extends StatelessWidget {
   final ValueChanged<int> onSelect;
   @override
   Widget build(BuildContext context) {
-    const labels = ['ホーム', 'キャラクター', '召喚', '設定'];
+    const labels = ['ホーム', 'キャラクター', '召喚', '設定', '冒険'];
     const icons = [
       Icons.home_rounded,
       Icons.people_alt_rounded,
       Icons.diamond_rounded,
-      Icons.more_horiz_rounded
+      Icons.more_horiz_rounded,
+      Icons.map_outlined
     ];
     return ColoredBox(
         color: const Color(0xff0c151c),
@@ -202,13 +203,16 @@ class QuestNavigation extends StatelessWidget {
                                                       : const Color(
                                                           0xffd9d1bd)),
                                               const SizedBox(height: 2),
-                                              Text(labels[i],
-                                                  style: TextStyle(
-                                                      fontSize: 11,
-                                                      color: selected == i
-                                                          ? AppTheme.gold
-                                                          : const Color(
-                                                              0xffd9d1bd)))
+                                              FittedBox(
+                                                  fit: BoxFit.scaleDown,
+                                                  child: Text(labels[i],
+                                                      maxLines: 1,
+                                                      style: TextStyle(
+                                                          fontSize: 11,
+                                                          color: selected == i
+                                                              ? AppTheme.gold
+                                                              : const Color(
+                                                                  0xffd9d1bd))))
                                             ]))))))))));
   }
 }

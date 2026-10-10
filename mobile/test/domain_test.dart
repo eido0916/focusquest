@@ -108,13 +108,13 @@ void main() {
           () => focus.start(id: 's', now: start, minutes: 30, monitored: true),
           throwsArgumentError);
     });
-    test('30 minutes awards 300 EXP and 100 coins', () {
+    test('30 minutes awards only 300 EXP', () {
       final session = focus
           .start(id: 's', now: start, minutes: 30)
           .finish(FocusStatus.succeeded);
       final reward = RewardService(FixedRandom(0, 0)).focus(session);
-      expect([reward.exp, reward.coins], [300, 100]);
-      expect(reward.items, ['wooden_sword']);
+      expect([reward.exp, reward.coins], [300, 0]);
+      expect(reward.items, isEmpty);
     });
   });
   group('Streaks', () {
@@ -188,22 +188,36 @@ void main() {
   group('Diagnosis', () {
     const diagnosis = DiagnosisService(
         questions: GameCatalog.questions, types: GameCatalog.types);
-    test('answers yield four configured types and reverse scoring', () {
-      for (var mask = 0; mask < 4; mask++) {
+    test('all 1024 answer patterns resolve to all 16 jobs', () {
+      final seen = <String>{};
+      for (var pattern = 0; pattern < 1024; pattern++) {
         final answers = {
-          'challenge': (mask & 1) != 0 ? 5 : 1,
-          'plan': 3,
-          'company': (mask & 2) != 0 ? 5 : 1,
-          'alone': 3
+          for (var i = 0; i < 10; i++)
+            'q${i + 1}': pattern & (1 << i) == 0 ? 1 : 2
         };
-        expect(diagnosis.evaluate(answers).typeId,
-            GameCatalog.types[mask]!.typeId);
+        seen.add(diagnosis.evaluate(answers).typeId);
       }
+      expect(seen, GameCatalog.types.values.map((t) => t.typeId).toSet());
+      expect(seen.length, 16);
       expect(
-          diagnosis.evaluate(
-              {'challenge': 3, 'plan': 1, 'company': 3, 'alone': 1}).typeId,
-          'warrior');
+          diagnosis
+              .evaluate({for (final q in GameCatalog.questions) q.id: 1}).job,
+          '剣士');
+      expect(
+          diagnosis
+              .evaluate({for (final q in GameCatalog.questions) q.id: 2}).job,
+          '魔法使い');
       expect(() => diagnosis.evaluate({}), throwsArgumentError);
+      expect(
+          () => diagnosis
+              .evaluate({for (final q in GameCatalog.questions) q.id: 3}),
+          throwsArgumentError);
+    });
+    test('Q9 and Q10 break conflicting pairs', () {
+      final answers = {for (final q in GameCatalog.questions) q.id: 1};
+      answers['q9'] = 2;
+      answers['q10'] = 2;
+      expect(diagnosis.evaluate(answers).job, 'ドラゴンナイト');
     });
   });
 }

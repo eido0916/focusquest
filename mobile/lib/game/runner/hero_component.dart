@@ -3,7 +3,8 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 
 import 'battle_state_controller.dart';
-import 'sousen_slash_effect_component.dart';
+import 'sousen_ground_wave_component.dart';
+import 'swordsman_sousen_timing.dart';
 import 'swordsman_run_attack_assets.dart';
 import 'swordsman_sousen_assets.dart';
 import 'run_slash_assets.dart';
@@ -78,12 +79,18 @@ class HeroComponent extends SpriteAnimationComponent {
       }
       if (!_runSlashPlaying &&
           !_slashEffectShown &&
-          _skillElapsed >= sousenAssets.damageTime.inMilliseconds / 1000) {
+          _skillElapsed >= SwordsmanSousenTiming.groundWaveTimeSeconds) {
         _slashEffectShown = true;
         if (state.config.enableSousenEffect) {
           parent?.add(
-            SousenSlashEffectComponent(
-              impactPosition: Vector2(position.x + 112, position.y - 86),
+            SousenGroundWaveComponent(
+              frames: sousenAssets.groundWaveFrames,
+              impactPosition: Vector2(
+                position.x + sousenAssets.frameSize.x * (1 - anchor.x),
+                position.y,
+              ),
+              initialAge:
+                  _skillElapsed - SwordsmanSousenTiming.groundWaveTimeSeconds,
             ),
           );
         }

@@ -38,6 +38,7 @@ class RunnerConfig {
     this.attackSeconds = .55,
     this.enemySpeed = 230,
     this.normalDamage = 1,
+    this.normalAttackReach = 80,
     this.enemyStopX = 485,
     this.enemyQueueSpacing = 32,
     this.sousenCooldownSeconds = 10,
@@ -48,7 +49,7 @@ class RunnerConfig {
     this.sousenGatherSeconds = 0,
     this.sousenGatherFrontX = 485,
     this.sousenGatherSpacing = 24,
-    this.sousenAttackMaxX = 630,
+    this.sousenAttackMaxX = 960,
     this.enableSousenEffect = true,
     this.autoSkill = SwordsmanSkill.sousen,
     this.enemies = const [EnemyData('slime'), EnemyData('goblin')],
@@ -57,6 +58,9 @@ class RunnerConfig {
   final double attackSeconds;
   final double enemySpeed;
   final int normalDamage;
+
+  /// Additional forward reach measured from the enemy stopping position.
+  final double normalAttackReach;
   final double enemyStopX;
   final double enemyQueueSpacing;
   final double sousenCooldownSeconds;
@@ -110,6 +114,7 @@ class BattleStateController {
         config.attackSeconds <= 0 ||
         config.enemySpeed <= 0 ||
         config.normalDamage <= 0 ||
+        config.normalAttackReach < 10 ||
         config.enemyStopX <= 345 ||
         config.enemyQueueSpacing < 0 ||
         config.sousenCooldownSeconds <= 0 ||
@@ -331,7 +336,8 @@ class BattleStateController {
       while (_normalAttackHits < hitTimes.length &&
           attackAge + 1e-7 >= hitTimes[_normalAttackHits]) {
         _normalAttackHits++;
-        final target = _closestAttackableEnemy(maxX: config.enemyStopX + 40);
+        final target = _closestAttackableEnemy(
+            maxX: config.enemyStopX + config.normalAttackReach);
         if (target != null) _damage(target, config.normalDamage);
       }
       if (attackAge + 1e-7 >= SwordsmanNormalAttackSequence.duration) {

@@ -1,5 +1,6 @@
 import '../features/character/domain/character.dart';
 import '../features/focus/domain/focus_session.dart';
+import '../features/adventure/domain/adventure.dart';
 
 class PlayerState {
   PlayerState(
@@ -10,11 +11,15 @@ class PlayerState {
       this.monitoring = false,
       this.targetPackages = const [],
       this.gachaHistory = const [],
+      Set<String> clearedStages = const {},
+      this.adventureRun,
+      this.lastAdventure,
       Map<String, Character> characters = const {},
       Map<String, int> inventory = const {},
       Map<String, FocusSession> sessions = const {},
       Set<String> appliedOperations = const {}})
       : characters = Map.unmodifiable(characters),
+        clearedStages = Set.unmodifiable(clearedStages),
         inventory = Map.unmodifiable(inventory),
         sessions = Map.unmodifiable(sessions),
         appliedOperations = Set.unmodifiable(appliedOperations);
@@ -29,6 +34,9 @@ class PlayerState {
   final Map<String, int> inventory;
   final Map<String, FocusSession> sessions;
   final Set<String> appliedOperations;
+  final Set<String> clearedStages;
+  final AdventureRun? adventureRun;
+  final AdventureRecord? lastAdventure;
   Character? get activeCharacter => characters[activeCharacterId];
 
   PlayerState copyWith(
@@ -41,6 +49,10 @@ class PlayerState {
           Map<String, Character>? characters,
           Map<String, int>? inventory,
           Map<String, FocusSession>? sessions,
+          Set<String>? clearedStages,
+          AdventureRun? adventureRun,
+          bool clearAdventureRun = false,
+          AdventureRecord? lastAdventure,
           Set<String>? appliedOperations}) =>
       PlayerState(
           uid: uid,
@@ -53,6 +65,10 @@ class PlayerState {
           characters: characters ?? this.characters,
           inventory: inventory ?? this.inventory,
           sessions: sessions ?? this.sessions,
+          clearedStages: clearedStages ?? this.clearedStages,
+          adventureRun:
+              clearAdventureRun ? null : adventureRun ?? this.adventureRun,
+          lastAdventure: lastAdventure ?? this.lastAdventure,
           appliedOperations: appliedOperations ?? this.appliedOperations);
 
   Map<String, dynamic> toJson() => {
@@ -64,6 +80,9 @@ class PlayerState {
         'monitoring': monitoring,
         'targetPackages': targetPackages,
         'gachaHistory': gachaHistory,
+        'clearedStages': clearedStages.toList(),
+        'adventureRun': adventureRun?.toJson(),
+        'lastAdventure': lastAdventure?.toJson(),
         'characters':
             characters.map((key, value) => MapEntry(key, value.toJson())),
         'inventory': inventory,
@@ -79,6 +98,15 @@ class PlayerState {
         coins: json['coins'] as int,
         activeCharacterId: json['activeCharacterId'] as String?,
         monitoring: json['monitoring'] as bool? ?? false,
+        clearedStages: Set<String>.from(json['clearedStages'] as List? ?? []),
+        adventureRun: json['adventureRun'] == null
+            ? null
+            : AdventureRun.fromJson(
+                Map<String, dynamic>.from(json['adventureRun'] as Map)),
+        lastAdventure: json['lastAdventure'] == null
+            ? null
+            : AdventureRecord.fromJson(
+                Map<String, dynamic>.from(json['lastAdventure'] as Map)),
         targetPackages:
             List<String>.from(json['targetPackages'] as List? ?? []),
         gachaHistory: (json['gachaHistory'] as List? ?? [])
