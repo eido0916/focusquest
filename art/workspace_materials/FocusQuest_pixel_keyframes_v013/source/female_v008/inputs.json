@@ -1,0 +1,80 @@
+[
+  {
+    "n": 1,
+    "name": "剣士",
+    "look": "TOP LEFT blonde swordswoman: long pale golden blonde hair with navy bow, blue eyes, ivory blouse/tunic, royal navy blue cape with gold edging, brown belts gloves tall boots, dark fitted trousers. Long hair and blue bow MUST remain visible.",
+    "attack": "Vertical sword chop: 0 guard at rest, 1 brace and bend knees, 2 raise sword overhead both hands, 3 apex overhead, 4 fast downward cut in front to right, 5 low blade follow-through, 6 recover, 7 rest.",
+    "skill": "Sword energy wave: 0 planted ready stance, 1 brace sword, 2 gather cyan light along blade, 3 strong cyan charge, 4 swing down, 5 release short crescent wave to RIGHT, 6 wave disperses to right and recover, 7 rest.",
+    "actions": [
+      "run",
+      "attack_down",
+      "skill_wave"
+    ],
+    "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-571f47d5-0d59-45af-8911-ab4eb3522d6d.png"
+  },
+  {
+    "n": 2,
+    "name": "拳闘士",
+    "look": "TOP SECOND red-haired female brawler: red ponytail, brown hood with red lining, sleeveless brown/red hooded vest, cropped ivory wrap top and modest bare midriff, red waist sash, loose cropped dark brown trousers, white hand wraps, brown boots with red ties. Empty hands no weapons.",
+    "attack": "Stationary alternating punch combo: 0 fists guard, 1 windup, 2 left jab rightward, 3 return guard rotate trunk, 4 strong right straight rightward, 5 quick opposite jab, 6 return, 7 guard. Fists stay visibly attached to forearms.",
+    "skill": "Stationary charged spin kick: 0 guard, 1 crouch weight on support leg, 2 glowing orange energy builds at kicking ankle, 3 compress pivot on support foot, 4 turn torso to rear view winding around, 5 fast extended horizontal roundhouse kick to right with orange arc, 6 retract kick and land, 7 guard. Explicit rotation body back/profile/front, not sword move.",
+    "actions": [
+      "run",
+      "punch_combo",
+      "spin_kick"
+    ],
+    "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-af53d18c-de96-4730-858c-6aaa5c89de94.png"
+  },
+  {
+    "n": 3,
+    "name": "侍",
+    "look": "TOP THIRD female samurai: long BLACK high ponytail, stern face, blue kimono/haori with pale cuffs and small weathered pale accents, dark wrap inner top, wide dark hakama trousers, brown belts, blue ties, wrapped forearms, sandals. She carries sheathed katana at left hip.",
+    "attack": "Stationary iaijutsu draw: 0 hand on sheathed katana at waist, 1 low crouch grip hilt and scabbard, 2 begin drawing curved blade, 3 fast horizontal cut to RIGHT thin pale arc, 4 extended blade followthrough, 5 recover blade, 6 blade returns to scabbard, 7 neutral sheathed stance. Scabbard held by other hand.",
+    "skill": "Katana charged flurry: 0 plant feet hold katana, 1 two-handed guard, 2 blue energy gathers on blade, 3 full blue charge, 4 diagonal fast slash to right, 5 opposite crossing slash to right, 6 final horizontal slash with crossing blue trails rightward, 7 recover guard. All 3 slash poses distinct.",
+    "actions": [
+      "run",
+      "iai",
+      "energy_flurry"
+    ],
+    "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-62e49a7b-6c49-412c-a4ae-c576f877f107.png"
+  },
+  {
+    "n": 4,
+    "name": "重騎士",
+    "look": "TOP RIGHT female heavy knight: warm brown shoulder-length hair braided sides, blue eyes, silver pauldrons breastplate gauntlets kneepads greaves, navy underclothes, cream and blue tabard, brown leather straps belts pouch. No helmet. Carries large TWO-HANDED greatsword.",
+    "attack": "Stationary heavy downward greatsword slam: 0 ready sword with two hands, 1 planted feet bend knees, 2 raise huge sword overhead, 3 highest windup lean back slightly, 4 heavy downward slam to right at ground, 5 compressed low followthrough, 6 recover heavy weapon, 7 ready. Blade and hands attached, armour joints natural.",
+    "skill": "Stationary charged greatsword sweep: 0 planted wide stance, 1 draw sword low backward, 2 golden energy gather blade, 3 strong gold charge coil hips, 4 broad horizontal sweep to RIGHT with long yellow arc, 5 extended followthrough both hands, 6 recover, 7 ready. Weighty sweep not overhead slam.",
+    "actions": [
+      "run",
+      "slam",
+      "charged_sweep"
+    ],
+    "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-427366c6-d9ab-487d-86bf-c448d3f7c855.png"
+  },
+  {
+    "n": 5,
+    "name": "忍者",
+    "look": "BOTTOM LEFT female ninja: long dark purple BLACK high ponytail, blue scarf covers lower face and long trailing navy scarf tails, sleeveless charcoal top, blue navy waist cloth, dark loose trousers, wrapped dark forearms and shins, sandals. Preserve scarf-mask.",
+    "attack": "Stationary shuriken throw: 0 ready stance, 1 hand reaches pouch, 2 arm winds back holding one tiny four-point throwing star, 3 snap rightward release, 4 star travels to right fully clear of hand, 5 extended followthrough star further right, 6 recover, 7 ready. Star not sword.",
+    "skill": "Stationary hand seal teleport dagger thrust: 0 stop ready, 1 join fingers hand seal at chest, 2 bright violet sparks around feet, 3 body breaks into purple pixel smoke, 4 vanish fully (only violet smoke), 5 reappear in same sprite anchor in forward-thrust pose dagger pointing RIGHT bright violet impact, 6 recover dagger, 7 ready. Teleport displacement is WORLD coordinate event; sprite anchor not shifted across cell. No target victim.",
+    "actions": [
+      "run",
+      "shuriken",
+      "teleport_stab"
+    ],
+    "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-f6792ed0-231d-49e6-b53b-ddabf0ca7911.png"
+  },
+  {
+    "n": 6,
+    "name": "アサシン",
+    "look": "BOTTOM SECOND female assassin: long vivid red ponytail and sidebang, black/brown short hooded mantle with red ragged edges, black cropped leather top, exposed modest midriff, brown belts and pouch, charcoal trousers, tall dark brown boots, black gloves and red waist strips. Dual short daggers, no sword. MUST red hair and red/black clothes distinct from ninja.",
+    "attack": "Stationary dagger thrust: 0 guard short dagger, 1 lean hips back windup, 2 coil elbow and crouch, 3 quick forward lunge stabbing short dagger to RIGHT, 4 fully extended stabbing arm bent rear knee, 5 retract, 6 recover, 7 guard. Short blade held exactly at hand.",
+    "skill": "Stationary charged critical dagger strike: 0 stop guard, 1 low stance aim dagger, 2 crimson energy gathers along short blade, 3 concentrated crimson charge with sparks, 4 quick lunging dagger stab RIGHT, 5 critical bright red small star/cross impact in FRONT right, 6 recoil recover blade, 7 guard. No target or blood.",
+    "actions": [
+      "run",
+      "dagger_thrust",
+      "critical_strike"
+    ],
+    "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-91cc8852-0689-4fa8-ba63-4d7ab1f73376.png"
+  }
+]

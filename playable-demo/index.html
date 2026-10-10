@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#152b27">
+  <title>Focus Quest · 草原の冒険</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="集中画面へ">F<span>Q</span><span class="brand-name">FOCUS QUEST</span></a>
+      <div class="header-actions"><span class="demo-label">PLAYABLE DEMO</span><button id="pause" class="quiet" disabled>一時停止</button><button id="reset" class="quiet">やり直す</button></div>
+    </header>
+    <section class="stage-card" aria-label="草原の冒険">
+      <div class="stage-title"><div><p class="eyebrow">STAGE 01 / THE GREEN FIELDS</p><h1>草原の冒険</h1></div><ol class="phases" aria-label="3フェーズ"><li data-phase="0">01 <span>スライム</span></li><li data-phase="1">02 <span>ゴブリン</span></li><li data-phase="2">03 <span>ボス</span></li></ol></div>
+      <div class="arena">
+        <canvas id="game" width="1280" height="720" aria-label="左の剣士と右の敵が戦う草原ステージ"></canvas>
+        <div class="battle-hud">
+          <div class="hp-panel"><div class="hp-title"><span>剣士 <small>character_01</small></span><b id="hero-hp">160 / 160</b></div><div class="hp-track"><div id="hero-bar"></div></div></div>
+          <div class="phase-indicator" id="phase-label">草原の入り口</div>
+          <div class="hp-panel enemy-panel"><div class="hp-title"><span id="enemy-name">スライム</span><b id="enemy-hp">112 / 112</b></div><div class="hp-track"><div id="enemy-bar"></div></div></div>
+        </div>
+        <div class="stage-message" id="stage-message" aria-live="polite">草原の冒険へようこそ</div>
+        <div class="overlay" id="overlay">
+          <div class="intro-card"><p class="eyebrow" id="overlay-kicker">A SMALL ADVENTURE</p><h2 id="overlay-title">剣を手に、草原へ。</h2><p id="overlay-copy">道を駆け抜け、3つの戦いに挑もう。<br>攻撃を3回当てると、スキルが使える。</p><button id="start" class="start-button" disabled>素材を読み込み中…</button><p class="keys" id="overlay-keys">タップで操作 / キーボードは A：攻撃・S：スキル</p></div>
+        </div>
+      </div>
+      <div class="control-deck">
+        <div class="journey-status"><p class="eyebrow">YOUR JOURNEY</p><strong id="journey-title">3つのフェーズを突破する</strong><p id="journey-copy">戦いの合間は自動で走ります。</p><span class="status-dot"></span><span id="state-label">準備完了</span></div>
+        <div class="combat-controls"><button id="attack" class="combat-button attack" disabled><span class="button-symbol">⚔</span><span><strong>攻撃</strong><small>通常斬撃 <kbd>A</kbd></small></span></button><button id="skill" class="combat-button skill" disabled><span class="button-symbol">✦</span><span><strong>スキル</strong><small id="skill-label">蓄力斬撃 · あと3回 <kbd>S</kbd></small><span class="charge-pips" aria-hidden="true"><i></i><i></i><i></i></span></span></button></div>
+      </div>
+    </section>
+    <footer><span>剣士の小さな冒険、最初の一歩。</span><span>PHASE 01 → 02 → BOSS</span></footer>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>

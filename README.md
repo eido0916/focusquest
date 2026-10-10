@@ -1,6 +1,8 @@
 # FocusQuest / FQ
 
-キャラクター・敵の現行原画素材（v010）、v001〜v009の制作履歴、草原のプレイアブルステージ背景は [制作素材一覧](art/workspace_materials/README.md) を参照してください。制作方針は [AGENTS.md](AGENTS.md) に記録しています。
+character_01で挑む [Flutter版プレイアブルステージ](docs/PLAYABLE_STAGE.md) は全36ステージです。従来の草原・幽霊船・火山・魔王城に、[毒茸の湿地・砂漠の迷宮・氷晶洞窟・星界の祭壇・月影の墓地](docs/STAGE_EXPANSION_V013.md)を追加しました。各エリアの4ステージ目の最終フェーズにボスが登場し、クリア後はステージ選択へ戻ります。各フェーズは複数の敵と戦い、ボスはプレイヤーの3倍の表示サイズです。デモ専用の男女20キャラクター選択とステータス棒グラフ、素早さによる行動間隔、赤・青の丸ボタン、命中・クリティカル判定、戦闘BGM・効果音に対応しています。アプリの冒険画面から「ステージを選ぶ」を開くか、`mobile/lib/main_playable_stage.dart` で直接起動できます。以前の [ブラウザ版](playable-demo/README.md) も制作履歴として保持しています。
+
+キャラクター・敵の現行原画素材（v013）、v001〜v012の制作履歴、9種類のステージ背景は [制作素材一覧](art/workspace_materials/README.md) を参照してください。弓・銃・魔法・手裏剣は配置位置から発射し、飛び道具の着弾時にダメージを判定します。制作方針は [AGENTS.md](AGENTS.md) に記録しています。
 
 集中した時間が、冒険と成長に変わるAndroid向けRPG。
 
@@ -27,20 +29,20 @@ Flutter本体は **mobile/**。2026-10-03の方針変更により、ログイン
 ## 開発環境
 
 現在検証している組合せ:
-- Flutter 3.24.3 / Dart 3.5.3（既存SDKを再利用）
+- Flutter 3.24.3 / Dart 3.5.3
 - Flame 1.18.0 / path_provider 2.1.3（pubspec.lockを共有）
 - Java 17、Android SDK、Gradle 8.3
 - VS Code + Flutter / Dart拡張
 
-このPCではFlutterが `C:\src\flutter`、
-Java / Android SDKは `%LOCALAPPDATA%\FocusQuestTools\` 配下です。
+このPCではFlutterが `%USERPROFILE%\FocusQuestTools\flutter`、
+Java / Android SDKも `%USERPROFILE%\FocusQuestTools\` 配下です。
 Flutterに `flutter config --android-sdk ... --jdk-dir ...` で登録済みです。
 Android Studio・エミュレーターは導入していません。
 
 PowerShell:
 
 ```powershell
-$env:Path = "C:\src\flutter\bin;" + $env:Path
+$env:Path = "$env:USERPROFILE\FocusQuestTools\flutter\bin;" + $env:Path
 cd mobile
 flutter pub get
 flutter analyze --no-pub

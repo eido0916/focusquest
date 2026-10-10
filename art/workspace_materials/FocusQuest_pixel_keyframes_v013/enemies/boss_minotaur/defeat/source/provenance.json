@@ -1,0 +1,10 @@
+{
+  "source_folder": "FocusQuest_pixel_keyframes_v013/source/enemies_v013/boss_minotaur/defeat",
+  "keyframe_sources": [
+    "FocusQuest_pixel_keyframes_v013/source/enemies_v013/boss_minotaur/defeat/frames/frame_000.png",
+    "FocusQuest_pixel_keyframes_v013/source/enemies_v013/boss_minotaur/defeat/frames/frame_001.png",
+    "FocusQuest_pixel_keyframes_v013/source/enemies_v013/boss_minotaur/defeat/frames/frame_002.png",
+    "FocusQuest_pixel_keyframes_v013/source/enemies_v013/boss_minotaur/defeat/frames/frame_003.png",
+    "FocusQuest_pixel_keyframes_v013/source/enemies_v013/boss_minotaur/defeat/frames/frame_004.png"
+  ]
+}

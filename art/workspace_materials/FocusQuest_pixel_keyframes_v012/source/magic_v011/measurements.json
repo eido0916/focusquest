@@ -1,0 +1,34 @@
+[
+  {
+    "actor": "character_10",
+    "fixed_uniform_export_scale": 0.20588235294117646,
+    "shared_original_bounds": [
+      131,
+      257,
+      403,
+      480
+    ],
+    "unique_drawn_poses": 28,
+    "palette_colors": 48,
+    "logical_grid": [
+      64,
+      64
+    ]
+  },
+  {
+    "actor": "character_10_female",
+    "fixed_uniform_export_scale": 0.19718309859154928,
+    "shared_original_bounds": [
+      128,
+      241,
+      412,
+      480
+    ],
+    "unique_drawn_poses": 28,
+    "palette_colors": 48,
+    "logical_grid": [
+      64,
+      64
+    ]
+  }
+]

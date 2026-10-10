@@ -1,0 +1,102 @@
+[
+  {
+    "n": 7,
+    "gender": "male",
+    "actor": "character_07",
+    "kind": "players",
+    "name": "弓使い・男性",
+    "reference": "7.png",
+    "look": "adult male archer from reference7.png: short tousled warm light brown hair, brown eyes, forest olive green hooded cape with tan/gold triangle edge, ivory lace-front tunic rolled pale sleeves, brown leather straps belt bracers gloves tall boots, charcoal brown full trousers, arrow quiver on back. No helmet, no pointed ears.",
+    "actions": [
+      "run",
+      "bow_shot",
+      "rapid_shot"
+    ],
+    "atlases": {
+      "run": {
+        "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-508f60df-518d-4b9a-9178-b35c60b5fbf5.png"
+      },
+      "bow_shot": {
+        "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-01721ddf-52be-42eb-aa93-00b6ccbe76d4.png"
+      },
+      "rapid_shot": {
+        "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-fe7b257a-a22c-4433-a21b-b5c5f0268532.png"
+      }
+    }
+  },
+  {
+    "n": 7,
+    "gender": "female",
+    "actor": "character_07_female",
+    "kind": "players_female",
+    "name": "弓使い・女性",
+    "reference": "女.png",
+    "look": "adult FEMALE archer is BOTTOM THIRD person of 女.png collage: light golden brown hair in long HIGH PONYTAIL and side bangs, green eyes, forest green short cape with tan/gold edging, ivory rolled-sleeve blouse, brown leather chest straps and belts gloves tall boots, dark brown shorts and bare thighs. Arrow quiver on back. Do NOT use any other person in the collage. No elf ears.",
+    "actions": [
+      "run",
+      "bow_shot",
+      "rapid_shot"
+    ],
+    "atlases": {
+      "run": {
+        "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-468e9950-ac35-469b-a226-19d5e42d05aa.png"
+      },
+      "bow_shot": {
+        "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-059d88d0-994a-4e2c-8510-84fd62220244.png"
+      },
+      "rapid_shot": {
+        "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-5890e72d-269d-494f-b2cb-afb33ea8f53d.png"
+      }
+    }
+  },
+  {
+    "n": 8,
+    "gender": "male",
+    "actor": "character_08",
+    "kind": "players",
+    "name": "魔法使い・男性",
+    "reference": "9.png",
+    "look": "adult MALE mage from9.png: short wavy PURPLE hair, purple eyes, long IVORY coat/robe trimmed lavender purple, purple hooded shoulder cape with pale gold edges and long trailing ends, charcoal inner shirt and trousers, brown crossed chest strap belt and satchel, brown gauntlets/gloves and tall boots. No hat. Add modest wooden staff with small violet crystal tip, always held visibly in right hand.",
+    "actions": [
+      "run",
+      "fire_cast",
+      "ice_burst"
+    ],
+    "atlases": {
+      "run": {
+        "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-2c003b9d-e868-4ee0-8b05-c8ac2799eb01.png"
+      },
+      "fire_cast": {
+        "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-56081065-b0a0-469d-9cd5-336aa701c07b.png"
+      },
+      "ice_burst": {
+        "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-1a69fa9c-be11-43d8-9395-114eea9d0ffe.png"
+      }
+    }
+  },
+  {
+    "n": 8,
+    "gender": "female",
+    "actor": "character_08_female",
+    "kind": "players_female",
+    "name": "魔法使い・女性",
+    "reference": "9.png",
+    "look": "adult FEMALE counterpart of9.png mage: purple shoulder-length wavy hair with longer rear locks, purple eyes, same IVORY long coat/robe trimmed lavender purple, purple hooded shoulder cape pale gold edges and long trailing ends, charcoal inner shirt and leggings, brown crossed chest strap belt satchel gloves tall boots. Feminine face and slim silhouette, modest identical coverage, no hat. Modest wooden staff with small violet crystal tip always held visibly in right hand.",
+    "actions": [
+      "run",
+      "fire_cast",
+      "ice_burst"
+    ],
+    "atlases": {
+      "run": {
+        "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-4b90c7cd-93e3-411e-9a67-d6b65de126eb.png"
+      },
+      "fire_cast": {
+        "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-d656253a-3ea3-4bcb-96a5-51d5d86163ee.png"
+      },
+      "ice_burst": {
+        "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-1d660a44-e1aa-4258-99d0-5ba76a434a8c.png"
+      }
+    }
+  }
+]

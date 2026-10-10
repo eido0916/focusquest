@@ -1,0 +1,17 @@
+{
+  "source_folder": "FocusQuest_character_preproduction_v01/character_04/sprite_animations_v001/charged_sweep",
+  "keyframe_sources": [
+    "FocusQuest_character_preproduction_v01/character_04/sprite_animations_v001/charged_sweep/frames/character_04_charged_sweep_00.png",
+    "FocusQuest_character_preproduction_v01/character_04/sprite_animations_v001/charged_sweep/frames/character_04_charged_sweep_01.png",
+    "FocusQuest_character_preproduction_v01/character_04/sprite_animations_v001/charged_sweep/frames/character_04_charged_sweep_02.png",
+    "FocusQuest_character_preproduction_v01/character_04/sprite_animations_v001/charged_sweep/frames/character_04_charged_sweep_03.png",
+    "FocusQuest_character_preproduction_v01/character_04/sprite_animations_v001/charged_sweep/frames/character_04_charged_sweep_04.png",
+    "FocusQuest_character_preproduction_v01/character_04/sprite_animations_v001/charged_sweep/frames/character_04_charged_sweep_05.png",
+    "FocusQuest_character_preproduction_v01/character_04/sprite_animations_v001/charged_sweep/frames/character_04_charged_sweep_06.png",
+    "FocusQuest_character_preproduction_v01/character_04/sprite_animations_v001/charged_sweep/frames/character_04_charged_sweep_07.png",
+    "FocusQuest_character_preproduction_v01/character_04/sprite_animations_v001/charged_sweep/frames/character_04_charged_sweep_08.png",
+    "FocusQuest_character_preproduction_v01/character_04/sprite_animations_v001/charged_sweep/frames/character_04_charged_sweep_09.png",
+    "FocusQuest_character_preproduction_v01/character_04/sprite_animations_v001/charged_sweep/frames/character_04_charged_sweep_10.png",
+    "FocusQuest_character_preproduction_v01/character_04/sprite_animations_v001/charged_sweep/frames/character_04_charged_sweep_11.png"
+  ]
+}

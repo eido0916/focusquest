@@ -1,0 +1,13 @@
+{
+  "source_folder": "FocusQuest_pixel_keyframes_v009/source/ranged_v009/character_07/bow_shot",
+  "keyframe_sources": [
+    "FocusQuest_pixel_keyframes_v009/source/ranged_v009/character_07/bow_shot/frames/frame_000.png",
+    "FocusQuest_pixel_keyframes_v009/source/ranged_v009/character_07/bow_shot/frames/frame_001.png",
+    "FocusQuest_pixel_keyframes_v009/source/ranged_v009/character_07/bow_shot/frames/frame_002.png",
+    "FocusQuest_pixel_keyframes_v009/source/ranged_v009/character_07/bow_shot/frames/frame_003.png",
+    "FocusQuest_pixel_keyframes_v009/source/ranged_v009/character_07/bow_shot/frames/frame_004.png",
+    "FocusQuest_pixel_keyframes_v009/source/ranged_v009/character_07/bow_shot/frames/frame_005.png",
+    "FocusQuest_pixel_keyframes_v009/source/ranged_v009/character_07/bow_shot/frames/frame_006.png",
+    "FocusQuest_pixel_keyframes_v009/source/ranged_v009/character_07/bow_shot/frames/frame_007.png"
+  ]
+}

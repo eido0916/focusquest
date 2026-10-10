@@ -1,0 +1,188 @@
+{
+  "fps": 24,
+  "loop_in_game": false,
+  "holds_ticks": [
+    3,
+    3,
+    3,
+    3,
+    4,
+    4,
+    4,
+    4,
+    2
+  ],
+  "display_frame_sequence": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    4,
+    4,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    6,
+    6,
+    6,
+    6,
+    7,
+    7,
+    7,
+    7,
+    8,
+    8
+  ],
+  "events": [
+    {
+      "event": "defeat_begin",
+      "tick": 0,
+      "keyframe": 0
+    },
+    {
+      "event": "despawn",
+      "tick": 28,
+      "keyframe": 8
+    }
+  ],
+  "direction": "left",
+  "interpolation": "none",
+  "part_transforms": false,
+  "crossfade": false,
+  "root_offsets_px": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      8,
+      0
+    ],
+    [
+      8,
+      0
+    ],
+    [
+      8,
+      0
+    ],
+    [
+      16,
+      0
+    ],
+    [
+      16,
+      0
+    ],
+    [
+      16,
+      0
+    ],
+    [
+      24,
+      0
+    ],
+    [
+      24,
+      0
+    ],
+    [
+      24,
+      0
+    ],
+    [
+      32,
+      0
+    ],
+    [
+      32,
+      0
+    ],
+    [
+      32,
+      0
+    ],
+    [
+      32,
+      0
+    ],
+    [
+      40,
+      0
+    ],
+    [
+      40,
+      0
+    ],
+    [
+      40,
+      0
+    ],
+    [
+      40,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ]
+  ],
+  "root_motion_space": "world_px_absolute_offset",
+  "reference": "boss_reference.png",
+  "production": "Drawn pixel originals with fixed production sampling; no intermediate poses or image transforms at runtime."
+}

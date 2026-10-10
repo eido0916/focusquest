@@ -1,0 +1,120 @@
+{
+  "new_bosses": 4,
+  "new_animations": 16,
+  "new_keyframes": 132,
+  "previous_files_unchanged": 3350,
+  "checks": [
+    {
+      "actor": "boss_goblin_king",
+      "action": "walk",
+      "keys": 8,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_goblin_king",
+      "action": "attack",
+      "keys": 8,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_goblin_king",
+      "action": "hurt",
+      "keys": 8,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_goblin_king",
+      "action": "defeat",
+      "keys": 9,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_cyclops",
+      "action": "walk",
+      "keys": 8,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_cyclops",
+      "action": "attack",
+      "keys": 8,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_cyclops",
+      "action": "hurt",
+      "keys": 8,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_cyclops",
+      "action": "defeat",
+      "keys": 9,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_dullahan",
+      "action": "walk",
+      "keys": 8,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_dullahan",
+      "action": "attack",
+      "keys": 8,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_dullahan",
+      "action": "hurt",
+      "keys": 8,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_dullahan",
+      "action": "defeat",
+      "keys": 9,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_fire_dragon",
+      "action": "walk",
+      "keys": 8,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_fire_dragon",
+      "action": "attack",
+      "keys": 8,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_fire_dragon",
+      "action": "hurt",
+      "keys": 8,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_fire_dragon",
+      "action": "defeat",
+      "keys": 9,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    }
+  ]
+}

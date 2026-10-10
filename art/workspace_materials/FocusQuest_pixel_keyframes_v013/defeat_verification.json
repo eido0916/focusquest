@@ -1,0 +1,9 @@
+{
+  "new_defeat_animations": 3,
+  "new_original_keyframes": 24,
+  "all_first_frames_equal_existing_neutral": true,
+  "all_last_frames_fully_transparent": true,
+  "world_knockback_right_44px": true,
+  "all_pixel_grids_and_canvas_margins_pass": true,
+  "unchanged_existing_asset_files": 1363
+}

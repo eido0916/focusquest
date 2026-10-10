@@ -1,0 +1,66 @@
+[
+  {
+    "actor": "character_07",
+    "fixed_uniform_export_scale": 0.1728395061728395,
+    "shared_original_bounds": [
+      73,
+      246,
+      397,
+      480
+    ],
+    "unique_drawn_poses": 28,
+    "palette_colors": 48,
+    "logical_grid": [
+      64,
+      64
+    ]
+  },
+  {
+    "actor": "character_07_female",
+    "fixed_uniform_export_scale": 0.1794871794871795,
+    "shared_original_bounds": [
+      79,
+      225,
+      391,
+      480
+    ],
+    "unique_drawn_poses": 28,
+    "palette_colors": 48,
+    "logical_grid": [
+      64,
+      64
+    ]
+  },
+  {
+    "actor": "character_08",
+    "fixed_uniform_export_scale": 0.19243986254295534,
+    "shared_original_bounds": [
+      100,
+      265,
+      391,
+      480
+    ],
+    "unique_drawn_poses": 28,
+    "palette_colors": 48,
+    "logical_grid": [
+      64,
+      64
+    ]
+  },
+  {
+    "actor": "character_08_female",
+    "fixed_uniform_export_scale": 0.19112627986348124,
+    "shared_original_bounds": [
+      93,
+      265,
+      386,
+      480
+    ],
+    "unique_drawn_poses": 28,
+    "palette_colors": 48,
+    "logical_grid": [
+      64,
+      64
+    ]
+  }
+]
