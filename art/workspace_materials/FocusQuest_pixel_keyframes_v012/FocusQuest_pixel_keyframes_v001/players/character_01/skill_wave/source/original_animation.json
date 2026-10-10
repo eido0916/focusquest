@@ -1,0 +1,469 @@
+{
+  "asset_id": "character_01",
+  "animation_id": "skill_wave",
+  "size": [
+    128,
+    128
+  ],
+  "direction": "right",
+  "logical_grid": [
+    64,
+    64
+  ],
+  "root_motion": "none",
+  "game_loop": false,
+  "preview_loop": true,
+  "fps": 24,
+  "duration_seconds": 1.5,
+  "display_frame_count": 36,
+  "keyframe_count": 12,
+  "character_scale_relative_attack": 0.90625,
+  "attack_original_canvas_to_skill": {
+    "scale": 0.453125,
+    "translate_logical": [
+      -7,
+      5
+    ]
+  },
+  "effect_color": "cyan_blue_white",
+  "release_frame_24fps": 21,
+  "keyframes": [
+    {
+      "keyframe": 0,
+      "phase": "ready",
+      "attack_pose": 0,
+      "hold_frames_24fps": 3,
+      "blade_anchors_logical": [
+        [
+          35.59375,
+          41.703125
+        ],
+        [
+          44.203125,
+          32.1875
+        ]
+      ],
+      "shockwave_center_logical": null
+    },
+    {
+      "keyframe": 1,
+      "phase": "charge_begin",
+      "attack_pose": 0,
+      "hold_frames_24fps": 5,
+      "blade_anchors_logical": [
+        [
+          35.59375,
+          41.703125
+        ],
+        [
+          44.203125,
+          32.1875
+        ]
+      ],
+      "shockwave_center_logical": null
+    },
+    {
+      "keyframe": 2,
+      "phase": "charge_grow",
+      "attack_pose": 1,
+      "hold_frames_24fps": 5,
+      "blade_anchors_logical": [
+        [
+          13.84375,
+          34.90625
+        ],
+        [
+          9.765625,
+          21.3125
+        ]
+      ],
+      "shockwave_center_logical": null
+    },
+    {
+      "keyframe": 3,
+      "phase": "charged_overhead",
+      "attack_pose": 2,
+      "hold_frames_24fps": 7,
+      "blade_anchors_logical": [
+        [
+          17.46875,
+          24.03125
+        ],
+        [
+          5.234375,
+          11.34375
+        ]
+      ],
+      "shockwave_center_logical": null
+    },
+    {
+      "keyframe": 4,
+      "phase": "downstroke",
+      "attack_pose": 3,
+      "hold_frames_24fps": 1,
+      "blade_anchors_logical": [
+        [
+          23.8125,
+          24.484375
+        ],
+        [
+          38.765625,
+          13.15625
+        ]
+      ],
+      "shockwave_center_logical": null
+    },
+    {
+      "keyframe": 5,
+      "phase": "wave_release",
+      "attack_pose": 4,
+      "hold_frames_24fps": 2,
+      "blade_anchors_logical": [
+        [
+          30.609375,
+          43.0625
+        ],
+        [
+          48.734375,
+          44.875
+        ]
+      ],
+      "shockwave_center_logical": [
+        48,
+        44
+      ]
+    },
+    {
+      "keyframe": 6,
+      "phase": "wave_near",
+      "attack_pose": 5,
+      "hold_frames_24fps": 2,
+      "blade_anchors_logical": [
+        [
+          29.25,
+          48.046875
+        ],
+        [
+          46.921875,
+          56.65625
+        ]
+      ],
+      "shockwave_center_logical": [
+        51,
+        44
+      ]
+    },
+    {
+      "keyframe": 7,
+      "phase": "wave_forward",
+      "attack_pose": 5,
+      "hold_frames_24fps": 2,
+      "blade_anchors_logical": [
+        [
+          29.25,
+          48.046875
+        ],
+        [
+          46.921875,
+          56.65625
+        ]
+      ],
+      "shockwave_center_logical": [
+        54,
+        44
+      ]
+    },
+    {
+      "keyframe": 8,
+      "phase": "wave_break",
+      "attack_pose": 5,
+      "hold_frames_24fps": 2,
+      "blade_anchors_logical": [
+        [
+          29.25,
+          48.046875
+        ],
+        [
+          46.921875,
+          56.65625
+        ]
+      ],
+      "shockwave_center_logical": [
+        56,
+        44
+      ]
+    },
+    {
+      "keyframe": 9,
+      "phase": "wave_fade_recovery",
+      "attack_pose": 6,
+      "hold_frames_24fps": 2,
+      "blade_anchors_logical": [
+        [
+          35.59375,
+          41.703125
+        ],
+        [
+          44.203125,
+          32.1875
+        ]
+      ],
+      "shockwave_center_logical": [
+        58,
+        44
+      ]
+    },
+    {
+      "keyframe": 10,
+      "phase": "recovery",
+      "attack_pose": 6,
+      "hold_frames_24fps": 3,
+      "blade_anchors_logical": [
+        [
+          35.59375,
+          41.703125
+        ],
+        [
+          44.203125,
+          32.1875
+        ]
+      ],
+      "shockwave_center_logical": null
+    },
+    {
+      "keyframe": 11,
+      "phase": "ready_return",
+      "attack_pose": 0,
+      "hold_frames_24fps": 2,
+      "blade_anchors_logical": [
+        [
+          35.59375,
+          41.703125
+        ],
+        [
+          44.203125,
+          32.1875
+        ]
+      ],
+      "shockwave_center_logical": null
+    }
+  ],
+  "timeline": [
+    {
+      "frame": 0,
+      "time_seconds": 0.0,
+      "keyframe": 0,
+      "file": "frames_24fps/character_01_skill_wave_000.png"
+    },
+    {
+      "frame": 1,
+      "time_seconds": 0.041666666666666664,
+      "keyframe": 0,
+      "file": "frames_24fps/character_01_skill_wave_001.png"
+    },
+    {
+      "frame": 2,
+      "time_seconds": 0.08333333333333333,
+      "keyframe": 0,
+      "file": "frames_24fps/character_01_skill_wave_002.png"
+    },
+    {
+      "frame": 3,
+      "time_seconds": 0.125,
+      "keyframe": 1,
+      "file": "frames_24fps/character_01_skill_wave_003.png"
+    },
+    {
+      "frame": 4,
+      "time_seconds": 0.16666666666666666,
+      "keyframe": 1,
+      "file": "frames_24fps/character_01_skill_wave_004.png"
+    },
+    {
+      "frame": 5,
+      "time_seconds": 0.20833333333333334,
+      "keyframe": 1,
+      "file": "frames_24fps/character_01_skill_wave_005.png"
+    },
+    {
+      "frame": 6,
+      "time_seconds": 0.25,
+      "keyframe": 1,
+      "file": "frames_24fps/character_01_skill_wave_006.png"
+    },
+    {
+      "frame": 7,
+      "time_seconds": 0.2916666666666667,
+      "keyframe": 1,
+      "file": "frames_24fps/character_01_skill_wave_007.png"
+    },
+    {
+      "frame": 8,
+      "time_seconds": 0.3333333333333333,
+      "keyframe": 2,
+      "file": "frames_24fps/character_01_skill_wave_008.png"
+    },
+    {
+      "frame": 9,
+      "time_seconds": 0.375,
+      "keyframe": 2,
+      "file": "frames_24fps/character_01_skill_wave_009.png"
+    },
+    {
+      "frame": 10,
+      "time_seconds": 0.4166666666666667,
+      "keyframe": 2,
+      "file": "frames_24fps/character_01_skill_wave_010.png"
+    },
+    {
+      "frame": 11,
+      "time_seconds": 0.4583333333333333,
+      "keyframe": 2,
+      "file": "frames_24fps/character_01_skill_wave_011.png"
+    },
+    {
+      "frame": 12,
+      "time_seconds": 0.5,
+      "keyframe": 2,
+      "file": "frames_24fps/character_01_skill_wave_012.png"
+    },
+    {
+      "frame": 13,
+      "time_seconds": 0.5416666666666666,
+      "keyframe": 3,
+      "file": "frames_24fps/character_01_skill_wave_013.png"
+    },
+    {
+      "frame": 14,
+      "time_seconds": 0.5833333333333334,
+      "keyframe": 3,
+      "file": "frames_24fps/character_01_skill_wave_014.png"
+    },
+    {
+      "frame": 15,
+      "time_seconds": 0.625,
+      "keyframe": 3,
+      "file": "frames_24fps/character_01_skill_wave_015.png"
+    },
+    {
+      "frame": 16,
+      "time_seconds": 0.6666666666666666,
+      "keyframe": 3,
+      "file": "frames_24fps/character_01_skill_wave_016.png"
+    },
+    {
+      "frame": 17,
+      "time_seconds": 0.7083333333333334,
+      "keyframe": 3,
+      "file": "frames_24fps/character_01_skill_wave_017.png"
+    },
+    {
+      "frame": 18,
+      "time_seconds": 0.75,
+      "keyframe": 3,
+      "file": "frames_24fps/character_01_skill_wave_018.png"
+    },
+    {
+      "frame": 19,
+      "time_seconds": 0.7916666666666666,
+      "keyframe": 3,
+      "file": "frames_24fps/character_01_skill_wave_019.png"
+    },
+    {
+      "frame": 20,
+      "time_seconds": 0.8333333333333334,
+      "keyframe": 4,
+      "file": "frames_24fps/character_01_skill_wave_020.png"
+    },
+    {
+      "frame": 21,
+      "time_seconds": 0.875,
+      "keyframe": 5,
+      "file": "frames_24fps/character_01_skill_wave_021.png"
+    },
+    {
+      "frame": 22,
+      "time_seconds": 0.9166666666666666,
+      "keyframe": 5,
+      "file": "frames_24fps/character_01_skill_wave_022.png"
+    },
+    {
+      "frame": 23,
+      "time_seconds": 0.9583333333333334,
+      "keyframe": 6,
+      "file": "frames_24fps/character_01_skill_wave_023.png"
+    },
+    {
+      "frame": 24,
+      "time_seconds": 1.0,
+      "keyframe": 6,
+      "file": "frames_24fps/character_01_skill_wave_024.png"
+    },
+    {
+      "frame": 25,
+      "time_seconds": 1.0416666666666667,
+      "keyframe": 7,
+      "file": "frames_24fps/character_01_skill_wave_025.png"
+    },
+    {
+      "frame": 26,
+      "time_seconds": 1.0833333333333333,
+      "keyframe": 7,
+      "file": "frames_24fps/character_01_skill_wave_026.png"
+    },
+    {
+      "frame": 27,
+      "time_seconds": 1.125,
+      "keyframe": 8,
+      "file": "frames_24fps/character_01_skill_wave_027.png"
+    },
+    {
+      "frame": 28,
+      "time_seconds": 1.1666666666666667,
+      "keyframe": 8,
+      "file": "frames_24fps/character_01_skill_wave_028.png"
+    },
+    {
+      "frame": 29,
+      "time_seconds": 1.2083333333333333,
+      "keyframe": 9,
+      "file": "frames_24fps/character_01_skill_wave_029.png"
+    },
+    {
+      "frame": 30,
+      "time_seconds": 1.25,
+      "keyframe": 9,
+      "file": "frames_24fps/character_01_skill_wave_030.png"
+    },
+    {
+      "frame": 31,
+      "time_seconds": 1.2916666666666667,
+      "keyframe": 10,
+      "file": "frames_24fps/character_01_skill_wave_031.png"
+    },
+    {
+      "frame": 32,
+      "time_seconds": 1.3333333333333333,
+      "keyframe": 10,
+      "file": "frames_24fps/character_01_skill_wave_032.png"
+    },
+    {
+      "frame": 33,
+      "time_seconds": 1.375,
+      "keyframe": 10,
+      "file": "frames_24fps/character_01_skill_wave_033.png"
+    },
+    {
+      "frame": 34,
+      "time_seconds": 1.4166666666666667,
+      "keyframe": 11,
+      "file": "frames_24fps/character_01_skill_wave_034.png"
+    },
+    {
+      "frame": 35,
+      "time_seconds": 1.4583333333333333,
+      "keyframe": 11,
+      "file": "frames_24fps/character_01_skill_wave_035.png"
+    }
+  ]
+}

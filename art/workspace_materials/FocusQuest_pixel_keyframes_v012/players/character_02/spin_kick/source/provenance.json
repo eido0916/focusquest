@@ -1,0 +1,17 @@
+{
+  "source_folder": "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/spin_kick",
+  "keyframe_sources": [
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/spin_kick/frames/character_02_spin_kick_00.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/spin_kick/frames/character_02_spin_kick_01.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/spin_kick/frames/character_02_spin_kick_02.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/spin_kick/frames/character_02_spin_kick_03.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/spin_kick/frames/character_02_spin_kick_04.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/spin_kick/frames/character_02_spin_kick_05.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/spin_kick/frames/character_02_spin_kick_06.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/spin_kick/frames/character_02_spin_kick_07.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/spin_kick/frames/character_02_spin_kick_08.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/spin_kick/frames/character_02_spin_kick_09.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/spin_kick/frames/character_02_spin_kick_10.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/spin_kick/frames/character_02_spin_kick_11.png"
+  ]
+}

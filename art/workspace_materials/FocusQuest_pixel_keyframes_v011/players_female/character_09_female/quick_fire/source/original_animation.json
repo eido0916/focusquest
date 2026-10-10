@@ -1,0 +1,162 @@
+{
+  "fps": 24,
+  "loop_in_game": false,
+  "holds_ticks": [
+    3,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    3,
+    3
+  ],
+  "display_frame_sequence": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    10,
+    10,
+    11,
+    11,
+    11
+  ],
+  "events": [
+    {
+      "event": "bullet_release",
+      "tick": 7,
+      "keyframe": 3,
+      "shot_index": 0,
+      "direction": [
+        1,
+        0
+      ]
+    },
+    {
+      "event": "bullet_release",
+      "tick": 10,
+      "keyframe": 6,
+      "shot_index": 1,
+      "direction": [
+        1,
+        0
+      ]
+    },
+    {
+      "event": "bullet_release",
+      "tick": 13,
+      "keyframe": 9,
+      "shot_index": 2,
+      "direction": [
+        1,
+        0
+      ]
+    }
+  ],
+  "direction": "right",
+  "variant": "female",
+  "reference": "女.png（右下ガンナー）",
+  "interpolation": "none",
+  "part_transforms": false,
+  "crossfade": false,
+  "root_offsets_px": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "root_motion_space": "world_px_absolute_offset",
+  "production": "Independently drawn pixel originals; fixed production sampling only. 24fps output consists exclusively of exact original file copies."
+}

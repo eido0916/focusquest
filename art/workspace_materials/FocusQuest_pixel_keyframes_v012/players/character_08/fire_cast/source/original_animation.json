@@ -1,0 +1,162 @@
+{
+  "fps": 24,
+  "loop_in_game": false,
+  "holds_ticks": [
+    3,
+    3,
+    3,
+    3,
+    2,
+    2,
+    4,
+    4
+  ],
+  "display_frame_sequence": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    6,
+    6,
+    6,
+    6,
+    7,
+    7,
+    7,
+    7
+  ],
+  "events": [
+    {
+      "event": "fire_charge_begin",
+      "tick": 9,
+      "keyframe": 3
+    },
+    {
+      "event": "fire_release",
+      "tick": 12,
+      "keyframe": 4,
+      "direction": [
+        1,
+        0
+      ]
+    }
+  ],
+  "direction": "right",
+  "variant": "male",
+  "reference": "9.png",
+  "interpolation": "none",
+  "part_transforms": false,
+  "crossfade": false,
+  "root_offsets_px": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "root_motion_space": "world_px_absolute_offset",
+  "production": "Independently drawn pixel originals; fixed production sampling only. 24fps output consists exclusively of exact original file copies."
+}

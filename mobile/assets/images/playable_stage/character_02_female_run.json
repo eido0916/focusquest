@@ -1,0 +1,274 @@
+{
+  "asset": "character_02_female",
+  "action": "run",
+  "render_mode": "original_pixel_keyframes",
+  "canvas": [
+    128,
+    128
+  ],
+  "fps": 24,
+  "direction": "right",
+  "interpolation": "none",
+  "part_transforms": false,
+  "crossfade": false,
+  "loop_in_game": true,
+  "duration_seconds": 0.6666666666666666,
+  "keyframes": [
+    {
+      "index": 0,
+      "file": "keyframes/frame_000.png",
+      "rgba_sha256": "a44afc11f3e59d8ba5bf50c354459ef42d2f2e0f9c64b9deff0b8da802db2388"
+    },
+    {
+      "index": 1,
+      "file": "keyframes/frame_001.png",
+      "rgba_sha256": "c35cd307b9a3e52a16c0a2b964981e61c3858ebe66083d707d257c1e3c668f19"
+    },
+    {
+      "index": 2,
+      "file": "keyframes/frame_002.png",
+      "rgba_sha256": "b8cbdf4d8bdb781fec34b9a7ffbdadfd30db7701d79ab21ccb7aa99930d95b16"
+    },
+    {
+      "index": 3,
+      "file": "keyframes/frame_003.png",
+      "rgba_sha256": "e37e5543f34abc8586ff18233189c74bde536858372dfbc2753dfd4a6e5ee9ff"
+    },
+    {
+      "index": 4,
+      "file": "keyframes/frame_004.png",
+      "rgba_sha256": "6f451f2b83857f5ec53837bb9b6b439a15b1e05a21b04fea4605a8db19c3eb93"
+    },
+    {
+      "index": 5,
+      "file": "keyframes/frame_005.png",
+      "rgba_sha256": "f4438365bf440d68b919ffbfd010d36cc0e50631af2f6cbd09f5fd92bc14b5c2"
+    },
+    {
+      "index": 6,
+      "file": "keyframes/frame_006.png",
+      "rgba_sha256": "898de437ae9b3f1f7cab239d21f12cf5df58b61413a1513d20af6e4717c3cfc4"
+    },
+    {
+      "index": 7,
+      "file": "keyframes/frame_007.png",
+      "rgba_sha256": "318071567ddf053e5570e5c1458dc400baf136783706f0250a901a19902d8e21"
+    }
+  ],
+  "holds": [
+    {
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 6,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 7,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    }
+  ],
+  "events": [],
+  "timeline": [
+    {
+      "tick": 0,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_000.png"
+    },
+    {
+      "tick": 1,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_001.png"
+    },
+    {
+      "tick": 2,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_002.png"
+    },
+    {
+      "tick": 3,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_003.png"
+    },
+    {
+      "tick": 4,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_004.png"
+    },
+    {
+      "tick": 5,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_005.png"
+    },
+    {
+      "tick": 6,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_006.png"
+    },
+    {
+      "tick": 7,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_007.png"
+    },
+    {
+      "tick": 8,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_008.png"
+    },
+    {
+      "tick": 9,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_009.png"
+    },
+    {
+      "tick": 10,
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_010.png"
+    },
+    {
+      "tick": 11,
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_011.png"
+    },
+    {
+      "tick": 12,
+      "keyframe": 6,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_012.png"
+    },
+    {
+      "tick": 13,
+      "keyframe": 6,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_013.png"
+    },
+    {
+      "tick": 14,
+      "keyframe": 7,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_014.png"
+    },
+    {
+      "tick": 15,
+      "keyframe": 7,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_015.png"
+    }
+  ],
+  "variant": "female",
+  "corresponding_male": "character_02",
+  "root_motion_space": "world_px_absolute_offset"
+}

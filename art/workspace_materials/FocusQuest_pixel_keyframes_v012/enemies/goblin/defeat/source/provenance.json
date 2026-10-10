@@ -1,0 +1,13 @@
+{
+  "source_folder": "FocusQuest_pixel_keyframes_v007/source/enemy_defeat_v007/goblin",
+  "keyframe_sources": [
+    "FocusQuest_pixel_keyframes_v007/source/enemy_defeat_v007/goblin/frames/frame_000.png",
+    "FocusQuest_pixel_keyframes_v007/source/enemy_defeat_v007/goblin/frames/frame_001.png",
+    "FocusQuest_pixel_keyframes_v007/source/enemy_defeat_v007/goblin/frames/frame_002.png",
+    "FocusQuest_pixel_keyframes_v007/source/enemy_defeat_v007/goblin/frames/frame_003.png",
+    "FocusQuest_pixel_keyframes_v007/source/enemy_defeat_v007/goblin/frames/frame_004.png",
+    "FocusQuest_pixel_keyframes_v007/source/enemy_defeat_v007/goblin/frames/frame_005.png",
+    "FocusQuest_pixel_keyframes_v007/source/enemy_defeat_v007/goblin/frames/frame_006.png",
+    "FocusQuest_pixel_keyframes_v007/source/enemy_defeat_v007/goblin/frames/frame_007.png"
+  ]
+}

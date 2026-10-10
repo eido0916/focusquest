@@ -1,0 +1,162 @@
+{
+  "fps": 24,
+  "loop_in_game": false,
+  "holds_ticks": [
+    3,
+    3,
+    3,
+    2,
+    2,
+    3,
+    4,
+    4
+  ],
+  "display_frame_sequence": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    5,
+    6,
+    6,
+    6,
+    6,
+    7,
+    7,
+    7,
+    7
+  ],
+  "events": [
+    {
+      "event": "punch_hit",
+      "tick": 6,
+      "hit_index": 0
+    },
+    {
+      "event": "punch_hit",
+      "tick": 11,
+      "hit_index": 1
+    },
+    {
+      "event": "punch_hit",
+      "tick": 13,
+      "hit_index": 2
+    }
+  ],
+  "root_offsets_px": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "interpolation": "none",
+  "part_transforms": false,
+  "crossfade": false,
+  "direction": "right",
+  "variant": "female",
+  "reference": "女.png",
+  "production": "24 independently drawn original poses; fixed uniform production sampling, no temporal transforms or interpolated frames."
+}

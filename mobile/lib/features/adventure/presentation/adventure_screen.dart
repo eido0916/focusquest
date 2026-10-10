@@ -7,6 +7,7 @@ import '../../../core/widgets/quest_widgets.dart';
 import '../../../data/game_catalog.dart';
 import '../../character/domain/progression_service.dart';
 import '../domain/adventure.dart';
+import '../../playable_stage/presentation/playable_stage_selection_page.dart';
 
 class AdventureScreen extends StatelessWidget {
   const AdventureScreen({super.key, required this.controller});
@@ -30,6 +31,21 @@ class AdventureScreen extends StatelessWidget {
     final stats = ProgressionService().stats(hero, GameCatalog.equipment);
     final pending = state.adventureRun;
     return ListView(padding: const EdgeInsets.all(16), children: [
+      QuestCard(
+          caption: 'プレイアブルステージ · 全16ステージ',
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            const Text('剣士で巡る、4つの舞台',
+                style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 8),
+            const Text('草原・幽霊船・火山・魔王城。\nタップで攻撃、3回命中でスキル解放。',
+                style: TextStyle(height: 1.6)),
+            const SizedBox(height: 12),
+            QuestCommand(
+                label: 'ステージを選ぶ',
+                onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
+                    builder: (_) => const PlayableStageSelectionPage()))),
+          ])),
       const QuestCard(
           caption: '第一章　木漏れ日の王国',
           child: Text('冒険の書',

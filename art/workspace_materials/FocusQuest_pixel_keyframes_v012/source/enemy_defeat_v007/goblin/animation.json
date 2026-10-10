@@ -1,0 +1,190 @@
+{
+  "fps": 24,
+  "loop_in_game": false,
+  "holds_ticks": [
+    2,
+    2,
+    3,
+    3,
+    4,
+    5,
+    5,
+    6
+  ],
+  "display_frame_sequence": [
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    4,
+    4,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    5,
+    6,
+    6,
+    6,
+    6,
+    6,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7
+  ],
+  "duration_seconds": 1.25,
+  "root_offsets_px": [
+    [
+      0,
+      0
+    ],
+    [
+      10,
+      0
+    ],
+    [
+      19,
+      0
+    ],
+    [
+      25,
+      0
+    ],
+    [
+      31,
+      0
+    ],
+    [
+      35,
+      0
+    ],
+    [
+      38,
+      0
+    ],
+    [
+      41,
+      0
+    ],
+    [
+      42,
+      0
+    ],
+    [
+      43,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      0
+    ]
+  ],
+  "direction": "left",
+  "knockback_direction": "right",
+  "root_motion_space": "world_px_absolute_offset",
+  "events": [
+    {
+      "event": "defeat_begin_disable_attack",
+      "tick": 0
+    },
+    {
+      "event": "knockback_complete",
+      "tick": 12
+    },
+    {
+      "event": "hide_sprite",
+      "tick": 24
+    }
+  ],
+  "remove_actor_when_animation_complete": true,
+  "final_keyframe_is_fully_transparent": true,
+  "interpolation": "none",
+  "production": "Original drawn dissolution poses. Root coordinates move the actor; no image deformation or opacity fade."
+}

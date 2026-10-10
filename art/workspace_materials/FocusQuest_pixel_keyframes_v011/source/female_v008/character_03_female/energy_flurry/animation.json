@@ -1,0 +1,206 @@
+{
+  "fps": 24,
+  "loop_in_game": false,
+  "holds_ticks": [
+    4,
+    4,
+    6,
+    6,
+    2,
+    3,
+    3,
+    4
+  ],
+  "display_frame_sequence": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    5,
+    6,
+    6,
+    6,
+    7,
+    7,
+    7,
+    7
+  ],
+  "events": [
+    {
+      "event": "energy_charge_begin",
+      "tick": 8
+    },
+    {
+      "event": "flurry_hit",
+      "tick": 20,
+      "hit_index": 0
+    },
+    {
+      "event": "flurry_hit",
+      "tick": 22,
+      "hit_index": 1
+    },
+    {
+      "event": "flurry_hit",
+      "tick": 25,
+      "hit_index": 2
+    }
+  ],
+  "root_offsets_px": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "interpolation": "none",
+  "part_transforms": false,
+  "crossfade": false,
+  "direction": "right",
+  "variant": "female",
+  "reference": "女.png",
+  "production": "24 independently drawn original poses; fixed uniform production sampling, no temporal transforms or interpolated frames."
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "actor": "slime",
+    "keyframes": 8,
+    "display_ticks": 30,
+    "first_frame_identical_to_existing_neutral": true,
+    "last_frame_transparent": true,
+    "knockback_px": 44,
+    "fixed_export_scale": 1.1111111111111112
+  },
+  {
+    "actor": "goblin",
+    "keyframes": 8,
+    "display_ticks": 30,
+    "first_frame_identical_to_existing_neutral": true,
+    "last_frame_transparent": true,
+    "knockback_px": 44,
+    "fixed_export_scale": 1.0476190476190477
+  },
+  {
+    "actor": "dracula",
+    "keyframes": 8,
+    "display_ticks": 30,
+    "first_frame_identical_to_existing_neutral": true,
+    "last_frame_transparent": true,
+    "knockback_px": 44,
+    "fixed_export_scale": 0.9777777777777777
+  }
+]
