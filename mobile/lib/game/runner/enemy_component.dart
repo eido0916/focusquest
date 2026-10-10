@@ -16,7 +16,7 @@ class EnemyComponent extends Component {
         enemy.x, 411 - math.sin(enemy.age * 9).abs() * 7 - enemy.hitAge * 45);
     c.drawOval(const Rect.fromLTWH(-25, 15, 50, 10),
         p..color = Colors.black.withOpacity(.15 * opacity));
-    p.color = (enemy.phase == EnemyPhase.hit
+    p.color = (enemy.phase == EnemyPhase.hit || enemy.damageAge < .12
             ? Colors.white
             : enemy.data.id == 'slime'
                 ? const Color(0xff57bcd0)

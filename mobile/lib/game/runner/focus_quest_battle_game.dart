@@ -6,7 +6,9 @@ import 'background_component.dart';
 import 'battle_state_controller.dart';
 import 'hero_component.dart';
 import 'swordsman_run_attack_assets.dart';
+import 'swordsman_sousen_assets.dart';
 import 'enemy_spawner.dart';
+import 'run_slash_assets.dart';
 
 class FocusQuestBattleGame extends FlameGame {
   FocusQuestBattleGame(
@@ -19,15 +21,30 @@ class FocusQuestBattleGame extends FlameGame {
   Color backgroundColor() => Colors.transparent;
   @override
   Future<void> onLoad() async {
-    await addAll([BackgroundComponent(state), EnemySpawner(state)]);
+    final scenery = await images.load('ui/forest_meadow_battlefield.png');
+    await addAll([
+      BackgroundComponent(state, image: scenery),
+      EnemySpawner(state),
+    ]);
     // Image decoding can take more than one frame on a physical device. Keep
     // the battle clock responsive while the visual asset finishes loading.
     unawaited(_loadHero());
   }
 
   Future<void> _loadHero() async {
-    final heroAssets = await SwordsmanRunAttackAssets.load(this);
-    await add(HeroComponent(state, heroAssets));
+    final assets = await Future.wait([
+      SwordsmanRunAttackAssets.load(this),
+      SwordsmanSousenAssets.load(this),
+      RunSlashAssets.load(this),
+    ]);
+    await add(
+      HeroComponent(
+        state,
+        assets[0] as SwordsmanRunAttackAssets,
+        assets[1] as SwordsmanSousenAssets,
+        assets[2] as RunSlashAssets,
+      ),
+    );
   }
 
   @override
@@ -62,7 +79,7 @@ class FocusQuestBattleGame extends FlameGame {
         ..strokeWidth = 2,
     );
     _paintText(
-        canvas, '陽光の王道', const Offset(45, 31), 22, const Color(0xfff8e4aa),
+        canvas, '木漏れ日の野原', const Offset(45, 31), 22, const Color(0xfff8e4aa),
         bold: true);
     _paintText(canvas, '経過時間  ${_time(state.elapsedSeconds)}',
         const Offset(280, 31), 18, Colors.white);
@@ -99,7 +116,9 @@ class FocusQuestBattleGame extends FlameGame {
         bold: true);
     _paintText(
         canvas,
-        '次の一閃まで ${(10 - state.elapsedSeconds.floor() % 10).toString().padLeft(2, '0')}秒',
+        state.isSkillPlaying
+            ? '${state.skillName} 発動中'
+            : '${state.skillName}まで ${state.secondsUntilSousen.ceil().toString().padLeft(2, '0')}秒',
         const Offset(736, 490),
         15,
         Colors.white);

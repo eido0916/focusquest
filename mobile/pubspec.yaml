@@ -64,6 +64,10 @@ flutter:
     - assets/images/battle/hero_rig/
     - assets/images/characters/swordsman/attack/swordsman_attack_spritesheet.png
     - assets/images/characters/swordsman/attack/swordsman_attack_spritesheet.json
+    - assets/images/characters/swordsman/skills/sousen/swordsman_sousen_spritesheet.png
+    - assets/images/characters/swordsman/skills/sousen/swordsman_sousen_spritesheet.json
+    - assets/images/characters/swordsman/skills/run_slash/
+    - assets/images/characters/swordsman/normal_attack/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

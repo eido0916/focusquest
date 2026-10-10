@@ -38,4 +38,50 @@ void main() {
     expect(state.gainedExp, state.defeatedCount * 3);
     expect(state.enemies.length, lessThan(15));
   });
+
+  test('蒼閃 starts every ten seconds and applies exactly one hit', () {
+    final state = BattleStateController(
+      durationSeconds: 60,
+      config: const RunnerConfig(
+        spawnSeconds: .1,
+        autoSkill: SwordsmanSkill.sousen,
+        attackSeconds: 100,
+        enemySpeed: 1000,
+        enemies: [EnemyData('boss', maxHp: 5, isBoss: true)],
+      ),
+    );
+
+    state.advanceTo(9.95);
+    expect(state.skillSerial, 0);
+    state.advanceTo(10);
+    expect(state.skillSerial, 1);
+    expect(state.isSkillPlaying, isTrue);
+    expect(state.damageSerial, 0);
+
+    state.advanceTo(11.9);
+    expect(state.damageSerial, 1);
+    expect(state.lastDamage, 3);
+    expect(state.enemies.first.hp, 2);
+
+    state.advanceTo(13.2);
+    expect(state.damageSerial, 1);
+    expect(state.isSkillPlaying, isFalse);
+    state.advanceTo(20);
+    expect(state.skillSerial, 2);
+  });
+
+  test('蒼閃 is safe when no enemy is present', () {
+    final state = BattleStateController(
+      durationSeconds: 20,
+      config: const RunnerConfig(
+        spawnSeconds: 100,
+        autoSkill: SwordsmanSkill.sousen,
+        attackSeconds: 100,
+      ),
+    )..advanceTo(12);
+
+    expect(state.skillSerial, 1);
+    expect(state.damageSerial, 0);
+    expect(state.defeatedCount, 0);
+  });
 }
