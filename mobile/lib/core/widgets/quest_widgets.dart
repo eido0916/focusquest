@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
+import 'sunlit_widgets.dart';
 
 /// A game window, with a restrained double border and an inset caption.
 class QuestCard extends StatelessWidget {
@@ -160,60 +161,79 @@ class QuestNavigation extends StatelessWidget {
     const icons = [
       Icons.home_rounded,
       Icons.people_alt_rounded,
-      Icons.diamond_rounded,
-      Icons.more_horiz_rounded,
+      Icons.diamond_outlined,
+      Icons.settings_rounded,
       Icons.map_outlined
     ];
-    return ColoredBox(
-        color: const Color(0xff0c151c),
+    return Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Color(0xff0a2034), Color(0xff04131f)]),
+            border: Border(top: BorderSide(color: sunlitGold, width: 1))),
         child: SafeArea(
             top: false,
             child: Padding(
-                padding: const EdgeInsets.fromLTRB(10, 4, 10, 8),
+                padding: const EdgeInsets.fromLTRB(8, 4, 8, 8),
                 child: Row(
-                    children: List.generate(
-                        labels.length,
-                        (i) => Expanded(
-                            child: Semantics(
-                                selected: selected == i,
-                                button: true,
-                                child: InkWell(
-                                    onTap: () => onSelect(i),
-                                    child: Container(
-                                        height: 52,
-                                        alignment: Alignment.center,
-                                        decoration: BoxDecoration(
-                                            border: Border.all(
-                                                color: selected == i
-                                                    ? AppTheme.gold
-                                                    : Colors.transparent),
-                                            color: selected == i
-                                                ? const Color(0xff273439)
-                                                : Colors.transparent,
-                                            borderRadius:
-                                                BorderRadius.circular(3)),
-                                        child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Icon(icons[i],
-                                                  size: 21,
-                                                  color: selected == i
-                                                      ? AppTheme.gold
-                                                      : const Color(
-                                                          0xffd9d1bd)),
-                                              const SizedBox(height: 2),
-                                              FittedBox(
-                                                  fit: BoxFit.scaleDown,
-                                                  child: Text(labels[i],
-                                                      maxLines: 1,
-                                                      style: TextStyle(
-                                                          fontSize: 11,
-                                                          color: selected == i
-                                                              ? AppTheme.gold
-                                                              : const Color(
-                                                                  0xffd9d1bd))))
-                                            ]))))))))));
+                    children: List.generate(labels.length, (i) {
+                  final active = selected == i;
+                  final content = SizedBox(
+                      height: 64,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(icons[i],
+                                size: 27,
+                                color: active
+                                    ? const Color(0xffffe8b0)
+                                    : sunlitGold,
+                                shadows: active
+                                    ? const [
+                                        Shadow(
+                                            color: Color(0xffffd584),
+                                            blurRadius: 14)
+                                      ]
+                                    : null),
+                            const SizedBox(height: 4),
+                            FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(labels[i],
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                        fontFamily: 'SunlitSerif',
+                                        fontSize: 12,
+                                        fontWeight: active
+                                            ? FontWeight.bold
+                                            : FontWeight.normal,
+                                        color: active
+                                            ? const Color(0xffffe8b0)
+                                            : sunlitGold))),
+                          ]));
+                  return Expanded(
+                      child: Semantics(
+                          selected: active,
+                          button: true,
+                          child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                  onTap: () => onSelect(i),
+                                  child: active
+                                      ? SunlitFrame(
+                                          compact: true,
+                                          padding: EdgeInsets.zero,
+                                          child: content)
+                                      : Container(
+                                          decoration: BoxDecoration(
+                                              border: i > 0
+                                                  ? const Border(
+                                                      left: BorderSide(
+                                                          color: Color(
+                                                              0x335f6e77)))
+                                                  : null),
+                                          child: content)))));
+                })))));
   }
 }
 
