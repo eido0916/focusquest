@@ -76,7 +76,7 @@ class _QuestShellState extends State<QuestShell> {
     return Scaffold(
         body: SafeArea(
             child: QuestBackdrop(
-                dim: _tab == 2 ? .28 : .14,
+                dim: _tab == 0 ? 0 : (_tab == 2 ? .28 : .14),
                 child: Center(
                     child: ConstrainedBox(
                         constraints: const BoxConstraints(maxWidth: 640),
