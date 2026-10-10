@@ -1,0 +1,28 @@
+{
+  "run_then_attack": {
+    "frame_count": 52,
+    "rgba_128_pass": true,
+    "pixel_grid_2x2_pass": true,
+    "hard_alpha_pass": true,
+    "safe_bounds_pass": true,
+    "union_bounds": [
+      4,
+      20,
+      100,
+      116
+    ]
+  },
+  "run_then_skill": {
+    "frame_count": 64,
+    "rgba_128_pass": true,
+    "pixel_grid_2x2_pass": true,
+    "hard_alpha_pass": true,
+    "safe_bounds_pass": true,
+    "union_bounds": [
+      4,
+      16,
+      122,
+      116
+    ]
+  }
+}

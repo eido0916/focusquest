@@ -1,0 +1,102 @@
+{
+  "illustration": {
+    "files": 24,
+    "rgba_dimensions_pass": true,
+    "joint_alpha_coverage_failures": [],
+    "preview_timings": {
+      "gif": {
+        "frames": 24,
+        "duration_ms": 1000
+      },
+      "png": {
+        "frames": 24,
+        "duration_ms": 1000.0
+      },
+      "webp": {
+        "frames": 24,
+        "duration_ms": "millisecond_timeline_in_encoder"
+      }
+    },
+    "pixel_2x2_blocks_pass": null,
+    "opaque_color_count": null
+  },
+  "pixel": {
+    "files": 24,
+    "rgba_dimensions_pass": true,
+    "joint_alpha_coverage_failures": [],
+    "preview_timings": {
+      "gif": {
+        "frames": 24,
+        "duration_ms": 1000
+      },
+      "png": {
+        "frames": 24,
+        "duration_ms": 1000.0
+      },
+      "webp": {
+        "frames": 24,
+        "duration_ms": "millisecond_timeline_in_encoder"
+      }
+    },
+    "pixel_2x2_blocks_pass": true,
+    "opaque_color_count": 31
+  },
+  "whole_cycle_ik_samples": 1001,
+  "foot_velocity_join_checks": {
+    "0": {
+      "left": [
+        -171.87381888561504,
+        0.00138095401780447
+      ],
+      "right": [
+        -171.87500000659384,
+        0.0
+      ],
+      "difference": 0.0018171628341593724
+    },
+    "0.32": {
+      "left": [
+        -171.87499999238298,
+        0.0
+      ],
+      "right": [
+        -171.87346094260647,
+        -0.003843751983367838
+      ],
+      "difference": 0.004140423109323856
+    },
+    "0.48": {
+      "left": [
+        60.00008983164662,
+        -210.00253124725532
+      ],
+      "right": [
+        60.00106634473923,
+        -209.99928568699033
+      ],
+      "difference": 0.0033892829999419053
+    },
+    "0.62": {
+      "left": [
+        244.99974489344822,
+        19.999071412257763
+      ],
+      "right": [
+        244.99979240033554,
+        20.000916947537917
+      ],
+      "difference": 0.0018461466286930532
+    },
+    "0.79": {
+      "left": [
+        110.0005865168896,
+        209.99979932412316
+      ],
+      "right": [
+        109.99983885540132,
+        210.00038094598494
+      ],
+      "difference": 0.0009472495400665199
+    }
+  }
+}

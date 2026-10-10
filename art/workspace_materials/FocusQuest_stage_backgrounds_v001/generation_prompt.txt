@@ -1,0 +1,8 @@
+Generated with the built-in image_gen tool.
+
+Use case: stylized-concept
+Asset type: Focus Quest playable stage background, one standalone landscape pixel-art game environment, widescreen 16:9.
+Primary request: A beautiful open grassland stage for a fantasy pixel-art action RPG, matching small 64x64 logical-grid chibi adventurer sprites displayed at 2x. Background environment only.
+Scene: bright calm blue sky with a few chunky white clouds, distant muted blue-green hills, a sparse line of small trees far away, expansive fresh green meadow. A clear wide horizontal grassy fighting ground runs continuously across the lower quarter of the screen, level and unobstructed, with a narrow visible earthy soil cross section along the very bottom. A few small grass clumps and tiny wildflowers at the extreme foreground edges. Keep the central and right fighting areas spacious for a player and a boss.
+Style: authentic carefully hand-placed 16-bit pixel art, clearly visible uniform square pixel grid, restrained palette, crisp stepped silhouettes, solid color pixel clusters, simple two or three tone shading. Background contrast lower than character sprites, but clean and cheerful. Side-on horizontal game camera, no isometric or top-down perspective. Entire scene fills canvas edge to edge.
+Constraints: no characters, no enemies, no bosses, no buildings, no UI, no lettering, no logos, no watermark, no border. No smooth gradients, no blur, no anti-aliased painted edges, no vector illustration, no photorealism, no 3D rendering. One finished coherent background, not a collage or sprite sheet.

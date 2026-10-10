@@ -1,0 +1,18 @@
+{
+  "parts_count": 20,
+  "all_parts_rgba": true,
+  "recomposition_exact": true,
+  "visible_bounds_1024": [
+    404,
+    128,
+    898,
+    896
+  ],
+  "safe_bounds_pass": true,
+  "bottom_visible_256": 224.0,
+  "static_pose_checks_only": true,
+  "animation_range_pass": false,
+  "identity_approved": false,
+  "android_verified": false,
+  "ora_layer_recomposition_exact": true
+}

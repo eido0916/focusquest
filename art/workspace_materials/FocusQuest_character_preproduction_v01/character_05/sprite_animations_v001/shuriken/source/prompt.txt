@@ -1,0 +1,9 @@
+FocusQuest ninja character05 pixel animation. Reference1 is exact mini character/style, reference2 original outfit. Same BLACK messyhair, visible seriousface/no mask, dark charcoal tunic, long NAVY scarf with two tails, navy waist sash, brown diagonal strap, dark forearm wraps/gloves, bare right upperarm and navy arm tie, black baggytrousers, dark shinwraps/navyties, brown sandals. Minimal2.3heads chibi, coarse crisp pixelclusters. RIGHT-facing. Samebody42logicalpxhigh, sameheadsize allframes. Logical64x64 squarecells enlarged, footbaseline56, headcenterx30, keepallcharacter/scarf/weapons/effects inside x5..59,y5..59. Transparentgutters. EXACTLYtwoarms/twolegs, no armor, no hood, no samurai haori, no face covering, no text/grid/background/shadows/blur. Create ONE atlas8poses, fourcolumns tworows, aspect2:1, rowmajor. STOP and throw ONE silver FOUR-POINT SHURIKEN toRIGHT, then recover. Feet fixed(26,56),(37,56), slightkneeflex, torso turns, NO running.
+0stoppedreadyguard emptyhands, weapon atbelt only.
+1right hand reaches belt and takes one four-point metal star.
+2throw anticipation: right elbow folds nearhead, silverstar visibly held byrightfingers near(35,27), leftarmbalances.
+3THROW release: rightarm snapsforward to(43,30), handopen, singlefour-pointstar JUST separated at(48,30), shortsilver1pxtrail, no duplicated heldstar.
+4followthrough rightarmextended, SAMEstar fartherRIGHT at(56,29) withinmargin.
+5retractarm, starhasleftspritecell and isNOT drawn here.
+6returnguard emptyhands.
+7EXACT0. Only ONE star appears in eachframe1..4. Silverfourpoints clear atminiature scale, not a squareball/dagger/sword. Scarf trailsLEFT softly butfeetremainplanted. Clear throwing shoulder/elbow/wrist progression, actual weapon release visible.

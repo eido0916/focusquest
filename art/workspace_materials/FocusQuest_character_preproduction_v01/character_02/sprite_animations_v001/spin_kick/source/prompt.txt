@@ -1,0 +1,15 @@
+Use case: style-transfer. Input1 is the approved new RUNNING PIXEL boxer sheet, exact small chibi identity and pixel style. Input2 is original CHARACTER IDENTITY for clothing details. Keep same head/hood size, red hair/eyes, dark brown raised hood with red lining, sleeveless dark open vest and bare upper arms, white wrap tunic, red waist sash, brown knee-length trousers with bare calves, brown short boots with red ankle wraps, WHITE wrapped fists and brown wristguards. No sword or other weapons. Minimal2.3head-tall FIELD sprite, coarse square clustered pixels, flat2-3shades, darkoutline. Don't include glow/background from reference.
+Make ONE sprite animation atlas, exact FOUR columns x THREE rows equal square cells, aspect4:3, TWELVE consecutive sprites row-major. Each cell logical64x64 enlarged nearest-neighbor. Fixed camera and scale, body height44logicalpixels. Sprite and effects whollyinsidecell with at least4pxmargin. Body centerx32, feetgroundy57. TRUE transparent background; no ground/shadow, no text/labels/grid, no scenery, no extra characters. Preserve identity throughout allposes. Skill: STOPPED fighter charges GOLDEN/AMBER energy in a BOOT then performs a FAST FULL ROTATION ROUNDHOUSE KICK toRIGHT and lands. Energy stays atfoot, neverhands/head. Yellow/gold/nearwhite flatpixel effect, no huge backgroundglow or explosion. Supporting foot pivot atlocal(29,57); bodyrootconstantx32. Lifted kicking boot rotation leg consistent no extra legs. All energy trails/extended leg fit x5..59,y5..59.
+F0 readyfightingguard, NOenergy.
+F1 kneesbend, weightonsupportleg, 2small amber sparks atforwardboot.
+F2 kicking knee lifts, kicking boot nearwaist encased in smallgold energy.
+F3 maximumcharge/coiledpose, same lifted bootbrighterwhite/gold, bothfistsguard.
+F4 torso starts pivot awayfromcamera, 3/4BACK view, face partlyhidden, kickinglegfolded, supportbootpivot.
+F5 clear BACK VIEW inmidrotation, raised brownhoodbackvisible, redsashtails fan, kickingkneebent withgoldenergy aroundboot. Do NOT merely mirror afrontpose.
+F6 fast STRIKE: turnthroughrotation, kicking leg extends horizontallyRIGHT aboutwaist/chestheight, white/gold boot reachesx55,y33, smallgold crescenttrail traces kickingfoot, supportinglegbent/planted. This is one kickingleg, noextra.
+F7 rotating FOLLOWTHROUGH paststrike, torso3/4front, kickinglegstillright but startsfolding, shortgoldtrail thins.
+F8 finish rotation facingRIGHT again, kickingkneeretracts, fadingfootenergy.
+F9 land bothboots atgroundy57, kneescompress, fewtinysparks aroundankle.
+F10 recover bothfistsguard, NOenergy.
+F11 EXACT ready asF0 NOenergy.
+Include real bodyorientationchange/backview so this visibly is a spinningkick not a static sidekick. Do not make airborne backflip. Armsremainbalancedwrappedfists.12distinctphases exceptreturnidle. Short intenseenergy foot only; no sword/weapon/projectile.

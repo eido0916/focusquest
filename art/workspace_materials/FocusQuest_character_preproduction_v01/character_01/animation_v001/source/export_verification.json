@@ -1,0 +1,26 @@
+{
+  "idle_gif": {
+    "frames": 48,
+    "duration_ms": 2000
+  },
+  "idle_webp": {
+    "frames": 48,
+    "duration_ms": "recorded per frame by encoder"
+  },
+  "idle_png": {
+    "frames": 48,
+    "duration_ms": 2000.0
+  },
+  "run_gif": {
+    "frames": 24,
+    "duration_ms": 1000
+  },
+  "run_webp": {
+    "frames": 24,
+    "duration_ms": "recorded per frame by encoder"
+  },
+  "run_png": {
+    "frames": 24,
+    "duration_ms": 1000.0
+  }
+}

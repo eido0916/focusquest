@@ -1,0 +1,16 @@
+{
+  "copied_files_sha256_verified": 40264,
+  "characters": 21,
+  "animations": 72,
+  "keyframes_verified": 645,
+  "display_frames_exact_rgba_match": 2028,
+  "background_dimensions": [
+    1672,
+    941
+  ],
+  "excluded": [
+    "duplicate ZIP archives",
+    "Python caches",
+    "runtime logs"
+  ]
+}

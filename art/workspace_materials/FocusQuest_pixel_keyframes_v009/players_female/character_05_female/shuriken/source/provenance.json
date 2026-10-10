@@ -1,0 +1,13 @@
+{
+  "source_folder": "FocusQuest_pixel_keyframes_v008/source/female_v008/character_05_female/shuriken",
+  "keyframe_sources": [
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_05_female/shuriken/frames/frame_000.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_05_female/shuriken/frames/frame_001.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_05_female/shuriken/frames/frame_002.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_05_female/shuriken/frames/frame_003.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_05_female/shuriken/frames/frame_004.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_05_female/shuriken/frames/frame_005.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_05_female/shuriken/frames/frame_006.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_05_female/shuriken/frames/frame_007.png"
+  ]
+}

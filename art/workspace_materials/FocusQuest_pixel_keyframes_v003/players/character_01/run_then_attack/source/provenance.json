@@ -1,0 +1,19 @@
+{
+  "source_folder": "FocusQuest_character_preproduction_v01/character_01/motion_bundle_v001/run_then_attack",
+  "keyframe_sources": [
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/run/frames/frame_000.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/run/frames/frame_001.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/run/frames/frame_002.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/run/frames/frame_003.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/run/frames/frame_004.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/run/frames/frame_005.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/attack_down/frames/frame_000.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/attack_down/frames/frame_001.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/attack_down/frames/frame_002.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/attack_down/frames/frame_003.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/attack_down/frames/frame_004.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/attack_down/frames/frame_005.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/attack_down/frames/frame_006.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/attack_down/frames/frame_007.png"
+  ]
+}

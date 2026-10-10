@@ -1,0 +1,578 @@
+[
+  {
+    "action": "idle",
+    "keyframe": 0,
+    "preparation_scale_constant_per_action": 0.9347826086956522,
+    "ground_y": 116,
+    "bbox": [
+      9,
+      15,
+      53,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      15,
+      44,
+      35
+    ]
+  },
+  {
+    "action": "idle",
+    "keyframe": 1,
+    "preparation_scale_constant_per_action": 0.9347826086956522,
+    "ground_y": 116,
+    "bbox": [
+      11,
+      15,
+      52,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      15,
+      44,
+      36
+    ]
+  },
+  {
+    "action": "idle",
+    "keyframe": 2,
+    "preparation_scale_constant_per_action": 0.9347826086956522,
+    "ground_y": 116,
+    "bbox": [
+      10,
+      15,
+      52,
+      58
+    ],
+    "head_color_bbox": [
+      21,
+      15,
+      45,
+      36
+    ]
+  },
+  {
+    "action": "idle",
+    "keyframe": 3,
+    "preparation_scale_constant_per_action": 0.9347826086956522,
+    "ground_y": 116,
+    "bbox": [
+      9,
+      15,
+      52,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      15,
+      44,
+      36
+    ]
+  },
+  {
+    "action": "idle",
+    "keyframe": 4,
+    "preparation_scale_constant_per_action": 0.9347826086956522,
+    "ground_y": 116,
+    "bbox": [
+      4,
+      19,
+      53,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      19,
+      44,
+      37
+    ]
+  },
+  {
+    "action": "idle",
+    "keyframe": 5,
+    "preparation_scale_constant_per_action": 0.9347826086956522,
+    "ground_y": 116,
+    "bbox": [
+      6,
+      16,
+      58,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      19,
+      44,
+      37
+    ]
+  },
+  {
+    "action": "run",
+    "keyframe": 0,
+    "preparation_scale_constant_per_action": 0.8775510204081632,
+    "ground_y": 112,
+    "bbox": [
+      9,
+      13,
+      53,
+      56
+    ],
+    "head_color_bbox": [
+      23,
+      14,
+      43,
+      33
+    ]
+  },
+  {
+    "action": "run",
+    "keyframe": 1,
+    "preparation_scale_constant_per_action": 0.8775510204081632,
+    "ground_y": 114,
+    "bbox": [
+      8,
+      14,
+      51,
+      57
+    ],
+    "head_color_bbox": [
+      22,
+      15,
+      44,
+      34
+    ]
+  },
+  {
+    "action": "run",
+    "keyframe": 2,
+    "preparation_scale_constant_per_action": 0.8775510204081632,
+    "ground_y": 116,
+    "bbox": [
+      8,
+      17,
+      51,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      18,
+      44,
+      37
+    ]
+  },
+  {
+    "action": "run",
+    "keyframe": 3,
+    "preparation_scale_constant_per_action": 0.8775510204081632,
+    "ground_y": 112,
+    "bbox": [
+      9,
+      14,
+      52,
+      56
+    ],
+    "head_color_bbox": [
+      23,
+      15,
+      43,
+      33
+    ]
+  },
+  {
+    "action": "run",
+    "keyframe": 4,
+    "preparation_scale_constant_per_action": 0.8775510204081632,
+    "ground_y": 114,
+    "bbox": [
+      8,
+      15,
+      52,
+      57
+    ],
+    "head_color_bbox": [
+      23,
+      17,
+      43,
+      34
+    ]
+  },
+  {
+    "action": "run",
+    "keyframe": 5,
+    "preparation_scale_constant_per_action": 0.8775510204081632,
+    "ground_y": 116,
+    "bbox": [
+      9,
+      16,
+      52,
+      58
+    ],
+    "head_color_bbox": [
+      23,
+      17,
+      43,
+      35
+    ]
+  },
+  {
+    "action": "attack_down",
+    "keyframe": 0,
+    "preparation_scale_constant_per_action": 0.9772727272727273,
+    "ground_y": 116,
+    "bbox": [
+      10,
+      15,
+      52,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      17,
+      44,
+      38
+    ]
+  },
+  {
+    "action": "attack_down",
+    "keyframe": 1,
+    "preparation_scale_constant_per_action": 0.9772727272727273,
+    "ground_y": 116,
+    "bbox": [
+      6,
+      14,
+      44,
+      58
+    ],
+    "head_color_bbox": [
+      24,
+      16,
+      42,
+      36
+    ]
+  },
+  {
+    "action": "attack_down",
+    "keyframe": 2,
+    "preparation_scale_constant_per_action": 0.9772727272727273,
+    "ground_y": 116,
+    "bbox": [
+      3,
+      4,
+      43,
+      58
+    ],
+    "head_color_bbox": [
+      25,
+      14,
+      41,
+      35
+    ]
+  },
+  {
+    "action": "attack_down",
+    "keyframe": 3,
+    "preparation_scale_constant_per_action": 0.9772727272727273,
+    "ground_y": 116,
+    "bbox": [
+      7,
+      10,
+      45,
+      58
+    ],
+    "head_color_bbox": [
+      24,
+      15,
+      42,
+      36
+    ]
+  },
+  {
+    "action": "attack_down",
+    "keyframe": 4,
+    "preparation_scale_constant_per_action": 0.9772727272727273,
+    "ground_y": 116,
+    "bbox": [
+      9,
+      17,
+      56,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      18,
+      44,
+      36
+    ]
+  },
+  {
+    "action": "attack_down",
+    "keyframe": 5,
+    "preparation_scale_constant_per_action": 0.9772727272727273,
+    "ground_y": 116,
+    "bbox": [
+      7,
+      19,
+      52,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      20,
+      44,
+      38
+    ]
+  },
+  {
+    "action": "attack_down",
+    "keyframe": 6,
+    "preparation_scale_constant_per_action": 0.9772727272727273,
+    "ground_y": 116,
+    "bbox": [
+      10,
+      17,
+      53,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      18,
+      44,
+      38
+    ]
+  },
+  {
+    "action": "attack_down",
+    "keyframe": 7,
+    "preparation_scale_constant_per_action": 0.9772727272727273,
+    "ground_y": 116,
+    "bbox": [
+      10,
+      17,
+      52,
+      58
+    ],
+    "head_color_bbox": [
+      23,
+      18,
+      43,
+      38
+    ]
+  },
+  {
+    "action": "skill_wave",
+    "keyframe": 0,
+    "preparation_scale_constant_per_action": 1.0,
+    "ground_y": 116,
+    "bbox": [
+      8,
+      15,
+      52,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      19,
+      43,
+      36
+    ]
+  },
+  {
+    "action": "skill_wave",
+    "keyframe": 1,
+    "preparation_scale_constant_per_action": 1.0,
+    "ground_y": 116,
+    "bbox": [
+      9,
+      15,
+      54,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      16,
+      43,
+      35
+    ]
+  },
+  {
+    "action": "skill_wave",
+    "keyframe": 2,
+    "preparation_scale_constant_per_action": 1.0,
+    "ground_y": 116,
+    "bbox": [
+      8,
+      15,
+      45,
+      58
+    ],
+    "head_color_bbox": [
+      23,
+      16,
+      42,
+      35
+    ]
+  },
+  {
+    "action": "skill_wave",
+    "keyframe": 3,
+    "preparation_scale_constant_per_action": 1.0,
+    "ground_y": 116,
+    "bbox": [
+      3,
+      10,
+      43,
+      58
+    ],
+    "head_color_bbox": [
+      26,
+      17,
+      40,
+      35
+    ]
+  },
+  {
+    "action": "skill_wave",
+    "keyframe": 4,
+    "preparation_scale_constant_per_action": 1.0,
+    "ground_y": 116,
+    "bbox": [
+      3,
+      7,
+      45,
+      58
+    ],
+    "head_color_bbox": [
+      24,
+      20,
+      41,
+      36
+    ]
+  },
+  {
+    "action": "skill_wave",
+    "keyframe": 5,
+    "preparation_scale_constant_per_action": 1.0,
+    "ground_y": 116,
+    "bbox": [
+      10,
+      15,
+      57,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      17,
+      43,
+      36
+    ]
+  },
+  {
+    "action": "skill_wave",
+    "keyframe": 6,
+    "preparation_scale_constant_per_action": 1.0,
+    "ground_y": 116,
+    "bbox": [
+      8,
+      15,
+      58,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      17,
+      43,
+      36
+    ]
+  },
+  {
+    "action": "skill_wave",
+    "keyframe": 7,
+    "preparation_scale_constant_per_action": 1.0,
+    "ground_y": 116,
+    "bbox": [
+      6,
+      15,
+      54,
+      58
+    ],
+    "head_color_bbox": [
+      23,
+      17,
+      43,
+      36
+    ]
+  },
+  {
+    "action": "skill_wave",
+    "keyframe": 8,
+    "preparation_scale_constant_per_action": 1.0,
+    "ground_y": 116,
+    "bbox": [
+      9,
+      15,
+      61,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      17,
+      43,
+      36
+    ]
+  },
+  {
+    "action": "skill_wave",
+    "keyframe": 9,
+    "preparation_scale_constant_per_action": 1.0,
+    "ground_y": 116,
+    "bbox": [
+      9,
+      15,
+      63,
+      58
+    ],
+    "head_color_bbox": [
+      23,
+      17,
+      43,
+      36
+    ]
+  },
+  {
+    "action": "skill_wave",
+    "keyframe": 10,
+    "preparation_scale_constant_per_action": 1.0,
+    "ground_y": 116,
+    "bbox": [
+      8,
+      15,
+      53,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      19,
+      43,
+      36
+    ]
+  },
+  {
+    "action": "skill_wave",
+    "keyframe": 11,
+    "preparation_scale_constant_per_action": 1.0,
+    "ground_y": 116,
+    "bbox": [
+      10,
+      15,
+      53,
+      58
+    ],
+    "head_color_bbox": [
+      22,
+      19,
+      43,
+      36
+    ]
+  }
+]

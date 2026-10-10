@@ -1,0 +1,15 @@
+Use case: style-transfer. Input1 is the approved new RUNNING PIXEL boxer sheet, exact small chibi identity and pixel style. Input2 is original CHARACTER IDENTITY for clothing details. Keep same head/hood size, red hair/eyes, dark brown raised hood with red lining, sleeveless dark open vest and bare upper arms, white wrap tunic, red waist sash, brown knee-length trousers with bare calves, brown short boots with red ankle wraps, WHITE wrapped fists and brown wristguards. No sword or other weapons. Minimal2.3head-tall FIELD sprite, coarse square clustered pixels, flat2-3shades, darkoutline. Don't include glow/background from reference.
+Make ONE sprite animation atlas, exact FOUR columns x THREE rows equal square cells, aspect4:3, TWELVE consecutive sprites row-major. Each cell logical64x64 enlarged nearest-neighbor. Fixed camera and scale, body height44logicalpixels. Sprite and effects whollyinsidecell with at least4pxmargin. Body centerx32, feetgroundy57. TRUE transparent background; no ground/shadow, no text/labels/grid, no scenery, no extra characters. Preserve identity throughout allposes. Attack: STOPPED THREE-PUNCH COMBO toward RIGHT, barehanded. Both boots planted at(27,57) and(38,57) throughout, no stepping/jumping. Wraps remain on both fists. Arms alternate near and far and twist torso; extend arm anatomically from shoulder-elbow-wrist, do not create extra fists. Face looksRIGHT.
+F0 guarded ready, both wrapped fists up.
+F1 anticipation for first quick jab, far fistdrawsback, nearfistguard.
+F2 first JAB: far/lead fist fully extended horizontally RIGHT atface/chestheight to x54,y31, nearfistguards.
+F3 jab retracts briskly, both hands near body.
+F4 torso coils for stronger near-hand CROSS, near elbowdrawnback, farfistguard.
+F5 second CROSS: near wrapped fist extended RIGHT to x56,y30, shoulders rotate, farfiststillguards.
+F6 cross retracts toguard, torsorecenters.
+F7 load third short HOOK: near forearm bends and shoulderturns.
+F8 third HOOK: wrapped fist sweeps forward RIGHT in a curved bent-elbow punch atx52,y28, elbow stillbent. Distinct from straightcross.
+F9 hook followthrough, slight torso twist, handsdrawingback.
+F10 recovery with bothfistsraised, waist relaxed.
+F11 EXACT guarded ready asF0.
+No magicalglow or projectiles. Do not draw a footkick in thisatlas. Red sash responds subtly to torso turns. Three clearly visible strikes, actual extended fists onF2,F5,F8, not twelve copies ofguard.

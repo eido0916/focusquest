@@ -1,0 +1,17 @@
+{
+  "source_folder": "FocusQuest_pixel_keyframes_v002/source/hero_proportions_v002/skill_wave",
+  "keyframe_sources": [
+    "FocusQuest_pixel_keyframes_v002/source/hero_proportions_v002/skill_wave/frames/frame_000.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_proportions_v002/skill_wave/frames/frame_001.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_proportions_v002/skill_wave/frames/frame_002.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_proportions_v002/skill_wave/frames/frame_003.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_proportions_v002/skill_wave/frames/frame_004.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_proportions_v002/skill_wave/frames/frame_005.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_proportions_v002/skill_wave/frames/frame_006.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_proportions_v002/skill_wave/frames/frame_007.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_proportions_v002/skill_wave/frames/frame_008.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_proportions_v002/skill_wave/frames/frame_009.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_proportions_v002/skill_wave/frames/frame_010.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_proportions_v002/skill_wave/frames/frame_011.png"
+  ]
+}

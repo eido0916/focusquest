@@ -1,0 +1,14 @@
+FocusQuest ninja character05 pixel animation. Reference1 is exact mini character/style, reference2 original outfit. Same BLACK messyhair, visible seriousface/no mask, dark charcoal tunic, long NAVY scarf with two tails, navy waist sash, brown diagonal strap, dark forearm wraps/gloves, bare right upperarm and navy arm tie, black baggytrousers, dark shinwraps/navyties, brown sandals. Minimal2.3heads chibi, coarse crisp pixelclusters. RIGHT-facing. Samebody42logicalpxhigh, sameheadsize allframes. Logical64x64 squarecells enlarged, footbaseline56, headcenterx30, keepallcharacter/scarf/weapons/effects inside x5..59,y5..59. Transparentgutters. EXACTLYtwoarms/twolegs, no armor, no hood, no samurai haori, no face covering, no text/grid/background/shadows/blur. Create ONE atlas12poses, FOURcolumns THREErows, aspect4:3, rowmajor. STOP, make hand seal with upright paired fingers, VANISH, then REAPPEAR and thrust a SHORT DAGGER toRIGHT. All character poses remain at SAME localroot for gameengine placement; game will instantaneously advance worldposition onpose6. DO NOT draw two ninjas in anycell. Feetstationaryapartfromattackkneebend.
+0stoppedguard, emptyhands, small dagger SHEATHED atwaist.
+1bothhandsmeet chest, rightindexandmiddlefinger upright together, left hand wrapsbase. Finger-seal gesture clearlyreadable (two skinpixels upright).
+2hold seal intensely, tiny VIOLET pixels aroundfingers.
+3VANISH: same sealbody silhouette breaks into sparse dark/violet pixelclusters; onlypartofbodyvisible, not full opaquecharacter.
+4SMOKE ONLY: small violet-grey disappearing puff at oldbodychest/waist height, NO person, NO boots/scarf/face.
+5EMPTY TRANSPARENT CELL: absolutelynothing, completelytransparent pause.
+6REAPPEAR: ninja visible again SAME localposition, crouched, few violetpixelssurroundboots, right hand hasdrawn ONE shortdagger (silverblade7logicalpx,longbrown/blackgrip), leftarmbalances.
+7load thrust, rightdaggerhand pullednearwaist, torsoforward, leftguard nearbody.
+8HIT: rightarmextends to(43,33), knifegripINrightfist, narrow7pxbladepointsHORIZONTALRIGHT to(53,33); lowforwardlean, feetplanted, leftarmcompactbehind, NOenemy/blood/gore. No slasharc; this is a stabbing thrust.
+9retractshortdaggerarm, recoverbalance, effects gone.
+10returnguard and sheathdagger.
+11EXACT0.
+OnlyONE physicalshortdagger in6..9, neverdetachedfromrightfist. Violet smoke/sparks sparse andcompact, no giant magicwalls, no moving enemy. Make disappearance genuinely visible across3/4/5, not merely glowing ninja. Keep everyelement inside owncell withclear5pxgutter.

@@ -1,0 +1,335 @@
+{
+  "character": "04",
+  "size": [
+    128,
+    128
+  ],
+  "logical_grid": [
+    64,
+    64
+  ],
+  "direction": "right",
+  "fps": 24,
+  "root": [
+    60,
+    114
+  ],
+  "loop_in_game": false,
+  "preview_loop": true,
+  "keyframe_holds_ticks": [
+    4,
+    5,
+    5,
+    2,
+    1,
+    5,
+    6,
+    8
+  ],
+  "display_frame_sequence": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    4,
+    5,
+    5,
+    5,
+    5,
+    5,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7
+  ],
+  "duration_seconds": 1.5,
+  "events_are_timing_suggestions": true,
+  "events": [
+    {
+      "event": "downward_hit",
+      "keyframe": 4,
+      "tick": 16
+    }
+  ],
+  "placements": [
+    {
+      "keyframe": 0,
+      "source_cell_to_logical_matrix": [
+        [
+          0.9642857142857143,
+          0.0,
+          0.04285714285714093
+        ],
+        [
+          0.0,
+          0.9642857142857143,
+          -1.8214285714285694
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 57,
+      "atlas_crop": [
+        0,
+        0,
+        444,
+        478
+      ],
+      "padded_square_size": 478,
+      "padding_offset": [
+        17,
+        0
+      ]
+    },
+    {
+      "keyframe": 1,
+      "source_cell_to_logical_matrix": [
+        [
+          0.9642857142857143,
+          0.0,
+          -4.27597402597403
+        ],
+        [
+          0.0,
+          0.9642857142857143,
+          -1.8214285714285694
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 57,
+      "atlas_crop": [
+        444,
+        0,
+        887,
+        478
+      ],
+      "padded_square_size": 478,
+      "padding_offset": [
+        17,
+        0
+      ]
+    },
+    {
+      "keyframe": 2,
+      "source_cell_to_logical_matrix": [
+        [
+          0.9642857142857143,
+          0.0,
+          -1.821428571428573
+        ],
+        [
+          0.0,
+          0.9642857142857143,
+          -1.8214285714285694
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 57,
+      "atlas_crop": [
+        887,
+        0,
+        1330,
+        478
+      ],
+      "padded_square_size": 478,
+      "padding_offset": [
+        17,
+        0
+      ]
+    },
+    {
+      "keyframe": 3,
+      "source_cell_to_logical_matrix": [
+        [
+          0.9642857142857143,
+          0.0,
+          2.0357142857142847
+        ],
+        [
+          0.0,
+          0.9642857142857143,
+          -1.8214285714285694
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 57,
+      "atlas_crop": [
+        1330,
+        0,
+        1774,
+        478
+      ],
+      "padded_square_size": 478,
+      "padding_offset": [
+        17,
+        0
+      ]
+    },
+    {
+      "keyframe": 4,
+      "source_cell_to_logical_matrix": [
+        [
+          0.9642857142857143,
+          0.0,
+          -4.756211180124225
+        ],
+        [
+          0.0,
+          0.9642857142857143,
+          11.67857142857143
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 57,
+      "atlas_crop": [
+        0,
+        478,
+        444,
+        887
+      ],
+      "padded_square_size": 478,
+      "padding_offset": [
+        17,
+        0
+      ]
+    },
+    {
+      "keyframe": 5,
+      "source_cell_to_logical_matrix": [
+        [
+          0.9642857142857143,
+          0.0,
+          -2.0068681318681314
+        ],
+        [
+          0.0,
+          0.9642857142857143,
+          11.67857142857143
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 57,
+      "atlas_crop": [
+        444,
+        478,
+        887,
+        887
+      ],
+      "padded_square_size": 478,
+      "padding_offset": [
+        17,
+        0
+      ]
+    },
+    {
+      "keyframe": 6,
+      "source_cell_to_logical_matrix": [
+        [
+          0.9642857142857143,
+          0.0,
+          0.3482142857142847
+        ],
+        [
+          0.0,
+          0.9642857142857143,
+          11.67857142857143
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 57,
+      "atlas_crop": [
+        887,
+        478,
+        1330,
+        887
+      ],
+      "padded_square_size": 478,
+      "padding_offset": [
+        17,
+        0
+      ]
+    },
+    {
+      "keyframe": 7,
+      "source_cell_to_logical_matrix": [
+        [
+          0.9642857142857143,
+          0.0,
+          0.10714285714285765
+        ],
+        [
+          0.0,
+          0.9642857142857143,
+          11.67857142857143
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 57,
+      "atlas_crop": [
+        1330,
+        478,
+        1774,
+        887
+      ],
+      "padded_square_size": 478,
+      "padding_offset": [
+        17,
+        0
+      ]
+    }
+  ],
+  "effect_baked_in": true
+}

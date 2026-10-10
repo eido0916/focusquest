@@ -1,0 +1,218 @@
+{
+  "asset": "character_01",
+  "animation_id": "attack_down",
+  "direction": "right",
+  "size": [
+    128,
+    128
+  ],
+  "logical_grid": [
+    64,
+    64
+  ],
+  "root_motion": "none",
+  "loop_in_game": false,
+  "preview_loop": true,
+  "duration_seconds": 1,
+  "display_fps": 24,
+  "display_frames": 24,
+  "keyframe_files": 8,
+  "different_pose_count": 7,
+  "ready_return_exact_match": true,
+  "keyframes": [
+    {
+      "index": 0,
+      "phase": "READY",
+      "hold_frames": 4,
+      "file": "frames/character_01_attack_down_00.png"
+    },
+    {
+      "index": 1,
+      "phase": "ANTICIPATION",
+      "hold_frames": 3,
+      "file": "frames/character_01_attack_down_01.png"
+    },
+    {
+      "index": 2,
+      "phase": "OVERHEAD",
+      "hold_frames": 4,
+      "file": "frames/character_01_attack_down_02.png"
+    },
+    {
+      "index": 3,
+      "phase": "DOWNSWING",
+      "hold_frames": 1,
+      "file": "frames/character_01_attack_down_03.png"
+    },
+    {
+      "index": 4,
+      "phase": "STRIKE",
+      "hold_frames": 1,
+      "file": "frames/character_01_attack_down_04.png"
+    },
+    {
+      "index": 5,
+      "phase": "FOLLOW THROUGH",
+      "hold_frames": 4,
+      "file": "frames/character_01_attack_down_05.png"
+    },
+    {
+      "index": 6,
+      "phase": "RECOVERY",
+      "hold_frames": 3,
+      "file": "frames/character_01_attack_down_06.png"
+    },
+    {
+      "index": 7,
+      "phase": "READY RETURN",
+      "hold_frames": 4,
+      "file": "frames/character_01_attack_down_07.png"
+    }
+  ],
+  "timeline": [
+    {
+      "frame": 0,
+      "time_seconds": 0.0,
+      "keyframe_index": 0,
+      "file": "frames_24fps/character_01_attack_down_000.png"
+    },
+    {
+      "frame": 1,
+      "time_seconds": 0.041666666666666664,
+      "keyframe_index": 0,
+      "file": "frames_24fps/character_01_attack_down_001.png"
+    },
+    {
+      "frame": 2,
+      "time_seconds": 0.08333333333333333,
+      "keyframe_index": 0,
+      "file": "frames_24fps/character_01_attack_down_002.png"
+    },
+    {
+      "frame": 3,
+      "time_seconds": 0.125,
+      "keyframe_index": 0,
+      "file": "frames_24fps/character_01_attack_down_003.png"
+    },
+    {
+      "frame": 4,
+      "time_seconds": 0.16666666666666666,
+      "keyframe_index": 1,
+      "file": "frames_24fps/character_01_attack_down_004.png"
+    },
+    {
+      "frame": 5,
+      "time_seconds": 0.20833333333333334,
+      "keyframe_index": 1,
+      "file": "frames_24fps/character_01_attack_down_005.png"
+    },
+    {
+      "frame": 6,
+      "time_seconds": 0.25,
+      "keyframe_index": 1,
+      "file": "frames_24fps/character_01_attack_down_006.png"
+    },
+    {
+      "frame": 7,
+      "time_seconds": 0.2916666666666667,
+      "keyframe_index": 2,
+      "file": "frames_24fps/character_01_attack_down_007.png"
+    },
+    {
+      "frame": 8,
+      "time_seconds": 0.3333333333333333,
+      "keyframe_index": 2,
+      "file": "frames_24fps/character_01_attack_down_008.png"
+    },
+    {
+      "frame": 9,
+      "time_seconds": 0.375,
+      "keyframe_index": 2,
+      "file": "frames_24fps/character_01_attack_down_009.png"
+    },
+    {
+      "frame": 10,
+      "time_seconds": 0.4166666666666667,
+      "keyframe_index": 2,
+      "file": "frames_24fps/character_01_attack_down_010.png"
+    },
+    {
+      "frame": 11,
+      "time_seconds": 0.4583333333333333,
+      "keyframe_index": 3,
+      "file": "frames_24fps/character_01_attack_down_011.png"
+    },
+    {
+      "frame": 12,
+      "time_seconds": 0.5,
+      "keyframe_index": 4,
+      "file": "frames_24fps/character_01_attack_down_012.png"
+    },
+    {
+      "frame": 13,
+      "time_seconds": 0.5416666666666666,
+      "keyframe_index": 5,
+      "file": "frames_24fps/character_01_attack_down_013.png"
+    },
+    {
+      "frame": 14,
+      "time_seconds": 0.5833333333333334,
+      "keyframe_index": 5,
+      "file": "frames_24fps/character_01_attack_down_014.png"
+    },
+    {
+      "frame": 15,
+      "time_seconds": 0.625,
+      "keyframe_index": 5,
+      "file": "frames_24fps/character_01_attack_down_015.png"
+    },
+    {
+      "frame": 16,
+      "time_seconds": 0.6666666666666666,
+      "keyframe_index": 5,
+      "file": "frames_24fps/character_01_attack_down_016.png"
+    },
+    {
+      "frame": 17,
+      "time_seconds": 0.7083333333333334,
+      "keyframe_index": 6,
+      "file": "frames_24fps/character_01_attack_down_017.png"
+    },
+    {
+      "frame": 18,
+      "time_seconds": 0.75,
+      "keyframe_index": 6,
+      "file": "frames_24fps/character_01_attack_down_018.png"
+    },
+    {
+      "frame": 19,
+      "time_seconds": 0.7916666666666666,
+      "keyframe_index": 6,
+      "file": "frames_24fps/character_01_attack_down_019.png"
+    },
+    {
+      "frame": 20,
+      "time_seconds": 0.8333333333333334,
+      "keyframe_index": 7,
+      "file": "frames_24fps/character_01_attack_down_020.png"
+    },
+    {
+      "frame": 21,
+      "time_seconds": 0.875,
+      "keyframe_index": 7,
+      "file": "frames_24fps/character_01_attack_down_021.png"
+    },
+    {
+      "frame": 22,
+      "time_seconds": 0.9166666666666666,
+      "keyframe_index": 7,
+      "file": "frames_24fps/character_01_attack_down_022.png"
+    },
+    {
+      "frame": 23,
+      "time_seconds": 0.9583333333333334,
+      "keyframe_index": 7,
+      "file": "frames_24fps/character_01_attack_down_023.png"
+    }
+  ]
+}

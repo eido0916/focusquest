@@ -1,0 +1,258 @@
+[
+  {
+    "number": 1,
+    "file": "1.png",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572528
+  },
+  {
+    "number": 2,
+    "file": "2.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572864
+  },
+  {
+    "number": 3,
+    "file": "3.png",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572528
+  },
+  {
+    "number": 4,
+    "file": "4.png",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572528
+  },
+  {
+    "number": 5,
+    "file": "5.png",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572528
+  },
+  {
+    "number": 6,
+    "file": "6.png",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572528
+  },
+  {
+    "number": 7,
+    "file": "7.png",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572528
+  },
+  {
+    "number": 8,
+    "file": "8.png",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572528
+  },
+  {
+    "number": 9,
+    "file": "9.png",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572528
+  },
+  {
+    "number": 10,
+    "file": "10.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572864
+  },
+  {
+    "number": 11,
+    "file": "11.png",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572528
+  },
+  {
+    "number": 12,
+    "file": "12.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572864
+  },
+  {
+    "number": 13,
+    "file": "13.png",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572528
+  },
+  {
+    "number": 14,
+    "file": "14.png",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572528
+  },
+  {
+    "number": 15,
+    "file": "15.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572864
+  },
+  {
+    "number": 16,
+    "file": "16.png",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0,
+    "opaque_pixels": 1572528
+  }
+]

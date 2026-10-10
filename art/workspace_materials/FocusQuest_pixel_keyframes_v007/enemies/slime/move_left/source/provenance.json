@@ -1,0 +1,11 @@
+{
+  "source_folder": "FocusQuest_character_preproduction_v01/enemies_v001/slime",
+  "keyframe_sources": [
+    "FocusQuest_character_preproduction_v01/enemies_v001/slime/frames/slime_move_left_00.png",
+    "FocusQuest_character_preproduction_v01/enemies_v001/slime/frames/slime_move_left_01.png",
+    "FocusQuest_character_preproduction_v01/enemies_v001/slime/frames/slime_move_left_02.png",
+    "FocusQuest_character_preproduction_v01/enemies_v001/slime/frames/slime_move_left_03.png",
+    "FocusQuest_character_preproduction_v01/enemies_v001/slime/frames/slime_move_left_04.png",
+    "FocusQuest_character_preproduction_v01/enemies_v001/slime/frames/slime_move_left_05.png"
+  ]
+}

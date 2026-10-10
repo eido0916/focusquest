@@ -1,0 +1,122 @@
+[
+  {
+    "character": "character_01_female",
+    "fixed_uniform_export_scale": 0.21212121212121213,
+    "extraction_bounds": [
+      146,
+      216,
+      394,
+      480
+    ],
+    "logical_grid": [
+      64,
+      64
+    ],
+    "drawn_originals": 24,
+    "actions": [
+      "run",
+      "attack_down",
+      "skill_wave"
+    ]
+  },
+  {
+    "character": "character_02_female",
+    "fixed_uniform_export_scale": 0.17073170731707318,
+    "extraction_bounds": [
+      107,
+      170,
+      435,
+      480
+    ],
+    "logical_grid": [
+      64,
+      64
+    ],
+    "drawn_originals": 24,
+    "actions": [
+      "run",
+      "punch_combo",
+      "spin_kick"
+    ]
+  },
+  {
+    "character": "character_03_female",
+    "fixed_uniform_export_scale": 0.18604651162790697,
+    "extraction_bounds": [
+      126,
+      247,
+      427,
+      480
+    ],
+    "logical_grid": [
+      64,
+      64
+    ],
+    "drawn_originals": 24,
+    "actions": [
+      "run",
+      "iai",
+      "energy_flurry"
+    ]
+  },
+  {
+    "character": "character_04_female",
+    "fixed_uniform_export_scale": 0.1848184818481848,
+    "extraction_bounds": [
+      122,
+      209,
+      425,
+      480
+    ],
+    "logical_grid": [
+      64,
+      64
+    ],
+    "drawn_originals": 24,
+    "actions": [
+      "run",
+      "slam",
+      "charged_sweep"
+    ]
+  },
+  {
+    "character": "character_05_female",
+    "fixed_uniform_export_scale": 0.1848184818481848,
+    "extraction_bounds": [
+      106,
+      226,
+      409,
+      480
+    ],
+    "logical_grid": [
+      64,
+      64
+    ],
+    "drawn_originals": 24,
+    "actions": [
+      "run",
+      "shuriken",
+      "teleport_stab"
+    ]
+  },
+  {
+    "character": "character_06_female",
+    "fixed_uniform_export_scale": 0.1686746987951807,
+    "extraction_bounds": [
+      128,
+      250,
+      460,
+      480
+    ],
+    "logical_grid": [
+      64,
+      64
+    ],
+    "drawn_originals": 24,
+    "actions": [
+      "run",
+      "dagger_thrust",
+      "critical_strike"
+    ]
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "source_folder": "FocusQuest_character_preproduction_v01/enemy_attacks_v001/goblin",
+  "keyframe_sources": [
+    "FocusQuest_character_preproduction_v01/enemy_attacks_v001/goblin/frames/goblin_attack_00.png",
+    "FocusQuest_character_preproduction_v01/enemy_attacks_v001/goblin/frames/goblin_attack_01.png",
+    "FocusQuest_character_preproduction_v01/enemy_attacks_v001/goblin/frames/goblin_attack_02.png",
+    "FocusQuest_character_preproduction_v01/enemy_attacks_v001/goblin/frames/goblin_attack_03.png",
+    "FocusQuest_character_preproduction_v01/enemy_attacks_v001/goblin/frames/goblin_attack_04.png",
+    "FocusQuest_character_preproduction_v01/enemy_attacks_v001/goblin/frames/goblin_attack_05.png",
+    "FocusQuest_character_preproduction_v01/enemy_attacks_v001/goblin/frames/goblin_attack_06.png",
+    "FocusQuest_character_preproduction_v01/enemy_attacks_v001/goblin/frames/goblin_attack_07.png"
+  ]
+}

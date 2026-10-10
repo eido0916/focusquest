@@ -1,0 +1,329 @@
+{
+  "asset_id": "character_01",
+  "animation_id": "run_then_attack",
+  "canvas": [
+    128,
+    128
+  ],
+  "fps": 24,
+  "frames": 52,
+  "duration_seconds": 2.1666666666666665,
+  "root_motion": "none",
+  "loop_in_game": false,
+  "preview_loop": true,
+  "sequence": "run for 1s > ready stop for 4/24s > existing stationary action > ready",
+  "timeline": [
+    {
+      "frame": 0,
+      "time_seconds": 0.0,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_000.png"
+    },
+    {
+      "frame": 1,
+      "time_seconds": 0.041666666666666664,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_001.png"
+    },
+    {
+      "frame": 2,
+      "time_seconds": 0.08333333333333333,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_002.png"
+    },
+    {
+      "frame": 3,
+      "time_seconds": 0.125,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_003.png"
+    },
+    {
+      "frame": 4,
+      "time_seconds": 0.16666666666666666,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_004.png"
+    },
+    {
+      "frame": 5,
+      "time_seconds": 0.20833333333333334,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_005.png"
+    },
+    {
+      "frame": 6,
+      "time_seconds": 0.25,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_006.png"
+    },
+    {
+      "frame": 7,
+      "time_seconds": 0.2916666666666667,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_007.png"
+    },
+    {
+      "frame": 8,
+      "time_seconds": 0.3333333333333333,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_008.png"
+    },
+    {
+      "frame": 9,
+      "time_seconds": 0.375,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_009.png"
+    },
+    {
+      "frame": 10,
+      "time_seconds": 0.4166666666666667,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_010.png"
+    },
+    {
+      "frame": 11,
+      "time_seconds": 0.4583333333333333,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_011.png"
+    },
+    {
+      "frame": 12,
+      "time_seconds": 0.5,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_012.png"
+    },
+    {
+      "frame": 13,
+      "time_seconds": 0.5416666666666666,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_013.png"
+    },
+    {
+      "frame": 14,
+      "time_seconds": 0.5833333333333334,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_014.png"
+    },
+    {
+      "frame": 15,
+      "time_seconds": 0.625,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_015.png"
+    },
+    {
+      "frame": 16,
+      "time_seconds": 0.6666666666666666,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_016.png"
+    },
+    {
+      "frame": 17,
+      "time_seconds": 0.7083333333333334,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_017.png"
+    },
+    {
+      "frame": 18,
+      "time_seconds": 0.75,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_018.png"
+    },
+    {
+      "frame": 19,
+      "time_seconds": 0.7916666666666666,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_019.png"
+    },
+    {
+      "frame": 20,
+      "time_seconds": 0.8333333333333334,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_020.png"
+    },
+    {
+      "frame": 21,
+      "time_seconds": 0.875,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_021.png"
+    },
+    {
+      "frame": 22,
+      "time_seconds": 0.9166666666666666,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_022.png"
+    },
+    {
+      "frame": 23,
+      "time_seconds": 0.9583333333333334,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_attack_023.png"
+    },
+    {
+      "frame": 24,
+      "time_seconds": 1.0,
+      "phase": "stop_ready",
+      "file": "frames_24fps/character_01_run_then_attack_024.png"
+    },
+    {
+      "frame": 25,
+      "time_seconds": 1.0416666666666667,
+      "phase": "stop_ready",
+      "file": "frames_24fps/character_01_run_then_attack_025.png"
+    },
+    {
+      "frame": 26,
+      "time_seconds": 1.0833333333333333,
+      "phase": "stop_ready",
+      "file": "frames_24fps/character_01_run_then_attack_026.png"
+    },
+    {
+      "frame": 27,
+      "time_seconds": 1.125,
+      "phase": "stop_ready",
+      "file": "frames_24fps/character_01_run_then_attack_027.png"
+    },
+    {
+      "frame": 28,
+      "time_seconds": 1.1666666666666667,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_028.png"
+    },
+    {
+      "frame": 29,
+      "time_seconds": 1.2083333333333333,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_029.png"
+    },
+    {
+      "frame": 30,
+      "time_seconds": 1.25,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_030.png"
+    },
+    {
+      "frame": 31,
+      "time_seconds": 1.2916666666666667,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_031.png"
+    },
+    {
+      "frame": 32,
+      "time_seconds": 1.3333333333333333,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_032.png"
+    },
+    {
+      "frame": 33,
+      "time_seconds": 1.375,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_033.png"
+    },
+    {
+      "frame": 34,
+      "time_seconds": 1.4166666666666667,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_034.png"
+    },
+    {
+      "frame": 35,
+      "time_seconds": 1.4583333333333333,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_035.png"
+    },
+    {
+      "frame": 36,
+      "time_seconds": 1.5,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_036.png"
+    },
+    {
+      "frame": 37,
+      "time_seconds": 1.5416666666666667,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_037.png"
+    },
+    {
+      "frame": 38,
+      "time_seconds": 1.5833333333333333,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_038.png"
+    },
+    {
+      "frame": 39,
+      "time_seconds": 1.625,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_039.png"
+    },
+    {
+      "frame": 40,
+      "time_seconds": 1.6666666666666667,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_040.png"
+    },
+    {
+      "frame": 41,
+      "time_seconds": 1.7083333333333333,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_041.png"
+    },
+    {
+      "frame": 42,
+      "time_seconds": 1.75,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_042.png"
+    },
+    {
+      "frame": 43,
+      "time_seconds": 1.7916666666666667,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_043.png"
+    },
+    {
+      "frame": 44,
+      "time_seconds": 1.8333333333333333,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_044.png"
+    },
+    {
+      "frame": 45,
+      "time_seconds": 1.875,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_045.png"
+    },
+    {
+      "frame": 46,
+      "time_seconds": 1.9166666666666667,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_046.png"
+    },
+    {
+      "frame": 47,
+      "time_seconds": 1.9583333333333333,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_047.png"
+    },
+    {
+      "frame": 48,
+      "time_seconds": 2.0,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_048.png"
+    },
+    {
+      "frame": 49,
+      "time_seconds": 2.0416666666666665,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_049.png"
+    },
+    {
+      "frame": 50,
+      "time_seconds": 2.0833333333333335,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_050.png"
+    },
+    {
+      "frame": 51,
+      "time_seconds": 2.125,
+      "phase": "attack",
+      "file": "frames_24fps/character_01_run_then_attack_051.png"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # FocusQuest / FQ
 
+キャラクター・敵の現行原画素材（v010）、v001〜v009の制作履歴、草原のプレイアブルステージ背景は [制作素材一覧](art/workspace_materials/README.md) を参照してください。制作方針は [AGENTS.md](AGENTS.md) に記録しています。
+
 集中した時間が、冒険と成長に変わるAndroid向けRPG。
 
 ## 現在の構成

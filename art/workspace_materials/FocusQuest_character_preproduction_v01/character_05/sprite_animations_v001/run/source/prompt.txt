@@ -1,0 +1,16 @@
+Use case: style-transfer. FocusQuest character05 NINJA game sprite run atlas.
+Reference1 CHARACTER IDENTITY: young man with messy BLACK hair and serious visible face (NO mask, NO hood). Dark charcoal wrap tunic, deep NAVY long neck scarf trailing in two tapered tails, navy sash tied at waist, brown diagonal strap, black baggy trousers, dark wrist/forearm wraps and fingerless gloves, dark shin wraps with navy ties, brown open-toe sandals. Anatomical RIGHT arm bare shoulder with navy upper-arm tie, opposite arm has short dark sleeve. Preserve these identifiers in miniature. NO silver armor, NO samurai blue haori, NO swords in hands. A compact dark dagger sheath may be on belt.
+Reference2 STYLE ONLY: coarse minimal chibi field-game pixel art, about2.3heads tall, limited palette, clear large pixel clusters. Do not copy that samurai's costume.
+
+ONE transparent atlas EXACTLY8 different run poses, four columns two rows, square cells, aspect2:1, row-major. Each cell64x64 logical pixels enlarged crisply. Body42pxhigh, headcenterx31, feetbaseliney56. All parts including scarf tails inside x5..59,y5..59 with clear gutters. Right-facing side/3quarter profile. Same character proportions and limb lengths in each pose. Nimble low forward run, lean12degrees. Arms stretch compactly behind torso but elbows bend slightly; TWO arms, TWO legs. Scarf tails LEFT with a one-phase lag, never cover boots.
+
+Eight ordered phases:
+0 near boot forward CONTACT on floor, far leg trailing.
+1 COMPRESSION near planted knee bends, hips lower1px, far knee folds passing hip.
+2 PUSH-OFF near foot behind on toe, far knee up/forward.
+3 FLIGHT far boot reaches forward, near heel folds back, both soles 2px above floor.
+4 far boot forward CONTACT, near leg trailing, opposite0.
+5 COMPRESSION far support bends, near knee passes underneath.
+6 PUSH-OFF far foot behind, near knee drives forward.
+7 FLIGHT near boot reaches forward, far heel folds back, ready0.
+Alternate camera-near/far legs clearly; far leg slightly darker, knees bend forward correctly, calves/ankles remain anatomical. Head bob only1-2px, no pogo jumping, no feet sliding side to side. Waist sash and scarf react softly rather than changing length. No magic, motion blur, scenery, floor shadow, grid, text, duplicated poses, extra limbs or cropped parts. True alpha transparent background.

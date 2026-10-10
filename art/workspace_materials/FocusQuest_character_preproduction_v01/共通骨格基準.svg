@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1050" viewBox="0 0 1100 1050"><rect width="1100" height="1050" fill="#f3f6fa"/><g font-family="sans-serif">
+<text x="40" y="35" font-size="24">FocusQuest shared skeleton v0.1 / 256 coordinates x4</text>
+<rect x="64" y="64" width="896" height="896" fill="none" stroke="#91a7bd" stroke-dasharray="8 8"/>
+<path d="M64 128H960 M64 896H960" stroke="#c28c51" stroke-width="2"/>
+<line x1="532" y1="280" x2="530.0" y2="490.4" stroke="#285b80" stroke-width="6"/>
+<line x1="532" y1="280" x2="464" y2="312" stroke="#285b80" stroke-width="6"/>
+<line x1="532" y1="280" x2="592" y2="312" stroke="#285b80" stroke-width="6"/>
+<line x1="464" y1="312" x2="432" y2="400" stroke="#285b80" stroke-width="6"/>
+<line x1="432" y1="400" x2="452" y2="500" stroke="#285b80" stroke-width="6"/>
+<line x1="592" y1="312" x2="644" y2="404" stroke="#285b80" stroke-width="6"/>
+<line x1="644" y1="404" x2="684" y2="516" stroke="#285b80" stroke-width="6"/>
+<line x1="530.0" y1="490.4" x2="488" y2="532" stroke="#285b80" stroke-width="6"/>
+<line x1="530.0" y1="490.4" x2="576" y2="532" stroke="#285b80" stroke-width="6"/>
+<line x1="488" y1="532" x2="488" y2="676" stroke="#285b80" stroke-width="6"/>
+<line x1="488" y1="676" x2="477.6" y2="845.2" stroke="#285b80" stroke-width="6"/>
+<line x1="576" y1="532" x2="572" y2="676" stroke="#285b80" stroke-width="6"/>
+<line x1="572" y1="676" x2="561.6" y2="845.2" stroke="#285b80" stroke-width="6"/>
+<line x1="684" y1="516" x2="715.2" y2="569.6" stroke="#285b80" stroke-width="6"/>
+<circle cx="532" cy="280" r="7" fill="#db6842"/>
+<text x="610" y="280" font-size="18">neck (133,70)</text>
+<circle cx="464" cy="312" r="7" fill="#db6842"/>
+<text x="60" y="312" font-size="18">shoulder_L (116,78)</text>
+<circle cx="432" cy="400" r="7" fill="#db6842"/>
+<text x="60" y="400" font-size="18">elbow_L (108,100)</text>
+<circle cx="452" cy="500" r="7" fill="#db6842"/>
+<text x="60" y="500" font-size="18">wrist_L (113,125)</text>
+<circle cx="592" cy="312" r="7" fill="#db6842"/>
+<text x="780" y="312" font-size="18">shoulder_R (148,78)</text>
+<circle cx="644" cy="404" r="7" fill="#db6842"/>
+<text x="780" y="404" font-size="18">elbow_R (161,101)</text>
+<circle cx="684" cy="516" r="7" fill="#db6842"/>
+<text x="780" y="516" font-size="18">wrist_R (171,129)</text>
+<circle cx="530.0" cy="490.4" r="7" fill="#db6842"/>
+<text x="260" y="490" font-size="18">waist (132.5,122.6)</text>
+<circle cx="488" cy="532" r="7" fill="#db6842"/>
+<text x="60" y="532" font-size="18">hip_L (122,133)</text>
+<circle cx="488" cy="676" r="7" fill="#db6842"/>
+<text x="60" y="676" font-size="18">knee_L (122,169)</text>
+<circle cx="477.6" cy="845.2" r="7" fill="#db6842"/>
+<text x="60" y="845" font-size="18">ankle_L (119.4,211.3)</text>
+<circle cx="576" cy="532" r="7" fill="#db6842"/>
+<text x="780" y="565" font-size="18">hip_R (144,133)</text>
+<circle cx="572" cy="676" r="7" fill="#db6842"/>
+<text x="780" y="676" font-size="18">knee_R (143,169)</text>
+<circle cx="561.6" cy="845.2" r="7" fill="#db6842"/>
+<text x="780" y="845" font-size="18">ankle_R (140.4,211.3)</text>
+<circle cx="715.2" cy="569.6" r="7" fill="#db6842"/>
+<text x="780" y="590" font-size="18">grip (178.8,142.4)</text>
+<circle cx="512" cy="896" r="7" fill="#db6842"/>
+<text x="550" y="925" font-size="18">P (128,224)</text>
+<text x="65" y="1000" font-size="20">height 192 / crown y32 / ground y224 / safe 16..240 / approx 6 heads</text></g></svg>
