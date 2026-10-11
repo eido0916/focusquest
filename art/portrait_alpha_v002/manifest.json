@@ -1,0 +1,114 @@
+[
+  {
+    "role": "ninja",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-0a052d72-72ff-405a-8b83-9b78c1f8efa9.png",
+    "original_sha256": "4a8868c624caefcb83d50b2560a2e646df7f319bd3555bba37f867688c6bd81b",
+    "repaired_sha256": "f669fd6c07637b5565aa7b5ab8a488747f33b4c8765e2a0f791c60e6edf40670"
+  },
+  {
+    "role": "warrior",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-2325d86e-6198-4949-8f75-9bbb825e9773.png",
+    "original_sha256": "c0f21f26411cd7d1c88f1e46ae08439e11d905cf02d524ffb0ce2752f8e716a4",
+    "repaired_sha256": "1b7f6975f8aad961cf839b000846a150a1ca0b84e08ce0fddb5cc7051d0213b0"
+  },
+  {
+    "role": "boxer",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-e7f9189d-72fd-4848-b229-d74cde4102bc.png",
+    "original_sha256": "f0a63e2efcede112fe35567c301e596ea4ae86421d1b0db2bbf09ed86b90d999",
+    "repaired_sha256": "b8cd8764f074c0f1b0470893e8462601cb1c4d244c4921cbd216d7ebae9dca1c"
+  },
+  {
+    "role": "samurai",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-acb0e7e4-6e42-4894-9da7-1e055a6c9a7a.png",
+    "original_sha256": "932b59fa8f42c9f96aa8ddb0bd996d4cb0a0eedb799bc984b0fed41979ae3b2c",
+    "repaired_sha256": "2680db70f79b8c3b2c01977c75441f1d954c9721a556f594fd83bb33a24cd48d"
+  },
+  {
+    "role": "guardian",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-4e5f905b-398e-4528-a0d0-77c49b7b9cd6.png",
+    "original_sha256": "9a80b3b57a8230670716eb6cb45db1c7f08f2ac5e15ab77a076b2f289b166ddc",
+    "repaired_sha256": "e42fee5b926ba61aab2a1003256d23940d7b9b5aaeed9509f0da142e2633a0a8"
+  },
+  {
+    "role": "assassin",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-01e3a882-8295-4df3-82d5-6378d08e431a.png",
+    "original_sha256": "004f7394d12af8e2d6c88c283001ac28acbdd2d695d7470d7041333ba87bb6d9",
+    "repaired_sha256": "e5f9d10af8ed7165af10908cfb19fbedd155ef9e8fb292ddfa80f51f01f1e91b"
+  },
+  {
+    "role": "ranger",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-956a8a16-3ef2-492e-b5cd-dd5c138c9ae0.png",
+    "original_sha256": "12a66665fa71bd43a2719fa67a97eee2e3f5ce29f39d28fe97a351aadb1dbd8b",
+    "repaired_sha256": "c4426e4d3709fa7c5ce66ae9e033c9b8e1f516e9a97bafc8a760dcbaffb0303a"
+  },
+  {
+    "role": "gunner",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-09b777fc-beeb-4541-ac09-4fb8c2a6cf64.png",
+    "original_sha256": "b770ade5cf227fc75535fca0208ad528fcf81969fb9c8db8f39ec2871a576987",
+    "repaired_sha256": "0cb769554c6ad8e18664e99851ae8602d30c688e3f54226a557ae657bd3f7ba3"
+  },
+  {
+    "role": "mage",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-ab38e521-0612-4082-8bf2-fc07beaf5ea2.png",
+    "original_sha256": "06389bc4da38db83e50f9519741ca8ca3d85bccd24049351c96fb0f89ceef52a",
+    "repaired_sha256": "1302ed455044119065326d488e873149739b37c49cca89676f25559a74936cac"
+  },
+  {
+    "role": "spellblade",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-6166a58b-6803-4652-bf5a-1d53d4a078ec.png",
+    "original_sha256": "f1e04acd18dfa1fb75ffbbb7f9c26e4175d499efbe305f35d88f1ea4adbae17b",
+    "repaired_sha256": "328324a85c52ad0346a50a9f634e5b64aae2142e10b2f4e253b2075c22ea5a6d"
+  },
+  {
+    "role": "onmyoji",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-1f1711ea-8bd2-42bd-b6a4-2c11b3e2342f.png",
+    "original_sha256": "276dd5ee5ea909b30a7854bcbe873f6912edaa3f0aaf76b7cc5de00ceab50aad",
+    "repaired_sha256": "96e5f6050dba2684379a3c8f2e5547714b51e20b3aabd1d46d1f86e071251b5f"
+  },
+  {
+    "role": "reaper",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-bafc31c7-3fb5-4840-983a-8615f67a1f0a.png",
+    "original_sha256": "0192cbf1014c1c10dd147c2b14bf2943dfca09594494e2ab4696d0c39373ba27",
+    "repaired_sha256": "738618fead735d5c40246324f73e8ffeeefbafc8424b13427e1f9d12d4c21b6d"
+  },
+  {
+    "role": "angel",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-5f47bd70-96fe-4262-b3c3-21b70fc2af8e.png",
+    "original_sha256": "db0cda445df4164f73ad66d6f1fdfcc3d268b510c273a389aa68c966a763a53a",
+    "repaired_sha256": "657da13761168c4468c980d590afd281913b9e519f828656e9dec6af72ba5bab"
+  },
+  {
+    "role": "devil",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-127a45d0-95f5-42e0-85eb-bc346329ab1b.png",
+    "original_sha256": "e690dc84aec32f70cf06040272a3c14edc26bc46ab8cc92901fff2fab98e91fe",
+    "repaired_sha256": "c93dfc76faf4e6e1fcff6025ef3e914aad6c3c588afc2e823c46b919d3a5d3d1"
+  },
+  {
+    "role": "dragon_knight",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-d658b358-aabb-4b60-89ac-7146ee8231ea.png",
+    "original_sha256": "f8c027ec8b0fd746cf84da32acdf82d93c776621ff92f6cbe26e7ab1783536b3",
+    "repaired_sha256": "8aa51679df496adb963d3c3c88390341fcee79a284767cdf29cf95afc1d0fc8a"
+  },
+  {
+    "role": "berserker",
+    "tool": "image_gen.imagegen",
+    "generated_source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12654-3f44-77d0-a8bc-5664882170b5\\exec-1a364bf5-b698-4a4d-8c5c-2302fe0bd615.png",
+    "original_sha256": "6e7ade104543597f63664496f4a6d41799d1edf89b026d3cae21772228b57efc",
+    "repaired_sha256": "2bcc84ced5248a9a95968b7fd5c522eabbc06f474092caa6e53b10fbd3d3e3a0"
+  }
+]

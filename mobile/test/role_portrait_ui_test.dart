@@ -56,16 +56,7 @@ void main() {
           await tester.pumpAndSettle();
           expect(find.byType(PixelHero), findsNothing);
           expect(find.byType(PixelSprite), findsNothing);
-          if (entry.key == 'home') {
-            expect(find.byType(JobPortrait), findsNothing);
-            expect(
-                find.byWidgetPredicate((widget) =>
-                    widget is Image &&
-                    widget.image is AssetImage &&
-                    (widget.image as AssetImage).assetName ==
-                        'assets/images/ui/home_knight.png'),
-                findsOneWidget);
-          } else {
+          {
             final portrait =
                 tester.widget<JobPortrait>(find.byType(JobPortrait));
             expect(portrait.typeId, role.typeId);
@@ -73,8 +64,11 @@ void main() {
             final imageFinder = find.descendant(
                 of: find.byType(JobPortrait), matching: find.byType(Image));
             final image = tester.widget<Image>(imageFinder);
-            expect((image.image as AssetImage).assetName,
-                'assets/images/portraits/$appearance/${role.typeId}.webp');
+            expect(
+                (image.image as AssetImage).assetName,
+                entry.key != 'focus'
+                    ? 'assets/images/lobby/portraits/${appearance == 'female' ? 'female/' : ''}${role.typeId}.png'
+                    : 'assets/images/portraits/$appearance/${role.typeId}.webp');
           }
           for (final element in find.byType(Image).evaluate()) {
             await tester.runAsync(

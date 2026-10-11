@@ -10,7 +10,6 @@ import 'package:focusquest/features/focus/domain/focus_service.dart';
 import 'package:focusquest/features/focus/domain/focus_session.dart';
 import 'package:focusquest/features/focus/domain/reward_service.dart';
 import 'package:focusquest/features/focus/domain/streak_service.dart';
-import 'package:focusquest/features/gacha/domain/gacha_service.dart';
 
 class FixedRandom implements Random {
   FixedRandom(this.ticket, [this.fraction = 0.5]);
@@ -152,37 +151,6 @@ void main() {
           StreakService().summarize(sessions, DateTime(2026, 10, 3));
       expect(summary.streak, 0);
       expect(summary.longestStreak, 2);
-    });
-  });
-  group('Gacha', () {
-    test('all cumulative probability boundaries', () {
-      for (final entry in {
-        0: 'N',
-        59: 'N',
-        60: 'R',
-        89: 'R',
-        90: 'SR',
-        97: 'SR',
-        98: 'SSR',
-        99: 'SSR'
-      }.entries) {
-        final result = GachaService(
-                random: FixedRandom(entry.key), pool: GameCatalog.gachaPool)
-            .draw(count: 1, balance: 100);
-        expect(result.prizes.single.rarity, entry.value);
-      }
-    });
-    test('10 draws charge 1000; rejects insufficient funds and invalid count',
-        () {
-      final service =
-          GachaService(random: Random(42), pool: GameCatalog.gachaPool);
-      final result = service.draw(count: 10, balance: 1000);
-      expect(result.prizes.length, 10);
-      expect(result.cost, 1000);
-      expect(() => service.draw(count: 10, balance: 999), throwsStateError);
-      expect(() => service.draw(count: 2, balance: 1000), throwsArgumentError);
-      expect(
-          () => GachaService(random: Random(), pool: []), throwsArgumentError);
     });
   });
   group('Diagnosis', () {

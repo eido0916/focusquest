@@ -11,7 +11,6 @@ class AssetCatalog {
     'background.forest': 'enchanted_forest.png',
     'currency.coin': null,
     'currency.exp': null,
-    'summon.reveal': null,
   };
   static String? image(String key) => images[key];
   static String? animation(String actor, ActorPose pose) =>

@@ -1,0 +1,772 @@
+[
+  {
+    "id": 1,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_22.png",
+    "sourceFrame": 1,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "isolatedBBox": [
+      12,
+      103,
+      591,
+      705
+    ],
+    "sourceSHA256": "236e9bc63453e8b941399dff63555e0aec9b07764c6c5764a229af698a30723c"
+  },
+  {
+    "id": 2,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_22.png",
+    "sourceFrame": 2,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "isolatedBBox": [
+      515,
+      41,
+      918,
+      662
+    ],
+    "sourceSHA256": "236e9bc63453e8b941399dff63555e0aec9b07764c6c5764a229af698a30723c"
+  },
+  {
+    "id": 3,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_22.png",
+    "sourceFrame": 3,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "isolatedBBox": [
+      934,
+      21,
+      1322,
+      701
+    ],
+    "sourceSHA256": "236e9bc63453e8b941399dff63555e0aec9b07764c6c5764a229af698a30723c"
+  },
+  {
+    "id": 4,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_22.png",
+    "sourceFrame": 4,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "isolatedBBox": [
+      1322,
+      21,
+      1764,
+      674
+    ],
+    "sourceSHA256": "236e9bc63453e8b941399dff63555e0aec9b07764c6c5764a229af698a30723c"
+  },
+  {
+    "id": 5,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_22.png",
+    "sourceFrame": 5,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "isolatedBBox": [
+      1785,
+      81,
+      2142,
+      678
+    ],
+    "sourceSHA256": "236e9bc63453e8b941399dff63555e0aec9b07764c6c5764a229af698a30723c"
+  },
+  {
+    "id": 6,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_32.png",
+    "sourceFrame": 1,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "isolatedBBox": [
+      19,
+      31,
+      451,
+      700
+    ],
+    "sourceSHA256": "4edc7a0776f7c90c40f13c446d822d426e47c27b8aaecf71189448a182a2acba"
+  },
+  {
+    "id": 7,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_32.png",
+    "sourceFrame": 2,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "isolatedBBox": [
+      481,
+      21,
+      888,
+      676
+    ],
+    "sourceSHA256": "4edc7a0776f7c90c40f13c446d822d426e47c27b8aaecf71189448a182a2acba"
+  },
+  {
+    "id": 8,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_32.png",
+    "sourceFrame": 3,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "isolatedBBox": [
+      918,
+      91,
+      1333,
+      677
+    ],
+    "sourceSHA256": "4edc7a0776f7c90c40f13c446d822d426e47c27b8aaecf71189448a182a2acba"
+  },
+  {
+    "id": 9,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_32.png",
+    "sourceFrame": 4,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "isolatedBBox": [
+      1332,
+      73,
+      1760,
+      690
+    ],
+    "sourceSHA256": "4edc7a0776f7c90c40f13c446d822d426e47c27b8aaecf71189448a182a2acba"
+  },
+  {
+    "id": 10,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_32.png",
+    "sourceFrame": 5,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "isolatedBBox": [
+      1761,
+      28,
+      2149,
+      676
+    ],
+    "sourceSHA256": "4edc7a0776f7c90c40f13c446d822d426e47c27b8aaecf71189448a182a2acba"
+  },
+  {
+    "id": 11,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_40.png",
+    "sourceFrame": 1,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "isolatedBBox": [
+      11,
+      89,
+      338,
+      667
+    ],
+    "sourceSHA256": "e9a56c38f9bb868afcb265adbc2809e3007ff767b42dcb781af2fa5804d3e92d"
+  },
+  {
+    "id": 12,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_40.png",
+    "sourceFrame": 2,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "isolatedBBox": [
+      347,
+      99,
+      786,
+      706
+    ],
+    "sourceSHA256": "e9a56c38f9bb868afcb265adbc2809e3007ff767b42dcb781af2fa5804d3e92d"
+  },
+  {
+    "id": 13,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_40.png",
+    "sourceFrame": 3,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "isolatedBBox": [
+      761,
+      48,
+      1252,
+      660
+    ],
+    "sourceSHA256": "e9a56c38f9bb868afcb265adbc2809e3007ff767b42dcb781af2fa5804d3e92d"
+  },
+  {
+    "id": 14,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_40.png",
+    "sourceFrame": 4,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "isolatedBBox": [
+      1230,
+      45,
+      1692,
+      686
+    ],
+    "sourceSHA256": "e9a56c38f9bb868afcb265adbc2809e3007ff767b42dcb781af2fa5804d3e92d"
+  },
+  {
+    "id": 15,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_40.png",
+    "sourceFrame": 5,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "isolatedBBox": [
+      1704,
+      59,
+      2160,
+      657
+    ],
+    "sourceSHA256": "e9a56c38f9bb868afcb265adbc2809e3007ff767b42dcb781af2fa5804d3e92d"
+  },
+  {
+    "id": 16,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_45.png",
+    "sourceFrame": 1,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "isolatedBBox": [
+      19,
+      128,
+      459,
+      672
+    ],
+    "sourceSHA256": "093f47d062949bb46cdac9252e98066972cbc0f5a9840d18fd84026cfdb94e57"
+  },
+  {
+    "id": 17,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_45.png",
+    "sourceFrame": 2,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "isolatedBBox": [
+      435,
+      53,
+      904,
+      638
+    ],
+    "sourceSHA256": "093f47d062949bb46cdac9252e98066972cbc0f5a9840d18fd84026cfdb94e57"
+  },
+  {
+    "id": 18,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_45.png",
+    "sourceFrame": 3,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "isolatedBBox": [
+      918,
+      21,
+      1400,
+      650
+    ],
+    "sourceSHA256": "093f47d062949bb46cdac9252e98066972cbc0f5a9840d18fd84026cfdb94e57"
+  },
+  {
+    "id": 19,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_45.png",
+    "sourceFrame": 4,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "isolatedBBox": [
+      1417,
+      119,
+      1878,
+      642
+    ],
+    "sourceSHA256": "093f47d062949bb46cdac9252e98066972cbc0f5a9840d18fd84026cfdb94e57"
+  },
+  {
+    "id": 20,
+    "source": "ChatGPT 画像 2026年10月10日 13_33_45.png",
+    "sourceFrame": 5,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "isolatedBBox": [
+      1890,
+      126,
+      2156,
+      640
+    ],
+    "sourceSHA256": "093f47d062949bb46cdac9252e98066972cbc0f5a9840d18fd84026cfdb94e57"
+  },
+  {
+    "id": 21,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_23.png",
+    "sourceFrame": 1,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "isolatedBBox": [
+      17,
+      57,
+      549,
+      688
+    ],
+    "sourceSHA256": "38f180a59b7d69cc1359ec415b7ff7a1546f05c6d2f2883fff96eed9fc2596d4"
+  },
+  {
+    "id": 22,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_23.png",
+    "sourceFrame": 2,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "isolatedBBox": [
+      497,
+      55,
+      872,
+      644
+    ],
+    "sourceSHA256": "38f180a59b7d69cc1359ec415b7ff7a1546f05c6d2f2883fff96eed9fc2596d4"
+  },
+  {
+    "id": 23,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_23.png",
+    "sourceFrame": 3,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "isolatedBBox": [
+      872,
+      23,
+      1305,
+      700
+    ],
+    "sourceSHA256": "38f180a59b7d69cc1359ec415b7ff7a1546f05c6d2f2883fff96eed9fc2596d4"
+  },
+  {
+    "id": 24,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_23.png",
+    "sourceFrame": 4,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "isolatedBBox": [
+      1322,
+      30,
+      1730,
+      668
+    ],
+    "sourceSHA256": "38f180a59b7d69cc1359ec415b7ff7a1546f05c6d2f2883fff96eed9fc2596d4"
+  },
+  {
+    "id": 25,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_23.png",
+    "sourceFrame": 5,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "isolatedBBox": [
+      1755,
+      49,
+      2154,
+      688
+    ],
+    "sourceSHA256": "38f180a59b7d69cc1359ec415b7ff7a1546f05c6d2f2883fff96eed9fc2596d4"
+  },
+  {
+    "id": 26,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_27.png",
+    "sourceFrame": 1,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "isolatedBBox": [
+      16,
+      101,
+      434,
+      698
+    ],
+    "sourceSHA256": "a32f7041ea66f9c8e3faafeb66721b758db40df4771818bc629cb3cb14621ba0"
+  },
+  {
+    "id": 27,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_27.png",
+    "sourceFrame": 2,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "isolatedBBox": [
+      435,
+      53,
+      853,
+      692
+    ],
+    "sourceSHA256": "a32f7041ea66f9c8e3faafeb66721b758db40df4771818bc629cb3cb14621ba0"
+  },
+  {
+    "id": 28,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_27.png",
+    "sourceFrame": 3,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "isolatedBBox": [
+      856,
+      19,
+      1271,
+      700
+    ],
+    "sourceSHA256": "a32f7041ea66f9c8e3faafeb66721b758db40df4771818bc629cb3cb14621ba0"
+  },
+  {
+    "id": 29,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_27.png",
+    "sourceFrame": 4,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "isolatedBBox": [
+      1264,
+      71,
+      1677,
+      690
+    ],
+    "sourceSHA256": "a32f7041ea66f9c8e3faafeb66721b758db40df4771818bc629cb3cb14621ba0"
+  },
+  {
+    "id": 30,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_27.png",
+    "sourceFrame": 5,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "isolatedBBox": [
+      1677,
+      31,
+      2158,
+      694
+    ],
+    "sourceSHA256": "a32f7041ea66f9c8e3faafeb66721b758db40df4771818bc629cb3cb14621ba0"
+  },
+  {
+    "id": 31,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_33.png",
+    "sourceFrame": 1,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "isolatedBBox": [
+      0,
+      69,
+      440,
+      686
+    ],
+    "sourceSHA256": "267ce2055087a01060167fdc31417995fb72052fa2bb33ad2d08a7cf9c4d5d02"
+  },
+  {
+    "id": 32,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_33.png",
+    "sourceFrame": 2,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "isolatedBBox": [
+      440,
+      24,
+      820,
+      643
+    ],
+    "sourceSHA256": "267ce2055087a01060167fdc31417995fb72052fa2bb33ad2d08a7cf9c4d5d02"
+  },
+  {
+    "id": 33,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_33.png",
+    "sourceFrame": 3,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "isolatedBBox": [
+      820,
+      23,
+      1225,
+      656
+    ],
+    "sourceSHA256": "267ce2055087a01060167fdc31417995fb72052fa2bb33ad2d08a7cf9c4d5d02"
+  },
+  {
+    "id": 34,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_33.png",
+    "sourceFrame": 4,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "isolatedBBox": [
+      1210,
+      23,
+      1696,
+      700
+    ],
+    "sourceSHA256": "267ce2055087a01060167fdc31417995fb72052fa2bb33ad2d08a7cf9c4d5d02"
+  },
+  {
+    "id": 35,
+    "source": "ChatGPT 画像 2026年10月10日 13_34_33.png",
+    "sourceFrame": 5,
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "equalSlot": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "isolatedBBox": [
+      1720,
+      11,
+      2151,
+      692
+    ],
+    "sourceSHA256": "267ce2055087a01060167fdc31417995fb72052fa2bb33ad2d08a7cf9c4d5d02"
+  }
+]

@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/services.dart';
 import '../domain/focus_session.dart';
 
@@ -15,6 +16,44 @@ class InstalledApp {
 
 class UsageMonitor {
   static const _channel = MethodChannel('dev.focusquest/usage');
+  Future<Map<String, bool>?> guardPermissions() async {
+    if (!Platform.isAndroid) return null;
+    try {
+      final data =
+          await _channel.invokeMapMethod<String, dynamic>('guardPermissions');
+      return {
+        'usage': data?['usage'] == true,
+        'overlay': data?['overlay'] == true
+      };
+    } on MissingPluginException {
+      return null;
+    }
+  }
+
+  Future<void> requestOverlay() =>
+      _channel.invokeMethod<void>('requestOverlay');
+
+  Future<void> startGuard(FocusSession session) async {
+    if (!Platform.isAndroid) return;
+    try {
+      await _channel.invokeMethod<void>('startGuard', {
+        'id': session.id,
+        'endsAt': session.endsAt.millisecondsSinceEpoch,
+      });
+    } on MissingPluginException {
+      // Diagnostic previews and platforms without the Android integration.
+    }
+  }
+
+  Future<void> stopGuard() async {
+    if (!Platform.isAndroid) return;
+    try {
+      await _channel.invokeMethod<void>('stopGuard');
+    } on MissingPluginException {
+      // Diagnostic previews and platforms without the Android integration.
+    }
+  }
+
   Future<bool> hasAccess() async {
     try {
       return await _channel.invokeMethod<bool>('hasAccess') ?? false;

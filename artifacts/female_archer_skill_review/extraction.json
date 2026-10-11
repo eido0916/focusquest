@@ -1,0 +1,992 @@
+[
+  {
+    "id": 1,
+    "sheet": 1,
+    "slot": 1,
+    "rawRect": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "bbox": [
+      0,
+      23,
+      460,
+      700
+    ],
+    "hipX": 252,
+    "footY": 633,
+    "phase": "run",
+    "selected": true,
+    "reason": "採用: run"
+  },
+  {
+    "id": 2,
+    "sheet": 1,
+    "slot": 2,
+    "rawRect": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "bbox": [
+      434,
+      17,
+      885,
+      690
+    ],
+    "hipX": 686,
+    "footY": 630,
+    "phase": "run",
+    "selected": true,
+    "reason": "採用: run"
+  },
+  {
+    "id": 3,
+    "sheet": 1,
+    "slot": 3,
+    "rawRect": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "bbox": [
+      870,
+      23,
+      1303,
+      668
+    ],
+    "hipX": 1102,
+    "footY": 640,
+    "phase": "run",
+    "selected": true,
+    "reason": "採用: run"
+  },
+  {
+    "id": 4,
+    "sheet": 1,
+    "slot": 4,
+    "rawRect": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "bbox": [
+      1280,
+      21,
+      1738,
+      700
+    ],
+    "hipX": 1540,
+    "footY": 639,
+    "phase": "prepare",
+    "selected": true,
+    "reason": "採用: prepare"
+  },
+  {
+    "id": 5,
+    "sheet": 1,
+    "slot": 5,
+    "rawRect": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "bbox": [
+      1718,
+      21,
+      2151,
+      680
+    ],
+    "hipX": 1980,
+    "footY": 638,
+    "phase": "prepare",
+    "selected": true,
+    "reason": "採用: prepare"
+  },
+  {
+    "id": 6,
+    "sheet": 2,
+    "slot": 1,
+    "rawRect": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "bbox": [
+      15,
+      84,
+      441,
+      638
+    ],
+    "hipX": 246,
+    "footY": 615,
+    "phase": "nock",
+    "selected": true,
+    "reason": "採用: nock"
+  },
+  {
+    "id": 7,
+    "sheet": 2,
+    "slot": 2,
+    "rawRect": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "bbox": [
+      435,
+      49,
+      869,
+      664
+    ],
+    "hipX": 678,
+    "footY": 615,
+    "phase": "nock",
+    "selected": true,
+    "reason": "採用: nock"
+  },
+  {
+    "id": 8,
+    "sheet": 2,
+    "slot": 3,
+    "rawRect": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "bbox": [
+      861,
+      7,
+      1297,
+      700
+    ],
+    "hipX": 1100,
+    "footY": 615,
+    "phase": "nock",
+    "selected": true,
+    "reason": "採用: nock"
+  },
+  {
+    "id": 9,
+    "sheet": 2,
+    "slot": 4,
+    "rawRect": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "bbox": [
+      1272,
+      55,
+      1738,
+      676
+    ],
+    "hipX": 1530,
+    "footY": 615,
+    "phase": "nock",
+    "selected": true,
+    "reason": "採用: nock"
+  },
+  {
+    "id": 10,
+    "sheet": 2,
+    "slot": 5,
+    "rawRect": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "bbox": [
+      1735,
+      37,
+      2163,
+      682
+    ],
+    "hipX": 1990,
+    "footY": 615,
+    "phase": "draw",
+    "selected": true,
+    "reason": "採用: draw"
+  },
+  {
+    "id": 11,
+    "sheet": 3,
+    "slot": 1,
+    "rawRect": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "bbox": [
+      0,
+      25,
+      437,
+      702
+    ],
+    "hipX": 232,
+    "footY": 625,
+    "phase": "draw",
+    "selected": true,
+    "reason": "採用: draw"
+  },
+  {
+    "id": 12,
+    "sheet": 3,
+    "slot": 2,
+    "rawRect": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "bbox": [
+      431,
+      29,
+      873,
+      704
+    ],
+    "hipX": 667,
+    "footY": 625,
+    "phase": "draw",
+    "selected": true,
+    "reason": "採用: draw"
+  },
+  {
+    "id": 13,
+    "sheet": 3,
+    "slot": 3,
+    "rawRect": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "bbox": [
+      848,
+      24,
+      1306,
+      702
+    ],
+    "hipX": 1090,
+    "footY": 625,
+    "phase": "draw",
+    "selected": false,
+    "reason": "引き絞りの類似姿勢。12→14で段階を保持"
+  },
+  {
+    "id": 14,
+    "sheet": 3,
+    "slot": 4,
+    "rawRect": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "bbox": [
+      1284,
+      11,
+      1738,
+      686
+    ],
+    "hipX": 1520,
+    "footY": 625,
+    "phase": "draw",
+    "selected": true,
+    "reason": "採用: draw"
+  },
+  {
+    "id": 15,
+    "sheet": 3,
+    "slot": 5,
+    "rawRect": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "bbox": [
+      1706,
+      9,
+      2171,
+      654
+    ],
+    "hipX": 1950,
+    "footY": 625,
+    "phase": "aim",
+    "selected": false,
+    "reason": "照準の類似姿勢。14→16で強い引きを保持"
+  },
+  {
+    "id": 16,
+    "sheet": 4,
+    "slot": 1,
+    "rawRect": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "bbox": [
+      0,
+      25,
+      453,
+      706
+    ],
+    "hipX": 230,
+    "footY": 608,
+    "phase": "aim",
+    "selected": true,
+    "reason": "採用: aim"
+  },
+  {
+    "id": 17,
+    "sheet": 4,
+    "slot": 2,
+    "rawRect": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "bbox": [
+      434,
+      39,
+      896,
+      712
+    ],
+    "hipX": 670,
+    "footY": 608,
+    "phase": "aim",
+    "selected": false,
+    "reason": "照準保持の重複候補。16→18を採用"
+  },
+  {
+    "id": 18,
+    "sheet": 4,
+    "slot": 3,
+    "rawRect": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "bbox": [
+      850,
+      31,
+      1303,
+      724
+    ],
+    "hipX": 1090,
+    "footY": 608,
+    "phase": "aim",
+    "selected": true,
+    "reason": "採用: aim"
+  },
+  {
+    "id": 19,
+    "sheet": 4,
+    "slot": 4,
+    "rawRect": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "bbox": [
+      1254,
+      56,
+      1731,
+      705
+    ],
+    "hipX": 1520,
+    "footY": 608,
+    "phase": "release",
+    "selected": true,
+    "reason": "採用: release"
+  },
+  {
+    "id": 20,
+    "sheet": 4,
+    "slot": 5,
+    "rawRect": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "bbox": [
+      1670,
+      33,
+      2168,
+      698
+    ],
+    "hipX": 1930,
+    "footY": 608,
+    "phase": "recoil",
+    "selected": false,
+    "reason": "飛ぶ矢が右端で切れている発射後姿勢。19→21で一射と反動を保持"
+  },
+  {
+    "id": 21,
+    "sheet": 5,
+    "slot": 1,
+    "rawRect": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "bbox": [
+      0,
+      95,
+      441,
+      652
+    ],
+    "hipX": 235,
+    "footY": 604,
+    "phase": "recoil",
+    "selected": true,
+    "reason": "採用: recoil"
+  },
+  {
+    "id": 22,
+    "sheet": 5,
+    "slot": 2,
+    "rawRect": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "bbox": [
+      433,
+      39,
+      887,
+      701
+    ],
+    "hipX": 675,
+    "footY": 605,
+    "phase": "recoil",
+    "selected": true,
+    "reason": "採用: recoil"
+  },
+  {
+    "id": 23,
+    "sheet": 5,
+    "slot": 3,
+    "rawRect": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "bbox": [
+      867,
+      71,
+      1303,
+      668
+    ],
+    "hipX": 1100,
+    "footY": 605,
+    "phase": "recover",
+    "selected": true,
+    "reason": "採用: recover"
+  },
+  {
+    "id": 24,
+    "sheet": 5,
+    "slot": 4,
+    "rawRect": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "bbox": [
+      1302,
+      21,
+      1742,
+      700
+    ],
+    "hipX": 1530,
+    "footY": 608,
+    "phase": "recover",
+    "selected": true,
+    "reason": "採用: recover"
+  },
+  {
+    "id": 25,
+    "sheet": 5,
+    "slot": 5,
+    "rawRect": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "bbox": [
+      1739,
+      23,
+      2152,
+      684
+    ],
+    "hipX": 1980,
+    "footY": 609,
+    "phase": "recover",
+    "selected": true,
+    "reason": "採用: recover"
+  },
+  {
+    "id": 26,
+    "sheet": 6,
+    "slot": 1,
+    "rawRect": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "bbox": [
+      0,
+      67,
+      432,
+      724
+    ],
+    "hipX": 230,
+    "footY": 640,
+    "phase": "recover",
+    "selected": true,
+    "reason": "採用: recover"
+  },
+  {
+    "id": 27,
+    "sheet": 6,
+    "slot": 2,
+    "rawRect": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "bbox": [
+      419,
+      61,
+      869,
+      704
+    ],
+    "hipX": 660,
+    "footY": 642,
+    "phase": "accelerate",
+    "selected": true,
+    "reason": "採用: accelerate"
+  },
+  {
+    "id": 28,
+    "sheet": 6,
+    "slot": 3,
+    "rawRect": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "bbox": [
+      870,
+      23,
+      1303,
+      676
+    ],
+    "hipX": 1100,
+    "footY": 644,
+    "phase": "accelerate",
+    "selected": true,
+    "reason": "採用: accelerate"
+  },
+  {
+    "id": 29,
+    "sheet": 6,
+    "slot": 4,
+    "rawRect": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "bbox": [
+      1293,
+      31,
+      1738,
+      644
+    ],
+    "hipX": 1535,
+    "footY": 639,
+    "phase": "accelerate",
+    "selected": true,
+    "reason": "採用: accelerate"
+  },
+  {
+    "id": 30,
+    "sheet": 6,
+    "slot": 5,
+    "rawRect": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "bbox": [
+      1737,
+      33,
+      2148,
+      682
+    ],
+    "hipX": 1970,
+    "footY": 631,
+    "phase": "accelerate",
+    "selected": true,
+    "reason": "採用: accelerate"
+  },
+  {
+    "id": 31,
+    "sheet": 7,
+    "slot": 1,
+    "rawRect": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "bbox": [
+      15,
+      57,
+      434,
+      668
+    ],
+    "hipX": 220,
+    "footY": 625,
+    "phase": "accelerate",
+    "selected": true,
+    "reason": "採用: accelerate"
+  },
+  {
+    "id": 32,
+    "sheet": 7,
+    "slot": 2,
+    "rawRect": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "bbox": [
+      435,
+      39,
+      869,
+      724
+    ],
+    "hipX": 665,
+    "footY": 626,
+    "phase": "run",
+    "selected": true,
+    "reason": "採用: run"
+  },
+  {
+    "id": 33,
+    "sheet": 7,
+    "slot": 3,
+    "rawRect": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "bbox": [
+      868,
+      28,
+      1303,
+      673
+    ],
+    "hipX": 1095,
+    "footY": 627,
+    "phase": "run",
+    "selected": false,
+    "reason": "走行復帰後の重複した脚運び"
+  },
+  {
+    "id": 34,
+    "sheet": 7,
+    "slot": 4,
+    "rawRect": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "bbox": [
+      1304,
+      24,
+      1740,
+      724
+    ],
+    "hipX": 1530,
+    "footY": 624,
+    "phase": "run",
+    "selected": true,
+    "reason": "採用: run"
+  },
+  {
+    "id": 35,
+    "sheet": 7,
+    "slot": 5,
+    "rawRect": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "bbox": [
+      1739,
+      37,
+      2154,
+      694
+    ],
+    "hipX": 1980,
+    "footY": 624,
+    "phase": "run",
+    "selected": false,
+    "reason": "30と類似の走行姿勢"
+  },
+  {
+    "id": 36,
+    "sheet": 8,
+    "slot": 1,
+    "rawRect": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "bbox": [
+      14,
+      35,
+      434,
+      704
+    ],
+    "hipX": 235,
+    "footY": 600,
+    "phase": "run",
+    "selected": true,
+    "reason": "採用: run"
+  },
+  {
+    "id": 37,
+    "sheet": 8,
+    "slot": 2,
+    "rawRect": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "bbox": [
+      435,
+      17,
+      885,
+      700
+    ],
+    "hipX": 685,
+    "footY": 603,
+    "phase": "run",
+    "selected": false,
+    "reason": "36と類似の走行姿勢"
+  },
+  {
+    "id": 38,
+    "sheet": 8,
+    "slot": 3,
+    "rawRect": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "bbox": [
+      868,
+      25,
+      1305,
+      702
+    ],
+    "hipX": 1100,
+    "footY": 595,
+    "phase": "run",
+    "selected": true,
+    "reason": "採用: run"
+  },
+  {
+    "id": 39,
+    "sheet": 8,
+    "slot": 4,
+    "rawRect": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "bbox": [
+      1303,
+      27,
+      1756,
+      706
+    ],
+    "hipX": 1550,
+    "footY": 562,
+    "phase": "run",
+    "selected": true,
+    "reason": "採用: run"
+  },
+  {
+    "id": 40,
+    "sheet": 8,
+    "slot": 5,
+    "rawRect": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "bbox": [
+      1738,
+      45,
+      2172,
+      669
+    ],
+    "hipX": 1990,
+    "footY": 602,
+    "phase": "run",
+    "selected": false,
+    "reason": "39と類似の走行姿勢"
+  },
+  {
+    "id": 41,
+    "sheet": 9,
+    "slot": 1,
+    "rawRect": [
+      0,
+      0,
+      434,
+      724
+    ],
+    "bbox": [
+      13,
+      10,
+      435,
+      690
+    ],
+    "hipX": 240,
+    "footY": 597,
+    "phase": "run",
+    "selected": true,
+    "reason": "採用: run"
+  },
+  {
+    "id": 42,
+    "sheet": 9,
+    "slot": 2,
+    "rawRect": [
+      434,
+      0,
+      869,
+      724
+    ],
+    "bbox": [
+      441,
+      27,
+      887,
+      697
+    ],
+    "hipX": 675,
+    "footY": 614,
+    "phase": "run",
+    "selected": false,
+    "reason": "終盤の冗長な走行姿勢"
+  },
+  {
+    "id": 43,
+    "sheet": 9,
+    "slot": 3,
+    "rawRect": [
+      869,
+      0,
+      1303,
+      724
+    ],
+    "bbox": [
+      873,
+      23,
+      1303,
+      674
+    ],
+    "hipX": 1105,
+    "footY": 609,
+    "phase": "run",
+    "selected": false,
+    "reason": "終盤の冗長な走行姿勢"
+  },
+  {
+    "id": 44,
+    "sheet": 9,
+    "slot": 4,
+    "rawRect": [
+      1303,
+      0,
+      1738,
+      724
+    ],
+    "bbox": [
+      1306,
+      39,
+      1736,
+      706
+    ],
+    "hipX": 1530,
+    "footY": 606,
+    "phase": "run",
+    "selected": true,
+    "reason": "採用: run"
+  },
+  {
+    "id": 45,
+    "sheet": 9,
+    "slot": 5,
+    "rawRect": [
+      1738,
+      0,
+      2172,
+      724
+    ],
+    "bbox": [
+      1739,
+      23,
+      2172,
+      626
+    ],
+    "hipX": 1980,
+    "footY": 608,
+    "phase": "run",
+    "selected": true,
+    "reason": "採用: run"
+  }
+]

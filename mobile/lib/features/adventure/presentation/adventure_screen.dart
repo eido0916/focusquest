@@ -7,10 +7,30 @@ import '../../../core/widgets/quest_widgets.dart';
 import '../../../data/game_catalog.dart';
 import '../../character/domain/progression_service.dart';
 import '../domain/adventure.dart';
+import '../../diagnosis/presentation/job_portrait.dart';
+import '../../../game/runner/female_battle_assets.dart';
+import 'female_adventure_hero.dart';
 import '../../playable_stage/presentation/playable_stage_selection_page.dart';
 
 class AdventureScreen extends StatelessWidget {
   const AdventureScreen({super.key, required this.controller});
+  final GameController controller;
+
+  @override
+  Widget build(BuildContext context) => PlayableStageSelectionPage(
+      controller: controller,
+      embedded: true,
+      onLegacyAdventure: () => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+              builder: (_) => AnimatedBuilder(
+                  animation: controller,
+                  builder: (_, __) => Scaffold(
+                      appBar: AppBar(title: const Text('以前の冒険の書')),
+                      body: LegacyAdventureScreen(controller: controller))))));
+}
+
+class LegacyAdventureScreen extends StatelessWidget {
+  const LegacyAdventureScreen({super.key, required this.controller});
   final GameController controller;
 
   Future<void> _open(BuildContext context, String stageId) =>
@@ -31,21 +51,6 @@ class AdventureScreen extends StatelessWidget {
     final stats = ProgressionService().stats(hero, GameCatalog.equipment);
     final pending = state.adventureRun;
     return ListView(padding: const EdgeInsets.all(16), children: [
-      QuestCard(
-          caption: 'プレイアブルステージ · 全36ステージ',
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-            const Text('剣士で巡る、9つの舞台',
-                style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 8),
-            const Text('草原から湿地・氷晶洞窟・星界の祭壇へ。\nタップで攻撃、3回命中でスキル解放。',
-                style: TextStyle(height: 1.6)),
-            const SizedBox(height: 12),
-            QuestCommand(
-                label: 'ステージを選ぶ',
-                onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
-                    builder: (_) => const PlayableStageSelectionPage()))),
-          ])),
       const QuestCard(
           caption: '第一章　木漏れ日の王国',
           child: Text('冒険の書',
@@ -56,7 +61,10 @@ class AdventureScreen extends StatelessWidget {
       QuestCard(
           caption: '旅人のつよさ',
           child: Row(children: [
-            const PixelHero(size: 88),
+            PixelHero(
+                size: 88,
+                characterType: hero.characterType,
+                appearance: hero.appearance),
             const SizedBox(width: 12),
             Expanded(
                 child: Column(
@@ -216,6 +224,9 @@ class _AdventureBattlePageState extends State<AdventureBattlePage>
   @override
   Widget build(BuildContext context) {
     final stage = AdventureCatalog.stage(_run.stageId);
+    final hero = widget.controller.state!.activeCharacter!;
+    final characterType = _run.characterType ?? hero.characterType;
+    final appearance = _run.appearance ?? hero.appearance;
     final event = _revealed == 0 ? null : _battle.events[_revealed - 1];
     final enemy = stage.enemies[event?.enemyIndex ?? 0];
     final heroHp = event?.heroHp ?? _run.stats.hp;
@@ -263,21 +274,39 @@ class _AdventureBattlePageState extends State<AdventureBattlePage>
                           Positioned(
                               left: 0,
                               bottom: 0,
-                              child: AnimatedOpacity(
-                                  duration: const Duration(milliseconds: 250),
+                              child: Opacity(
                                   opacity: heroHp == 0 ? .35 : 1,
-                                  child: event?.heroAttacks == true &&
-                                          event!.damage > 0
-                                      ? PixelSprite(
-                                          key: ValueKey('attack-$_revealed'),
-                                          asset:
-                                              'assets/images/adventure/hero_attack.png',
-                                          columns: 4,
-                                          frames: 8,
+                                  child: FemaleBattleAssets.supports(
+                                          characterType, appearance)
+                                      ? FemaleAdventureHero(
+                                          key: ValueKey('female-$_revealed'),
+                                          characterType: characterType,
                                           size: constraints.maxWidth * .46,
-                                          loop: false)
-                                      : PixelHero(
-                                          size: constraints.maxWidth * .46))),
+                                          attacking:
+                                              event?.heroAttacks == true &&
+                                                  event!.damage > 0)
+                                      : characterType != 'warrior' ||
+                                              appearance != 'male'
+                                          ? JobPortrait(
+                                              typeId: characterType,
+                                              appearance: appearance,
+                                              height:
+                                                  constraints.maxWidth * .46)
+                                          : event?.heroAttacks == true &&
+                                                  event!.damage > 0
+                                              ? PixelSprite(
+                                                  key: ValueKey(
+                                                      'attack-$_revealed'),
+                                                  asset:
+                                                      'assets/images/adventure/hero_attack.png',
+                                                  columns: 4,
+                                                  frames: 8,
+                                                  size: constraints.maxWidth *
+                                                      .46,
+                                                  loop: false)
+                                              : PixelHero(
+                                                  size: constraints.maxWidth *
+                                                      .46))),
                           Positioned(
                               right: 0,
                               bottom: 0,
@@ -320,7 +349,7 @@ class _AdventureBattlePageState extends State<AdventureBattlePage>
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Text(event?.message ?? '剣を携え、森へ足を踏み入れた。',
+                      Text(event?.message ?? '森へ足を踏み入れた。',
                           style: const TextStyle(fontSize: 17, height: 1.7)),
                       if (_revealed > 1) ...[
                         const SizedBox(height: 8),
@@ -369,15 +398,25 @@ class _AdventureBattlePageState extends State<AdventureBattlePage>
 }
 
 class PixelHero extends StatelessWidget {
-  const PixelHero({super.key, this.size = 128});
+  const PixelHero(
+      {super.key,
+      this.size = 128,
+      this.characterType = 'warrior',
+      this.appearance = 'male'});
   final double size;
+  final String characterType, appearance;
   @override
   Widget build(BuildContext context) =>
-      Image.asset('assets/images/adventure/hero_idle.png',
-          width: size,
-          height: size,
-          fit: BoxFit.contain,
-          filterQuality: FilterQuality.none);
+      FemaleBattleAssets.supports(characterType, appearance)
+          ? FemaleAdventureHero(characterType: characterType, size: size)
+          : characterType != 'warrior' || appearance != 'male'
+              ? JobPortrait(
+                  typeId: characterType, appearance: appearance, height: size)
+              : Image.asset('assets/images/adventure/hero_idle.png',
+                  width: size,
+                  height: size,
+                  fit: BoxFit.contain,
+                  filterQuality: FilterQuality.none);
 }
 
 /// Draw exact 128px cells without smoothing the existing pixel art.

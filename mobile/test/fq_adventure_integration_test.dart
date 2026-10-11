@@ -1,0 +1,178 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:focusquest/app.dart';
+import 'package:focusquest/core/game_controller.dart';
+import 'package:focusquest/core/widgets/quest_widgets.dart';
+import 'package:focusquest/data/game_catalog.dart';
+import 'package:focusquest/data/player_state.dart';
+import 'package:focusquest/features/playable_stage/domain/fq_adventure_character.dart';
+import 'package:focusquest/features/playable_stage/domain/playable_stage_battle.dart';
+import 'package:focusquest/features/playable_stage/domain/playable_stage_catalog.dart';
+import 'package:focusquest/features/playable_stage/presentation/playable_stage_assets.dart';
+import 'package:focusquest/features/playable_stage/presentation/playable_stage_audio.dart';
+import 'package:focusquest/features/playable_stage/presentation/playable_stage_page.dart';
+import 'package:focusquest/features/playable_stage/presentation/playable_stage_selection_page.dart';
+import 'support/memory_repository.dart';
+
+void main() {
+  late PlayableStageAssets assets;
+  setUpAll(() async {
+    assets = await PlayableStageAssets.load(
+        stage: PlayableStageCatalog.stages.first);
+  });
+  tearDownAll(() => assets.dispose());
+  test('all sixteen FQ roles resolve an original animation for both genders',
+      () async {
+    final controller = GameController(MemoryRepository());
+    await controller.load();
+    for (final type in GameCatalog.types.values) {
+      for (final appearance in ['male', 'female']) {
+        await controller.resetForDevelopment();
+        await controller.onboard(type, appearance: appearance);
+        final combat = fqAdventureCharacter(controller.state!.activeCharacter!);
+        expect(combat.female, appearance == 'female', reason: type.typeId);
+        expect(combat.health, greaterThan(0));
+      }
+    }
+    controller.dispose();
+  });
+  test(
+      'legacy save compatibility, permanent clear records, retry and battle locks',
+      () async {
+    final repo = MemoryRepository();
+    final controller = GameController(repo);
+    await controller.load();
+    await controller.onboard(GameCatalog.types[8]!, appearance: 'female');
+    final legacy = controller.state!.toJson()..remove('clearedPlayableStages');
+    expect(PlayerState.fromJson(legacy).clearedPlayableStages, isEmpty);
+    await controller.beginPlayableAdventure();
+    await expectLater(controller.startFocus(30), throwsStateError);
+    await expectLater(controller.beginPlayableAdventure(), throwsStateError);
+    await expectLater(controller.selectCharacter('starter'), throwsStateError);
+    await expectLater(controller.startAdventure('forest_1'), throwsStateError);
+    controller.endPlayableAdventure();
+    repo.fail = true;
+    await expectLater(controller.recordPlayableClear(1), throwsStateError);
+    expect(controller.state!.clearedPlayableStages, isEmpty);
+    repo.fail = false;
+    await controller.recordPlayableClear(1);
+    await controller.recordPlayableClear(1);
+    final restored = PlayerState.fromJson(repo.state.toJson());
+    expect(restored.clearedPlayableStages, {1});
+    expect(restored.coins, 0);
+    expect(restored.clearedStages, isEmpty);
+    await controller.startFocus(15);
+    await expectLater(controller.beginPlayableAdventure(), throwsStateError);
+    controller.dispose();
+  });
+
+  test('FQ growth and equipment retain female ranged animation identity',
+      () async {
+    final repo = MemoryRepository();
+    final controller = GameController(repo);
+    await controller.load();
+    await controller.onboard(GameCatalog.types[8]!, appearance: 'female');
+    final hero = controller.state!.activeCharacter!;
+    final level1 = fqAdventureCharacter(hero);
+    final leveled = fqAdventureCharacter(
+        hero.copyWith(level: 8, equippedItems: {'weapon': 'wooden_sword'}));
+    expect(leveled.id, 'character_07_female');
+    expect(leveled.ranged, true);
+    expect(leveled.health, level1.health + 84);
+    expect(leveled.power, greaterThan(level1.power + 21));
+    expect(leveled.speed, level1.speed + 35);
+    controller.dispose();
+  });
+
+  testWidgets(
+      'FQ adventure tab directly opens stages using the saved female archer',
+      (tester) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final controller = GameController(MemoryRepository());
+    await controller.load();
+    await controller.onboard(GameCatalog.types[8]!,
+        name: 'アオイ', appearance: 'female');
+    await tester.pumpWidget(FocusQuestApp(controller: controller));
+    await tester.pumpAndSettle();
+    await tester.tap(find.descendant(
+        of: find.byType(QuestNavigation), matching: find.text('冒険')));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('select-stage-1')), findsOneWidget);
+    expect(find.text('冒険の書'), findsOneWidget);
+    await tester.ensureVisible(find.byKey(const Key('select-stage-1')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('select-stage-1')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    final page =
+        tester.widget<PlayableStagePage>(find.byType(PlayableStagePage));
+    expect(page.battle!.character.id, 'character_07_female');
+    expect(controller.playableAdventureActive, true);
+    tester.state<NavigatorState>(find.byType(Navigator)).pop();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.pump();
+    expect(controller.playableAdventureActive, false);
+    await tester.pumpWidget(const SizedBox());
+    controller.dispose();
+  });
+
+  testWidgets(
+      'win survives recreating the selection screen and reloading the app',
+      (tester) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final repo = MemoryRepository();
+    final controller = GameController(repo);
+    await controller.load();
+    await controller.onboard(GameCatalog.types[15]!);
+    final character = fqAdventureCharacter(controller.state!.activeCharacter!);
+    await tester.pumpWidget(MaterialApp(
+        home: PlayableStageSelectionPage(
+            controller: controller,
+            assets: assets,
+            audioOutput: SilentStageAudioOutput(),
+            battleFactory: (stage) => PlayableStageBattle(
+                stage: stage, character: character, roll: () => .5))));
+    await tester.ensureVisible(find.byKey(const Key('select-stage-1')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('select-stage-1')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    final battle = tester
+        .widget<PlayableStagePage>(find.byType(PlayableStagePage))
+        .battle!;
+    battle.start();
+    for (var tick = 0; tick < 120 * 120 && battle.active; tick++) {
+      if (battle.canSkill) {
+        battle.skill();
+      } else if (battle.canAttack) {
+        battle.attack();
+      }
+      battle.update(1 / 120);
+    }
+    expect(battle.mode, StageMode.won);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 1500));
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.pump();
+    expect(repo.state.clearedPlayableStages, {1});
+    await tester.pumpWidget(const SizedBox());
+    await controller.load();
+    await tester.pumpWidget(
+        MaterialApp(home: PlayableStageSelectionPage(controller: controller)));
+    await tester.pump();
+    expect(
+        find.descendant(
+            of: find.byKey(const Key('select-stage-1')),
+            matching: find.text('✓ CLEAR')),
+        findsOneWidget);
+    await tester.pumpWidget(const SizedBox());
+    controller.dispose();
+  });
+}
