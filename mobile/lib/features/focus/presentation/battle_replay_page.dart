@@ -3,11 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../game/runner/battle_state_controller.dart';
 import '../../../game/runner/focus_quest_battle_game.dart';
+import '../../../game/runner/fantasy_battle_hud.dart';
+import '../../../game/runner/female_battle_assets.dart';
+import '../../diagnosis/presentation/job_portrait.dart';
 import '../domain/focus_session.dart';
 
 class BattleReplayPage extends StatefulWidget {
   const BattleReplayPage(
-      {super.key, required this.session, required this.clock});
+      {super.key,
+      required this.session,
+      required this.clock,
+      this.characterType = 'warrior',
+      this.appearance = 'male',
+      this.heroLevel = 1,
+      this.levelLogoAsset = BattleUiAssets.levelLogo});
+  final String characterType;
+  final String appearance;
+  final int heroLevel;
+  final String? levelLogoAsset;
   final FocusSession session;
   final DateTime Function() clock;
   @override
@@ -23,7 +36,22 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
     _game = FocusQuestBattleGame(
+        characterType: widget.characterType,
+        appearance: widget.appearance,
+        heroLevel: widget.heroLevel,
+        jobName: JobPortrait.roleNames[widget.characterType] ?? '戦士',
+        levelLogoAsset: widget.levelLogoAsset,
         state: BattleStateController(
+            config: FemaleBattleAssets.supports(
+                    widget.characterType, widget.appearance)
+                ? FemaleBattleAssets.runnerConfig(widget.characterType)
+                : RunnerConfig(
+                    autoSkill: widget.characterType == 'boxer'
+                        ? SwordsmanSkill.frontKick
+                        : SwordsmanSkill.sousen,
+                    normalAttackStyle: widget.characterType == 'boxer'
+                        ? NormalAttackStyle.boxer
+                        : NormalAttackStyle.swordsman),
             durationSeconds: widget.session.durationMinutes * 60.0),
         elapsed: () =>
             widget.clock().difference(widget.session.startedAt).inMilliseconds /
@@ -52,34 +80,50 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
         // Android tablets may ignore orientation locks. Rotate the surface as a fallback.
         final portrait = constraints.maxHeight > constraints.maxWidth;
         return RotatedBox(
-            quarterTurns: portrait ? 1 : 0,
-            child: Stack(children: [
-              Center(
-                  child: AspectRatio(
-                      aspectRatio: 16 / 9,
-                      child: Stack(fit: StackFit.expand, children: [
-                        // Matching fallback while Flame decodes the scrolling
-                        // scenery; the game owns the animated background.
-                        Image.asset(
-                            'assets/images/ui/forest_meadow_battlefield.png',
-                            fit: BoxFit.cover,
-                            filterQuality: FilterQuality.high),
-                        GameWidget(game: _game),
-                      ]))),
-              Positioned(
-                  right: 12,
-                  top: 8,
-                  child: TextButton(
-                      style: TextButton.styleFrom(
-                          backgroundColor: const Color(0xcc102b43),
-                          foregroundColor: Colors.white),
-                      onPressed: () {
-                        if (!_returned) {
-                          _returned = true;
-                          Navigator.pop(context, _game.state.result);
-                        }
-                      },
-                      child: const Text('タイマーに戻る'))),
-            ]));
+          quarterTurns: portrait ? 1 : 0,
+          child: Center(
+              child: AspectRatio(
+                  aspectRatio: 16 / 9,
+                  child: LayoutBuilder(builder: (context, surface) {
+                    final unit = surface.maxWidth / 960;
+                    return Stack(fit: StackFit.expand, children: [
+                      Image.asset(
+                          'assets/images/ui/forest_meadow_battlefield.png',
+                          fit: BoxFit.cover,
+                          filterQuality: FilterQuality.high),
+                      GameWidget(game: _game),
+                      Positioned(
+                          right: 5 * unit,
+                          top: 0,
+                          width: 175 * unit,
+                          height: 44 * unit,
+                          child: TextButton(
+                              style: TextButton.styleFrom(
+                                  foregroundColor: Colors.white,
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 16 * unit),
+                                  minimumSize: Size.zero,
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap),
+                              onPressed: () {
+                                if (!_returned) {
+                                  _returned = true;
+                                  Navigator.pop(context, _game.state.result);
+                                }
+                              },
+                              child: const FittedBox(
+                                  child: Row(children: [
+                                Icon(Icons.undo_rounded,
+                                    color: FantasyBattleHud.gold, size: 25),
+                                SizedBox(width: 7),
+                                Text('タイマーに戻る',
+                                    style: TextStyle(
+                                        fontFamily: 'SunlitSerif',
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold)),
+                              ])))),
+                    ]);
+                  }))),
+        );
       })));
 }

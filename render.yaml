@@ -1,0 +1,15 @@
+# Single in-memory party relay; no database or paid resources are provisioned.
+services:
+  - type: web
+    name: focusquest-party
+    runtime: docker
+    plan: free
+    region: singapore
+    numInstances: 1
+    dockerfilePath: ./server/Dockerfile
+    dockerContext: ./server
+    healthCheckPath: /health
+    autoDeployTrigger: "off"
+    envVars:
+      - key: PORT
+        value: "10000"

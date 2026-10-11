@@ -1,0 +1,534 @@
+[
+  {
+    "tick": 0,
+    "frame": 1,
+    "worldPosition": [
+      0,
+      0
+    ],
+    "phase": "run",
+    "events": []
+  },
+  {
+    "tick": 1,
+    "frame": 2,
+    "worldPosition": [
+      5.0,
+      0
+    ],
+    "phase": "run",
+    "events": []
+  },
+  {
+    "tick": 2,
+    "frame": 3,
+    "worldPosition": [
+      10.0,
+      0
+    ],
+    "phase": "run",
+    "events": []
+  },
+  {
+    "tick": 3,
+    "frame": 4,
+    "worldPosition": [
+      15.0,
+      0
+    ],
+    "phase": "prepare",
+    "events": []
+  },
+  {
+    "tick": 4,
+    "frame": 5,
+    "worldPosition": [
+      19.0,
+      0
+    ],
+    "phase": "prepare",
+    "events": []
+  },
+  {
+    "tick": 5,
+    "frame": 6,
+    "worldPosition": [
+      23.0,
+      0
+    ],
+    "phase": "nock",
+    "events": []
+  },
+  {
+    "tick": 6,
+    "frame": 6,
+    "worldPosition": [
+      25.75,
+      0
+    ],
+    "phase": "nock",
+    "events": []
+  },
+  {
+    "tick": 7,
+    "frame": 7,
+    "worldPosition": [
+      28.5,
+      0
+    ],
+    "phase": "nock",
+    "events": []
+  },
+  {
+    "tick": 8,
+    "frame": 7,
+    "worldPosition": [
+      31.25,
+      0
+    ],
+    "phase": "nock",
+    "events": []
+  },
+  {
+    "tick": 9,
+    "frame": 8,
+    "worldPosition": [
+      34.0,
+      0
+    ],
+    "phase": "nock",
+    "events": []
+  },
+  {
+    "tick": 10,
+    "frame": 8,
+    "worldPosition": [
+      36.75,
+      0
+    ],
+    "phase": "nock",
+    "events": []
+  },
+  {
+    "tick": 11,
+    "frame": 9,
+    "worldPosition": [
+      39.5,
+      0
+    ],
+    "phase": "nock",
+    "events": []
+  },
+  {
+    "tick": 12,
+    "frame": 9,
+    "worldPosition": [
+      42.25,
+      0
+    ],
+    "phase": "nock",
+    "events": []
+  },
+  {
+    "tick": 13,
+    "frame": 11,
+    "worldPosition": [
+      45.0,
+      0
+    ],
+    "phase": "draw",
+    "events": []
+  },
+  {
+    "tick": 14,
+    "frame": 11,
+    "worldPosition": [
+      46.75,
+      0
+    ],
+    "phase": "draw",
+    "events": []
+  },
+  {
+    "tick": 15,
+    "frame": 10,
+    "worldPosition": [
+      48.5,
+      0
+    ],
+    "phase": "draw",
+    "events": []
+  },
+  {
+    "tick": 16,
+    "frame": 10,
+    "worldPosition": [
+      50.25,
+      0
+    ],
+    "phase": "draw",
+    "events": []
+  },
+  {
+    "tick": 17,
+    "frame": 12,
+    "worldPosition": [
+      52.0,
+      0
+    ],
+    "phase": "draw",
+    "events": []
+  },
+  {
+    "tick": 18,
+    "frame": 12,
+    "worldPosition": [
+      53.75,
+      0
+    ],
+    "phase": "draw",
+    "events": []
+  },
+  {
+    "tick": 19,
+    "frame": 14,
+    "worldPosition": [
+      55.5,
+      0
+    ],
+    "phase": "draw",
+    "events": []
+  },
+  {
+    "tick": 20,
+    "frame": 14,
+    "worldPosition": [
+      57.25,
+      0
+    ],
+    "phase": "draw",
+    "events": []
+  },
+  {
+    "tick": 21,
+    "frame": 16,
+    "worldPosition": [
+      59.0,
+      0
+    ],
+    "phase": "aim",
+    "events": []
+  },
+  {
+    "tick": 22,
+    "frame": 16,
+    "worldPosition": [
+      60.5,
+      0
+    ],
+    "phase": "aim",
+    "events": []
+  },
+  {
+    "tick": 23,
+    "frame": 16,
+    "worldPosition": [
+      62.0,
+      0
+    ],
+    "phase": "aim",
+    "events": []
+  },
+  {
+    "tick": 24,
+    "frame": 18,
+    "worldPosition": [
+      63.5,
+      0
+    ],
+    "phase": "aim",
+    "events": []
+  },
+  {
+    "tick": 25,
+    "frame": 18,
+    "worldPosition": [
+      65.0,
+      0
+    ],
+    "phase": "aim",
+    "events": []
+  },
+  {
+    "tick": 26,
+    "frame": 18,
+    "worldPosition": [
+      66.5,
+      0
+    ],
+    "phase": "aim",
+    "events": []
+  },
+  {
+    "tick": 27,
+    "frame": 19,
+    "worldPosition": [
+      68.0,
+      0
+    ],
+    "phase": "release",
+    "events": [
+      "release_arrow"
+    ]
+  },
+  {
+    "tick": 28,
+    "frame": 21,
+    "worldPosition": [
+      69.5,
+      0
+    ],
+    "phase": "recoil",
+    "events": []
+  },
+  {
+    "tick": 29,
+    "frame": 21,
+    "worldPosition": [
+      71.25,
+      0
+    ],
+    "phase": "recoil",
+    "events": []
+  },
+  {
+    "tick": 30,
+    "frame": 22,
+    "worldPosition": [
+      73.0,
+      0
+    ],
+    "phase": "recoil",
+    "events": []
+  },
+  {
+    "tick": 31,
+    "frame": 22,
+    "worldPosition": [
+      74.75,
+      0
+    ],
+    "phase": "recoil",
+    "events": []
+  },
+  {
+    "tick": 32,
+    "frame": 23,
+    "worldPosition": [
+      76.5,
+      0
+    ],
+    "phase": "recover",
+    "events": []
+  },
+  {
+    "tick": 33,
+    "frame": 23,
+    "worldPosition": [
+      79.25,
+      0
+    ],
+    "phase": "recover",
+    "events": []
+  },
+  {
+    "tick": 34,
+    "frame": 24,
+    "worldPosition": [
+      82.0,
+      0
+    ],
+    "phase": "recover",
+    "events": []
+  },
+  {
+    "tick": 35,
+    "frame": 24,
+    "worldPosition": [
+      84.75,
+      0
+    ],
+    "phase": "recover",
+    "events": []
+  },
+  {
+    "tick": 36,
+    "frame": 25,
+    "worldPosition": [
+      87.5,
+      0
+    ],
+    "phase": "recover",
+    "events": []
+  },
+  {
+    "tick": 37,
+    "frame": 25,
+    "worldPosition": [
+      90.25,
+      0
+    ],
+    "phase": "recover",
+    "events": []
+  },
+  {
+    "tick": 38,
+    "frame": 26,
+    "worldPosition": [
+      93.0,
+      0
+    ],
+    "phase": "recover",
+    "events": []
+  },
+  {
+    "tick": 39,
+    "frame": 26,
+    "worldPosition": [
+      95.75,
+      0
+    ],
+    "phase": "recover",
+    "events": []
+  },
+  {
+    "tick": 40,
+    "frame": 27,
+    "worldPosition": [
+      98.5,
+      0
+    ],
+    "phase": "accelerate",
+    "events": []
+  },
+  {
+    "tick": 41,
+    "frame": 28,
+    "worldPosition": [
+      102.75,
+      0
+    ],
+    "phase": "accelerate",
+    "events": []
+  },
+  {
+    "tick": 42,
+    "frame": 29,
+    "worldPosition": [
+      107.0,
+      0
+    ],
+    "phase": "accelerate",
+    "events": []
+  },
+  {
+    "tick": 43,
+    "frame": 30,
+    "worldPosition": [
+      111.25,
+      0
+    ],
+    "phase": "accelerate",
+    "events": []
+  },
+  {
+    "tick": 44,
+    "frame": 31,
+    "worldPosition": [
+      115.5,
+      0
+    ],
+    "phase": "accelerate",
+    "events": []
+  },
+  {
+    "tick": 45,
+    "frame": 32,
+    "worldPosition": [
+      119.75,
+      0
+    ],
+    "phase": "run",
+    "events": []
+  },
+  {
+    "tick": 46,
+    "frame": 34,
+    "worldPosition": [
+      124.75,
+      0
+    ],
+    "phase": "run",
+    "events": []
+  },
+  {
+    "tick": 47,
+    "frame": 36,
+    "worldPosition": [
+      129.75,
+      0
+    ],
+    "phase": "run",
+    "events": []
+  },
+  {
+    "tick": 48,
+    "frame": 38,
+    "worldPosition": [
+      134.75,
+      0
+    ],
+    "phase": "run",
+    "events": []
+  },
+  {
+    "tick": 49,
+    "frame": 39,
+    "worldPosition": [
+      139.75,
+      0
+    ],
+    "phase": "run",
+    "events": []
+  },
+  {
+    "tick": 50,
+    "frame": 41,
+    "worldPosition": [
+      144.75,
+      0
+    ],
+    "phase": "run",
+    "events": []
+  },
+  {
+    "tick": 51,
+    "frame": 44,
+    "worldPosition": [
+      149.75,
+      0
+    ],
+    "phase": "run",
+    "events": []
+  },
+  {
+    "tick": 52,
+    "frame": 45,
+    "worldPosition": [
+      154.75,
+      0
+    ],
+    "phase": "run",
+    "events": []
+  }
+]

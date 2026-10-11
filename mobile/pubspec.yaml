@@ -64,6 +64,81 @@ flutter:
       fonts:
         - asset: assets/fonts/NotoSerifJP.ttf
   assets:
+    - assets/images/party/catalog.json
+    - assets/images/party/enemies/dracula/attack/keyframes/
+    - assets/images/party/enemies/dracula/defeat/keyframes/
+    - assets/images/party/enemies/dracula/locomotion/keyframes/
+    - assets/images/party/enemies/dracula/move_left/keyframes/
+    - assets/images/party/enemies/goblin/attack/keyframes/
+    - assets/images/party/enemies/goblin/defeat/keyframes/
+    - assets/images/party/enemies/goblin/locomotion/keyframes/
+    - assets/images/party/enemies/goblin/move_left/keyframes/
+    - assets/images/party/enemies/slime/attack/keyframes/
+    - assets/images/party/enemies/slime/defeat/keyframes/
+    - assets/images/party/enemies/slime/locomotion/keyframes/
+    - assets/images/party/enemies/slime/move_left/keyframes/
+    - assets/images/party/players/character_01/attack_down/keyframes/
+    - assets/images/party/players/character_01/idle/keyframes/
+    - assets/images/party/players/character_01/run/keyframes/
+    - assets/images/party/players/character_01/skill_wave/keyframes/
+    - assets/images/party/players/character_02/punch_combo/keyframes/
+    - assets/images/party/players/character_02/run/keyframes/
+    - assets/images/party/players/character_02/spin_kick/keyframes/
+    - assets/images/party/players/character_03/energy_flurry/keyframes/
+    - assets/images/party/players/character_03/iai/keyframes/
+    - assets/images/party/players/character_03/run/keyframes/
+    - assets/images/party/players/character_04/charged_sweep/keyframes/
+    - assets/images/party/players/character_04/run/keyframes/
+    - assets/images/party/players/character_04/slam/keyframes/
+    - assets/images/party/players/character_05/run/keyframes/
+    - assets/images/party/players/character_05/shuriken/keyframes/
+    - assets/images/party/players/character_05/teleport_stab/keyframes/
+    - assets/images/party/players/character_06/critical_strike/keyframes/
+    - assets/images/party/players/character_06/dagger_thrust/keyframes/
+    - assets/images/party/players/character_06/run/keyframes/
+    - assets/images/party/players/character_07/bow_shot/keyframes/
+    - assets/images/party/players/character_07/rapid_shot/keyframes/
+    - assets/images/party/players/character_07/run/keyframes/
+    - assets/images/party/players/character_08/fire_cast/keyframes/
+    - assets/images/party/players/character_08/ice_burst/keyframes/
+    - assets/images/party/players/character_08/run/keyframes/
+    - assets/images/party/players/character_09/gun_shot/keyframes/
+    - assets/images/party/players/character_09/quick_fire/keyframes/
+    - assets/images/party/players/character_09/run/keyframes/
+    - assets/images/party/players_female/character_01_female/attack_down/keyframes/
+    - assets/images/party/players_female/character_01_female/idle/keyframes/
+    - assets/images/party/players_female/character_01_female/run/keyframes/
+    - assets/images/party/players_female/character_01_female/skill_wave/keyframes/
+    - assets/images/party/players_female/character_02_female/punch_combo/keyframes/
+    - assets/images/party/players_female/character_02_female/run/keyframes/
+    - assets/images/party/players_female/character_02_female/spin_kick/keyframes/
+    - assets/images/party/players_female/character_03_female/energy_flurry/keyframes/
+    - assets/images/party/players_female/character_03_female/iai/keyframes/
+    - assets/images/party/players_female/character_03_female/run/keyframes/
+    - assets/images/party/players_female/character_04_female/charged_sweep/keyframes/
+    - assets/images/party/players_female/character_04_female/run/keyframes/
+    - assets/images/party/players_female/character_04_female/slam/keyframes/
+    - assets/images/party/players_female/character_05_female/run/keyframes/
+    - assets/images/party/players_female/character_05_female/shuriken/keyframes/
+    - assets/images/party/players_female/character_05_female/teleport_stab/keyframes/
+    - assets/images/party/players_female/character_06_female/critical_strike/keyframes/
+    - assets/images/party/players_female/character_06_female/dagger_thrust/keyframes/
+    - assets/images/party/players_female/character_06_female/run/keyframes/
+    - assets/images/party/players_female/character_07_female/bow_shot/keyframes/
+    - assets/images/party/players_female/character_07_female/rapid_shot/keyframes/
+    - assets/images/party/players_female/character_07_female/run/keyframes/
+    - assets/images/party/players_female/character_08_female/fire_cast/keyframes/
+    - assets/images/party/players_female/character_08_female/ice_burst/keyframes/
+    - assets/images/party/players_female/character_08_female/run/keyframes/
+    - assets/images/party/players_female/character_09_female/gun_shot/keyframes/
+    - assets/images/party/players_female/character_09_female/quick_fire/keyframes/
+    - assets/images/party/players_female/character_09_female/run/keyframes/
+    - assets/images/lobby/
+    - assets/images/lobby/portraits/
+    - assets/images/lobby/portraits/female/
+    - assets/images/characters/boxer/skills/front_kick/front_kick.png
+    - assets/images/characters/boxer/skills/front_kick/front_kick.json
+    - assets/images/characters/boxer/skills/front_kick/wind_spear.png
     - assets/audio/playable_stage/
     - assets/images/playable_stage/
     - assets/images/stage_backgrounds/
@@ -83,8 +158,13 @@ flutter:
     - assets/images/characters/swordsman/skills/sousen/blue_ground_wave.png
     - assets/images/characters/swordsman/skills/run_slash/
     - assets/images/characters/swordsman/normal_attack/
+    - assets/images/characters/boxer/normal_attack/
+    - assets/images/characters/boxer/run/
+    - assets/images/characters/boxer/run_from_skill/
     - assets/images/characters/female_swordsman/normal_attack/
     - assets/images/characters/female_swordsman/skill/
+    - assets/images/characters/female_archer/normal_attack/
+    - assets/images/characters/female_archer/skill/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

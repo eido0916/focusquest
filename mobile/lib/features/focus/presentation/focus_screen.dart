@@ -6,6 +6,8 @@ import '../../../core/widgets/quest_widgets.dart';
 import '../domain/focus_session.dart';
 import '../../diagnosis/presentation/job_portrait.dart';
 import 'battle_replay_page.dart';
+import '../../party/presentation/party_page.dart';
+import '../../party/presentation/party_battle_page.dart';
 
 class FocusScreen extends StatefulWidget {
   const FocusScreen({super.key, required this.controller});
@@ -52,6 +54,7 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
         !_settling &&
         !_battleOpen &&
         !_automaticFailed &&
+        (ModalRoute.of(context)?.isCurrent ?? false) &&
         !widget.controller.busy) {
       _finish();
     }
@@ -63,13 +66,77 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
     setState(() => _battleOpen = true);
     try {
       await Navigator.of(context).push(MaterialPageRoute<void>(
-          builder: (_) => BattleReplayPage(
-              session: session, clock: widget.controller.clock)));
+          builder: (_) => session.partyMembers.isNotEmpty
+              ? PartyBattlePage(
+                  session: session,
+                  clock: widget.controller.clock,
+                  party: widget.controller.party)
+              : BattleReplayPage(
+                  appearance:
+                      widget.controller.state?.activeCharacter?.appearance ??
+                          'male',
+                  heroLevel:
+                      widget.controller.state?.activeCharacter?.level ?? 1,
+                  characterType:
+                      widget.controller.state?.activeCharacter?.characterType ??
+                          'warrior',
+                  session: session,
+                  clock: widget.controller.clock)));
     } finally {
       if (mounted) {
         setState(() => _battleOpen = false);
         _tick();
       }
+    }
+  }
+
+  Future<void> _openParty() async {
+    final previous = widget.controller.activeFocus?.id;
+    await Navigator.of(context).push(MaterialPageRoute<void>(
+        builder: (_) => PartyPage(controller: widget.controller)));
+    if (mounted &&
+        widget.controller.activeFocus != null &&
+        widget.controller.activeFocus!.id != previous) {
+      _automaticFailed = false;
+      await _openBattle();
+    }
+  }
+
+  Future<void> _startFocus() async {
+    final controller = widget.controller;
+    final permissions = await controller.monitor.guardPermissions();
+    if (!mounted) return;
+    if (permissions != null && permissions.values.any((allowed) => !allowed)) {
+      final usageMissing = permissions['usage'] != true;
+      final openSettings = await showDialog<bool>(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: const Text('アプリ警告の許可'),
+                content: Text(usageMissing
+                    ? '集中中に他のアプリを開くと警告します。まずAndroid設定でFocus Questの「使用状況へのアクセス」を許可してください。設定から戻って、もう一度「集中を開始」を押してください。'
+                    : '警告を表示するため、Android設定でFocus Questの「他のアプリの上に表示」を許可してください。設定から戻って、もう一度「集中を開始」を押してください。'),
+                actions: [
+                  TextButton(
+                      onPressed: () => Navigator.pop(context, false),
+                      child: const Text('キャンセル')),
+                  FilledButton(
+                      onPressed: () => Navigator.pop(context, true),
+                      child: const Text('設定を開く')),
+                ],
+              ));
+      if (openSettings == true) {
+        if (usageMissing) {
+          await controller.monitor.requestAccess();
+        } else {
+          await controller.monitor.requestOverlay();
+        }
+      }
+      return;
+    }
+    await controller.startFocus(_minutes);
+    if (mounted) {
+      setState(() => _automaticFailed = false);
+      await _openBattle();
     }
   }
 
@@ -148,6 +215,21 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                                   fontSize: 17,
                                   height: 1.5))))
                 ]),
+                QuestActionButton(
+                    label: controller.party.connected ? 'パーティーを見る' : 'パーティを組む',
+                    icon: Icons.groups_rounded,
+                    onTap: controller.busy ||
+                            _settling ||
+                            (session != null && !controller.party.connected)
+                        ? null
+                        : _openParty),
+                if (session?.partyMembers.isNotEmpty == true)
+                  Text(
+                      '${session!.partyMembers.length}人で集中中 · 敵も${session.partyMembers.length}体ずつ出現'),
+                if (controller.partyStartError != null)
+                  Text(controller.partyStartError!),
+                if (controller.party.error != null)
+                  Text(controller.party.error!),
                 QuestCard(
                     caption: session == null ? '集中時間を選ぶ' : '集中クエスト進行中',
                     child: Column(
@@ -176,26 +258,18 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                                 onChanged: (value) => setState(
                                     () => _minutes = int.tryParse(value) ?? 0)),
                             const SizedBox(height: 24),
-                            Text(controller.state!.monitoring
-                                ? '選択したアプリの使用を確認します。'
-                                : 'タイマーのみ：他のアプリの使用は確認しません。設定から確認機能を有効にできます。'),
+                            const Text(
+                                '集中中は、Focus Quest以外のアプリを開くと警告します。「Focus Questに戻る」または「1分だけ使用する」を選べます。'),
                             const SizedBox(height: 24),
                             QuestActionButton(
                                 label: '集中を開始',
                                 icon: Icons.explore_rounded,
                                 onTap: controller.busy ||
+                                        controller.party.connected ||
                                         _minutes < 1 ||
                                         _minutes > 180
                                     ? null
-                                    : () => runAction(context, () async {
-                                          await controller.startFocus(_minutes);
-                                          if (mounted) {
-                                            setState(() {
-                                              _automaticFailed = false;
-                                            });
-                                            await _openBattle();
-                                          }
-                                        })),
+                                    : () => runAction(context, _startFocus)),
                           ] else ...[
                             TextButton(
                                 onPressed: controller.busy || _settling
@@ -222,7 +296,7 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                             Text(session.verification ==
                                     FocusVerification.usageStats
                                 ? '対象アプリの使用を確認する集中'
-                                : 'タイマーのみの集中'),
+                                : '他のアプリを開くと警告します。1分の許可は選んだアプリだけに適用され、時間が切れると再び警告します。集中タイマーは進み続けます。'),
                             if (_error != null) ...[
                               Text(_error!),
                               FilledButton(

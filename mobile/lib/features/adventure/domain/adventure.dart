@@ -100,10 +100,14 @@ class AdventureRun {
       {required this.id,
       required this.stageId,
       required this.heroName,
+      this.characterType,
+      this.appearance,
       required this.stats,
       required this.seed,
       required this.startedAt});
   final String id, stageId, heroName;
+  // Nullable for adventures saved before appearance was recorded.
+  final String? characterType, appearance;
   final Stats stats;
   final int seed;
   final DateTime startedAt;
@@ -111,6 +115,8 @@ class AdventureRun {
         'id': id,
         'stageId': stageId,
         'heroName': heroName,
+        'characterType': characterType,
+        'appearance': appearance,
         'stats': stats.toJson(),
         'seed': seed,
         'startedAt': startedAt.toIso8601String()
@@ -119,6 +125,8 @@ class AdventureRun {
       id: json['id'] as String,
       stageId: json['stageId'] as String,
       heroName: json['heroName'] as String,
+      characterType: json['characterType'] as String?,
+      appearance: json['appearance'] as String?,
       stats: Stats.fromJson(Map<String, dynamic>.from(json['stats'] as Map)),
       seed: json['seed'] as int,
       startedAt: DateTime.parse(json['startedAt'] as String));

@@ -1,0 +1,14 @@
+Generated with built-in image_gen. Originals are preserved in originals/. Runtime assets: mobile/assets/images/lobby/. Packaging: scripts/package-character-lobby.py.
+
+## Asset 1
+
+Use case: stylized-concept. Production asset for a polished Japanese fantasy RPG character screen. Create ONE empty rectangular UI window texture, landscape ratio 2:1, edge-to-edge outer border with slight inset, dark midnight navy blue interior, fine antique champagne gold double-line border, exquisitely ornate gilded filigree in all four corners, small diamond compass star at midpoint top and bottom. Match the attached reference's equipment and inventory windows: elegant thin gold metal, sophisticated blue gradients, very faint botanical etched patterns inside edges, nearly plain dark center for legible runtime text. Flat frontal orthographic 2D game UI, crisp high-quality painted detail. No lettering, no icons, no equipment, no characters, no scene, no shadows outside, no rounded bubble. The whole image is the usable frame, fill the canvas; corners occupy at most 8 percent. Size approximately 1536x768.
+
+## Asset 2
+
+Use case: illustration-story. Asset: portrait background painting only for a polished Japanese fantasy adventure RPG character menu. Reference mood: brilliant blue sky, an ivory fairytale castle with elegant tall blue pointed roofs rising on a distant rocky green hill, luminous mountains, stone arched aqueduct bridge, sunlit ivory ruined courtyard in foreground, climbing ivy and golden green leaves on pale stone pillars on left and right, royal blue hanging banner with a delicate gold compass emblem at left. Beautiful clean anime fantasy illustration, warm sunlight, fresh adventurous inviting mood, detailed tasteful painterly quality. Keep center foreground open and clear so a supplied character can be overlaid. Upper half scenic castle and sky, bottom half pale stone steps with foliage at edges. Full bleed portrait 1024x1536. No people, no characters, no UI windows, no text, no letters, no watermarks.
+
+## Asset 3
+
+Use case: stylized-concept. ONE production fantasy RPG equipment slot horizontal UI strip. Full canvas ratio 3:1, approximately 1536x512. Dark royal navy translucent-looking painted glass interior, thin champagne gold double outline with chamfered clipped corners, intricate small gold vine filigree at left and right tips, restrained subtle magical etched pattern within the blue interior. Flat front orthographic. Match an elegant Japanese fantasy RPG with navy gold castle menus. Empty center for runtime equipment label and item name. No text, no icons, no character, no scene, no lettering. Frame fills entire canvas with a margin of 12 pixels. Border thickness delicate, luminous polished gold but no huge glow. Left portion blue slightly brighter, middle navy calm. This is a finished usable window image not a screenshot.
+

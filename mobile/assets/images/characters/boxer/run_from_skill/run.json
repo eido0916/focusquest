@@ -1,0 +1,25 @@
+{
+  "width": 768,
+  "height": 832,
+  "columns": 4,
+  "frameIds": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "fps": 12,
+  "stepTimes": [
+    0.08333333333333333,
+    0.08333333333333333,
+    0.08333333333333333,
+    0.08333333333333333
+  ],
+  "anchorX": 0.4166666666666667,
+  "anchorY": 0.8413461538461539,
+  "displayHeight": 272.6829268292683,
+  "source": "characters/boxer/skills/front_kick/frame_01.png..frame_04.png",
+  "loopSeconds": 0.3333333333333333,
+  "worldCoordinateEvents": [],
+  "verification": "RGBA identical to pre-skill PNGs; frame 4 identical to skill first atlas frame"
+}

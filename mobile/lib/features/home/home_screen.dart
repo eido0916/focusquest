@@ -42,13 +42,14 @@ class HomeScreen extends StatelessWidget {
                     Expanded(child: Divider(color: sunlitGold, thickness: .7)),
                   ])),
               Positioned(
-                  left: -w * .135,
+                  left: w * .015,
                   top: 38,
-                  width: w * .83,
-                  child: Image.asset('assets/images/ui/home_knight.png',
-                      fit: BoxFit.contain,
-                      semanticLabel: '銀の鎧と青いマントをまとった守護騎士',
-                      filterQuality: FilterQuality.high)),
+                  width: w * .70,
+                  child: JobPortrait(
+                      typeId: hero.characterType,
+                      appearance: hero.appearance,
+                      lobby: true,
+                      height: stageHeight - 38)),
               Positioned(
                   left: w * .49,
                   right: w * .04,

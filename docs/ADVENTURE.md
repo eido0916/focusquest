@@ -49,7 +49,7 @@ field_attack_down_v001の8コマ攻撃シートをassets/images/adventureへコ�
 adventure_test.dart: 全職業の初戦、成長による勝敗変化、速度・会心、旧保存データ、
 集中との競合、早すぎる結果確定、再起動、保存失敗、重複報酬、敗北と再挑戦。
 adventure_ui_test.dart: 390×844 / 320×568 / 844×390、文字1.5倍、冒険一覧・再開・勝利画面。
-game_ui_test.dart / local_game_test.dart: 集中EXP → 冒険初回報酬 → 召喚 → 保存復元。
+game_ui_test.dart / local_game_test.dart: 集中EXP → 冒険初回報酬 → 装備 → 保存復元。ガチャは2026-10-10に削除。
 
 検証結果: flutter analyze --no-pub は問題なし。関連47テストが通過。
 幅390 / 320 / 844pxの実画像をoutput/adventureへ出力し、見た目を確認した。

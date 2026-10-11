@@ -1,0 +1,72 @@
+{
+  "sourceArchives": [
+    {
+      "original": "ChatGPT \u753b\u50cf 2026\u5e7410\u670810\u65e5 16_20_46.png",
+      "archived": "source_01.png",
+      "sha256": "cbbaceb2b1b21416b8f4e2d2c56ed3f3c4ce2f856f786a15290f08b17acefb9b"
+    },
+    {
+      "original": "ChatGPT \u753b\u50cf 2026\u5e7410\u670810\u65e5 16_20_55.png",
+      "archived": "source_02.png",
+      "sha256": "7c96d290ab53de28c411d5a7315e0b804d6c8b74cf17f8d65d9439e8540823ce"
+    },
+    {
+      "original": "ChatGPT \u753b\u50cf 2026\u5e7410\u670810\u65e5 16_21_02.png",
+      "archived": "source_03.png",
+      "sha256": "2a9f705640cc9b7c6e7accc988786ad4b0366685dd124ff37ed368088b01b502"
+    },
+    {
+      "original": "ChatGPT \u753b\u50cf 2026\u5e7410\u670810\u65e5 16_21_08.png",
+      "archived": "source_04.png",
+      "sha256": "84f4aaf078ab1b27a7fb9c1b6c317ec4b993e4c7cd149bf90d76ed170e08c79d"
+    },
+    {
+      "original": "ChatGPT \u753b\u50cf 2026\u5e7410\u670810\u65e5 16_21_17.png",
+      "archived": "source_05.png",
+      "sha256": "2be24b4ab32bb181d9188e682d1a843e838bd245805d96a948bf53a315d7c52f"
+    },
+    {
+      "original": "ChatGPT \u753b\u50cf 2026\u5e7410\u670810\u65e5 16_21_25.png",
+      "archived": "source_06.png",
+      "sha256": "472410e9cfa5221b89a00b020723a3a5b2c0d067d474270ea8e58b65d398a4c7"
+    },
+    {
+      "original": "ChatGPT \u753b\u50cf 2026\u5e7410\u670810\u65e5 16_21_35.png",
+      "archived": "source_07.png",
+      "sha256": "00848ae041f57e7bb01d8583bc8105cc76b7fe8f29f618a86475c75abafc0d2d"
+    },
+    {
+      "original": "ChatGPT \u753b\u50cf 2026\u5e7410\u670810\u65e5 16_21_45.png",
+      "archived": "source_08.png",
+      "sha256": "0c1a0f4a90c790ffbfc3c5a66461e2f2a024b5c9f1e0a265eb82ffbb5d9a1cb1"
+    },
+    {
+      "original": "ChatGPT \u753b\u50cf 2026\u5e7410\u670810\u65e5 16_21_53.png",
+      "archived": "source_09.png",
+      "sha256": "e05d9d414e56ddfd7679b045290baa480b09d725f00e1eff4e34aa381ce5aad3"
+    },
+    {
+      "original": "ChatGPT \u753b\u50cf 2026\u5e7410\u670810\u65e5 16_22_01.png",
+      "archived": "source_10.png",
+      "sha256": "b44d267ac462854d4f5ae039daef0425ade64a21c7ec0ea5aed4631d428822f5"
+    }
+  ],
+  "extractedCharacterCandidates": 45,
+  "arrowCandidates": 8,
+  "retainedFrames": 32,
+  "verified24fpsTicks": 41,
+  "rgbaTickEquality": true,
+  "atlasSlotEquality": true,
+  "atlasDimensions": [
+    [
+      2552,
+      3064
+    ],
+    [
+      2552,
+      3064
+    ]
+  ],
+  "duration": 1.7083333333333333,
+  "releaseTime": 0.875
+}

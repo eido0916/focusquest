@@ -157,11 +157,10 @@ class QuestNavigation extends StatelessWidget {
   final ValueChanged<int> onSelect;
   @override
   Widget build(BuildContext context) {
-    const labels = ['ホーム', 'キャラクター', '召喚', '設定', '冒険'];
+    const labels = ['ホーム', 'キャラクター', '設定', '冒険'];
     const icons = [
       Icons.home_rounded,
       Icons.people_alt_rounded,
-      Icons.diamond_outlined,
       Icons.settings_rounded,
       Icons.map_outlined
     ];

@@ -1,0 +1,34 @@
+検証日: 2026-10-10 (Asia/Tokyo)
+
+前蹴りの専用テスト:
+flutter test test/boxer_front_kick_test.dart --no-pub --concurrency=1
+3件成功。命中前はダメージなし、最大伸展中に右前方1体へ1回、通常攻撃の競合防止、空振り、10秒周期、再発動、走行アセットとアンカーの復帰を検証。
+120fpsの更新で短い保持を含む採用17原画すべてを訪れることも検証。
+
+静的解析:
+flutter analyze --no-pub
+No issues found.
+
+画像検証:
+build-boxer-front-kick.py --reuse
+全35姿勢の共通キャンバス配置で不透明画素の欠落なし。配置後のRGBAは切り出し原画と一致。
+24fps表示用の25枚は対応する原画のRGBAと完全一致。
+元画像7枚は変更せず、sources/へコピーを保存。
+
+実際の戦闘描画:
+FlutterのGameWidget + FocusQuestBattleGameをロードしたテストからbattle_000〜024.pngを出力。
+25枚のSHA256はすべて異なる。battle_skill_preview.gifはその25枚を50ms間隔で再生する。
+目視確認: battle_000、008、013、017、020、022、024。
+膝上げ、水平最大伸展、既存の敵被弾表示、引き戻し、着地、既存走行への復帰を確認。
+テスト環境の既定フォントによりHUD文字とダメージ数字は四角で描画される。製品UIのフォント処理は変更していない。
+これはヘッドレスFlutterテストでの描画確認であり、Android/iOS実機での操作確認ではない。
+
+関連回帰テスト:
+flutter test test/domain_test.dart test/sousen_ground_wave_test.dart --no-pub --concurrency=1
+12件成功（EXP、装備、集中、診断、継続、蒼閃エフェクト）。
+
+既存・並行作業側のテストで残っている不整合:
+runner_battle_test.dart の「蒼閃 starts every ten seconds and applies exactly one hit」はdamageSerialの期待値1に対して119で失敗。
+HEAD版の戦闘コントローラーとタイムラインだけを.tmp/front_kick_baselineへ取り出して再実行しても119となることを確認。前蹴りの変更による新規失敗ではない。
+boxer_animation_test.dart の通常攻撃時間比較は剣士0.995秒と拳闘士1.010秒の差0.015秒で失敗。前蹴り作業では既存の通常攻撃タイムラインを変更していない。
+全テスト成功とは報告しない。今回の前蹴り専用テストと上記12件は成功。
