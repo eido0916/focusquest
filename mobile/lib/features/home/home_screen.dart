@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../core/game_controller.dart';
 import '../../core/widgets/sunlit_widgets.dart';
 import '../focus/domain/streak_service.dart';
+import '../playable_stage/presentation/playable_stage_selection_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen(
@@ -41,13 +42,14 @@ class HomeScreen extends StatelessWidget {
                     Expanded(child: Divider(color: sunlitGold, thickness: .7)),
                   ])),
               Positioned(
-                  left: -w * .135,
+                  left: w * .015,
                   top: 38,
-                  width: w * .83,
-                  child: Image.asset('assets/images/ui/home_knight.png',
-                      fit: BoxFit.contain,
-                      semanticLabel: '銀の鎧と青いマントをまとった守護騎士',
-                      filterQuality: FilterQuality.high)),
+                  width: w * .70,
+                  child: JobPortrait(
+                      typeId: hero.characterType,
+                      appearance: hero.appearance,
+                      lobby: true,
+                      height: stageHeight - 38)),
               Positioned(
                   left: w * .49,
                   right: w * .04,
@@ -173,7 +175,14 @@ class HomeScreen extends StatelessWidget {
               SunlitAction(
                   light: true,
                   label: state.adventureRun == null ? '冒険に出発する' : '冒険へ戻る',
-                  onTap: () => onNavigate(4)),
+                  onTap: () {
+                    if (state.adventureRun != null) {
+                      onNavigate(4);
+                      return;
+                    }
+                    Navigator.of(context).push(MaterialPageRoute<void>(
+                        builder: (_) => const PlayableStageSelectionPage()));
+                  }),
             ])),
       ]));
     });

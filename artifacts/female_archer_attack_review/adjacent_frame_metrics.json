@@ -1,0 +1,495 @@
+[
+  {
+    "id": 1,
+    "centroid": [
+      484.86,
+      524.37
+    ],
+    "retained": true,
+    "review": "走行・入り"
+  },
+  {
+    "id": 2,
+    "centroid": [
+      467.35,
+      507.27
+    ],
+    "retained": true,
+    "review": "走行・反対脚",
+    "silhouetteIoUWithPrevious": 0.5674,
+    "rgbaMeanAbsDifferenceWithPrevious": 10.0135
+  },
+  {
+    "id": 3,
+    "centroid": [
+      489.8,
+      517.18
+    ],
+    "retained": true,
+    "review": "走行・接地",
+    "silhouetteIoUWithPrevious": 0.635,
+    "rgbaMeanAbsDifferenceWithPrevious": 8.5146
+  },
+  {
+    "id": 4,
+    "centroid": [
+      527.08,
+      534.18
+    ],
+    "retained": false,
+    "review": "走行の反復。入りを短縮",
+    "silhouetteIoUWithPrevious": 0.4806,
+    "rgbaMeanAbsDifferenceWithPrevious": 12.5845
+  },
+  {
+    "id": 5,
+    "centroid": [
+      484.07,
+      519.11
+    ],
+    "retained": true,
+    "review": "走行から減速へ",
+    "silhouetteIoUWithPrevious": 0.4082,
+    "rgbaMeanAbsDifferenceWithPrevious": 13.6945
+  },
+  {
+    "id": 6,
+    "centroid": [
+      488.32,
+      516.43
+    ],
+    "retained": true,
+    "review": "減速・弓を持ち上げる",
+    "silhouetteIoUWithPrevious": 0.5063,
+    "rgbaMeanAbsDifferenceWithPrevious": 11.9353
+  },
+  {
+    "id": 7,
+    "centroid": [
+      482.13,
+      502.11
+    ],
+    "retained": true,
+    "review": "矢筒から取り出す",
+    "silhouetteIoUWithPrevious": 0.5514,
+    "rgbaMeanAbsDifferenceWithPrevious": 12.1942
+  },
+  {
+    "id": 8,
+    "centroid": [
+      492.4,
+      512.96
+    ],
+    "retained": true,
+    "review": "矢をつがえる",
+    "silhouetteIoUWithPrevious": 0.6509,
+    "rgbaMeanAbsDifferenceWithPrevious": 9.2112
+  },
+  {
+    "id": 9,
+    "centroid": [
+      495.63,
+      516.46
+    ],
+    "retained": true,
+    "review": "引き始め",
+    "silhouetteIoUWithPrevious": 0.7007,
+    "rgbaMeanAbsDifferenceWithPrevious": 8.5901
+  },
+  {
+    "id": 10,
+    "centroid": [
+      498.87,
+      517.18
+    ],
+    "retained": true,
+    "review": "引き絞る",
+    "silhouetteIoUWithPrevious": 0.7487,
+    "rgbaMeanAbsDifferenceWithPrevious": 7.9044
+  },
+  {
+    "id": 11,
+    "centroid": [
+      487.65,
+      527.37
+    ],
+    "retained": false,
+    "review": "つがえる姿勢へ逆戻り",
+    "silhouetteIoUWithPrevious": 0.5983,
+    "rgbaMeanAbsDifferenceWithPrevious": 11.1617
+  },
+  {
+    "id": 12,
+    "centroid": [
+      479.16,
+      521.54
+    ],
+    "retained": false,
+    "review": "10より浅い引きへ戻るため除外",
+    "silhouetteIoUWithPrevious": 0.7517,
+    "rgbaMeanAbsDifferenceWithPrevious": 8.0964
+  },
+  {
+    "id": 13,
+    "centroid": [
+      489.64,
+      520.06
+    ],
+    "retained": true,
+    "review": "狙い・引き絞り",
+    "silhouetteIoUWithPrevious": 0.7138,
+    "rgbaMeanAbsDifferenceWithPrevious": 8.4683
+  },
+  {
+    "id": 14,
+    "centroid": [
+      483.94,
+      520.2
+    ],
+    "retained": true,
+    "review": "発射直前の狙い",
+    "silhouetteIoUWithPrevious": 0.8153,
+    "rgbaMeanAbsDifferenceWithPrevious": 6.8131
+  },
+  {
+    "id": 15,
+    "centroid": [
+      471.05,
+      521.67
+    ],
+    "retained": false,
+    "review": "別の発射候補。22の単発射撃へ統一",
+    "silhouetteIoUWithPrevious": 0.7122,
+    "rgbaMeanAbsDifferenceWithPrevious": 9.2266
+  },
+  {
+    "id": 16,
+    "centroid": [
+      500.34,
+      509.53
+    ],
+    "retained": false,
+    "review": "発射済みの矢が描かれた別シーケンス。矢の二重表示を回避",
+    "silhouetteIoUWithPrevious": 0.4731,
+    "rgbaMeanAbsDifferenceWithPrevious": 15.4845
+  },
+  {
+    "id": 17,
+    "centroid": [
+      498.45,
+      524.2
+    ],
+    "retained": false,
+    "review": "別シーケンスの反動。24へ統一",
+    "silhouetteIoUWithPrevious": 0.5408,
+    "rgbaMeanAbsDifferenceWithPrevious": 12.7631
+  },
+  {
+    "id": 18,
+    "centroid": [
+      524.51,
+      510.35
+    ],
+    "retained": false,
+    "review": "弓を下げるが19で再装填に戻る。25へ統一",
+    "silhouetteIoUWithPrevious": 0.5824,
+    "rgbaMeanAbsDifferenceWithPrevious": 10.2343
+  },
+  {
+    "id": 19,
+    "centroid": [
+      502.23,
+      515.32
+    ],
+    "retained": false,
+    "review": "二度目の装填動作",
+    "silhouetteIoUWithPrevious": 0.5253,
+    "rgbaMeanAbsDifferenceWithPrevious": 11.4377
+  },
+  {
+    "id": 20,
+    "centroid": [
+      486.17,
+      528.4
+    ],
+    "retained": false,
+    "review": "走行姿勢で再び引く。21との脚の飛びを回避",
+    "silhouetteIoUWithPrevious": 0.6039,
+    "rgbaMeanAbsDifferenceWithPrevious": 10.5838
+  },
+  {
+    "id": 21,
+    "centroid": [
+      496.35,
+      506.97
+    ],
+    "retained": true,
+    "review": "発射直前・3tick保持",
+    "silhouetteIoUWithPrevious": 0.5082,
+    "rgbaMeanAbsDifferenceWithPrevious": 12.7139
+  },
+  {
+    "id": 22,
+    "centroid": [
+      469.54,
+      511.85
+    ],
+    "retained": true,
+    "review": "放つ瞬間。矢を別Projectileとして1回生成",
+    "silhouetteIoUWithPrevious": 0.6052,
+    "rgbaMeanAbsDifferenceWithPrevious": 11.2025
+  },
+  {
+    "id": 23,
+    "centroid": [
+      488.57,
+      515.22
+    ],
+    "retained": false,
+    "review": "飛翔矢が本体に焼き込まれている。Projectileと重複するため除外",
+    "silhouetteIoUWithPrevious": 0.6463,
+    "rgbaMeanAbsDifferenceWithPrevious": 10.1311
+  },
+  {
+    "id": 24,
+    "centroid": [
+      524.17,
+      524.65
+    ],
+    "retained": true,
+    "review": "発射後の反動・矢なし",
+    "silhouetteIoUWithPrevious": 0.4948,
+    "rgbaMeanAbsDifferenceWithPrevious": 13.3742
+  },
+  {
+    "id": 25,
+    "centroid": [
+      517.35,
+      535.31
+    ],
+    "retained": true,
+    "review": "弓を下げて戻る",
+    "silhouetteIoUWithPrevious": 0.6743,
+    "rgbaMeanAbsDifferenceWithPrevious": 7.9395
+  },
+  {
+    "id": 26,
+    "centroid": [
+      485.79,
+      496.88
+    ],
+    "retained": true,
+    "review": "姿勢を戻す",
+    "silhouetteIoUWithPrevious": 0.443,
+    "rgbaMeanAbsDifferenceWithPrevious": 14.9919
+  },
+  {
+    "id": 27,
+    "centroid": [
+      449.15,
+      509.17
+    ],
+    "retained": true,
+    "review": "再加速への準備",
+    "silhouetteIoUWithPrevious": 0.4622,
+    "rgbaMeanAbsDifferenceWithPrevious": 15.2769
+  },
+  {
+    "id": 28,
+    "centroid": [
+      456.25,
+      507.96
+    ],
+    "retained": false,
+    "review": "27と近い準備姿勢。保持を短縮",
+    "silhouetteIoUWithPrevious": 0.7379,
+    "rgbaMeanAbsDifferenceWithPrevious": 6.7729
+  },
+  {
+    "id": 29,
+    "centroid": [
+      419.31,
+      515.95
+    ],
+    "retained": true,
+    "review": "踏み出し",
+    "silhouetteIoUWithPrevious": 0.524,
+    "rgbaMeanAbsDifferenceWithPrevious": 12.0592
+  },
+  {
+    "id": 30,
+    "centroid": [
+      438.16,
+      507.79
+    ],
+    "retained": true,
+    "review": "再加速",
+    "silhouetteIoUWithPrevious": 0.5515,
+    "rgbaMeanAbsDifferenceWithPrevious": 11.4994
+  },
+  {
+    "id": 31,
+    "centroid": [
+      467.29,
+      487.41
+    ],
+    "retained": true,
+    "review": "走行再開・後ろ腕",
+    "silhouetteIoUWithPrevious": 0.4698,
+    "rgbaMeanAbsDifferenceWithPrevious": 15.189
+  },
+  {
+    "id": 32,
+    "centroid": [
+      472.08,
+      491.78
+    ],
+    "retained": true,
+    "review": "走行・反対脚",
+    "silhouetteIoUWithPrevious": 0.427,
+    "rgbaMeanAbsDifferenceWithPrevious": 16.1725
+  },
+  {
+    "id": 33,
+    "centroid": [
+      473.92,
+      502.36
+    ],
+    "retained": true,
+    "review": "走行・接地",
+    "silhouetteIoUWithPrevious": 0.5163,
+    "rgbaMeanAbsDifferenceWithPrevious": 12.3217
+  },
+  {
+    "id": 34,
+    "centroid": [
+      467.96,
+      487.61
+    ],
+    "retained": true,
+    "review": "走行・反対脚",
+    "silhouetteIoUWithPrevious": 0.5375,
+    "rgbaMeanAbsDifferenceWithPrevious": 11.4595
+  },
+  {
+    "id": 35,
+    "centroid": [
+      473.47,
+      491.02
+    ],
+    "retained": true,
+    "review": "走行・接地",
+    "silhouetteIoUWithPrevious": 0.5631,
+    "rgbaMeanAbsDifferenceWithPrevious": 10.7891
+  },
+  {
+    "id": 36,
+    "centroid": [
+      475.92,
+      497.77
+    ],
+    "retained": true,
+    "review": "走行・後ろ腕",
+    "silhouetteIoUWithPrevious": 0.5816,
+    "rgbaMeanAbsDifferenceWithPrevious": 10.8541
+  },
+  {
+    "id": 37,
+    "centroid": [
+      447.02,
+      491.16
+    ],
+    "retained": true,
+    "review": "走行・反対脚",
+    "silhouetteIoUWithPrevious": 0.5449,
+    "rgbaMeanAbsDifferenceWithPrevious": 11.8722
+  },
+  {
+    "id": 38,
+    "centroid": [
+      415.66,
+      498.13
+    ],
+    "retained": false,
+    "review": "37と近い脚姿勢。走行の反復を短縮",
+    "silhouetteIoUWithPrevious": 0.5763,
+    "rgbaMeanAbsDifferenceWithPrevious": 10.6926
+  },
+  {
+    "id": 39,
+    "centroid": [
+      421.77,
+      507.66
+    ],
+    "retained": true,
+    "review": "走行・反対脚",
+    "silhouetteIoUWithPrevious": 0.6872,
+    "rgbaMeanAbsDifferenceWithPrevious": 8.2474
+  },
+  {
+    "id": 40,
+    "centroid": [
+      442.53,
+      509.87
+    ],
+    "retained": true,
+    "review": "走行・接地",
+    "silhouetteIoUWithPrevious": 0.6488,
+    "rgbaMeanAbsDifferenceWithPrevious": 9.5007
+  },
+  {
+    "id": 41,
+    "centroid": [
+      488.17,
+      499.99
+    ],
+    "retained": true,
+    "review": "走行ループ・接地",
+    "silhouetteIoUWithPrevious": 0.4561,
+    "rgbaMeanAbsDifferenceWithPrevious": 14.2028
+  },
+  {
+    "id": 42,
+    "centroid": [
+      459.11,
+      502.26
+    ],
+    "retained": true,
+    "review": "走行ループ・反対脚",
+    "silhouetteIoUWithPrevious": 0.5514,
+    "rgbaMeanAbsDifferenceWithPrevious": 11.3382
+  },
+  {
+    "id": 43,
+    "centroid": [
+      450.16,
+      543.68
+    ],
+    "retained": false,
+    "review": "空中姿勢の足元が浮き、42から重複するため除外",
+    "silhouetteIoUWithPrevious": 0.5339,
+    "rgbaMeanAbsDifferenceWithPrevious": 13.151
+  },
+  {
+    "id": 44,
+    "centroid": [
+      447.57,
+      513.26
+    ],
+    "retained": true,
+    "review": "走行ループ・伸脚",
+    "silhouetteIoUWithPrevious": 0.4917,
+    "rgbaMeanAbsDifferenceWithPrevious": 14.2122
+  },
+  {
+    "id": 45,
+    "centroid": [
+      451.25,
+      496.12
+    ],
+    "retained": true,
+    "review": "走行ループ・接地。終了後41へ接続",
+    "silhouetteIoUWithPrevious": 0.524,
+    "rgbaMeanAbsDifferenceWithPrevious": 12.2182
+  }
+]

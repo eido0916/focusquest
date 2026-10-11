@@ -7,11 +7,17 @@ class JobPortrait extends StatelessWidget {
     required this.typeId,
     this.appearance = 'male',
     this.height = 240,
+    this.lobby = false,
+    this.fit = BoxFit.contain,
+    this.alignment,
   });
 
   final String typeId;
   final String appearance;
   final double height;
+  final bool lobby;
+  final BoxFit fit;
+  final Alignment? alignment;
 
   static const roleNames = {
     'warrior': '剣士',
@@ -38,10 +44,14 @@ class JobPortrait extends StatelessWidget {
     final variant = appearance == 'female' ? 'female' : 'male';
     return SizedBox(
       height: height,
+      width: lobby ? double.infinity : null,
       child: Image.asset(
-        'assets/images/portraits/$variant/$role.webp',
-        fit: BoxFit.contain,
-        alignment: Alignment.bottomCenter,
+        lobby
+            ? 'assets/images/lobby/portraits/${variant == 'female' ? 'female/' : ''}$role.png'
+            : 'assets/images/portraits/$variant/$role.webp',
+        fit: fit,
+        alignment:
+            alignment ?? (lobby ? Alignment.center : Alignment.bottomCenter),
         semanticLabel:
             '${variant == 'female' ? '女' : '男'}の${roleNames[role]}の立ち絵',
       ),

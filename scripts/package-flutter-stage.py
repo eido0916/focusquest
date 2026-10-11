@@ -45,8 +45,10 @@ for boss in ['boss_goblin_king', 'boss_dullahan', 'boss_fire_dragon', 'boss_cycl
         source_action = 'walk' if action == 'locomotion' else action
         motions[f'{boss}_{action}'] = f'enemies/{boss}/{source_action}'
 files = []
+boss_source = root / 'art/workspace_materials/FocusQuest_pixel_keyframes_v014'
 for name, relative in motions.items():
-    folder = source / relative
+    selected_source = boss_source if name.startswith('boss_') and boss_source.exists() else source
+    folder = selected_source / relative
     meta = json.loads((folder / 'animation.json').read_text(encoding='utf-8'))
     shutil.copy2(folder / 'animation.json', dest / f'{name}.json')
     for key in meta['keyframes']:
@@ -56,9 +58,12 @@ for name, relative in motions.items():
         digest = hashlib.sha256(target.read_bytes()).hexdigest()
         assert digest == hashlib.sha256(original.read_bytes()).hexdigest()
         with Image.open(target) as image:
-            assert image.size == (128, 128)
+            assert image.size == tuple(meta['canvas'])
             assert hashlib.sha256(image.convert('RGBA').tobytes()).hexdigest() == key['rgba_sha256']
-        files.append({'file': target.name, 'source': f"{relative}/{key['file']}", 'sha256': digest, 'rgba_sha256': key['rgba_sha256']})
+        source_path = f"{relative}/{key['file']}"
+        if selected_source == boss_source:
+            source_path = f"{boss_source.name}/{source_path}"
+        files.append({'file': target.name, 'source': source_path, 'sha256': digest, 'rgba_sha256': key['rgba_sha256']})
 shutil.copy2(root / 'art/workspace_materials/FocusQuest_stage_backgrounds_v001/grassland_v001.png', dest / 'grassland.png')
-(dest / 'manifest.json').write_text(json.dumps({'source': source.name, 'motions': list(motions), 'files': files, 'fps': 24, 'interpolation': 'none'}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+(dest / 'manifest.json').write_text(json.dumps({'source': source.name, 'boss_source': boss_source.name if boss_source.exists() else source.name, 'motions': list(motions), 'files': files, 'fps': 24, 'interpolation': 'none'}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(f'Flutter assets: {len(motions)} motions, {len(files)} original PNGs.')

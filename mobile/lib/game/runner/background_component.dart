@@ -22,7 +22,8 @@ class BackgroundComponent extends Component {
     final tileWidth = image.width * viewportHeight / image.height;
     // Derive position from the focus clock, not render frame counts. Keeps the
     // animation smooth at any frame rate and freezes at the session's end.
-    final distance = (state.elapsedSeconds * scrollSpeed) % (tileWidth * 2);
+    final distance =
+        (state.backgroundTravelSeconds * scrollSpeed) % (tileWidth * 2);
     final firstTile = (distance / tileWidth).floor();
     var left = -(distance % tileWidth);
     var tile = firstTile;

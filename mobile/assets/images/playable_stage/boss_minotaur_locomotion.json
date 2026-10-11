@@ -3,8 +3,8 @@
   "action": "walk",
   "render_mode": "original_pixel_keyframes",
   "canvas": [
-    128,
-    128
+    384,
+    384
   ],
   "fps": 24,
   "direction": "left",
@@ -17,22 +17,22 @@
     {
       "index": 0,
       "file": "keyframes/frame_000.png",
-      "rgba_sha256": "b052c4a71953a89edd5db9411a891339207a1e15aadff9068ecf91a2ffd6084b"
+      "rgba_sha256": "374319a25972404d6b74793d74bc651462f9e93b50b11c152a7b69b499855ae6"
     },
     {
       "index": 1,
       "file": "keyframes/frame_001.png",
-      "rgba_sha256": "669b49b2e5a4aae7d407197bf71af2118a75c4330ce1b51d8326353bf5758d2b"
+      "rgba_sha256": "cc127b60c3a911ab954aeb7dcd24ff6471b00d47d294f036dfaa89b0853438d7"
     },
     {
       "index": 2,
       "file": "keyframes/frame_002.png",
-      "rgba_sha256": "5bd16eb21f8c7feccaf6dfa9b0142dc43ee3f16d74788a89a965cc521b0a8845"
+      "rgba_sha256": "d32958370ca7f11b9489bffaf555b493a072395df9198787d84d55829e14f258"
     },
     {
       "index": 3,
       "file": "keyframes/frame_003.png",
-      "rgba_sha256": "6a9a4d31620e328af6be0c36ffb95b498f03b48ba5bfe5dbfe5716602932c1ad"
+      "rgba_sha256": "94e7d328aed7c68321007262e6e89c3c13a53514ab9d76624317c2843e80c92f"
     }
   ],
   "holds": [
@@ -221,5 +221,10 @@
   "sprite_anchor_px": [
     64,
     120
-  ]
+  ],
+  "coordinate_canvas": [
+    128,
+    128
+  ],
+  "production": "New detailed image_gen original poses, 192px logical grid, nearest-neighbor 2x export; no synthesized intermediate poses."
 }

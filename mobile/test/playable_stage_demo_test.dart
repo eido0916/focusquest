@@ -128,6 +128,18 @@ void main() {
       await tester.pump();
       final red =
           tester.widget<FilledButton>(find.byKey(const Key('stage-attack')));
+      final boss =
+          battle.enemies.firstWhere((enemy) => enemy.definition.isBoss);
+      final escort =
+          battle.enemies.firstWhere((enemy) => !enemy.definition.isBoss);
+      final bossHp = find.byKey(Key('enemy-hp-${boss.index}'));
+      final escortHp = find.byKey(Key('enemy-hp-${escort.index}'));
+      expect(tester.getSize(bossHp).width,
+          greaterThan(tester.getSize(escortHp).width));
+      expect(tester.getSize(bossHp).height, 6);
+      expect(tester.getSize(escortHp).height, 3);
+      expect(tester.widget<LinearProgressIndicator>(bossHp).color,
+          isNot(tester.widget<LinearProgressIndicator>(escortHp).color));
       final blue =
           tester.widget<FilledButton>(find.byKey(const Key('stage-skill')));
       expect(red.style!.shape!.resolve({}), isA<CircleBorder>());
@@ -218,7 +230,14 @@ void main() {
         theme: AppTheme.dark,
         home: DemoCharacterSelectionPage(onSelected: (_) {})));
     await tester.pumpAndSettle();
-    final portrait = tester.getSize(find.byType(Image).first);
+    final portrait = tester.getSize(find
+        .byWidgetPredicate((widget) =>
+            widget is Image &&
+            widget.image is AssetImage &&
+            (widget.image as AssetImage)
+                .assetName
+                .startsWith('assets/images/playable_stage/'))
+        .first);
     expect(portrait.width * 1.5, closeTo(64, .001));
     expect(portrait.height * 1.5, closeTo(64, .001));
     expect(tester.takeException(), isNull);

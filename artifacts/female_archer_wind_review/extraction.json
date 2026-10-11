@@ -1,0 +1,23 @@
+{
+  "sourceSha256": "5584883cc212c29e42618af2d4f0382b2136e734f315e7a4a414df17c3790a9b",
+  "edges": [
+    0,
+    175,
+    450,
+    768,
+    1080,
+    1390,
+    1680,
+    1938,
+    2172
+  ],
+  "cropY": [
+    240,
+    485
+  ],
+  "axisY": 366,
+  "width": 318,
+  "height": 245,
+  "frames": 8,
+  "rgbaAtlasEquality": true
+}

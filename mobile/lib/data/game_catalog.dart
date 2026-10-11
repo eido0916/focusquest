@@ -1,7 +1,6 @@
 import '../features/character/domain/item.dart';
 import '../features/character/domain/stats.dart';
 import '../features/diagnosis/domain/diagnosis_service.dart';
-import '../features/gacha/domain/gacha_service.dart';
 
 class GameCatalog {
   static const questions = [
@@ -191,11 +190,4 @@ class GameCatalog {
         bonus:
             Stats(hp: 10, attack: 2, defense: 2, speed: 2, criticalRate: 0.05)),
   };
-  static const gachaPool = [
-    GachaPrize('wooden_sword', '木の剣', 'N', GachaPrizeKind.equipment),
-    GachaPrize('cloth_armor', '旅人の服', 'R', GachaPrizeKind.equipment),
-    GachaPrize('ranger', '弓使い', 'R', GachaPrizeKind.character),
-    GachaPrize('silver_ring', '銀の指輪', 'SR', GachaPrizeKind.equipment),
-    GachaPrize('mage', '星読みの魔法使い', 'SSR', GachaPrizeKind.character),
-  ];
 }

@@ -1,0 +1,233 @@
+{
+  "width": 640,
+  "height": 768,
+  "columns": 4,
+  "frameIds": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "fps": 12,
+  "stepTimes": [
+    0.08333333333333333,
+    0.08333333333333333,
+    0.08333333333333333,
+    0.08333333333333333
+  ],
+  "anchorX": 0.5,
+  "anchorY": 0.8854166666666666,
+  "displayHeight": 251.70731707317074,
+  "sources": [
+    "ChatGPT 画像 2026年10月10日 21_10_51.png",
+    "ChatGPT 画像 2026年10月10日 21_12_14.png"
+  ],
+  "extraction": [
+    {
+      "frame": 1,
+      "bbox": [
+        8,
+        59,
+        483,
+        642
+      ],
+      "area": 104411,
+      "hipX": 266,
+      "soleY": 610,
+      "offset": [
+        62,
+        129
+      ]
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        439,
+        31,
+        821,
+        628
+      ],
+      "area": 98800,
+      "hipX": 651,
+      "soleY": 612,
+      "offset": [
+        108,
+        99
+      ]
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        832,
+        67,
+        1212,
+        666
+      ],
+      "area": 99814,
+      "hipX": 1028,
+      "soleY": 590,
+      "offset": [
+        124,
+        157
+      ]
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        1162,
+        37,
+        1668,
+        662
+      ],
+      "area": 108674,
+      "hipX": 1463,
+      "soleY": 612,
+      "offset": [
+        19,
+        105
+      ]
+    },
+    {
+      "frame": 5,
+      "bbox": [
+        1633,
+        52,
+        2044,
+        666
+      ],
+      "area": 103638,
+      "hipX": 1880,
+      "soleY": 622,
+      "offset": [
+        73,
+        110
+      ]
+    },
+    {
+      "frame": 6,
+      "bbox": [
+        0,
+        24,
+        472,
+        632
+      ],
+      "area": 100290,
+      "hipX": 255,
+      "soleY": 566,
+      "offset": [
+        65,
+        138
+      ]
+    },
+    {
+      "frame": 7,
+      "bbox": [
+        447,
+        44,
+        821,
+        594
+      ],
+      "area": 95756,
+      "hipX": 650,
+      "soleY": 584,
+      "offset": [
+        117,
+        140
+      ]
+    },
+    {
+      "frame": 8,
+      "bbox": [
+        835,
+        17,
+        1202,
+        664
+      ],
+      "area": 87760,
+      "hipX": 1016,
+      "soleY": 581,
+      "offset": [
+        139,
+        116
+      ]
+    },
+    {
+      "frame": 9,
+      "bbox": [
+        1173,
+        39,
+        1653,
+        620
+      ],
+      "area": 108418,
+      "hipX": 1440,
+      "soleY": 578,
+      "offset": [
+        53,
+        141
+      ]
+    },
+    {
+      "frame": 10,
+      "bbox": [
+        1650,
+        20,
+        2048,
+        660
+      ],
+      "area": 103651,
+      "hipX": 1873,
+      "soleY": 581,
+      "offset": [
+        97,
+        119
+      ]
+    }
+  ],
+  "excluded": {
+    "5": "Near-repeat of frame 2 contact phase; 5 to 1 reverses the front foot before loop reset",
+    "6": "Repeated phase of frame 1 with different body proportions",
+    "7": "Repeated phase of frame 2 with different body proportions",
+    "8": "Repeated phase of frame 3 with different body proportions",
+    "9": "Repeated phase of frame 4 with different body proportions",
+    "10": "Repeated phase of frame 5 with different body proportions"
+  },
+  "loopSeconds": 0.3333333333333333,
+  "tickRate": 24,
+  "ticks": [
+    {
+      "tick": 0,
+      "frame": 1
+    },
+    {
+      "tick": 1,
+      "frame": 1
+    },
+    {
+      "tick": 2,
+      "frame": 2
+    },
+    {
+      "tick": 3,
+      "frame": 2
+    },
+    {
+      "tick": 4,
+      "frame": 3
+    },
+    {
+      "tick": 5,
+      "frame": 3
+    },
+    {
+      "tick": 6,
+      "frame": 4
+    },
+    {
+      "tick": 7,
+      "frame": 4
+    }
+  ],
+  "worldCoordinateEvents": [],
+  "pixelVerification": "Exact RGBA copy and exact 24fps repeats"
+}

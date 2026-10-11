@@ -1,0 +1,202 @@
+{
+  "sourceSHA256": "eba1aa920f78c2aa08391bacf40213c519a28c223606748052c09c0b6efcc761",
+  "fps": 24,
+  "holdTicks": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "sourceRects": [
+    [
+      0,
+      252,
+      168,
+      464
+    ],
+    [
+      168,
+      252,
+      410,
+      464
+    ],
+    [
+      410,
+      252,
+      699,
+      464
+    ],
+    [
+      699,
+      252,
+      1035,
+      464
+    ],
+    [
+      1035,
+      252,
+      1388,
+      464
+    ],
+    [
+      1388,
+      252,
+      1663,
+      464
+    ],
+    [
+      1663,
+      252,
+      1937,
+      464
+    ],
+    [
+      1937,
+      252,
+      2172,
+      464
+    ]
+  ],
+  "spawnTimeSeconds": 0.625,
+  "sourceAxisY": 373,
+  "rightEdge": 958,
+  "displayScale": 1.4730878186968839,
+  "blendMode": "screen",
+  "filterQuality": "none",
+  "interpolation": false,
+  "loop": false,
+  "frames": [
+    {
+      "tick": 0,
+      "keyframe": 0,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 1,
+      "keyframe": 0,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 2,
+      "keyframe": 1,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 3,
+      "keyframe": 1,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 4,
+      "keyframe": 2,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 5,
+      "keyframe": 2,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 6,
+      "keyframe": 3,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 7,
+      "keyframe": 3,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 8,
+      "keyframe": 4,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 9,
+      "keyframe": 4,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 10,
+      "keyframe": 5,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 11,
+      "keyframe": 5,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 12,
+      "keyframe": 6,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 13,
+      "keyframe": 6,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 14,
+      "keyframe": 7,
+      "worldPosition": [
+        438,
+        296
+      ]
+    },
+    {
+      "tick": 15,
+      "keyframe": 7,
+      "worldPosition": [
+        438,
+        296
+      ]
+    }
+  ]
+}

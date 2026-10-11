@@ -10,8 +10,8 @@ class PlayerState {
       this.activeCharacterId,
       this.monitoring = false,
       this.targetPackages = const [],
-      this.gachaHistory = const [],
       Set<String> clearedStages = const {},
+      Set<int> clearedPlayableStages = const {},
       this.adventureRun,
       this.lastAdventure,
       Map<String, Character> characters = const {},
@@ -20,6 +20,7 @@ class PlayerState {
       Set<String> appliedOperations = const {}})
       : characters = Map.unmodifiable(characters),
         clearedStages = Set.unmodifiable(clearedStages),
+        clearedPlayableStages = Set.unmodifiable(clearedPlayableStages),
         inventory = Map.unmodifiable(inventory),
         sessions = Map.unmodifiable(sessions),
         appliedOperations = Set.unmodifiable(appliedOperations);
@@ -29,12 +30,12 @@ class PlayerState {
   final String? activeCharacterId;
   final bool monitoring;
   final List<String> targetPackages;
-  final List<Map<String, dynamic>> gachaHistory;
   final Map<String, Character> characters;
   final Map<String, int> inventory;
   final Map<String, FocusSession> sessions;
   final Set<String> appliedOperations;
   final Set<String> clearedStages;
+  final Set<int> clearedPlayableStages;
   final AdventureRun? adventureRun;
   final AdventureRecord? lastAdventure;
   Character? get activeCharacter => characters[activeCharacterId];
@@ -45,11 +46,11 @@ class PlayerState {
           String? activeCharacterId,
           bool? monitoring,
           List<String>? targetPackages,
-          List<Map<String, dynamic>>? gachaHistory,
           Map<String, Character>? characters,
           Map<String, int>? inventory,
           Map<String, FocusSession>? sessions,
           Set<String>? clearedStages,
+          Set<int>? clearedPlayableStages,
           AdventureRun? adventureRun,
           bool clearAdventureRun = false,
           AdventureRecord? lastAdventure,
@@ -61,11 +62,12 @@ class PlayerState {
           activeCharacterId: activeCharacterId ?? this.activeCharacterId,
           monitoring: monitoring ?? this.monitoring,
           targetPackages: targetPackages ?? this.targetPackages,
-          gachaHistory: gachaHistory ?? this.gachaHistory,
           characters: characters ?? this.characters,
           inventory: inventory ?? this.inventory,
           sessions: sessions ?? this.sessions,
           clearedStages: clearedStages ?? this.clearedStages,
+          clearedPlayableStages:
+              clearedPlayableStages ?? this.clearedPlayableStages,
           adventureRun:
               clearAdventureRun ? null : adventureRun ?? this.adventureRun,
           lastAdventure: lastAdventure ?? this.lastAdventure,
@@ -79,8 +81,8 @@ class PlayerState {
         'activeCharacterId': activeCharacterId,
         'monitoring': monitoring,
         'targetPackages': targetPackages,
-        'gachaHistory': gachaHistory,
         'clearedStages': clearedStages.toList(),
+        'clearedPlayableStages': clearedPlayableStages.toList(),
         'adventureRun': adventureRun?.toJson(),
         'lastAdventure': lastAdventure?.toJson(),
         'characters':
@@ -99,6 +101,8 @@ class PlayerState {
         activeCharacterId: json['activeCharacterId'] as String?,
         monitoring: json['monitoring'] as bool? ?? false,
         clearedStages: Set<String>.from(json['clearedStages'] as List? ?? []),
+        clearedPlayableStages:
+            Set<int>.from(json['clearedPlayableStages'] as List? ?? []),
         adventureRun: json['adventureRun'] == null
             ? null
             : AdventureRun.fromJson(
@@ -109,9 +113,6 @@ class PlayerState {
                 Map<String, dynamic>.from(json['lastAdventure'] as Map)),
         targetPackages:
             List<String>.from(json['targetPackages'] as List? ?? []),
-        gachaHistory: (json['gachaHistory'] as List? ?? [])
-            .map((e) => Map<String, dynamic>.from(e as Map))
-            .toList(),
         characters: (json['characters'] as Map).map((key, value) => MapEntry(
             key as String,
             Character.fromJson(Map<String, dynamic>.from(value as Map)))),

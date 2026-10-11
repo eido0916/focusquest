@@ -5,6 +5,7 @@ import android.app.usage.UsageEvents
 import android.app.usage.UsageStatsManager
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Process
 import android.provider.Settings
@@ -27,6 +28,27 @@ class MainActivity: FlutterActivity() {
             .setMethodCallHandler { call, result ->
                 try {
                     when (call.method) {
+                        "guardPermissions" -> result.success(mapOf(
+                            "usage" to hasUsageAccess(),
+                            "overlay" to (Build.VERSION.SDK_INT < 23 || Settings.canDrawOverlays(this))))
+                        "requestOverlay" -> {
+                            if (Build.VERSION.SDK_INT >= 23) startActivity(Intent(
+                                Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName")))
+                            result.success(null)
+                        }
+                        "startGuard" -> {
+                            check(hasUsageAccess() && (Build.VERSION.SDK_INT < 23 || Settings.canDrawOverlays(this)))
+                            val intent = Intent(this, FocusGuardService::class.java)
+                                .putExtra("sessionId", call.argument<String>("id"))
+                                .putExtra("endsAt", call.argument<Number>("endsAt")!!.toLong())
+                            if (Build.VERSION.SDK_INT >= 26) startForegroundService(intent) else startService(intent)
+                            result.success(null)
+                        }
+                        "stopGuard" -> {
+                            stopService(Intent(this, FocusGuardService::class.java))
+                            getSharedPreferences("focus_guard", MODE_PRIVATE).edit().clear().apply()
+                            result.success(null)
+                        }
                         "hasAccess" -> result.success(hasUsageAccess())
                         "requestAccess" -> {
                             startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))

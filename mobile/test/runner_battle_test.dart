@@ -2,6 +2,23 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:focusquest/game/runner/battle_state_controller.dart';
 
 void main() {
+  test('bounded clock catch-up yields between frames and preserves replay', () {
+    final full = BattleStateController(durationSeconds: 120)..advanceTo(120);
+    final bounded = BattleStateController(durationSeconds: 120);
+    bounded.advanceTo(120, maxTicks: 120);
+    expect(bounded.elapsedSeconds,
+        closeTo(120 * BattleStateController.step, 1e-7));
+    expect(bounded.phase, isNot(BattlePhase.finished));
+    for (var i = 0; i < 60; i++) {
+      bounded.advanceTo(120, maxTicks: 120);
+    }
+    expect(bounded.phase, BattlePhase.finished);
+    expect(bounded.elapsedSeconds, full.elapsedSeconds);
+    expect(bounded.gainedExp, full.gainedExp);
+    expect(bounded.defeatedCount, full.defeatedCount);
+    expect(bounded.enemies.map((e) => e.x), full.enemies.map((e) => e.x));
+  });
+
   test('enemies enter from the right, die in one hit, award configured EXP',
       () {
     final state = BattleStateController(durationSeconds: 60);
@@ -59,12 +76,15 @@ void main() {
     expect(state.damageSerial, 0);
 
     state.advanceTo(11.9);
-    expect(state.damageSerial, 1);
+    // Area damage emits one event for each target, not one for the whole skill.
+    final impactEvents = state.damageSerial;
+    expect(impactEvents, greaterThan(0));
+    expect(state.enemies.where((e) => e.hp == 2).length, impactEvents);
     expect(state.lastDamage, 3);
     expect(state.enemies.first.hp, 2);
 
     state.advanceTo(13.2);
-    expect(state.damageSerial, 1);
+    expect(state.damageSerial, impactEvents);
     expect(state.isSkillPlaying, isFalse);
     state.advanceTo(20);
     expect(state.skillSerial, 2);
