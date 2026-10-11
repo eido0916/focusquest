@@ -5,7 +5,6 @@ import 'core/widgets/quest_widgets.dart';
 import 'features/character/presentation/character_screen.dart';
 import 'features/diagnosis/presentation/diagnosis_screen.dart';
 import 'features/focus/presentation/focus_screen.dart';
-import 'features/gacha/presentation/gacha_screen.dart';
 import 'features/home/home_screen.dart';
 import 'features/settings/settings_screen.dart';
 import 'features/adventure/presentation/adventure_screen.dart';
@@ -69,18 +68,19 @@ class _QuestShellState extends State<QuestShell> {
           onFocus: focus,
           onNavigate: (tab) => setState(() => _tab = tab)),
       CharacterScreen(controller: controller),
-      GachaScreen(controller: controller),
       SettingsScreen(controller: controller),
       AdventureScreen(controller: controller)
     ];
     return Scaffold(
         body: SafeArea(
-            child: QuestBackdrop(
-                dim: _tab == 0 ? 0 : (_tab == 2 ? .28 : .14),
-                child: Center(
-                    child: ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 640),
-                        child: pages[_tab])))),
+            child: _tab == 1
+                ? pages[_tab]
+                : QuestBackdrop(
+                    dim: _tab == 0 ? 0 : .14,
+                    child: Center(
+                        child: ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 640),
+                            child: pages[_tab])))),
         bottomNavigationBar: QuestNavigation(
             selected: _tab, onSelect: (tab) => setState(() => _tab = tab)));
   }

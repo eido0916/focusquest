@@ -1,8 +1,13 @@
 import 'run_slash_skill.dart';
+import 'archer_shot_timing.dart';
 import 'swordsman_normal_attack_sequence.dart';
+import 'boxer_normal_attack_sequence.dart';
+import 'boxer_front_kick_sequence.dart';
 import 'swordsman_sousen_timing.dart';
 
-enum SwordsmanSkill { sousen, runSlash }
+enum SwordsmanSkill { sousen, runSlash, frontKick }
+
+enum NormalAttackStyle { swordsman, boxer }
 
 enum BattlePhase {
   running,
@@ -34,6 +39,10 @@ class EnemyData {
 
 class RunnerConfig {
   const RunnerConfig({
+    this.normalAttackStyle = NormalAttackStyle.swordsman,
+    this.archerProjectiles = false,
+    this.normalAttackDurationSeconds,
+    this.normalAttackHitTimes,
     this.spawnSeconds = .85,
     this.attackSeconds = .55,
     this.enemySpeed = 230,
@@ -54,7 +63,21 @@ class RunnerConfig {
     this.autoSkill = SwordsmanSkill.sousen,
     this.enemies = const [EnemyData('slime'), EnemyData('goblin')],
   });
+  final bool archerProjectiles;
   final double spawnSeconds;
+  final NormalAttackStyle normalAttackStyle;
+  final double? normalAttackDurationSeconds;
+  final List<double>? normalAttackHitTimes;
+  List<double> get normalHitTimes =>
+      normalAttackHitTimes ??
+      (normalAttackStyle == NormalAttackStyle.boxer
+          ? BoxerNormalAttackSequence.hitTimes
+          : SwordsmanNormalAttackSequence.hitTimes);
+  double get normalAttackDuration =>
+      normalAttackDurationSeconds ??
+      (normalAttackStyle == NormalAttackStyle.boxer
+          ? BoxerNormalAttackSequence.duration
+          : SwordsmanNormalAttackSequence.duration);
   final double attackSeconds;
   final double enemySpeed;
   final int normalDamage;
@@ -95,13 +118,11 @@ class BattleResultData {
       {required this.elapsedTime,
       required this.defeatedCount,
       required this.gainedExp,
-      this.bossDefeatedCount = 0,
-      this.gachaCount = 0});
+      this.bossDefeatedCount = 0});
   final Duration elapsedTime;
   final int defeatedCount;
   final int gainedExp;
   final int bossDefeatedCount;
-  final int gachaCount;
 }
 
 /// Fixed-step, deterministic simulation. Rendering never awards player rewards.
@@ -153,12 +174,25 @@ class BattleStateController {
   double _skillTimer = 0;
   double attackAge = 1;
   double skillAge = 1;
+  double _boxerTravelSeconds = 0;
+  double get visualSkillAge =>
+      skillAge +
+      (_skillPlaying ? (elapsedSeconds - _ticks * step).clamp(0.0, step) : 0);
+  double get backgroundTravelSeconds =>
+      config.normalAttackStyle == NormalAttackStyle.boxer
+          ? _boxerTravelSeconds +
+              (elapsedSeconds - _ticks * step) *
+                  (_skillPlaying && activeSkill == SwordsmanSkill.frontKick
+                      ? BoxerFrontKickSequence.speedRatioAt(visualSkillAge)
+                      : 1)
+          : elapsedSeconds;
   bool _skillPlaying = false;
   bool _skillDamageApplied = false;
   bool _normalAttackPlaying = false;
   int _normalAttackHits = 0;
   SwordsmanSkill activeSkill = SwordsmanSkill.sousen;
   int _runSlashHits = 0;
+  final List<_ArcherFlight> _arrowFlights = [];
   final RunSlashSkill runSlashSkill = const RunSlashSkill();
   static const step = .05;
 
@@ -190,12 +224,17 @@ class BattleStateController {
   }
 
   String get skillName => (_skillPlaying ? activeSkill : config.autoSkill) ==
-          SwordsmanSkill.runSlash
-      ? '走り斬り'
-      : '蒼閃';
-  double get activeSkillDuration => activeSkill == SwordsmanSkill.runSlash
-      ? RunSlashSkill.duration
-      : config.sousenDurationSeconds;
+          SwordsmanSkill.frontKick
+      ? '前蹴り'
+      : (_skillPlaying ? activeSkill : config.autoSkill) ==
+              SwordsmanSkill.runSlash
+          ? '走り斬り'
+          : '蒼閃';
+  double get activeSkillDuration => activeSkill == SwordsmanSkill.frontKick
+      ? BoxerFrontKickSequence.duration
+      : activeSkill == SwordsmanSkill.runSlash
+          ? RunSlashSkill.duration
+          : config.sousenDurationSeconds;
   double get heroAdvanceOffset =>
       _skillPlaying && activeSkill == SwordsmanSkill.runSlash
           ? runSlashSkill.offsetAt(skillAge)
@@ -208,6 +247,9 @@ class BattleStateController {
 
   /// Returns false if another skill is playing or the focus session has ended.
   bool playRunSlashSkill() => _startSkill(SwordsmanSkill.runSlash);
+  bool playFrontKickSkill() =>
+      config.normalAttackStyle == NormalAttackStyle.boxer &&
+      _startSkill(SwordsmanSkill.frontKick);
 
   bool _startSkill(SwordsmanSkill skill) {
     if (_skillPlaying || phase == BattlePhase.finished) return false;
@@ -233,18 +275,30 @@ class BattleStateController {
           : _normalAttackPlaying
               ? HeroMotion.attack
               : HeroMotion.run;
-  void advanceTo(double seconds) {
+
+  /// maxTicks bounds UI work after a clock jump; omitted for full offline replay.
+  void advanceTo(double seconds, {int? maxTicks}) {
+    if (!seconds.isFinite || (maxTicks != null && maxTicks <= 0)) {
+      throw ArgumentError('Invalid battle clock or tick budget');
+    }
     final target = seconds.clamp(elapsedSeconds, durationSeconds).toDouble();
     final targetTicks = (target / step + 1e-7).floor();
-    while (_ticks < targetTicks) {
+    var processed = 0;
+    while (_ticks < targetTicks && (maxTicks == null || processed < maxTicks)) {
       _tick();
       _ticks++;
+      processed++;
     }
-    elapsedSeconds = target;
-    if (target >= durationSeconds) phase = BattlePhase.finished;
+    final caughtUp = _ticks >= targetTicks;
+    elapsedSeconds = caughtUp ? target : _ticks * step;
+    if (caughtUp && target >= durationSeconds) phase = BattlePhase.finished;
   }
 
   void _tick() {
+    _boxerTravelSeconds += step *
+        (_skillPlaying && activeSkill == SwordsmanSkill.frontKick
+            ? BoxerFrontKickSequence.speedRatioAt(skillAge + step / 2)
+            : 1);
     // Incoming enemies continue to arrive during Sousen's wind-up. Pause new
     // spawns only after impact so the simultaneous defeats remain readable.
     if (!_skillPlaying ||
@@ -300,13 +354,43 @@ class BattleStateController {
       _skillDamageApplied = true;
       final damage =
           (config.normalDamage * config.sousenDamageMultiplier).round();
+      if (config.archerProjectiles) {
+        _arrowFlights.add(_ArcherFlight(
+          launchedAt: (_ticks + 1) * step -
+              (skillAge - config.sousenDamageTimeSeconds).clamp(0.0, step),
+          speed: ArcherShotTiming.windSpeed,
+          startup: ArcherShotTiming.windStartup,
+          tipOffset: ArcherShotTiming.battleWindTipOffset,
+          maxHits: null,
+          damage: damage,
+          maxX: config.sousenAttackMaxX,
+        ));
+      }
       // One impact, one damage application per enemy in the forward area.
       // Bosses use the same HP path; do not force-kill high-HP enemies.
       for (final target in enemies) {
         if (target.phase == EnemyPhase.move &&
             target.x >= 345 &&
             target.x <= config.sousenAttackMaxX) {
-          _damage(target, damage);
+          if (!config.archerProjectiles) _damage(target, damage);
+        }
+      }
+    }
+
+    if (_skillPlaying &&
+        activeSkill == SwordsmanSkill.frontKick &&
+        !_skillDamageApplied &&
+        skillAge + 1e-7 >= BoxerFrontKickSequence.impactTime) {
+      // A miss also consumes the one impact; never damage every render frame.
+      _skillDamageApplied = true;
+      final area = BoxerFrontKickSequence.hitArea();
+      final damage =
+          (config.normalDamage * config.sousenDamageMultiplier).round();
+      for (final enemy in enemies) {
+        if (enemy.phase == EnemyPhase.move &&
+            enemy.x >= area.left &&
+            enemy.x <= area.right) {
+          _damage(enemy, damage);
         }
       }
     }
@@ -332,15 +416,28 @@ class BattleStateController {
     }
 
     if (!_skillPlaying && _normalAttackPlaying) {
-      final hitTimes = SwordsmanNormalAttackSequence.hitTimes;
+      final hitTimes = config.normalHitTimes;
       while (_normalAttackHits < hitTimes.length &&
           attackAge + 1e-7 >= hitTimes[_normalAttackHits]) {
         _normalAttackHits++;
-        final target = _closestAttackableEnemy(
-            maxX: config.enemyStopX + config.normalAttackReach);
-        if (target != null) _damage(target, config.normalDamage);
+        if (config.archerProjectiles) {
+          _arrowFlights.add(_ArcherFlight(
+            launchedAt: (_ticks + 1) * step -
+                (attackAge - hitTimes[_normalAttackHits - 1]).clamp(0.0, step),
+            speed: ArcherShotTiming.normalSpeed,
+            startup: 0,
+            tipOffset: 0,
+            maxHits: 2,
+            damage: config.normalDamage,
+            maxX: config.sousenAttackMaxX,
+          ));
+        } else {
+          final target = _closestAttackableEnemy(
+              maxX: config.enemyStopX + config.normalAttackReach);
+          if (target != null) _damage(target, config.normalDamage);
+        }
       }
-      if (attackAge + 1e-7 >= SwordsmanNormalAttackSequence.duration) {
+      if (attackAge + 1e-7 >= config.normalAttackDuration) {
         _normalAttackPlaying = false;
       }
     }
@@ -351,12 +448,46 @@ class BattleStateController {
         _closestAttackableEnemy(maxX: config.enemyStopX + 10) != null) {
       playNormalAttack();
     }
+    _advanceArcherFlights((_ticks + 1) * step);
     enemies.removeWhere((enemy) => enemy.hitAge > .5);
     phase = _skillPlaying
         ? BattlePhase.skill
         : _normalAttackPlaying
             ? BattlePhase.normalBattle
             : BattlePhase.running;
+  }
+
+  void _advanceArcherFlights(double now) {
+    for (final arrow in _arrowFlights) {
+      final flightAge =
+          (now - arrow.launchedAt - arrow.startup).clamp(0.0, double.infinity);
+      final tip = ArcherShotTiming.battleMuzzleX +
+          arrow.tipOffset +
+          arrow.speed * flightAge;
+      // Sort by current distance: a penetrating shot hits the nearest two,
+      // even if enemy insertion order differs. Moving foes cross the swept path.
+      final targets = enemies
+          .where((e) =>
+              e.phase == EnemyPhase.move &&
+              !arrow.hitIds.contains(e.id) &&
+              e.x >= ArcherShotTiming.battleMuzzleX &&
+              e.x <= arrow.maxX &&
+              e.x <= tip &&
+              e.x + config.enemySpeed * step >= arrow.previousTip)
+          .toList()
+        ..sort((a, b) => a.x.compareTo(b.x));
+      for (final enemy in targets) {
+        if (arrow.maxHits != null && arrow.hitIds.length >= arrow.maxHits!) {
+          break;
+        }
+        arrow.hitIds.add(enemy.id);
+        _damage(enemy, arrow.damage);
+      }
+      arrow.previousTip = tip;
+    }
+    _arrowFlights.removeWhere((a) =>
+        a.previousTip > a.maxX + 320 ||
+        (a.maxHits != null && a.hitIds.length >= a.maxHits!));
   }
 
   RunnerEnemy? _closestAttackableEnemy({required double maxX}) {
@@ -388,4 +519,20 @@ class BattleStateController {
       elapsedTime: Duration(milliseconds: (elapsedSeconds * 1000).round()),
       defeatedCount: defeatedCount,
       gainedExp: gainedExp);
+}
+
+class _ArcherFlight {
+  _ArcherFlight(
+      {required this.launchedAt,
+      required this.speed,
+      required this.startup,
+      required this.tipOffset,
+      required this.maxHits,
+      required this.damage,
+      required this.maxX});
+  final double launchedAt, speed, startup, tipOffset, maxX;
+  final int? maxHits;
+  final int damage;
+  final Set<int> hitIds = {};
+  double previousTip = ArcherShotTiming.battleMuzzleX;
 }

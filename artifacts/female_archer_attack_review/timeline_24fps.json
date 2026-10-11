@@ -1,0 +1,496 @@
+[
+  {
+    "tick": 0,
+    "frame": 1,
+    "path": "24fps/tick_000.png",
+    "rgbaSha256": "80b084276321c75d8caf5a820642736e1edf03b8fe68d73a0e9094fd85a0fb08",
+    "phase": "run",
+    "worldPosition": [
+      0.0,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 1,
+    "frame": 2,
+    "path": "24fps/tick_001.png",
+    "rgbaSha256": "19a1f3e1ea1f02488c032875c5cfeca35e51ed9e8d1932b11426f988f57b88b7",
+    "phase": "run",
+    "worldPosition": [
+      5.0,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 2,
+    "frame": 3,
+    "path": "24fps/tick_002.png",
+    "rgbaSha256": "76e24314b604a737947d09bbd359f166a0a51fae80c6677bc628dcd96f7c5a96",
+    "phase": "run",
+    "worldPosition": [
+      10.0,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 3,
+    "frame": 5,
+    "path": "24fps/tick_003.png",
+    "rgbaSha256": "ae9c766a72e3a4065398395b262309384e7e7e1b34f7e4adde45d5df1c3f3056",
+    "phase": "run",
+    "worldPosition": [
+      15.0,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 4,
+    "frame": 6,
+    "path": "24fps/tick_004.png",
+    "rgbaSha256": "8d6a93c2869f57d325d9113d6d499b1e7f0d2bfe0b4f916d6ba3f18f7f66d3a2",
+    "phase": "prepare",
+    "worldPosition": [
+      20.0,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 5,
+    "frame": 6,
+    "path": "24fps/tick_005.png",
+    "rgbaSha256": "8d6a93c2869f57d325d9113d6d499b1e7f0d2bfe0b4f916d6ba3f18f7f66d3a2",
+    "phase": "prepare",
+    "worldPosition": [
+      23.25,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 6,
+    "frame": 7,
+    "path": "24fps/tick_006.png",
+    "rgbaSha256": "a2b2651fba662523e4647f4896959556009132bb4e0ced5ccb1a25eb0ca60743",
+    "phase": "prepare",
+    "worldPosition": [
+      26.5,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 7,
+    "frame": 7,
+    "path": "24fps/tick_007.png",
+    "rgbaSha256": "a2b2651fba662523e4647f4896959556009132bb4e0ced5ccb1a25eb0ca60743",
+    "phase": "prepare",
+    "worldPosition": [
+      29.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 8,
+    "frame": 8,
+    "path": "24fps/tick_008.png",
+    "rgbaSha256": "e712194db54745bc0aba828e169625929ef4d2cebd80837a1360b0cdb5df2180",
+    "phase": "nock",
+    "worldPosition": [
+      33.0,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 9,
+    "frame": 8,
+    "path": "24fps/tick_009.png",
+    "rgbaSha256": "e712194db54745bc0aba828e169625929ef4d2cebd80837a1360b0cdb5df2180",
+    "phase": "nock",
+    "worldPosition": [
+      35.0,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 10,
+    "frame": 9,
+    "path": "24fps/tick_010.png",
+    "rgbaSha256": "7c06088a6ac37d7cee791e2609561599d2978ad2af4c01403b20aa84a0186835",
+    "phase": "draw",
+    "worldPosition": [
+      37.0,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 11,
+    "frame": 9,
+    "path": "24fps/tick_011.png",
+    "rgbaSha256": "7c06088a6ac37d7cee791e2609561599d2978ad2af4c01403b20aa84a0186835",
+    "phase": "draw",
+    "worldPosition": [
+      37.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 12,
+    "frame": 10,
+    "path": "24fps/tick_012.png",
+    "rgbaSha256": "fcada0fe829cc320368248bce1dad640f8be54e9d2e96dc8a2c70f59482ecdda",
+    "phase": "draw",
+    "worldPosition": [
+      38.5,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 13,
+    "frame": 10,
+    "path": "24fps/tick_013.png",
+    "rgbaSha256": "fcada0fe829cc320368248bce1dad640f8be54e9d2e96dc8a2c70f59482ecdda",
+    "phase": "draw",
+    "worldPosition": [
+      39.25,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 14,
+    "frame": 13,
+    "path": "24fps/tick_014.png",
+    "rgbaSha256": "ad36533b8496a5a833bba9f00e22461d21f19a8e8d9d9d822d1a5152ffc400d3",
+    "phase": "draw",
+    "worldPosition": [
+      40.0,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 15,
+    "frame": 13,
+    "path": "24fps/tick_015.png",
+    "rgbaSha256": "ad36533b8496a5a833bba9f00e22461d21f19a8e8d9d9d822d1a5152ffc400d3",
+    "phase": "draw",
+    "worldPosition": [
+      40.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 16,
+    "frame": 14,
+    "path": "24fps/tick_016.png",
+    "rgbaSha256": "998dc452714d93bce61cf1a31792151a5af95db2066f3a429b6a07be3aa47cb2",
+    "phase": "draw",
+    "worldPosition": [
+      41.5,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 17,
+    "frame": 14,
+    "path": "24fps/tick_017.png",
+    "rgbaSha256": "998dc452714d93bce61cf1a31792151a5af95db2066f3a429b6a07be3aa47cb2",
+    "phase": "draw",
+    "worldPosition": [
+      42.25,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 18,
+    "frame": 21,
+    "path": "24fps/tick_018.png",
+    "rgbaSha256": "c7cbc967c79e099dc780ee27c648f28725f49126e7622fadd192a9ad41bba8e1",
+    "phase": "draw",
+    "worldPosition": [
+      43.0,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 19,
+    "frame": 21,
+    "path": "24fps/tick_019.png",
+    "rgbaSha256": "c7cbc967c79e099dc780ee27c648f28725f49126e7622fadd192a9ad41bba8e1",
+    "phase": "draw",
+    "worldPosition": [
+      43.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 20,
+    "frame": 21,
+    "path": "24fps/tick_020.png",
+    "rgbaSha256": "c7cbc967c79e099dc780ee27c648f28725f49126e7622fadd192a9ad41bba8e1",
+    "phase": "draw",
+    "worldPosition": [
+      44.5,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 21,
+    "frame": 22,
+    "path": "24fps/tick_021.png",
+    "rgbaSha256": "ceb9e4f7445d66a3e1ef822f0aea3d03204d8a717cf31a82a46afe267ee373fc",
+    "phase": "release",
+    "worldPosition": [
+      45.25,
+      0
+    ],
+    "events": [
+      "spawn_arrow"
+    ]
+  },
+  {
+    "tick": 22,
+    "frame": 24,
+    "path": "24fps/tick_022.png",
+    "rgbaSha256": "b758521812b9142bca1b88b0d5603c19c839ee38c00051ec8c8c879c01f0bda6",
+    "phase": "recoil",
+    "worldPosition": [
+      46.0,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 23,
+    "frame": 25,
+    "path": "24fps/tick_023.png",
+    "rgbaSha256": "fd5b4ed6db6a89f636041c3f9b510b5800c2594e08ac752e9fed5a7c9ccd5951",
+    "phase": "recover",
+    "worldPosition": [
+      47.0,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 24,
+    "frame": 26,
+    "path": "24fps/tick_024.png",
+    "rgbaSha256": "7e9a7ba8d0db3cc32d567014e95f30fb6772aea691004596ed98be8bdfbf40b6",
+    "phase": "recover",
+    "worldPosition": [
+      49.25,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 25,
+    "frame": 27,
+    "path": "24fps/tick_025.png",
+    "rgbaSha256": "3cef526c48f2f74c35c95a41d7a4577b649ff0eada3e9a86177fa76c0214224b",
+    "phase": "recover",
+    "worldPosition": [
+      51.5,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 26,
+    "frame": 29,
+    "path": "24fps/tick_026.png",
+    "rgbaSha256": "f276f09b66df15b5d90955314321b9dedcfc284acdfe3cfe8259dfb912f5ddab",
+    "phase": "accelerate",
+    "worldPosition": [
+      53.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 27,
+    "frame": 30,
+    "path": "24fps/tick_027.png",
+    "rgbaSha256": "f1932c86206c97d68ba98ccaac0b1306e6f72118cc9db4f726e62d90ce7b534c",
+    "phase": "accelerate",
+    "worldPosition": [
+      57.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 28,
+    "frame": 31,
+    "path": "24fps/tick_028.png",
+    "rgbaSha256": "f568826b72b8250ce9a02c2ec51dbfeeabd90b0eccb148943003deefec471d9a",
+    "phase": "accelerate",
+    "worldPosition": [
+      61.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 29,
+    "frame": 32,
+    "path": "24fps/tick_029.png",
+    "rgbaSha256": "706d5c3d9a117c7394b6bcd6193bd6c2cb287e034b540cd710e8962c4c9d8fad",
+    "phase": "run",
+    "worldPosition": [
+      65.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 30,
+    "frame": 33,
+    "path": "24fps/tick_030.png",
+    "rgbaSha256": "722915c883cb9eaa7f4012db6f785f37671fa184f8a77a484e8de4c716b8dd19",
+    "phase": "run",
+    "worldPosition": [
+      70.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 31,
+    "frame": 34,
+    "path": "24fps/tick_031.png",
+    "rgbaSha256": "27f576d5627b65342b5bdd7c8a18a8f92add382f4db34057b5df5a0e9b904d11",
+    "phase": "run",
+    "worldPosition": [
+      75.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 32,
+    "frame": 35,
+    "path": "24fps/tick_032.png",
+    "rgbaSha256": "2f89e75958844c3fdee8b1c525d049f9cfe1cdea128bd1e9b34ad78ebdb5a658",
+    "phase": "run",
+    "worldPosition": [
+      80.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 33,
+    "frame": 36,
+    "path": "24fps/tick_033.png",
+    "rgbaSha256": "564010653648712687d49f8d4fc01bb7718786ea4f9def26c957b0ff79eed526",
+    "phase": "run",
+    "worldPosition": [
+      85.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 34,
+    "frame": 37,
+    "path": "24fps/tick_034.png",
+    "rgbaSha256": "f89c1c8c7a16e60cbfbad168528bc03fa8bf0b0c91679143a4d0e11639b46ad7",
+    "phase": "run",
+    "worldPosition": [
+      90.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 35,
+    "frame": 39,
+    "path": "24fps/tick_035.png",
+    "rgbaSha256": "1b3527ff8d03c2fb17e4e7b54f8e6f5e572a7a79d40dbb7eac413da190590c9b",
+    "phase": "run",
+    "worldPosition": [
+      95.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 36,
+    "frame": 40,
+    "path": "24fps/tick_036.png",
+    "rgbaSha256": "4816e9417345b00536f2ef0f9ef0d0b714426605162b8ca10a1deda6974c2052",
+    "phase": "run",
+    "worldPosition": [
+      100.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 37,
+    "frame": 41,
+    "path": "24fps/tick_037.png",
+    "rgbaSha256": "81e78aebe9e54c4ff4ddbc4feaf89c8c1f9a9007764beeb2f88f7dd8b4938b6d",
+    "phase": "run",
+    "worldPosition": [
+      105.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 38,
+    "frame": 42,
+    "path": "24fps/tick_038.png",
+    "rgbaSha256": "7a264e24d49dd9161b6396531c4fa30816d2d224477b21215faa16999c049a7f",
+    "phase": "run",
+    "worldPosition": [
+      110.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 39,
+    "frame": 44,
+    "path": "24fps/tick_039.png",
+    "rgbaSha256": "c6f814e84e72d47d34a81323b8622cc7d6894dd06887e6aac9c13707b7cc2179",
+    "phase": "run",
+    "worldPosition": [
+      115.75,
+      0
+    ],
+    "events": []
+  },
+  {
+    "tick": 40,
+    "frame": 45,
+    "path": "24fps/tick_040.png",
+    "rgbaSha256": "0c93b8e4189c0226725f28a355dec492932f8c27ed8e611013efc8fd2ed70bbd",
+    "phase": "run",
+    "worldPosition": [
+      120.75,
+      0
+    ],
+    "events": []
+  }
+]

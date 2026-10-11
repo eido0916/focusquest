@@ -1,9 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../core/game_controller.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/quest_widgets.dart';
-import '../focus/data/usage_monitor.dart';
+
 import '../focus/domain/focus_session.dart';
+import 'developer_character_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key, required this.controller});
@@ -15,7 +17,7 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen>
     with WidgetsBindingObserver {
   bool _access = false;
-  List<InstalledApp> _apps = [];
+  bool _overlayAccess = false;
   String? _error;
   @override
   void initState() {
@@ -38,17 +40,36 @@ class _SettingsScreenState extends State<SettingsScreen>
   Future<void> _refresh() async {
     try {
       final access = await widget.controller.monitor.hasAccess();
-      final apps = await widget.controller.monitor.apps();
+      final permissions = await widget.controller.monitor.guardPermissions();
       if (mounted) {
         setState(() {
           _access = access;
-          _apps = apps;
+          _overlayAccess = permissions?['overlay'] == true;
           _error = null;
         });
       }
     } catch (_) {
       if (mounted) setState(() => _error = '使用状況の確認はAndroid端末で利用できます。');
     }
+  }
+
+  Future<void> _resetForDevelopment() async {
+    final confirmed = await showDialog<bool>(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: const Text('アプリをリセットしますか？'),
+              content: const Text('キャラクター・進行・集中履歴・アプリ内設定を初期化し、最初の役職決めに戻ります。'),
+              actions: [
+                TextButton(
+                    onPressed: () => Navigator.pop(context, false),
+                    child: const Text('キャンセル')),
+                FilledButton(
+                    onPressed: () => Navigator.pop(context, true),
+                    child: const Text('リセットする')),
+              ],
+            ));
+    if (!mounted || confirmed != true) return;
+    await runAction(context, widget.controller.resetForDevelopment);
   }
 
   @override
@@ -78,59 +99,32 @@ class _SettingsScreenState extends State<SettingsScreen>
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     const Text(
-                        '選んだアプリが集中中に開かれたかを端末内だけで確認します。許可しなくてもタイマーは使えます。'),
+                        '集中開始後、Focus Quest以外のアプリを開くと警告します。ホーム画面・ロック画面は対象外です。'),
                     const SizedBox(height: 10),
+                    const Text(
+                        '警告には「Focus Questに戻る」と「1分だけ使用する」を表示します。1分の許可はそのアプリだけに適用され、時間が切れると再び警告します。集中タイマーは止まりません。'),
                     if (_error != null)
                       Text(_error!, style: const TextStyle(color: Colors.red)),
-                    Row(children: [
-                      Expanded(
-                          child:
-                              Text('使用状況へのアクセス：${_access ? '許可済み' : '未許可'}')),
-                      OutlinedButton(
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: const Text('使用状況へのアクセス'),
+                      subtitle: Text(_access ? '許可済み' : '未許可'),
+                      trailing: OutlinedButton(
                           onPressed: () => runAction(
                               context, controller.monitor.requestAccess),
                           child: const Text('設定を開く')),
-                    ]),
-                    SwitchListTile(
-                      contentPadding: EdgeInsets.zero,
-                      title: const Text('対象アプリの使用を確認'),
-                      subtitle: const Text('集中中に選択アプリを開くと未達成になります'),
-                      value: state.monitoring,
-                      onChanged:
-                          controller.busy || controller.activeFocus != null
-                              ? null
-                              : (enabled) => runAction(context, () async {
-                                    if (enabled && !_access) {
-                                      throw StateError(
-                                          '先にAndroid設定でアクセスを許可してください。');
-                                    }
-                                    await controller.configureMonitoring(
-                                        enabled, state.targetPackages);
-                                  }),
                     ),
-                    for (final app in _apps)
-                      CheckboxListTile(
-                        contentPadding: EdgeInsets.zero,
-                        dense: true,
-                        title: Text(app.name),
-                        value: state.targetPackages.contains(app.package),
-                        onChanged: controller.busy ||
-                                controller.activeFocus != null
-                            ? null
-                            : (selected) => runAction(context, () async {
-                                  final packages = {...state.targetPackages};
-                                  if (selected == true) {
-                                    packages.add(app.package);
-                                  } else {
-                                    packages.remove(app.package);
-                                  }
-                                  await controller.configureMonitoring(
-                                      packages.isEmpty
-                                          ? false
-                                          : state.monitoring,
-                                      packages.toList());
-                                }),
-                      ),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: const Text('他のアプリの上に表示'),
+                      subtitle: Text(_overlayAccess ? '許可済み' : '未許可'),
+                      trailing: OutlinedButton(
+                          onPressed: () => runAction(
+                              context, controller.monitor.requestOverlay),
+                          child: const Text('設定を開く')),
+                    ),
+                    const Text(
+                        '使用状況は端末内だけで確認します。警告や1分の使用だけで集中が未達成になることはありません。'),
                   ])),
           const _Section(
               title: 'サウンド設定',
@@ -158,6 +152,32 @@ class _SettingsScreenState extends State<SettingsScreen>
                     label: 'クラウド同期',
                     value: '今後追加予定'),
               ])),
+          // Temporary developer tools; remove with their controller methods.
+          if (kDebugMode)
+            _Section(
+                title: '開発者用（仮設）',
+                icon: Icons.developer_mode_rounded,
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      OutlinedButton.icon(
+                          onPressed: controller.busy
+                              ? null
+                              : () => Navigator.of(context).push(
+                                  MaterialPageRoute<void>(
+                                      builder: (_) => DeveloperCharacterScreen(
+                                          controller: controller))),
+                          icon: const Icon(Icons.manage_accounts_rounded),
+                          label: const Text('職業・性別を選択')),
+                      const SizedBox(height: 12),
+                      const Text('保存データを初期化して、最初の役職決めからやり直します。'),
+                      const SizedBox(height: 12),
+                      OutlinedButton.icon(
+                          onPressed:
+                              controller.busy ? null : _resetForDevelopment,
+                          icon: const Icon(Icons.restart_alt_rounded),
+                          label: const Text('アプリをリセット')),
+                    ])),
           _Section(
               title: '集中履歴',
               icon: Icons.history_rounded,

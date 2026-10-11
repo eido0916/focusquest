@@ -8,7 +8,7 @@ import 'package:focusquest/data/game_catalog.dart';
 import 'support/memory_repository.dart';
 
 void main() {
-  testWidgets('phone UI: focus EXP -> adventure reward -> summon -> inventory',
+  testWidgets('phone UI: focus EXP -> adventure reward -> equipment',
       (tester) async {
     tester.view.physicalSize = const Size(390, 844);
     tester.view.devicePixelRatio = 1;
@@ -21,6 +21,12 @@ void main() {
     await controller.onboard(GameCatalog.types[3]!);
     await tester.pumpWidget(FocusQuestApp(controller: controller));
     await tester.pumpAndSettle();
+    final navigation = find.byType(QuestNavigation);
+    for (final label in ['ホーム', 'キャラクター', '設定', '冒険']) {
+      expect(find.descendant(of: navigation, matching: find.text(label)),
+          findsOneWidget);
+    }
+    expect(find.text('召喚'), findsNothing);
     await tester.ensureVisible(find.text('集中をはじめる'));
     await tester.tap(find.text('集中をはじめる'));
     await tester.pumpAndSettle();
@@ -50,8 +56,8 @@ void main() {
     await tester.pumpAndSettle();
     await tester.pageBack();
     await tester.pumpAndSettle();
-    await tester.tap(find.descendant(
-        of: find.byType(QuestNavigation), matching: find.text('冒険')));
+    await tester.ensureVisible(find.text('冒険に出発する'));
+    await tester.tap(find.text('冒険に出発する'));
     await tester.pumpAndSettle();
     await tester.ensureVisible(find.text('冒険に出発する').first);
     await tester.tap(find.text('冒険に出発する').first);
@@ -65,16 +71,9 @@ void main() {
     await tester.ensureVisible(find.text('冒険の書へ戻る'));
     await tester.tap(find.text('冒険の書へ戻る'));
     await tester.pumpAndSettle();
-    await tester.tap(find.descendant(
-        of: find.byType(QuestNavigation), matching: find.text('召喚')));
-    await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('1回召喚 • 100ポイント'));
-    await tester.tap(find.text('1回召喚 • 100ポイント'));
-    await tester.pump();
-    await tester.pump(const Duration(seconds: 1));
-    await tester.pumpAndSettle();
-    expect(controller.state!.gachaHistory, hasLength(1));
-    expect(find.text('召喚結果'), findsOneWidget);
+    expect(find.text('召喚'), findsNothing);
+    expect(controller.state!.coins, 100);
+    expect(controller.state!.inventory['wooden_sword'], 1);
     await tester.tap(find.text('キャラクター'));
     await tester.pumpAndSettle();
     expect(find.text('所持アイテム'), findsOneWidget);

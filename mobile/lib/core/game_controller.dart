@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 import 'package:flutter/foundation.dart';
 import '../data/game_catalog.dart';
@@ -11,15 +12,85 @@ import '../features/focus/domain/focus_ledger.dart';
 import '../features/focus/domain/focus_service.dart';
 import '../features/focus/domain/focus_session.dart';
 import '../features/focus/domain/reward_service.dart';
-import '../features/gacha/domain/gacha_service.dart';
 import '../features/adventure/domain/adventure.dart';
+import '../features/party/data/party_connection.dart';
+import '../features/party/domain/party_member.dart';
 
 class GameController extends ChangeNotifier {
   GameController(this.repository,
       {UsageMonitor? monitor, DateTime Function()? clock, Random? random})
       : monitor = monitor ?? UsageMonitor(),
         clock = clock ?? DateTime.now,
-        random = random ?? Random.secure();
+        random = random ?? Random.secure() {
+    party.addListener(_partyChanged);
+  }
+  final PartyConnection party = PartyConnection();
+  String? _handledPartySession;
+  bool _joiningFocus = false;
+  String? partyStartError;
+  PartyMember get partyIdentity {
+    final hero = state!.activeCharacter!;
+    return PartyMember(
+        id: '',
+        name: hero.name,
+        characterType: hero.characterType,
+        appearance: hero.appearance,
+        level: hero.level);
+  }
+
+  Future<void> prepareParty(bool ready) async {
+    if (ready) {
+      if (activeFocus != null || state!.adventureRun != null || busy) {
+        throw StateError('集中・冒険・保存が終わってから準備してください。');
+      }
+      final permissions = await monitor.guardPermissions();
+      if (permissions != null &&
+          permissions.values.any((allowed) => !allowed)) {
+        throw StateError('アプリ警告に必要な権限を設定してから準備してください。');
+      }
+    }
+    party.setReady(ready);
+  }
+
+  void _partyChanged() {
+    notifyListeners();
+    final session = party.session;
+    if (session == null ||
+        _joiningFocus ||
+        session['id'] == _handledPartySession) return;
+    _joiningFocus = true;
+    _handledPartySession = session['id'] as String;
+    unawaited(_beginPartyFocus(session));
+  }
+
+  Future<void> _beginPartyFocus(Map<String, dynamic> remote) async {
+    try {
+      partyStartError = null;
+      if (activeFocus != null) throw StateError('すでに集中中です。');
+      await startFocus(remote['minutes'] as int,
+          partySessionId: remote['id'] as String,
+          startedAt: DateTime.parse(remote['startedAt'] as String),
+          members: (remote['members'] as List)
+              .map((m) =>
+                  PartyMember.fromJson(Map<String, dynamic>.from(m as Map)))
+              .toList());
+      party.report('focusing');
+    } catch (_) {
+      partyStartError = 'パーティーの集中を開始できませんでした。保存状態・使用状況の権限を確認してください。';
+      party.report('cannotStart');
+    } finally {
+      _joiningFocus = false;
+      notifyListeners();
+    }
+  }
+
+  @override
+  void dispose() {
+    party.removeListener(_partyChanged);
+    party.dispose();
+    super.dispose();
+  }
+
   final PlayerRepository repository;
   final UsageMonitor monitor;
   final DateTime Function() clock;
@@ -44,6 +115,20 @@ class GameController extends ChangeNotifier {
     } catch (_) {
       startupError = '保存データを読み込めませんでした。データを保持したまま再試行できます。';
     }
+    try {
+      final session = activeFocus;
+      if (session != null && session.remaining(clock()) > Duration.zero) {
+        final permissions = await monitor.guardPermissions();
+        if (permissions == null ||
+            permissions.values.every((allowed) => allowed)) {
+          await monitor.startGuard(session.deviceClockSession);
+        }
+      } else {
+        await monitor.stopGuard();
+      }
+    } catch (_) {
+      // A service restart failure must not prevent access to saved progress.
+    }
     notifyListeners();
   }
 
@@ -63,6 +148,39 @@ class GameController extends ChangeNotifier {
     state = await repository.transact(uid, change);
   }
 
+  // Temporary developer tool; remove together with the settings reset section.
+  Future<void> resetForDevelopment() => _action(() async {
+        await _save((s) => PlayerState(uid: s.uid));
+        await monitor.stopGuard();
+      });
+
+  // Temporary developer tool; remove with the developer character screen.
+  Future<void> setCharacterForDevelopment(String typeId, String appearance) =>
+      _action(() => _save((s) {
+            if (activeFocus != null || s.adventureRun != null) {
+              throw StateError('集中・冒険が終わってから変更してください。');
+            }
+            final type = GameCatalog.types.values
+                .where((type) => type.typeId == typeId)
+                .firstOrNull;
+            if (type == null || !['male', 'female'].contains(appearance)) {
+              throw ArgumentError('職業と性別を選択してください。');
+            }
+            final hero = s.activeCharacter;
+            if (hero == null) throw StateError('キャラクターが見つかりません。');
+            final changed = Character(
+                id: hero.id,
+                name: hero.name,
+                characterType: type.typeId,
+                appearance: appearance,
+                baseStats: type.stats,
+                rarity: hero.rarity,
+                level: hero.level,
+                currentExp: hero.currentExp,
+                equippedItems: hero.equippedItems);
+            return s.copyWith(characters: {...s.characters, hero.id: changed});
+          }));
+
   Future<void> onboard(PersonalityType type,
           {String? name, String appearance = 'male'}) =>
       _action(() => _save((s) {
@@ -78,28 +196,53 @@ class GameController extends ChangeNotifier {
                 activeCharacterId: hero.id,
                 characters: {hero.id: hero});
           }));
-  Future<void> startFocus(int minutes) => _action(() async {
+  Future<void> startFocus(int minutes,
+          {String? partySessionId,
+          DateTime? startedAt,
+          List<PartyMember> members = const []}) =>
+      _action(() async {
         final s = state!;
         if (s.adventureRun != null) throw StateError('冒険の結果を確認してから集中できます。');
-        if (s.monitoring && !await monitor.hasAccess()) {
-          throw StateError('使用状況へのアクセスを許可するか、タイマーのみを選んでください。');
+        final permissions = await monitor.guardPermissions();
+        if (permissions != null &&
+            permissions.values.any((allowed) => !allowed)) {
+          throw StateError('アプリ警告には使用状況へのアクセスと他のアプリの上に表示の許可が必要です。');
         }
-        final session = FocusService().start(
-            id: _id(),
-            now: clock(),
-            minutes: minutes,
-            monitored: s.monitoring,
-            targetPackages: s.targetPackages);
-        await _save((s) => FocusLedger().begin(s, session));
+        final basic = FocusService().start(
+            id: partySessionId ?? _id(),
+            now: startedAt ?? clock(),
+            minutes: minutes);
+        final session = FocusSession(
+            id: basic.id,
+            startedAt: basic.startedAt,
+            durationMinutes: basic.durationMinutes,
+            verification: basic.verification,
+            targetPackages: basic.targetPackages,
+            partyMembers: List.unmodifiable(members),
+            partyClockOffsetMs:
+                members.isEmpty ? 0 : party.clockOffset.inMilliseconds);
+        if (activeFocus != null) throw StateError('集中セッションはすでに開始されています。');
+        await monitor.startGuard(session.deviceClockSession);
+        try {
+          await _save((s) => FocusLedger().begin(s, session));
+        } catch (_) {
+          await monitor.stopGuard();
+          rethrow;
+        }
       });
   Future<FocusSession?> finishFocus({bool cancel = false}) => _action(() async {
         final session = activeFocus;
         if (session == null) return null;
-        final now = clock();
+        final now = session.focusNow(clock());
+        if (!cancel &&
+            session.partyMembers.isNotEmpty &&
+            now.isBefore(session.startedAt)) {
+          return null;
+        }
         var result = FocusStatus.cancelled;
         if (!cancel) {
           final evidence = session.verification == FocusVerification.usageStats
-              ? await monitor.evidence(session, now)
+              ? await monitor.evidence(session.deviceClockSession, clock())
               : const UsageEvidence(available: false, targetUsed: false);
           result = FocusService().evaluate(session, now,
               usageEvidenceAvailable: evidence.available,
@@ -109,55 +252,9 @@ class GameController extends ChangeNotifier {
         final finished = session.finish(result);
         final reward = RewardService(random).focus(finished);
         await _save((s) => FocusLedger().settle(s, session.id, result, reward));
+        await monitor.stopGuard();
+        if (session.partyMembers.isNotEmpty) party.report(result.name);
         return finished;
-      });
-  Future<GachaResult> summon(int count) => _action(() async {
-        final id = _id();
-        final result = GachaService(random: random, pool: GameCatalog.gachaPool)
-            .draw(count: count, balance: state!.coins);
-        await _save((s) {
-          if (s.appliedOperations.contains('gacha:$id')) return s;
-          if (s.coins < result.cost) throw StateError('ポイントが足りません。');
-          final inventory = {...s.inventory};
-          final characters = {...s.characters};
-          for (var i = 0; i < result.prizes.length; i++) {
-            final prize = result.prizes[i];
-            if (prize.kind == GachaPrizeKind.equipment) {
-              inventory[prize.id] = (inventory[prize.id] ?? 0) + 1;
-            } else {
-              final type = GameCatalog.types.values
-                  .firstWhere((t) => t.typeId == prize.id);
-              final characterId = '$id-$i';
-              characters[characterId] = Character(
-                  id: characterId,
-                  name: prize.name,
-                  characterType: type.typeId,
-                  baseStats: type.stats,
-                  rarity: prize.rarity);
-            }
-          }
-          return s.copyWith(
-              coins: s.coins - result.cost,
-              inventory: inventory,
-              characters: characters,
-              gachaHistory: [
-                ...s.gachaHistory,
-                {
-                  'id': id,
-                  'at': clock().toIso8601String(),
-                  'cost': result.cost,
-                  'prizes': result.prizes
-                      .map((p) =>
-                          {'id': p.id, 'name': p.name, 'rarity': p.rarity})
-                      .toList()
-                }
-              ],
-              appliedOperations: {
-                ...s.appliedOperations,
-                'gacha:$id'
-              });
-        });
-        return result;
       });
   Future<void> equip(String itemId) => _action(() => _save((s) {
         if (s.adventureRun != null) throw StateError('冒険の終了後に装備を変更できます。');
@@ -217,6 +314,8 @@ class GameController extends ChangeNotifier {
                   id: id,
                   stageId: stageId,
                   heroName: hero.name,
+                  characterType: hero.characterType,
+                  appearance: hero.appearance,
                   seed: seed,
                   startedAt: startedAt,
                   stats:

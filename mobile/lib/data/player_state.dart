@@ -10,7 +10,6 @@ class PlayerState {
       this.activeCharacterId,
       this.monitoring = false,
       this.targetPackages = const [],
-      this.gachaHistory = const [],
       Set<String> clearedStages = const {},
       this.adventureRun,
       this.lastAdventure,
@@ -29,7 +28,6 @@ class PlayerState {
   final String? activeCharacterId;
   final bool monitoring;
   final List<String> targetPackages;
-  final List<Map<String, dynamic>> gachaHistory;
   final Map<String, Character> characters;
   final Map<String, int> inventory;
   final Map<String, FocusSession> sessions;
@@ -45,7 +43,6 @@ class PlayerState {
           String? activeCharacterId,
           bool? monitoring,
           List<String>? targetPackages,
-          List<Map<String, dynamic>>? gachaHistory,
           Map<String, Character>? characters,
           Map<String, int>? inventory,
           Map<String, FocusSession>? sessions,
@@ -61,7 +58,6 @@ class PlayerState {
           activeCharacterId: activeCharacterId ?? this.activeCharacterId,
           monitoring: monitoring ?? this.monitoring,
           targetPackages: targetPackages ?? this.targetPackages,
-          gachaHistory: gachaHistory ?? this.gachaHistory,
           characters: characters ?? this.characters,
           inventory: inventory ?? this.inventory,
           sessions: sessions ?? this.sessions,
@@ -79,7 +75,6 @@ class PlayerState {
         'activeCharacterId': activeCharacterId,
         'monitoring': monitoring,
         'targetPackages': targetPackages,
-        'gachaHistory': gachaHistory,
         'clearedStages': clearedStages.toList(),
         'adventureRun': adventureRun?.toJson(),
         'lastAdventure': lastAdventure?.toJson(),
@@ -109,9 +104,6 @@ class PlayerState {
                 Map<String, dynamic>.from(json['lastAdventure'] as Map)),
         targetPackages:
             List<String>.from(json['targetPackages'] as List? ?? []),
-        gachaHistory: (json['gachaHistory'] as List? ?? [])
-            .map((e) => Map<String, dynamic>.from(e as Map))
-            .toList(),
         characters: (json['characters'] as Map).map((key, value) => MapEntry(
             key as String,
             Character.fromJson(Map<String, dynamic>.from(value as Map)))),

@@ -1,4 +1,4 @@
-param([string]$Flutter = 'C:\src\flutter\bin\flutter.bat')
+param([string]$Flutter = 'C:\src\flutter\bin\flutter.bat', [string]$PartyServerUrl = '', [string]$OutputName = 'FocusQuest-debug.apk')
 $ErrorActionPreference = 'Stop'
 $fqRoot = Split-Path -Parent $PSScriptRoot
 $fqSource = Join-Path $fqRoot 'mobile'
@@ -13,11 +13,13 @@ Push-Location $fqStage
 try {
     & $Flutter pub get --offline
     if ($LASTEXITCODE -ne 0) { throw 'Dependency resolution failed' }
-    & $Flutter build apk --debug --target-platform android-arm64 --no-pub
+    $fqBuildArgs = @('build', 'apk', '--debug', '--target-platform', 'android-arm64', '--no-pub')
+    if ($PartyServerUrl) { $fqBuildArgs += "--dart-define=PARTY_SERVER_URL=$PartyServerUrl" }
+    & $Flutter @fqBuildArgs
     if ($LASTEXITCODE -ne 0) { throw 'Android build failed' }
     $fqOutput = Join-Path $fqRoot 'output\android'
     New-Item -ItemType Directory -Path $fqOutput -Force | Out-Null
-    Copy-Item -LiteralPath (Join-Path $fqStage 'build\app\outputs\flutter-apk\app-debug.apk') -Destination (Join-Path $fqOutput 'FocusQuest-debug.apk') -Force
-    Write-Output "APK: $fqOutput\FocusQuest-debug.apk"
+    Copy-Item -LiteralPath (Join-Path $fqStage 'build\app\outputs\flutter-apk\app-debug.apk') -Destination (Join-Path $fqOutput $OutputName) -Force
+    Write-Output "APK: $fqOutput\$OutputName"
     Write-Output "Build workspace retained: $fqStage"
 } finally { Pop-Location }

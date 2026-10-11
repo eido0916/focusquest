@@ -1,0 +1,2 @@
+PASS: 16/16 RGBA frame buffers exactly match their source keyframes.
+Source montage copied unchanged. Eight crops, two ticks per hold.
