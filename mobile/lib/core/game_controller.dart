@@ -40,7 +40,10 @@ class GameController extends ChangeNotifier {
 
   Future<void> prepareParty(bool ready) async {
     if (ready) {
-      if (activeFocus != null || state!.adventureRun != null || busy) {
+      if (activeFocus != null ||
+          state!.adventureRun != null ||
+          playableAdventureActive ||
+          busy) {
         throw StateError('集中・冒険・保存が終わってから準備してください。');
       }
       final permissions = await monitor.guardPermissions();
@@ -97,6 +100,25 @@ class GameController extends ChangeNotifier {
   final Random random;
   PlayerState? state;
   bool busy = false;
+  bool playableAdventureActive = false;
+
+  Future<void> beginPlayableAdventure() => _action(() async {
+        if (activeFocus != null) throw StateError('集中が終わってから冒険に出発しましょう。');
+        if (state!.adventureRun != null) throw StateError('以前の冒険の結果を確認してください。');
+        if (playableAdventureActive) throw StateError('冒険はすでに始まっています。');
+        playableAdventureActive = true;
+      });
+
+  void endPlayableAdventure() {
+    playableAdventureActive = false;
+    notifyListeners();
+  }
+
+  Future<void> recordPlayableClear(int stage) => _action(() => _save((s) {
+        if (stage < 1 || stage > 36) throw ArgumentError.value(stage, 'stage');
+        return s.copyWith(
+            clearedPlayableStages: {...s.clearedPlayableStages, stage});
+      }));
   String? startupError;
   static const uid = 'local-player';
   String _id() =>
@@ -157,7 +179,9 @@ class GameController extends ChangeNotifier {
   // Temporary developer tool; remove with the developer character screen.
   Future<void> setCharacterForDevelopment(String typeId, String appearance) =>
       _action(() => _save((s) {
-            if (activeFocus != null || s.adventureRun != null) {
+            if (activeFocus != null ||
+                s.adventureRun != null ||
+                playableAdventureActive) {
               throw StateError('集中・冒険が終わってから変更してください。');
             }
             final type = GameCatalog.types.values
@@ -202,7 +226,9 @@ class GameController extends ChangeNotifier {
           List<PartyMember> members = const []}) =>
       _action(() async {
         final s = state!;
-        if (s.adventureRun != null) throw StateError('冒険の結果を確認してから集中できます。');
+        if (s.adventureRun != null || playableAdventureActive) {
+          throw StateError('冒険の結果を確認してから集中できます。');
+        }
         final permissions = await monitor.guardPermissions();
         if (permissions != null &&
             permissions.values.any((allowed) => !allowed)) {
@@ -257,6 +283,7 @@ class GameController extends ChangeNotifier {
         return finished;
       });
   Future<void> equip(String itemId) => _action(() => _save((s) {
+        if (playableAdventureActive) throw StateError('冒険の終了後に装備を変更できます。');
         if (s.adventureRun != null) throw StateError('冒険の終了後に装備を変更できます。');
         if (activeFocus != null) {
           throw StateError('集中の完了後に装備を変更できます。');
@@ -277,6 +304,7 @@ class GameController extends ChangeNotifier {
         return s.copyWith(characters: characters);
       }));
   Future<void> selectCharacter(String id) => _action(() => _save((s) {
+        if (playableAdventureActive) throw StateError('冒険の終了後に仲間を変更できます。');
         if (s.adventureRun != null) throw StateError('冒険の終了後に仲間を変更できます。');
         if (activeFocus != null) {
           throw StateError('集中中は仲間を変更できません。');
@@ -296,6 +324,7 @@ class GameController extends ChangeNotifier {
           }));
 
   Future<void> startAdventure(String stageId) => _action(() async {
+        if (playableAdventureActive) throw StateError('進行中の冒険があります。');
         final id = _id();
         final seed = random.nextInt(1 << 30);
         final startedAt = clock();

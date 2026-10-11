@@ -11,6 +11,7 @@ class PlayerState {
       this.monitoring = false,
       this.targetPackages = const [],
       Set<String> clearedStages = const {},
+      Set<int> clearedPlayableStages = const {},
       this.adventureRun,
       this.lastAdventure,
       Map<String, Character> characters = const {},
@@ -19,6 +20,7 @@ class PlayerState {
       Set<String> appliedOperations = const {}})
       : characters = Map.unmodifiable(characters),
         clearedStages = Set.unmodifiable(clearedStages),
+        clearedPlayableStages = Set.unmodifiable(clearedPlayableStages),
         inventory = Map.unmodifiable(inventory),
         sessions = Map.unmodifiable(sessions),
         appliedOperations = Set.unmodifiable(appliedOperations);
@@ -33,6 +35,7 @@ class PlayerState {
   final Map<String, FocusSession> sessions;
   final Set<String> appliedOperations;
   final Set<String> clearedStages;
+  final Set<int> clearedPlayableStages;
   final AdventureRun? adventureRun;
   final AdventureRecord? lastAdventure;
   Character? get activeCharacter => characters[activeCharacterId];
@@ -47,6 +50,7 @@ class PlayerState {
           Map<String, int>? inventory,
           Map<String, FocusSession>? sessions,
           Set<String>? clearedStages,
+          Set<int>? clearedPlayableStages,
           AdventureRun? adventureRun,
           bool clearAdventureRun = false,
           AdventureRecord? lastAdventure,
@@ -62,6 +66,8 @@ class PlayerState {
           inventory: inventory ?? this.inventory,
           sessions: sessions ?? this.sessions,
           clearedStages: clearedStages ?? this.clearedStages,
+          clearedPlayableStages:
+              clearedPlayableStages ?? this.clearedPlayableStages,
           adventureRun:
               clearAdventureRun ? null : adventureRun ?? this.adventureRun,
           lastAdventure: lastAdventure ?? this.lastAdventure,
@@ -76,6 +82,7 @@ class PlayerState {
         'monitoring': monitoring,
         'targetPackages': targetPackages,
         'clearedStages': clearedStages.toList(),
+        'clearedPlayableStages': clearedPlayableStages.toList(),
         'adventureRun': adventureRun?.toJson(),
         'lastAdventure': lastAdventure?.toJson(),
         'characters':
@@ -94,6 +101,8 @@ class PlayerState {
         activeCharacterId: json['activeCharacterId'] as String?,
         monitoring: json['monitoring'] as bool? ?? false,
         clearedStages: Set<String>.from(json['clearedStages'] as List? ?? []),
+        clearedPlayableStages:
+            Set<int>.from(json['clearedPlayableStages'] as List? ?? []),
         adventureRun: json['adventureRun'] == null
             ? null
             : AdventureRun.fromJson(

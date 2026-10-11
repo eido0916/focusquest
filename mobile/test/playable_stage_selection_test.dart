@@ -16,6 +16,8 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   late PlayableStageAssets assets;
   setUpAll(() async {
+    final icons = await rootBundle.load('fonts/MaterialIcons-Regular.otf');
+    await (FontLoader('MaterialIcons')..addFont(Future.value(icons))).load();
     final data = await rootBundle.load('assets/fonts/NotoSerifJP.ttf');
     for (final family in ['SunlitSerif', 'Roboto', 'serif', 'Ahem']) {
       await (FontLoader(family)..addFont(Future.value(data))).load();

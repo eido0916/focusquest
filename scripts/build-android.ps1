@@ -7,7 +7,8 @@ $fqSource = Join-Path $fqRoot 'mobile'
 $fqBuildRoot = Join-Path $env:LOCALAPPDATA 'FocusQuestTools\build'
 $fqStage = Join-Path $fqBuildRoot ('fq-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
 New-Item -ItemType Directory -Path $fqStage -Force | Out-Null
-& robocopy $fqSource $fqStage /E /XD build .dart_tool .gradle /XF local.properties /NFL /NDL /NJH /NJS /NP
+# Android-only staging avoids desktop plugin symlinks on Windows.
+& robocopy $fqSource $fqStage /E /XD build .dart_tool .gradle windows linux macos /XF local.properties /NFL /NDL /NJH /NJS /NP
 if ($LASTEXITCODE -ge 8) { throw "Source copy failed: $LASTEXITCODE" }
 Push-Location $fqStage
 try {

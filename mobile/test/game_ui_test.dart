@@ -59,6 +59,10 @@ void main() {
     await tester.ensureVisible(find.text('冒険に出発する'));
     await tester.tap(find.text('冒険に出発する'));
     await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(
+        find.byKey(const Key('legacy-adventure')), 500);
+    await tester.tap(find.byKey(const Key('legacy-adventure')));
+    await tester.pumpAndSettle();
     await tester.ensureVisible(find.text('冒険に出発する').first);
     await tester.tap(find.text('冒険に出発する').first);
     await tester.pump();
@@ -74,6 +78,8 @@ void main() {
     expect(find.text('召喚'), findsNothing);
     expect(controller.state!.coins, 100);
     expect(controller.state!.inventory['wooden_sword'], 1);
+    await tester.pageBack();
+    await tester.pumpAndSettle();
     await tester.tap(find.text('キャラクター'));
     await tester.pumpAndSettle();
     expect(find.text('所持アイテム'), findsOneWidget);

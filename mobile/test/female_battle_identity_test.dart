@@ -49,6 +49,10 @@ void main() {
       await tester.tap(find.descendant(
           of: find.byType(QuestNavigation), matching: find.text('冒険')));
       await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(
+          find.byKey(const Key('legacy-adventure')), 500);
+      await tester.tap(find.byKey(const Key('legacy-adventure')));
+      await tester.pumpAndSettle();
       expect(
           tester
               .widget<FemaleAdventureHero>(find.byType(FemaleAdventureHero))
