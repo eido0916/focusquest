@@ -1,0 +1,21 @@
+{
+  "source_folder": "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/skill_wave",
+  "keyframe_sources": [
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/run/frames/frame_000.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/run/frames/frame_001.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/run/frames/frame_002.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/run/frames/frame_003.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/run/frames/frame_004.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/run/frames/frame_005.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/run/frames/frame_006.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/run/frames/frame_007.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/skill_wave/frames/frame_000.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/skill_wave/frames/frame_001.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/skill_wave/frames/frame_002.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/skill_wave/frames/frame_003.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/skill_wave/frames/frame_004.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/skill_wave/frames/frame_005.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/skill_wave/frames/frame_006.png",
+    "FocusQuest_pixel_keyframes_v008/source/female_v008/character_01_female/skill_wave/frames/frame_007.png"
+  ]
+}

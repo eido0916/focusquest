@@ -32,6 +32,7 @@ dependencies:
     sdk: flutter
   flame: 1.18.0
   path_provider: 2.1.3
+  audioplayers: 6.1.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -138,6 +139,9 @@ flutter:
     - assets/images/characters/boxer/skills/front_kick/front_kick.png
     - assets/images/characters/boxer/skills/front_kick/front_kick.json
     - assets/images/characters/boxer/skills/front_kick/wind_spear.png
+    - assets/audio/playable_stage/
+    - assets/images/playable_stage/
+    - assets/images/stage_backgrounds/
     - assets/fonts/OFL.txt
     - assets/images/adventure/
     - assets/images/portraits/male/

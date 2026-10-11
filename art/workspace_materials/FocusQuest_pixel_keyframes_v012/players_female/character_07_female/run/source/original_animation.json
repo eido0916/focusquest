@@ -1,0 +1,107 @@
+{
+  "fps": 24,
+  "loop_in_game": true,
+  "holds_ticks": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "display_frame_sequence": [
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    6,
+    6,
+    7,
+    7
+  ],
+  "events": [],
+  "direction": "right",
+  "variant": "female",
+  "reference": "女.png",
+  "interpolation": "none",
+  "part_transforms": false,
+  "crossfade": false,
+  "root_offsets_px": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "root_motion_space": "world_px_absolute_offset",
+  "production": "Independently drawn pixel originals; fixed production sampling only. 24fps output consists exclusively of exact original file copies."
+}

@@ -1,0 +1,299 @@
+{
+  "fixed_scale_all_actions": 0.16138328530259366,
+  "shared_bounds": [
+    128,
+    281,
+    475,
+    480
+  ],
+  "poses": [
+    {
+      "action": "walk",
+      "keyframe": 0,
+      "source_resolution_factor": 0.7929515418502202,
+      "whole_original_registration_px": [
+        148,
+        261
+      ]
+    },
+    {
+      "action": "walk",
+      "keyframe": 1,
+      "source_resolution_factor": 0.7929515418502202,
+      "whole_original_registration_px": [
+        148,
+        261
+      ]
+    },
+    {
+      "action": "walk",
+      "keyframe": 2,
+      "source_resolution_factor": 0.7929515418502202,
+      "whole_original_registration_px": [
+        148,
+        261
+      ]
+    },
+    {
+      "action": "walk",
+      "keyframe": 3,
+      "source_resolution_factor": 0.7929515418502202,
+      "whole_original_registration_px": [
+        148,
+        260
+      ]
+    },
+    {
+      "action": "walk",
+      "keyframe": 4,
+      "source_resolution_factor": 0.7929515418502202,
+      "whole_original_registration_px": [
+        148,
+        300
+      ]
+    },
+    {
+      "action": "walk",
+      "keyframe": 5,
+      "source_resolution_factor": 0.7929515418502202,
+      "whole_original_registration_px": [
+        148,
+        300
+      ]
+    },
+    {
+      "action": "walk",
+      "keyframe": 6,
+      "source_resolution_factor": 0.7929515418502202,
+      "whole_original_registration_px": [
+        148,
+        300
+      ]
+    },
+    {
+      "action": "walk",
+      "keyframe": 7,
+      "source_resolution_factor": 0.7929515418502202,
+      "whole_original_registration_px": [
+        148,
+        296
+      ]
+    },
+    {
+      "action": "attack",
+      "keyframe": 0,
+      "source_resolution_factor": 0.7346938775510204,
+      "whole_original_registration_px": [
+        128,
+        261
+      ]
+    },
+    {
+      "action": "attack",
+      "keyframe": 1,
+      "source_resolution_factor": 0.7346938775510204,
+      "whole_original_registration_px": [
+        128,
+        261
+      ]
+    },
+    {
+      "action": "attack",
+      "keyframe": 2,
+      "source_resolution_factor": 0.7346938775510204,
+      "whole_original_registration_px": [
+        128,
+        260
+      ]
+    },
+    {
+      "action": "attack",
+      "keyframe": 3,
+      "source_resolution_factor": 0.7346938775510204,
+      "whole_original_registration_px": [
+        128,
+        260
+      ]
+    },
+    {
+      "action": "attack",
+      "keyframe": 4,
+      "source_resolution_factor": 0.7346938775510204,
+      "whole_original_registration_px": [
+        128,
+        290
+      ]
+    },
+    {
+      "action": "attack",
+      "keyframe": 5,
+      "source_resolution_factor": 0.7346938775510204,
+      "whole_original_registration_px": [
+        128,
+        289
+      ]
+    },
+    {
+      "action": "attack",
+      "keyframe": 6,
+      "source_resolution_factor": 0.7346938775510204,
+      "whole_original_registration_px": [
+        128,
+        286
+      ]
+    },
+    {
+      "action": "attack",
+      "keyframe": 7,
+      "source_resolution_factor": 0.7346938775510204,
+      "whole_original_registration_px": [
+        128,
+        287
+      ]
+    },
+    {
+      "action": "hurt",
+      "keyframe": 0,
+      "source_resolution_factor": 0.5806451612903226,
+      "whole_original_registration_px": [
+        138,
+        280
+      ]
+    },
+    {
+      "action": "hurt",
+      "keyframe": 1,
+      "source_resolution_factor": 0.5806451612903226,
+      "whole_original_registration_px": [
+        138,
+        282
+      ]
+    },
+    {
+      "action": "hurt",
+      "keyframe": 2,
+      "source_resolution_factor": 0.5806451612903226,
+      "whole_original_registration_px": [
+        138,
+        272
+      ]
+    },
+    {
+      "action": "hurt",
+      "keyframe": 3,
+      "source_resolution_factor": 0.5806451612903226,
+      "whole_original_registration_px": [
+        138,
+        274
+      ]
+    },
+    {
+      "action": "hurt",
+      "keyframe": 4,
+      "source_resolution_factor": 0.5806451612903226,
+      "whole_original_registration_px": [
+        138,
+        304
+      ]
+    },
+    {
+      "action": "hurt",
+      "keyframe": 5,
+      "source_resolution_factor": 0.5806451612903226,
+      "whole_original_registration_px": [
+        138,
+        304
+      ]
+    },
+    {
+      "action": "hurt",
+      "keyframe": 6,
+      "source_resolution_factor": 0.5806451612903226,
+      "whole_original_registration_px": [
+        138,
+        303
+      ]
+    },
+    {
+      "action": "hurt",
+      "keyframe": 7,
+      "source_resolution_factor": 0.5806451612903226,
+      "whole_original_registration_px": [
+        138,
+        303
+      ]
+    },
+    {
+      "action": "defeat",
+      "keyframe": 0,
+      "source_resolution_factor": 0.5607476635514018,
+      "whole_original_registration_px": [
+        128,
+        300
+      ]
+    },
+    {
+      "action": "defeat",
+      "keyframe": 1,
+      "source_resolution_factor": 0.5607476635514018,
+      "whole_original_registration_px": [
+        128,
+        300
+      ]
+    },
+    {
+      "action": "defeat",
+      "keyframe": 2,
+      "source_resolution_factor": 0.5607476635514018,
+      "whole_original_registration_px": [
+        128,
+        299
+      ]
+    },
+    {
+      "action": "defeat",
+      "keyframe": 3,
+      "source_resolution_factor": 0.5607476635514018,
+      "whole_original_registration_px": [
+        128,
+        298
+      ]
+    },
+    {
+      "action": "defeat",
+      "keyframe": 4,
+      "source_resolution_factor": 0.5607476635514018,
+      "whole_original_registration_px": [
+        128,
+        327
+      ]
+    },
+    {
+      "action": "defeat",
+      "keyframe": 5,
+      "source_resolution_factor": 0.5607476635514018,
+      "whole_original_registration_px": [
+        128,
+        326
+      ]
+    },
+    {
+      "action": "defeat",
+      "keyframe": 6,
+      "source_resolution_factor": 0.5607476635514018,
+      "whole_original_registration_px": [
+        128,
+        326
+      ]
+    },
+    {
+      "action": "defeat",
+      "keyframe": 7,
+      "source_resolution_factor": 0.5607476635514018,
+      "whole_original_registration_px": [
+        128,
+        327
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "source_folder": "FocusQuest_pixel_keyframes_v006/source/assassin_v006/critical_strike",
+  "keyframe_sources": [
+    "FocusQuest_pixel_keyframes_v006/source/assassin_v006/critical_strike/frames/frame_000.png",
+    "FocusQuest_pixel_keyframes_v006/source/assassin_v006/critical_strike/frames/frame_001.png",
+    "FocusQuest_pixel_keyframes_v006/source/assassin_v006/critical_strike/frames/frame_002.png",
+    "FocusQuest_pixel_keyframes_v006/source/assassin_v006/critical_strike/frames/frame_003.png",
+    "FocusQuest_pixel_keyframes_v006/source/assassin_v006/critical_strike/frames/frame_004.png",
+    "FocusQuest_pixel_keyframes_v006/source/assassin_v006/critical_strike/frames/frame_005.png",
+    "FocusQuest_pixel_keyframes_v006/source/assassin_v006/critical_strike/frames/frame_006.png",
+    "FocusQuest_pixel_keyframes_v006/source/assassin_v006/critical_strike/frames/frame_007.png",
+    "FocusQuest_pixel_keyframes_v006/source/assassin_v006/critical_strike/frames/frame_008.png",
+    "FocusQuest_pixel_keyframes_v006/source/assassin_v006/critical_strike/frames/frame_009.png",
+    "FocusQuest_pixel_keyframes_v006/source/assassin_v006/critical_strike/frames/frame_010.png",
+    "FocusQuest_pixel_keyframes_v006/source/assassin_v006/critical_strike/frames/frame_011.png"
+  ]
+}

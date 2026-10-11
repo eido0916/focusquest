@@ -1,0 +1,51 @@
+{
+  "tool": "built-in image_gen",
+  "backgrounds": [
+    {
+      "file": "astral_altar_v001.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "bdd3ca13aa4636055880ee371c8402be1a53ca9112083817ee52c1f2cdf927c0",
+      "runtime_copy_identical": true
+    },
+    {
+      "file": "desert_labyrinth_v001.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "aecc967a5847937791bd9c49dd7375a10ce003ea6ebb3e8296c361edc8671598",
+      "runtime_copy_identical": true
+    },
+    {
+      "file": "ice_crystal_cavern_v001.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "3a76aa487d0e28f0f64db399401a0d9afba6544e6a0d23f993ae69f47178399a",
+      "runtime_copy_identical": true
+    },
+    {
+      "file": "moonlit_graveyard_v001.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "4fa64556c2b987af15d17c75ac07de12b6cca6674af0bd312b7bad2ed49a2af5",
+      "runtime_copy_identical": true
+    },
+    {
+      "file": "poison_marsh_v001.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "6aaab295ad162a38a1037ed414640816db264c84fb4d963feae0eae3feef43ee",
+      "runtime_copy_identical": true
+    }
+  ],
+  "distinct_from_existing": true
+}

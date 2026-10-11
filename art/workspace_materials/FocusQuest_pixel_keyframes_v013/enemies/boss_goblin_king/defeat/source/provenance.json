@@ -1,0 +1,14 @@
+{
+  "source_folder": "FocusQuest_pixel_keyframes_v012/source/bosses_v012/boss_goblin_king/defeat",
+  "keyframe_sources": [
+    "FocusQuest_pixel_keyframes_v012/source/bosses_v012/boss_goblin_king/defeat/frames/frame_000.png",
+    "FocusQuest_pixel_keyframes_v012/source/bosses_v012/boss_goblin_king/defeat/frames/frame_001.png",
+    "FocusQuest_pixel_keyframes_v012/source/bosses_v012/boss_goblin_king/defeat/frames/frame_002.png",
+    "FocusQuest_pixel_keyframes_v012/source/bosses_v012/boss_goblin_king/defeat/frames/frame_003.png",
+    "FocusQuest_pixel_keyframes_v012/source/bosses_v012/boss_goblin_king/defeat/frames/frame_004.png",
+    "FocusQuest_pixel_keyframes_v012/source/bosses_v012/boss_goblin_king/defeat/frames/frame_005.png",
+    "FocusQuest_pixel_keyframes_v012/source/bosses_v012/boss_goblin_king/defeat/frames/frame_006.png",
+    "FocusQuest_pixel_keyframes_v012/source/bosses_v012/boss_goblin_king/defeat/frames/frame_007.png",
+    "FocusQuest_pixel_keyframes_v012/source/bosses_v012/boss_goblin_king/defeat/frames/frame_008.png"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "tool": "Built-in image_gen.imagegen",
+  "assets": [
+    {
+      "n": 10,
+      "actor": "character_10",
+      "kind": "players",
+      "gender": "male",
+      "name": "魔剣士・男性",
+      "reference": "10.png",
+      "actions": [
+        "run",
+        "sword_slash",
+        "thunder_slash"
+      ],
+      "atlases": {
+        "run": {
+          "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-7c53be65-0287-417f-8a4e-c55562de712b.png",
+          "prompt": "Production pixel-art sprite atlas FocusQuest character_10 magic swordsman male. Reference1 is male identity: short tousled black-purple hair, violet eyes, purple scarf and cape with ivory geometric trim and silver star brooch, black high collar coat with ivory rolled cuffs, leather diagonal straps and belts, black full trousers, dark armored boots and gloves. Reference2 supplies compact pixel style. About 3-head chibi proportions, clean square pixel clusters and limited 16-bit RPG colors. All frames face RIGHT, exact same height/head size/costume across all actions. 8 sequential poses in 4 columns x 2 rows: near leg forward contact, compression, passing, flight, FAR leg forward contact, compression, passing, flight. Clearly alternate the two legs, bent knees and lifted heels, counter-swing free left arm, slight torso lean. Right hand holds same sword low diagonally forward; no empty hands. Cape and long hair trail left. Exactly equal square cells read left to right top to bottom, transparent background and generous 15% gutters. Full character/sword/effects within CENTRAL 65% of each cell, sword length compact so no clipping. Do not draw labels, borders, grid, floor, shadows or extra characters. No smooth illustrated shading. Anatomically natural shoulders/elbows/knees and firm hand-sword grip."
+        },
+        "sword_slash": {
+          "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-8b0fb29a-536b-42a0-afb1-7bd21b9206f8.png",
+          "prompt": "Production pixel-art sprite atlas FocusQuest character_10 magic swordsman male. Reference1 is male identity: short tousled black-purple hair, violet eyes, purple scarf and cape with ivory geometric trim and silver star brooch, black high collar coat with ivory rolled cuffs, leather diagonal straps and belts, black full trousers, dark armored boots and gloves. Reference2 supplies compact pixel style. About 3-head chibi proportions, clean square pixel clusters and limited 16-bit RPG colors. All frames face RIGHT, exact same height/head size/costume across all actions. 8 poses in 4 columns x 2 rows: planted ready stance, windup sword back, raised sword, start downward-forward swing, fully extended forward/down slash, follow-through blade low, recover, ready. Feet remain planted. One continuous identifiable silver longsword gripped in right hand in ALL frames. Torso turns naturally, no disconnected arms. Tiny slash arc only in frame5. Exactly equal square cells read left to right top to bottom, transparent background and generous 15% gutters. Full character/sword/effects within CENTRAL 65% of each cell, sword length compact so no clipping. Do not draw labels, borders, grid, floor, shadows or extra characters. No smooth illustrated shading. Anatomically natural shoulders/elbows/knees and firm hand-sword grip."
+        },
+        "thunder_slash": {
+          "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-778bdb1c-4b29-42f5-943a-a810ee084588.png",
+          "prompt": "Production pixel-art sprite atlas FocusQuest character_10 magic swordsman male. Reference1 is male identity: short tousled black-purple hair, violet eyes, purple scarf and cape with ivory geometric trim and silver star brooch, black high collar coat with ivory rolled cuffs, leather diagonal straps and belts, black full trousers, dark armored boots and gloves. Reference2 supplies compact pixel style. About 3-head chibi proportions, clean square pixel clusters and limited 16-bit RPG colors. All frames face RIGHT, exact same height/head size/costume across all actions. 12 poses in 4 columns x 3 rows: ready, brace, sword raised, charging faint electric sparks, charge stronger around blade, max charge, slash toward right, completed slash with THIN SMALL vertical lightning bolt dropping in front of character (right side), small impact lightning spark, bolt fades with follow-through, recover sword, ready. Lightning occurs ONLY after charged sword swing, in frames8 and9 (1-indexed). Same sword remains gripped in ALL frames. Planted stance. Lightning is drawn inside the cell, not crossing into neighbors, bolt may start above the front target but cannot exceed head height by more than 10%. Tiny effects; do not obscure actor. Exactly equal square cells read left to right top to bottom, transparent background and generous 15% gutters. Full character/sword/effects within CENTRAL 65% of each cell, sword length compact so no clipping. Do not draw labels, borders, grid, floor, shadows or extra characters. No smooth illustrated shading. Anatomically natural shoulders/elbows/knees and firm hand-sword grip."
+        }
+      }
+    },
+    {
+      "n": 10,
+      "actor": "character_10_female",
+      "kind": "players_female",
+      "gender": "female",
+      "name": "魔剣士・女性",
+      "reference": "女2.png（上段左から2体目）",
+      "actions": [
+        "run",
+        "sword_slash",
+        "thunder_slash"
+      ],
+      "atlases": {
+        "run": {
+          "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-c2fac2ee-7e41-446a-86ea-0eca4182a162.png",
+          "prompt": "Production pixel-art sprite atlas FocusQuest character_10 magic swordsman female. Reference1 is a female collage: use ONLY TOP ROW SECOND WOMAN from left, the female magic swordswoman. Long black-purple hair tied high, violet eyes, purple cape with silver star brooch and ivory geometric trim, dark armored short tunic/shorts with a bare thigh and thigh strap, dark knee-high armored boots, leather belts, gloves. Preserve her exact asymmetrical outfit, not the mage or other women. Reference2 supplies compact pixel style. About 3-head chibi proportions, clean square pixel clusters and limited 16-bit RPG colors. All frames face RIGHT, exact same height/head size/costume across all actions. 8 sequential poses in 4 columns x 2 rows: near leg forward contact, compression, passing, flight, FAR leg forward contact, compression, passing, flight. Clearly alternate the two legs, bent knees and lifted heels, counter-swing free left arm, slight torso lean. Right hand holds same sword low diagonally forward; no empty hands. Cape and long hair trail left. Exactly equal square cells read left to right top to bottom, transparent background and generous 15% gutters. Full character/sword/effects within CENTRAL 65% of each cell, sword length compact so no clipping. Do not draw labels, borders, grid, floor, shadows or extra characters. No smooth illustrated shading. Anatomically natural shoulders/elbows/knees and firm hand-sword grip."
+        },
+        "sword_slash": {
+          "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-7317b8f7-1960-477a-9e2f-8a9854f13c06.png",
+          "prompt": "Production pixel-art sprite atlas FocusQuest character_10 magic swordsman female. Reference1 is a female collage: use ONLY TOP ROW SECOND WOMAN from left, the female magic swordswoman. Long black-purple hair tied high, violet eyes, purple cape with silver star brooch and ivory geometric trim, dark armored short tunic/shorts with a bare thigh and thigh strap, dark knee-high armored boots, leather belts, gloves. Preserve her exact asymmetrical outfit, not the mage or other women. Reference2 supplies compact pixel style. About 3-head chibi proportions, clean square pixel clusters and limited 16-bit RPG colors. All frames face RIGHT, exact same height/head size/costume across all actions. 8 poses in 4 columns x 2 rows: planted ready stance, windup sword back, raised sword, start downward-forward swing, fully extended forward/down slash, follow-through blade low, recover, ready. Feet remain planted. One continuous identifiable silver longsword gripped in right hand in ALL frames. Torso turns naturally, no disconnected arms. Tiny slash arc only in frame5. Exactly equal square cells read left to right top to bottom, transparent background and generous 15% gutters. Full character/sword/effects within CENTRAL 65% of each cell, sword length compact so no clipping. Do not draw labels, borders, grid, floor, shadows or extra characters. No smooth illustrated shading. Anatomically natural shoulders/elbows/knees and firm hand-sword grip.\nRevision: Edit this 4x2 female magic swordswoman pixel-art attack atlas. Preserve all eight RIGHT-facing poses, exact female identity, long dark purple ponytail, costume, planted feet, sword and character size. Correct ONLY lower row first sprite's slash effect: replace the large purple crescent with a tiny thin silver-white slash streak right alongside the blade. It MUST stay inside that sprite's equal grid cell and leave a broad fully transparent gutter before lower row second sprite. There must be ZERO pixel overlap or connection between neighboring sprites or effects. Keep all swords firmly gripped, full-body and tips contained. No labels, floor or guides. Transparent background; hard square pixel style."
+        },
+        "thunder_slash": {
+          "path": "C:\\Users\\yuusy\\.codex\\generated_images\\01a11fcc-8481-74b0-a008-feaf5145dc5e\\exec-57041a92-7106-444d-b683-ede49abe88a6.png",
+          "prompt": "Production pixel-art sprite atlas FocusQuest character_10 magic swordsman female. Reference1 is a female collage: use ONLY TOP ROW SECOND WOMAN from left, the female magic swordswoman. Long black-purple hair tied high, violet eyes, purple cape with silver star brooch and ivory geometric trim, dark armored short tunic/shorts with a bare thigh and thigh strap, dark knee-high armored boots, leather belts, gloves. Preserve her exact asymmetrical outfit, not the mage or other women. Reference2 supplies compact pixel style. About 3-head chibi proportions, clean square pixel clusters and limited 16-bit RPG colors. All frames face RIGHT, exact same height/head size/costume across all actions. 12 poses in 4 columns x 3 rows: ready, brace, sword raised, charging faint electric sparks, charge stronger around blade, max charge, slash toward right, completed slash with THIN SMALL vertical lightning bolt dropping in front of character (right side), small impact lightning spark, bolt fades with follow-through, recover sword, ready. Lightning occurs ONLY after charged sword swing, in frames8 and9 (1-indexed). Same sword remains gripped in ALL frames. Planted stance. Lightning is drawn inside the cell, not crossing into neighbors, bolt may start above the front target but cannot exceed head height by more than 10%. Tiny effects; do not obscure actor. Exactly equal square cells read left to right top to bottom, transparent background and generous 15% gutters. Full character/sword/effects within CENTRAL 65% of each cell, sword length compact so no clipping. Do not draw labels, borders, grid, floor, shadows or extra characters. No smooth illustrated shading. Anatomically natural shoulders/elbows/knees and firm hand-sword grip."
+        }
+      }
+    }
+  ]
+}

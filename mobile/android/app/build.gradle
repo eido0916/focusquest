@@ -7,7 +7,8 @@ plugins {
 
 android {
     namespace = "dev.focusquest.focusquest"
-    compileSdk = flutter.compileSdkVersion
+    // audioplayers_android requires SDK 35; runtime minimum stays unchanged.
+    compileSdk = 35
     ndkVersion = flutter.ndkVersion
 
     compileOptions {

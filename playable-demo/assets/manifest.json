@@ -1,0 +1,421 @@
+{
+  "source": "FocusQuest_pixel_keyframes_v010",
+  "animations": [
+    "hero/idle",
+    "hero/run",
+    "hero/attack",
+    "hero/skill",
+    "slime/locomotion",
+    "slime/attack",
+    "slime/defeat",
+    "goblin/locomotion",
+    "goblin/attack",
+    "goblin/defeat",
+    "dracula/locomotion",
+    "dracula/attack",
+    "dracula/defeat"
+  ],
+  "files": [
+    {
+      "file": "hero/idle/keyframes/frame_000.png",
+      "sha256": "ff11b60c7a6862277f4b28fbc286da02724715749f232f3464003d1a4e762abf"
+    },
+    {
+      "file": "hero/idle/keyframes/frame_001.png",
+      "sha256": "c7dee7f3ed97f8b9d652e7ef8cc09da414afa0f58bc19622375687d6c2b7227a"
+    },
+    {
+      "file": "hero/idle/keyframes/frame_002.png",
+      "sha256": "b13cb514ae66a4644d2a2ca1ed7466a461acac7b22bec989872acafa3f38a660"
+    },
+    {
+      "file": "hero/idle/keyframes/frame_003.png",
+      "sha256": "d051e699eaea7f37139176d7a6ba755d1517d2ecf92ec6e7845a85ea06f89657"
+    },
+    {
+      "file": "hero/idle/keyframes/frame_004.png",
+      "sha256": "05cd9ef01fbbc376644e169ba6f464fb30b767aa020133e0b202ad86ff354b4e"
+    },
+    {
+      "file": "hero/idle/keyframes/frame_005.png",
+      "sha256": "ff11b60c7a6862277f4b28fbc286da02724715749f232f3464003d1a4e762abf"
+    },
+    {
+      "file": "hero/run/keyframes/frame_000.png",
+      "sha256": "57465579c707b1cfb51019ab9234466321b01c979188766d5bd09d3a830247c4"
+    },
+    {
+      "file": "hero/run/keyframes/frame_001.png",
+      "sha256": "2da1341a29b174b54540a2df793577212c523d393326f63c19b58d6b5c818ca5"
+    },
+    {
+      "file": "hero/run/keyframes/frame_002.png",
+      "sha256": "993b332cff51ce41037304d3e1118173f483fe3c0c3f64df89019290f5f74376"
+    },
+    {
+      "file": "hero/run/keyframes/frame_003.png",
+      "sha256": "a70d73bc1b780bd90c884bb7aa69706c2891bb07fcdc552955c3c34292c843c2"
+    },
+    {
+      "file": "hero/run/keyframes/frame_004.png",
+      "sha256": "cb8557ea14eb799eacc279eb91a01989fe689f3d0dcc6ba5ade475de985809ad"
+    },
+    {
+      "file": "hero/run/keyframes/frame_005.png",
+      "sha256": "8c1d043ec2920d3d70aa9773b0f1000ae7ab557aff13f19b28bb9a0f6bde5881"
+    },
+    {
+      "file": "hero/run/keyframes/frame_006.png",
+      "sha256": "28575aa09ac553780d15b4cc83e2b9188fe49dd3a4a4278269329e29bd7d6956"
+    },
+    {
+      "file": "hero/run/keyframes/frame_007.png",
+      "sha256": "09f8fc86d50ac04119814bf37447b82114bae494d3097da6d93992730896d61e"
+    },
+    {
+      "file": "hero/attack/keyframes/frame_000.png",
+      "sha256": "2011fe326f718dd72b73e0760ecdc9d59335fcb2574b3d8395afba56a9fe4812"
+    },
+    {
+      "file": "hero/attack/keyframes/frame_001.png",
+      "sha256": "bba59fd9c50577dbfe1a2afe12e93969093b397a15521c885d426f3bb506f7e7"
+    },
+    {
+      "file": "hero/attack/keyframes/frame_002.png",
+      "sha256": "e46c7f34e1883a7aa9f96a9483240dad5178afe30f835f615cde626248fd9cc9"
+    },
+    {
+      "file": "hero/attack/keyframes/frame_003.png",
+      "sha256": "8b0e41cb8edbd1ed128ad439611857cfc9ee3986654283540424ea429315b60a"
+    },
+    {
+      "file": "hero/attack/keyframes/frame_004.png",
+      "sha256": "5a1774df0503a27732a4fb6d5b8f5416f75b0f00bf73705f8f1aa4a79d30f4cf"
+    },
+    {
+      "file": "hero/attack/keyframes/frame_005.png",
+      "sha256": "19a97062f06127d30c0077836429c6a7985d18f9755f89b20d93d294d221b1ac"
+    },
+    {
+      "file": "hero/attack/keyframes/frame_006.png",
+      "sha256": "d6359c6ed4f8703c72da7232f1a8f69bfb5782fe1af4f8d81c94d700b311f85d"
+    },
+    {
+      "file": "hero/attack/keyframes/frame_007.png",
+      "sha256": "0d59e9a4cc7e64f7a75446f1faea02d53318630ce15c0b6123cd5e0715beb96b"
+    },
+    {
+      "file": "hero/skill/keyframes/frame_000.png",
+      "sha256": "028c00bee3dd253d949131ec0f48989eb3273e5111f3c3acec72d0d39bb931fa"
+    },
+    {
+      "file": "hero/skill/keyframes/frame_001.png",
+      "sha256": "8ce200ff8ca30ccf91184a8a79a6433d41cadfe9ce97514cc05bb30793adadeb"
+    },
+    {
+      "file": "hero/skill/keyframes/frame_002.png",
+      "sha256": "35d3d7ced4f4760390655d27a13ebeab4d82b21f1bf92c13da48a4ad14cc682b"
+    },
+    {
+      "file": "hero/skill/keyframes/frame_003.png",
+      "sha256": "cf3172353864e7b1027a139b074ba0aa656a66bc9b7b5010506fbcb246dbea35"
+    },
+    {
+      "file": "hero/skill/keyframes/frame_004.png",
+      "sha256": "f3087b9458a9c46d43da5b1a5d5bb36bc9bf224ffd991997cdca4d81abb86143"
+    },
+    {
+      "file": "hero/skill/keyframes/frame_005.png",
+      "sha256": "03052839e32974b926c49392b546c8c3d10560536f9f2da5fa186a1eda784d7d"
+    },
+    {
+      "file": "hero/skill/keyframes/frame_006.png",
+      "sha256": "c810d7096ee3a1267cf48fc317b01d96587eefb4dab7a5ea580632759e7202a4"
+    },
+    {
+      "file": "hero/skill/keyframes/frame_007.png",
+      "sha256": "71fb5ef29965b3323353fd543f0f42a6f39e82b9649f037403b17a687f3d6bf0"
+    },
+    {
+      "file": "hero/skill/keyframes/frame_008.png",
+      "sha256": "d8e83c076c74d1d9d09496c6084598a4ba2fc19bdefcd431d4f2d67a983f4d62"
+    },
+    {
+      "file": "hero/skill/keyframes/frame_009.png",
+      "sha256": "d22e862527deb265abc85793754f7868ba6ee8445625d341fe84d4d29d673335"
+    },
+    {
+      "file": "hero/skill/keyframes/frame_010.png",
+      "sha256": "919be1d2044d6c7da6e096cbb5adfe81295cf0801babd926a5c21241bb5f00e6"
+    },
+    {
+      "file": "hero/skill/keyframes/frame_011.png",
+      "sha256": "5e20383b9589a24ca43a4bf88a720fdfb7cd8dc6bd4b09f83469b85273fed915"
+    },
+    {
+      "file": "slime/locomotion/keyframes/frame_000.png",
+      "sha256": "cd8cd042b45a18cd2858fdfe282c51bde203d7bd7d68128ffe8d014ec3c41104"
+    },
+    {
+      "file": "slime/locomotion/keyframes/frame_001.png",
+      "sha256": "38856431adc944edc8cbaaa1b1dfcf3a426e867b7dc5572df837533dbe7353ee"
+    },
+    {
+      "file": "slime/locomotion/keyframes/frame_002.png",
+      "sha256": "c06c07ab72822af7df51c97d215dd5786112cf8d08a557ddbba3223ba6a67c84"
+    },
+    {
+      "file": "slime/locomotion/keyframes/frame_003.png",
+      "sha256": "1d1834d298a25be8355373a7077d84316466ece1c05dc4b5bb7ed3157abe8de1"
+    },
+    {
+      "file": "slime/locomotion/keyframes/frame_004.png",
+      "sha256": "1dd6ab2b90209b3b8b9e4e3518ef0fc0e890633faf859d4106fd0ed9c4a938f6"
+    },
+    {
+      "file": "slime/locomotion/keyframes/frame_005.png",
+      "sha256": "f01274d514a112847bc84e94a4f7f4fe87faed0e9331b49e991c691006da5edf"
+    },
+    {
+      "file": "slime/attack/keyframes/frame_000.png",
+      "sha256": "6596a18dfe03eab2b53b2acce05949629fe6a19a5ece5c5a960f61b34868a68f"
+    },
+    {
+      "file": "slime/attack/keyframes/frame_001.png",
+      "sha256": "9e4f9e90957345f9f4ee38f8a67333ebc35f10ada39f422dd732b2995f60d3c9"
+    },
+    {
+      "file": "slime/attack/keyframes/frame_002.png",
+      "sha256": "64e2123abcf0c90e4b93a9c27a3cc89b7427153618fde8b99d9a3a18ea568bea"
+    },
+    {
+      "file": "slime/attack/keyframes/frame_003.png",
+      "sha256": "b9e38bfe690f1ec9a77a0b153349a2a02b3ee9e83aa066c7b0698dd5660f8a4e"
+    },
+    {
+      "file": "slime/attack/keyframes/frame_004.png",
+      "sha256": "d5876fcb01fd051043e201cec259da1bb96db13291130ff3a049bd4e384ee153"
+    },
+    {
+      "file": "slime/attack/keyframes/frame_005.png",
+      "sha256": "456723466eeac9287e80cd88937d9d883eba566807a871896193bd0ae559445b"
+    },
+    {
+      "file": "slime/attack/keyframes/frame_006.png",
+      "sha256": "4045f82982c83bf912d2337fe0835dd09c33824e889534fdf1e1019d4495a3a0"
+    },
+    {
+      "file": "slime/attack/keyframes/frame_007.png",
+      "sha256": "6596a18dfe03eab2b53b2acce05949629fe6a19a5ece5c5a960f61b34868a68f"
+    },
+    {
+      "file": "slime/defeat/keyframes/frame_000.png",
+      "sha256": "cd8cd042b45a18cd2858fdfe282c51bde203d7bd7d68128ffe8d014ec3c41104"
+    },
+    {
+      "file": "slime/defeat/keyframes/frame_001.png",
+      "sha256": "ce85841bc53d48908dcd5f110808df5ea4e50aba49dd434da2d24600adf0341f"
+    },
+    {
+      "file": "slime/defeat/keyframes/frame_002.png",
+      "sha256": "4284bd1dd028d920d616fa182280c3d1b689e96699674b119541ae7db5e860d0"
+    },
+    {
+      "file": "slime/defeat/keyframes/frame_003.png",
+      "sha256": "72706d5b0f322c579e0d1e1e29e3c35ab26d5df7bcf406b10eff7d4bba0e2bed"
+    },
+    {
+      "file": "slime/defeat/keyframes/frame_004.png",
+      "sha256": "4b18443c7e6ceb5bcf943cac59e5094dc43d644d5b31de26360ef3a1c3493b82"
+    },
+    {
+      "file": "slime/defeat/keyframes/frame_005.png",
+      "sha256": "cb327f3b550c02dbeabd6f333c72ee347da77945bb2ae97c3c754097116b5e8a"
+    },
+    {
+      "file": "slime/defeat/keyframes/frame_006.png",
+      "sha256": "6b04e8149c0f2281183fdaec4f3b4bde36ea4e387b01bd181f5a79701de18f6c"
+    },
+    {
+      "file": "slime/defeat/keyframes/frame_007.png",
+      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee"
+    },
+    {
+      "file": "goblin/locomotion/keyframes/frame_000.png",
+      "sha256": "d9aab243e65f85201b2436516e6220057d0a653752de8f67574f583d1878687b"
+    },
+    {
+      "file": "goblin/locomotion/keyframes/frame_001.png",
+      "sha256": "6f7c43eb6f0c2bdc47e331f46048e7f2488b28406ffb7a2b94628f87ca154562"
+    },
+    {
+      "file": "goblin/locomotion/keyframes/frame_002.png",
+      "sha256": "1850a7d4bcf60af74a7da22ce6168998f6313361c3e305f7e5142dece8a53ad7"
+    },
+    {
+      "file": "goblin/locomotion/keyframes/frame_003.png",
+      "sha256": "7762f722c9363a1332ffe83f1b2a20cc4e2a33e1ae69e09927d684eec2fa87e8"
+    },
+    {
+      "file": "goblin/locomotion/keyframes/frame_004.png",
+      "sha256": "41144687cc3ccecace5393f5b24cf58bcf123235ad9d78fea6015aa5c5b1fff6"
+    },
+    {
+      "file": "goblin/locomotion/keyframes/frame_005.png",
+      "sha256": "44f178c7042f27b9d65c353e133078bcef2ff1169258e31d696ad45be69154a0"
+    },
+    {
+      "file": "goblin/attack/keyframes/frame_000.png",
+      "sha256": "1a645c6bc07886ca80c77c0f75114cc3172162fdf1afc124e5ae9d90d0831b5c"
+    },
+    {
+      "file": "goblin/attack/keyframes/frame_001.png",
+      "sha256": "9261cbcb65e70984e9a4eac84a6bd5c8c9f0b10fa7d4dceb7deb3b1b149d58f9"
+    },
+    {
+      "file": "goblin/attack/keyframes/frame_002.png",
+      "sha256": "126209b43ee68742bee89ed78cc04c228d0be8a9dbd3c1eeb91d7845c15fcaac"
+    },
+    {
+      "file": "goblin/attack/keyframes/frame_003.png",
+      "sha256": "8d47bdbf4b90a99e170d3bb0a63aaed158d262f1420031f05b4af7ea616dd02d"
+    },
+    {
+      "file": "goblin/attack/keyframes/frame_004.png",
+      "sha256": "3bacb9f7423854a799d6552aa245a1a7305c69c948846c79379d6bad9ce1b316"
+    },
+    {
+      "file": "goblin/attack/keyframes/frame_005.png",
+      "sha256": "8bb71ee4a646c8e99171c0a704f281eecadb7425ed88722667dc30f8aba32bef"
+    },
+    {
+      "file": "goblin/attack/keyframes/frame_006.png",
+      "sha256": "778bb918058dd89c84564a28bb1fcffc725ea3f817b811755f287f2136d5378c"
+    },
+    {
+      "file": "goblin/attack/keyframes/frame_007.png",
+      "sha256": "1a645c6bc07886ca80c77c0f75114cc3172162fdf1afc124e5ae9d90d0831b5c"
+    },
+    {
+      "file": "goblin/defeat/keyframes/frame_000.png",
+      "sha256": "d9aab243e65f85201b2436516e6220057d0a653752de8f67574f583d1878687b"
+    },
+    {
+      "file": "goblin/defeat/keyframes/frame_001.png",
+      "sha256": "23e2d00a9cb1f17234380335b7078258c9f1ea87fbba68276de04787e7f2d897"
+    },
+    {
+      "file": "goblin/defeat/keyframes/frame_002.png",
+      "sha256": "20500cba94f9cb211da55b4391867753d108338fc3eedf474123b94ee5efea38"
+    },
+    {
+      "file": "goblin/defeat/keyframes/frame_003.png",
+      "sha256": "ac7fc6a033a8d1ce9768787758cadf345028a274ca27277dcc93bab3434800da"
+    },
+    {
+      "file": "goblin/defeat/keyframes/frame_004.png",
+      "sha256": "45b6f68ed1bdf35d4c71e67e3524c59bd7a67a7063975032b1944e5c9809df4e"
+    },
+    {
+      "file": "goblin/defeat/keyframes/frame_005.png",
+      "sha256": "ae788b40a963fb9cc31da953ab5b3402b6cf8ecbe5661d457ffdb290c115dbad"
+    },
+    {
+      "file": "goblin/defeat/keyframes/frame_006.png",
+      "sha256": "37445c9bc7113450500aff2c8b18015b40ef5ba87f17cd73d55e2b514dfc34a6"
+    },
+    {
+      "file": "goblin/defeat/keyframes/frame_007.png",
+      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee"
+    },
+    {
+      "file": "dracula/locomotion/keyframes/frame_000.png",
+      "sha256": "579ac9e26f54dc9820b8301dc908716010bcb99b8e90ddaa00a982a8d9136285"
+    },
+    {
+      "file": "dracula/locomotion/keyframes/frame_001.png",
+      "sha256": "61deabcf157d5592cd27a7f60ae59b5e7fb0834fa9478f6e0a205fb7c80db66c"
+    },
+    {
+      "file": "dracula/locomotion/keyframes/frame_002.png",
+      "sha256": "8048dd10a305453f943a92203a167782ee5840912bd38d4acb140d5ab52f7fa2"
+    },
+    {
+      "file": "dracula/locomotion/keyframes/frame_003.png",
+      "sha256": "3de19eedc88d4e1bbe9a0c923d2e46660e8d151eadd474de6c37db5947ea04cb"
+    },
+    {
+      "file": "dracula/locomotion/keyframes/frame_004.png",
+      "sha256": "c85a7c00a925c7a75ef71eb4cb472109b52c3c81acdf0f9e175a654b45022c96"
+    },
+    {
+      "file": "dracula/locomotion/keyframes/frame_005.png",
+      "sha256": "b02dde6bb5ca5cb858fe2804c6f1b3ca4568a11c4f4c7ba11b775a9176239465"
+    },
+    {
+      "file": "dracula/attack/keyframes/frame_000.png",
+      "sha256": "b9750eb7ca7c909cd99e434e298208387bf200e7fe9ab7e19dbf34540a323b84"
+    },
+    {
+      "file": "dracula/attack/keyframes/frame_001.png",
+      "sha256": "180bb47f6eeb6f79ce6390a349735b58077ba0d444d1b10713041a5e31c9ac2e"
+    },
+    {
+      "file": "dracula/attack/keyframes/frame_002.png",
+      "sha256": "9cb8cb10ec4f894339bb8935ed81f5a5c87e6536bae0806a22dafb069b1f928e"
+    },
+    {
+      "file": "dracula/attack/keyframes/frame_003.png",
+      "sha256": "3094a7ad001d4741f79cb7c7c27ef477b227c72206c0bac1ccce5124c0b8a03b"
+    },
+    {
+      "file": "dracula/attack/keyframes/frame_004.png",
+      "sha256": "723ef9d80903b15cff3617de5a75f4cfe6467c4f46341495045ed6a44a1efa99"
+    },
+    {
+      "file": "dracula/attack/keyframes/frame_005.png",
+      "sha256": "e661e62788d0e46a2e4396071f945c6d28dfc93cdebfd5d4223e19dd78a2db20"
+    },
+    {
+      "file": "dracula/attack/keyframes/frame_006.png",
+      "sha256": "c3ba94a3876b61154fc3837b6de34c3da018946a5c562e985668a141ec477235"
+    },
+    {
+      "file": "dracula/attack/keyframes/frame_007.png",
+      "sha256": "b9750eb7ca7c909cd99e434e298208387bf200e7fe9ab7e19dbf34540a323b84"
+    },
+    {
+      "file": "dracula/defeat/keyframes/frame_000.png",
+      "sha256": "579ac9e26f54dc9820b8301dc908716010bcb99b8e90ddaa00a982a8d9136285"
+    },
+    {
+      "file": "dracula/defeat/keyframes/frame_001.png",
+      "sha256": "3bdfc11b6917a63932a90bd579acfb15cd8aff49383b4fe21c4b15e677341222"
+    },
+    {
+      "file": "dracula/defeat/keyframes/frame_002.png",
+      "sha256": "bc487ba2f82e85ff6f90465fc107755e5dbc648490bf16553d144f62c6aafc4e"
+    },
+    {
+      "file": "dracula/defeat/keyframes/frame_003.png",
+      "sha256": "38b6d132d13befc6e37e92d148d4c37e9b61c3a9af289a9773b5d8a940ebbeaf"
+    },
+    {
+      "file": "dracula/defeat/keyframes/frame_004.png",
+      "sha256": "7032de7859b60db8d24407fa4e32c6744569f46bac279e79f6c3abbde6845107"
+    },
+    {
+      "file": "dracula/defeat/keyframes/frame_005.png",
+      "sha256": "72b4eaae34f66241b4a4f0b42fc3ba1d003978b630ca799a22d81f05a05740a5"
+    },
+    {
+      "file": "dracula/defeat/keyframes/frame_006.png",
+      "sha256": "91e773bacc43264db47c013db61fa363b291dd755b3f3bd8d1935d72ef0efb31"
+    },
+    {
+      "file": "dracula/defeat/keyframes/frame_007.png",
+      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee"
+    }
+  ],
+  "rendering": "original PNG keyframes; 24fps holds; no interpolation or transforms"
+}

@@ -1,0 +1,81 @@
+{
+  "new_characters": 4,
+  "new_animations": 12,
+  "new_drawn_originals": 112,
+  "unchanged_existing_asset_files": 2406,
+  "all_previous_assets_identical": true,
+  "animation_checks": [
+    {
+      "folder": "players/character_07/run",
+      "dimensions_transparency_grid_and_margins_pass": true,
+      "all_original_poses_distinct": true,
+      "release_event_keyframes_match": true
+    },
+    {
+      "folder": "players/character_07/bow_shot",
+      "dimensions_transparency_grid_and_margins_pass": true,
+      "all_original_poses_distinct": true,
+      "release_event_keyframes_match": true
+    },
+    {
+      "folder": "players/character_07/rapid_shot",
+      "dimensions_transparency_grid_and_margins_pass": true,
+      "all_original_poses_distinct": true,
+      "release_event_keyframes_match": true
+    },
+    {
+      "folder": "players_female/character_07_female/run",
+      "dimensions_transparency_grid_and_margins_pass": true,
+      "all_original_poses_distinct": true,
+      "release_event_keyframes_match": true
+    },
+    {
+      "folder": "players_female/character_07_female/bow_shot",
+      "dimensions_transparency_grid_and_margins_pass": true,
+      "all_original_poses_distinct": true,
+      "release_event_keyframes_match": true
+    },
+    {
+      "folder": "players_female/character_07_female/rapid_shot",
+      "dimensions_transparency_grid_and_margins_pass": true,
+      "all_original_poses_distinct": true,
+      "release_event_keyframes_match": true
+    },
+    {
+      "folder": "players/character_08/run",
+      "dimensions_transparency_grid_and_margins_pass": true,
+      "all_original_poses_distinct": true,
+      "release_event_keyframes_match": true
+    },
+    {
+      "folder": "players/character_08/fire_cast",
+      "dimensions_transparency_grid_and_margins_pass": true,
+      "all_original_poses_distinct": true,
+      "release_event_keyframes_match": true
+    },
+    {
+      "folder": "players/character_08/ice_burst",
+      "dimensions_transparency_grid_and_margins_pass": true,
+      "all_original_poses_distinct": true,
+      "release_event_keyframes_match": true
+    },
+    {
+      "folder": "players_female/character_08_female/run",
+      "dimensions_transparency_grid_and_margins_pass": true,
+      "all_original_poses_distinct": true,
+      "release_event_keyframes_match": true
+    },
+    {
+      "folder": "players_female/character_08_female/fire_cast",
+      "dimensions_transparency_grid_and_margins_pass": true,
+      "all_original_poses_distinct": true,
+      "release_event_keyframes_match": true
+    },
+    {
+      "folder": "players_female/character_08_female/ice_burst",
+      "dimensions_transparency_grid_and_margins_pass": true,
+      "all_original_poses_distinct": true,
+      "release_event_keyframes_match": true
+    }
+  ]
+}

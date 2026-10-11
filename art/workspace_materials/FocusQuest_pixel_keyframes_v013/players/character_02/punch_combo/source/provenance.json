@@ -1,0 +1,17 @@
+{
+  "source_folder": "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/punch_combo",
+  "keyframe_sources": [
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/punch_combo/frames/character_02_punch_combo_00.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/punch_combo/frames/character_02_punch_combo_01.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/punch_combo/frames/character_02_punch_combo_02.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/punch_combo/frames/character_02_punch_combo_03.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/punch_combo/frames/character_02_punch_combo_04.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/punch_combo/frames/character_02_punch_combo_05.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/punch_combo/frames/character_02_punch_combo_06.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/punch_combo/frames/character_02_punch_combo_07.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/punch_combo/frames/character_02_punch_combo_08.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/punch_combo/frames/character_02_punch_combo_09.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/punch_combo/frames/character_02_punch_combo_10.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/punch_combo/frames/character_02_punch_combo_11.png"
+  ]
+}
