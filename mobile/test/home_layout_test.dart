@@ -7,7 +7,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:focusquest/app.dart';
 import 'package:focusquest/core/game_controller.dart';
 import 'package:focusquest/data/game_catalog.dart';
-import 'package:focusquest/features/adventure/presentation/adventure_screen.dart';
 import 'support/memory_repository.dart';
 
 void main() {
@@ -68,7 +67,8 @@ void main() {
         await tester.ensureVisible(find.text('冒険に出発する'));
         await tester.tap(find.text('冒険に出発する'));
         await tester.pumpAndSettle();
-        expect(find.byType(AdventureScreen), findsOneWidget);
+        expect(find.text('ステージ選択'), findsOneWidget);
+        expect(find.byKey(const Key('select-stage-1')), findsOneWidget);
         expect(tester.takeException(), isNull);
         await tester.pumpWidget(const SizedBox.shrink());
         controller.dispose();

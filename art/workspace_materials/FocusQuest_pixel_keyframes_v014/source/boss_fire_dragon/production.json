@@ -1,0 +1,29 @@
+{
+  "tool": "built-in image_gen",
+  "sourceAssets": [
+    {
+      "file": "source/boss_fire_dragon/original_atlas.png"
+    }
+  ],
+  "canvas": [
+    384,
+    384
+  ],
+  "logicalGrid": [
+    192,
+    192
+  ],
+  "previousCanvas": [
+    128,
+    128
+  ],
+  "resolutionMultiplier": 3,
+  "drawnDetail": true,
+  "registration": {
+    "sharedScale": 159.88841201716738,
+    "xOrigin": 12,
+    "minLeft": 0,
+    "footBaseline": 360
+  },
+  "constraints": "Preserve left facing identity, palette, pose order and animation timing; add fine pixel details; no intermediate poses or deformation."
+}

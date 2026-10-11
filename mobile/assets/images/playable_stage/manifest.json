@@ -4406,995 +4406,996 @@
     },
     {
       "file": "boss_goblin_king_locomotion_000.png",
-      "source": "enemies/boss_goblin_king/walk/keyframes/frame_000.png",
-      "sha256": "a612df92364f332957e438e5d8118f45aab874514aec38c978d78ef236e42f63",
-      "rgba_sha256": "2466e9495be174bad97d02d8cc3cc410709c5f9773d59e0552acaa39e7614ab6"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/walk/keyframes/frame_000.png",
+      "sha256": "8f31908edd08a968891a931bb1f832ae16349d115cf9c77445d3c70c7b76fba7",
+      "rgba_sha256": "a89866501403851d090e183adedb57aad4dfe6d948274e88019ce6582546b6f4"
     },
     {
       "file": "boss_goblin_king_locomotion_001.png",
-      "source": "enemies/boss_goblin_king/walk/keyframes/frame_001.png",
-      "sha256": "7bce00da4e7dfdecc388a3ad972063d3e2c963e1cfba143ab9568560664e17c0",
-      "rgba_sha256": "0e97bef67f4060b3da787034f5434a5041567d41c2bf73f9762943b0eb6bf7c3"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/walk/keyframes/frame_001.png",
+      "sha256": "93fd68d8f1502ce2a5dbfe529d67850a21539da136723d1631b0954858fba1ce",
+      "rgba_sha256": "6e1377a9a01d7c42b535a484937aa76ab0b3eeeab2622a33da60c235dd798f6b"
     },
     {
       "file": "boss_goblin_king_locomotion_002.png",
-      "source": "enemies/boss_goblin_king/walk/keyframes/frame_002.png",
-      "sha256": "f97e2fb99f1ee648d9b8da01642ad737f77a0567fe8a5a77263abfc06ba00d37",
-      "rgba_sha256": "7465060374a90a6f0aa5e3b5cb144d50240156f5f53bef3f848255c2f5c7e8c0"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/walk/keyframes/frame_002.png",
+      "sha256": "0ade167ff8f1bad338503bd43ae71dd8b2ca03bb42649b0ab3e6ef527c0b781f",
+      "rgba_sha256": "3bc0a7e3da0df9655c6385de0ba26bf1791fff98c77df9dab17d60d0dcb7786c"
     },
     {
       "file": "boss_goblin_king_locomotion_003.png",
-      "source": "enemies/boss_goblin_king/walk/keyframes/frame_003.png",
-      "sha256": "5149013dfdec1b3119de4bf1dc409cd0c0220f5090dc6b386ec91aeb8b7c26fa",
-      "rgba_sha256": "c9636ba4705ae2a18e5ce8aaea7dbc369186ad22e976fe0b89d62b0eaadcf92e"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/walk/keyframes/frame_003.png",
+      "sha256": "89922e526ba5bd7722463dc48ff1422361144b8e82b37a17c9ae889470461d3e",
+      "rgba_sha256": "05ee10265405cf91c05e987add58bf06fcd52b037f7f57474fc42943907f058e"
     },
     {
       "file": "boss_goblin_king_locomotion_004.png",
-      "source": "enemies/boss_goblin_king/walk/keyframes/frame_004.png",
-      "sha256": "0ad38525aa3d391e1c267ff27c00d34d20ad82944e741c205feecbfda329b624",
-      "rgba_sha256": "d507e3b34697a96c2ff94fcb63c5462d007b5207efabb281df3453fae8d666b2"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/walk/keyframes/frame_004.png",
+      "sha256": "41c00aa3d030a5ab3ad60a6b3ee9b28ef3eb677a4009873c72ce928a45a7592d",
+      "rgba_sha256": "c583faa35cae7e6d436766a10c91b2ec931fd2d9b08071ca7b22f4edc0bdafbc"
     },
     {
       "file": "boss_goblin_king_locomotion_005.png",
-      "source": "enemies/boss_goblin_king/walk/keyframes/frame_005.png",
-      "sha256": "90bca2464be549bbfc3959f78ff88f09f247c3615d28466a5afd86842c775990",
-      "rgba_sha256": "9fea7645b993513782e6b743e11623bdb191dcfb0012c6a8784e157148ccdaa7"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/walk/keyframes/frame_005.png",
+      "sha256": "9ab3701e012ed5177fc95dfb47d5a81554a6f4bd1e4dce5061d52d3fd97e71da",
+      "rgba_sha256": "07613d6ef767b349e547606ebdb77fa52f33d95f9a47d25d5a8b70f2ebb449d2"
     },
     {
       "file": "boss_goblin_king_locomotion_006.png",
-      "source": "enemies/boss_goblin_king/walk/keyframes/frame_006.png",
-      "sha256": "cba29a4bb12db367240731d11a225e3da7bee883051c3144850c833e54736632",
-      "rgba_sha256": "35bd92dc943bd4f0156f96878f3edadfb2e736a794509f3f2cd19f4e2f1f1af3"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/walk/keyframes/frame_006.png",
+      "sha256": "2a063e43c29ee2968caeb898395f4afd314758b64d297412271d717a5ec34001",
+      "rgba_sha256": "c79bae5f8798caca98012920842faff1f8d6e4b7b9350f493d03e52edfce9204"
     },
     {
       "file": "boss_goblin_king_locomotion_007.png",
-      "source": "enemies/boss_goblin_king/walk/keyframes/frame_007.png",
-      "sha256": "4f103cb94fbff8625529278308c821ae21416f40d06477d258279c5703975b28",
-      "rgba_sha256": "82fd8970c666898c4c92a72838b114c1e1c8d0cfbbb990928340a4d4f9c66194"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/walk/keyframes/frame_007.png",
+      "sha256": "322567de2bcc512f391c64f79be141b38914b50461faa981c5ace1e20e866a44",
+      "rgba_sha256": "1968ce245a9acd8336a562e520f7995a56fbd33597bb679fc7ba392d1679f165"
     },
     {
       "file": "boss_goblin_king_attack_000.png",
-      "source": "enemies/boss_goblin_king/attack/keyframes/frame_000.png",
-      "sha256": "d4fdedf40c702d059accb272180da70430a52791c9178037603210b463273941",
-      "rgba_sha256": "5ebed2d28c7dac488049e4add0eb6da1b34fb5c3ce5620826c9f5f23d8ec2122"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/attack/keyframes/frame_000.png",
+      "sha256": "02f0070c5b3d5276cb7d2f4d2c7100103a518ba48f9f540914a5287b0d78b46a",
+      "rgba_sha256": "77f379246a66f9d37d74e15a02f15bdd368bf9d593da6282c7810e623cb42a78"
     },
     {
       "file": "boss_goblin_king_attack_001.png",
-      "source": "enemies/boss_goblin_king/attack/keyframes/frame_001.png",
-      "sha256": "3e3044785c9c98e282fbbebb807cdaf73a5fd25bc5fd9352146a7a6eab36b11c",
-      "rgba_sha256": "c82cf228b55e8d3b146d78d731424930637c4c146cdb70d7aeb7c918348665d7"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/attack/keyframes/frame_001.png",
+      "sha256": "4eda5d68c07ac5c41e492a06852a455290d9fdea0aa312bb8bbc8691890ccf4e",
+      "rgba_sha256": "a265f12529b25b88363ba8ee6908c070c6ca875f87c82a1a379c2b5d71b11a7e"
     },
     {
       "file": "boss_goblin_king_attack_002.png",
-      "source": "enemies/boss_goblin_king/attack/keyframes/frame_002.png",
-      "sha256": "146823380f9e00d2a2e55a726adc68af24c2a1383a73e8a207e9a274d330164b",
-      "rgba_sha256": "c6cd00caa9fbfdd2e431b0265cc87f7bdebd58b268a1cb99af59a587cc3dfbb2"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/attack/keyframes/frame_002.png",
+      "sha256": "4413f9050e29d50434707a86a5b00c6ccba0ae68617ade75aa66363121db55e9",
+      "rgba_sha256": "0ef2441d33aa9fe970b3f834a08a083bbae6aeaf585e3cf73f012baa4ebdf343"
     },
     {
       "file": "boss_goblin_king_attack_003.png",
-      "source": "enemies/boss_goblin_king/attack/keyframes/frame_003.png",
-      "sha256": "758d55ae795eb297934bf2e4b9fb699df584980b4dbced3c75b538e918bc906e",
-      "rgba_sha256": "8c1e63c220a951f97dfd8fbc42996e8475c2e671444654088752579e776600a8"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/attack/keyframes/frame_003.png",
+      "sha256": "7c716dfd4d87dd1e937f766adf3447322256077ea406efddd5dc966141509ba1",
+      "rgba_sha256": "6213ce77642f53ddf6d1c235011db0417fe9830d5ffb9851400b28aa6054801f"
     },
     {
       "file": "boss_goblin_king_attack_004.png",
-      "source": "enemies/boss_goblin_king/attack/keyframes/frame_004.png",
-      "sha256": "273d61e27dec61e63060cdd032496372e5a32e694a1e7a905ffcd4a787347af7",
-      "rgba_sha256": "8bcab37a220efb0d655bba269637119fe1347de534fbae9eb480a859b1ea4cdd"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/attack/keyframes/frame_004.png",
+      "sha256": "9c3950e181d9112cd9514d438f9697d47c7d0d0bcf8efa80ce9d4df71c9983d2",
+      "rgba_sha256": "3fe10eed6a896bde7c13e066d858fd5294296a36404bc7a57cabd014515bb387"
     },
     {
       "file": "boss_goblin_king_attack_005.png",
-      "source": "enemies/boss_goblin_king/attack/keyframes/frame_005.png",
-      "sha256": "de9db2403cb3acd56ebd5cf4f0a15ab4ebebc682c3536d88d9863f398ff5b505",
-      "rgba_sha256": "6b311873aeb85a87b88cfa96bb8294cd687e2453527255fcbb6ba14a07bda682"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/attack/keyframes/frame_005.png",
+      "sha256": "6235373a1ec3a361271c9704fb52839911a2c792dfb03f7f606a50fec59395f3",
+      "rgba_sha256": "d970f3d928576927858f46e6791e62bb1573837d0f63037befcf5a97124f40d1"
     },
     {
       "file": "boss_goblin_king_attack_006.png",
-      "source": "enemies/boss_goblin_king/attack/keyframes/frame_006.png",
-      "sha256": "720c51b0a2694e1f1172d3948a22024b503333eabac78a6be6a7edcfe4f84364",
-      "rgba_sha256": "8f917fa5d918738685bfb7c802e13a1642a9837a6bf8260a063ed43b2e54c217"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/attack/keyframes/frame_006.png",
+      "sha256": "26f998a290d0bd00f0c9016684914f8ea81260395011d3dbc4a421fe8abbdb3e",
+      "rgba_sha256": "1f03db7b5b6b7b17fb70cdd1f1ffa7181cd93b0ea6a445aceb3d566029368679"
     },
     {
       "file": "boss_goblin_king_attack_007.png",
-      "source": "enemies/boss_goblin_king/attack/keyframes/frame_007.png",
-      "sha256": "41b540b7ba2b20fdb774791d9af9050a9c8d3ab84b8cbdff70a4b098c139bd85",
-      "rgba_sha256": "4b1b3771e3e704726be7c1da65931bffbcfb04875f1b1dce89c9c89ac1156b7d"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/attack/keyframes/frame_007.png",
+      "sha256": "bb3082876fa6c76a768d2360f2c9f476a957a3630ab7e1364866ada412d5dd09",
+      "rgba_sha256": "9d4885d86fd6c667197fb395c131b45f9b9bbea07a97273da96d273d3979a6b2"
     },
     {
       "file": "boss_goblin_king_defeat_000.png",
-      "source": "enemies/boss_goblin_king/defeat/keyframes/frame_000.png",
-      "sha256": "c4be41ab3365eb50129cf327f6a263f30d7de87fd4ed32acb2b2605fed1b92eb",
-      "rgba_sha256": "64b7e550870c8162f65abcc10c8bf89f7eef51766d45fd6b48f16ef5e0022cda"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/defeat/keyframes/frame_000.png",
+      "sha256": "07f1953f89d3204ee9ea515646218abc9229f04e96d75868b6c19600bf287d45",
+      "rgba_sha256": "855f67c92666c3494118d1b3fe6059a891056e7300040af3c4e162cbc0d9836e"
     },
     {
       "file": "boss_goblin_king_defeat_001.png",
-      "source": "enemies/boss_goblin_king/defeat/keyframes/frame_001.png",
-      "sha256": "8f2e11b568cae73983b83863f9b3844005211241a2d177d14cff0ae21b65cb7a",
-      "rgba_sha256": "2e23eedffc7cc73ce60f70b66eeb5fdb296a70d56d8ba766675259babe257ef0"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/defeat/keyframes/frame_001.png",
+      "sha256": "05ebedbcdaec42c3ba2c2fb928054bc78cc5f7ad255deaf8a02af2f66c9ffcd3",
+      "rgba_sha256": "4d64e5bc30e1c0bc54e3a3bafacd82df4cde3b70222dae5a8ca2d30de7a27b93"
     },
     {
       "file": "boss_goblin_king_defeat_002.png",
-      "source": "enemies/boss_goblin_king/defeat/keyframes/frame_002.png",
-      "sha256": "eadaa024f5d689b69db07ae3b4632d8539e8629d46aee4fcf1e6984b4577ad57",
-      "rgba_sha256": "4245efc09051613994c7ee2b43462221944ebb752bc02719c45145053a2c9644"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/defeat/keyframes/frame_002.png",
+      "sha256": "670a098d294f772b8e3ff8790734054a935cc7d7a8d3063a10f14e080d02f870",
+      "rgba_sha256": "d17bd7de3b5677b92cca09a4db74b250502ac25d513a0f2026bcec72c5c0d2d7"
     },
     {
       "file": "boss_goblin_king_defeat_003.png",
-      "source": "enemies/boss_goblin_king/defeat/keyframes/frame_003.png",
-      "sha256": "df9bfbd9d4c3b0ea60840094dcf780d108db3efeec2475b04e9ebea41ed1ce4c",
-      "rgba_sha256": "978881786bdb8df79eee710f8935fdf223e1a6d74d0ad7649bbc73dd6e4c5147"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/defeat/keyframes/frame_003.png",
+      "sha256": "fe4fd51da6ce6caf3bd886acb724173fa49886b323d7a25227a87bdf16aa7d58",
+      "rgba_sha256": "5b8be753416db4fe011523b9ef57b2ea909689a158f368f2b4a3422ad782a80c"
     },
     {
       "file": "boss_goblin_king_defeat_004.png",
-      "source": "enemies/boss_goblin_king/defeat/keyframes/frame_004.png",
-      "sha256": "1eee3730696c26197d0a499fdb406fba4065553e89a609710ca83ee77d9fcfc0",
-      "rgba_sha256": "e9a31bf1f8b728ec1a9fd156934aed59368f228157ddbaa11ac98e04faf24c0e"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/defeat/keyframes/frame_004.png",
+      "sha256": "ee8a51587bafd32bd01114ac1ca3c33eed7695520a1af7f574cf1686bb57af41",
+      "rgba_sha256": "e5adc4cc309aa13ccb6e4cfb419d4514c6968df751ffb394d59444e957415a31"
     },
     {
       "file": "boss_goblin_king_defeat_005.png",
-      "source": "enemies/boss_goblin_king/defeat/keyframes/frame_005.png",
-      "sha256": "886877646172470584d5551a99aec460c5e627a469130baae829e5995c52e037",
-      "rgba_sha256": "57d59ce6255d23caa1fa015064466ee8fae876272edf1b6403439ae351e002ce"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/defeat/keyframes/frame_005.png",
+      "sha256": "42289f8565df250c1b4354d845bbcecee87007e2ef3b84a777ccad7d8d04fd88",
+      "rgba_sha256": "2f39e8f59fee1b999ce49f9fc0ead8ed50430a2d2d9a21eae52396ddb53deaf4"
     },
     {
       "file": "boss_goblin_king_defeat_006.png",
-      "source": "enemies/boss_goblin_king/defeat/keyframes/frame_006.png",
-      "sha256": "169646cbcf3351e6bc988088fa16b080d4c1a5a7cca76b4a95704b692766e1b8",
-      "rgba_sha256": "2c624f76ebec4223f3da26cab5c53d75dff123f2fa1b8474915ea01b7bf7de8c"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/defeat/keyframes/frame_006.png",
+      "sha256": "c7fb3ed15602602f8399b2f95a5ee0e8f4caa21175f0383b5db3b92e87850864",
+      "rgba_sha256": "392fcae59b3ca8608542e16082785699c6790eec1c6b5bebbb0a443b99231870"
     },
     {
       "file": "boss_goblin_king_defeat_007.png",
-      "source": "enemies/boss_goblin_king/defeat/keyframes/frame_007.png",
-      "sha256": "f51b281a9103b22297c7c7a8e4a9e29860f70506acb95447519f63003c6ab1ff",
-      "rgba_sha256": "0c2848bcf6b338c6456736f7941a06a6940b7eba6795100b96bb482c2761662b"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/defeat/keyframes/frame_007.png",
+      "sha256": "73580d0d4007332edbd3af3fba36be47945a01eefe337056641be7ab3d2c0da1",
+      "rgba_sha256": "79d3c4886d7fc5b4bd80598640ab47a5cd71acaad7041bd88ac1f27265bc9167"
     },
     {
       "file": "boss_goblin_king_defeat_008.png",
-      "source": "enemies/boss_goblin_king/defeat/keyframes/frame_008.png",
-      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
-      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_goblin_king/defeat/keyframes/frame_008.png",
+      "sha256": "76b73017feb8331ae927179b500f9dd049daac90845788f25f40246345bec8bc",
+      "rgba_sha256": "250480ecefa3655c774b6a4e5d4eb16675ee4f181c2285c25020fac6e3aaf3b5"
     },
     {
       "file": "boss_dullahan_locomotion_000.png",
-      "source": "enemies/boss_dullahan/walk/keyframes/frame_000.png",
-      "sha256": "811f202f1b827b3b84b60c2d64a8845de9f43668b48d269865b2e91a4bd24c7e",
-      "rgba_sha256": "aba5225bec3c43298c8fa6e642a186e4a17cb177d6373028acce13f1e0c53013"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/walk/keyframes/frame_000.png",
+      "sha256": "f76b66dacc5e482a31c1dacd9fee09276db6952057c87601289e05f06ad1ea67",
+      "rgba_sha256": "c632fc00472c2e38d2cdbf83b6b78d0abea626b4f1489221da9ffda87ea205fa"
     },
     {
       "file": "boss_dullahan_locomotion_001.png",
-      "source": "enemies/boss_dullahan/walk/keyframes/frame_001.png",
-      "sha256": "0f8a3d46c55d9b9207254f20e2e167be52e62190caf1c2d5593913bd61f522d6",
-      "rgba_sha256": "ee11a355cef28580e7f5a66408900b006ae29b6d1631fad4b57d223ab0ff49ea"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/walk/keyframes/frame_001.png",
+      "sha256": "a5a862fa3eebded4d0c7696c8be0da78524ea1e4c45030b8c7f2b195caf5e58b",
+      "rgba_sha256": "2e4b392db9e11ab527bdf9f0f0d654f6fb972219c9985729bde48963e9bb051b"
     },
     {
       "file": "boss_dullahan_locomotion_002.png",
-      "source": "enemies/boss_dullahan/walk/keyframes/frame_002.png",
-      "sha256": "e829a25583187ee41b336c65dae3cc0d06a1f38f6736ea6e8bc77af14bddc4e2",
-      "rgba_sha256": "01ec8ebb18d740ca198c9faf13c11702c6bcb82b99aee42b4f82dd868e3762b1"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/walk/keyframes/frame_002.png",
+      "sha256": "23d1014149079f014d04ffe8a1c92a10fa5f70d3da174da7b3a0ac6fef596360",
+      "rgba_sha256": "389942b8980c32f2fe3c7221415f16741ecdc1fbd1682dfe8133cbd7145dba8f"
     },
     {
       "file": "boss_dullahan_locomotion_003.png",
-      "source": "enemies/boss_dullahan/walk/keyframes/frame_003.png",
-      "sha256": "c60b6a2d5c188d604811da1bc00af80307fae03d2595e1360d2f58f8d8d2d95b",
-      "rgba_sha256": "56ee0b04d31693cb80a7b1a89fa78e09e523e8d7e61e4575841fb5d423d2481b"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/walk/keyframes/frame_003.png",
+      "sha256": "b54edba6d7ef0d441b1511df8c8272659eca74d18651003ea79b336d3d38fc61",
+      "rgba_sha256": "de425f53faa55647efd60c767fa9072424b38de839b2313f4e9199b5b1091fa1"
     },
     {
       "file": "boss_dullahan_locomotion_004.png",
-      "source": "enemies/boss_dullahan/walk/keyframes/frame_004.png",
-      "sha256": "6c31e12f9149dacb87423f0effa69f2e852b4189ee5f5d1b475fa4b60f6ca629",
-      "rgba_sha256": "663d357f9125fd8a4eb7d15ac0d61c57759e9fae859a37345541a874dc97d719"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/walk/keyframes/frame_004.png",
+      "sha256": "881d12064dc45e6dc4cf0ec9b7e8c9096f4f7a271d5ed32b463bfa24d86dd597",
+      "rgba_sha256": "14291e2a4fdf88ee1f1271e04f378d223d3a0b4c90967266c0e24103b69f41da"
     },
     {
       "file": "boss_dullahan_locomotion_005.png",
-      "source": "enemies/boss_dullahan/walk/keyframes/frame_005.png",
-      "sha256": "dc8f42d8a4f7348b173d5662ee566ad8322646e6c53a7556e146ff764fb80021",
-      "rgba_sha256": "374e119a765dc5ef1c18eee8fc5af5b31a1fbc8f1895b090b3ebd7d16e954acf"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/walk/keyframes/frame_005.png",
+      "sha256": "59cff43c0395f1b4dad50cbc12fcb11a0eb785184fc4b732e739ed357edeca42",
+      "rgba_sha256": "bfa86c3664db87e52aa476bb23f08f33703128327ad9a7ee748373940e3b27fb"
     },
     {
       "file": "boss_dullahan_locomotion_006.png",
-      "source": "enemies/boss_dullahan/walk/keyframes/frame_006.png",
-      "sha256": "2a5d3e103bd905737e06cfec82da4b7cf2411abbf66110700c99661a5d31f225",
-      "rgba_sha256": "b149b20fa03a011a0b3ed6201cf49219d7515d46c78f35e2914712dd1f25c0de"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/walk/keyframes/frame_006.png",
+      "sha256": "9503edab0cdc859bdcb84f02e37108f38473468df13eb19294047ee16d7b8475",
+      "rgba_sha256": "9430bd30f3da38c17fc30f09d5c44cc82caaf825df838919249e1c81dc53978f"
     },
     {
       "file": "boss_dullahan_locomotion_007.png",
-      "source": "enemies/boss_dullahan/walk/keyframes/frame_007.png",
-      "sha256": "8dbb5e58d40585d6d4d3b4d0bfe9007ccac0db88821b6c7d387b96118afa9371",
-      "rgba_sha256": "f5d7469f192f0d5416b205d4b9663b2aceed46c5f063694ba19b7dec1dd23176"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/walk/keyframes/frame_007.png",
+      "sha256": "f1d3a964dfec68813bff46cc2d39a2c8606cf6b1bb689548f141aebca2f6d39b",
+      "rgba_sha256": "e396598b06a4d92efb8d1c592cdc8cbb928ed111db61baf6d789b59ea505fd12"
     },
     {
       "file": "boss_dullahan_attack_000.png",
-      "source": "enemies/boss_dullahan/attack/keyframes/frame_000.png",
-      "sha256": "41c2f0b4b14778375df4e4fe862b2ec173da1bc228e7a91880d79ef1f85c759a",
-      "rgba_sha256": "316e4a08f2e9848ca7c5ae7e48aec98f2f2be00da6bbf97a829d84e9494265b6"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/attack/keyframes/frame_000.png",
+      "sha256": "641475b1ed9e6d7f04e4b8ea9e3299c5eb51dae0077e8bc4fd470facb3e37f19",
+      "rgba_sha256": "e89846ed0d07c911fa21836c8beb74503adadef7c1fc06ba747bf1d10eb32a59"
     },
     {
       "file": "boss_dullahan_attack_001.png",
-      "source": "enemies/boss_dullahan/attack/keyframes/frame_001.png",
-      "sha256": "7788f64ea97f5f980895b48b30aa97bc953856abdc6d4f3555f7038a92b6edb0",
-      "rgba_sha256": "41d84b56f6f85a7d8b41b9351736a4023187b375e8b3328cdd937df0398ab390"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/attack/keyframes/frame_001.png",
+      "sha256": "5d44e8c412a0a7cc761322d9a349e8b68042f78a9ee352ff0f748d379554be2e",
+      "rgba_sha256": "4506a90e6a5d2d310db79483c0b3ff865d1ed1852603a74b9632a0d1cd973b9e"
     },
     {
       "file": "boss_dullahan_attack_002.png",
-      "source": "enemies/boss_dullahan/attack/keyframes/frame_002.png",
-      "sha256": "4f0e1789c8376fbcaa4d55f8b139cbeaa89c5c23adf49ff72cffe78ba6df373a",
-      "rgba_sha256": "82659e94934acb9e5d55c486061e54fcf8a6d710f060a65f0856239bdc072011"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/attack/keyframes/frame_002.png",
+      "sha256": "129d6a70f541669a84001c5b7e391dcddf5506fa8e7d30779d95d874df4cbeb6",
+      "rgba_sha256": "f9659028b80e983d695f8e9c796d4aff4eafea88509ad2d0b7831122140f999a"
     },
     {
       "file": "boss_dullahan_attack_003.png",
-      "source": "enemies/boss_dullahan/attack/keyframes/frame_003.png",
-      "sha256": "897ed0f365298d5f2ffdbafeb3ae43e8b2d18ede23727049954e1fa310b16eb1",
-      "rgba_sha256": "d4492a0e001f1ae4e3c8ac60cb7d12c2150c31642ed2e78aedbb7a08d303ba66"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/attack/keyframes/frame_003.png",
+      "sha256": "80726eeaf2b1d0794de6b1d712369a837d3dd07c6909585f1f12f05a5f752af6",
+      "rgba_sha256": "f686b60060f1ec64e421f4f7627c622aca6e2b3e718a30f5300ef8362329c941"
     },
     {
       "file": "boss_dullahan_attack_004.png",
-      "source": "enemies/boss_dullahan/attack/keyframes/frame_004.png",
-      "sha256": "6a8dd010a1cca262b6172440b72c7dcc04a34a1ceed41f321a6eadf39bd7103f",
-      "rgba_sha256": "457b6c4eec61031876a71d2b9209d2cb5a45b6641ec0995a51e046b88a602018"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/attack/keyframes/frame_004.png",
+      "sha256": "affb3b54a1399caaf5abe7a5b4325bf1c7261849159f39c9a87113d15287dd4f",
+      "rgba_sha256": "f0bbc3644ccf01dd17ac6bf038214a9266ad815097b9bb3779a260e39446165a"
     },
     {
       "file": "boss_dullahan_attack_005.png",
-      "source": "enemies/boss_dullahan/attack/keyframes/frame_005.png",
-      "sha256": "9ad2b00eb4a1ebdad484b421df18abff946d54eef2ca6068c8da7e7c3d4ebba6",
-      "rgba_sha256": "72c8a17628110fbcd5b4184da05d4411c81760ef3411d00abb2afc5f263ea106"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/attack/keyframes/frame_005.png",
+      "sha256": "acf07f000e07ce1b413b33038cdc8d40c74b7a5ffc2a6a1a15b8939c988080cc",
+      "rgba_sha256": "62651e47c7757e000dc0be69dd813305168342cbf1f29b12055cf8b35ce82f14"
     },
     {
       "file": "boss_dullahan_attack_006.png",
-      "source": "enemies/boss_dullahan/attack/keyframes/frame_006.png",
-      "sha256": "1e61aa7c18d11f7b1f2a3ea4df2e13c9c56cabf9c3a08ade8230ffff4d853bac",
-      "rgba_sha256": "440102d311daf35cefbf7769603e583cd7150cad61bfeabc6fa09c9707eeba49"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/attack/keyframes/frame_006.png",
+      "sha256": "2f6951b5d3dc4bb4af0f5f0b576376fb91bd6e4af37b2112e54721ddacc50a7e",
+      "rgba_sha256": "8074a199010147e806b9d00f0cc695c068dcdbb244632a4fcdabdff939d0ba5c"
     },
     {
       "file": "boss_dullahan_attack_007.png",
-      "source": "enemies/boss_dullahan/attack/keyframes/frame_007.png",
-      "sha256": "b24b1d00a49a90d43a5468b8d300916aa0879299f78bc19d6bb671796083f069",
-      "rgba_sha256": "a09a48803a0e12ca2e817bf7546b678c5b445120b37260e5b5fe293c8ab0648d"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/attack/keyframes/frame_007.png",
+      "sha256": "9aabf09cf84368719f869992d9dcdf304f130992f124a68f6a40eab2cc830895",
+      "rgba_sha256": "358055abcc00b38e5a40aca174edc72e7c969d630bb85aae794266b90e0236a1"
     },
     {
       "file": "boss_dullahan_defeat_000.png",
-      "source": "enemies/boss_dullahan/defeat/keyframes/frame_000.png",
-      "sha256": "9f063e82213e6d4dd9ecc11e611a4b7148c1e386fbe8cb9b2e1b7e0294170d14",
-      "rgba_sha256": "11ab212579e58cec5b979b84674883fa1c4112ff208e6c788b649ea0614da13a"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/defeat/keyframes/frame_000.png",
+      "sha256": "7b92adea9b69df50f29236988a89f97be0e4e99b21904137535d7e719373e7aa",
+      "rgba_sha256": "8b4b72f84a0fb8a822cafe2327fbb30af06257d511ff0688d5e81e33db662c51"
     },
     {
       "file": "boss_dullahan_defeat_001.png",
-      "source": "enemies/boss_dullahan/defeat/keyframes/frame_001.png",
-      "sha256": "52b8f08502f04081a929f8d290249fb7996facc4e07dcf3c9bf2daa1fe53044f",
-      "rgba_sha256": "adb61d073f84824c60dc6bfda83230f8603bf70d26ede10344fc4252fd2730a3"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/defeat/keyframes/frame_001.png",
+      "sha256": "1781b7103d9d62bace34f556b81fd75436c8ad7e60bd2d44538ef73d7e44b207",
+      "rgba_sha256": "ec4d28dbb9e7579ba526f7ab3fe8c7525b9b557e52c6da8a42ad04b9614610a5"
     },
     {
       "file": "boss_dullahan_defeat_002.png",
-      "source": "enemies/boss_dullahan/defeat/keyframes/frame_002.png",
-      "sha256": "af3faa38e8f2e1b114f217312ddf1a8e1abd21979e98ce5a4dfa50917e2dc99c",
-      "rgba_sha256": "0fd642005644d78c3cf7d8aa6956069e54b9a7e8bac26d1367b94d7b0d039755"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/defeat/keyframes/frame_002.png",
+      "sha256": "fd2c38f6a0cdb957f23bcffc5a8108acb554fb95f3b8ea8f52c03888d5903436",
+      "rgba_sha256": "80f5f879817c7839dff8ac760f11fe0de08c9ee0b8904b139da3f036d41eddfa"
     },
     {
       "file": "boss_dullahan_defeat_003.png",
-      "source": "enemies/boss_dullahan/defeat/keyframes/frame_003.png",
-      "sha256": "49556bb04d09ae7fe76d957602aecc5ffbb1784137667a8a17f0fe3c6d76f7ee",
-      "rgba_sha256": "0faa93c9b2e8813f89ce231c8165ae31a51f6340e9baeaa6ea1197a0a64dde79"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/defeat/keyframes/frame_003.png",
+      "sha256": "f90b34a5f3e85ec7cd216765b8cc2bcdf0a68f1e16e843af343148c9f5accf97",
+      "rgba_sha256": "503a9977022ab4ae3c5b92cc5fa1295993ab11e61ea921d8aa30c849283d879d"
     },
     {
       "file": "boss_dullahan_defeat_004.png",
-      "source": "enemies/boss_dullahan/defeat/keyframes/frame_004.png",
-      "sha256": "c5ff94e94f8909220551da4e353760e104eeef258cf7e94136352569b12d6143",
-      "rgba_sha256": "3c59b3cada93f75acf838026ebfdaf285abaee00db78a280f8ac2cf3778331d1"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/defeat/keyframes/frame_004.png",
+      "sha256": "9033387079ed84936d0189da4590e87b30322c5ed8f24bbffee9f0766b0b2ecd",
+      "rgba_sha256": "2a07c57ad79a41a389522e551b0dd04330d6176e59a4a4c8cd289ba370d8c984"
     },
     {
       "file": "boss_dullahan_defeat_005.png",
-      "source": "enemies/boss_dullahan/defeat/keyframes/frame_005.png",
-      "sha256": "a848866b99ac2938cbe04154ae59f5685048c1127413a202d1ab48237aadc53c",
-      "rgba_sha256": "a4132ceb02dc4d09bec8c804de5cb407fa8a134a7c1fcbacf4312f4bd67ca723"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/defeat/keyframes/frame_005.png",
+      "sha256": "e0a57c4618598d9193c7cd10517fc1e573c60e5c18c622ee3adde66492816a13",
+      "rgba_sha256": "96f4154f95df4214b30ef9000bad32962ef82918c4260c9b50fe273ac77ce9da"
     },
     {
       "file": "boss_dullahan_defeat_006.png",
-      "source": "enemies/boss_dullahan/defeat/keyframes/frame_006.png",
-      "sha256": "51dad15420277a9348c8a58de25f228cf9a8b9629b50fe4a7da7a94c5c77ff24",
-      "rgba_sha256": "8d14605a2e2e36e0f59abe54ef1f9af6f230187dd98d5334afdb58a98d7444ca"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/defeat/keyframes/frame_006.png",
+      "sha256": "41654b92bbfe02986412ead78f03a47476a105adb99cdf5b8d56892ff6687566",
+      "rgba_sha256": "c77d83e7b02daac4d8ff473e3936906d06b33584032b79645d7dc741637a5b98"
     },
     {
       "file": "boss_dullahan_defeat_007.png",
-      "source": "enemies/boss_dullahan/defeat/keyframes/frame_007.png",
-      "sha256": "ae96f191381b987d12fa3761819da8c79d6625ee311387416376a1cf65b308cf",
-      "rgba_sha256": "852e0d2c91428e747fe8639951ecd42a91aca1fb2bc0f408f5eb1d069ac19f4d"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/defeat/keyframes/frame_007.png",
+      "sha256": "c0d515321bc627f0a3fea8eb0470dd2bacdf86f4944afd66e949103886d55951",
+      "rgba_sha256": "0f1dce649f748326e735e80fb7d81331e81e62a8ab086352d39b207ab9854067"
     },
     {
       "file": "boss_dullahan_defeat_008.png",
-      "source": "enemies/boss_dullahan/defeat/keyframes/frame_008.png",
-      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
-      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_dullahan/defeat/keyframes/frame_008.png",
+      "sha256": "76b73017feb8331ae927179b500f9dd049daac90845788f25f40246345bec8bc",
+      "rgba_sha256": "250480ecefa3655c774b6a4e5d4eb16675ee4f181c2285c25020fac6e3aaf3b5"
     },
     {
       "file": "boss_fire_dragon_locomotion_000.png",
-      "source": "enemies/boss_fire_dragon/walk/keyframes/frame_000.png",
-      "sha256": "5835db48c5f143f6e68b2242006d778640d96782a06fa3a605de2d0fec3aa7b0",
-      "rgba_sha256": "5037404935b109a21a1ec0aed2f1c08aceced292fe29508d4b8dd81e0feac834"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/walk/keyframes/frame_000.png",
+      "sha256": "09e473361723902846b68f343314729dd7ff4785e4e7923dd93339fe58393b01",
+      "rgba_sha256": "59471a10f8db50332e7c0b2845bed6a620f098c25bf9471cf85a69d08c61c7b6"
     },
     {
       "file": "boss_fire_dragon_locomotion_001.png",
-      "source": "enemies/boss_fire_dragon/walk/keyframes/frame_001.png",
-      "sha256": "018b3dba1b7ff92a22243b9667e248355b1f12afe4f60c170d1d8eae0477c6a7",
-      "rgba_sha256": "1214564c61d2a102002129f878b3830caa8468512c094e37a4e99a494e4e3d6c"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/walk/keyframes/frame_001.png",
+      "sha256": "d39d2266a4e1edb5f32e4830e4d2b4b830dfda7d2c475154298dcc75640967ad",
+      "rgba_sha256": "cde2783dbc469d2ff68a4b63a2aa043f2768af4e5c8449577663db27d3d0c110"
     },
     {
       "file": "boss_fire_dragon_locomotion_002.png",
-      "source": "enemies/boss_fire_dragon/walk/keyframes/frame_002.png",
-      "sha256": "9b468d8201a34375d1b18cdc36eeda16a519562513a461842e6b936f24b3629c",
-      "rgba_sha256": "bf5b5a9676478a660d0b7f1ea392e61777978fccbe5a8a8834ea0186c91205f7"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/walk/keyframes/frame_002.png",
+      "sha256": "7b684ac2fbe1dca8b53ae76f60d446429eda708478f74a73785a6d3a16e699b4",
+      "rgba_sha256": "2c71d8f482091ec880086a87a4bc53105277cdd0d4a66fc0bd998aec5472c36c"
     },
     {
       "file": "boss_fire_dragon_locomotion_003.png",
-      "source": "enemies/boss_fire_dragon/walk/keyframes/frame_003.png",
-      "sha256": "94f597dd01513f32b954a0552b774a1b15f7d8b780e22e453d002971e375e7af",
-      "rgba_sha256": "afb01d692e1722a6d8ee7f258c4abe6c53e555272fea04944a0391c9e6e308b0"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/walk/keyframes/frame_003.png",
+      "sha256": "fb193f412069e74c2f3f6f3596a2a5b705ad1a04696049e45f146eec548ba0fb",
+      "rgba_sha256": "a965ebacafc23eacffcf43abc825faca623b0c92212b633f5fa622b9975f937d"
     },
     {
       "file": "boss_fire_dragon_locomotion_004.png",
-      "source": "enemies/boss_fire_dragon/walk/keyframes/frame_004.png",
-      "sha256": "59c5265df1b95a715eaf693dfa7d8f2257c7141860edd4b60ae821dc2fe02d59",
-      "rgba_sha256": "985387a60e1377e7fbe5317ec6a724e7a698432ce8f4104924009ae7ddbf6b42"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/walk/keyframes/frame_004.png",
+      "sha256": "0f1d3a3ab730da8dd060fe65cb16f6ec4cc143a42cf234b9ef2d1cac774d03c5",
+      "rgba_sha256": "320c4c77b24046336e4d61ced531216c11d65a904fcf49a1c434a593d233d036"
     },
     {
       "file": "boss_fire_dragon_locomotion_005.png",
-      "source": "enemies/boss_fire_dragon/walk/keyframes/frame_005.png",
-      "sha256": "bfd1857c39b16da617d211197578f3bac2739a3ebdcfb44549ff846a29da2e93",
-      "rgba_sha256": "037cb572e263549e2b14b105bc86e70b865db839b279dcfa89fed22144d9742c"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/walk/keyframes/frame_005.png",
+      "sha256": "8603cdb0edb83745cfde39201450e12d35f8aeaebb9633169dcedee1f08a5fba",
+      "rgba_sha256": "3fca837d4c324571832c904c70a9c0ab45a52557e63e4eaf0f46157889cec0e3"
     },
     {
       "file": "boss_fire_dragon_locomotion_006.png",
-      "source": "enemies/boss_fire_dragon/walk/keyframes/frame_006.png",
-      "sha256": "77ffc6f621a6508decee70ffd1a826069b25ed964e3738f8194520e2b37e9350",
-      "rgba_sha256": "7129cc64ad223db3ae5ce80ac0e1cb9fd2d380554c70dcfcba2f200f89e21783"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/walk/keyframes/frame_006.png",
+      "sha256": "f2d8f25da6a33e5a9741a14d9f02a04592803ca2001bd5b8306729a841a29acb",
+      "rgba_sha256": "6eb6ee8fdb5df12f880c5f717ea801cafe09778a0a5bfcc972b44efd6ffc2185"
     },
     {
       "file": "boss_fire_dragon_locomotion_007.png",
-      "source": "enemies/boss_fire_dragon/walk/keyframes/frame_007.png",
-      "sha256": "107ac6afacbe745c9cb62c257948eecd3a3ef26b80376caccbc73b6626a22521",
-      "rgba_sha256": "0fdf23baca85cd1ecc7621f1cf0672bcad261824fc9eaf6d909f4bec9586fd44"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/walk/keyframes/frame_007.png",
+      "sha256": "8a89dd452f111fc7d14a1aaf865a8bec56896b07ccd799cdb9cb476f773c76fb",
+      "rgba_sha256": "6aab552b771243419a533d26b9036b7b03b68edf42d12fd16f1a33c36f40e740"
     },
     {
       "file": "boss_fire_dragon_attack_000.png",
-      "source": "enemies/boss_fire_dragon/attack/keyframes/frame_000.png",
-      "sha256": "c4e6082102e7536b1d65db1eb7716acbd489737b5de9de6d40add6a089729ffe",
-      "rgba_sha256": "65ea534257b59421c48cdb34bc5bf605362c30d3883a8e862dddfec792f0ef91"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/attack/keyframes/frame_000.png",
+      "sha256": "c60cb11d04174b3093709a89c117f8e7f678a5e6cfee57383f2326189d178b10",
+      "rgba_sha256": "1dfcb3c2fdd6c2058a4f35603469f34984edfc5d570b1597d919f10f45d51c60"
     },
     {
       "file": "boss_fire_dragon_attack_001.png",
-      "source": "enemies/boss_fire_dragon/attack/keyframes/frame_001.png",
-      "sha256": "75e64e743b10553c7d9bdee01f1b1ea61a95b024ff91f49ca79e31b63d943228",
-      "rgba_sha256": "01dc1fecba2cfd3d3e1d819443fab512864a992d55a94fa288be7a3da1ac0f89"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/attack/keyframes/frame_001.png",
+      "sha256": "30f2f4380cb59c4aff68c2dfcd9e992f144bdbe79a06d1e806c05ed9dcf4c292",
+      "rgba_sha256": "33cbf0597a24c4eee44fdbc687f52ec01196454d997a127ed88354b01971a04a"
     },
     {
       "file": "boss_fire_dragon_attack_002.png",
-      "source": "enemies/boss_fire_dragon/attack/keyframes/frame_002.png",
-      "sha256": "8885b6db1d864d1b65c3f1eefbc3bcc3a7d71649c781e4c0f3b0a5991f65ad2d",
-      "rgba_sha256": "48fb7be81571d24e9d2514ab82cff854157af52eb4c44d98aaaf6d11b5b59a61"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/attack/keyframes/frame_002.png",
+      "sha256": "f9e90cb4f70c27e7ec7fc8fa36f17dae5039a3edbb972bc903416b9937cf5c8f",
+      "rgba_sha256": "333a725c5d777d594a275a1200c5583676f7d10ac1c121af823f7cf5607ef21d"
     },
     {
       "file": "boss_fire_dragon_attack_003.png",
-      "source": "enemies/boss_fire_dragon/attack/keyframes/frame_003.png",
-      "sha256": "a5085795f856dc3b458b9d5a5eddbd47b6267c6c3b3e82466ac0c9cbe586d255",
-      "rgba_sha256": "8639b041b48ab0979434fbea1be56b429f5693099a759b4c9084329600e8a1b8"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/attack/keyframes/frame_003.png",
+      "sha256": "943efa8a08d725d1ff8645b1104f521e5a965e943474f62f89f7e6b6ef0b9a92",
+      "rgba_sha256": "2b3e468f00bc709904385084a43836371333d770dca4ba0ab0fce3a59958c32b"
     },
     {
       "file": "boss_fire_dragon_attack_004.png",
-      "source": "enemies/boss_fire_dragon/attack/keyframes/frame_004.png",
-      "sha256": "d976f68a0173e579941f271fc8d8a8139c6112474ff90661629447965ae75466",
-      "rgba_sha256": "d46b8a13ad6c0bfee57b3a999813905b429199e197add9c5f715f29264b31d31"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/attack/keyframes/frame_004.png",
+      "sha256": "d193a027b89f91d44c4b79813de5547164b36bb32004ddda3bb41280154715fa",
+      "rgba_sha256": "451f0f8be68eb16dbb49a045e04d8c87b677033e79b127929cb043c3a60a34aa"
     },
     {
       "file": "boss_fire_dragon_attack_005.png",
-      "source": "enemies/boss_fire_dragon/attack/keyframes/frame_005.png",
-      "sha256": "3f7564e51c30a4724d3b1a0488da97522330bf2fe7bde22c6d0fbce263876930",
-      "rgba_sha256": "6be2be27089b989e75246d11ab501904f920844d13d34e5d892530b19c8b7f4d"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/attack/keyframes/frame_005.png",
+      "sha256": "d19fb64d8d0a612fc32bc09a8f1a543d6d40b6f677f9c29b6be11d6ac043bb80",
+      "rgba_sha256": "95af5bb48cbbf468a26cc49b8c88fe45af4e5b759ef9124481de66711e6410af"
     },
     {
       "file": "boss_fire_dragon_attack_006.png",
-      "source": "enemies/boss_fire_dragon/attack/keyframes/frame_006.png",
-      "sha256": "3ea25c0e9bd22150451c589edbb0cc79816657872ec05d0aa839acbcade7d142",
-      "rgba_sha256": "26918e05b03f5d332920cf9a88d1fd8d6393ec79ba33cc49bec807ad93e7ffbd"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/attack/keyframes/frame_006.png",
+      "sha256": "90a10f38a85a1e7c57a1f219b32270d1d7afc2f2e4326025b09f1ddf8b7b36df",
+      "rgba_sha256": "9f59b6953ebb1b350843b4a09368e1fe2440206b55d0d90b769057be9b567086"
     },
     {
       "file": "boss_fire_dragon_attack_007.png",
-      "source": "enemies/boss_fire_dragon/attack/keyframes/frame_007.png",
-      "sha256": "e3397ae0062756ecf1266f0f84b6becff738f52986416d822af1c4ff1208911f",
-      "rgba_sha256": "0df22c42f117c470a2662474b4d3d29951de33daac96f45bb558515602dced41"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/attack/keyframes/frame_007.png",
+      "sha256": "321d79423995f2c76d4c702121dbe3c6f966907f5a3282652a97eea740b4c30f",
+      "rgba_sha256": "65e6fab69867c643462cdf248d40d522f01bc231b7aeb72d96a5c8a1aa8b2eec"
     },
     {
       "file": "boss_fire_dragon_defeat_000.png",
-      "source": "enemies/boss_fire_dragon/defeat/keyframes/frame_000.png",
-      "sha256": "cf41823e3b4e3866e9fda12a4809f983a5429ddf089820da42d6ba7801c0f78a",
-      "rgba_sha256": "0995f886f45681b1610c1d8284584a3c32bce165237043a1a34ea0d7590a70ca"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/defeat/keyframes/frame_000.png",
+      "sha256": "a3f76186057e35eba7a55c0268da2e7281febad101a07212a76e291a81bba8a2",
+      "rgba_sha256": "06f5e00b8b0bb2262f132a259613ea1dc9e7bab44e40e2cd15e4bdca963b5613"
     },
     {
       "file": "boss_fire_dragon_defeat_001.png",
-      "source": "enemies/boss_fire_dragon/defeat/keyframes/frame_001.png",
-      "sha256": "22f1c00548645e123e17684b09b12e21b70ca023bfab259ba9401bb2f5bf1ba2",
-      "rgba_sha256": "14c5a47e430632f4d1ece4285cbd5bb6a7afde4f420575e7acc0e06189aff6db"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/defeat/keyframes/frame_001.png",
+      "sha256": "200e8c89a27152b21ba1ad4ac536215394072c06d049e21bdc664ad3788b7a23",
+      "rgba_sha256": "f1c24d8cda896f94ade02cf3a4230bc96e0fed14f02292ec07be99f7efd6dfe1"
     },
     {
       "file": "boss_fire_dragon_defeat_002.png",
-      "source": "enemies/boss_fire_dragon/defeat/keyframes/frame_002.png",
-      "sha256": "779ebf48757c8dfac36997599b2328c33079457e8d9bc8e8862374c08e527138",
-      "rgba_sha256": "3eaab29156079585386fe1210e5edf62d83fa25591507650a086c64412d2fee3"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/defeat/keyframes/frame_002.png",
+      "sha256": "63691a03482771fcc9495b03a01d124fa662c22a0c858a5644b8a36a11136c22",
+      "rgba_sha256": "8d1fdea0180c76048fecadc36780edc6a61bf278ad4a1595306525470e3cee97"
     },
     {
       "file": "boss_fire_dragon_defeat_003.png",
-      "source": "enemies/boss_fire_dragon/defeat/keyframes/frame_003.png",
-      "sha256": "311d31c130452dfdc9f182c4ccb282ded39be8191457e528845bde71bdf36387",
-      "rgba_sha256": "979a43794f0ad40fd5ee92c41e9278fe43e867190401d17eecdcad5620003054"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/defeat/keyframes/frame_003.png",
+      "sha256": "3663f873e9b1f87df9d5b7dffa23ee394d5c0dac051974792c6244c4326da749",
+      "rgba_sha256": "b0709a7f28e5b142c8a23747fe6466f6181d2c97ce59300fac78462e1ad27b5f"
     },
     {
       "file": "boss_fire_dragon_defeat_004.png",
-      "source": "enemies/boss_fire_dragon/defeat/keyframes/frame_004.png",
-      "sha256": "cf19fda16e40a6b2e6a2e4c6fcb445978c8d5b82314fcc3ae12b2a7af35f7343",
-      "rgba_sha256": "9f39a20bb0f0f34c6aae00a95ef6941560a46239d8dfd82a4e582cb8c3b7b7d2"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/defeat/keyframes/frame_004.png",
+      "sha256": "6f712ffa1ed051a92521767f3928677de0a43c684b50640f9c54fa4db3d4ecbe",
+      "rgba_sha256": "c199b4ffb5d4a913c3dd7d801e7bd403cecaadb1ff1e6be3116f00a1230eb960"
     },
     {
       "file": "boss_fire_dragon_defeat_005.png",
-      "source": "enemies/boss_fire_dragon/defeat/keyframes/frame_005.png",
-      "sha256": "443359e0e1b6a61f6e79f52e657cc541139ff1f3a3447cb69c979bc41a362919",
-      "rgba_sha256": "8645658fe6f4dc7dbb49693fa596a97003cf7507bef48fa4c6b779bd34c936ac"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/defeat/keyframes/frame_005.png",
+      "sha256": "3657bea890b4567f394b6d0673828eb10a4372a02e4389379ba8bac53598d338",
+      "rgba_sha256": "09c2d7253974a97ef0ecbbf4c93fcb85d155ecc380b336bef1c7bb1b2c84ef18"
     },
     {
       "file": "boss_fire_dragon_defeat_006.png",
-      "source": "enemies/boss_fire_dragon/defeat/keyframes/frame_006.png",
-      "sha256": "9d7d4ad8e8e0283c1b94158837bdd364eddf06fff06ce068d760aa514c53c356",
-      "rgba_sha256": "10f1106ac602c983c3f2860fa602082563fe6159db4a07f3ef8af17c01a93449"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/defeat/keyframes/frame_006.png",
+      "sha256": "945226eefeecdd1e44437e562387bdcdafc655908b16c6978388b2311d6d591f",
+      "rgba_sha256": "a7a3d741250d1a7917902f7edad68cfcd51d660b33495735bdfa173c84d8d4ca"
     },
     {
       "file": "boss_fire_dragon_defeat_007.png",
-      "source": "enemies/boss_fire_dragon/defeat/keyframes/frame_007.png",
-      "sha256": "60869e5456b5d959f51fb7a26d037e3f037354e5aaf6c26f175cf9f4f6c263fb",
-      "rgba_sha256": "c7c18d3305f3c1976b64413ace71360748558c5df352956641a5f1a6cfb4c96b"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/defeat/keyframes/frame_007.png",
+      "sha256": "29331dfb9b9c891ee7826aab71f1cbeb6bf7a5852e4a73babc3f188b0b4b3fc7",
+      "rgba_sha256": "62f011509d40ae9fbf046ae7756d1a66af0aa0c83774a8be4805b78bbe69874e"
     },
     {
       "file": "boss_fire_dragon_defeat_008.png",
-      "source": "enemies/boss_fire_dragon/defeat/keyframes/frame_008.png",
-      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
-      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_fire_dragon/defeat/keyframes/frame_008.png",
+      "sha256": "76b73017feb8331ae927179b500f9dd049daac90845788f25f40246345bec8bc",
+      "rgba_sha256": "250480ecefa3655c774b6a4e5d4eb16675ee4f181c2285c25020fac6e3aaf3b5"
     },
     {
       "file": "boss_cyclops_locomotion_000.png",
-      "source": "enemies/boss_cyclops/walk/keyframes/frame_000.png",
-      "sha256": "2a4a6a945e3734c2ed04d6979d7009db8954739cf8845ea04880f003324df126",
-      "rgba_sha256": "a5518439620f3fd2518e490c22f00f7285bca0f53e111fa13efe32586e54a85d"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/walk/keyframes/frame_000.png",
+      "sha256": "ff3cd85b97e5d8d1439f4e1bca6df9d386f5548062bb3624929972e04c60a5db",
+      "rgba_sha256": "0ed9ca35de824d4ef1a14ed3a7814014a9b03042e343a8a42045c39630747b89"
     },
     {
       "file": "boss_cyclops_locomotion_001.png",
-      "source": "enemies/boss_cyclops/walk/keyframes/frame_001.png",
-      "sha256": "c6c337155c85f47e6c51f6ed2bd9ae1a6ae76a6bc46f71be74e86d081939b244",
-      "rgba_sha256": "834b7634d77c0a09c05ad63f6ae20d21d6e56735f018bf21a4fbf364073e3641"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/walk/keyframes/frame_001.png",
+      "sha256": "fefe3cfe97d63471fe1c512a414f65e51cd35633d5d780b6ed41cbc635ca0558",
+      "rgba_sha256": "428b90c48d553dad487f091980b75d550cac60b724aa46f0bf06a7ab74fba656"
     },
     {
       "file": "boss_cyclops_locomotion_002.png",
-      "source": "enemies/boss_cyclops/walk/keyframes/frame_002.png",
-      "sha256": "3a804a3f7796f4f063412e57032a3376347eff811a01051a7bde383d2adbf5be",
-      "rgba_sha256": "f21b411bd71a0d8fb55bd1599018626d2ccc2136bd547c19eac51b12ac88845a"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/walk/keyframes/frame_002.png",
+      "sha256": "9b001653575b532bef655bf0eba4a2aec5c2287734606eaba631dfa36f395d01",
+      "rgba_sha256": "e3ce7e27dece776cb4035f89998532a2baac90e3cc253a9a09b7fb878e84e3ac"
     },
     {
       "file": "boss_cyclops_locomotion_003.png",
-      "source": "enemies/boss_cyclops/walk/keyframes/frame_003.png",
-      "sha256": "674e05aa4f0ea76fdb9ffe9e94db326928ceb9ce7d768a9f1945ef740ee43c84",
-      "rgba_sha256": "5aa959a69cf60111e4bcffa27d49d5ac83d50f3151614ba4175ae49d0ed99b6a"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/walk/keyframes/frame_003.png",
+      "sha256": "dbcc3a51d202acf18057611a823eda29006cb74a29b8a711621247e3bb576df0",
+      "rgba_sha256": "886d84bc1d657630a377018eb77a1aadf6725011386b2e4fa6fcbd1b2961576d"
     },
     {
       "file": "boss_cyclops_locomotion_004.png",
-      "source": "enemies/boss_cyclops/walk/keyframes/frame_004.png",
-      "sha256": "ef7323a20167e77e8834eaa7eb491708c711e248b13476656110efed64c61f25",
-      "rgba_sha256": "fe39bb9069daf97b9a7b74052cb98fe846deacf7456b90a217975b1044630dec"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/walk/keyframes/frame_004.png",
+      "sha256": "f63631eb0450e8ee0d6fb038642b29de6d7e1596ac373cdabc7d6f5ce8304bc8",
+      "rgba_sha256": "fe7c581a742d37f33f2342dc438d8a68c525a261cfb4427bfeaa971c71a2d1bf"
     },
     {
       "file": "boss_cyclops_locomotion_005.png",
-      "source": "enemies/boss_cyclops/walk/keyframes/frame_005.png",
-      "sha256": "cdf120aaa2ea0d079a0e81290a4ac856770266275d51b82c70b424b6ada93646",
-      "rgba_sha256": "2532a80fbbedfc28b31a8a6b58b882b000c1fc9981138bfaeed2b13bc5d700d7"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/walk/keyframes/frame_005.png",
+      "sha256": "239c05ddc70a4237b96b27a3479312ac0cab3d8fb60355b5e93e4911f2b2966a",
+      "rgba_sha256": "8ee9c6e23d2120ca4ba4f7da6814f6dcd0dd7e4e1b34108123ddd63213a5761d"
     },
     {
       "file": "boss_cyclops_locomotion_006.png",
-      "source": "enemies/boss_cyclops/walk/keyframes/frame_006.png",
-      "sha256": "3dd7d848101ccfeebf08c37d3ea29159c0eb2a9ffe89e4b4412703ec5567dd7f",
-      "rgba_sha256": "6961f7bf2fd5f300b404c4780b484cbc003acdc394aea671868395345a16fd30"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/walk/keyframes/frame_006.png",
+      "sha256": "078a762126e878c6245be9ed6e56b2ff90a6e601fd2d8809115c2affa0a5db41",
+      "rgba_sha256": "b31e0983e2855eedaa1d08ee00d8db0a5275b85d8683704a0fbbc97b0dc87157"
     },
     {
       "file": "boss_cyclops_locomotion_007.png",
-      "source": "enemies/boss_cyclops/walk/keyframes/frame_007.png",
-      "sha256": "228fb104d2b8a6494cd053e2f8341b220afc75f9524ce270e083f50d0955b98e",
-      "rgba_sha256": "b1ca378ee138bce2dae4849364ab5961da25b4c19f66a96714cb54fb56cfa600"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/walk/keyframes/frame_007.png",
+      "sha256": "c050d685f00bcc2b8660ca0b0f55e6cef4361d1f11a249aa6dcdbbb2381e3dc5",
+      "rgba_sha256": "a45ccd05d67e6739d9996b7a82e225f9579eb55b0ffe6364d6dbf09c097a4232"
     },
     {
       "file": "boss_cyclops_attack_000.png",
-      "source": "enemies/boss_cyclops/attack/keyframes/frame_000.png",
-      "sha256": "686993f55b15b6b9a6c803c2c638d7a3e5fee49c9840152e0b0fe5ee17adddd8",
-      "rgba_sha256": "c314cb691ffbdcc26a61eec2ed33de42c285928bf32b97302970226a6af95497"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/attack/keyframes/frame_000.png",
+      "sha256": "3ab6a8342915e7c7c7671077f7e30c0faeff4d57cb8c6d7e586fc9f4c86ec9fa",
+      "rgba_sha256": "2f0ef33108b1af2cfcf20af2b6bdbffe9eaeceac76845afcf8e3558a672359c4"
     },
     {
       "file": "boss_cyclops_attack_001.png",
-      "source": "enemies/boss_cyclops/attack/keyframes/frame_001.png",
-      "sha256": "e34a308892614c54d63ffa70196738b9ea9e53aa6ef6cdf39db664f66990bd03",
-      "rgba_sha256": "d17ab266eee07aca72cdbf4d90cf5fbe75c94e2b46dbeda69e02c19cc7743b32"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/attack/keyframes/frame_001.png",
+      "sha256": "6ee15dc066169926594f4c7a58604cc16c7e6c3ec45ef89fc71cba5dd296e01b",
+      "rgba_sha256": "e3b046f46bf2bb2d2486e181b90ae22f26ae310712bc7582d41b87e14cced807"
     },
     {
       "file": "boss_cyclops_attack_002.png",
-      "source": "enemies/boss_cyclops/attack/keyframes/frame_002.png",
-      "sha256": "374eabccfe27238269d56f508b6b26c76b9876e4adcc77bda10de0caf2c39686",
-      "rgba_sha256": "7e28635dffb9a067bdfb39cbdcc21fd163cb29405b05082c39bf8f637f209060"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/attack/keyframes/frame_002.png",
+      "sha256": "4db5b68638a7d84d73a28cfc1be6ca829bd1da1775d40b7de8eea92732aeda9e",
+      "rgba_sha256": "d6ee4cb39068ddc0a67075608ac5d9942045e8597569b76108db5a31679b8f7c"
     },
     {
       "file": "boss_cyclops_attack_003.png",
-      "source": "enemies/boss_cyclops/attack/keyframes/frame_003.png",
-      "sha256": "3ac5c5c876fc9232b05420e1631d8f4782410ced1f532a07dc1bbc78a84f5ce7",
-      "rgba_sha256": "e2dfb25d7612f68b23bb017eb48b9e16e42f0f6c7f841d7d6cb32a0bcc646ec5"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/attack/keyframes/frame_003.png",
+      "sha256": "6bc56b40ddb7fcf11c8ab8a40775b1592d45bdc1ef39a631202ee5f89cfae9e6",
+      "rgba_sha256": "01504aa089e395a585e55ec79ae493718842722557545749e8a7cff29028c4de"
     },
     {
       "file": "boss_cyclops_attack_004.png",
-      "source": "enemies/boss_cyclops/attack/keyframes/frame_004.png",
-      "sha256": "87cb1e226cd9a9858f8bdeca081f1f42bac73c346b9524cc71c70ad3fc847e9e",
-      "rgba_sha256": "10a463ff021b3e69b57811d4626b8cdf88d22a06142eb32bc6c7802170a15122"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/attack/keyframes/frame_004.png",
+      "sha256": "e980931616911d5ea18ea037dfc37878b2bec3991f6465639ee8996b2e7bc27d",
+      "rgba_sha256": "0e2f08686bfdaa85217f3b26580e74944856fd890b9eb5526006dcd6dcf154f1"
     },
     {
       "file": "boss_cyclops_attack_005.png",
-      "source": "enemies/boss_cyclops/attack/keyframes/frame_005.png",
-      "sha256": "f4b5a16fec9ac0882f56f6c0c4e70524e1fb5e502f99336e0cc8374a99ef7df9",
-      "rgba_sha256": "6bb7f2ad796b09a84da49e21ace37a08e428e5ddb4b4bd54c69475bf6e1d4fd1"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/attack/keyframes/frame_005.png",
+      "sha256": "278224f859c32e7be71e0660a2cc1aedfb5b6076a071692de41f2100586d0314",
+      "rgba_sha256": "59853ecc70b1c4e84a7c0d8c03d025939ccd1a18641a080309c1c9c84f41ac69"
     },
     {
       "file": "boss_cyclops_attack_006.png",
-      "source": "enemies/boss_cyclops/attack/keyframes/frame_006.png",
-      "sha256": "4bff8f1ef3a1108492212541eb30cff3d895681962ddb005692f9b85a5095b41",
-      "rgba_sha256": "b51176d57ebf9ff66b1ccc1e09bcf15b77d365042bfa91b696008f6e3ce02579"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/attack/keyframes/frame_006.png",
+      "sha256": "0e37b622ba06f12970c5127efcf8a4774abf484df7327d01f438ea4b004e9f3d",
+      "rgba_sha256": "597cbdd7a72fbd512cd219c1a617e85e2fa320a9f93d2c881e0518de5cf53b33"
     },
     {
       "file": "boss_cyclops_attack_007.png",
-      "source": "enemies/boss_cyclops/attack/keyframes/frame_007.png",
-      "sha256": "569cd6f68989e1bad34e945b358e5f60dd320d4115776782c5dbe0823c08f984",
-      "rgba_sha256": "cb97fdf7934a589ed5696e0c8de69c21d0980c03772824ac87d1043085473c7a"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/attack/keyframes/frame_007.png",
+      "sha256": "3f6dd4ef0a63646de567aafe71c21d608aa5c49681f3851c758dccd17c551301",
+      "rgba_sha256": "4b123558f5f0a00082bc73fbbeec30e6d95af56f2ab660b577ae4800904910a0"
     },
     {
       "file": "boss_cyclops_defeat_000.png",
-      "source": "enemies/boss_cyclops/defeat/keyframes/frame_000.png",
-      "sha256": "fbcddd54b8f490ea1ce9b049efc587293652be7c358a69f7d62c0e7af7dc89d3",
-      "rgba_sha256": "2cb35860fc8a87625ae5d095bb99f43777c79a5668fb7390a368760e335060be"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/defeat/keyframes/frame_000.png",
+      "sha256": "950e56613b776cbe07badfd097a900457699cce0170d2e80495f42f34793c0df",
+      "rgba_sha256": "cd95d4e6077dc43d97240860e7d223fd53d84d01dc96452551f45a5aeff482b2"
     },
     {
       "file": "boss_cyclops_defeat_001.png",
-      "source": "enemies/boss_cyclops/defeat/keyframes/frame_001.png",
-      "sha256": "304c56b355bd179d2843d9dd1d061b987d429b9591e368ec403ad28c963ce4cb",
-      "rgba_sha256": "064d383b4f16fc281dfc12ceacba70d40af65248a67ce4e3acb20877c728b20d"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/defeat/keyframes/frame_001.png",
+      "sha256": "35dd221fa34f8a54c8ba4b3b4edf8b9000f87d74e5b3894bd8d13bd698ebe3bf",
+      "rgba_sha256": "00ca3ef3243d0b9ec39468f9b77f6376dbd0d5b4cf4a07187c7e7034cdd6b92c"
     },
     {
       "file": "boss_cyclops_defeat_002.png",
-      "source": "enemies/boss_cyclops/defeat/keyframes/frame_002.png",
-      "sha256": "046e657f412f2466f1be7c142f2088c0e8e16511043a05372996145137691529",
-      "rgba_sha256": "e8e5df02f0b112934e99bfe34c991ac48a8881404aa55d4ab7278ec0f55e5932"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/defeat/keyframes/frame_002.png",
+      "sha256": "1864e714b906c1842088778adf74a94ba64184963ea80170302c691d529e4d0f",
+      "rgba_sha256": "53d4e9c3a7e104d74d0b13ae5b384814d6d5584d40bb99692da3eb348685ee54"
     },
     {
       "file": "boss_cyclops_defeat_003.png",
-      "source": "enemies/boss_cyclops/defeat/keyframes/frame_003.png",
-      "sha256": "373031f3f2b071aa4bf71bd547cf83f156c6154a0fbaa35984f3c7ea0ba0d6e7",
-      "rgba_sha256": "8f513d0db92080866bd60c51f127dac9739c3baaf1469aaf7882fff37cd78021"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/defeat/keyframes/frame_003.png",
+      "sha256": "b47ea4cb43482c86ff3ff5a6d7eef84010de8a930af7c2a47344d9373b25d3ca",
+      "rgba_sha256": "038295cb0c26787af776de3e3c6e72a3c577bb89829c68054d1e3374d3c9eecc"
     },
     {
       "file": "boss_cyclops_defeat_004.png",
-      "source": "enemies/boss_cyclops/defeat/keyframes/frame_004.png",
-      "sha256": "a4c52b4af035ca777295f08589e345b4d5a9ae0522bfef19c740eb35601af3c1",
-      "rgba_sha256": "20045812d63636bf82aa059215ab46dcd1f70961cacfead1a1f25f81b10b6bf2"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/defeat/keyframes/frame_004.png",
+      "sha256": "63215a0de79e8d3c240a4af1c82f028e1112014cd04523ac07a34160573fcdee",
+      "rgba_sha256": "b33fac359a418905f5a049faef888bc0f1e16bd3c16600d30c04c3bb41456735"
     },
     {
       "file": "boss_cyclops_defeat_005.png",
-      "source": "enemies/boss_cyclops/defeat/keyframes/frame_005.png",
-      "sha256": "ff308b32001579351ce91820d3e687deffa94aa7030dea5c2cb11a6b816a1cf7",
-      "rgba_sha256": "0aa2f7857cc3560bbb8b6fb84f87f8c1b78b4049b3476cff530d09b62c61fc83"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/defeat/keyframes/frame_005.png",
+      "sha256": "e44d827afaebb80dbadedf6985c4fc07d7fd864848d75207aff08a7f53fb4021",
+      "rgba_sha256": "42d380f65e1c6bace317ed6ea796800c18c34114401e268d2df0a89ef694384e"
     },
     {
       "file": "boss_cyclops_defeat_006.png",
-      "source": "enemies/boss_cyclops/defeat/keyframes/frame_006.png",
-      "sha256": "ab7235728f4909d4431dcdf8b7244298f252b09d9c4076bb1ace8db051d1e365",
-      "rgba_sha256": "b20e1ddde6bdb92e1d1618d93605ccca28c8e97590e7573e0f892f4259a4e011"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/defeat/keyframes/frame_006.png",
+      "sha256": "c7a96c05cb8b97bb686692ebc9633ca3c5132e40fdb05d42cc71a5722628a02a",
+      "rgba_sha256": "a1e094d3b76619e4da818cc5ef32ff14e169841ec24429fb86fa7fffab253f7b"
     },
     {
       "file": "boss_cyclops_defeat_007.png",
-      "source": "enemies/boss_cyclops/defeat/keyframes/frame_007.png",
-      "sha256": "467bfbcfda115a0676b1a81e737baa962281ff5f4eaae20028a6c4154f4747ce",
-      "rgba_sha256": "b13af39546136255f42cf0fbf7d7021bf95f9ece65f9d7e1871d440b18eac22e"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/defeat/keyframes/frame_007.png",
+      "sha256": "bd8b089b221c4ca907a129dde765dd0754e09fd3e397f20acdf1b1222868573d",
+      "rgba_sha256": "18296ac98aa51fb3793a50938f03b6c93a835c439fe861e1f28f6ddb42395f75"
     },
     {
       "file": "boss_cyclops_defeat_008.png",
-      "source": "enemies/boss_cyclops/defeat/keyframes/frame_008.png",
-      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
-      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cyclops/defeat/keyframes/frame_008.png",
+      "sha256": "76b73017feb8331ae927179b500f9dd049daac90845788f25f40246345bec8bc",
+      "rgba_sha256": "250480ecefa3655c774b6a4e5d4eb16675ee4f181c2285c25020fac6e3aaf3b5"
     },
     {
       "file": "boss_lich_locomotion_000.png",
-      "source": "enemies/boss_lich/walk/keyframes/frame_000.png",
-      "sha256": "e7f60e3f4b20eff8399b5c753ddfcc3dda1ab8b335c30ea5f12104ca01d84fa3",
-      "rgba_sha256": "bdbf873f1c79ab426dfb3002b2c5f1f69b26cf1e2f23e8d8a349bc371fda2a3a"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_lich/walk/keyframes/frame_000.png",
+      "sha256": "a5dd69828160032e6bba06900ac815077af29d195529f1094b1967ed7de90f1f",
+      "rgba_sha256": "482b8fcd8b675f83591044e317581450c0f25efaa6a9cf183467c0820076b794"
     },
     {
       "file": "boss_lich_locomotion_001.png",
-      "source": "enemies/boss_lich/walk/keyframes/frame_001.png",
-      "sha256": "abf94b94ea520ecdea79c2ce05acd7853a890e97207e1952fbb1db2300447171",
-      "rgba_sha256": "50f3426dc9702443ddec25b66d9eac65675eccc0f202abc177050734b6873dd9"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_lich/walk/keyframes/frame_001.png",
+      "sha256": "e19854fc00083db71bc5608f82c032e2883a1a5f2dc8789d3a9d48320273e26d",
+      "rgba_sha256": "c1396702493ebbb9cf8ab5dffba5b139943a1a1cbe0a80af0d64d8d1a75ce46e"
     },
     {
       "file": "boss_lich_locomotion_002.png",
-      "source": "enemies/boss_lich/walk/keyframes/frame_002.png",
-      "sha256": "e526a435267edca3d39bf54d0e22e3404d42b0b0f3735c9e379a9528297c692b",
-      "rgba_sha256": "a5a251b713dd65c136af0c39ee059afdcac989b9b65acdba0d3ddbf17a6a18ea"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_lich/walk/keyframes/frame_002.png",
+      "sha256": "96dd9f87d5e376e52dbc7ccf85361f199622e77e403f91497fc0a372bb8a3f9d",
+      "rgba_sha256": "72fb655943ba6efb6d0b7c6e8332857ba139d295af6742cf5ff361902cf14d6d"
     },
     {
       "file": "boss_lich_locomotion_003.png",
-      "source": "enemies/boss_lich/walk/keyframes/frame_003.png",
-      "sha256": "e4a880f2f178a80821d7341f278c87a46c781c4b57b794e5eea116c26131c69d",
-      "rgba_sha256": "99e4326b9a4e796d7b3715beb0be01b4ad4b9a8a55c2ef75e470a75479e74558"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_lich/walk/keyframes/frame_003.png",
+      "sha256": "fd148011edd1a12b1353b6f57032f1eef825597d505b3f17960adff51b133682",
+      "rgba_sha256": "af366fe4f7c156d31f20e8f20c9a984130bac09fd90016a633919c47e4c6ddec"
     },
     {
       "file": "boss_lich_attack_000.png",
-      "source": "enemies/boss_lich/attack/keyframes/frame_000.png",
-      "sha256": "1b799a7159a2d597d0f9931b5a59bb03c970eb9c8c6662452109f8bcd69fce2e",
-      "rgba_sha256": "0ca187e30b7e8d2edf124a0bbdece648db9cdd4c9fa545ae52aad046d53de48c"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_lich/attack/keyframes/frame_000.png",
+      "sha256": "0527633580217bb9a9f6503ab02bd7877351cf39037f466d04a226654de73a7a",
+      "rgba_sha256": "e9353827bf6d06a6fdfa2d20dd22c395c8b9f1c3a2a623e6a0c49abbe9668493"
     },
     {
       "file": "boss_lich_attack_001.png",
-      "source": "enemies/boss_lich/attack/keyframes/frame_001.png",
-      "sha256": "7964545bbf6c2955967500882c1676beffdddb224e6b49817bdc851e65d0e52e",
-      "rgba_sha256": "2777bc8160db7efe4421e1502335fc9acf0d20bd32ab085cd3e56cb32718bc2d"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_lich/attack/keyframes/frame_001.png",
+      "sha256": "aa314dc8eba812274f234d3b241a29d440d99162e17e3b9382b03fee89c99007",
+      "rgba_sha256": "69e0051bc470ef096aa38e024e2314e6ea628d8a1d538f6443d4c658bb570cdd"
     },
     {
       "file": "boss_lich_attack_002.png",
-      "source": "enemies/boss_lich/attack/keyframes/frame_002.png",
-      "sha256": "aab710cb8f84dba840d3326138c862d89d5736af8b298d688add535dc3b598d9",
-      "rgba_sha256": "5d4d9b0419b21e260bd7ff781c5ffa423f52f5487bfc856b3e7ab5cbf07e4102"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_lich/attack/keyframes/frame_002.png",
+      "sha256": "c3d99ab1b04eb6da6ed6b8e5c0a1a9b1d4932f0a3c3088dbf8e83116e261e57d",
+      "rgba_sha256": "57f9e49127bc07ef8f84c5d36bdf0044adf735d55f07e181d88a025779064778"
     },
     {
       "file": "boss_lich_attack_003.png",
-      "source": "enemies/boss_lich/attack/keyframes/frame_003.png",
-      "sha256": "5a7676027c7afa3733ab3a8d326ae009508e397b4cc40624d5898d6aa3b43d00",
-      "rgba_sha256": "c88d50651e3c432b9f7c2dba7fff64a074c18eaed0369d6dd70378c1373d4fe5"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_lich/attack/keyframes/frame_003.png",
+      "sha256": "10a58d01c578e6222b1f22b9840112da27447628d3fc4b94b1de852c787ce643",
+      "rgba_sha256": "ff334372de95d6d027cc93b0e03ffa1976764d44b39d6f621f7d7f3a2e8bf9cb"
     },
     {
       "file": "boss_lich_defeat_000.png",
-      "source": "enemies/boss_lich/defeat/keyframes/frame_000.png",
-      "sha256": "660eb3c0ce5618c4b3afb89c325d737f269ae96edbb4aeb8b2af40ae6d568d94",
-      "rgba_sha256": "ea4197b62ee4d81f55859d247c102a2d11f68b9e8bb0fdb01291b8c8aef4def7"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_lich/defeat/keyframes/frame_000.png",
+      "sha256": "6f8411dabaefe0c261939ca7fb063f53440c53aff98f590cb3f04f65da283d30",
+      "rgba_sha256": "aceae4e614f82f144a85fe3556c517443250f6d571280668252f9d5c51932d07"
     },
     {
       "file": "boss_lich_defeat_001.png",
-      "source": "enemies/boss_lich/defeat/keyframes/frame_001.png",
-      "sha256": "eb163a712fe641f3a429694903d886542a4999410307eb0978ac34ffce91bb1b",
-      "rgba_sha256": "dcab1aed471553084f899c1a56825125bf2b8897e7559fccb9179f329bef4cca"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_lich/defeat/keyframes/frame_001.png",
+      "sha256": "080fb47035978b1b8b4a3980e93444acac0a899d215a19802f9dc66cc29f2473",
+      "rgba_sha256": "a460416ce1da81cbcd68bb6a788b4bde9133390af28898f1d5534b44b3269889"
     },
     {
       "file": "boss_lich_defeat_002.png",
-      "source": "enemies/boss_lich/defeat/keyframes/frame_002.png",
-      "sha256": "7734257caff0443afdb165d7ec624f9f8e9769a835f68b040d0faefd9e462e1d",
-      "rgba_sha256": "f284c0c6f670b7774bea5f0d88e9b086d8a2b7ed3489d622487bda6c91fff1d4"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_lich/defeat/keyframes/frame_002.png",
+      "sha256": "42e271fbebb76ead657d7fcb77d5851e53f139f8bcfeb00cd699acb4f31e3317",
+      "rgba_sha256": "b86845f495d371f55fb2ab5868396ae4c49efca02b794047bc381941e53198a1"
     },
     {
       "file": "boss_lich_defeat_003.png",
-      "source": "enemies/boss_lich/defeat/keyframes/frame_003.png",
-      "sha256": "0fc920bc22a445149da3db294458332c1f9742eb3e3159fefe2ae04523baed6d",
-      "rgba_sha256": "8dee71da3b6071fb0630ae918ac459d61d5c35986a356554789d141970edf361"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_lich/defeat/keyframes/frame_003.png",
+      "sha256": "d314fe3e9282bdeec6ad3b59be43a300ac5da5f95549e20333873da37689e068",
+      "rgba_sha256": "d08117cf09953bd28693d90d3a47a37eb0e9986674bfe16f370da1df74edad3c"
     },
     {
       "file": "boss_lich_defeat_004.png",
-      "source": "enemies/boss_lich/defeat/keyframes/frame_004.png",
-      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
-      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_lich/defeat/keyframes/frame_004.png",
+      "sha256": "76b73017feb8331ae927179b500f9dd049daac90845788f25f40246345bec8bc",
+      "rgba_sha256": "250480ecefa3655c774b6a4e5d4eb16675ee4f181c2285c25020fac6e3aaf3b5"
     },
     {
       "file": "boss_minotaur_locomotion_000.png",
-      "source": "enemies/boss_minotaur/walk/keyframes/frame_000.png",
-      "sha256": "d255afb6beb47a539e87abb0cb399aeab73fd4e34d39cc3d067677af21ea7ade",
-      "rgba_sha256": "b052c4a71953a89edd5db9411a891339207a1e15aadff9068ecf91a2ffd6084b"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_minotaur/walk/keyframes/frame_000.png",
+      "sha256": "4928d26da472ee4b5c3e8d941ad53ae7d104720284c62b21deee9819ee87ef54",
+      "rgba_sha256": "374319a25972404d6b74793d74bc651462f9e93b50b11c152a7b69b499855ae6"
     },
     {
       "file": "boss_minotaur_locomotion_001.png",
-      "source": "enemies/boss_minotaur/walk/keyframes/frame_001.png",
-      "sha256": "dee04008b122841bb2898b1a7d0188dcd58546b17c2c0e011b7cabf70df527c4",
-      "rgba_sha256": "669b49b2e5a4aae7d407197bf71af2118a75c4330ce1b51d8326353bf5758d2b"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_minotaur/walk/keyframes/frame_001.png",
+      "sha256": "54a1bff9ba3c01d80134461445f8a78b6cab9c3377111ea68d0f032fa7c10179",
+      "rgba_sha256": "cc127b60c3a911ab954aeb7dcd24ff6471b00d47d294f036dfaa89b0853438d7"
     },
     {
       "file": "boss_minotaur_locomotion_002.png",
-      "source": "enemies/boss_minotaur/walk/keyframes/frame_002.png",
-      "sha256": "e6a0f3d808ee3bb40a372c57fdacccf407bb6878b77dac251142e5ef49cab275",
-      "rgba_sha256": "5bd16eb21f8c7feccaf6dfa9b0142dc43ee3f16d74788a89a965cc521b0a8845"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_minotaur/walk/keyframes/frame_002.png",
+      "sha256": "891361bb294b332a4f7675a29c1ab18a15f72b15b6c8fb46e0f801af686537c5",
+      "rgba_sha256": "d32958370ca7f11b9489bffaf555b493a072395df9198787d84d55829e14f258"
     },
     {
       "file": "boss_minotaur_locomotion_003.png",
-      "source": "enemies/boss_minotaur/walk/keyframes/frame_003.png",
-      "sha256": "dffd69afc969ec2f9e549f671e5410d1c878707f312e97993f3135e472913c92",
-      "rgba_sha256": "6a9a4d31620e328af6be0c36ffb95b498f03b48ba5bfe5dbfe5716602932c1ad"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_minotaur/walk/keyframes/frame_003.png",
+      "sha256": "56661452c3b8ea901c005dc5c28916d9664ccc063cd65368b5b1e1ed728dd95d",
+      "rgba_sha256": "94e7d328aed7c68321007262e6e89c3c13a53514ab9d76624317c2843e80c92f"
     },
     {
       "file": "boss_minotaur_attack_000.png",
-      "source": "enemies/boss_minotaur/attack/keyframes/frame_000.png",
-      "sha256": "72008a1fcb757e5a4aa47cf301c1c18b9f94b11e26af84ef651daafea1ce1108",
-      "rgba_sha256": "cf770a2813c0f460930d19b3c166bf54bbafde1aed6692a01b66410078bf5d17"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_minotaur/attack/keyframes/frame_000.png",
+      "sha256": "b29cc61b425e1d858b5863a309823af5e21c534a613352d9cb29c26b7e0b6beb",
+      "rgba_sha256": "9c79850414c3049735130b19492dd52508cc08e8de4ace514568cd5f79fb1c9a"
     },
     {
       "file": "boss_minotaur_attack_001.png",
-      "source": "enemies/boss_minotaur/attack/keyframes/frame_001.png",
-      "sha256": "abf7cfdf798ba19cf463e70511af84fc4d95c14aa65f85e304bb7c35497953c2",
-      "rgba_sha256": "9031957e246edcf6aec6f972088ed8386e57ed9883d13012f2d85eb3936d658a"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_minotaur/attack/keyframes/frame_001.png",
+      "sha256": "0cfe5d6bc013d757cad5097e5f9badf44297675f5f534ef8b5d306b7b1da9390",
+      "rgba_sha256": "c976a562c7609aec027c5be8a711ee0ad86860787049e309405e92ffccff4949"
     },
     {
       "file": "boss_minotaur_attack_002.png",
-      "source": "enemies/boss_minotaur/attack/keyframes/frame_002.png",
-      "sha256": "edb33477230c49542d4ee15914116ed3cc56805670b41ad63826c5cc2e550fc5",
-      "rgba_sha256": "6f53435baedffc4f5fcc5b4fb23abc6eb5bd4ea3cce5a4d6c1d044ebb6c09113"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_minotaur/attack/keyframes/frame_002.png",
+      "sha256": "7177340c94f02efe613a364df06d40fc3c1e5999b77427e70abe9df5c06eff72",
+      "rgba_sha256": "01473959781f776a9c4f4add8dbf852ec14cba67e234afed261f10ef55f0bda5"
     },
     {
       "file": "boss_minotaur_attack_003.png",
-      "source": "enemies/boss_minotaur/attack/keyframes/frame_003.png",
-      "sha256": "46f25ec28e8ff2ed9ec2a57cbb09113812f55d9bcb891640d77b4c393671c442",
-      "rgba_sha256": "fb2dc679057761b1fb87d57fc7e4dc6013baa28cff4d8d74c6e54e7c1b420274"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_minotaur/attack/keyframes/frame_003.png",
+      "sha256": "30f7847d03ee68238387f8b3fccc2e1f7daec9981f5b0bf95fe5031c785d1eeb",
+      "rgba_sha256": "3e2095a63bc6b21788a84c7930b97244208b153af92f727de65f0d87ff6570ad"
     },
     {
       "file": "boss_minotaur_defeat_000.png",
-      "source": "enemies/boss_minotaur/defeat/keyframes/frame_000.png",
-      "sha256": "f57a3ec30d272af1f26b6bdf88a348b25df8c84c1b598d9389f4f560aa5b1545",
-      "rgba_sha256": "3bb14cfe8d712b2ed7eb305626032fd8aed6af69e8e3797e27392eab42f0d555"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_minotaur/defeat/keyframes/frame_000.png",
+      "sha256": "9ad29538b652cb8165c215b43bf8334688a5528ac64f84b328929598be99b9e1",
+      "rgba_sha256": "097eda67ab390f2c554c71a9eac2928c97bb68c4d87c2386b8ef47e3a5f0e53d"
     },
     {
       "file": "boss_minotaur_defeat_001.png",
-      "source": "enemies/boss_minotaur/defeat/keyframes/frame_001.png",
-      "sha256": "5ccab2f6c30a06f3ca6ffa5c67cf7141640838f84f1bd7130483a10d48f745bd",
-      "rgba_sha256": "2e10b8c43f41b61048ec3e62e387021b9be7e52efecb42e530364ce9a1fbbba7"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_minotaur/defeat/keyframes/frame_001.png",
+      "sha256": "15b04c363e33dc16dfd916276ef57134693bf7fa8ae499b658b98150ec6344f5",
+      "rgba_sha256": "dd9c2301a253c2670b69eca5a8cf2536f160265b9f50b8c7cbc3a04777bab83c"
     },
     {
       "file": "boss_minotaur_defeat_002.png",
-      "source": "enemies/boss_minotaur/defeat/keyframes/frame_002.png",
-      "sha256": "fb34292b4988b1d9d3c1b0c91ae5fdd749bf7dd0d119a22ef8396481009d7f7e",
-      "rgba_sha256": "912bdb1360c267cec28b2ce0a2d1708be091ed659349bb70b8d2f5ce96ff0339"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_minotaur/defeat/keyframes/frame_002.png",
+      "sha256": "819ff405174f2b4c8be8af69cbb2b72ae0f6f01f30453861fbd48dd8a1277707",
+      "rgba_sha256": "5d4251e586fb0cd7b9b1829339f0c707949f0a299100fecf420a1ae58493a54c"
     },
     {
       "file": "boss_minotaur_defeat_003.png",
-      "source": "enemies/boss_minotaur/defeat/keyframes/frame_003.png",
-      "sha256": "4fb9bfbbde3dbae8f2bd19109e3558b5bd0969585c0f5b6e3c63e7ba3f22f13c",
-      "rgba_sha256": "5c4446c68d5499ddc88a2de045b5209439d8034dc7475b074dd943ae3df82406"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_minotaur/defeat/keyframes/frame_003.png",
+      "sha256": "83ef5eb86dcb57797253662eabbb3711fac00f316d21286d9f8a1715753911f3",
+      "rgba_sha256": "eb4c76d31e3d5b3955cad3edbc53d599612002eb46b15469c3aa7b66fa6f84bd"
     },
     {
       "file": "boss_minotaur_defeat_004.png",
-      "source": "enemies/boss_minotaur/defeat/keyframes/frame_004.png",
-      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
-      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_minotaur/defeat/keyframes/frame_004.png",
+      "sha256": "76b73017feb8331ae927179b500f9dd049daac90845788f25f40246345bec8bc",
+      "rgba_sha256": "250480ecefa3655c774b6a4e5d4eb16675ee4f181c2285c25020fac6e3aaf3b5"
     },
     {
       "file": "boss_stone_golem_locomotion_000.png",
-      "source": "enemies/boss_stone_golem/walk/keyframes/frame_000.png",
-      "sha256": "4fdb90ed7d7ef5789c3c9fea44c371a279db573f9d3d159737dc31bf639ad03b",
-      "rgba_sha256": "754839acb1ec46dbfd127b941a5bed77e4029b1157f5150d3d971ba366df7c58"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_stone_golem/walk/keyframes/frame_000.png",
+      "sha256": "e001359472c20acbe2e2c32ed2efede168df23ff98617109a42ba3a81d7f2fb9",
+      "rgba_sha256": "9f395abc635673f501c8653b96f3b589329f0f8d8fe0ded10d6d2eb4faa47505"
     },
     {
       "file": "boss_stone_golem_locomotion_001.png",
-      "source": "enemies/boss_stone_golem/walk/keyframes/frame_001.png",
-      "sha256": "66032a6ab11e22eeb25e48c3b400fd05accb8cf3a6e8a9c57812f33542f48853",
-      "rgba_sha256": "5ec1617fe0c606cef6595bdfe204b83ea2fecf22add62416ff5494492ac235c1"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_stone_golem/walk/keyframes/frame_001.png",
+      "sha256": "020ba9a28a2443e89d01cbc024f2438ce358c1292a159fa9c935513fa26cfbb2",
+      "rgba_sha256": "81dba8b1befedcb58b56b5746f2e9cc8c7b9b3f04f9b46c84f018810651ef0fc"
     },
     {
       "file": "boss_stone_golem_locomotion_002.png",
-      "source": "enemies/boss_stone_golem/walk/keyframes/frame_002.png",
-      "sha256": "78a01ff083606c26ae95dd6eab4314dca3f83c8c0cb3242e1bd4b235fdbe9ec8",
-      "rgba_sha256": "e0af5d158da21d860b380410aa179c5c2e21e0f6bce9775f473aaf257a8ad4b2"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_stone_golem/walk/keyframes/frame_002.png",
+      "sha256": "78be483f25d745ea08760872a4fed50955bd83c48908a490081dbb3d54418708",
+      "rgba_sha256": "27250e4244c431fa8b35e28cf1bb4afe0a46c26a6b6d62875c7e471cb2102f70"
     },
     {
       "file": "boss_stone_golem_locomotion_003.png",
-      "source": "enemies/boss_stone_golem/walk/keyframes/frame_003.png",
-      "sha256": "69dcfd929773b26a42dfd0227a21baa38b8261c08e8edeb6f063d659e024805e",
-      "rgba_sha256": "995e3427ec4959c46386035c63d4dd1776d714d2958228ba795668ee0b9e7cc1"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_stone_golem/walk/keyframes/frame_003.png",
+      "sha256": "a19b14e52eaf0c6b0d890c330a2f7808abb50027db2253c58be36306b40c5220",
+      "rgba_sha256": "0455fb3291240d05f59e4443b41920e11490c4dc9866ca0f2d7382cfa0dfe8ab"
     },
     {
       "file": "boss_stone_golem_attack_000.png",
-      "source": "enemies/boss_stone_golem/attack/keyframes/frame_000.png",
-      "sha256": "c76abdcce3bc283fcd12d5af34636102443a280024e163ce090786661b40122d",
-      "rgba_sha256": "8a3b3e28ce5a6969c7562bd81cd8a6e638fcc746304e94a4f553a54b76cd6df1"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_stone_golem/attack/keyframes/frame_000.png",
+      "sha256": "a9b593e46dd1456b2d75db33e72d9b26fda71271d4fa2b7ae039646498c18553",
+      "rgba_sha256": "26bea2544d5d6deec6715afbc880108b8cfe0b298c7908eadf2c65bfb6e4add3"
     },
     {
       "file": "boss_stone_golem_attack_001.png",
-      "source": "enemies/boss_stone_golem/attack/keyframes/frame_001.png",
-      "sha256": "1fe637e5829d769d89ee264807f7afab049eaeab48eb44850f89834883565ce6",
-      "rgba_sha256": "f026b759fc6240c8c2aca1c7dc2e246fd2a300ecbb0151d480ece98a909fb754"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_stone_golem/attack/keyframes/frame_001.png",
+      "sha256": "8081b5121866562d8f5dfe4521e0e886149fc7ca54162fa7918e10de9cab018d",
+      "rgba_sha256": "e37a37ff97110189b691b343fe14baa01c3a4219b2d5fb87bc4e034ebb3fd697"
     },
     {
       "file": "boss_stone_golem_attack_002.png",
-      "source": "enemies/boss_stone_golem/attack/keyframes/frame_002.png",
-      "sha256": "cb4850a4e25029e193d39030fd116580febb1fbf47b7f14ef97cd025b8621ce3",
-      "rgba_sha256": "17b8ee874581fca746b64ac602598cb9bfd00c3b03e7eaf3322d98da8d8843ff"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_stone_golem/attack/keyframes/frame_002.png",
+      "sha256": "0dbe0f0a61c55df22c2c5f1924fc65c1ee496eeba0c6cdbbf0fa5d6c5c74e086",
+      "rgba_sha256": "21df68a99f2ed5c25b50e6344fac5926f6562b3de899665a7ce4e9fe21f9295b"
     },
     {
       "file": "boss_stone_golem_attack_003.png",
-      "source": "enemies/boss_stone_golem/attack/keyframes/frame_003.png",
-      "sha256": "92dd599ec1cc11a6bdef110692cd0a195aa07a4b72508a923222563528b77979",
-      "rgba_sha256": "f083da4fb2c70bddfeb49d175ede7015a86c5bb9781196ef287febfd63fbc3e1"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_stone_golem/attack/keyframes/frame_003.png",
+      "sha256": "5a0681e771184d9101f6eebf78247cc89b2cac8000fffbfb8263c987a1a87e00",
+      "rgba_sha256": "2ff1cdf160894b563574c88b5c6cd81c81a481b809822361c4e23b158ff7116e"
     },
     {
       "file": "boss_stone_golem_defeat_000.png",
-      "source": "enemies/boss_stone_golem/defeat/keyframes/frame_000.png",
-      "sha256": "5b25eaf8fae7fd860835b5282d74bfb333dd605b93f5246a213c785b487e3ba7",
-      "rgba_sha256": "df118cf5ff3bf94ba65c2fd6752400c5e923f1558177c4d244e2355f16d91c4c"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_stone_golem/defeat/keyframes/frame_000.png",
+      "sha256": "19dd20161350a724d2ecc39f8490f814a801e39ed31e431d031e70edcaf20fec",
+      "rgba_sha256": "90145062e68b1fe5529b432d1b9d847af2ce4b5a1a4cb502b40f994b87228adb"
     },
     {
       "file": "boss_stone_golem_defeat_001.png",
-      "source": "enemies/boss_stone_golem/defeat/keyframes/frame_001.png",
-      "sha256": "2347422bee145d84c595a8628448c8ff7dd005a524425197e696dfd893fb4422",
-      "rgba_sha256": "81e2dda2f583f7e4e951d1023824b14579237e388a93ad67e61f6465bfd41a65"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_stone_golem/defeat/keyframes/frame_001.png",
+      "sha256": "e1c0693e2a2810cf1397b6447efaf2b9624f8d28b3797a57ddb54807da27cee1",
+      "rgba_sha256": "3d386244a2c8028c1f74b9a726e8ea76f3d1a7bb285e7c57d94b47c794963117"
     },
     {
       "file": "boss_stone_golem_defeat_002.png",
-      "source": "enemies/boss_stone_golem/defeat/keyframes/frame_002.png",
-      "sha256": "14da5db8dbf3d6535add031488ad7cddf2613077dc9cc869fa9072758587b943",
-      "rgba_sha256": "228e3984e571d8cfc4ded17ada70bc62be050301f6ba95b640d394a2b28f7ab6"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_stone_golem/defeat/keyframes/frame_002.png",
+      "sha256": "a91124635ab6e98390f04634aee64d82f801dc9c878358cc93f1287f2056fd31",
+      "rgba_sha256": "528a398b2ecd118f794ffa505745ce35784f7bab30d2b9018269f088ff8a3cb9"
     },
     {
       "file": "boss_stone_golem_defeat_003.png",
-      "source": "enemies/boss_stone_golem/defeat/keyframes/frame_003.png",
-      "sha256": "fba678b03d1967d7e6ae4a48f2afeb8963c27f2ba84b3dfe48119ac629928a08",
-      "rgba_sha256": "c404c851842e24ce0acaa6875c734be6ea2de3d1eb59db1d3afe911a386c5af6"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_stone_golem/defeat/keyframes/frame_003.png",
+      "sha256": "66e9ac82e858084b35c551adcbbfba5f3dfcba3a3de68fd25ead1a6279b66ff1",
+      "rgba_sha256": "87d136fe8ed44c460ebec8f30de458c7af5f62925365aa12d13b2cb5c32d66bb"
     },
     {
       "file": "boss_stone_golem_defeat_004.png",
-      "source": "enemies/boss_stone_golem/defeat/keyframes/frame_004.png",
-      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
-      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_stone_golem/defeat/keyframes/frame_004.png",
+      "sha256": "76b73017feb8331ae927179b500f9dd049daac90845788f25f40246345bec8bc",
+      "rgba_sha256": "250480ecefa3655c774b6a4e5d4eb16675ee4f181c2285c25020fac6e3aaf3b5"
     },
     {
       "file": "boss_cerberus_locomotion_000.png",
-      "source": "enemies/boss_cerberus/walk/keyframes/frame_000.png",
-      "sha256": "cabb0caa3fa99e5bc81c60dbab1b28ba5af600a8966a8d4573af8aa49c4e0834",
-      "rgba_sha256": "ce03ac4f4ebcfb27ee51026679db51428d71ea86e6dbf51597caeab705397cb2"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cerberus/walk/keyframes/frame_000.png",
+      "sha256": "e486d37c2276ca9002d3e042d6325363bf377ce88c69a8865ba7a2c31b9b48e8",
+      "rgba_sha256": "539dfdd82064a5a4c6da7344469cbb87158cd040de3317eaf5de53b10ba74164"
     },
     {
       "file": "boss_cerberus_locomotion_001.png",
-      "source": "enemies/boss_cerberus/walk/keyframes/frame_001.png",
-      "sha256": "776897ff55d797d0128b37df3a3ffc5cc615e38968542f4c1c03609d303e7f7c",
-      "rgba_sha256": "371fa6b70e09357fd28297513e9b71a5092b2cacc0950a8d58272bac19687939"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cerberus/walk/keyframes/frame_001.png",
+      "sha256": "3a1941fe56bb56caf0f6b2f33be97e0ea9e011a6b01d24c23d40d04b8f25de6e",
+      "rgba_sha256": "bb24a22198152794761c30f4f7a2ba43ccd09ef44c1472f8fed400df26ad54df"
     },
     {
       "file": "boss_cerberus_locomotion_002.png",
-      "source": "enemies/boss_cerberus/walk/keyframes/frame_002.png",
-      "sha256": "978b0ecd6a4551a5bd139ca0282d4d3b015d5bba2010df882cf632e7e8d809a9",
-      "rgba_sha256": "1097bfc47677ac5460178c5211d4a95a77801adeb54391594bf4906ba16930bf"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cerberus/walk/keyframes/frame_002.png",
+      "sha256": "2ac99195c040f7d027b12c89da4c26ccd11e2cbd10bd19277b910befc6339344",
+      "rgba_sha256": "d7d52f8ad8819da92fc333e9161dc514531286c76ddd9da187fe6019f4c22fa2"
     },
     {
       "file": "boss_cerberus_locomotion_003.png",
-      "source": "enemies/boss_cerberus/walk/keyframes/frame_003.png",
-      "sha256": "2ceffb0932e407c83ce5fa1ed9aa85ea75d9347925e068aa1e281bebdf66bb32",
-      "rgba_sha256": "1d819ce692f44e480cf74d433d9c5bb91d723f8b0426e9d9d60c20743a700c88"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cerberus/walk/keyframes/frame_003.png",
+      "sha256": "509703280237e52352743b2ed4bf8150ebcb810a5a7f19cff53b077f021a0cd1",
+      "rgba_sha256": "c204d9477d9f0d832d6f817a026f79cc906797b16b001d1e6ab9e4b726929f89"
     },
     {
       "file": "boss_cerberus_attack_000.png",
-      "source": "enemies/boss_cerberus/attack/keyframes/frame_000.png",
-      "sha256": "12d74e4b06d99bdc5df344b881d3db8a94ae4badc8b6b901ba8a81b866bd5e90",
-      "rgba_sha256": "9714e83df94a632cd97a96d016669792333ce3eec93538d25aabb9fd7a2bb3cf"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cerberus/attack/keyframes/frame_000.png",
+      "sha256": "684ac3a46926bc8afe7c3ee132fc74a0fdca24fc8a06bf457fd69c36c7983de6",
+      "rgba_sha256": "757da4098a9d4b64b7873b905bc0ac4baed2130a01b47c1328ee662e1619feca"
     },
     {
       "file": "boss_cerberus_attack_001.png",
-      "source": "enemies/boss_cerberus/attack/keyframes/frame_001.png",
-      "sha256": "fefdc81d96013e51b4325ae8cf877f72c58f1e44813b721b99d7a6d9c568880e",
-      "rgba_sha256": "0f17e0f6c97db1d5955cd8df80d9e8162cc85dbd13f60de202f6f73c11c4f3cb"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cerberus/attack/keyframes/frame_001.png",
+      "sha256": "08eaf63028eb3da9e757637ab69904958283552bc3a35b7065cefc9b50d43645",
+      "rgba_sha256": "aec85c1017f70b8216cfce83a4d3f59ce6c4b38b785988e9aac353ceb5240f75"
     },
     {
       "file": "boss_cerberus_attack_002.png",
-      "source": "enemies/boss_cerberus/attack/keyframes/frame_002.png",
-      "sha256": "ddef2db417e7ddd4e97b659a2dbbf663953ab984d492f55fe855522f59351dbf",
-      "rgba_sha256": "592dced05e82555e5edd581ba603d9682acb0a490871c6a7212dcbeda8990164"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cerberus/attack/keyframes/frame_002.png",
+      "sha256": "bb6425efac3bd5421a13e1cf8d37920848de6e245abf1668913752115b9345cd",
+      "rgba_sha256": "e64ddfdc201e0cf02c82d7f1629227d83b401ddc5739d4a582bd9a6c058424f0"
     },
     {
       "file": "boss_cerberus_attack_003.png",
-      "source": "enemies/boss_cerberus/attack/keyframes/frame_003.png",
-      "sha256": "92a49d777e5a8a4ea1ec8bf4e07ac8a5917eeef77d41722f2c947cc40711908d",
-      "rgba_sha256": "9da8275769f32fc6078bd1fa93d2512ef6936af308cd1d9e9d3bd82777d6155d"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cerberus/attack/keyframes/frame_003.png",
+      "sha256": "75f7a9f7a8514e0ebb5335c38c22abec22cd3de38d77cb5758bd7478c65c1541",
+      "rgba_sha256": "c31f7562ad88082a372c0669b7cdad30015abf2d9d0bf3467979621b49a7733d"
     },
     {
       "file": "boss_cerberus_defeat_000.png",
-      "source": "enemies/boss_cerberus/defeat/keyframes/frame_000.png",
-      "sha256": "8e4ed421c783ba8684f536a5ae4063de30c82eba0e8fbfc17b119d6f261046f5",
-      "rgba_sha256": "0cce0edee5ad6b91fc50006d0667581b22402baa5dba00788d3ef0bf71757042"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cerberus/defeat/keyframes/frame_000.png",
+      "sha256": "2e2eae3037d09e9fcbd996f4b56c8fb56bff379ac727cf4165618bc55e113c6f",
+      "rgba_sha256": "7456e2d84ef6497e00552bc92fa58e4dca91c23002ecbe0aef6784cac121e719"
     },
     {
       "file": "boss_cerberus_defeat_001.png",
-      "source": "enemies/boss_cerberus/defeat/keyframes/frame_001.png",
-      "sha256": "4aa2eff146eda1f15e530efd7ff86656a412d08416cb91474cc19fda4d50fdd7",
-      "rgba_sha256": "492356b99f4f34933b297558ebee51ce65b6ebf9bf667b3336a40a32ae88173b"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cerberus/defeat/keyframes/frame_001.png",
+      "sha256": "d317690a9285658d6ef5cac53d0fd8676a5c7876bc89fb1d89306c83eaa5966e",
+      "rgba_sha256": "810c629d07be17ce6c907fc1358c33c05a57683f0c3f4fc13088a125967c61da"
     },
     {
       "file": "boss_cerberus_defeat_002.png",
-      "source": "enemies/boss_cerberus/defeat/keyframes/frame_002.png",
-      "sha256": "a0f3c70421099f5ad4c1215b2ad3d09fa1b2cf00121f0c24477c48e4a7b768af",
-      "rgba_sha256": "50d3b795986c85f2c0a103c677dad11f2c72d33547d0215e5a323e57b0280803"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cerberus/defeat/keyframes/frame_002.png",
+      "sha256": "b50e37e0032371450da6003b244c5ff11a4e40278436b1a3bf826183dceecb80",
+      "rgba_sha256": "e97513a68549f309c28f4140b186c579e8f4f4b1957d92ae715ab26ffb247172"
     },
     {
       "file": "boss_cerberus_defeat_003.png",
-      "source": "enemies/boss_cerberus/defeat/keyframes/frame_003.png",
-      "sha256": "7a32c92ac643f51cc8a23a563dbf7c5d6e37360025b42af03fa805c592581dd7",
-      "rgba_sha256": "93552cb22f2eceab04d4097cc507697253271cd961a63a59c0c8988ee4f2075d"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cerberus/defeat/keyframes/frame_003.png",
+      "sha256": "5d727f2e6ca8b2a6a1da42b55662616c12b0c7cd6f07211741798bb2f937a157",
+      "rgba_sha256": "58cc048b15c5a465a7cc66d5a07fcf1564cd9eaf73f544b9496db6e746d3acde"
     },
     {
       "file": "boss_cerberus_defeat_004.png",
-      "source": "enemies/boss_cerberus/defeat/keyframes/frame_004.png",
-      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
-      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_cerberus/defeat/keyframes/frame_004.png",
+      "sha256": "76b73017feb8331ae927179b500f9dd049daac90845788f25f40246345bec8bc",
+      "rgba_sha256": "250480ecefa3655c774b6a4e5d4eb16675ee4f181c2285c25020fac6e3aaf3b5"
     },
     {
       "file": "boss_demon_lord_locomotion_000.png",
-      "source": "enemies/boss_demon_lord/walk/keyframes/frame_000.png",
-      "sha256": "4e796c151c88af42b35fc5f9961c8953d9452e395374ab84c94594d444263fc9",
-      "rgba_sha256": "a19538e91fc8864fd568c99f4834f0c4605ad7d1e3f833047de49ce4e9f5eaee"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_demon_lord/walk/keyframes/frame_000.png",
+      "sha256": "41f76aa6bd3ad0880077b810ff91ab82a2b512ce2e976bb64f5d7c5a78d22aca",
+      "rgba_sha256": "abbf9a6f9c254460d59d65c4401416dbafbb029ec4e01de298912e41f925ee7c"
     },
     {
       "file": "boss_demon_lord_locomotion_001.png",
-      "source": "enemies/boss_demon_lord/walk/keyframes/frame_001.png",
-      "sha256": "52e687fbbc670d042c6eacd7e2f524aac7425b131b61eca699852839f31fe6b5",
-      "rgba_sha256": "fb4df9591400832b48a7d36ad08e3bc550a094d5be65a816136e9f3ec5652580"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_demon_lord/walk/keyframes/frame_001.png",
+      "sha256": "b9659ba291dac27a72f0f1adc50bc4a8cc90fff2b90408ca7f166f6d20cf43ad",
+      "rgba_sha256": "dbb9ce867f35aa984c5f11d244ab4874e7867048321926166e9b41ddf83f682d"
     },
     {
       "file": "boss_demon_lord_locomotion_002.png",
-      "source": "enemies/boss_demon_lord/walk/keyframes/frame_002.png",
-      "sha256": "28d22c8e9baff0376f9a1c173246c70ab4fedc7d3f76db6ab912ca92440a22f1",
-      "rgba_sha256": "e622b60108c518c9653317f78971629d71841a8b0f5c005f99ebf58c2c241425"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_demon_lord/walk/keyframes/frame_002.png",
+      "sha256": "cdbf1511f79a43a09e7f700051044b01a5ef6dc018e10b3e354a096bc9b77cd2",
+      "rgba_sha256": "1b6c3ec39f9e395a6e5cf7922c3a9d12bc0ba71bcc6e86ffddeeeb3305c73e4a"
     },
     {
       "file": "boss_demon_lord_locomotion_003.png",
-      "source": "enemies/boss_demon_lord/walk/keyframes/frame_003.png",
-      "sha256": "d59492e54d02f1de0f03ee617ea4d770fbc7b9b146de562b6ccabbc338511226",
-      "rgba_sha256": "27a48f7cd16446356dc0bc1cb3db66bc986b360de9444edd772aa63ed9e205df"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_demon_lord/walk/keyframes/frame_003.png",
+      "sha256": "253460c7c1429a4deaa2cb52a16da388cae489ebcd6d305bc102dbb711b6452b",
+      "rgba_sha256": "92553b7558c13c30a161b0060a5fe19678b123314f81f3e39b8c013eed140a15"
     },
     {
       "file": "boss_demon_lord_attack_000.png",
-      "source": "enemies/boss_demon_lord/attack/keyframes/frame_000.png",
-      "sha256": "47d1996758d6d3c29cbe652c2aa4a69e4ccae768284b98ca84578656c7fdde7a",
-      "rgba_sha256": "9c88a9ea3ce82c00d0d55e0506a5d246c19f847e2587fc38b161f56591574bf9"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_demon_lord/attack/keyframes/frame_000.png",
+      "sha256": "09b98a1ca6582b7a70ebd672fadaa5e273b87ba417aef8d8364eb91d28634448",
+      "rgba_sha256": "8efde222bc620bd908d45e484c8ab71c73cb72e521b8e5103b6433018c7fe033"
     },
     {
       "file": "boss_demon_lord_attack_001.png",
-      "source": "enemies/boss_demon_lord/attack/keyframes/frame_001.png",
-      "sha256": "ead748e41ccb1f9a8d39b6833c4985fa81ff3a1241dc97769f88c02eabb4183d",
-      "rgba_sha256": "0a61e8c11910938a3e06615b509180a6e545d4f1b19e3de0316e48551788bf10"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_demon_lord/attack/keyframes/frame_001.png",
+      "sha256": "dd2fbfda3da24cd0638a50c83efaffaec89f8468fcd7c3a0c2df774fb5098ebf",
+      "rgba_sha256": "5b0a39f53944a48275590c46f8e904d3a35b762da2fc1d27f301a734580ebb5c"
     },
     {
       "file": "boss_demon_lord_attack_002.png",
-      "source": "enemies/boss_demon_lord/attack/keyframes/frame_002.png",
-      "sha256": "917f2ab0c33c1b284c980d7dea85afb9d763d07aad0d71580bb7cc2f49197423",
-      "rgba_sha256": "e520d4c73db91784f736835df531114fe0500a93ce196dbc47d37eafcfd9b1b6"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_demon_lord/attack/keyframes/frame_002.png",
+      "sha256": "e9a60107a34497e838c82a06ae34f7d8addbc87c1887785de67f3b8a3a4fc137",
+      "rgba_sha256": "6862bdc5bf431bf78a2527a0df167a840444c42079f72b94b2785c94a7d0c057"
     },
     {
       "file": "boss_demon_lord_attack_003.png",
-      "source": "enemies/boss_demon_lord/attack/keyframes/frame_003.png",
-      "sha256": "434fa4999533846505ffff356c9bfbba3ea6fb5f9c26b6be54546dd4e2ddca28",
-      "rgba_sha256": "bffe712fdfaa3ac3ced6c1c51be5162ed6b97574e48dd1f55d72bfdf97010c56"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_demon_lord/attack/keyframes/frame_003.png",
+      "sha256": "484d8c5d61f79cbf2c08496a9ad13b20698d36a6c612e69546bd1589fded8129",
+      "rgba_sha256": "3b391d1d7a9c54282de8a5a349f78d94ef13a37aa4d5b4b91184f395f0579577"
     },
     {
       "file": "boss_demon_lord_defeat_000.png",
-      "source": "enemies/boss_demon_lord/defeat/keyframes/frame_000.png",
-      "sha256": "7b5db9e6f8b2c4f83fbb567ba360090a745a469762bf9749313a33e7675c8514",
-      "rgba_sha256": "153a9f8880b5ade5c1c0871b798da41ce1ede4c9ce0d2bb96e0b97bcd937eebe"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_demon_lord/defeat/keyframes/frame_000.png",
+      "sha256": "b2e657095ada926f7ef1ef8e4af7f083346f02cdb418b5f1df373f6c036b725b",
+      "rgba_sha256": "bfc49e7dc36205ed105827a267cd49b0e0b005ca9b76a98037ce4ab742934371"
     },
     {
       "file": "boss_demon_lord_defeat_001.png",
-      "source": "enemies/boss_demon_lord/defeat/keyframes/frame_001.png",
-      "sha256": "b311fb9e28df82d4006e789af1012d1ab6e9c3be22e92072e10e072efa62cd76",
-      "rgba_sha256": "e2dafce3e843c1381a8b16a728497076989dba367cc479227789fc5e4dc46ace"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_demon_lord/defeat/keyframes/frame_001.png",
+      "sha256": "f71b177a9eb35c930cc82d4400351c0f422468617eda788b9bc6cba775073c7e",
+      "rgba_sha256": "a8074e44cd4a1ffdf1e6111392a945fab3c769c4c78d5624b93db5191ba398b8"
     },
     {
       "file": "boss_demon_lord_defeat_002.png",
-      "source": "enemies/boss_demon_lord/defeat/keyframes/frame_002.png",
-      "sha256": "de2dc517b4932c5c60fcd9fd23d1f7519bd54900aea4e031ce08e84d9fd98e8a",
-      "rgba_sha256": "131880c7823247233cf75e0e9b6a5b93a59f94c23f7033bf9a0cdda49acf94c9"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_demon_lord/defeat/keyframes/frame_002.png",
+      "sha256": "02b0bc9153d3362e283be03897f896be393db32f8721ff1ac862120290faea31",
+      "rgba_sha256": "8e313ab30e0ba13cdd84194dcc2f9b7d5bd678c2335619b7398338dea3f5dbbc"
     },
     {
       "file": "boss_demon_lord_defeat_003.png",
-      "source": "enemies/boss_demon_lord/defeat/keyframes/frame_003.png",
-      "sha256": "5e8582a6f9ed7e291662f6bb2b5ac01114ecbdf62ca8cccde12afedc30ad6181",
-      "rgba_sha256": "be3c81763daf0752b0f5936f7d8375e41c724f75cd7300be4be5de5515786fdf"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_demon_lord/defeat/keyframes/frame_003.png",
+      "sha256": "7806e00c8612c3e4d5ae5da830b71a8e644f8cb6f138e1ed685af1e3eb05b5ca",
+      "rgba_sha256": "767287c14afba1ba3b8eea53c4d6398d0b0550100397efa1be66b74c6eb517c3"
     },
     {
       "file": "boss_demon_lord_defeat_004.png",
-      "source": "enemies/boss_demon_lord/defeat/keyframes/frame_004.png",
-      "sha256": "1594258d650464372a84556d099c6f0fad9551bbf0efe58e7403336fee183eee",
-      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+      "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_demon_lord/defeat/keyframes/frame_004.png",
+      "sha256": "76b73017feb8331ae927179b500f9dd049daac90845788f25f40246345bec8bc",
+      "rgba_sha256": "250480ecefa3655c774b6a4e5d4eb16675ee4f181c2285c25020fac6e3aaf3b5"
     }
   ],
   "fps": 24,
-  "interpolation": "none"
+  "interpolation": "none",
+  "boss_source": "FocusQuest_pixel_keyframes_v014"
 }
