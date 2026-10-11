@@ -21,6 +21,8 @@ dart analyze server/party_server.dart server/smoke_test.dart
 dart run server/smoke_test.dart
 ```
 
+公開先の通信も `dart run server/smoke_test.dart wss://focusquest-party.onrender.com/party` で同じ項目を検証できる。検証用の待機室はテスト終了時に閉じる。
+
 ヘルスチェック・4クライアントのコード参加・5人目拒否・未準備拒否・共通開始時刻を検証します。
 
 公式情報:

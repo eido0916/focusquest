@@ -19,7 +19,7 @@ class _Client {
 }
 
 Future<void> _until(bool Function() check) async {
-  for (var i = 0; i < 200 && !check(); i++) {
+  for (var i = 0; i < 1000 && !check(); i++) {
     await Future<void>.delayed(const Duration(milliseconds: 10));
   }
   if (!check()) throw StateError('Party smoke test timed out.');
@@ -29,14 +29,22 @@ void _check(bool value, String message) {
   if (!value) throw StateError(message);
 }
 
-Future<void> main() async {
+Future<void> main(List<String> args) async {
   final server = PartyServer();
   final clients = <_Client>[];
   final http = HttpClient();
-  await server.start(address: InternetAddress.loopbackIPv4, port: 0);
+  final local = args.isEmpty;
+  if (local) {
+    await server.start(address: InternetAddress.loopbackIPv4, port: 0);
+  }
+  final endpoint = local
+      ? Uri.parse('ws://127.0.0.1:${server.port}/party')
+      : Uri.parse(args.single);
+  final health = endpoint.replace(
+      scheme: endpoint.scheme == 'wss' ? 'https' : 'http', path: '/health');
   try {
     final response = await (await http
-            .getUrl(Uri.parse('http://127.0.0.1:${server.port}/health')))
+            .getUrl(health))
         .close();
     _check(response.statusCode == 200, 'Health endpoint must return 200.');
     _check(await utf8.decoder.bind(response).join() == 'ok',
@@ -49,7 +57,7 @@ Future<void> main() async {
     };
     Future<_Client> connect(String? code) async {
       final client = _Client(
-          await WebSocket.connect('ws://127.0.0.1:${server.port}/party'));
+          await WebSocket.connect(endpoint.toString()));
       clients.add(client);
       client.send(
           code == null ? 'create' : 'join', {'code': code, 'member': member});
@@ -94,6 +102,6 @@ Future<void> main() async {
       await client.socket.close();
     }
     http.close(force: true);
-    await server.close();
+    if (local) await server.close();
   }
 }
