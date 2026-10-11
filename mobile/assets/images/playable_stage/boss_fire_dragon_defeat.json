@@ -3,8 +3,8 @@
   "action": "defeat",
   "render_mode": "original_pixel_keyframes",
   "canvas": [
-    128,
-    128
+    384,
+    384
   ],
   "fps": 24,
   "direction": "left",
@@ -17,47 +17,47 @@
     {
       "index": 0,
       "file": "keyframes/frame_000.png",
-      "rgba_sha256": "0995f886f45681b1610c1d8284584a3c32bce165237043a1a34ea0d7590a70ca"
+      "rgba_sha256": "06f5e00b8b0bb2262f132a259613ea1dc9e7bab44e40e2cd15e4bdca963b5613"
     },
     {
       "index": 1,
       "file": "keyframes/frame_001.png",
-      "rgba_sha256": "14c5a47e430632f4d1ece4285cbd5bb6a7afde4f420575e7acc0e06189aff6db"
+      "rgba_sha256": "f1c24d8cda896f94ade02cf3a4230bc96e0fed14f02292ec07be99f7efd6dfe1"
     },
     {
       "index": 2,
       "file": "keyframes/frame_002.png",
-      "rgba_sha256": "3eaab29156079585386fe1210e5edf62d83fa25591507650a086c64412d2fee3"
+      "rgba_sha256": "8d1fdea0180c76048fecadc36780edc6a61bf278ad4a1595306525470e3cee97"
     },
     {
       "index": 3,
       "file": "keyframes/frame_003.png",
-      "rgba_sha256": "979a43794f0ad40fd5ee92c41e9278fe43e867190401d17eecdcad5620003054"
+      "rgba_sha256": "b0709a7f28e5b142c8a23747fe6466f6181d2c97ce59300fac78462e1ad27b5f"
     },
     {
       "index": 4,
       "file": "keyframes/frame_004.png",
-      "rgba_sha256": "9f39a20bb0f0f34c6aae00a95ef6941560a46239d8dfd82a4e582cb8c3b7b7d2"
+      "rgba_sha256": "c199b4ffb5d4a913c3dd7d801e7bd403cecaadb1ff1e6be3116f00a1230eb960"
     },
     {
       "index": 5,
       "file": "keyframes/frame_005.png",
-      "rgba_sha256": "8645658fe6f4dc7dbb49693fa596a97003cf7507bef48fa4c6b779bd34c936ac"
+      "rgba_sha256": "09c2d7253974a97ef0ecbbf4c93fcb85d155ecc380b336bef1c7bb1b2c84ef18"
     },
     {
       "index": 6,
       "file": "keyframes/frame_006.png",
-      "rgba_sha256": "10f1106ac602c983c3f2860fa602082563fe6159db4a07f3ef8af17c01a93449"
+      "rgba_sha256": "a7a3d741250d1a7917902f7edad68cfcd51d660b33495735bdfa173c84d8d4ca"
     },
     {
       "index": 7,
       "file": "keyframes/frame_007.png",
-      "rgba_sha256": "c7c18d3305f3c1976b64413ace71360748558c5df352956641a5f1a6cfb4c96b"
+      "rgba_sha256": "62f011509d40ae9fbf046ae7756d1a66af0aa0c83774a8be4805b78bbe69874e"
     },
     {
       "index": 8,
       "file": "keyframes/frame_008.png",
-      "rgba_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+      "rgba_sha256": "250480ecefa3655c774b6a4e5d4eb16675ee4f181c2285c25020fac6e3aaf3b5"
     }
   ],
   "holds": [
@@ -423,5 +423,10 @@
   "sprite_anchor_px": [
     64,
     120
-  ]
+  ],
+  "coordinate_canvas": [
+    128,
+    128
+  ],
+  "production": "New detailed image_gen original poses, 192px logical grid, nearest-neighbor 2x export; no synthesized intermediate poses."
 }

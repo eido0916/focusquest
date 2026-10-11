@@ -5,15 +5,17 @@ import '../domain/playable_stage_catalog.dart';
 import '../domain/playable_character.dart';
 
 class StageFrame {
-  const StageFrame(this.image, this.offset);
+  const StageFrame(this.image, this.offset, [this.topPixel = 0]);
   final ui.Image image;
   final ui.Offset offset;
+  final double topPixel;
 }
 
 class StageMotion {
-  StageMotion(this.metadata, this.images);
+  StageMotion(this.metadata, this.images, {this.topPixels = const []});
   final Map<String, dynamic> metadata;
   final List<ui.Image> images;
+  final List<double> topPixels;
   List<dynamic> get timeline => metadata['timeline'] as List<dynamic>;
   double get duration => (metadata['duration_seconds'] as num).toDouble();
   int eventTick(String event, int fallback) {
@@ -35,8 +37,8 @@ class StageMotion {
     final offset = row['root_offset_px'] as List<dynamic>;
     return StageFrame(
         images[row['keyframe'] as int],
-        ui.Offset(
-            (offset[0] as num).toDouble(), (offset[1] as num).toDouble()));
+        ui.Offset((offset[0] as num).toDouble(), (offset[1] as num).toDouble()),
+        topPixels.isEmpty ? 0 : topPixels[row['keyframe'] as int]);
   }
 }
 
@@ -93,12 +95,25 @@ class PlayableStageAssets {
         final meta = jsonDecode(await rootBundle.loadString('$base$name.json'))
             as Map<String, dynamic>;
         final frames = <ui.Image>[];
+        final topPixels = <double>[];
         for (final key in meta['keyframes'] as List<dynamic>) {
           frames.add(await decode(
               '$base${name}_${(key['index'] as int).toString().padLeft(3, '0')}.png'));
+          final rgba =
+              await frames.last.toByteData(format: ui.ImageByteFormat.rawRgba);
+          var top = frames.last.height.toDouble();
+          if (rgba != null) {
+            for (var i = 3; i < rgba.lengthInBytes; i += 4) {
+              if (rgba.getUint8(i) != 0) {
+                top = ((i ~/ 4) ~/ frames.last.width).toDouble();
+                break;
+              }
+            }
+          }
+          topPixels.add(top);
         }
         motions[heroMotion ? name.replaceFirst('${hero.id}_', 'hero_') : name] =
-            StageMotion(meta, frames);
+            StageMotion(meta, frames, topPixels: topPixels);
       }
       // Characters without an idle keep their original attack stance on screen.
       motions['hero_idle'] ??= motions['hero_attack']!;

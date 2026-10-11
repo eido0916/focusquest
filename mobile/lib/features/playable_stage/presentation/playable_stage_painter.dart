@@ -5,11 +5,69 @@ import 'playable_stage_assets.dart';
 import 'stage_projectile_painter.dart';
 
 class PlayableStagePainter extends CustomPainter {
-  PlayableStagePainter(this.battle, this.assets, this.pixelRatio)
+  PlayableStagePainter(this.battle, this.assets, this.pixelRatio,
+      {this.bottomInset = 0})
       : super(repaint: battle);
   final PlayableStageBattle battle;
   final PlayableStageAssets assets;
   final double pixelRatio;
+  final double bottomInset;
+
+  static Size worldSize(Size size, double bottomInset) =>
+      Size(size.width, math.max(1, size.height - bottomInset));
+
+  String get heroMotion => battle.action == null
+      ? battle.mode == StageMode.travel
+          ? 'hero_run'
+          : 'hero_idle'
+      : battle.action == HeroAction.skill
+          ? 'hero_skill'
+          : 'hero_attack';
+
+  double get heroTime => battle.action == null
+      ? battle.mode == StageMode.travel
+          ? battle.modeTime
+          : battle.clock
+      : battle.actionTime *
+          assets.motions[heroMotion]!.duration /
+          (battle.action == HeroAction.skill
+              ? battle.skillDuration
+              : battle.attackDuration);
+
+  Offset heroHead(Size canvasSize) => _head(
+      worldSize(canvasSize, bottomInset), heroMotion, heroTime, battle.heroX,
+      loop: battle.action == null);
+
+  Offset enemyHead(Size canvasSize, StageEnemy enemy) => _head(
+      worldSize(canvasSize, bottomInset),
+      '${enemy.definition.id}_${enemy.attacking ? 'attack' : 'locomotion'}',
+      enemy.attacking
+          ? enemy.actionTime
+          : battle.mode == StageMode.travel
+              ? battle.modeTime
+              : battle.modeTime + enemy.index * .15,
+      enemy.x,
+      boss: enemy.definition.isBoss,
+      loop: !enemy.attacking);
+
+  Offset _head(Size size, String name, double time, double x,
+      {bool loop = false, bool boss = false}) {
+    final motion = assets.motions[name]!;
+    final frame = motion.frame(
+        name == 'hero_idle' && motion.metadata['action'] != 'idle' ? 0 : time,
+        loop: loop);
+    final anchor = motion.metadata['sprite_anchor_px'] as List<dynamic>?;
+    final anchorY = anchor == null ? 114.0 : (anchor[1] as num).toDouble();
+    final ratio = baseSpriteSide(size, pixelRatio) * (boss ? 3 : 1) / 128;
+    return Offset(
+        x / 1280 * size.width + frame.offset.dx * ratio,
+        size.height * battle.stage.groundLine +
+            (frame.topPixel * 128 / frame.image.height -
+                    anchorY +
+                    frame.offset.dy) *
+                ratio);
+  }
+
   final Paint pixelPaint = Paint()
     ..filterQuality = FilterQuality.none
     ..isAntiAlias = false;
@@ -18,16 +76,18 @@ class PlayableStagePainter extends CustomPainter {
     final grid = math.max(
         1,
         math
-            .min(size.width * pixelRatio / 330,
-                size.height * pixelRatio * .72 / (64 * 3))
+            .min(size.width * pixelRatio / 300,
+                size.height * pixelRatio * .9 / (64 * 3))
             .floor());
     return 64 * grid / pixelRatio;
   }
 
   @override
   void paint(Canvas canvas, Size size) {
+    final canvasSize = size;
+    size = worldSize(size, bottomInset);
     canvas.save();
-    canvas.clipRect(Offset.zero & size);
+    canvas.clipRect(Offset.zero & canvasSize);
     final height = math.max(size.height,
         size.width / assets.background.width * assets.background.height);
     final ground = battle.stage.groundLine;
@@ -43,28 +103,29 @@ class PlayableStagePainter extends CustomPainter {
       canvas.drawImageRect(assets.background, source,
           Rect.fromLTWH(left + width, top, width, height), pixelPaint);
     }
+    // Extend only the static ground texture underneath the floating controls.
+    // Actors keep their original frames and integer pixel scale above them.
+    final backgroundBottom = top + height;
+    if (backgroundBottom < canvasSize.height) {
+      final groundSource = Rect.fromLTWH(0, assets.background.height - 64.0,
+          assets.background.width.toDouble(), 64);
+      final tileHeight = 64 * height / assets.background.height;
+      for (var y = backgroundBottom; y < canvasSize.height; y += tileHeight) {
+        canvas.drawImageRect(assets.background, groundSource,
+            Rect.fromLTWH(left, y, width, tileHeight), pixelPaint);
+        if (left + width < canvasSize.width) {
+          canvas.drawImageRect(assets.background, groundSource,
+              Rect.fromLTWH(left + width, y, width, tileHeight), pixelPaint);
+        }
+      }
+    }
 
-    final motion = battle.action == null
-        ? battle.mode == StageMode.travel
-            ? 'hero_run'
-            : 'hero_idle'
-        : battle.action == HeroAction.skill
-            ? 'hero_skill'
-            : 'hero_attack';
-    _sprite(
-        canvas,
-        size,
-        motion,
-        battle.action == null
-            ? battle.mode == StageMode.travel
-                ? battle.modeTime
-                : battle.clock
-            : battle.actionTime *
-                assets.motions[motion]!.duration /
-                (battle.action == HeroAction.skill
-                    ? battle.skillDuration
-                    : battle.attackDuration),
-        battle.heroX,
+    // Dim scenery only. Original sprite pixels keep their brightness and color.
+    canvas.drawRect(
+        Offset.zero & canvasSize, Paint()..color = const Color(0x26000000));
+
+    final motion = heroMotion;
+    _sprite(canvas, size, motion, heroTime, battle.heroX,
         loop: battle.action == null);
     for (final unit in [...battle.enemies]
       ..sort((a, b) => b.homeX.compareTo(a.homeX))) {
@@ -122,8 +183,8 @@ class PlayableStagePainter extends CustomPainter {
                                   : const Color(0xfffff2bf),
                   shadows: const [
                     Shadow(
-                        color: Color(0xff173025),
-                        blurRadius: 3,
+                        color: Colors.black,
+                        blurRadius: 4,
                         offset: Offset(1, 2))
                   ])),
           textDirection: TextDirection.ltr)
@@ -150,8 +211,9 @@ class PlayableStagePainter extends CustomPainter {
         loop: loop);
     final anchor = motion.metadata['sprite_anchor_px'] as List<dynamic>?;
     final anchorY = anchor == null ? 114.0 : (anchor[1] as num).toDouble();
-    // Uniform scale for every action; each original 64px logical pixel gets
-    // an integer number of physical pixels, with point sampling and no rotation.
+    // Canvas resolution may vary (128px actors, 384px detailed bosses).
+    // Foot anchors/world offsets keep their original 128px coordinate units.
+    // Draw the complete original frame with point sampling and no deformation.
     final side = baseSpriteSide(size, pixelRatio) * (boss ? 3 : 1);
     final ratio = side / 128;
     double snap(double value) => (value * pixelRatio).round() / pixelRatio;
@@ -160,13 +222,18 @@ class PlayableStagePainter extends CustomPainter {
     final top = snap(size.height * battle.stage.groundLine -
         anchorY * ratio +
         frame.offset.dy * ratio);
-    canvas.drawImageRect(frame.image, const Rect.fromLTWH(0, 0, 128, 128),
-        Rect.fromLTWH(left, top, side, side), pixelPaint);
+    canvas.drawImageRect(
+        frame.image,
+        Rect.fromLTWH(
+            0, 0, frame.image.width.toDouble(), frame.image.height.toDouble()),
+        Rect.fromLTWH(left, top, side, side),
+        pixelPaint);
   }
 
   @override
   bool shouldRepaint(PlayableStagePainter oldDelegate) =>
       oldDelegate.assets != assets ||
       oldDelegate.battle != battle ||
+      oldDelegate.bottomInset != bottomInset ||
       oldDelegate.pixelRatio != pixelRatio;
 }

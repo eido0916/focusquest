@@ -1,0 +1,68 @@
+[
+  {
+    "id": "boss_goblin_king",
+    "columns": 4,
+    "rows": 8,
+    "path": "art/workspace_materials/FocusQuest_pixel_keyframes_v014/source/boss_goblin_king/original_atlas.png"
+  },
+  {
+    "id": "boss_cyclops",
+    "columns": 4,
+    "rows": 8,
+    "path": "art/workspace_materials/FocusQuest_pixel_keyframes_v014/source/boss_cyclops/original_atlas.png"
+  },
+  {
+    "id": "boss_fire_dragon",
+    "columns": 4,
+    "rows": 8,
+    "path": "art/workspace_materials/FocusQuest_pixel_keyframes_v014/source/boss_fire_dragon/original_atlas.png"
+  },
+  {
+    "id": "boss_dullahan",
+    "columns": 4,
+    "rows": 4,
+    "actions": {
+      "walk": "art/workspace_materials/FocusQuest_pixel_keyframes_v014/source/boss_dullahan/walk_atlas.png",
+      "attack": "art/workspace_materials/FocusQuest_pixel_keyframes_v014/source/boss_dullahan/attack_atlas.png",
+      "hurt": "art/workspace_materials/FocusQuest_pixel_keyframes_v014/source/boss_dullahan/hurt_atlas.png",
+      "defeat": "art/workspace_materials/FocusQuest_pixel_keyframes_v014/source/boss_dullahan/defeat_atlas.png"
+    }
+  },
+  {
+    "id": "boss_lich",
+    "columns": 4,
+    "rows": 4,
+    "path": "art/workspace_materials/FocusQuest_pixel_keyframes_v014/source/boss_lich/original_atlas.png"
+  },
+  {
+    "id": "boss_minotaur",
+    "columns": 4,
+    "rows": 4,
+    "path": "art/workspace_materials/FocusQuest_pixel_keyframes_v014/source/boss_minotaur/original_atlas.png"
+  },
+  {
+    "id": "boss_stone_golem",
+    "columns": 4,
+    "rows": 4,
+    "path": "art/workspace_materials/FocusQuest_pixel_keyframes_v014/source/boss_stone_golem/original_atlas.png"
+  },
+  {
+    "id": "boss_cerberus",
+    "columns": 4,
+    "rows": 4,
+    "path": "art/workspace_materials/FocusQuest_pixel_keyframes_v014/source/boss_cerberus/original_atlas.png"
+  },
+  {
+    "id": "boss_demon_lord",
+    "columns": 4,
+    "rows": 4,
+    "path": "art/workspace_materials/FocusQuest_pixel_keyframes_v014/source/boss_demon_lord/original_atlas.png",
+    "overrides": {
+      "attack": {
+        "path": "art/workspace_materials/FocusQuest_pixel_keyframes_v014/source/boss_demon_lord/attack_atlas.png",
+        "columns": 2,
+        "rows": 2
+      }
+    }
+  }
+]

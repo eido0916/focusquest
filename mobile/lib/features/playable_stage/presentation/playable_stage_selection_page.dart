@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../core/game_controller.dart';
 import '../../../core/widgets/sunlit_widgets.dart';
-import '../../diagnosis/presentation/job_portrait.dart';
+import 'adventure_ui.dart';
 import '../domain/playable_stage_battle.dart';
 import '../domain/playable_stage_catalog.dart';
 import '../domain/playable_character.dart';
@@ -116,145 +115,196 @@ class _PlayableStageSelectionPageState
   }
 
   @override
-  Widget build(BuildContext context) {
-    final content = Stack(children: [
-      Positioned.fill(
-          child: Image.asset('assets/images/ui/sunlit_kingdom.png',
-              fit: BoxFit.cover, alignment: Alignment.topCenter)),
-      const Positioned.fill(
-          child: DecoratedBox(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xc5081832), Color(0xee081829)])))),
-      Center(
-          child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1060),
-              child: ListView(
-                  key: const Key('stage-selection-list'),
-                  padding: const EdgeInsets.fromLTRB(16, 20, 16, 28),
-                  children: [
-                    _heading(),
-                    const SizedBox(height: 14),
-                    _traveler(),
-                    if (widget.controller?.activeFocus != null)
-                      _notice('いまは集中の時間。終了後に冒険へ出発できます。'),
-                    if (widget.controller?.state?.adventureRun != null)
-                      _notice('以前の冒険が進行中です。「以前の冒険の書」で結果を確認してください。'),
-                    if (_error != null) ...[
-                      _notice(_error!),
-                      if (_pendingClear != null)
-                        TextButton.icon(
-                            onPressed: () => _saveClear(_pendingClear!),
-                            icon: const Icon(Icons.save_outlined),
-                            label: const Text('クリア記録の保存を再試行')),
-                    ],
-                    const SizedBox(height: 20),
-                    for (var area = 0;
-                        area < PlayableStageCatalog.areas.length;
-                        area++)
-                      _area(area),
-                    if (widget.onLegacyAdventure != null)
-                      TextButton.icon(
-                          key: const Key('legacy-adventure'),
-                          onPressed: _opening ? null : widget.onLegacyAdventure,
-                          icon: const Icon(Icons.history_edu),
-                          label: const Text('以前の冒険の書')),
-                  ]))),
-    ]);
-    if (widget.embedded) return content;
-    return Scaffold(
-        backgroundColor: sunlitInk,
-        appBar: AppBar(
-            title: const Text('ステージ選択'),
-            backgroundColor: sunlitInk,
-            foregroundColor: const Color(0xffffeed0)),
-        body: SafeArea(child: content));
-  }
+  Widget build(BuildContext context) => AdventureUi(
+      child: Scaffold(
+          appBar: adventureAppBar('ステージ選択'),
+          body: AdventureBackdrop(
+              child: SafeArea(
+                  child: Center(
+                      child: ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 1100),
+                          child: ListView(
+                              key: const Key('stage-selection-list'),
+                              padding: const EdgeInsets.all(16),
+                              children: [
+                                if (widget.onChooseCharacter != null) ...[
+                                  OutlinedButton.icon(
+                                      key: const Key('demo-change-character'),
+                                      onPressed: _opening
+                                          ? null
+                                          : () async {
+                                              final hero = await widget
+                                                      .onChooseCharacter!(
+                                                  _character);
+                                              if (mounted && hero != null) {
+                                                setState(
+                                                    () => _character = hero);
+                                              }
+                                            },
+                                      icon: const Icon(Icons.person),
+                                      label: Text(
+                                          '${_character.name} · キャラクター変更')),
+                                  const SizedBox(height: 12),
+                                ],
+                                SunlitFrame(
+                                  light: true,
+                                  scenery: true,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Row(children: [
+                                        CompassEmblem(size: 36),
+                                        SizedBox(width: 12),
+                                        Expanded(
+                                            child: Text('冒険の書',
+                                                style: TextStyle(
+                                                    color: sunlitInk,
+                                                    fontSize: 26,
+                                                    fontWeight:
+                                                        FontWeight.bold))),
+                                      ]),
+                                      const SizedBox(height: 12),
+                                      const Text('9つの地を巡り、魔王城へ。',
+                                          style: TextStyle(
+                                              color: sunlitInk, fontSize: 16)),
+                                      const SizedBox(height: 6),
+                                      const Text('行き先を選んで出発しよう。各地は3フェーズの戦い。',
+                                          style: TextStyle(
+                                              color: sunlitInk,
+                                              fontSize: 11,
+                                              height: 1.7)),
+                                      const SizedBox(height: 12),
+                                      Wrap(
+                                          spacing: 8,
+                                          runSpacing: 6,
+                                          crossAxisAlignment:
+                                              WrapCrossAlignment.center,
+                                          children: [
+                                            const Icon(Icons.auto_awesome,
+                                                color: Color(0xff9f793d),
+                                                size: 18),
+                                            Text(
+                                                '踏破 ${_cleared.length} / ${PlayableStageCatalog.stages.length}',
+                                                style: const TextStyle(
+                                                    color: sunlitInk,
+                                                    fontSize: 12)),
+                                            const Text('4ステージごとにボス',
+                                                style: TextStyle(
+                                                    color: sunlitInk,
+                                                    fontSize: 10)),
+                                          ]),
+                                      const SizedBox(height: 8),
+                                      LinearProgressIndicator(
+                                          value: _cleared.length /
+                                              PlayableStageCatalog
+                                                  .stages.length,
+                                          color: const Color(0xff258bca),
+                                          backgroundColor:
+                                              const Color(0xffd9c9a7)),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(height: 22),
+                                for (var area = 0;
+                                    area < PlayableStageCatalog.areas.length;
+                                    area++)
+                                  _area(area),
+                              ])))))));
 
-  Widget _heading() => SunlitFrame(
-      scenery: true,
-      padding: const EdgeInsets.all(22),
-      child: Column(children: [
-        const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Icon(Icons.auto_awesome, color: sunlitGold, size: 17),
-          SizedBox(width: 8),
-          Text('FOCUS QUEST',
-              style:
-                  TextStyle(color: sunlitGold, letterSpacing: 3, fontSize: 11)),
-        ]),
-        const SizedBox(height: 8),
-        const Text('冒険の書',
-            style: TextStyle(
-                fontFamily: 'SunlitSerif',
-                color: Color(0xfffff1cf),
-                fontSize: 32)),
-        const SizedBox(height: 5),
-        const Text('九つの世界を巡る旅',
-            style: TextStyle(
-                fontFamily: 'SunlitSerif',
-                color: Color(0xffd1dfee),
-                fontSize: 14)),
-        const SizedBox(height: 14),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          const Icon(Icons.map_outlined, color: sunlitGold, size: 17),
-          const SizedBox(width: 7),
-          Text('全36ステージ   ·   踏破 ${_cleared.length} / 36',
-              style: const TextStyle(color: Color(0xffffe5b1), fontSize: 12)),
-        ]),
+  Widget _area(int area) => Padding(
+      padding: const EdgeInsets.only(bottom: 24),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        SunlitFrame(
+            padding: EdgeInsets.zero,
+            child: SizedBox(
+                height: 150,
+                child: Stack(fit: StackFit.expand, children: [
+                  Image.asset(PlayableStageCatalog.backgrounds[area],
+                      fit: BoxFit.cover, filterQuality: FilterQuality.none),
+                  const DecoratedBox(
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                        Colors.transparent,
+                        Color(0xee071c3c)
+                      ]))),
+                  Positioned(
+                      top: 16,
+                      left: 18,
+                      child: Text('第${area + 1}章',
+                          style: const TextStyle(
+                              color: sunlitGold,
+                              fontSize: 12,
+                              letterSpacing: 2))),
+                  Positioned(
+                      left: 18,
+                      bottom: 18,
+                      child: Text(
+                          '${PlayableStageCatalog.areas[area]}  ·  STAGE ${area * 4 + 1}–${area * 4 + 4}',
+                          style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontFamily: 'SunlitSerif'))),
+                ]))),
+        const SizedBox(height: 10),
+        LayoutBuilder(builder: (context, constraints) {
+          final columns = constraints.maxWidth < 620 ? 2 : 4;
+          final width = (constraints.maxWidth - (columns - 1) * 10) / columns;
+          return Wrap(spacing: 10, runSpacing: 10, children: [
+            for (final stage
+                in PlayableStageCatalog.stages.skip(area * 4).take(4))
+              SizedBox(width: width, child: _stageCard(stage)),
+          ]);
+        }),
       ]));
 
-  Widget _traveler() {
-    final hero = widget.controller?.state?.activeCharacter;
-    final name = hero?.name ?? _character.name;
-    final role = hero == null
-        ? _character.role
-        : JobPortrait.roleNames[hero.characterType];
-    final battleRole = hero == null ? role : fqAdventureCharacter(hero).role;
+  Widget _stageCard(PlayableStageDefinition stage) {
+    final cleared = _cleared.contains(stage.number);
     return SunlitFrame(
-        light: true,
+        light: !stage.hasBoss,
         compact: true,
-        padding: const EdgeInsets.all(15),
-        child:
-            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          Row(children: [
-            const Icon(Icons.shield_outlined, color: sunlitInk),
-            const SizedBox(width: 10),
-            Expanded(
-                child: Text('$name${hero == null ? '' : '  Lv.${hero.level}'}',
-                    style: const TextStyle(
-                        color: sunlitInk,
-                        fontFamily: 'SunlitSerif',
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold))),
-          ]),
-          const SizedBox(height: 7),
-          Text('$roleの旅路。行きたい舞台を選んで出発しよう。',
-              style: const TextStyle(
-                  color: Color(0xff555044), height: 1.6, fontSize: 12)),
-          if (battleRole != role)
-            Text('戦闘では$battleRoleの原画アニメーションを使用します。',
-                style: const TextStyle(color: Color(0xff555044), fontSize: 11)),
-          const SizedBox(height: 7),
-          const Text('攻撃をタップ。3回命中でスキル解放。各ステージは3つの戦い。',
-              style: TextStyle(
-                  color: Color(0xff555044), height: 1.6, fontSize: 11)),
-          if (widget.onChooseCharacter != null)
-            TextButton.icon(
-                key: const Key('demo-change-character'),
-                onPressed: _opening
-                    ? null
-                    : () async {
-                        final hero =
-                            await widget.onChooseCharacter!(_character);
-                        if (mounted && hero != null) {
-                          setState(() => _character = hero);
-                        }
-                      },
-                icon: const Icon(Icons.person),
-                label: Text('${_character.name} · キャラクター変更')),
-        ]));
+        padding: EdgeInsets.zero,
+        child: OutlinedButton(
+            key: Key('select-stage-${stage.number}'),
+            onPressed: _opening ? null : () => _open(stage),
+            style: OutlinedButton.styleFrom(
+                alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.all(14),
+                backgroundColor: Colors.transparent,
+                foregroundColor:
+                    stage.hasBoss ? const Color(0xfffff3d9) : sunlitInk,
+                side: BorderSide.none,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10))),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text('STAGE ${stage.number}',
+                  style: const TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'SunlitSerif')),
+              const SizedBox(height: 7),
+              Text(
+                  stage.hasBoss
+                      ? 'BOSS · ${stage.opponents.last.name}'
+                      : '3フェーズの戦い',
+                  style: const TextStyle(
+                      fontSize: 11, height: 1.5, fontFamily: 'SunlitSerif')),
+              const SizedBox(height: 8),
+              Text(cleared ? '✓ CLEAR' : '挑戦する →',
+                  style: TextStyle(
+                      fontSize: 11,
+                      color: cleared
+                          ? const Color(0xff36866d)
+                          : stage.hasBoss
+                              ? sunlitGold
+                              : const Color(0xff8b632c),
+                      fontFamily: 'SunlitSerif')),
+            ])));
   }
 
   Widget _notice(String message) => Padding(
