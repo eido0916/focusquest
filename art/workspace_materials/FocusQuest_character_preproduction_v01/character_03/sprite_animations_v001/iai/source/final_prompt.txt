@@ -1,0 +1,13 @@
+Use case: style-transfer. NEW clean 8-keyframe IAIDO animation atlas for same samurai character in references. Reference1 blackhaired samurai bluehaori RUN atlas is CHARACTER IDENTITY andpixelSTYLE. Reference2 portraitidentifiesclothes. Retain blackmessyhair, seriousface, bluehaoriwhitecuffs/trim, darknavykimono whiteVcollar, brownshoulderstrap, bluewaistknot, darkbaggytrousers, gloves, blueshinties, brownopen-toesandals. Minimal2.3headchibi, clearcoarsepixelclusters, limitedpalette, NO blur. RIGHT-facingbody, stationaryfeet. Add ONE slender Japanese katana and EXACTLY ONE scabbard.
+IMPORTANT anatomical diagram in EVERY CELL: sheath MOUTH at front of LEFT hip, logicalx30,y36. Sheath is a single darknavy tube extending diagonally DOWN and screenLEFT to x10,y43. ONE mouth and ONE scabbard only. There is absolutely NO darktube projecting screenRIGHT. Left hand stays near sheath mouth(30,36). Right fist holds sword's brown handle. SHEATHED hilt extendsUP-RIGHT frommouth to(37,32). Drawn blade 1-2pixelswide, silverwhite, gentlecurve, length22logicalpx, smallgoldguard nexttoRIGHTfist. TWO arms TWOlegs.
+Layout exactly4columns x2rows, eight64x64logicalequalsquarecells, canvasaspect2:1. Keep allparts within x4..60,y4..60 percell, no overlap, bodyheight42logicalpx, fixedfootbaseliney57. Spriteheadcenterx27. Leavegenerouscleartransparentgutter, alltipsofbladeinside.
+8posesorder:
+0 ready stop: katana FULLY SHEATHED, rightfistonhilt(36,34), lefthandmouth(30,36), no exposed silverblade, feet stable.
+1 anticipation: kneesbend, torsocoil, rightfiststillhilt, leftsheathpullsBACKLEFT2pixels. No exposedblade.
+2 PARTIALDRAW: rightfistmovesforward to(42,31), silverblade visibly bridges SAME sheathmouth(30,36) andgoldguard(40,32), swordsTIPstillinmouth. Sleeve followsrightarm, leftfiststillmouth.
+3 FASTDRAWUPRIGHTSLASH: sword completelyout, rightfistat(36,31), slenderbladeextendsdiagonallyUPRIGHT to(54,13), compactwhite1-2pxarc tofront. EMPTYsingle sheath stilldownLEFT behindhip. Bladeattachedtohiltinrightfist.
+4 followthrough: rightfistat(35,31), fullsilverkatanaextendsHORIZONTALRIGHT to(57,29), leftfistmouth, noarc. NO extra metalblade behindhand.
+5 RESHEATH: rightfistabove/frontofwaist(42,31), swordtip insertedatmouth(30,36), exposedsilverblade betweenmouthandrightfist, leftfistmouth, one scabbarddownLEFT.
+6 FULLY SHEATHED recovery, rightfistonhilt(36,34), leftmouth, noexposedblade, kneesextend.
+7 EXACT pose0.
+The blade is NOT a broad westernsword/scimitar. The sheath NEVERpointsright, NEVER duplicates. Actual alpha transparentbackground, no floor/scenery/text/labels/grid/effects exceptpose3thinwhitecutarc.

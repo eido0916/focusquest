@@ -1,0 +1,26 @@
+{
+  "tool": "built-in image_gen",
+  "style": "Original pixel-art side-view JRPG battle background; wide 16:9, crisp square pixel clusters, 16-bit style, no character, monster, weapon, UI, text or watermark; uninterrupted horizontal battle lane at 82% image height, consistent pixel-art finish.",
+  "backgrounds": [
+    {
+      "file": "poison_marsh_v001.png",
+      "scene": "A poisonous mushroom marsh at dusk, twisted low willow silhouettes, purple bioluminescent mushroom clusters, dark teal pools and reeds, layered mist in the background. A dry mossy earthen bank is the uninterrupted battle lane, appropriate for poison mushroom monsters and a three-headed Cerberus guardian. No grassland vistas, ships, lava or castle."
+    },
+    {
+      "file": "desert_labyrinth_v001.png",
+      "scene": "An ancient sandstone labyrinth lost in a golden desert, broken geometric maze walls, weathered bull reliefs without lettering, distant dunes, warm amber late afternoon light. Uninterrupted sandy stone battle lane in foreground. Appropriate for a giant minotaur and skeleton guards. No castle towers, ships, grassy fields, lava."
+    },
+    {
+      "file": "ice_crystal_cavern_v001.png",
+      "scene": "A spacious frozen crystal cavern, huge angular blue-white ice crystals and pale stone columns deep in the background, frozen underground lake, turquoise refracted light. Uninterrupted frost-covered rocky battle lane in foreground. Appropriate for a stone golem, wolves and bats. No lava, castles, ships or grassy fields."
+    },
+    {
+      "file": "moonlit_graveyard_v001.png",
+      "scene": "A quiet ancient graveyard under a huge silver moon, low broken tombstones and mausoleum entrances in distant background, bare trees and bluish mist, muted indigo and silver palette. Uninterrupted dry pale cobblestone battle lane in foreground. Appropriate for a lich and skeletons. No castle skyline, ships, lava or grassy fields."
+    },
+    {
+      "file": "astral_altar_v001.png",
+      "scene": "An open cosmic stone altar floating above a sea of violet clouds, small distant floating islands and a luminous celestial ring on star-filled midnight sky, magenta and gold magical motifs with no writing. Uninterrupted horizontal dark stone platform battle lane in foreground, edge at bottom visible. Appropriate for a demon lord with a great sword and imp guards. No enclosed castle, castle towers, ship, volcanic lava or grassland."
+    }
+  ]
+}

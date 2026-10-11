@@ -1,0 +1,11 @@
+{
+  "source_folder": "FocusQuest_pixel_keyframes_v002/source/hero_idle",
+  "keyframe_sources": [
+    "FocusQuest_pixel_keyframes_v002/source/hero_idle/frames/hero_idle_00.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_idle/frames/hero_idle_01.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_idle/frames/hero_idle_02.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_idle/frames/hero_idle_03.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_idle/frames/hero_idle_04.png",
+    "FocusQuest_pixel_keyframes_v002/source/hero_idle/frames/hero_idle_05.png"
+  ]
+}

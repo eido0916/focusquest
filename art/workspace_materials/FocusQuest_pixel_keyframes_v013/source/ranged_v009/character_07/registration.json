@@ -1,0 +1,394 @@
+[
+  {
+    "action": "run",
+    "keyframe": 0,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      146,
+      269
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "run",
+    "keyframe": 1,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      146,
+      271
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "run",
+    "keyframe": 2,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      146,
+      269
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "run",
+    "keyframe": 3,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      146,
+      256
+    ],
+    "flight_original_offset_px": 16
+  },
+  {
+    "action": "run",
+    "keyframe": 4,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      146,
+      277
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "run",
+    "keyframe": 5,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      146,
+      277
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "run",
+    "keyframe": 6,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      146,
+      277
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "run",
+    "keyframe": 7,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      146,
+      263
+    ],
+    "flight_original_offset_px": 16
+  },
+  {
+    "action": "bow_shot",
+    "keyframe": 0,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      73,
+      246
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "bow_shot",
+    "keyframe": 1,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      73,
+      246
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "bow_shot",
+    "keyframe": 2,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      73,
+      247
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "bow_shot",
+    "keyframe": 3,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      73,
+      246
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "bow_shot",
+    "keyframe": 4,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      73,
+      251
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "bow_shot",
+    "keyframe": 5,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      73,
+      251
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "bow_shot",
+    "keyframe": 6,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      73,
+      251
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "bow_shot",
+    "keyframe": 7,
+    "source_canvas": [
+      1774,
+      887
+    ],
+    "source_resolution_factor": 0.5772266065388951,
+    "whole_original_registration_px": [
+      73,
+      251
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "rapid_shot",
+    "keyframe": 0,
+    "source_canvas": [
+      1448,
+      1086
+    ],
+    "source_resolution_factor": 0.7071823204419889,
+    "whole_original_registration_px": [
+      144,
+      241
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "rapid_shot",
+    "keyframe": 1,
+    "source_canvas": [
+      1448,
+      1086
+    ],
+    "source_resolution_factor": 0.7071823204419889,
+    "whole_original_registration_px": [
+      144,
+      241
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "rapid_shot",
+    "keyframe": 2,
+    "source_canvas": [
+      1448,
+      1086
+    ],
+    "source_resolution_factor": 0.7071823204419889,
+    "whole_original_registration_px": [
+      144,
+      241
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "rapid_shot",
+    "keyframe": 3,
+    "source_canvas": [
+      1448,
+      1086
+    ],
+    "source_resolution_factor": 0.7071823204419889,
+    "whole_original_registration_px": [
+      144,
+      241
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "rapid_shot",
+    "keyframe": 4,
+    "source_canvas": [
+      1448,
+      1086
+    ],
+    "source_resolution_factor": 0.7071823204419889,
+    "whole_original_registration_px": [
+      144,
+      247
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "rapid_shot",
+    "keyframe": 5,
+    "source_canvas": [
+      1448,
+      1086
+    ],
+    "source_resolution_factor": 0.7071823204419889,
+    "whole_original_registration_px": [
+      144,
+      247
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "rapid_shot",
+    "keyframe": 6,
+    "source_canvas": [
+      1448,
+      1086
+    ],
+    "source_resolution_factor": 0.7071823204419889,
+    "whole_original_registration_px": [
+      144,
+      247
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "rapid_shot",
+    "keyframe": 7,
+    "source_canvas": [
+      1448,
+      1086
+    ],
+    "source_resolution_factor": 0.7071823204419889,
+    "whole_original_registration_px": [
+      144,
+      247
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "rapid_shot",
+    "keyframe": 8,
+    "source_canvas": [
+      1448,
+      1086
+    ],
+    "source_resolution_factor": 0.7071823204419889,
+    "whole_original_registration_px": [
+      144,
+      267
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "rapid_shot",
+    "keyframe": 9,
+    "source_canvas": [
+      1448,
+      1086
+    ],
+    "source_resolution_factor": 0.7071823204419889,
+    "whole_original_registration_px": [
+      144,
+      267
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "rapid_shot",
+    "keyframe": 10,
+    "source_canvas": [
+      1448,
+      1086
+    ],
+    "source_resolution_factor": 0.7071823204419889,
+    "whole_original_registration_px": [
+      144,
+      267
+    ],
+    "flight_original_offset_px": 0
+  },
+  {
+    "action": "rapid_shot",
+    "keyframe": 11,
+    "source_canvas": [
+      1448,
+      1086
+    ],
+    "source_resolution_factor": 0.7071823204419889,
+    "whole_original_registration_px": [
+      144,
+      264
+    ],
+    "flight_original_offset_px": 0
+  }
+]

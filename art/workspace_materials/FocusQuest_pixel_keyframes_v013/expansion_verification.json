@@ -1,0 +1,289 @@
+{
+  "new_bosses": 5,
+  "new_common_enemies": 5,
+  "new_animations": 40,
+  "new_keyframes": 170,
+  "previous_files_unchanged": 3954,
+  "checks": [
+    {
+      "actor": "boss_lich",
+      "action": "walk",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_lich",
+      "action": "attack",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_lich",
+      "action": "hurt",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_lich",
+      "action": "defeat",
+      "keys": 5,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_minotaur",
+      "action": "walk",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_minotaur",
+      "action": "attack",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_minotaur",
+      "action": "hurt",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_minotaur",
+      "action": "defeat",
+      "keys": 5,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_stone_golem",
+      "action": "walk",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_stone_golem",
+      "action": "attack",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_stone_golem",
+      "action": "hurt",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_stone_golem",
+      "action": "defeat",
+      "keys": 5,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_cerberus",
+      "action": "walk",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_cerberus",
+      "action": "attack",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_cerberus",
+      "action": "hurt",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_cerberus",
+      "action": "defeat",
+      "keys": 5,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_demon_lord",
+      "action": "walk",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_demon_lord",
+      "action": "attack",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_demon_lord",
+      "action": "hurt",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "boss_demon_lord",
+      "action": "defeat",
+      "keys": 5,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_bat",
+      "action": "walk",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_bat",
+      "action": "attack",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_bat",
+      "action": "hurt",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_bat",
+      "action": "defeat",
+      "keys": 5,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_wolf",
+      "action": "walk",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_wolf",
+      "action": "attack",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_wolf",
+      "action": "hurt",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_wolf",
+      "action": "defeat",
+      "keys": 5,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_skeleton",
+      "action": "walk",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_skeleton",
+      "action": "attack",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_skeleton",
+      "action": "hurt",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_skeleton",
+      "action": "defeat",
+      "keys": 5,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_poison_mushroom",
+      "action": "walk",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_poison_mushroom",
+      "action": "attack",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_poison_mushroom",
+      "action": "hurt",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_poison_mushroom",
+      "action": "defeat",
+      "keys": 5,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_imp",
+      "action": "walk",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_imp",
+      "action": "attack",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_imp",
+      "action": "hurt",
+      "keys": 4,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    },
+    {
+      "actor": "mob_imp",
+      "action": "defeat",
+      "keys": 5,
+      "grid_margin_distinct_poses_events_pass": true,
+      "world_knockback_only": true
+    }
+  ]
+}

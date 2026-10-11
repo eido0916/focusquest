@@ -1,0 +1,6 @@
+{
+  "name": "focusquest-playable-demo",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test engine.test.mjs" }
+}

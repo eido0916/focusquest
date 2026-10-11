@@ -1,0 +1,22 @@
+{
+  "fps": 24,
+  "loop_in_game": false,
+  "events": [
+    {
+      "event": "skill_release",
+      "tick": 21
+    }
+  ],
+  "style_reference": [
+    "character_02",
+    "character_03",
+    "character_04",
+    "character_05"
+  ],
+  "logical_grid": [
+    64,
+    64
+  ],
+  "global_character_palette_colors": 32,
+  "production": "Built-in imagegen redraw followed by one-time original PNG export. No runtime deformation or interpolation."
+}

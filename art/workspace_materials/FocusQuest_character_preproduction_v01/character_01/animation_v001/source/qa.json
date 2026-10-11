@@ -1,0 +1,26 @@
+{
+  "idle": {
+    "frames": 48,
+    "duration_seconds": 2.0,
+    "union_bounds_1024": [
+      317,
+      123,
+      822,
+      896
+    ],
+    "safe_bounds_pass": true,
+    "loop_transform_match": true
+  },
+  "run": {
+    "frames": 24,
+    "duration_seconds": 1.0,
+    "union_bounds_1024": [
+      222,
+      115,
+      806,
+      895
+    ],
+    "safe_bounds_pass": true,
+    "loop_transform_match": true
+  }
+}

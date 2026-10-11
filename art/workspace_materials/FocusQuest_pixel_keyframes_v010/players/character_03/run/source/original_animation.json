@@ -1,0 +1,232 @@
+{
+  "character": "03",
+  "size": [
+    128,
+    128
+  ],
+  "logical_grid": [
+    64,
+    64
+  ],
+  "direction": "right",
+  "fps": 24,
+  "root": [
+    60,
+    114
+  ],
+  "loop_in_game": true,
+  "preview_loop": true,
+  "keyframe_holds_ticks": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "display_frame_sequence": [
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    6,
+    6,
+    7,
+    7
+  ],
+  "duration_seconds": 0.6666666666666666,
+  "events_are_timing_suggestions": true,
+  "events": [
+    {
+      "event": "foot_contact",
+      "keyframe": 0,
+      "tick": 0
+    },
+    {
+      "event": "foot_contact",
+      "keyframe": 4,
+      "tick": 8
+    }
+  ],
+  "placements": [
+    {
+      "keyframe": 0,
+      "source_cell_to_logical_matrix": [
+        [
+          0.8627450980392157,
+          0.0,
+          -3.0392156862745097
+        ],
+        [
+          0.0,
+          0.8627450980392157,
+          4.372549019607838
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 57
+    },
+    {
+      "keyframe": 1,
+      "source_cell_to_logical_matrix": [
+        [
+          0.8627450980392157,
+          0.0,
+          -1.313725490196079
+        ],
+        [
+          0.0,
+          0.8627450980392157,
+          3.5098039215686256
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 57
+    },
+    {
+      "keyframe": 2,
+      "source_cell_to_logical_matrix": [
+        [
+          0.8627450980392157,
+          0.0,
+          -3.0392156862745097
+        ],
+        [
+          0.0,
+          0.8627450980392157,
+          3.5098039215686256
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 57
+    },
+    {
+      "keyframe": 3,
+      "source_cell_to_logical_matrix": [
+        [
+          0.8627450980392157,
+          0.0,
+          -4.764705882352942
+        ],
+        [
+          0.0,
+          0.8627450980392157,
+          3.0980392156862706
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 54
+    },
+    {
+      "keyframe": 4,
+      "source_cell_to_logical_matrix": [
+        [
+          0.8627450980392157,
+          0.0,
+          -0.4509803921568629
+        ],
+        [
+          0.0,
+          0.8627450980392157,
+          4.372549019607838
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 57
+    },
+    {
+      "keyframe": 5,
+      "source_cell_to_logical_matrix": [
+        [
+          0.8627450980392157,
+          0.0,
+          -2.1764705882352944
+        ],
+        [
+          0.0,
+          0.8627450980392157,
+          5.235294117647058
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 57
+    },
+    {
+      "keyframe": 6,
+      "source_cell_to_logical_matrix": [
+        [
+          0.8627450980392157,
+          0.0,
+          -1.313725490196079
+        ],
+        [
+          0.0,
+          0.8627450980392157,
+          5.235294117647058
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 57
+    },
+    {
+      "keyframe": 7,
+      "source_cell_to_logical_matrix": [
+        [
+          0.8627450980392157,
+          0.0,
+          -4.764705882352942
+        ],
+        [
+          0.0,
+          0.8627450980392157,
+          3.9607843137254903
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "baseline_logical": 54
+    }
+  ],
+  "effect_baked_in": false
+}

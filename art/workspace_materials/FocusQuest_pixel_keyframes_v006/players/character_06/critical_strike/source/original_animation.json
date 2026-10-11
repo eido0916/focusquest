@@ -1,0 +1,96 @@
+{
+  "fps": 24,
+  "loop_in_game": false,
+  "events": [
+    {
+      "event": "charge_begin",
+      "tick": 12,
+      "keyframe": 3
+    },
+    {
+      "event": "charged",
+      "tick": 30,
+      "keyframe": 6
+    },
+    {
+      "event": "critical_thrust_active",
+      "tick": 33,
+      "keyframe": 7
+    },
+    {
+      "event": "critical_impact",
+      "tick": 34,
+      "keyframe": 8
+    }
+  ],
+  "logical_grid": [
+    64,
+    64
+  ],
+  "display_frame_sequence": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    6,
+    6,
+    6,
+    7,
+    8,
+    8,
+    9,
+    9,
+    9,
+    10,
+    10,
+    10,
+    11,
+    11,
+    11,
+    11
+  ],
+  "holds_ticks": [
+    3,
+    4,
+    5,
+    6,
+    6,
+    6,
+    3,
+    1,
+    2,
+    3,
+    3,
+    4
+  ],
+  "duration_seconds": 1.9166666666666667,
+  "root_motion": "none",
+  "reference": "6.png identity; character03/05 pixel style",
+  "production": "Separate original drawings made with built-in imagegen; once normalized for export. No playback transforms/interpolation."
+}

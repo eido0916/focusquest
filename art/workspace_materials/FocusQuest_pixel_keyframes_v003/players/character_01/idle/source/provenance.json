@@ -1,0 +1,11 @@
+{
+  "source_folder": "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/idle",
+  "keyframe_sources": [
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/idle/frames/frame_000.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/idle/frames/frame_001.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/idle/frames/frame_002.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/idle/frames/frame_003.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/idle/frames/frame_004.png",
+    "FocusQuest_pixel_keyframes_v003/source/hero_style_v003/idle/frames/frame_005.png"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slime": {
+    "keyframe_pngs": 8,
+    "display_frames": 24,
+    "colors": 23
+  },
+  "goblin": {
+    "keyframe_pngs": 8,
+    "display_frames": 24,
+    "colors": 21
+  },
+  "dracula": {
+    "keyframe_pngs": 8,
+    "display_frames": 24,
+    "colors": 30
+  }
+}

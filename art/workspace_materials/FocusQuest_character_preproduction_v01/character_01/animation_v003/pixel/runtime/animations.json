@@ -1,0 +1,49 @@
+{
+  "asset_id": "character_01",
+  "variant": "pixel",
+  "fps": 24,
+  "duration_seconds": 1,
+  "loop": true,
+  "root_motion": "none",
+  "frame_width": 256,
+  "frame_height": 256,
+  "pivot_px": [
+    128,
+    224
+  ],
+  "safe_bounds_px": [
+    16,
+    16,
+    240,
+    240
+  ],
+  "downsample_method": "NEAREST_FROM_128",
+  "animation_id": "run",
+  "frame_count": 24,
+  "files": [
+    "run/character_01_pixel_run_0000.png",
+    "run/character_01_pixel_run_0001.png",
+    "run/character_01_pixel_run_0002.png",
+    "run/character_01_pixel_run_0003.png",
+    "run/character_01_pixel_run_0004.png",
+    "run/character_01_pixel_run_0005.png",
+    "run/character_01_pixel_run_0006.png",
+    "run/character_01_pixel_run_0007.png",
+    "run/character_01_pixel_run_0008.png",
+    "run/character_01_pixel_run_0009.png",
+    "run/character_01_pixel_run_0010.png",
+    "run/character_01_pixel_run_0011.png",
+    "run/character_01_pixel_run_0012.png",
+    "run/character_01_pixel_run_0013.png",
+    "run/character_01_pixel_run_0014.png",
+    "run/character_01_pixel_run_0015.png",
+    "run/character_01_pixel_run_0016.png",
+    "run/character_01_pixel_run_0017.png",
+    "run/character_01_pixel_run_0018.png",
+    "run/character_01_pixel_run_0019.png",
+    "run/character_01_pixel_run_0020.png",
+    "run/character_01_pixel_run_0021.png",
+    "run/character_01_pixel_run_0022.png",
+    "run/character_01_pixel_run_0023.png"
+  ]
+}

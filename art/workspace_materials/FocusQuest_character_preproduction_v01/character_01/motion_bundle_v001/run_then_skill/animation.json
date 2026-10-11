@@ -1,0 +1,401 @@
+{
+  "asset_id": "character_01",
+  "animation_id": "run_then_skill",
+  "canvas": [
+    128,
+    128
+  ],
+  "fps": 24,
+  "frames": 64,
+  "duration_seconds": 2.6666666666666665,
+  "root_motion": "none",
+  "loop_in_game": false,
+  "preview_loop": true,
+  "sequence": "run for 1s > ready stop for 4/24s > existing stationary action > ready",
+  "timeline": [
+    {
+      "frame": 0,
+      "time_seconds": 0.0,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_000.png"
+    },
+    {
+      "frame": 1,
+      "time_seconds": 0.041666666666666664,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_001.png"
+    },
+    {
+      "frame": 2,
+      "time_seconds": 0.08333333333333333,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_002.png"
+    },
+    {
+      "frame": 3,
+      "time_seconds": 0.125,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_003.png"
+    },
+    {
+      "frame": 4,
+      "time_seconds": 0.16666666666666666,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_004.png"
+    },
+    {
+      "frame": 5,
+      "time_seconds": 0.20833333333333334,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_005.png"
+    },
+    {
+      "frame": 6,
+      "time_seconds": 0.25,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_006.png"
+    },
+    {
+      "frame": 7,
+      "time_seconds": 0.2916666666666667,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_007.png"
+    },
+    {
+      "frame": 8,
+      "time_seconds": 0.3333333333333333,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_008.png"
+    },
+    {
+      "frame": 9,
+      "time_seconds": 0.375,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_009.png"
+    },
+    {
+      "frame": 10,
+      "time_seconds": 0.4166666666666667,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_010.png"
+    },
+    {
+      "frame": 11,
+      "time_seconds": 0.4583333333333333,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_011.png"
+    },
+    {
+      "frame": 12,
+      "time_seconds": 0.5,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_012.png"
+    },
+    {
+      "frame": 13,
+      "time_seconds": 0.5416666666666666,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_013.png"
+    },
+    {
+      "frame": 14,
+      "time_seconds": 0.5833333333333334,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_014.png"
+    },
+    {
+      "frame": 15,
+      "time_seconds": 0.625,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_015.png"
+    },
+    {
+      "frame": 16,
+      "time_seconds": 0.6666666666666666,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_016.png"
+    },
+    {
+      "frame": 17,
+      "time_seconds": 0.7083333333333334,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_017.png"
+    },
+    {
+      "frame": 18,
+      "time_seconds": 0.75,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_018.png"
+    },
+    {
+      "frame": 19,
+      "time_seconds": 0.7916666666666666,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_019.png"
+    },
+    {
+      "frame": 20,
+      "time_seconds": 0.8333333333333334,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_020.png"
+    },
+    {
+      "frame": 21,
+      "time_seconds": 0.875,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_021.png"
+    },
+    {
+      "frame": 22,
+      "time_seconds": 0.9166666666666666,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_022.png"
+    },
+    {
+      "frame": 23,
+      "time_seconds": 0.9583333333333334,
+      "phase": "run",
+      "file": "frames_24fps/character_01_run_then_skill_023.png"
+    },
+    {
+      "frame": 24,
+      "time_seconds": 1.0,
+      "phase": "stop_ready",
+      "file": "frames_24fps/character_01_run_then_skill_024.png"
+    },
+    {
+      "frame": 25,
+      "time_seconds": 1.0416666666666667,
+      "phase": "stop_ready",
+      "file": "frames_24fps/character_01_run_then_skill_025.png"
+    },
+    {
+      "frame": 26,
+      "time_seconds": 1.0833333333333333,
+      "phase": "stop_ready",
+      "file": "frames_24fps/character_01_run_then_skill_026.png"
+    },
+    {
+      "frame": 27,
+      "time_seconds": 1.125,
+      "phase": "stop_ready",
+      "file": "frames_24fps/character_01_run_then_skill_027.png"
+    },
+    {
+      "frame": 28,
+      "time_seconds": 1.1666666666666667,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_028.png"
+    },
+    {
+      "frame": 29,
+      "time_seconds": 1.2083333333333333,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_029.png"
+    },
+    {
+      "frame": 30,
+      "time_seconds": 1.25,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_030.png"
+    },
+    {
+      "frame": 31,
+      "time_seconds": 1.2916666666666667,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_031.png"
+    },
+    {
+      "frame": 32,
+      "time_seconds": 1.3333333333333333,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_032.png"
+    },
+    {
+      "frame": 33,
+      "time_seconds": 1.375,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_033.png"
+    },
+    {
+      "frame": 34,
+      "time_seconds": 1.4166666666666667,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_034.png"
+    },
+    {
+      "frame": 35,
+      "time_seconds": 1.4583333333333333,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_035.png"
+    },
+    {
+      "frame": 36,
+      "time_seconds": 1.5,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_036.png"
+    },
+    {
+      "frame": 37,
+      "time_seconds": 1.5416666666666667,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_037.png"
+    },
+    {
+      "frame": 38,
+      "time_seconds": 1.5833333333333333,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_038.png"
+    },
+    {
+      "frame": 39,
+      "time_seconds": 1.625,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_039.png"
+    },
+    {
+      "frame": 40,
+      "time_seconds": 1.6666666666666667,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_040.png"
+    },
+    {
+      "frame": 41,
+      "time_seconds": 1.7083333333333333,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_041.png"
+    },
+    {
+      "frame": 42,
+      "time_seconds": 1.75,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_042.png"
+    },
+    {
+      "frame": 43,
+      "time_seconds": 1.7916666666666667,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_043.png"
+    },
+    {
+      "frame": 44,
+      "time_seconds": 1.8333333333333333,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_044.png"
+    },
+    {
+      "frame": 45,
+      "time_seconds": 1.875,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_045.png"
+    },
+    {
+      "frame": 46,
+      "time_seconds": 1.9166666666666667,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_046.png"
+    },
+    {
+      "frame": 47,
+      "time_seconds": 1.9583333333333333,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_047.png"
+    },
+    {
+      "frame": 48,
+      "time_seconds": 2.0,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_048.png"
+    },
+    {
+      "frame": 49,
+      "time_seconds": 2.0416666666666665,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_049.png"
+    },
+    {
+      "frame": 50,
+      "time_seconds": 2.0833333333333335,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_050.png"
+    },
+    {
+      "frame": 51,
+      "time_seconds": 2.125,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_051.png"
+    },
+    {
+      "frame": 52,
+      "time_seconds": 2.1666666666666665,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_052.png"
+    },
+    {
+      "frame": 53,
+      "time_seconds": 2.2083333333333335,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_053.png"
+    },
+    {
+      "frame": 54,
+      "time_seconds": 2.25,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_054.png"
+    },
+    {
+      "frame": 55,
+      "time_seconds": 2.2916666666666665,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_055.png"
+    },
+    {
+      "frame": 56,
+      "time_seconds": 2.3333333333333335,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_056.png"
+    },
+    {
+      "frame": 57,
+      "time_seconds": 2.375,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_057.png"
+    },
+    {
+      "frame": 58,
+      "time_seconds": 2.4166666666666665,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_058.png"
+    },
+    {
+      "frame": 59,
+      "time_seconds": 2.4583333333333335,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_059.png"
+    },
+    {
+      "frame": 60,
+      "time_seconds": 2.5,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_060.png"
+    },
+    {
+      "frame": 61,
+      "time_seconds": 2.5416666666666665,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_061.png"
+    },
+    {
+      "frame": 62,
+      "time_seconds": 2.5833333333333335,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_062.png"
+    },
+    {
+      "frame": 63,
+      "time_seconds": 2.625,
+      "phase": "skill",
+      "file": "frames_24fps/character_01_run_then_skill_063.png"
+    }
+  ]
+}

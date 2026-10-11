@@ -1,0 +1,136 @@
+{
+  "asset": "character_01",
+  "direction": "right",
+  "size": [
+    128,
+    128
+  ],
+  "logical_grid": [
+    64,
+    64
+  ],
+  "root_motion": "none",
+  "loop": true,
+  "duration_seconds": 0.5,
+  "unique_pose_count": 6,
+  "pose_fps": 12,
+  "display_fps": 24,
+  "display_frame_count": 12,
+  "frame_hold_at_24fps": 2,
+  "reference_urls": [
+    "https://dotartplay.com/dot-animation-run",
+    "https://dotartplay.com/dot-animation-run-64"
+  ],
+  "poses": [
+    {
+      "index": 0,
+      "pose": "right_knee_up",
+      "file": "frames/character_01_run_00.png",
+      "duration_seconds": 0.08333333333333333
+    },
+    {
+      "index": 1,
+      "pose": "right_leg_extension",
+      "file": "frames/character_01_run_01.png",
+      "duration_seconds": 0.08333333333333333
+    },
+    {
+      "index": 2,
+      "pose": "right_contact_down",
+      "file": "frames/character_01_run_02.png",
+      "duration_seconds": 0.08333333333333333
+    },
+    {
+      "index": 3,
+      "pose": "left_knee_up",
+      "file": "frames/character_01_run_03.png",
+      "duration_seconds": 0.08333333333333333
+    },
+    {
+      "index": 4,
+      "pose": "left_leg_extension",
+      "file": "frames/character_01_run_04.png",
+      "duration_seconds": 0.08333333333333333
+    },
+    {
+      "index": 5,
+      "pose": "left_contact_down",
+      "file": "frames/character_01_run_05.png",
+      "duration_seconds": 0.08333333333333333
+    }
+  ],
+  "timeline_24fps": [
+    {
+      "frame": 0,
+      "time_seconds": 0.0,
+      "pose_index": 0,
+      "file": "frames_24fps/character_01_run_000.png"
+    },
+    {
+      "frame": 1,
+      "time_seconds": 0.041666666666666664,
+      "pose_index": 0,
+      "file": "frames_24fps/character_01_run_001.png"
+    },
+    {
+      "frame": 2,
+      "time_seconds": 0.08333333333333333,
+      "pose_index": 1,
+      "file": "frames_24fps/character_01_run_002.png"
+    },
+    {
+      "frame": 3,
+      "time_seconds": 0.125,
+      "pose_index": 1,
+      "file": "frames_24fps/character_01_run_003.png"
+    },
+    {
+      "frame": 4,
+      "time_seconds": 0.16666666666666666,
+      "pose_index": 2,
+      "file": "frames_24fps/character_01_run_004.png"
+    },
+    {
+      "frame": 5,
+      "time_seconds": 0.20833333333333334,
+      "pose_index": 2,
+      "file": "frames_24fps/character_01_run_005.png"
+    },
+    {
+      "frame": 6,
+      "time_seconds": 0.25,
+      "pose_index": 3,
+      "file": "frames_24fps/character_01_run_006.png"
+    },
+    {
+      "frame": 7,
+      "time_seconds": 0.2916666666666667,
+      "pose_index": 3,
+      "file": "frames_24fps/character_01_run_007.png"
+    },
+    {
+      "frame": 8,
+      "time_seconds": 0.3333333333333333,
+      "pose_index": 4,
+      "file": "frames_24fps/character_01_run_008.png"
+    },
+    {
+      "frame": 9,
+      "time_seconds": 0.375,
+      "pose_index": 4,
+      "file": "frames_24fps/character_01_run_009.png"
+    },
+    {
+      "frame": 10,
+      "time_seconds": 0.4166666666666667,
+      "pose_index": 5,
+      "file": "frames_24fps/character_01_run_010.png"
+    },
+    {
+      "frame": 11,
+      "time_seconds": 0.4583333333333333,
+      "pose_index": 5,
+      "file": "frames_24fps/character_01_run_011.png"
+    }
+  ]
+}

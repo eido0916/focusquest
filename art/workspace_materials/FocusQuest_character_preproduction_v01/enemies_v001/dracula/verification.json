@@ -1,0 +1,341 @@
+{
+  "checks": [
+    {
+      "kind": "keyframes",
+      "frame": 0,
+      "bounds": [
+        28,
+        20,
+        102,
+        108
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "keyframes",
+      "frame": 1,
+      "bounds": [
+        22,
+        14,
+        106,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "keyframes",
+      "frame": 2,
+      "bounds": [
+        20,
+        12,
+        108,
+        102
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "keyframes",
+      "frame": 3,
+      "bounds": [
+        26,
+        16,
+        104,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "keyframes",
+      "frame": 4,
+      "bounds": [
+        24,
+        20,
+        104,
+        108
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "keyframes",
+      "frame": 5,
+      "bounds": [
+        24,
+        22,
+        104,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 0,
+      "bounds": [
+        40,
+        20,
+        114,
+        108
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 1,
+      "bounds": [
+        38,
+        20,
+        112,
+        108
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 2,
+      "bounds": [
+        32,
+        14,
+        116,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 3,
+      "bounds": [
+        30,
+        14,
+        114,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 4,
+      "bounds": [
+        28,
+        12,
+        116,
+        102
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 5,
+      "bounds": [
+        26,
+        12,
+        114,
+        102
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 6,
+      "bounds": [
+        32,
+        16,
+        110,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 7,
+      "bounds": [
+        30,
+        16,
+        108,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 8,
+      "bounds": [
+        28,
+        20,
+        108,
+        108
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 9,
+      "bounds": [
+        26,
+        20,
+        106,
+        108
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 10,
+      "bounds": [
+        26,
+        22,
+        106,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 11,
+      "bounds": [
+        24,
+        22,
+        104,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 12,
+      "bounds": [
+        28,
+        20,
+        102,
+        108
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 13,
+      "bounds": [
+        26,
+        20,
+        100,
+        108
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 14,
+      "bounds": [
+        20,
+        14,
+        104,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 15,
+      "bounds": [
+        18,
+        14,
+        102,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 16,
+      "bounds": [
+        16,
+        12,
+        104,
+        102
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 17,
+      "bounds": [
+        14,
+        12,
+        102,
+        102
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 18,
+      "bounds": [
+        20,
+        16,
+        98,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 19,
+      "bounds": [
+        18,
+        16,
+        96,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 20,
+      "bounds": [
+        16,
+        20,
+        96,
+        108
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 21,
+      "bounds": [
+        14,
+        20,
+        94,
+        108
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 22,
+      "bounds": [
+        14,
+        22,
+        94,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    },
+    {
+      "kind": "move_left",
+      "frame": 23,
+      "bounds": [
+        12,
+        22,
+        92,
+        106
+      ],
+      "rgba_grid_alpha_margin_pass": true
+    }
+  ],
+  "different_poses": 6,
+  "opaque_colors": 23,
+  "generated_size": [
+    1536,
+    1024
+  ],
+  "normalization_scale": 0.8979591836734694
+}

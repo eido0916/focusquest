@@ -1,0 +1,31 @@
+{
+  "continuous_ik_samples": 10001,
+  "travel_frames": 72,
+  "travel_duration_ms": 3000,
+  "styles": {
+    "illustration": {
+      "unique_frames": 24,
+      "fps": 24,
+      "dimensions": [
+        256,
+        256
+      ],
+      "sheet_dimensions": [
+        1536,
+        1024
+      ]
+    },
+    "pixel": {
+      "unique_frames": 24,
+      "fps": 24,
+      "dimensions": [
+        256,
+        256
+      ],
+      "sheet_dimensions": [
+        1536,
+        1024
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "source_folder": "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/run",
+  "keyframe_sources": [
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/run/frames/character_05_run_00.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/run/frames/character_05_run_01.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/run/frames/character_05_run_02.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/run/frames/character_05_run_03.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/run/frames/character_05_run_04.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/run/frames/character_05_run_05.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/run/frames/character_05_run_06.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/run/frames/character_05_run_07.png"
+  ]
+}

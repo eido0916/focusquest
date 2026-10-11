@@ -1,0 +1,11 @@
+{
+  "source_folder": "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/run",
+  "keyframe_sources": [
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/run/frames/character_02_run_00.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/run/frames/character_02_run_01.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/run/frames/character_02_run_02.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/run/frames/character_02_run_03.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/run/frames/character_02_run_04.png",
+    "FocusQuest_character_preproduction_v01/character_02/sprite_animations_v001/run/frames/character_02_run_05.png"
+  ]
+}

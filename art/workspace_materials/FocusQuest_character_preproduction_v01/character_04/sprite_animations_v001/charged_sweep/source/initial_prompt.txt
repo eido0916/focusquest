@@ -1,0 +1,13 @@
+Use case: style-transfer. FocusQuest CHARACTER04 heavyknight minimal chibi pixel animation. Reference1 runatlas defines character AND style, reference2 originalidentity. Same BROWN tousledhair, bluegreyeyes/nohelmet, bulkySILVERplate armor shoulders/chest/gauntlets/knees/greaves/boots, NAVYneckscarf/undersuit, brownleatherstraps/belt, IVORYfronttabardwithBLUEborder. 2.3heads tall, same40logicalpxbody/allheadsize perpose, largecrisp limitedpixelclusters. ONE twohanded GREATsword straightbroad silverblade(width4logicalpx,length22), brasscrossguard, longbrowngrip. BOTHgauntlets stay ONsamegrip separatedby2logicalpixels, never detached. Exactly2arms2hands2legsONEsword. Bodyrightfacing3/4, fixedfeetatlogical(22,56),(34,56), kneeflex/torso rotation allowed but NO travel. Use64x64logicalequalsquarecells, wholebody/sword/trails inside owncell x5..59,y5..59, generous gutters. Headnear(26,20). Tipneveroutsidecell. Truealpha transparentbackground. No addedshield/helmet/cloak, no labels/text/grid/scenery/shadows/blur. ONE atlasEXACTLY12orderedkeyposes,4columns x3rows,aspect4:3,rowmajor. Stop,guard greatsword,CHARGE golden/amberenergyalongBLADE then ONE powerfulHORIZONTALSWEEP toRIGHT. No downwardstrike for thisaction. Energy compact brightivorycore/goldpixels, sparse detachedsparks. Effectsnotcoverfaceorhands andnotunderfeet, everyeffecttipmaxx59. Twelveposes:
+0stoppedguard forward-UPdiagonalgreatsword noenergy, gripnear(29,36) tip(48,16).
+1bracekneesandgrip tighten, weaponstable.
+2weakgoldcoatingonsteelblade.
+3mediumbrightgold, fewsparksatblade.
+4peakcharge GOLD/IVORYblade, bodyholdssteady.
+5WINDUPturntorso3/4BACK, bring swordbehindLEFT atWAISTlevel, tip(7,35), grip(29,35). Bothhandsattached, headbrownhairstillvisible, facepartlyhidden. Notanotheroverheadpose.
+6HORIZONTALHIT: rotatehipsRIGHT and sweepbroadbladehorizontallyRIGHT atWAIST/CHESTheight, grip(32,34), bladeTIP(56,33), completecompactGOLDhorizontalcrescenttrailfrom(39,29) to(58,34) to(40,40). Keepwholecrescentinsideborder. NO giantmagicwall.
+7FOLLOWTHROUGHtorsoRIGHT, swordhorizontalRIGHTlower, goldenarcstartingbreak.
+8retractblade slightly towardbody, goldsparksfade, feetsame.
+9guardrecoveryfaintbladeglow.
+10guardnoenergy.
+11EXACTpose0. Distinctanticipation/charge/windup/fastsweep/recoil, onlyonephysicalbladeinanycell. No duplicatedswords or hugeparticlehalos crossingcells.

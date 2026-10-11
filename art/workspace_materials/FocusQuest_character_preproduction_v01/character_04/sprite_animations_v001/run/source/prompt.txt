@@ -1,0 +1,14 @@
+Use case: style-transfer. Produce a game pixel sprite animation atlas for FocusQuest CHARACTER04.
+Reference1 is IDENTITY: young heavy knight, short tousled BROWN hair, bluegrey eyes, no helmet. Broad SILVER plate shoulder pauldrons, silver breastplate/gauntlets/kneecaps/greaves/boots, dark NAVY undersuit and neckscarf, BROWN leather straps and waist belt, long IVORY tabard with BLUE border hanging between legs. Retain these exact colors and identifiable equipment, simplify detail. Add ONE two-handed GREATsword: straight broad silver blade, brown long grip, small brass crossguard. No shield/cloak/new costume.
+Reference2 is STYLE ONLY: minimal field-game pixel art, chibi2.3head proportions, crisp limited palette, large pixel clusters, no blurry painting. Do not copy its samurai.
+Create EXACTLY8 consecutive running keyposes in ONE transparent atlas, 4columns x2rows equalsquarecells, row-major order, aspect2:1. Think64x64logicalpixels percell enlarged. Samebody40pxhigh andheadsize allframes, right-facing threequarterprofile, feet baseliney56. Every pixel of sword, boots/tabard inside its owncell with6logicalpx clear gutters. Charactercenterx27, floor56. Compact GREATsword carried steadily with BOTH armoredhands on SAME longgrip at chest/waist, blade held diagonally FORWARD-UP right, length21logicalpx,width4,tip<=x57,y>=7. Weapon NEVER detached, no other sword, twohands twoarms twolegs. Heavy compact stride not a jumping dance; armor rigid joints overlap correctly.
+RUN gait8phases, near means camera-facing leg:
+0 nearfoot forwardCONTACT, farlegtrailing, nearboot sole atfloor.
+1 COMPRESSION nearplanted knee flexes, hipsdrop1px, far knee passesunderbody.
+2 PUSHOFF nearfoot extendsback toeatfloor, far knee risesforward.
+3 shortFLIGHT farboot reachesforward nearheel foldsback, bothfeet2pxofffloor.
+4 farfoot forwardCONTACT, nearlegtrailing, opposite0.
+5 COMPRESSION farplanted knee bends, near knee passeship.
+6 PUSHOFF farleg back, near knee risesforward.
+7 shortFLIGHT nearbootreachesforward farheelback, bothfeet2pxofffloor, ready0.
+Alternate legs visibly (farlegdarker). Keep knees anatomically correct, shinlength constant, footpush-off not sideways sliding. Torsolean8degrees, verticalbodybobonly1-2px. Botharms stabilize heavy sword, shoulders consistent. Tabard swingsLEFT/back withonephase lag andseparatesfromlegs so eachbootreadable. All8posesdistinct, NO ground, effects, gradients, shadows, antialiasing, text, grid, blur, cropping, extraweapons. Genuine alphatransparent background.

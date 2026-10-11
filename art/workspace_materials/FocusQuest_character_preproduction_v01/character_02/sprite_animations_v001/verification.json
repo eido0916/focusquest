@@ -1,0 +1,323 @@
+{
+  "run": {
+    "frame_count": 6,
+    "display_frames": 12,
+    "last_equals_first": null,
+    "frames": [
+      {
+        "keyframe": 0,
+        "bounds": [
+          8,
+          18,
+          88,
+          110
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 1,
+        "bounds": [
+          14,
+          16,
+          90,
+          108
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 2,
+        "bounds": [
+          12,
+          26,
+          90,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 3,
+        "bounds": [
+          14,
+          22,
+          90,
+          110
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 4,
+        "bounds": [
+          18,
+          18,
+          94,
+          108
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 5,
+        "bounds": [
+          10,
+          28,
+          90,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      }
+    ]
+  },
+  "punch_combo": {
+    "frame_count": 12,
+    "display_frames": 30,
+    "last_equals_first": true,
+    "frames": [
+      {
+        "keyframe": 0,
+        "bounds": [
+          24,
+          22,
+          94,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 1,
+        "bounds": [
+          24,
+          26,
+          94,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 2,
+        "bounds": [
+          22,
+          26,
+          110,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 3,
+        "bounds": [
+          24,
+          26,
+          92,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 4,
+        "bounds": [
+          20,
+          26,
+          90,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 5,
+        "bounds": [
+          20,
+          26,
+          108,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 6,
+        "bounds": [
+          22,
+          24,
+          90,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 7,
+        "bounds": [
+          22,
+          26,
+          92,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 8,
+        "bounds": [
+          24,
+          26,
+          96,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 9,
+        "bounds": [
+          20,
+          26,
+          90,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 10,
+        "bounds": [
+          24,
+          24,
+          94,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 11,
+        "bounds": [
+          24,
+          22,
+          94,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      }
+    ]
+  },
+  "spin_kick": {
+    "frame_count": 12,
+    "display_frames": 30,
+    "last_equals_first": true,
+    "frames": [
+      {
+        "keyframe": 0,
+        "bounds": [
+          18,
+          26,
+          90,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 1,
+        "bounds": [
+          20,
+          34,
+          94,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 2,
+        "bounds": [
+          34,
+          24,
+          98,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 3,
+        "bounds": [
+          34,
+          22,
+          104,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 4,
+        "bounds": [
+          26,
+          24,
+          98,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 5,
+        "bounds": [
+          26,
+          24,
+          104,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 6,
+        "bounds": [
+          10,
+          28,
+          108,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 7,
+        "bounds": [
+          38,
+          26,
+          120,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 8,
+        "bounds": [
+          30,
+          26,
+          90,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 9,
+        "bounds": [
+          20,
+          36,
+          94,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 10,
+        "bounds": [
+          24,
+          26,
+          90,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      },
+      {
+        "keyframe": 11,
+        "bounds": [
+          18,
+          26,
+          90,
+          114
+        ],
+        "transparent_128_and_safe_margin": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "illustration": {
+    "files": 24,
+    "rgba_dimensions_pass": true,
+    "joint_alpha_coverage_failures": [],
+    "preview_timings": {
+      "gif": {
+        "frames": 24,
+        "duration_ms": 1000
+      },
+      "png": {
+        "frames": 24,
+        "duration_ms": 1000.0
+      },
+      "webp": {
+        "frames": 24,
+        "duration_ms": "millisecond_timeline_in_encoder"
+      }
+    },
+    "pixel_2x2_blocks_pass": null,
+    "opaque_color_count": null
+  },
+  "pixel": {
+    "files": 24,
+    "rgba_dimensions_pass": true,
+    "joint_alpha_coverage_failures": [],
+    "preview_timings": {
+      "gif": {
+        "frames": 24,
+        "duration_ms": 1000
+      },
+      "png": {
+        "frames": 24,
+        "duration_ms": 1000.0
+      },
+      "webp": {
+        "frames": 24,
+        "duration_ms": "millisecond_timeline_in_encoder"
+      }
+    },
+    "pixel_2x2_blocks_pass": true,
+    "opaque_color_count": 31
+  },
+  "whole_cycle_ik_samples": 1001,
+  "foot_velocity_join_checks": {
+    "0": {
+      "left": [
+        -226.27712749567763,
+        0.002939970045190421
+      ],
+      "right": [
+        -226.28571429095246,
+        0.0
+      ],
+      "difference": 0.0090761487955157
+    },
+    "0.2916666666666667": {
+      "left": [
+        -226.2857142767416,
+        0.0
+      ],
+      "right": [
+        -226.28562969373434,
+        -0.0060159663917147554
+      ],
+      "difference": 0.006016560970468049
+    },
+    "0.4166666666666667": {
+      "left": [
+        9.99819430091975,
+        -160.00473593180686
+      ],
+      "right": [
+        9.999352002409978,
+        -159.99817600231836
+      ],
+      "difference": 0.006661302247654901
+    },
+    "0.5": {
+      "left": [
+        69.9986320142898,
+        59.99918400334536
+      ],
+      "right": [
+        70.00162000281307,
+        60.000341989052686
+      ],
+      "difference": 0.003204529031476533
+    },
+    "0.6666666666666666": {
+      "left": [
+        220.00072000594173,
+        75.00025202489269
+      ],
+      "right": [
+        219.9996640115387,
+        74.99995200532794
+      ],
+      "difference": 0.0010977868274241504
+    },
+    "0.7916666666666666": {
+      "left": [
+        130.00038399013647,
+        0.0005520064405573066
+      ],
+      "right": [
+        130.00117596106975,
+        0.001192006493511144
+      ],
+      "difference": 0.0010182426169329539
+    },
+    "0.9166666666666666": {
+      "left": [
+        25.002016002417804,
+        115.00027198962925
+      ],
+      "right": [
+        25.00557138773729,
+        115.00155997623551
+      ],
+      "difference": 0.003781491011217983
+    }
+  }
+}

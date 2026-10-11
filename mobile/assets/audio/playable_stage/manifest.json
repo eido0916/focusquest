@@ -1,0 +1,63 @@
+{
+  "composition": "FocusQuest original synthesized chiptune",
+  "sample_rate": 44100,
+  "channels": 1,
+  "bits": 16,
+  "files": {
+    "battle": {
+      "seconds": 29.09090702947846,
+      "loop": true,
+      "peak": 0.42565523788923276
+    },
+    "boss": {
+      "seconds": 24.615374149659864,
+      "loop": true,
+      "peak": 0.41319234805946015
+    },
+    "swing": {
+      "seconds": 0.18,
+      "loop": false,
+      "peak": 0.23840938957602503
+    },
+    "skill": {
+      "seconds": 0.55,
+      "loop": false,
+      "peak": 0.12854023005777518
+    },
+    "hit": {
+      "seconds": 0.16,
+      "loop": false,
+      "peak": 0.43790197902339345
+    },
+    "critical": {
+      "seconds": 0.41,
+      "loop": false,
+      "peak": 0.18091236106971254
+    },
+    "miss": {
+      "seconds": 0.17,
+      "loop": false,
+      "peak": 0.08929954690898882
+    },
+    "hurt": {
+      "seconds": 0.23,
+      "loop": false,
+      "peak": 0.4010235157298294
+    },
+    "enemyDefeat": {
+      "seconds": 0.48,
+      "loop": false,
+      "peak": 0.15331028959823773
+    },
+    "victory": {
+      "seconds": 1.04,
+      "loop": false,
+      "peak": 0.13863240963256826
+    },
+    "loss": {
+      "seconds": 1.08,
+      "loop": false,
+      "peak": 0.10849495501403245
+    }
+  }
+}

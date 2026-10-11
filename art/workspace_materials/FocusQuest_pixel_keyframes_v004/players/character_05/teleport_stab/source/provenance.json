@@ -1,0 +1,17 @@
+{
+  "source_folder": "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/teleport_stab",
+  "keyframe_sources": [
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/teleport_stab/frames/character_05_teleport_stab_00.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/teleport_stab/frames/character_05_teleport_stab_01.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/teleport_stab/frames/character_05_teleport_stab_02.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/teleport_stab/frames/character_05_teleport_stab_03.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/teleport_stab/frames/character_05_teleport_stab_04.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/teleport_stab/frames/character_05_teleport_stab_05.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/teleport_stab/frames/character_05_teleport_stab_06.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/teleport_stab/frames/character_05_teleport_stab_07.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/teleport_stab/frames/character_05_teleport_stab_08.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/teleport_stab/frames/character_05_teleport_stab_09.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/teleport_stab/frames/character_05_teleport_stab_10.png",
+    "FocusQuest_character_preproduction_v01/character_05/sprite_animations_v001/teleport_stab/frames/character_05_teleport_stab_11.png"
+  ]
+}

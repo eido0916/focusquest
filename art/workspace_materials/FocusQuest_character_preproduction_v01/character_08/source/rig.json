@@ -1,0 +1,574 @@
+{
+  "schema_version": 1,
+  "spec_version": "0.1",
+  "asset_id": "character_08",
+  "approval_status": "prototype_only",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "runtime_canvas": [
+    256,
+    256
+  ],
+  "root_pivot_256": [
+    128,
+    224
+  ],
+  "safe_bounds_256": [
+    16,
+    16,
+    240,
+    240
+  ],
+  "facing": "right_3quarter",
+  "reference_body_height_px": 192,
+  "fps": 24,
+  "root_motion": "none",
+  "alpha_mode": "straight",
+  "color_space": "sRGB_assumed_no_ICC_conversion",
+  "downsample_method": "Pillow LANCZOS",
+  "transform_convention": "A0 absolute layout; local joint rotation about pivot_world_256; parent transforms apply to child, sword grip stays attached to hand",
+  "parts": [
+    {
+      "id": "head_face",
+      "file": "../parts/01_head_face.png",
+      "native_size": [
+        210,
+        260
+      ],
+      "position_256": [
+        121,
+        37
+      ],
+      "size_256": [
+        30,
+        40
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        84.0,
+        223.6
+      ],
+      "pivot_world_256": [
+        133.0,
+        71.4
+      ],
+      "draw_order": 60,
+      "parent": "torso"
+    },
+    {
+      "id": "hair_back",
+      "file": "../parts/02_hair_back.png",
+      "native_size": [
+        240,
+        295
+      ],
+      "position_256": [
+        113,
+        32
+      ],
+      "size_256": [
+        36,
+        43
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        144.0,
+        253.7
+      ],
+      "pivot_world_256": [
+        134.6,
+        68.97999999999999
+      ],
+      "draw_order": 59,
+      "parent": "head_face"
+    },
+    {
+      "id": "hair_front",
+      "file": "../parts/03_hair_front.png",
+      "native_size": [
+        235,
+        192
+      ],
+      "position_256": [
+        116,
+        32
+      ],
+      "size_256": [
+        33,
+        25
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        141.0,
+        165.12
+      ],
+      "pivot_world_256": [
+        135.8,
+        53.5
+      ],
+      "draw_order": 80,
+      "parent": "head_face"
+    },
+    {
+      "id": "torso",
+      "file": "../parts/04_torso.png",
+      "native_size": [
+        255,
+        295
+      ],
+      "position_256": [
+        110,
+        62
+      ],
+      "size_256": [
+        45,
+        57
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        127.5,
+        73.75
+      ],
+      "pivot_world_256": [
+        132.5,
+        76.25
+      ],
+      "draw_order": 70,
+      "parent": "pelvis"
+    },
+    {
+      "id": "pelvis",
+      "file": "../parts/05_pelvis.png",
+      "native_size": [
+        236,
+        252
+      ],
+      "position_256": [
+        110,
+        109
+      ],
+      "size_256": [
+        45,
+        34
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        118.0,
+        100.8
+      ],
+      "pivot_world_256": [
+        132.5,
+        122.6
+      ],
+      "draw_order": 45,
+      "parent": "root"
+    },
+    {
+      "id": "upper_arm_left",
+      "file": "../parts/06_upper_arm_left.png",
+      "native_size": [
+        185,
+        260
+      ],
+      "position_256": [
+        101,
+        75
+      ],
+      "size_256": [
+        19,
+        30
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        151.7,
+        23.4
+      ],
+      "pivot_world_256": [
+        116.58,
+        77.7
+      ],
+      "draw_order": 20,
+      "parent": "torso"
+    },
+    {
+      "id": "forearm_left",
+      "file": "../parts/07_forearm_left.png",
+      "native_size": [
+        152,
+        225
+      ],
+      "position_256": [
+        102,
+        97
+      ],
+      "size_256": [
+        17,
+        32
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        54.72,
+        18.0
+      ],
+      "pivot_world_256": [
+        108.12,
+        99.56
+      ],
+      "draw_order": 21,
+      "parent": "upper_arm_left"
+    },
+    {
+      "id": "hand_left",
+      "file": "../parts/08_hand_left.png",
+      "native_size": [
+        139,
+        234
+      ],
+      "position_256": [
+        109,
+        123
+      ],
+      "size_256": [
+        13,
+        22
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        41.7,
+        18.72
+      ],
+      "pivot_world_256": [
+        112.9,
+        124.76
+      ],
+      "draw_order": 22,
+      "parent": "forearm_left"
+    },
+    {
+      "id": "upper_arm_right",
+      "file": "../parts/09_upper_arm_right.png",
+      "native_size": [
+        184,
+        235
+      ],
+      "position_256": [
+        144,
+        76
+      ],
+      "size_256": [
+        19,
+        30
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        40.48,
+        18.8
+      ],
+      "pivot_world_256": [
+        148.18,
+        78.4
+      ],
+      "draw_order": 50,
+      "parent": "torso"
+    },
+    {
+      "id": "forearm_right",
+      "file": "../parts/10_forearm_right.png",
+      "native_size": [
+        155,
+        264
+      ],
+      "position_256": [
+        155,
+        98
+      ],
+      "size_256": [
+        17,
+        36
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        54.25,
+        21.12
+      ],
+      "pivot_world_256": [
+        160.95,
+        100.88
+      ],
+      "draw_order": 51,
+      "parent": "upper_arm_right"
+    },
+    {
+      "id": "hand_right",
+      "file": "../parts/11_hand_right.png",
+      "native_size": [
+        166,
+        207
+      ],
+      "position_256": [
+        166,
+        127
+      ],
+      "size_256": [
+        16,
+        21
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        46.48,
+        16.56
+      ],
+      "pivot_world_256": [
+        170.48,
+        128.68
+      ],
+      "draw_order": 90,
+      "parent": "forearm_right"
+    },
+    {
+      "id": "thigh_left",
+      "file": "../parts/12_thigh_left.png",
+      "native_size": [
+        184,
+        268
+      ],
+      "position_256": [
+        113,
+        130
+      ],
+      "size_256": [
+        20,
+        46
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        84.64,
+        16.08
+      ],
+      "pivot_world_256": [
+        122.2,
+        132.76
+      ],
+      "draw_order": 10,
+      "parent": "pelvis"
+    },
+    {
+      "id": "shin_left",
+      "file": "../parts/13_shin_left.png",
+      "native_size": [
+        145,
+        268
+      ],
+      "position_256": [
+        114,
+        167
+      ],
+      "size_256": [
+        16,
+        49
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        72.5,
+        10.72
+      ],
+      "pivot_world_256": [
+        122.0,
+        168.96
+      ],
+      "draw_order": 11,
+      "parent": "thigh_left"
+    },
+    {
+      "id": "foot_left",
+      "file": "../parts/14_foot_left.png",
+      "native_size": [
+        229,
+        225
+      ],
+      "position_256": [
+        113,
+        209
+      ],
+      "size_256": [
+        28,
+        15
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        52.67,
+        33.75
+      ],
+      "pivot_world_256": [
+        119.44,
+        211.25
+      ],
+      "draw_order": 12,
+      "parent": "shin_left"
+    },
+    {
+      "id": "thigh_right",
+      "file": "../parts/15_thigh_right.png",
+      "native_size": [
+        190,
+        285
+      ],
+      "position_256": [
+        134,
+        130
+      ],
+      "size_256": [
+        20,
+        46
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        95.0,
+        17.1
+      ],
+      "pivot_world_256": [
+        144.0,
+        132.76
+      ],
+      "draw_order": 30,
+      "parent": "pelvis"
+    },
+    {
+      "id": "shin_right",
+      "file": "../parts/16_shin_right.png",
+      "native_size": [
+        151,
+        311
+      ],
+      "position_256": [
+        135,
+        167
+      ],
+      "size_256": [
+        16,
+        49
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        75.5,
+        12.44
+      ],
+      "pivot_world_256": [
+        143.0,
+        168.96
+      ],
+      "draw_order": 31,
+      "parent": "thigh_right"
+    },
+    {
+      "id": "foot_right",
+      "file": "../parts/17_foot_right.png",
+      "native_size": [
+        219,
+        235
+      ],
+      "position_256": [
+        134,
+        209
+      ],
+      "size_256": [
+        28,
+        15
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        50.37,
+        35.25
+      ],
+      "pivot_world_256": [
+        140.44,
+        211.25
+      ],
+      "draw_order": 32,
+      "parent": "shin_right"
+    },
+    {
+      "id": "sword",
+      "file": "../parts/18_sword.png",
+      "native_size": [
+        250,
+        319
+      ],
+      "position_256": [
+        166.5,
+        94
+      ],
+      "size_256": [
+        58,
+        61
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        53.0172413793104,
+        253.10819672131151
+      ],
+      "pivot_world_256": [
+        178.8,
+        142.4
+      ],
+      "draw_order": 85,
+      "parent": "hand_right"
+    },
+    {
+      "id": "jacket_tail",
+      "file": "../parts/19_jacket_tail.png",
+      "native_size": [
+        254,
+        280
+      ],
+      "position_256": [
+        108,
+        113
+      ],
+      "size_256": [
+        28,
+        33
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        127.0,
+        8.4
+      ],
+      "pivot_world_256": [
+        122.0,
+        113.99
+      ],
+      "draw_order": 35,
+      "parent": "pelvis"
+    },
+    {
+      "id": "shirt_tail",
+      "file": "../parts/20_shirt_tail.png",
+      "native_size": [
+        224,
+        285
+      ],
+      "position_256": [
+        126,
+        113
+      ],
+      "size_256": [
+        25,
+        34
+      ],
+      "rotation_deg": 0,
+      "pivot_local_px": [
+        112.0,
+        8.55
+      ],
+      "pivot_world_256": [
+        138.5,
+        114.02
+      ],
+      "draw_order": 46,
+      "parent": "pelvis"
+    }
+  ]
+}

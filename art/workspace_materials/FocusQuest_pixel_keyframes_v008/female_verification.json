@@ -1,0 +1,114 @@
+{
+  "new_characters": 6,
+  "new_animations": 21,
+  "distinct_drawn_originals": 144,
+  "unchanged_existing_asset_files": 1495,
+  "previous_assets_identical": true,
+  "pixel_grid_and_margin_checks": [
+    {
+      "folder": "players_female/character_01_female/run",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_01_female/attack_down",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_01_female/skill_wave",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_02_female/run",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_02_female/punch_combo",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_02_female/spin_kick",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_03_female/run",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_03_female/iai",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_03_female/energy_flurry",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_04_female/run",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_04_female/slam",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_04_female/charged_sweep",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_05_female/run",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_05_female/shuriken",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_05_female/teleport_stab",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_06_female/run",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_06_female/dagger_thrust",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_06_female/critical_strike",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_01_female/idle",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_01_female/run_then_attack",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    },
+    {
+      "folder": "players_female/character_01_female/run_then_skill",
+      "logical_grid_pass": true,
+      "canvas_margins_pass": true
+    }
+  ]
+}

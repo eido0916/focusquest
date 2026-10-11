@@ -1,0 +1,16 @@
+Use case: style-transfer. Game sprite animation atlas, character 03 for FocusQuest.
+Reference image 1 is CHARACTER IDENTITY: the black-haired young samurai in blue haori, dark navy kimono with white V collar, brown diagonal shoulder strap, white cuff/hem trim, blue waist knot and cloth tails, voluminous dark trousers, dark fingerless gloves and forearm wraps, blue tied shin wraps and brown open-toe sandals. Retain these identifying colors and details in simplified pixels. Serious face, messy black hair, NO hood, NO red hair. Add one modest Japanese katana with brown-wrapped handle, small gold guard, dark navy scabbard at LEFT hip, sheathed for running. Right hand lightly steadies handle, left hand steadies sheath: compact arms, not wild swings.
+Reference image 2 is STYLE ONLY: same minimal chibi game field pixel-art proportions, about 2.3 heads tall, crisp limited palette and large pixel clusters. Do not copy its fighter outfit.
+
+Create ONE transparent atlas, EXACTLY 8 consecutive run keyframes, 4 columns by 2 rows, equal square cells, read left to right then next row. Wide canvas aspect 2:1. Each cell is a logical 64x64 grid enlarged with nearest-neighbor pixels. Character height about 43 logical pixels. Head center fixed x=30, floor y=57, safe 5px margins. All sprites face RIGHT in side/three-quarter profile. Distinct actual RUN gait, not walking nor cycling a single pose. Fixed in-place hip root; external game translation will move right. Same face, head size, clothing, weapon, legs each frame, NO body stretching.
+
+Detailed eight phase sequence, near leg means visible right leg:
+0 NEAR-foot forward contact: near shin slopes forward, foot meets floor below/right of hip, far leg trailing with heel lifting.
+1 COMPRESSION: near planted leg bends carrying weight, hips drop 1px, far leg folds and knee passes beneath hip.
+2 PUSH-OFF: near support leg extends backward and toe pushes floor, far knee drives forward/up, hips rise.
+3 FLIGHT: far leg extends forward preparing next contact, near trailing knee bends with heel up, BOTH feet visibly clear floor by 2px.
+4 FAR-foot forward contact: opposite of frame0, far foot at floor, near leg trails.
+5 COMPRESSION opposite: far support knee bends, near knee passes under hip, hips drop.
+6 PUSH-OFF opposite: far leg extends backward, near knee drives forward/up.
+7 FLIGHT opposite: near leg extends forward, far heel folds back; both feet clear ground, leading foot about to return to frame0.
+Make near and far leg placement visibly alternate; baggy trouser legs must be clearly distinguishable, far leg slightly darker. Knees flex naturally forward, ankles never bend backward. Consistent limb lengths, two legs and two arms. Torso leans forward 8 degrees, head remains stable with only 1px bob. Blue haori/sash trails LEFT with a one-pose lag; separate hems enough to see feet. Sheathed sword consistent attachment at left hip, never detached from hand. No motion blur, effects, shadows, text, grid lines, scenery, antialiasing, labels, duplicated cells or extra character. True transparent background.

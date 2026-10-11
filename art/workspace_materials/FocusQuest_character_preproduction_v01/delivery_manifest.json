@@ -1,0 +1,344 @@
+{
+  "date": "2026-10-09",
+  "status": "prototype_only",
+  "representative": "character_08",
+  "other_15": "references_and_survey_only",
+  "originals_unchanged": true,
+  "files": [
+    {
+      "path": "16体素材調査.csv",
+      "bytes": 6626,
+      "sha256": "93af3f2f298029eb2b4c32da1e09a36032246f6ff8ace25983860ef46dc7b5be"
+    },
+    {
+      "path": "atlas_inspect.jpg",
+      "bytes": 150820,
+      "sha256": "ffe668975158e6e3bf66c7b14003e4f5b5e9e21fb24fbf8950c370cb2a425f0b"
+    },
+    {
+      "path": "character_01/reference/1.png",
+      "bytes": 1863303,
+      "sha256": "de004a0c3edc8d1dc50d02dab8fbce5ef71d645c4d9e917c1562379074f01608"
+    },
+    {
+      "path": "character_02/reference/2.png",
+      "bytes": 1825138,
+      "sha256": "7d6158374af543de75b4eb476fbc21f8fb5e987bf40bd5bb49d7f0280714fc48"
+    },
+    {
+      "path": "character_03/reference/3.png",
+      "bytes": 1862337,
+      "sha256": "2ee28ba8932c421fccbe8e7729550faf7424eedd52e9cef1b60831ce7949ec10"
+    },
+    {
+      "path": "character_04/reference/4.png",
+      "bytes": 1961019,
+      "sha256": "c7d822199cd61204e6ef3c08dc8e638574f0aa241b7a5a2abceb48ff646205c6"
+    },
+    {
+      "path": "character_05/reference/5.png",
+      "bytes": 1804411,
+      "sha256": "2498a19dc49be8c86cd4e146ada865e8bd77ab859f1dee9ae634d15f5cc3cf0e"
+    },
+    {
+      "path": "character_06/reference/6.png",
+      "bytes": 1838359,
+      "sha256": "6179270f62c6d764d146b1a0056c5c815c852c31d4b3caa293002024a52e6a12"
+    },
+    {
+      "path": "character_07/reference/7.png",
+      "bytes": 1855020,
+      "sha256": "b11bc4c1de5b9e2d3378fba314374883b178b1e104963bdf51adb9399ff5cb9f"
+    },
+    {
+      "path": "character_08/parts/01_head_face.png",
+      "bytes": 57950,
+      "sha256": "9a746a34c868fb2a6dd607528767f702f965c8e241bcf7e86a6394a2777892bf"
+    },
+    {
+      "path": "character_08/parts/02_hair_back.png",
+      "bytes": 90475,
+      "sha256": "391d257f93e1827f6551d15201f455009868d8d73f2ad1fd51c62e1b7427d015"
+    },
+    {
+      "path": "character_08/parts/03_hair_front.png",
+      "bytes": 69040,
+      "sha256": "871a9d3d59dee78e3f99d8a45c538409c098f7b5d7255c231730e4c4cbf745a9"
+    },
+    {
+      "path": "character_08/parts/04_torso.png",
+      "bytes": 115515,
+      "sha256": "3ae76cd8337a2cbb0daa7b614d36ede3fed5beac6d726a101efa09d809e78d68"
+    },
+    {
+      "path": "character_08/parts/05_pelvis.png",
+      "bytes": 82587,
+      "sha256": "9286e11f018066706bb82f40b3c3578262ab2952f2aac62f0c7ec7693de33b6a"
+    },
+    {
+      "path": "character_08/parts/06_upper_arm_left.png",
+      "bytes": 42908,
+      "sha256": "e83efca7f68ee7a4b9e970e7169bd5bcec4b4745dd3fa1d3db8ea3642f7f924e"
+    },
+    {
+      "path": "character_08/parts/07_forearm_left.png",
+      "bytes": 37340,
+      "sha256": "77e69671379514efd31735ddc6fd8cb141446d0f7cfdf44b4a006d23367c0165"
+    },
+    {
+      "path": "character_08/parts/08_hand_left.png",
+      "bytes": 40745,
+      "sha256": "126609058d4b2de56b1798b001c3e4ea3c605089734cb223977cdd644da417d3"
+    },
+    {
+      "path": "character_08/parts/09_upper_arm_right.png",
+      "bytes": 50653,
+      "sha256": "42bc305502adad907d4e7352a82ca4597e705b9a138482b3007d8d48f8837603"
+    },
+    {
+      "path": "character_08/parts/10_forearm_right.png",
+      "bytes": 47712,
+      "sha256": "4782262bb3dfa0e11f8bd495acb4a3e82b573f4b91ba3dba812389a3296d100a"
+    },
+    {
+      "path": "character_08/parts/11_hand_right.png",
+      "bytes": 46518,
+      "sha256": "0b356fd9641839ed1523f2459db2631c56a03dfb5695e51489e4a8d63e762412"
+    },
+    {
+      "path": "character_08/parts/12_thigh_left.png",
+      "bytes": 54181,
+      "sha256": "15ea5515b58ba70785630fe1f722190f5271ea2bbcdf6ba782780703f7749f7a"
+    },
+    {
+      "path": "character_08/parts/13_shin_left.png",
+      "bytes": 53391,
+      "sha256": "fcce40716cd41db28d65844be6f69e4e1405e6f800c1da54c43034b0024f82ec"
+    },
+    {
+      "path": "character_08/parts/14_foot_left.png",
+      "bytes": 57951,
+      "sha256": "2bb5e34f2af749a00b559184614d57a0855abd39d88973c8c4ec1a56eaffbbd0"
+    },
+    {
+      "path": "character_08/parts/15_thigh_right.png",
+      "bytes": 65259,
+      "sha256": "f0591677fad7678cca39dd97844263dcd994aa3f7b9477c201e38bd28a6b4ab7"
+    },
+    {
+      "path": "character_08/parts/16_shin_right.png",
+      "bytes": 62200,
+      "sha256": "238339357c92f3625d59652d018757b0a34232b0f926d0b016ed210f9e9331d1"
+    },
+    {
+      "path": "character_08/parts/17_foot_right.png",
+      "bytes": 57362,
+      "sha256": "30267d2bf2eac2035d6bd8d19a1e7d2715fc4cd807a8dee64784d20cf923337a"
+    },
+    {
+      "path": "character_08/parts/18_sword.png",
+      "bytes": 56616,
+      "sha256": "bea042f959c5def3811d0ffe36a8ffe56fd33d7813e91db18dd910512d43d4f8"
+    },
+    {
+      "path": "character_08/parts/19_jacket_tail.png",
+      "bytes": 73110,
+      "sha256": "eac4798727e7063ab7f98fa9f684940f5955f9a2c31a7c01627a7e109c3f9bbf"
+    },
+    {
+      "path": "character_08/parts/20_shirt_tail.png",
+      "bytes": 68410,
+      "sha256": "dc0fea83616a2052df89e501c08425b791ebd6d38b706b7bbabd74e1121256e6"
+    },
+    {
+      "path": "character_08/preview/a0_joint_check.png",
+      "bytes": 342602,
+      "sha256": "6487c81194378c6cb49ad0b23bbe1d6b1b2d8b935c86f196cd165b716d24f2ed"
+    },
+    {
+      "path": "character_08/preview/assembled_inspection.jpg",
+      "bytes": 55086,
+      "sha256": "2de4f69b139974216d302c459509ceb931b4e4704e748cca76bfb3392e8dfc9f"
+    },
+    {
+      "path": "character_08/preview/character_08_A0_1024.png",
+      "bytes": 342602,
+      "sha256": "6487c81194378c6cb49ad0b23bbe1d6b1b2d8b935c86f196cd165b716d24f2ed"
+    },
+    {
+      "path": "character_08/preview/display_sizes.jpg",
+      "bytes": 11685,
+      "sha256": "3a9ed7e3362f0b078288df7ceb768b7696361908b74d527729e516b7fe391ee4"
+    },
+    {
+      "path": "character_08/preview/elbow_joint_check.png",
+      "bytes": 336654,
+      "sha256": "15885e89b5e2f51c5780a7cb7a64b374a57294cc789a12403eefaedeaf930dfb"
+    },
+    {
+      "path": "character_08/preview/hair_joint_check.png",
+      "bytes": 342731,
+      "sha256": "420707e7fd530d16975e81ce4f089c08be1991babeb04a90e95eb2a3bd0467cc"
+    },
+    {
+      "path": "character_08/preview/hero_sword_male_battle_poster.png",
+      "bytes": 30956,
+      "sha256": "3b0bcfde203ba8b7a0f467b90d2f7a1530a5af33555367f9f089ddc0962fc229"
+    },
+    {
+      "path": "character_08/preview/hero_sword_male_home.png",
+      "bytes": 100681,
+      "sha256": "9ac4959ee8d4fd8bcf9ed88ba58b1a824e680d5d60b28c25dfd676798898fd72"
+    },
+    {
+      "path": "character_08/preview/joint_stress_sheet.jpg",
+      "bytes": 50781,
+      "sha256": "e0582e57c8caf14eaa350957eae4c3e76eccc02a1afcdf35dc5831f1f0453109"
+    },
+    {
+      "path": "character_08/preview/knee_joint_check.png",
+      "bytes": 339713,
+      "sha256": "4073cbe2ab8dad893fdeb9507626940ee9b8198a918fafe4f6bdf5cec6a868e2"
+    },
+    {
+      "path": "character_08/preview/parts_breakdown.jpg",
+      "bytes": 123923,
+      "sha256": "f12311599c697c9aebb64970be3b9ecd3d28d7c54c906fe0022990ab7abadbf1"
+    },
+    {
+      "path": "character_08/preview/placement_guide.jpg",
+      "bytes": 68583,
+      "sha256": "0e4a63a92fc7069a912a19143b8acb9cb5c8a3b66dd6490d0e3e9a7ddfa54fd9"
+    },
+    {
+      "path": "character_08/preview/reference_comparison.jpg",
+      "bytes": 70964,
+      "sha256": "39206abc986494633876f6087a6028cf3e0d49807a171037f1910b0520d97447"
+    },
+    {
+      "path": "character_08/reference/8.png",
+      "bytes": 1842374,
+      "sha256": "da3d9f9972d61a69a14650568fd61228c2e65e4f6fb1d6c3d15b63bf00dac74f"
+    },
+    {
+      "path": "character_08/source/build.py",
+      "bytes": 7682,
+      "sha256": "87b7f23081e2dbb44eaf99d2403fd4a2cddea310c4c0bc641ecf2ceaf6329460"
+    },
+    {
+      "path": "character_08/source/character_08_layers.ora",
+      "bytes": 943025,
+      "sha256": "1ee3013c6864806b164a6dd750550d69707f0e167034fe1a51bead42d8611801"
+    },
+    {
+      "path": "character_08/source/character_08_layers.svg",
+      "bytes": 1642787,
+      "sha256": "60ae71bd8d21f1b163f447ea0c4dc57eab0edbbe235e4035e91c04cf0abcb299"
+    },
+    {
+      "path": "character_08/source/imagegen_prompts.json",
+      "bytes": 3901,
+      "sha256": "237f4e1dea427ffc57c25629fb6d9265422e9fe1fbe9d28e7a55cd1593e97e2e"
+    },
+    {
+      "path": "character_08/source/part_placement.csv",
+      "bytes": 1938,
+      "sha256": "cf0fadfcc36491186969431d7f47a9cbf1b3744a459abbd78e3747a14c060a25"
+    },
+    {
+      "path": "character_08/source/parts_atlas_corrected.png",
+      "bytes": 1337840,
+      "sha256": "e5ce684751244687246c9e07c4b90acb63d93a7d65190f087ac3d9e2791f997a"
+    },
+    {
+      "path": "character_08/source/parts_atlas_generated.png",
+      "bytes": 1391499,
+      "sha256": "33bd118db041a919a8878389c41fbe1c2d9b2ae855ebc9c5ab8442f2b55973d1"
+    },
+    {
+      "path": "character_08/source/qa.json",
+      "bytes": 391,
+      "sha256": "276524cd3a8db310c60abc239ede5a099b727aa04852a24996f94e4ca58532cc"
+    },
+    {
+      "path": "character_08/source/rig.json",
+      "bytes": 10417,
+      "sha256": "03ada59d88017b31b784c3e379179e84ecc01e9c0ba4966d3cc92d75a3004979"
+    },
+    {
+      "path": "character_09/reference/9.png",
+      "bytes": 1869482,
+      "sha256": "c5d13fcc43a39df2ebc91c2356dc8b482e749a6009e02f7ae54a537843876d94"
+    },
+    {
+      "path": "character_10/reference/10.png",
+      "bytes": 1795246,
+      "sha256": "2a5b9502fc729a09b4344462e920bdcdcf29a698e820bfbbf5c00822948a85c4"
+    },
+    {
+      "path": "character_11/reference/11.png",
+      "bytes": 1914504,
+      "sha256": "e24a1bf6f92767bb7af71bf7746b5879de7a22fde9758622bfba6cc9212193db"
+    },
+    {
+      "path": "character_12/reference/12.png",
+      "bytes": 1564757,
+      "sha256": "b95c3c0e6624ca2536df1efd106b41c974a9f3598639f22ac16cc9591c81acdd"
+    },
+    {
+      "path": "character_13/reference/13.png",
+      "bytes": 1997059,
+      "sha256": "436ed304a87844c792f35ccf33401b03578d83df19dbfbfbd4b3bf3a2de120e6"
+    },
+    {
+      "path": "character_14/reference/14.png",
+      "bytes": 1886174,
+      "sha256": "73e2c1b86aead4832c50f74c22539f3eed8f851e373cf82a0019fbf97f37971a"
+    },
+    {
+      "path": "character_15/reference/15.png",
+      "bytes": 1986314,
+      "sha256": "293d34da1e95e2db3f3a8f990f3eedd6721ff965baceac96bbd50a98f5b9ecb6"
+    },
+    {
+      "path": "character_16/reference/16.png",
+      "bytes": 2025095,
+      "sha256": "cc994c79d63e04fe432d0d141fe5bc3431e70aa18259c12c931234a19f880297"
+    },
+    {
+      "path": "image_metadata.json",
+      "bytes": 4273,
+      "sha256": "3c0172c5701c00587df80132d6567a174ad8ca9de3b31b757e9474b36f19c020"
+    },
+    {
+      "path": "inspection_1.jpg",
+      "bytes": 117944,
+      "sha256": "9b1dcd40b434e5471f78bd2ce7f6ecc7ade7aad6cabd3517ca1314db9d7c5f06"
+    },
+    {
+      "path": "inspection_2.jpg",
+      "bytes": 111430,
+      "sha256": "755fb1d46f7dde03fb61a53dd3f25f23220edf736eacc76cbd487322d009ca0b"
+    },
+    {
+      "path": "inspection_3.jpg",
+      "bytes": 127558,
+      "sha256": "a0ebe1b3d94fe37ba711a9f6844cf5055f138bb14725d819cfdaf707b8eff2d0"
+    },
+    {
+      "path": "inspection_4.jpg",
+      "bytes": 138868,
+      "sha256": "3d6ea42b8713c13ed3d8d130bcb27262fd9fac8ba0b354fef5897aa26ca3be7d"
+    },
+    {
+      "path": "共通骨格基準.svg",
+      "bytes": 3506,
+      "sha256": "f0ae2a16eef963f52c50d3cf6899f75794cf854b784a9719b2e59910d06b62df"
+    },
+    {
+      "path": "制作調査と試作報告.md",
+      "bytes": 17290,
+      "sha256": "38fb9f750a2c1f3ede04aa35b65a0a34e8048b378eb9494672a7f374097ad358"
+    }
+  ]
+}

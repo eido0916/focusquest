@@ -1,0 +1,9 @@
+Use case: style-transfer. FocusQuest CHARACTER01 original pixel-keyframe IDLE animation. Reference1 is the EXACT existing128px miniature field sprite: blonde messyhair, blueeyes, bluecloak andblue/ivorytunic, brown belts/gloves/trousers/boots, one silver sword withgoldguard inright hand. Keep SAME identity, RIGHT-facing profile, coarseminimal chibi2.3heads proportions, cloakdirection, bladeorientation, exactcolor scheme. Reference2 originalportrait onlysupportsface/clothing, do notadopt tallproportions.
+Create SIX pixel-art ORIGINAL idlekeyposes in one truealphatransparent atlas, 3columns2rows equalsquarecells, aspect3:2. Eachcelllogical64x64 enlargedcrisp. Body42logicalpixels high, footbaseliney56, headcenterx32. Allclothing/boots/swordinsideowncell with6pxcleargutters, no cropping. Feet andswordgrip FIXED andsameheadsize everypose. Calmreadyholding sword, no attack/walking.
+F0 normalopeneyes calmstance.
+F1 subtleinhale: chestdrawn1pixelhigher, capeedgechanges1pixel, feetfixed.
+F2 eyesHALFCLOSED beginningblink, samebody.
+F3 eyesCLOSED visibleone-pixelline, completeblink, samebody.
+F4 eyeshalfopenreturn, exhalebodyreturns, cloaksettles.
+F5 EXACTsameasF0 eyesopen.
+Smallmotion physicallyconsistent, bothbootsstationary, silverbladefixedangle/shape/length, handfirmlyonhilt. Theseareindividualdrawn pixelposes, notrotatedbodyparts or warpedpaintings. No interpolatedframes, no newcostume/props, no lights/glow/shadows/background/text/grid/blur/antialiasing. Exact6poses andgenuinealpha.

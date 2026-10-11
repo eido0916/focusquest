@@ -1,0 +1,357 @@
+{
+  "enemy_id": "slime",
+  "animation": "attack",
+  "attack_type": "body_ram",
+  "direction": "left",
+  "canvas": [
+    128,
+    128
+  ],
+  "logical_grid": [
+    64,
+    64
+  ],
+  "fps": 24,
+  "duration_seconds": 1,
+  "keyframe_files": 8,
+  "different_poses": 7,
+  "display_frames": 24,
+  "game_loop": false,
+  "preview_loop": true,
+  "root_motion": "left_lunge_and_return_in_frames",
+  "active_or_release_frame": 11,
+  "holds": [
+    3,
+    3,
+    4,
+    1,
+    2,
+    4,
+    4,
+    3
+  ],
+  "placements": [
+    {
+      "frame": 0,
+      "root_x_logical": 36,
+      "baseline_logical": 56,
+      "source_cell_to_64_matrix": [
+        [
+          0.6101694915254238,
+          0.0,
+          15.254237288135592
+        ],
+        [
+          0.0,
+          0.6101694915254238,
+          21.220338983050844
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame": 1,
+      "root_x_logical": 38,
+      "baseline_logical": 56,
+      "source_cell_to_64_matrix": [
+        [
+          0.6101694915254238,
+          0.0,
+          16.64406779661017
+        ],
+        [
+          0.0,
+          0.6101694915254238,
+          20.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame": 2,
+      "root_x_logical": 40,
+      "baseline_logical": 56,
+      "source_cell_to_64_matrix": [
+        [
+          0.6101694915254238,
+          0.0,
+          20.47457627118644
+        ],
+        [
+          0.0,
+          0.6101694915254238,
+          20.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame": 3,
+      "root_x_logical": 30,
+      "baseline_logical": 53,
+      "source_cell_to_64_matrix": [
+        [
+          0.6101694915254238,
+          0.0,
+          12.0
+        ],
+        [
+          0.0,
+          0.6101694915254238,
+          18.220338983050844
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame": 4,
+      "root_x_logical": 24,
+      "baseline_logical": 56,
+      "source_cell_to_64_matrix": [
+        [
+          0.6101694915254238,
+          0.0,
+          3.8644067796610173
+        ],
+        [
+          0.0,
+          0.6101694915254238,
+          26.101694915254235
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame": 5,
+      "root_x_logical": 29,
+      "baseline_logical": 54,
+      "source_cell_to_64_matrix": [
+        [
+          0.6101694915254238,
+          0.0,
+          8.559322033898304
+        ],
+        [
+          0.0,
+          0.6101694915254238,
+          24.101694915254235
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame": 6,
+      "root_x_logical": 34,
+      "baseline_logical": 55,
+      "source_cell_to_64_matrix": [
+        [
+          0.6101694915254238,
+          0.0,
+          14.47457627118644
+        ],
+        [
+          0.0,
+          0.6101694915254238,
+          25.101694915254235
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame": 7,
+      "root_x_logical": 36,
+      "baseline_logical": 56,
+      "source_cell_to_64_matrix": [
+        [
+          0.6101694915254238,
+          0.0,
+          16.779661016949152
+        ],
+        [
+          0.0,
+          0.6101694915254238,
+          26.101694915254235
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "frame": 0,
+      "time_seconds": 0.0,
+      "pose": 0,
+      "file": "frames_24fps/slime_attack_000.png"
+    },
+    {
+      "frame": 1,
+      "time_seconds": 0.041666666666666664,
+      "pose": 0,
+      "file": "frames_24fps/slime_attack_001.png"
+    },
+    {
+      "frame": 2,
+      "time_seconds": 0.08333333333333333,
+      "pose": 0,
+      "file": "frames_24fps/slime_attack_002.png"
+    },
+    {
+      "frame": 3,
+      "time_seconds": 0.125,
+      "pose": 1,
+      "file": "frames_24fps/slime_attack_003.png"
+    },
+    {
+      "frame": 4,
+      "time_seconds": 0.16666666666666666,
+      "pose": 1,
+      "file": "frames_24fps/slime_attack_004.png"
+    },
+    {
+      "frame": 5,
+      "time_seconds": 0.20833333333333334,
+      "pose": 1,
+      "file": "frames_24fps/slime_attack_005.png"
+    },
+    {
+      "frame": 6,
+      "time_seconds": 0.25,
+      "pose": 2,
+      "file": "frames_24fps/slime_attack_006.png"
+    },
+    {
+      "frame": 7,
+      "time_seconds": 0.2916666666666667,
+      "pose": 2,
+      "file": "frames_24fps/slime_attack_007.png"
+    },
+    {
+      "frame": 8,
+      "time_seconds": 0.3333333333333333,
+      "pose": 2,
+      "file": "frames_24fps/slime_attack_008.png"
+    },
+    {
+      "frame": 9,
+      "time_seconds": 0.375,
+      "pose": 2,
+      "file": "frames_24fps/slime_attack_009.png"
+    },
+    {
+      "frame": 10,
+      "time_seconds": 0.4166666666666667,
+      "pose": 3,
+      "file": "frames_24fps/slime_attack_010.png"
+    },
+    {
+      "frame": 11,
+      "time_seconds": 0.4583333333333333,
+      "pose": 4,
+      "file": "frames_24fps/slime_attack_011.png"
+    },
+    {
+      "frame": 12,
+      "time_seconds": 0.5,
+      "pose": 4,
+      "file": "frames_24fps/slime_attack_012.png"
+    },
+    {
+      "frame": 13,
+      "time_seconds": 0.5416666666666666,
+      "pose": 5,
+      "file": "frames_24fps/slime_attack_013.png"
+    },
+    {
+      "frame": 14,
+      "time_seconds": 0.5833333333333334,
+      "pose": 5,
+      "file": "frames_24fps/slime_attack_014.png"
+    },
+    {
+      "frame": 15,
+      "time_seconds": 0.625,
+      "pose": 5,
+      "file": "frames_24fps/slime_attack_015.png"
+    },
+    {
+      "frame": 16,
+      "time_seconds": 0.6666666666666666,
+      "pose": 5,
+      "file": "frames_24fps/slime_attack_016.png"
+    },
+    {
+      "frame": 17,
+      "time_seconds": 0.7083333333333334,
+      "pose": 6,
+      "file": "frames_24fps/slime_attack_017.png"
+    },
+    {
+      "frame": 18,
+      "time_seconds": 0.75,
+      "pose": 6,
+      "file": "frames_24fps/slime_attack_018.png"
+    },
+    {
+      "frame": 19,
+      "time_seconds": 0.7916666666666666,
+      "pose": 6,
+      "file": "frames_24fps/slime_attack_019.png"
+    },
+    {
+      "frame": 20,
+      "time_seconds": 0.8333333333333334,
+      "pose": 6,
+      "file": "frames_24fps/slime_attack_020.png"
+    },
+    {
+      "frame": 21,
+      "time_seconds": 0.875,
+      "pose": 7,
+      "file": "frames_24fps/slime_attack_021.png"
+    },
+    {
+      "frame": 22,
+      "time_seconds": 0.9166666666666666,
+      "pose": 7,
+      "file": "frames_24fps/slime_attack_022.png"
+    },
+    {
+      "frame": 23,
+      "time_seconds": 0.9583333333333334,
+      "pose": 7,
+      "file": "frames_24fps/slime_attack_023.png"
+    }
+  ]
+}

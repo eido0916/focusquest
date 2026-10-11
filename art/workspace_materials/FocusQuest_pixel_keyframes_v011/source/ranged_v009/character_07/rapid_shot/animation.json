@@ -1,0 +1,242 @@
+{
+  "fps": 24,
+  "loop_in_game": false,
+  "holds_ticks": [
+    4,
+    3,
+    3,
+    2,
+    3,
+    3,
+    2,
+    3,
+    3,
+    2,
+    4,
+    4
+  ],
+  "display_frame_sequence": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    4,
+    5,
+    5,
+    5,
+    6,
+    6,
+    7,
+    7,
+    7,
+    8,
+    8,
+    8,
+    9,
+    9,
+    10,
+    10,
+    10,
+    10,
+    11,
+    11,
+    11,
+    11
+  ],
+  "events": [
+    {
+      "event": "arrow_release",
+      "tick": 10,
+      "keyframe": 3,
+      "shot_index": 0,
+      "direction": [
+        1,
+        0
+      ]
+    },
+    {
+      "event": "arrow_release",
+      "tick": 18,
+      "keyframe": 6,
+      "shot_index": 1,
+      "direction": [
+        1,
+        0
+      ]
+    },
+    {
+      "event": "arrow_release",
+      "tick": 26,
+      "keyframe": 9,
+      "shot_index": 2,
+      "direction": [
+        1,
+        0
+      ]
+    }
+  ],
+  "direction": "right",
+  "variant": "male",
+  "reference": "7.png",
+  "interpolation": "none",
+  "part_transforms": false,
+  "crossfade": false,
+  "root_offsets_px": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "root_motion_space": "world_px_absolute_offset",
+  "production": "Independently drawn pixel originals; fixed production sampling only. 24fps output consists exclusively of exact original file copies."
+}

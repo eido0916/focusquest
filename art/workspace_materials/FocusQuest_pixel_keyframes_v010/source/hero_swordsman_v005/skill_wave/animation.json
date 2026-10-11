@@ -1,0 +1,92 @@
+{
+  "fps": 24,
+  "loop_in_game": false,
+  "events": [
+    {
+      "event": "charge_begin",
+      "tick": 7,
+      "keyframe": 2
+    },
+    {
+      "event": "charged",
+      "tick": 24,
+      "keyframe": 5
+    },
+    {
+      "event": "slash_active",
+      "tick": 30,
+      "keyframe": 7
+    },
+    {
+      "event": "wave_release",
+      "tick": 31,
+      "keyframe": 8
+    }
+  ],
+  "logical_grid": [
+    64,
+    64
+  ],
+  "display_frame_sequence": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    5,
+    5,
+    5,
+    6,
+    6,
+    6,
+    7,
+    8,
+    8,
+    9,
+    9,
+    9,
+    10,
+    10,
+    10,
+    11,
+    11,
+    11
+  ],
+  "holds_ticks": [
+    3,
+    4,
+    5,
+    6,
+    6,
+    3,
+    3,
+    1,
+    2,
+    3,
+    3,
+    3
+  ],
+  "duration_seconds": 1.75,
+  "root_motion": "none",
+  "reference": "1.png identity and v001 idle proportions",
+  "production": "Full original poses generated using built-in imagegen; normalized once at export. No runtime part transforms/interpolation."
+}
