@@ -23,6 +23,9 @@ with zipfile.ZipFile(ZIP) as archive:
         for number, role in enumerate(ROLES, 1):
             if variant == 'male':
                 source, = SOURCE.glob(f'{number:02d}_*.png')
+                repaired = ROOT / 'art/portrait_alpha_v002/repaired' / f'{role}.png'
+                if repaired.exists():
+                    source = repaired
                 raw = source.read_bytes()
                 name = source.name
             else:

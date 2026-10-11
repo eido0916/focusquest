@@ -31,6 +31,9 @@ for name, filename in FILES.items():
         image.save(OUT / f'{name}.png', optimize=True)
 for number, role in enumerate(ROLES, 1):
     source, = SOURCE.glob(f'{number:02d}_*.png')
+    repaired = ROOT / 'art/portrait_alpha_v002/repaired' / f'{role}.png'
+    if repaired.exists():
+        source = repaired
     with Image.open(source) as image:
         assert image.mode == 'RGBA', f'Expected supplied alpha: {source}'
         assert image.getchannel('A').getextrema()[0] == 0
