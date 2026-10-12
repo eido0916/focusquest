@@ -1,10 +1,9 @@
-import '../../../core/widgets/game_ui.dart';
+import '../../character/presentation/growth_celebration.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../../core/config/game_balance.dart';
 import '../../../core/game_controller.dart';
 import '../../../core/widgets/quest_widgets.dart';
-import '../../../core/widgets/role_logo.dart';
 import '../domain/focus_session.dart';
 import '../domain/focus_adventure.dart';
 import 'battle_replay_page.dart';
@@ -156,6 +155,7 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
       _error = null;
     });
     try {
+      final previousHero = widget.controller.state!.activeCharacter!;
       final result = await widget.controller.finishFocus(cancel: cancel);
       if (mounted && result != null) {
         final succeeded = result.status == FocusStatus.succeeded;
@@ -177,6 +177,10 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                           onPressed: () => Navigator.pop(context),
                           child: const Text('閉じる'))
                     ]));
+        if (mounted && succeeded) {
+          await showGrowthCelebration(
+              context, previousHero, widget.controller.state!.activeCharacter!);
+        }
       }
     } catch (_) {
       if (mounted) {
@@ -194,7 +198,6 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     final controller = widget.controller;
     final session = controller.activeFocus;
-    final seconds = session?.remaining(controller.clock()).inSeconds ?? 0;
     if (session == null) {
       final character = controller.state!.activeCharacter!;
       return FocusSelectionScene(
@@ -205,6 +208,11 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
         minutes: _minutes,
         stage: FocusAdventure.chapter(
             controller.state!.focusAdventureSeconds.toDouble()),
+        areaName:
+            FocusAdventure.area(0, areaIndex: controller.selectedFocusArea),
+        backgroundPath:
+            'assets/images/${FocusAdventure.background(0, areaIndex: controller.selectedFocusArea)}',
+        onArea: () => _chooseArea(),
         partyConnected: controller.party.connected,
         message: controller.partyStartError ?? controller.party.error,
         onMinutes: (minutes) => setState(() {
@@ -238,103 +246,80 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
       );
     }
     return Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar:
-            const GameAppBar(backgroundColor: Colors.transparent, elevation: 0),
-        body: SafeArea(
-            child: QuestBackdrop(
-                child: ListView(
-                    padding: const EdgeInsets.fromLTRB(20, 64, 20, 24),
-                    children: [
-              Row(children: [
-                RoleLogo(
-                    role: controller.state!.activeCharacter!.characterType,
-                    size: 44),
-                const SizedBox(width: 10),
-                Expanded(child: Text(controller.state!.activeCharacter!.name)),
-                Text('Lv. ${controller.state!.activeCharacter!.level}'),
-              ]),
-              const SizedBox(height: 12),
-              QuestActionButton(
-                  label: controller.party.connected ? 'パーティーを見る' : 'パーティを組む',
-                  icon: Icons.groups_rounded,
-                  onTap: controller.busy ||
-                          _settling ||
-                          !controller.party.connected
-                      ? null
-                      : _openParty),
-              if (session.partyMembers.isNotEmpty)
-                Text(
-                    '${session.partyMembers.length}人で集中中 · 敵も${session.partyMembers.length}体ずつ出現'),
-              if (controller.partyStartError != null)
-                Text(controller.partyStartError!),
-              if (controller.party.error != null) Text(controller.party.error!),
-              QuestCard(
-                  caption:
-                      '第${FocusAdventure.chapter(session.adventureStartSeconds + session.durationMinutes * 60 - seconds.toDouble())}章 · 集中クエスト進行中',
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        TextButton(
-                            onPressed: controller.busy || _settling
-                                ? null
-                                : _openBattle,
-                            child: const Text('戦いの様子を見る')),
-                        const Text(
-                            '集中25分でボス出現。さらに5分で撃破し、草原から第二章の幽霊船へ進みます。短い集中でも達成した時間を引き継ぎます。'),
-                        const SizedBox(height: 32),
-                        Text(
-                            '${seconds ~/ 60}:${(seconds % 60).toString().padLeft(2, '0')}',
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.displayLarge),
-                        const SizedBox(height: 24),
-                        LinearProgressIndicator(
-                            value:
-                                (1 - seconds / (session.durationMinutes * 60))
-                                    .clamp(0, 1)),
-                        const SizedBox(height: 24),
-                        const Text(
-                            '画面を消して、自分の時間に集中しましょう。終了後にアプリへ戻ると結果を確認できます。'),
-                        const SizedBox(height: 24),
-                        Text(session.verification ==
-                                FocusVerification.usageStats
-                            ? '対象アプリの使用を確認する集中'
-                            : '他のアプリを開くと警告します。1分の許可は選んだアプリだけに適用され、時間が切れると再び警告します。集中タイマーは進み続けます。'),
-                        if (_error != null) ...[
-                          Text(_error!),
-                          FilledButton(
-                              onPressed: _settling ? null : () => _finish(),
-                              child: const Text('結果の保存を再試行'))
-                        ],
-                        TextButton(
-                            onPressed: _settling || controller.busy
-                                ? null
-                                : () async {
-                                    final confirmed = await showDialog<bool>(
-                                        context: context,
-                                        builder: (context) => AlertDialog(
-                                                title: const Text('集中を中断しますか？'),
-                                                content: const Text(
-                                                    '途中終了では報酬を獲得できません。'),
-                                                actions: [
-                                                  TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              context, false),
-                                                      child: const Text('続ける')),
-                                                  TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              context, true),
-                                                      child: const Text('中断する'))
-                                                ]));
-                                    if (confirmed == true && mounted) {
-                                      await _finish(cancel: true);
-                                    }
-                                  },
-                            child: const Text('集中を中断')),
-                      ])),
-            ]))));
+        body: QuestBackdrop(
+            child: Center(
+                child: SingleChildScrollView(
+                    child: QuestCard(
+                        caption:
+                            '集中中 · ${FocusAdventure.area(0, areaIndex: session.focusAreaIndex)}',
+                        child:
+                            Column(mainAxisSize: MainAxisSize.min, children: [
+                          const Text('集中は続いています。画面を消して、自分の時間に集中しましょう。'),
+                          QuestActionButton(
+                              label: '戦闘画面に戻る',
+                              icon: Icons.play_arrow,
+                              onTap: _openBattle),
+                          if (session.partyMembers.isNotEmpty)
+                            QuestActionButton(
+                                label: 'パーティー・参加コード',
+                                icon: Icons.groups,
+                                onTap: _openParty),
+                          if (_error != null) Text(_error!),
+                          if (_automaticFailed)
+                            TextButton(
+                                onPressed: _settling ? null : () => _finish(),
+                                child: const Text('結果の保存を再試行')),
+                          TextButton(
+                              onPressed: _settling
+                                  ? null
+                                  : () async {
+                                      final cancel = await showDialog<bool>(
+                                          context: context,
+                                          builder: (context) => AlertDialog(
+                                                  title:
+                                                      const Text('集中を中断しますか？'),
+                                                  content: const Text(
+                                                      '途中終了では報酬を獲得できません。'),
+                                                  actions: [
+                                                    TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                context, false),
+                                                        child:
+                                                            const Text('続ける')),
+                                                    TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                context, true),
+                                                        child:
+                                                            const Text('中断する'))
+                                                  ]));
+                                      if (cancel == true && mounted) {
+                                        await _finish(cancel: true);
+                                      }
+                                    },
+                              child: const Text('集中を中断')),
+                        ]))))));
+  }
+
+  Future<void> _chooseArea() async {
+    final controller = widget.controller;
+    final selected = await showDialog<int>(
+        context: context,
+        builder: (context) =>
+            SimpleDialog(title: const Text('集中エリアを選ぶ'), children: [
+              SimpleDialogOption(
+                  onPressed: () => Navigator.pop(context, -1),
+                  child: const Text('訓練場')),
+              for (final area in controller.unlockedFocusAreas)
+                SimpleDialogOption(
+                    onPressed: () => Navigator.pop(context, area),
+                    child: Text(FocusAdventure.area(0, areaIndex: area))),
+              const Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Text('冒険で同じエリアの4ステージをクリアすると、集中エリアが解放されます。')),
+            ]));
+    if (selected != null) controller.selectFocusArea(selected);
   }
 
   Future<void> _chooseCustomTime() async {

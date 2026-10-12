@@ -33,10 +33,11 @@ class EnemyComponent extends Component {
             : enemy.age;
     final frame = assets.frame(enemy.data.id, action, age, loop: !defeated);
     // Integer enlargement of the complete original. Knockback comes from JSON.
-    final scale = enemy.data.isBoss ? 2.0 : 1.0;
+    final scale = enemy.data.isBoss ? 3.0 : 1.0;
     canvas.drawImageRect(
         frame.image,
-        const Rect.fromLTWH(0, 0, 128, 128),
+        Rect.fromLTWH(
+            0, 0, frame.image.width.toDouble(), frame.image.height.toDouble()),
         Rect.fromLTWH(enemy.x + (frame.offset.dx - 64) * scale,
             413 + (frame.offset.dy - 112) * scale, 128 * scale, 128 * scale),
         Paint()

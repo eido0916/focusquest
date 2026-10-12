@@ -1,3 +1,5 @@
+import '../../core/config/game_balance.dart';
+import '../../features/playable_stage/domain/playable_stage_catalog.dart';
 import '../../features/focus/domain/focus_adventure.dart';
 import 'run_slash_skill.dart';
 import 'archer_shot_timing.dart';
@@ -134,7 +136,8 @@ class BattleStateController {
   BattleStateController(
       {this.config = const RunnerConfig(),
       required this.durationSeconds,
-      this.adventureStartSeconds}) {
+      this.adventureStartSeconds,
+      this.focusAreaIndex}) {
     if (durationSeconds <= 0 ||
         config.spawnSeconds <= 0 ||
         config.attackSeconds <= 0 ||
@@ -163,6 +166,20 @@ class BattleStateController {
   final RunnerConfig config;
   final double durationSeconds;
   final int? adventureStartSeconds;
+  final int? focusAreaIndex;
+  List<EnemyData> get spawnEnemies =>
+      focusAreaIndex == null || focusAreaIndex! < 0
+          ? config.enemies
+          : [
+              for (final id in {
+                for (final stage in PlayableStageCatalog.stages
+                    .skip(focusAreaIndex! * 4)
+                    .take(4))
+                  for (final enemy in stage.opponents)
+                    if (!enemy.isBoss) enemy.id
+              })
+                EnemyData(id)
+            ];
   int bossDefeatedCount = 0;
   double get adventureSeconds => (adventureStartSeconds ?? 0) + elapsedSeconds;
   bool get isBossBattle =>
@@ -173,8 +190,9 @@ class BattleStateController {
       : 0;
   String get areaName => adventureStartSeconds == null
       ? '木漏れ日の野原'
-      : '第${FocusAdventure.chapter(adventureSeconds)}章 · ${FocusAdventure.area(adventureSeconds)}';
-  String get bossName => FocusAdventure.bossName(adventureSeconds);
+      : FocusAdventure.area(adventureSeconds, areaIndex: focusAreaIndex);
+  String get bossName =>
+      FocusAdventure.bossName(adventureSeconds, areaIndex: focusAreaIndex);
   RunnerEnemy? _focusBoss;
   int? _bossCycle;
   void _updateFocusBoss(double now) {
@@ -198,7 +216,7 @@ class BattleStateController {
       _arrowFlights.clear();
       _focusBoss = RunnerEnemy(
           _spawned++,
-          EnemyData(FocusAdventure.bossId(clock),
+          EnemyData(FocusAdventure.bossId(clock, areaIndex: focusAreaIndex),
               maxHp: 300, expReward: 100, isBoss: true),
           x: config.enemyStopX + 24);
       enemies.add(_focusBoss!);
@@ -217,6 +235,12 @@ class BattleStateController {
   double elapsedSeconds = 0;
   int defeatedCount = 0;
   int gainedExp = 0;
+  int get focusRewardExp => GameBalance.focusExpForSeconds(elapsedSeconds,
+      durationSeconds: durationSeconds);
+  int get focusTotalRewardExp => GameBalance.focusExpForSeconds(durationSeconds,
+      durationSeconds: durationSeconds);
+  int get focusRemainingSeconds =>
+      (durationSeconds - elapsedSeconds).clamp(0.0, durationSeconds).ceil();
   int attackSerial = 0;
   int skillSerial = 0;
   int damageSerial = 0;
@@ -369,8 +393,8 @@ class BattleStateController {
     if (_skillPlaying) skillAge += step;
     if (_focusBoss == null && _spawnTimer + 1e-7 >= config.spawnSeconds) {
       _spawnTimer -= config.spawnSeconds;
-      enemies.add(RunnerEnemy(
-          _spawned, config.enemies[_spawned % config.enemies.length]));
+      enemies.add(
+          RunnerEnemy(_spawned, spawnEnemies[_spawned % spawnEnemies.length]));
       _spawned++;
     }
     var queueIndex = 0;

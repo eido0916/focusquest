@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/game_controller.dart';
 import '../../../core/widgets/quest_widgets.dart';
-import '../../../data/game_catalog.dart';
 import '../domain/progression_service.dart';
 import '../../diagnosis/presentation/job_portrait.dart';
 import '../../certificate/certificate_screen.dart';
@@ -36,100 +35,6 @@ class LobbyWindow extends StatelessWidget {
 class CharacterScreen extends StatelessWidget {
   const CharacterScreen({super.key, required this.controller});
   final GameController controller;
-
-  Widget _itemIcon(String slot, {double size = 26}) =>
-      Image.asset('assets/images/lobby/icon_$slot.png',
-          width: size,
-          height: size,
-          fit: BoxFit.contain,
-          excludeFromSemantics: true);
-
-  Widget _button(String label, VoidCallback? action) => LobbyWindow(
-      strip: true,
-      padding: EdgeInsets.zero,
-      child: TextButton(
-          onPressed: action,
-          style: TextButton.styleFrom(
-              foregroundColor: _white,
-              minimumSize: const Size(48, 48),
-              padding: const EdgeInsets.symmetric(horizontal: 12)),
-          child: Row(mainAxisSize: MainAxisSize.min, children: [
-            Text(label,
-                style:
-                    const TextStyle(fontFamily: 'SunlitSerif', fontSize: 13)),
-            const Icon(Icons.chevron_right, color: _gold, size: 18),
-          ])));
-
-  void openInventory(BuildContext context) {
-    showDialog<void>(
-        context: context,
-        builder: (dialogContext) => Dialog(
-            backgroundColor: Colors.transparent,
-            insetPadding: const EdgeInsets.all(16),
-            child: ConstrainedBox(
-                constraints: BoxConstraints(
-                    maxWidth: 560,
-                    maxHeight: MediaQuery.sizeOf(dialogContext).height * .78),
-                child: DefaultTextStyle(
-                    style: const TextStyle(
-                        fontFamily: 'SunlitSerif', color: _white),
-                    child: LobbyWindow(
-                        child: Column(children: [
-                      Row(children: [
-                        const Icon(Icons.shopping_bag_outlined, color: _gold),
-                        const SizedBox(width: 8),
-                        const Expanded(
-                            child:
-                                Text('所持アイテム', style: TextStyle(fontSize: 18))),
-                        IconButton(
-                            tooltip: '閉じる',
-                            onPressed: () => Navigator.pop(dialogContext),
-                            icon: const Icon(Icons.close, color: _gold)),
-                      ]),
-                      Expanded(
-                          child: AnimatedBuilder(
-                              animation: controller,
-                              builder: (context, _) {
-                                final inventory = controller.state!.inventory;
-                                if (inventory.isEmpty) {
-                                  return const Center(
-                                      child: Text('冒険の初回クリアで装備を集めよう。',
-                                          textAlign: TextAlign.center));
-                                }
-                                return ListView(children: [
-                                  for (final entry in inventory.entries)
-                                    Padding(
-                                        key: ValueKey('inventory-${entry.key}'),
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 6),
-                                        child: Row(children: [
-                                          _itemIcon(GameCatalog
-                                                  .equipment[entry.key]
-                                                  ?.slot
-                                                  .name ??
-                                              'weapon'),
-                                          const SizedBox(width: 8),
-                                          Expanded(
-                                              child: Text(
-                                                  '${GameCatalog.equipment[entry.key]?.item.name ?? entry.key}  ×${entry.value}',
-                                                  style: const TextStyle(
-                                                      fontSize: 13))),
-                                          _button(
-                                              '装備する',
-                                              controller.busy ||
-                                                      !GameCatalog.equipment
-                                                          .containsKey(
-                                                              entry.key)
-                                                  ? null
-                                                  : () => runAction(
-                                                      context,
-                                                      () => controller
-                                                          .equip(entry.key))),
-                                        ])),
-                                ]);
-                              })),
-                    ]))))));
-  }
 
   void openTitles(BuildContext context) {
     showDialog<void>(
@@ -178,8 +83,9 @@ class CharacterScreen extends StatelessWidget {
                                   child: ListView.builder(
                                       itemCount: titles.length,
                                       itemBuilder: (context, index) {
-                                        final unlocked =
-                                            hero.level >= index + 1;
+                                        final unlocked = hero.level >=
+                                            CertificateCatalog.unlockLevel(
+                                                index);
                                         final active =
                                             selected == titles[index];
                                         return Padding(
@@ -220,9 +126,10 @@ class CharacterScreen extends StatelessWidget {
                                                               'SunlitSerif',
                                                           fontSize: 15)),
                                                   subtitle: Text(
-                                                      'Lv. ${index + 1}で解放${active ? ' · 選択中' : unlocked ? ' · 解放済み' : ' · 未解放'}',
+                                                      'Lv. ${CertificateCatalog.unlockLevel(index)}で解放${active ? ' · 選択中' : unlocked ? ' · 解放済み' : ' · 未解放'}',
                                                       style: TextStyle(
-                                                          fontFamily: 'SunlitSerif',
+                                                          fontFamily:
+                                                              'SunlitSerif',
                                                           color: unlocked
                                                               ? _gold
                                                               : const Color(
@@ -291,7 +198,7 @@ class CharacterScreen extends StatelessWidget {
 
   Widget _stats({required bool large}) {
     final hero = controller.state!.activeCharacter!;
-    final stats = ProgressionService().stats(hero, GameCatalog.equipment);
+    final stats = ProgressionService().stats(hero, const {});
     final rows = [
       ('stat_hp', 'HP', '${stats.hp}'),
       ('stat_attack', '攻撃力', '${stats.attack}'),
@@ -344,81 +251,6 @@ class CharacterScreen extends StatelessWidget {
                           ? stat(rows[i + 1])
                           : const SizedBox()),
                 ])),
-        ]));
-  }
-
-  Widget _equipment(BuildContext context, {required bool large}) {
-    final hero = controller.state!.activeCharacter!;
-    return CharacterPanel(
-        key: const ValueKey('character-equipment'),
-        asset: 'identity_panel',
-        padding:
-            EdgeInsets.symmetric(horizontal: large ? 28 : 18, vertical: 20),
-        child:
-            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          CharacterPanel(
-              asset: 'header_banner',
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: Center(
-                  child: Text('装備',
-                      textAlign: TextAlign.center,
-                      style:
-                          TextStyle(color: _gold, fontSize: large ? 26 : 21)))),
-          const SizedBox(height: 8),
-          for (final slot
-              in {'weapon': '武器', 'armor': '防具', 'accessory': 'アクセサリー'}.entries)
-            Padding(
-                padding: const EdgeInsets.only(bottom: 5),
-                child: CharacterPanel(
-                    asset: 'equipment_row',
-                    padding: EdgeInsets.zero,
-                    child: TextButton(
-                        onPressed: () => openInventory(context),
-                        style: TextButton.styleFrom(
-                            foregroundColor: _white,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 14, vertical: 12)),
-                        child: Row(children: [
-                          _itemIcon(slot.key, size: large ? 30 : 24),
-                          const SizedBox(width: 10),
-                          Expanded(
-                              child: Text(slot.value,
-                                  style: TextStyle(
-                                      fontFamily: 'SunlitSerif',
-                                      fontSize: large ? 19 : 14))),
-                          Flexible(
-                              child: Text(
-                                  GameCatalog
-                                          .equipment[
-                                              hero.equippedItems[slot.key]]
-                                          ?.item
-                                          .name ??
-                                      '未装備',
-                                  textAlign: TextAlign.right,
-                                  style: TextStyle(
-                                      fontFamily: 'SunlitSerif',
-                                      fontSize: large ? 17 : 13))),
-                          const CharacterIcon('chevron_icon', size: 18),
-                        ])))),
-          CharacterPanel(
-              asset: 'equipment_row',
-              padding: EdgeInsets.zero,
-              child: TextButton(
-                  onPressed: () => openInventory(context),
-                  style: TextButton.styleFrom(
-                      foregroundColor: _white,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 14, vertical: 12)),
-                  child: Row(children: [
-                    const CharacterIcon('bag_icon', size: 24),
-                    const SizedBox(width: 10),
-                    Expanded(
-                        child: Text('所持アイテム',
-                            style: TextStyle(
-                                fontFamily: 'SunlitSerif',
-                                fontSize: large ? 19 : 14))),
-                    const CharacterIcon('chevron_icon', size: 18),
-                  ]))),
         ]));
   }
 
@@ -487,7 +319,6 @@ class CharacterScreen extends StatelessWidget {
                             const SizedBox(height: 5),
                             _stats(large: large),
                             const SizedBox(height: 7),
-                            _equipment(context, large: large),
                           ]));
                     })))),
       ]));

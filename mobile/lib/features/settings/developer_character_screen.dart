@@ -59,7 +59,7 @@ class _DeveloperCharacterScreenState extends State<DeveloperCharacterScreen> {
                                 padding: const EdgeInsets.all(20),
                                 children: [
                                   const Text(
-                                      '現在のキャラクターの職業と性別を変更します。\n名前・レベル・経験値・装備・履歴は引き継ぎます。'),
+                                      '現在のキャラクターの職業と性別を変更します。\n名前・レベル・経験値・履歴は引き継ぎます。'),
                                   const SizedBox(height: 16),
                                   JobPortrait(
                                       typeId: _typeId, appearance: _appearance),

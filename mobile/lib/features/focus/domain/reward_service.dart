@@ -20,7 +20,9 @@ class RewardService {
   Reward focus(FocusSession session) {
     if (session.status != FocusStatus.succeeded) return const Reward();
     final minutes = session.durationMinutes;
-    return Reward(exp: minutes * GameBalance.expPerMinute);
+    return Reward(
+        exp: GameBalance.focusExpForSeconds(minutes * 60.0,
+            durationSeconds: minutes * 60.0));
   }
 
   Reward battle(int defeated) {

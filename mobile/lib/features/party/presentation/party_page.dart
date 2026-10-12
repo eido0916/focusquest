@@ -1,3 +1,4 @@
+import '../../focus/domain/focus_adventure.dart';
 import '../../../core/widgets/game_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -25,6 +26,7 @@ class _PartyPageState extends State<PartyPage> {
   @override
   void initState() {
     super.initState();
+    _code.text = widget.controller.party.code ?? '';
     _server = TextEditingController(text: widget.controller.party.serverUrl);
     _initialSessionId = widget.controller.activeFocus?.id;
     widget.controller.addListener(_changed);
@@ -100,9 +102,8 @@ class _PartyPageState extends State<PartyPage> {
     final controller = widget.controller;
     final party = controller.party;
     final enabled = !_working && !party.connecting && !controller.busy;
-    final canConnect = enabled &&
-        controller.activeFocus == null &&
-        !controller.playableAdventureActive;
+    final canConnect = enabled && !controller.playableAdventureActive;
+    final canCreate = canConnect && controller.activeFocus == null;
     return Scaffold(
         appBar: GameAppBar(title: const Text('パーティーを組む'), actions: [
           if (!party.connected)
@@ -127,7 +128,7 @@ class _PartyPageState extends State<PartyPage> {
                           const SizedBox(height: 20),
                           if (!party.connected) ...[
                             if (controller.activeFocus != null)
-                              const Text('集中が終わってからパーティーに参加できます。'),
+                              const Text('切断したパーティーのコードを入力すると復帰できます。'),
                             QuestCard(
                                 caption: '自分で作成する',
                                 child: Column(children: [
@@ -139,7 +140,7 @@ class _PartyPageState extends State<PartyPage> {
                                       label: 'パーティーを作成',
                                       icon: Icons.group_add,
                                       onTap:
-                                          canConnect ? () => _connect() : null),
+                                          canCreate ? () => _connect() : null),
                                 ])),
                             const SizedBox(height: 12),
                             QuestCard(
@@ -236,6 +237,28 @@ class _PartyPageState extends State<PartyPage> {
                             const SizedBox(height: 20),
                             if (party.session == null) ...[
                               Text('集中時間：${party.minutes}分'),
+                              if (party.isHost)
+                                DropdownButton<int>(
+                                    value: party.focusAreaIndex,
+                                    items: [
+                                      const DropdownMenuItem(
+                                          value: -1, child: Text('訓練場')),
+                                      for (final area in party.availableAreas)
+                                        DropdownMenuItem(
+                                            value: area,
+                                            child: Text(FocusAdventure.area(0,
+                                                areaIndex: area)))
+                                    ],
+                                    onChanged: party.session == null
+                                        ? (area) {
+                                            if (area != null) {
+                                              party.setArea(area);
+                                            }
+                                          }
+                                        : null)
+                              else
+                                Text(FocusAdventure.area(0,
+                                    areaIndex: party.focusAreaIndex)),
                               if (party.isHost) ...[
                                 Wrap(spacing: 8, children: [
                                   for (final minutes in [15, 30, 45, 60])

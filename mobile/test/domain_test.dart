@@ -43,20 +43,10 @@ void main() {
       expect(GameBalance.requiredExp(4), greaterThan(grown.requiredExp));
       expect(() => service.addExp(hero, -1), throwsArgumentError);
     });
-    test('owned equipment applies once and survives serialization', () {
-      final service = ProgressionService();
-      final sword = GameCatalog.equipment['wooden_sword']!;
-      expect(() => service.equip(hero, sword, {}), throwsStateError);
-      final equipped = service.equip(hero, sword, {'wooden_sword': 1});
+    test('legacy equipment survives loading but adds no stats', () {
+      final equipped = hero.copyWith(equippedItems: {'weapon': 'wooden_sword'});
       final restored = Character.fromJson(equipped.toJson());
-      expect(service.stats(restored, GameCatalog.equipment).attack, 18);
-      expect(
-          service
-              .stats(service.equip(restored, sword, {'wooden_sword': 1}),
-                  GameCatalog.equipment)
-              .attack,
-          18);
-      expect(hero.equippedItems, isEmpty);
+      expect(ProgressionService().stats(restored, GameCatalog.equipment).attack, hero.baseStats.attack);
     });
   });
   group('Focus', () {

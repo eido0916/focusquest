@@ -67,7 +67,7 @@ void main() {
     controller.dispose();
   });
 
-  test('FQ growth and equipment retain female ranged animation identity',
+  test('FQ growth retains female ranged animation identity',
       () async {
     final repo = MemoryRepository();
     final controller = GameController(repo);
@@ -80,7 +80,7 @@ void main() {
     expect(leveled.id, 'character_07_female');
     expect(leveled.ranged, true);
     expect(leveled.health, level1.health + 84);
-    expect(leveled.power, greaterThan(level1.power + 21));
+    expect(leveled.power, level1.power + 21);
     expect(leveled.speed, level1.speed + 35);
     controller.dispose();
   });

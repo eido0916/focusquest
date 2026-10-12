@@ -37,7 +37,7 @@ class TestUsage extends UsageMonitor {
 
 void main() {
   test(
-      'disk persisted complete loop: diagnosis, focus, growth, equipment, restart',
+      'disk persisted complete loop: diagnosis, focus, growth, restart',
       () async {
     final directory = await Directory.systemTemp.createTemp('focusquest-test-');
     addTearDown(() => directory.delete(recursive: true));
@@ -58,9 +58,7 @@ void main() {
         (s) => s.copyWith(coins: 100, inventory: {'wooden_sword': 1}));
     await controller.load();
     expect(await controller.finishFocus(), isNull);
-    await controller.equip('wooden_sword');
-    expect(controller.state!.activeCharacter!.equippedItems.values,
-        contains('wooden_sword'));
+    expect(controller.state!.activeCharacter!.equippedItems, isEmpty);
     final saveFile = File('${directory.path}/player-v1.json');
     final legacy = controller.state!.toJson()
       ..['gachaHistory'] = [

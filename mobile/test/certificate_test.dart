@@ -18,11 +18,11 @@ void main() {
       final list = CertificateCatalog.titles[role]!;
       expect(list.length, 8);
       for (var level = 1; level <= 8; level++) {
-        expect(CertificateCatalog.title(role, level), list[level - 1]);
+        expect(CertificateCatalog.title(role, CertificateCatalog.unlockLevel(level - 1)), list[level - 1]);
       }
       expect(CertificateCatalog.title(role, 99), list[7]);
     }
-    expect(CertificateCatalog.title('warrior', 8), '剣聖');
+    expect(CertificateCatalog.title('warrior', 70), '剣聖');
   });
   test('first play and stable number survive reload; defeats are idempotent',
       () async {

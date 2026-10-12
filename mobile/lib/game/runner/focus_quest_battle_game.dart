@@ -1,3 +1,4 @@
+import '../../features/focus/domain/focus_adventure.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'package:flame/cache.dart';
@@ -42,7 +43,9 @@ class FocusQuestBattleGame extends FlameGame {
   Color backgroundColor() => Colors.transparent;
   @override
   Future<void> onLoad() async {
-    final scenery = await images.load(BackgroundComponent.asset);
+    final scenery = await images.load(FocusAdventure.background(
+        state.adventureSeconds,
+        areaIndex: state.focusAreaIndex));
     hud = FantasyBattleHud(
         window: await images.load(BattleUiAssets.window),
         orb: await images.load(BattleUiAssets.skillOrb),

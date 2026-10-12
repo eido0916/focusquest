@@ -89,11 +89,42 @@ void main() {
     host.setMinutes(30);
     await until(() => host.error != null);
     expect(host.minutes, 15);
-    await guests.last.leave();
+    await guests.last.disconnect();
     await until(() => host.members.any((m) => m.status == 'disconnected'));
     expect(host.session!['members'], hasLength(4));
     await expectLater(
         extra.connectForTest(uri, identity, code: host.code), throwsStateError);
+  });
+  test(
+      'same code restores the member during focus, including after all peers disconnect',
+      () async {
+    final host = await client();
+    final guest = await client(code: host.code);
+    final code = host.code!;
+    final originalId = guest.selfId;
+    host.setReady(true);
+    guest.setReady(true);
+    await until(() => host.members.every((m) => m.ready));
+    host.start();
+    await until(() => guest.session != null);
+    final sessionId = guest.session!['id'];
+    await guest.disconnect();
+    await until(() => !guest.connected);
+    expect(guest.code, code);
+    await guest.connectForTest(uri, identity, code: code);
+    expect(guest.selfId, originalId);
+    expect(guest.session!['id'], sessionId);
+    expect(guest.members, hasLength(2));
+    await host.disconnect();
+    await guest.disconnect();
+    await until(() => !host.connected && !guest.connected);
+    await guest.connectForTest(uri, identity, code: code);
+    expect(guest.selfId, originalId);
+    expect(guest.session!['id'], sessionId);
+    final stranger = PartyConnection();
+    clients.add(stranger);
+    await expectLater(
+        stranger.connectForTest(uri, identity, code: code), throwsStateError);
   });
   test('leader exits waiting room: capacity freed and leadership transfers',
       () async {

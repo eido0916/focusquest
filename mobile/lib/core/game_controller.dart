@@ -7,12 +7,12 @@ import '../data/player_state.dart';
 import '../features/certificate/focus_defeat_counter.dart';
 import '../features/certificate/certificate_catalog.dart';
 import '../features/character/domain/character.dart';
-import '../features/character/domain/progression_service.dart';
 import '../features/diagnosis/domain/diagnosis_service.dart';
 import '../features/focus/data/usage_monitor.dart';
 import '../features/focus/domain/focus_ledger.dart';
 import '../features/focus/domain/focus_service.dart';
 import '../features/focus/domain/focus_session.dart';
+import '../features/focus/domain/focus_adventure.dart';
 import '../features/focus/domain/reward_service.dart';
 import '../features/party/data/party_connection.dart';
 import '../features/party/domain/party_member.dart';
@@ -40,7 +40,8 @@ class GameController extends ChangeNotifier {
         name: hero.name,
         characterType: hero.characterType,
         appearance: hero.appearance,
-        level: hero.level);
+        level: hero.level,
+        unlockedAreas: unlockedFocusAreas);
   }
 
   Future<void> prepareParty(bool ready) async {
@@ -71,10 +72,20 @@ class GameController extends ChangeNotifier {
   Future<void> _beginPartyFocus(Map<String, dynamic> remote) async {
     try {
       partyStartError = null;
+      final savedSession = state?.sessions[remote['id']];
+      if (savedSession != null && savedSession.status != FocusStatus.active) {
+        party.report(savedSession.status.name);
+        return;
+      }
+      if (activeFocus?.id == remote['id']) {
+        party.report('focusing');
+        return;
+      }
       if (activeFocus != null) throw StateError('すでに集中中です。');
       await startFocus(remote['minutes'] as int,
           partySessionId: remote['id'] as String,
           startedAt: DateTime.parse(remote['startedAt'] as String),
+          focusAreaIndex: remote['focusAreaIndex'] as int? ?? -1,
           members: (remote['members'] as List)
               .map((m) =>
                   PartyMember.fromJson(Map<String, dynamic>.from(m as Map)))
@@ -101,6 +112,17 @@ class GameController extends ChangeNotifier {
   final DateTime Function() clock;
   final Random random;
   PlayerState? state;
+  int selectedFocusArea = -1;
+  List<int> get unlockedFocusAreas =>
+      FocusAdventure.unlockedAreas(state?.clearedPlayableStages ?? {});
+  void selectFocusArea(int area) {
+    if (area != -1 && !unlockedFocusAreas.contains(area)) {
+      throw StateError('冒険の4ステージをクリアすると解放されます。');
+    }
+    selectedFocusArea = area;
+    notifyListeners();
+  }
+
   bool busy = false;
   bool playableAdventureActive = false;
 
@@ -246,6 +268,7 @@ class GameController extends ChangeNotifier {
   Future<void> startFocus(int minutes,
           {String? partySessionId,
           DateTime? startedAt,
+          int? focusAreaIndex,
           List<PartyMember> members = const []}) =>
       _action(() async {
         if (playableAdventureActive) {
@@ -256,6 +279,10 @@ class GameController extends ChangeNotifier {
             permissions.values.any((allowed) => !allowed)) {
           throw StateError('アプリ警告には使用状況へのアクセスと他のアプリの上に表示の許可が必要です。');
         }
+        final selectedArea = focusAreaIndex ?? selectedFocusArea;
+        if (selectedArea != -1 && !unlockedFocusAreas.contains(selectedArea)) {
+          throw StateError('この集中エリアはまだ解放されていません。');
+        }
         final basic = FocusService().start(
             id: partySessionId ?? _id(),
             now: startedAt ?? clock(),
@@ -265,6 +292,7 @@ class GameController extends ChangeNotifier {
             startedAt: basic.startedAt,
             durationMinutes: basic.durationMinutes,
             adventureStartSeconds: state!.focusAdventureSeconds,
+            focusAreaIndex: selectedArea,
             verification: basic.verification,
             targetPackages: basic.targetPackages,
             partyMembers: List.unmodifiable(members),
@@ -314,31 +342,11 @@ class GameController extends ChangeNotifier {
         if (session.partyMembers.isNotEmpty) party.report(result.name);
         return finished;
       });
-  Future<void> equip(String itemId) => _action(() => _save((s) {
-        if (playableAdventureActive) throw StateError('冒険の終了後に装備を変更できます。');
-        if (activeFocus != null) {
-          throw StateError('集中の完了後に装備を変更できます。');
-        }
-        final hero = ProgressionService().equip(
-            s.activeCharacter!, GameCatalog.equipment[itemId]!, s.inventory);
-        // Equipment instances cannot be equipped by two characters simultaneously.
-        final characters = {...s.characters};
-        for (final other in characters.values.toList()) {
-          if (other.id != hero.id &&
-              other.equippedItems.values.contains(itemId)) {
-            characters[other.id] = other.copyWith(
-                equippedItems: {...other.equippedItems}
-                  ..removeWhere((_, value) => value == itemId));
-          }
-        }
-        characters[hero.id] = hero;
-        return s.copyWith(characters: characters);
-      }));
   Future<void> selectTitle(String title) => _action(() => _save((s) {
         final hero = s.activeCharacter!;
         final titles = CertificateCatalog.titles[hero.characterType]!;
         final index = titles.indexOf(title);
-        if (index < 0 || hero.level < index + 1) {
+        if (index < 0 || hero.level < CertificateCatalog.unlockLevel(index)) {
           throw StateError('この称号はまだ解放されていません。');
         }
         return s.copyWith(characters: {

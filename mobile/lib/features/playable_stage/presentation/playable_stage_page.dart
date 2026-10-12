@@ -107,28 +107,7 @@ class _PlayableStagePageState extends State<PlayableStagePage>
     _battle.heroHurtDuration = assets.motions['hero_hurt']?.duration ?? .5;
     _battle.heroDefeatDuration =
         assets.motions['hero_defeat']?.duration ?? 1.25;
-    if (int.parse(_battle.character.id.split('_')[1]) >= 11) {
-      _battle.attackDuration = attack.duration;
-      _battle.skillDuration = skill.duration;
-    }
-    _battle.attackHitFraction =
-        attack.eventTick(_battle.character.attackEvent, 12) /
-            (24 * attack.duration);
-    _battle.skillHitFraction =
-        skill.eventTick(_battle.character.skillEvent, 20) /
-            (24 * skill.duration);
-    _battle.attackReleaseFractions = attack
-        .eventTicks(_battle.character.attackEvent)
-        .map((tick) => tick / (24 * attack.duration))
-        .toList();
-    _battle.skillReleaseFractions = skill
-        .eventTicks(_battle.character.skillEvent)
-        .map((tick) => tick / (24 * skill.duration))
-        .toList();
-    _battle.actionOffsetPx = (isSkill, progress) {
-      final motion = isSkill ? skill : attack;
-      return motion.frame(progress * motion.duration).offset.dx;
-    };
+    _battle.configureHeroTiming(attack.metadata, skill.metadata);
   }
 
   void _onBattleChanged() {
@@ -424,7 +403,7 @@ class _PlayableStagePageState extends State<PlayableStagePage>
                       (won
                           ? '3フェーズ突破！\n命中 ${_battle.hits}回 · ミス ${_battle.misses}回\nクリティカル ${_battle.criticals}回 · スキル ${_battle.skills}回\n${_battle.clock.ceil()}秒でクリア'
                           : lost
-                              ? '${_battle.phase + 1}フェーズ目で力尽きた。\n集中でレベルを上げ、装備を整えよう。\n推奨 Lv.${_battle.stage.recommendedLevel}'
+                              ? '${_battle.phase + 1}フェーズ目で力尽きた。\n集中でレベルを上げて再挑戦しよう。\n推奨 Lv.${_battle.stage.recommendedLevel}'
                               : _battle.paused
                                   ? '準備ができたら、冒険を続けよう。'
                                   : '通常攻撃：命中90%\nクリティカル：20%・ダメージ2倍\n通常攻撃を3回当てると必中スキルが使える。'),

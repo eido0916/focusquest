@@ -48,6 +48,7 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
             widget.levelLogoAsset ?? 'role_logos/${widget.characterType}.png',
         state: BattleStateController(
             adventureStartSeconds: widget.session.adventureStartSeconds,
+            focusAreaIndex: widget.session.focusAreaIndex,
             config: PixelBattleAssets.runnerConfig(
                 widget.characterType, widget.appearance),
             durationSeconds: widget.session.durationMinutes * 60.0),
@@ -92,11 +93,12 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
                           fit: BoxFit.cover, filterQuality: FilterQuality.none),
                       GameWidget(game: _game),
                       Positioned(
-                          right: 5 * unit,
-                          top: 0,
-                          width: 175 * unit,
-                          height: 44 * unit,
+                          left: FantasyBattleHud.menuRect.left * unit,
+                          top: FantasyBattleHud.menuRect.top * unit,
+                          width: FantasyBattleHud.menuRect.width * unit,
+                          height: FantasyBattleHud.menuRect.height * unit,
                           child: TextButton(
+                              key: const Key('focus-battle-menu'),
                               style: TextButton.styleFrom(
                                   foregroundColor: Colors.white,
                                   padding: EdgeInsets.symmetric(
@@ -115,7 +117,7 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
                                 Icon(Icons.undo_rounded,
                                     color: FantasyBattleHud.gold, size: 25),
                                 SizedBox(width: 7),
-                                Text('タイマーに戻る',
+                                Text('集中メニュー',
                                     style: TextStyle(
                                         fontFamily: 'SunlitSerif',
                                         fontSize: 18,

@@ -23,6 +23,9 @@ class FocusSelectionScene extends StatelessWidget {
     required this.onStart,
     required this.onNavigate,
     required this.onBack,
+    this.areaName,
+    this.backgroundPath,
+    this.onArea,
     this.partyConnected = false,
     this.message,
     this.characterName = '冒険者',
@@ -35,7 +38,8 @@ class FocusSelectionScene extends StatelessWidget {
   final ValueChanged<int> onNavigate;
   final VoidCallback? onParty, onStart;
   final bool partyConnected;
-  final String? message;
+  final String? message, areaName, backgroundPath;
+  final VoidCallback? onArea;
   final String characterName;
   final int level;
 
@@ -108,9 +112,10 @@ class FocusSelectionScene extends StatelessWidget {
       body: Stack(fit: StackFit.expand, children: [
         Positioned.fill(
             child: Image.asset(
-                stage == 1
-                    ? gameBackground
-                    : 'assets/images/stage_backgrounds/ghost_ship_focus_v002.png',
+                backgroundPath ??
+                    (stage == 1
+                        ? gameBackground
+                        : 'assets/images/stage_backgrounds/ghost_ship_focus_v002.png'),
                 fit: BoxFit.cover,
                 excludeFromSemantics: true)),
         SafeArea(child: LayoutBuilder(builder: (context, constraints) {
@@ -161,18 +166,27 @@ class FocusSelectionScene extends StatelessWidget {
                             16 * scale,
                             420,
                             184,
-                            Stack(children: [
-                              Positioned.fill(child: _image('stage_banner')),
-                              Center(
-                                  child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                    Text('STAGE $stage',
-                                        style: _text(24 * scale)),
-                                    Text(stage == 1 ? '草原' : '幽霊船',
-                                        style: _text(48 * scale)),
-                                  ]))
-                            ])),
+                            GestureDetector(
+                                onTap: onArea,
+                                behavior: HitTestBehavior.opaque,
+                                child: Stack(children: [
+                                  Positioned.fill(
+                                      child: _image('stage_banner')),
+                                  Center(
+                                      child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                        Text(
+                                            onArea == null
+                                                ? 'STAGE $stage'
+                                                : '集中エリア ▾',
+                                            style: _text(24 * scale)),
+                                        Text(
+                                            areaName ??
+                                                (stage == 1 ? '草原' : '幽霊船'),
+                                            style: _text(48 * scale)),
+                                      ]))
+                                ]))),
                         place(
                             28,
                             partyY,
