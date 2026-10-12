@@ -4,7 +4,7 @@ import 'dart:io';
 import 'dart:math';
 
 /// Run behind a TLS reverse proxy exposing /party as wss://…/party.
-/// Rooms are deliberately ephemeral; focus records remain on each device.
+/// Rooms retain disconnected members for 30 minutes (or while focus is active).
 class PartyServer {
   final _random = Random.secure();
   final Map<String, _Room> _rooms = {};
@@ -88,6 +88,7 @@ class PartyServer {
             throw const FormatException();
           }
           _Room target;
+          String? returningId;
           if (type == 'create') {
             var code = _token(6);
             while (_rooms.containsKey(code)) {
@@ -103,29 +104,61 @@ class PartyServer {
               return;
             }
             _expire(found);
-            if (found.session != null) {
+            if (!_rooms.containsKey(code)) { error('復帰できる時間を過ぎています。新しいパーティーを作成してください。'); return; }
+            final token = data['resumeToken'];
+            if (token is String && token.isNotEmpty) {
+              for (final entry in found.tokens.entries) {
+                if (entry.value == token) returningId = entry.key;
+              }
+            }
+            if (returningId != null && found.peers.containsKey(returningId)) {
+              error('このメンバーはすでに接続しています。');
+              return;
+            }
+            if (found.session != null && returningId == null) {
               error('このパーティーは集中中です。終了後に参加してください。');
               return;
             }
-            if (found.peers.length >= 4) {
+            if (found.members.length >= 4 && returningId == null) {
               error('パーティーは満員です（最大4人）。');
               return;
             }
             target = found;
           }
-          id = _token(20);
+          id = returningId ?? _token(20);
+          target.emptySince = null;
+          target.disconnectedAt.remove(id);
+          target.tokens.putIfAbsent(id!, () => _token(32));
           room = target;
+          if (target.peers.isEmpty) target.hostId = id;
           target.hostId ??= id;
           target.peers[id!] = socket;
-          target.members[id!] = {
-            'id': id,
-            'name': (member['name'] as String).trim(),
-            'characterType': member['characterType'],
-            'appearance': member['appearance'],
-            'level': member['level'],
-            'ready': false,
-            'status': 'waiting'
-          };
+          if (returningId == null)
+            target.members[id!] = {
+              'id': id,
+              'name': (member['name'] as String).trim(),
+              'characterType': member['characterType'],
+              'appearance': member['appearance'],
+              'level': member['level'],
+              'unlockedAreas': (member['unlockedAreas'] as List? ?? [])
+                  .whereType<int>()
+                  .where((a) => a >= 0 && a < 9)
+                  .toSet()
+                  .toList(),
+              'ready': false,
+              'status': 'waiting'
+            };
+          if (returningId != null)
+            target.members[id]!['status'] =
+                target.session == null ? 'waiting' : 'focusing';
+          if (target.focusAreaIndex >= 0 &&
+              target.members.values.any((m) => !(m['unlockedAreas'] as List)
+                  .contains(target.focusAreaIndex))) {
+            target.focusAreaIndex = -1;
+            for (final m in target.members.values) {
+              m['ready'] = false;
+            }
+          }
           joinDeadline.cancel();
           _broadcast(target);
           return;
@@ -133,6 +166,29 @@ class PartyServer {
         final current = room!;
         _expire(current);
         switch (type) {
+          case 'leave':
+            current.members.remove(id);
+            current.tokens.remove(id);
+            current.disconnectedAt.remove(id);
+            socket.close();
+            return;
+          case 'area':
+            final area = data['focusAreaIndex'];
+            if (id != current.hostId ||
+                current.session != null ||
+                area is! int ||
+                area < -1 ||
+                area > 8 ||
+                (area >= 0 &&
+                    current.members.values.any(
+                        (m) => !(m['unlockedAreas'] as List).contains(area)))) {
+              error('全員が解放した集中エリアを選んでください。');
+              return;
+            }
+            current.focusAreaIndex = area;
+            for (final m in current.members.values) {
+              m['ready'] = false;
+            }
           case 'ready':
             if (current.session != null) {
               error('集中が終わってから準備できます。');
@@ -172,6 +228,7 @@ class PartyServer {
                   .add(const Duration(seconds: 3))
                   .toIso8601String(),
               'minutes': current.minutes,
+              'focusAreaIndex': current.focusAreaIndex,
               'members': current.members.values
                   .map((m) => Map<String, dynamic>.from(m))
                   .toList()
@@ -201,28 +258,46 @@ class PartyServer {
       final current = room;
       if (current == null) return;
       current.peers.remove(id);
-      if (current.session == null) {
-        current.members.remove(id);
-      } else {
-        current.members[id]?['status'] = 'disconnected';
+      if (current.members.containsKey(id)) {
+        current.members[id]!['status'] = 'disconnected';
+        current.members[id]!['ready'] = false;
+        current.disconnectedAt[id!] = DateTime.now();
       }
       if (current.peers.isEmpty) {
-        _rooms.remove(current.code);
-      } else {
-        if (current.hostId == id) current.hostId = current.peers.keys.first;
-        _broadcast(current);
+        current.emptySince = DateTime.now();
+      } else if (current.hostId == id) {
+        current.hostId = current.peers.keys.first;
       }
+      _broadcast(current);
     });
   }
 
   void _expire(_Room room) {
+    final now = DateTime.now();
+    if (room.emptySince != null &&
+        now.difference(room.emptySince!).inMinutes >= 30 &&
+        room.session == null) {
+      _rooms.remove(room.code);
+      return;
+    }
+    if (room.session == null) {
+      for (final id in room.disconnectedAt.keys.toList()) {
+        if (now.difference(room.disconnectedAt[id]!).inMinutes >= 30) {
+          room.disconnectedAt.remove(id);
+          room.members.remove(id);
+          room.tokens.remove(id);
+        }
+      }
+    }
     final session = room.session;
     if (session == null) return;
     final endsAt = DateTime.parse(session['startedAt'] as String)
         .add(Duration(minutes: session['minutes'] as int));
     if (DateTime.now().isBefore(endsAt)) return;
     room.session = null;
-    room.members.removeWhere((id, _) => !room.peers.containsKey(id));
+    if (room.peers.isEmpty) room.emptySince = now;
+    for (final id in room.disconnectedAt.keys.toList()) { room.disconnectedAt[id] = now; }
+
     for (final member in room.members.values) {
       member['ready'] = false;
     }
@@ -235,6 +310,8 @@ class PartyServer {
       peer.value.add(jsonEncode({
         'type': 'snapshot',
         'selfId': peer.key,
+        'resumeToken': room.tokens[peer.key],
+        'focusAreaIndex': room.focusAreaIndex,
         'hostId': room.hostId,
         'code': room.code,
         'minutes': room.minutes,
@@ -291,6 +368,10 @@ class _Room {
   final String code;
   String? hostId;
   int minutes = 30;
+  int focusAreaIndex = -1;
+  DateTime? emptySince;
+  final Map<String, String> tokens = {};
+  final Map<String, DateTime> disconnectedAt = {};
   final Map<String, WebSocket> peers = {};
   final Map<String, Map<String, dynamic>> members = {};
   Map<String, dynamic>? session;

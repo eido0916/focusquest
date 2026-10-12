@@ -8,7 +8,7 @@ import 'package:focusquest/data/game_catalog.dart';
 import 'support/memory_repository.dart';
 
 void main() {
-  testWidgets('phone UI: focus EXP -> current adventure -> inventory',
+  testWidgets('phone UI: focus EXP -> current adventure -> growth',
       (tester) async {
     tester.view.physicalSize = const Size(390, 844);
     tester.view.devicePixelRatio = 1;
@@ -34,17 +34,17 @@ void main() {
     await tester.pump();
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
-    expect(find.text('タイマーに戻る'), findsOneWidget);
-    await tester.tap(find.text('タイマーに戻る'));
+    expect(find.text('集中メニュー'), findsOneWidget);
+    await tester.tap(find.text('集中メニュー'));
     await tester.pumpAndSettle();
-    expect(find.text('戦いの様子を見る'), findsOneWidget);
-    await tester.ensureVisible(find.text('戦いの様子を見る'));
-    await tester.tap(find.text('戦いの様子を見る'));
+    expect(find.text('戦闘画面に戻る'), findsOneWidget);
+    await tester.ensureVisible(find.text('戦闘画面に戻る'));
+    await tester.tap(find.text('戦闘画面に戻る'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
-    expect(find.text('タイマーに戻る'), findsOneWidget);
+    expect(find.text('集中メニュー'), findsOneWidget);
     expect(controller.state!.coins, 0);
-    await tester.tap(find.text('タイマーに戻る'));
+    await tester.tap(find.text('集中メニュー'));
     await tester.pumpAndSettle();
     now = now.add(const Duration(minutes: 30));
     await tester.pump(const Duration(seconds: 1));
@@ -52,6 +52,9 @@ void main() {
     expect(find.text('集中クエスト達成！'), findsOneWidget);
     expect(controller.state!.coins, 0);
     await tester.tap(find.text('閉じる'));
+    await tester.pumpAndSettle();
+    expect(find.text('LEVEL UP!'), findsOneWidget);
+    await tester.tap(find.text('成長した力で冒険へ'));
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const Key('focus-back')));
     await tester.pumpAndSettle();
@@ -63,7 +66,7 @@ void main() {
     expect(controller.state!.coins, 0);
     await tester.tap(find.text('キャラクター'));
     await tester.pumpAndSettle();
-    expect(find.text('所持アイテム'), findsOneWidget);
+    expect(find.text('所持アイテム'), findsNothing);
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox.shrink());
     controller.dispose();

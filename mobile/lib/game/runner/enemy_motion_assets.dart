@@ -1,3 +1,4 @@
+import '../../features/playable_stage/domain/playable_stage_catalog.dart';
 import 'dart:convert';
 import 'package:flame/game.dart';
 import 'package:flutter/services.dart';
@@ -9,7 +10,13 @@ class EnemyMotionAssets {
   final Map<String, StageMotion> motions;
   static Future<EnemyMotionAssets> load(FlameGame game) async {
     final motions = <String, StageMotion>{};
-    for (final id in ['slime', 'goblin', 'boss_goblin_king', 'boss_dullahan']) {
+    for (final id in {
+      'slime',
+      'goblin',
+      ...PlayableStageCatalog.bossIds,
+      for (final stage in PlayableStageCatalog.stages)
+        for (final enemy in stage.opponents) enemy.id,
+    }) {
       for (final action in ['locomotion', 'attack', 'defeat']) {
         final name = '${id}_$action';
         final meta = jsonDecode(await rootBundle.loadString(

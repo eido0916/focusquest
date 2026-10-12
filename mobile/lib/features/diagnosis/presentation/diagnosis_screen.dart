@@ -247,7 +247,7 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
                       const _Window(
                           title: '旅立ちの手引き',
                           child: Text(
-                              '集中する時間が、あなたの冒険になる。\n\nホームで集中時間を選ぶと、冒険が始まります。\n報酬を集めて、成長・装備へ。',
+                              '集中する時間が、あなたの冒険になる。\n\nホームで集中時間を選ぶと、冒険が始まります。\n集中を重ねて成長し、冒険に挑戦しよう。',
                               style: TextStyle(height: 1.8))),
                       const SizedBox(height: 20),
                       if (_error != null)

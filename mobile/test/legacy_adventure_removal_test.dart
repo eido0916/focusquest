@@ -28,7 +28,6 @@ void main() {
     expect(controller.state!.toJson(), saved.toJson());
     await controller.beginPlayableAdventure();
     controller.endPlayableAdventure();
-    await controller.equip('wooden_sword');
     await controller.selectCharacter('starter');
     await controller.setCharacterForDevelopment('ranger', 'female');
     await controller.startFocus(15);

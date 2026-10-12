@@ -14,9 +14,11 @@ class FocusSession {
       this.targetPackages = const [],
       this.partyMembers = const [],
       this.partyClockOffsetMs = 0,
+      this.focusAreaIndex = -1,
       this.adventureStartSeconds = 0});
   final List<PartyMember> partyMembers;
   final int partyClockOffsetMs;
+  final int focusAreaIndex;
   final int adventureStartSeconds;
   DateTime focusNow(DateTime now) =>
       now.add(Duration(milliseconds: partyClockOffsetMs));
@@ -39,6 +41,7 @@ class FocusSession {
           verification: verification,
           targetPackages: targetPackages,
           partyMembers: partyMembers,
+          focusAreaIndex: focusAreaIndex,
           adventureStartSeconds: adventureStartSeconds);
   Duration remaining(DateTime now) {
     final difference = endsAt.difference(focusNow(now));
@@ -57,6 +60,7 @@ class FocusSession {
       targetPackages: targetPackages,
       partyMembers: partyMembers,
       partyClockOffsetMs: partyClockOffsetMs,
+      focusAreaIndex: focusAreaIndex,
       adventureStartSeconds: adventureStartSeconds);
   Map<String, dynamic> toJson() => {
         'id': id,
@@ -66,6 +70,7 @@ class FocusSession {
         'verification': verification.name,
         'targetPackages': targetPackages,
         'partyMembers': partyMembers.map((m) => m.toJson()).toList(),
+        'focusAreaIndex': focusAreaIndex,
         'adventureStartSeconds': adventureStartSeconds,
         'partyClockOffsetMs': partyClockOffsetMs
       };
@@ -78,6 +83,7 @@ class FocusSession {
           FocusVerification.values.byName(json['verification'] as String),
       targetPackages: List<String>.from(json['targetPackages'] as List),
       partyClockOffsetMs: json['partyClockOffsetMs'] as int? ?? 0,
+      focusAreaIndex: json['focusAreaIndex'] as int? ?? -1,
       adventureStartSeconds: json['adventureStartSeconds'] as int? ?? 0,
       partyMembers: (json['partyMembers'] as List? ?? [])
           .map((m) => PartyMember.fromJson(Map<String, dynamic>.from(m as Map)))

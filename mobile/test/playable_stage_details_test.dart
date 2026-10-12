@@ -56,7 +56,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 300));
     expect(find.byKey(const Key('stage-details')), findsOneWidget);
     expect(find.byKey(const Key('challenge-stage-1')), findsOneWidget);
-    expect(find.text('推奨レベル Lv.8'), findsOneWidget);
+    expect(find.text('推奨レベル Lv.5'), findsOneWidget);
     expect(find.byKey(const Key('unknown-enemy-mark')), findsWidgets);
     await tester.tap(find.byTooltip('閉じる'));
     await tester.pumpAndSettle();
