@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../core/game_controller.dart';
 import 'party_lobby_art.dart';
+import '../../focus/domain/focus_adventure.dart';
 
 class PartyPage extends StatefulWidget {
   const PartyPage({super.key, required this.controller});
@@ -69,7 +70,7 @@ class _PartyPageState extends State<PartyPage> {
   }
 
   Future<void> _join() async {
-    _code.clear();
+    _code.text = widget.controller.party.code ?? '';
     final submit = await showDialog<bool>(
         context: context,
         builder: (context) => StatefulBuilder(builder: (context, update) {
@@ -82,6 +83,7 @@ class _PartyPageState extends State<PartyPage> {
                       side: const BorderSide(color: lobbyGold)),
                   title: const Text('パーティーコード', style: lobbyTitle),
                   content: TextField(
+                      key: const Key('party-code-input'),
                       controller: _code,
                       autofocus: true,
                       maxLength: 6,
@@ -89,7 +91,9 @@ class _PartyPageState extends State<PartyPage> {
                       textCapitalization: TextCapitalization.characters,
                       autocorrect: false,
                       inputFormatters: [
-                        FilteringTextInputFormatter.allow(RegExp('[a-zA-Z2-9]'))
+                        FilteringTextInputFormatter.allow(RegExp('[a-zA-Z2-9]')),
+                        TextInputFormatter.withFunction((oldValue, newValue) =>
+                            newValue.copyWith(text: newValue.text.toUpperCase()))
                       ],
                       onChanged: (_) => update(() {}),
                       onSubmitted: (_) {
@@ -104,6 +108,7 @@ class _PartyPageState extends State<PartyPage> {
                     TextButton(
                         onPressed:
                             valid ? () => Navigator.pop(context, true) : null,
+                        key: const Key('party-join-submit'),
                         child: const Text('参加する')),
                   ]);
             }));
@@ -121,7 +126,8 @@ class _PartyPageState extends State<PartyPage> {
     final party = controller.party;
     final started = party.session != null;
     final enabled = !_working && !party.connecting && !controller.busy;
-    final canConnect = enabled && controller.activeFocus == null;
+    final canConnect = enabled;
+    final canCreate = enabled && controller.activeFocus == null;
     final minutes = party.connected ? party.minutes : _minutes;
     return Scaffold(
         backgroundColor: const Color(0xff0b2340),
@@ -156,6 +162,7 @@ class _PartyPageState extends State<PartyPage> {
             Expanded(child: LayoutBuilder(builder: (context, constraints) {
               final width = constraints.maxWidth.clamp(0.0, 620.0);
               return SingleChildScrollView(
+                  key: const Key('party-lobby-list'),
                   padding: EdgeInsets.fromLTRB(
                       (constraints.maxWidth - width) / 2 + 16,
                       24,
@@ -169,9 +176,10 @@ class _PartyPageState extends State<PartyPage> {
                               height: (constraints.maxHeight * .22)
                                   .clamp(36.0, 170.0)),
                           LobbyAction(
+                              key: const Key('party-create'),
                               label: 'パーティーを作成',
                               icon: Icons.group_add_outlined,
-                              onTap: canConnect
+                              onTap: canCreate
                                   ? () => _act(() async {
                                         await party.connect(
                                             url: party.serverUrl,
@@ -183,6 +191,7 @@ class _PartyPageState extends State<PartyPage> {
                                   : null),
                           const SizedBox(height: 24),
                           LobbyAction(
+                              key: const Key('party-join'),
                               label: 'コードで参加',
                               icon: Icons.login,
                               onTap: canConnect ? _join : null),
@@ -237,6 +246,7 @@ class _PartyPageState extends State<PartyPage> {
                                     width: (size.maxWidth - (columns - 1) * 8) /
                                         columns,
                                     child: LobbyMemberCard(
+                                        key: Key('party-slot-$i'),
                                         member: i < party.members.length
                                             ? party.members[i]
                                             : null,
@@ -267,6 +277,26 @@ class _PartyPageState extends State<PartyPage> {
                                     style: lobbyTitle.copyWith(fontSize: 24))
                               ]),
                               const SizedBox(height: 14),
+                              if (party.connected)
+                                DropdownButton<int>(
+                                    value: party.focusAreaIndex,
+                                    items: [
+                                      const DropdownMenuItem(
+                                          value: -1, child: Text('訓練場')),
+                                      for (final area in party.availableAreas)
+                                        DropdownMenuItem(
+                                            value: area,
+                                            child: Text(FocusAdventure.area(0,
+                                                areaIndex: area)))
+                                    ],
+                                    onChanged:
+                                        enabled && !started && party.isHost
+                                            ? (area) {
+                                                if (area != null) {
+                                                  party.setArea(area);
+                                                }
+                                              }
+                                            : null),
                               Wrap(spacing: 8, runSpacing: 8, children: [
                                 for (final value in [15, 30, 45, 60])
                                   ChoiceChip(
@@ -312,6 +342,7 @@ class _PartyPageState extends State<PartyPage> {
                           const SizedBox(height: 18),
                           if (!started) ...[
                             LobbyAction(
+                                key: const Key('party-ready'),
                                 label: party.ready ? '準備を解除' : '準備OK',
                                 icon: Icons.check_circle_outline,
                                 onTap: enabled
@@ -321,6 +352,7 @@ class _PartyPageState extends State<PartyPage> {
                             const SizedBox(height: 12),
                             if (party.isHost) ...[
                               LobbyAction(
+                                  key: const Key('party-start'),
                                   label: 'みんなで集中を開始',
                                   icon: Icons.play_arrow,
                                   onTap: enabled &&
@@ -346,6 +378,7 @@ class _PartyPageState extends State<PartyPage> {
                                     ? () => Navigator.pop(context)
                                     : null),
                           TextButton(
+                              key: const Key('party-leave'),
                               onPressed:
                                   enabled ? () => _act(party.leave) : null,
                               child: Text(
@@ -354,7 +387,7 @@ class _PartyPageState extends State<PartyPage> {
                         ],
                         if (controller.activeFocus != null && !party.connected)
                           const LobbyPanel(
-                              child: Text('集中が終了するとパーティーに参加できます。',
+                              child: Text('切断したパーティーのコードを入力すると復帰できます。',
                                   style: lobbyBody)),
                         if (_working || party.connecting) ...[
                           const SizedBox(height: 16),
@@ -368,6 +401,7 @@ class _PartyPageState extends State<PartyPage> {
                             case final String error) ...[
                           const SizedBox(height: 12),
                           LobbyPanel(
+                              key: const Key('party-error'),
                               child: Text(error,
                                   style: lobbyBody.copyWith(
                                       color: const Color(0xffffd6a8)))),

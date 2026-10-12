@@ -1,3 +1,4 @@
+import '../../core/widgets/game_ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../core/game_controller.dart';
@@ -79,7 +80,7 @@ class _SettingsScreenState extends State<SettingsScreen>
   Widget build(BuildContext context) {
     final controller = widget.controller;
     return Stack(fit: StackFit.expand, children: [
-      Image.asset('${settingsAssetPath}background.png',
+      Image.asset(gameBackground,
           fit: BoxFit.cover, alignment: Alignment.topCenter),
       LayoutBuilder(builder: (context, constraints) {
         final inset =

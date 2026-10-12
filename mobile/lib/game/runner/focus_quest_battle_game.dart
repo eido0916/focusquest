@@ -1,3 +1,4 @@
+import '../../features/focus/domain/focus_adventure.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'package:flame/cache.dart';
@@ -49,7 +50,9 @@ class FocusQuestBattleGame extends FlameGame {
   Color backgroundColor() => Colors.transparent;
   @override
   Future<void> onLoad() async {
-    final scenery = await images.load(BackgroundComponent.asset);
+    final scenery = await images.load(FocusAdventure.background(
+        state.adventureSeconds,
+        areaIndex: state.focusAreaIndex));
     hud = FantasyBattleHud(
         window: await images.load(BattleUiAssets.window),
         orb: await images.load(BattleUiAssets.skillOrb),
@@ -57,7 +60,8 @@ class FocusQuestBattleGame extends FlameGame {
             levelLogoAsset == null ? null : await images.load(levelLogoAsset!));
     final ghostShip =
         await images.load('stage_backgrounds/ghost_ship_focus_v002.png');
-    final enemyAssets = await EnemyMotionAssets.load(this);
+    final enemyAssets = await EnemyMotionAssets.load(this,
+        ids: EnemyMotionAssets.idsForArea(state.focusAreaIndex));
     await addAll([
       BackgroundComponent(state, image: scenery, ghostShip: ghostShip),
       EnemySpawner(state, enemyAssets),

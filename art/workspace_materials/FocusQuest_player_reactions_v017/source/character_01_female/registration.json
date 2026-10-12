@@ -1,0 +1,20 @@
+{
+  "reference": "mobile/assets/images/playable_stage/character_01_female_idle_000.png",
+  "referenceSha256": "5fe74cd955dea1708f1290ff7ea9a636ab420417f7441a4ff63a566036364b2c",
+  "sharedScale": 0.1292517006802721,
+  "sharedShift": 0,
+  "baselinePx": 120,
+  "standingReferenceHeightPx": 76,
+  "standingOriginalHeightPx": 76,
+  "canvas": [
+    128,
+    128
+  ],
+  "logicalGrid": [
+    64,
+    64
+  ],
+  "partTransforms": false,
+  "interpolation": "none",
+  "generationTool": "built-in image_gen"
+}

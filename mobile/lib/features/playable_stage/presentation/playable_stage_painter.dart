@@ -17,27 +17,36 @@ class PlayableStagePainter extends CustomPainter {
   static Size worldSize(Size size, double bottomInset) =>
       Size(size.width, math.max(1, size.height - bottomInset));
 
-  String get heroMotion => battle.action == null
-      ? battle.mode == StageMode.travel
-          ? 'hero_run'
-          : 'hero_idle'
-      : battle.action == HeroAction.skill
-          ? 'hero_skill'
-          : 'hero_attack';
+  String get heroMotion {
+    if (battle.mode == StageMode.lost &&
+        assets.motions.containsKey('hero_defeat')) return 'hero_defeat';
+    if (battle.heroHurt && assets.motions.containsKey('hero_hurt')) {
+      return 'hero_hurt';
+    }
+    if (battle.action == null) {
+      return battle.mode == StageMode.travel ? 'hero_run' : 'hero_idle';
+    }
+    return battle.action == HeroAction.skill ? 'hero_skill' : 'hero_attack';
+  }
 
-  double get heroTime => battle.action == null
-      ? battle.mode == StageMode.travel
-          ? battle.modeTime
-          : battle.clock
-      : battle.actionTime *
-          assets.motions[heroMotion]!.duration /
-          (battle.action == HeroAction.skill
-              ? battle.skillDuration
-              : battle.attackDuration);
+  bool get heroLoop => heroMotion == 'hero_run' || heroMotion == 'hero_idle';
+
+  double get heroTime {
+    if (heroMotion == 'hero_defeat') return battle.heroDefeatTime;
+    if (heroMotion == 'hero_hurt') return battle.heroHurtTime;
+    if (battle.action == null) {
+      return battle.mode == StageMode.travel ? battle.modeTime : battle.clock;
+    }
+    return battle.actionTime *
+        assets.motions[heroMotion]!.duration /
+        (battle.action == HeroAction.skill
+            ? battle.skillDuration
+            : battle.attackDuration);
+  }
 
   Offset heroHead(Size canvasSize) => _head(
       worldSize(canvasSize, bottomInset), heroMotion, heroTime, battle.heroX,
-      loop: battle.action == null);
+      loop: heroLoop);
 
   Offset enemyHead(Size canvasSize, StageEnemy enemy) => _head(
       worldSize(canvasSize, bottomInset),
@@ -126,42 +135,15 @@ class PlayableStagePainter extends CustomPainter {
         Offset.zero & canvasSize, Paint()..color = const Color(0x26000000));
 
     final motion = heroMotion;
-    _sprite(canvas, size, motion, heroTime, battle.heroX,
-        loop: battle.action == null);
-    if (battle.character.role == 'バーサーカー' &&
-        battle.action == HeroAction.skill) {
-      final skill = assets.motions['hero_skill']!;
-      final tick = (heroTime * 24).floor().clamp(0, skill.timeline.length - 1);
-      final key = skill.timeline[tick]['keyframe'] as int;
-      if (key >= 3 && key < 8) {
-        final offset =
-            (assets.floorMetadata['character_floor_centers_from_feet_px']
-                as List)[key] as List;
-        final side = baseSpriteSide(size, pixelRatio);
-        final image = assets
-            .effects['floor_${battle.stage.floorMaterial}_${key < 6 ? 0 : 1}']!;
-        final center = Offset(
-            battle.heroX / 1280 * size.width + (offset[0] as num) * side / 128,
-            size.height * battle.stage.groundLine +
-                (offset[1] as num) * side / 128);
-        canvas.drawImageRect(
-            image,
-            const Rect.fromLTWH(0, 0, 128, 128),
-            Rect.fromLTWH(
-                ((center.dx - side / 2) * pixelRatio).round() / pixelRatio,
-                ((center.dy - side / 2) * pixelRatio).round() / pixelRatio,
-                side,
-                side),
-            pixelPaint);
-      }
-    }
+    _sprite(canvas, size, motion, heroTime, battle.heroX, loop: heroLoop);
     for (final unit in [...battle.enemies]
       ..sort((a, b) => b.homeX.compareTo(a.homeX))) {
       final enemy = unit.definition.id;
       if (!unit.alive && unit.deathTime < unit.defeatDuration) {
         _sprite(canvas, size, '${enemy}_defeat', unit.deathTime, unit.deathX,
             boss: unit.definition.isBoss);
-      } else if (unit.alive && battle.mode == StageMode.battle) {
+      } else if (unit.alive &&
+          (battle.mode == StageMode.battle || battle.mode == StageMode.lost)) {
         _sprite(
             canvas,
             size,
@@ -201,7 +183,9 @@ class PlayableStagePainter extends CustomPainter {
           logicalPixel: side / 64,
           devicePixelRatio: pixelRatio);
     }
-    for (final projectile in battle.projectiles) {
+    // Skill visuals come exclusively from the shared GitHub v002 originals.
+    // Keep skill projectiles in the battle model for travel and hit resolution.
+    for (final projectile in battle.projectiles.where((shot) => !shot.skill)) {
       paintStageProjectile(
           canvas,
           projectile,

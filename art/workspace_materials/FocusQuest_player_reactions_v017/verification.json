@@ -1,0 +1,975 @@
+{
+  "characterCount": 32,
+  "motions": 64,
+  "originalCount": 256,
+  "timelineFrameCount": 1344,
+  "previousRuntimeAssetsPreserved": 1215,
+  "checks": [
+    {
+      "character": "character_01",
+      "role": "剣士",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_01",
+      "role": "剣士",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_01_female",
+      "role": "剣士",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_01_female",
+      "role": "剣士",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_02",
+      "role": "拳闘士",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_02",
+      "role": "拳闘士",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_02_female",
+      "role": "拳闘士",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_02_female",
+      "role": "拳闘士",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_03",
+      "role": "侍",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_03",
+      "role": "侍",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_03_female",
+      "role": "侍",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_03_female",
+      "role": "侍",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_04",
+      "role": "重騎士",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_04",
+      "role": "重騎士",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_04_female",
+      "role": "重騎士",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_04_female",
+      "role": "重騎士",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_05",
+      "role": "忍者",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_05",
+      "role": "忍者",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_05_female",
+      "role": "忍者",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_05_female",
+      "role": "忍者",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_06",
+      "role": "アサシン",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_06",
+      "role": "アサシン",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_06_female",
+      "role": "アサシン",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_06_female",
+      "role": "アサシン",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_07",
+      "role": "弓使い",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_07",
+      "role": "弓使い",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_07_female",
+      "role": "弓使い",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_07_female",
+      "role": "弓使い",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_08",
+      "role": "魔法使い",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_08",
+      "role": "魔法使い",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_08_female",
+      "role": "魔法使い",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_08_female",
+      "role": "魔法使い",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_09",
+      "role": "ガンナー",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_09",
+      "role": "ガンナー",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_09_female",
+      "role": "ガンナー",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_09_female",
+      "role": "ガンナー",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_10",
+      "role": "魔剣士",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_10",
+      "role": "魔剣士",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_10_female",
+      "role": "魔剣士",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_10_female",
+      "role": "魔剣士",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_11",
+      "role": "陰陽師",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_11",
+      "role": "陰陽師",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_11_female",
+      "role": "陰陽師",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_11_female",
+      "role": "陰陽師",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_12",
+      "role": "鎌使い",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_12",
+      "role": "鎌使い",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_12_female",
+      "role": "鎌使い",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_12_female",
+      "role": "鎌使い",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_13",
+      "role": "天使",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_13",
+      "role": "天使",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_13_female",
+      "role": "天使",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_13_female",
+      "role": "天使",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_14",
+      "role": "悪魔",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_14",
+      "role": "悪魔",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_14_female",
+      "role": "悪魔",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_14_female",
+      "role": "悪魔",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_15",
+      "role": "ドラゴンナイト",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_15",
+      "role": "ドラゴンナイト",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_15_female",
+      "role": "ドラゴンナイト",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_15_female",
+      "role": "ドラゴンナイト",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_16",
+      "role": "バーサーカー",
+      "female": false,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_16",
+      "role": "バーサーカー",
+      "female": false,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    },
+    {
+      "character": "character_16_female",
+      "role": "バーサーカー",
+      "female": true,
+      "action": "hurt",
+      "keyframes": 4,
+      "ticks": 12,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": false
+    },
+    {
+      "character": "character_16_female",
+      "role": "バーサーカー",
+      "female": true,
+      "action": "defeat",
+      "keyframes": 4,
+      "ticks": 30,
+      "framePixelEquality": true,
+      "canvas": [
+        128,
+        128
+      ],
+      "finalPoseVisible": true,
+      "holdLastFrame": true
+    }
+  ],
+  "verifiedOriginals": 256,
+  "verified24fpsFrames": 1344,
+  "exactRgbaEquality": true,
+  "exact2xLogicalGrid": true,
+  "allFinalDefeatPosesVisibleAndKneeling": true,
+  "preservedPreviousRuntimeAssets": 1215
+}

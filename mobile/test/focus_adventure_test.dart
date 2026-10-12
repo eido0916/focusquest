@@ -1,3 +1,4 @@
+import 'package:focusquest/features/playable_stage/domain/playable_stage_catalog.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flame/game.dart';
 import 'package:focusquest/features/focus/domain/focus_adventure.dart';
@@ -40,7 +41,7 @@ void main() {
     b.advanceTo(4000);
     expect(b.bossDefeatedCount, 2);
   });
-  test('bounded replay, sleep and restarting mid-boss agree', () {
+  test('bounded replay and reopening a session preserve the local cycle', () {
     final full =
         BattleStateController(durationSeconds: 1800, adventureStartSeconds: 0)
           ..advanceTo(1800);
@@ -52,13 +53,18 @@ void main() {
     expect(bounded.defeatedCount, full.defeatedCount);
     expect(bounded.bossDefeatedCount, full.bossDefeatedCount);
     final resumed = BattleStateController(
-        durationSeconds: 300, adventureStartSeconds: 1500);
-    resumed.advanceTo(299.95);
-    expect(resumed.enemies.single.hp, 1);
-    resumed.advanceTo(300);
+        durationSeconds: 1800, adventureStartSeconds: 1500);
+    resumed.advanceTo(1499.95);
+    expect(resumed.enemies.where((e) => e.data.isBoss), isEmpty);
+    resumed.advanceTo(1500);
+    expect(resumed.isBossBattle, isTrue);
+    resumed.advanceTo(1800);
     expect(resumed.bossDefeatedCount, 1);
-    expect(FocusAdventure.background(resumed.adventureSeconds),
-        contains('ghost_ship'));
+    final short =
+        BattleStateController(durationSeconds: 300, adventureStartSeconds: 1500)
+          ..advanceTo(300);
+    expect(short.bossDefeatedCount, 0);
+    expect(short.enemies.where((e) => e.data.isBoss), isEmpty);
   });
   test(
       'successful sessions persist the clock and settle once; cancellation does not advance',
@@ -93,15 +99,15 @@ void main() {
   });
   test('bosses load original movement, attack and transparent defeat frames',
       () async {
-    final assets = await EnemyMotionAssets.load(FlameGame());
-    for (final id in ['boss_goblin_king', 'boss_dullahan']) {
+    final assets = await EnemyMotionAssets.load(FlameGame(),
+        ids: PlayableStageCatalog.bossIds);
+    for (final id in PlayableStageCatalog.bossIds) {
       for (final action in ['locomotion', 'attack', 'defeat']) {
         final motion = assets.motions['${id}_$action']!;
         expect(motion.metadata['interpolation'], 'none');
         expect(motion.metadata['direction'], 'left');
-        expect(motion.frame(0).image.width, 384);
-        expect(motion.frame(0).image.height, 384);
-        expect(motion.metadata['coordinate_canvas'], [128, 128]);
+        expect(motion.frame(0).image.width,
+            (motion.metadata['canvas'] as List).first);
       }
       final defeat = assets.motions['${id}_defeat']!;
       final rgba = await defeat.frame(defeat.duration).image.toByteData();

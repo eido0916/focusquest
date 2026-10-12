@@ -87,7 +87,7 @@ class PlayableStageAssets {
       for (final name
           in (manifest['motions'] as List<dynamic>).cast<String>()) {
         if (name.startsWith('hero_')) continue;
-        final heroMotion = ['run', 'attack', 'skill', 'idle']
+        final heroMotion = ['run', 'attack', 'skill', 'idle', 'hurt', 'defeat']
             .any((action) => name == '${hero.id}_$action');
         if (name.startsWith('character_') && !heroMotion) {
           continue;

@@ -1,3 +1,4 @@
+import '../../../core/widgets/game_ui.dart';
 import '../../../core/game_controller.dart';
 import 'package:flutter/material.dart';
 import '../../../core/widgets/sunlit_widgets.dart';
@@ -9,6 +10,7 @@ import '../domain/fq_adventure_character.dart';
 import 'playable_stage_page.dart';
 import 'playable_stage_assets.dart';
 import 'playable_stage_audio.dart';
+import 'playable_stage_details_dialog.dart';
 
 class PlayableStageSelectionPage extends StatefulWidget {
   const PlayableStageSelectionPage(
@@ -39,6 +41,8 @@ class _PlayableStageSelectionPageState
     ...?widget.controller?.state?.clearedPlayableStages
   };
   bool _opening = false;
+  final Set<String> _encountered = {};
+  Set<String> _pendingEncounters = {};
   String? _error;
   int? _pendingClear;
   (String, int)? _pendingDefeats;
@@ -48,6 +52,7 @@ class _PlayableStageSelectionPageState
       _opening ||
       _pendingClear != null ||
       _pendingDefeats != null ||
+      _pendingEncounters.isNotEmpty ||
       widget.controller?.activeFocus != null ||
       widget.controller?.busy == true;
 
@@ -134,12 +139,18 @@ class _PlayableStageSelectionPageState
     PlayableStageBattle? battle;
     var began = false;
     final defeated = <StageEnemy>{};
+    final encountered = <String>{};
     final operationId =
         '${DateTime.now().microsecondsSinceEpoch}-${stage.number}';
     void observeDefeats() {
       final current = battle;
       if (current != null) {
         defeated.addAll(current.enemies.where((e) => !e.alive));
+        if (current.mode == StageMode.battle ||
+            current.mode == StageMode.lost ||
+            (current.mode == StageMode.travel && current.modeTime > 1.8)) {
+          encountered.addAll(current.enemies.map((e) => e.definition.id));
+        }
       }
     }
 
@@ -175,6 +186,8 @@ class _PlayableStageSelectionPageState
     } finally {
       observeDefeats();
       battle?.removeListener(observeDefeats);
+      _encountered.addAll(encountered);
+      if (encountered.isNotEmpty) await _saveEncounters(encountered);
       if (defeated.isNotEmpty && widget.controller != null) {
         await _saveDefeats(operationId, defeated.length);
       }
@@ -188,7 +201,7 @@ class _PlayableStageSelectionPageState
   Widget build(BuildContext context) {
     final content = Stack(children: [
       Positioned.fill(
-          child: Image.asset('assets/images/ui/sunlit_kingdom.png',
+          child: Image.asset(gameBackground,
               fit: BoxFit.cover, alignment: Alignment.topCenter)),
       const Positioned.fill(
           child: DecoratedBox(
@@ -215,6 +228,11 @@ class _PlayableStageSelectionPageState
                               _pendingDefeats!.$1, _pendingDefeats!.$2),
                           icon: const Icon(Icons.save_outlined),
                           label: const Text('討伐記録を再保存')),
+                    if (_pendingEncounters.isNotEmpty)
+                      TextButton.icon(
+                          onPressed: () => _saveEncounters(_pendingEncounters),
+                          icon: const Icon(Icons.save_outlined),
+                          label: const Text('遭遇記録を再保存')),
                     if (_error != null) ...[
                       _notice(_error!),
                       if (_pendingClear != null)
@@ -237,10 +255,10 @@ class _PlayableStageSelectionPageState
     if (widget.embedded) return content;
     return Scaffold(
         backgroundColor: sunlitInk,
-        appBar: AppBar(
-            title: const Text('ステージ選択'),
+        appBar: const GameAppBar(
+            title: Text('ステージ選択'),
             backgroundColor: sunlitInk,
-            foregroundColor: const Color(0xffffeed0)),
+            foregroundColor: Color(0xffffeed0)),
         body: SafeArea(child: content));
   }
 
@@ -425,80 +443,79 @@ class _PlayableStageSelectionPageState
         ]));
   }
 
-  Widget _stageCard(PlayableStageDefinition stage) {
-    final cleared = _cleared.contains(stage.number);
-    return Semantics(
-        button: true,
-        enabled: !_blocked,
-        label: '${stage.area} ステージ${stage.number}',
-        child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-                key: Key('select-stage-${stage.number}'),
-                onTap: _blocked ? null : () => _open(stage),
-                borderRadius: BorderRadius.circular(8),
-                child: CustomPaint(
-                    foregroundPainter: const SunlitFramePainter(compact: true),
-                    child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: stage.hasBoss
-                                    ? const [
-                                        Color(0xff382239),
-                                        Color(0xff131d36)
-                                      ]
-                                    : const [
-                                        Color(0xff123e64),
-                                        Color(0xff091d3d)
-                                      ])),
-                        padding: const EdgeInsets.all(14),
-                        child: Opacity(
-                            opacity: _blocked ? .5 : 1,
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(children: [
-                                    Icon(
-                                        stage.hasBoss
-                                            ? Icons.castle_outlined
-                                            : Icons.diamond_outlined,
-                                        color: sunlitGold,
-                                        size: 17),
-                                    const SizedBox(width: 5),
-                                    Expanded(
-                                        child: Text('STAGE ${stage.number}',
-                                            style: const TextStyle(
-                                                color: Color(0xffffe5b2),
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.bold,
-                                                fontFamily: 'SunlitSerif')))
-                                  ]),
-                                  const SizedBox(height: 9),
-                                  Text(
-                                      stage.hasBoss
-                                          ? stage.opponents.last.name
-                                          : '3フェーズの戦い',
-                                      style: const TextStyle(
-                                          color: Color(0xffe2edf5),
-                                          fontSize: 12,
-                                          height: 1.5,
-                                          fontFamily: 'SunlitSerif')),
-                                  const SizedBox(height: 9),
-                                  Text(
-                                      cleared
-                                          ? '✓ CLEAR'
-                                          : stage.hasBoss
-                                              ? 'ボスに挑む  →'
-                                              : '出発する  →',
-                                      style: TextStyle(
-                                          fontSize: 11,
-                                          color: cleared
-                                              ? const Color(0xffb4e8ca)
-                                              : const Color(0xffead3a7),
-                                          fontFamily: 'SunlitSerif')),
-                                ])))))));
+  Future<void> _saveEncounters(Set<String> ids) async {
+    final pending = {..._pendingEncounters, ...ids};
+    try {
+      await widget.controller?.recordPlayableEncounters(pending);
+      if (mounted) {
+        setState(() {
+          _pendingEncounters.clear();
+          if (_error == '遭遇記録を保存できませんでした。再試行してください。') {
+            _error = null;
+          }
+        });
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(() {
+          _pendingEncounters = pending;
+          _error = '遭遇記録を保存できませんでした。再試行してください。';
+        });
+      }
+    }
   }
+
+  Future<void> _showDetails(PlayableStageDefinition stage) async {
+    final known = {
+      ..._encountered,
+      ...?widget.controller?.state?.encounteredEnemyIds,
+      // Existing clear records prove every wave in that stage was encountered.
+      for (final cleared in PlayableStageCatalog.stages
+          .where((stage) => _cleared.contains(stage.number)))
+        for (var phase = 0; phase < cleared.opponents.length; phase++)
+          for (final enemy in cleared.wave(phase)) enemy.id,
+    };
+    final challenge = await showDialog<bool>(
+        context: context,
+        builder: (_) => PlayableStageDetailsDialog(
+            stage: stage,
+            encounteredEnemyIds: known,
+            cleared: _cleared.contains(stage.number),
+            canChallenge: !_blocked));
+    if (mounted && challenge == true) await _open(stage);
+  }
+
+  Widget _stageCard(PlayableStageDefinition stage) => Semantics(
+      button: true,
+      enabled: !_blocked,
+      label:
+          '${stage.area} ステージ${stage.number}${_cleared.contains(stage.number) ? ' クリア済み' : ''}',
+      child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+              key: Key('select-stage-${stage.number}'),
+              onTap: _blocked ? null : () => _showDetails(stage),
+              borderRadius: BorderRadius.circular(8),
+              child: SunlitFrame(
+                  compact: true,
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 22, horizontal: 12),
+                  child: Column(mainAxisSize: MainAxisSize.min, children: [
+                    Text('Stage ${stage.number}',
+                        style: TextStyle(
+                            color: _blocked
+                                ? Colors.white38
+                                : const Color(0xffffe5b2),
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'SunlitSerif')),
+                    if (_cleared.contains(stage.number))
+                      const Padding(
+                          padding: EdgeInsets.only(top: 4),
+                          child: Text('✓ CLEAR',
+                              style: TextStyle(
+                                  color: Color(0xff80ed9c),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold))),
+                  ])))));
 }

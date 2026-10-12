@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
+import 'package:path_provider/path_provider.dart';
 import '../domain/party_member.dart';
 
 /// One connection per app. The server owns membership, capacity and start time.
@@ -12,6 +13,13 @@ class PartyConnection extends ChangeNotifier {
   StreamSubscription<dynamic>? _subscription;
   bool _disposed = false;
   String? selfId, code, hostId, error;
+  final Map<String, String> _resumeTokens = {};
+  int focusAreaIndex = -1;
+  List<int> get availableAreas => members.isEmpty
+      ? []
+      : members.first.unlockedAreas
+          .where((a) => members.every((m) => m.unlockedAreas.contains(a)))
+          .toList();
   String serverUrl = configuredUrl;
   bool connecting = false;
   int minutes = 30;
@@ -49,6 +57,15 @@ class PartyConnection extends ChangeNotifier {
       _open(uri, member, code);
 
   Future<void> _open(Uri uri, PartyMember member, String? joinCode) async {
+    try {
+      final directory = await getApplicationSupportDirectory();
+      final file = File('${directory.path}/party-resume.json');
+      final saved = await file.exists() ? await file.readAsString() : null;
+      if (saved != null) {
+        _resumeTokens
+            .addAll(Map<String, String>.from(jsonDecode(saved) as Map));
+      }
+    } catch (_) {/* Unit tests may have no platform preferences. */}
     connecting = true;
     error = null;
     notifyListeners();
@@ -61,6 +78,7 @@ class PartyConnection extends ChangeNotifier {
         throw StateError('接続を終了しました。');
       }
       socket.pingInterval = const Duration(seconds: 20);
+      serverUrl = uri.toString();
       _socket = socket;
       _joined = Completer<void>();
       _subscription = socket.listen((raw) {
@@ -71,16 +89,27 @@ class PartyConnection extends ChangeNotifier {
       socket.add(jsonEncode({
         'type': joinCode == null ? 'create' : 'join',
         'code': joinCode,
+        'resumeToken': _resumeTokens['${uri.toString()}|$joinCode'],
         'member': member.toJson()
       }));
       await _joined!.future.timeout(const Duration(seconds: 10));
       serverUrl = uri.toString();
-    } catch (_) {
+    } catch (failure) {
       final socket = _socket;
       _socket = null;
       await socket?.close();
       code = null;
+      selfId = hostId = null;
       members = const [];
+      session = null;
+      if (failure is TimeoutException) {
+        throw StateError('接続に時間がかかっています。少し待ってから再試行してください。');
+      }
+      if (failure is SocketException ||
+          failure is HttpException ||
+          failure is WebSocketException) {
+        throw StateError('パーティーサーバーに接続できませんでした。通信状況を確認して再試行してください。');
+      }
       rethrow;
     } finally {
       _joined = null;
@@ -99,6 +128,12 @@ class PartyConnection extends ChangeNotifier {
         }
       } else if (data['type'] == 'snapshot') {
         selfId = data['selfId'] as String;
+        focusAreaIndex = data['focusAreaIndex'] as int? ?? -1;
+        final token = data['resumeToken'] as String?;
+        if (token != null) {
+          _resumeTokens['$serverUrl|${data['code']}'] = token;
+          unawaited(_saveTokens());
+        }
         code = data['code'] as String;
         hostId = data['hostId'] as String;
         minutes = data['minutes'] as int;
@@ -127,9 +162,6 @@ class PartyConnection extends ChangeNotifier {
     if (_joined != null && !_joined!.isCompleted) {
       _joined!.completeError(StateError('パーティーへの接続が切れました。'));
     }
-    code = null;
-    members = const [];
-    session = null;
     error = '接続が切れました。開始済みの集中は端末で継続します。';
     notifyListeners();
   }
@@ -140,6 +172,16 @@ class PartyConnection extends ChangeNotifier {
   }
 
   void setReady(bool value) => send('ready', {'ready': value});
+  Future<void> _saveTokens() async {
+    try {
+      final directory = await getApplicationSupportDirectory();
+      await directory.create(recursive: true);
+      await File('${directory.path}/party-resume.json')
+          .writeAsString(jsonEncode(_resumeTokens), flush: true);
+    } catch (_) {}
+  }
+
+  void setArea(int value) => send('area', {'focusAreaIndex': value});
   void setMinutes(int value) => send('duration', {'minutes': value});
   void start() => send('start');
   void report(String status) {
@@ -153,8 +195,17 @@ class PartyConnection extends ChangeNotifier {
     }
   }
 
+  /// Drop transport while retaining the membership token for reconnection.
+  Future<void> disconnect() async {
+    final socket = _socket;
+    await socket?.close();
+  }
+
   Future<void> leave() async {
     final socket = _socket;
+    if (connected) send('leave');
+    _resumeTokens.remove('$serverUrl|$code');
+    unawaited(_saveTokens());
     _socket = null;
     await _subscription?.cancel();
     _subscription = null;

@@ -1,3 +1,4 @@
+import '../../core/widgets/game_ui.dart';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
@@ -104,8 +105,8 @@ class _CertificateScreenState extends State<CertificateScreen> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        backgroundColor: const Color(0xff30291f),
-        appBar: AppBar(title: const Text('冒険者証'), actions: [
+        backgroundColor: gameInk,
+        appBar: GameAppBar(title: const Text('冒険者証'), actions: [
           TextButton.icon(
               onPressed:
                   _png == null || _error != null || _saving ? null : _save,

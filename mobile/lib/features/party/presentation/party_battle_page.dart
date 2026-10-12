@@ -1,3 +1,5 @@
+import '../../../game/runner/fantasy_battle_hud.dart';
+import '../../playable_stage/domain/playable_stage_catalog.dart';
 import 'dart:convert';
 import 'dart:async';
 import '../../../core/game_controller.dart';
@@ -140,7 +142,7 @@ class PartyBattleGame extends FlameGame {
       required List<FocusSoundPose> poses})? onAudioFrame;
   final PartyConnection? party;
   ui.Image? _background;
-  ui.Image? _ghostShip;
+
   EnemyMotionAssets? _bossAssets;
   final Map<String, Map<String, _OriginalMotion>> _actors = {};
   final Map<String, RoleSkillEffects> _effects = {};
@@ -163,10 +165,11 @@ class PartyBattleGame extends FlameGame {
   @override
   Future<void> onLoad() async {
     try {
-      _background = await images.load(BackgroundComponent.asset);
-      _ghostShip =
-          await images.load('stage_backgrounds/ghost_ship_focus_v002.png');
-      _bossAssets = await EnemyMotionAssets.load(this);
+      _background = await images.load(
+          FocusAdventure.background(0, areaIndex: session.focusAreaIndex));
+
+      _bossAssets = await EnemyMotionAssets.load(this,
+          ids: EnemyMotionAssets.idsForArea(session.focusAreaIndex));
       _headerFrame = await images.load('party_focus_v001/header_frame.png');
       _memberFrame = await images.load('party_focus_v001/member_frame.png');
       _compass = await images.load('party_focus_v001/compass.png');
@@ -216,7 +219,7 @@ class PartyBattleGame extends FlameGame {
         }));
       }));
     } catch (_) {
-      loadError = '原画を読み込めませんでした。タイマー画面で集中を続けられます。';
+      loadError = '原画を読み込めませんでした。集中は続いています。メニューから戻って再試行してください。';
     }
   }
 
@@ -247,7 +250,7 @@ class PartyBattleGame extends FlameGame {
         active: elapsed >= 0 && elapsed < session.durationMinutes * 60,
         poses: poses);
     if (elapsed >= session.durationMinutes * 60) _finishAge += dt;
-    final end = session.adventureStartSeconds + session.durationMinutes * 60;
+    final end = session.durationMinutes * 60;
     final bossJustDefeated = end >= 1800 && end % 1800 == 0;
     if (!_reported &&
         elapsed >= session.durationMinutes * 60 &&
@@ -286,11 +289,11 @@ class PartyBattleGame extends FlameGame {
     canvas.save();
     canvas.scale(size.x / 960, size.y / 540);
     final time = elapsed.clamp(0.0, session.durationMinutes * 60.0).toDouble();
-    final adventureTime = session.adventureStartSeconds + time;
-    final bossBattle = FocusAdventure.fightingBoss(adventureTime);
+    final adventureTime = time;
+    final bossBattle = FocusAdventure.bossActive(time,
+        durationSeconds: session.durationMinutes * 60.0);
     final bossLeft = (1800 - FocusAdventure.age(adventureTime)).ceil();
-    final background =
-        FocusAdventure.chapter(adventureTime) == 2 ? _ghostShip : _background;
+    final background = _background;
     if (background != null) {
       BackgroundComponent.paintScenery(canvas, background);
     }
@@ -301,7 +304,7 @@ class PartyBattleGame extends FlameGame {
     final remaining = session.remaining(clock()).inSeconds;
     _text(
         canvas,
-        '第${FocusAdventure.chapter(adventureTime)}章 · ${FocusAdventure.area(adventureTime)} · ${session.partyMembers.length}人パーティー',
+        '第${FocusAdventure.chapter(adventureTime)}章 · ${FocusAdventure.area(adventureTime, areaIndex: session.focusAreaIndex)} · ${session.partyMembers.length}人パーティー',
         64,
         10,
         width: 655,
@@ -310,12 +313,21 @@ class PartyBattleGame extends FlameGame {
     _text(
         canvas,
         bossBattle
-            ? 'BOSS · ${FocusAdventure.bossName(adventureTime)} · 撃破まで ${bossLeft ~/ 60}:${(bossLeft % 60).toString().padLeft(2, '0')}'
+            ? 'BOSS · ${FocusAdventure.bossName(adventureTime, areaIndex: session.focusAreaIndex)} · 撃破まで ${bossLeft ~/ 60}:${(bossLeft % 60).toString().padLeft(2, '0')}'
             : '残り ${remaining ~/ 60}:${(remaining % 60).toString().padLeft(2, '0')}  ·  敵 ${session.partyMembers.length}体 / wave ${time ~/ 6 + 1}',
         64,
         46,
         width: 600,
         size: 17);
+    if (bossBattle && (party == null || party!.connected)) {
+      _text(
+          canvas,
+          'BOSS · ${FocusAdventure.bossName(adventureTime, areaIndex: session.focusAreaIndex)} · 撃破まで ${FantasyBattleHud.clockText(bossLeft)}',
+          620,
+          48,
+          width: 320,
+          size: 13);
+    }
     if (elapsed < 0) {
       _text(canvas, '${(-elapsed).ceil()}秒後に一緒に開始', 420, 46,
           width: 280, size: 23);
@@ -379,7 +391,17 @@ class PartyBattleGame extends FlameGame {
         motion.paint(canvas, Offset(heroX, y - 114),
             moving ? age % motion.duration : age - 2);
       }
-      final enemy = _actors[i.isEven ? 'enemies/slime' : 'enemies/goblin'];
+      final mobIds = session.focusAreaIndex < 0
+          ? ['slime', 'goblin']
+          : {
+              for (final stage in PlayableStageCatalog.stages
+                  .skip(session.focusAreaIndex * 4)
+                  .take(4))
+                for (final enemy in stage.opponents)
+                  if (!enemy.isBoss) enemy.id
+            }.toList();
+      final mobId = mobIds[i % mobIds.length];
+      final enemy = _actors['enemies/$mobId'];
       if (enemy != null && !bossBattle) {
         final defeated = age >= hitAt;
         final motion = enemy[defeated ? 'defeat' : 'locomotion']!;
@@ -388,6 +410,17 @@ class PartyBattleGame extends FlameGame {
           motion.paint(canvas, Offset(x, y - 114),
               defeated ? age - hitAt : age % motion.duration);
         }
+      }
+      if (enemy == null && _bossAssets != null && !bossBattle) {
+        final defeated = age >= hitAt;
+        final frame = _bossAssets!.frame(mobId,
+            defeated ? 'defeat' : 'locomotion', defeated ? age - hitAt : age,
+            loop: !defeated);
+        final x = age < 2 ? 800 - age * 135 : 530.0;
+        canvas.drawImage(
+            frame.image,
+            Offset(x + frame.offset.dx, y - 114 + frame.offset.dy),
+            Paint()..filterQuality = FilterQuality.none);
       }
       if (skillWave && age >= 2 && age < hitAt && attack != null) {
         final character = PixelBattleAssets.characterFor(
@@ -410,7 +443,8 @@ class PartyBattleGame extends FlameGame {
         adventureTime >= 1800 && chapterAge < 1.25 && time > 0;
     if ((bossBattle || defeatingBoss) && _bossAssets != null) {
       final id = FocusAdventure.bossId(
-          defeatingBoss ? adventureTime - chapterAge - 1 : adventureTime);
+          defeatingBoss ? adventureTime - chapterAge - 1 : adventureTime,
+          areaIndex: session.focusAreaIndex);
       final bossAge = bossBattle
           ? chapterAge - 1500
           : (chapterAge == 0 ? _finishAge : chapterAge);
@@ -430,7 +464,8 @@ class PartyBattleGame extends FlameGame {
           loop: !defeatingBoss);
       canvas.drawImageRect(
           frame.image,
-          const Rect.fromLTWH(0, 0, 128, 128),
+          Rect.fromLTWH(0, 0, frame.image.width.toDouble(),
+              frame.image.height.toDouble()),
           Rect.fromLTWH(
               660 + frame.offset.dx * 2, 180 + frame.offset.dy * 2, 256, 256),
           Paint()..filterQuality = FilterQuality.none);

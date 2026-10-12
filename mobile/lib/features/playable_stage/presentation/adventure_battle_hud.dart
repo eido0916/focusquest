@@ -1,3 +1,4 @@
+import '../../../core/widgets/game_ui.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../domain/playable_stage_battle.dart';
@@ -290,8 +291,20 @@ class AdventureFrame extends StatelessWidget {
   final String name;
   @override
   Widget build(BuildContext context) => IgnorePointer(
-      child: Image.asset('$adventureFramePath$name.png',
-          fit: BoxFit.fill, excludeFromSemantics: true));
+      child: Image.asset(
+          switch (name) {
+            'stage_banner' ||
+            'phase_panel' ||
+            'caption_frame' =>
+              '${gameUiAssets}header_banner.png',
+            'status_panel' => '${gameUiAssets}identity_panel.png',
+            'auto_button' ||
+            'utility_button' =>
+              '${gameUiAssets}equipment_row.png',
+            _ => '$adventureFramePath$name.png',
+          },
+          fit: BoxFit.fill,
+          excludeFromSemantics: true));
 }
 
 class _SwordIcon extends CustomPainter {

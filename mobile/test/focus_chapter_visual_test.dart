@@ -25,8 +25,8 @@ void main() {
       await (FontLoader(entry.key)..addFont(rootBundle.load(entry.value))).load();
     }
     const magePreview = bool.fromEnvironment('EFFECT_PREVIEW_MAGE');
-    final role = magePreview ? 'mage' : 'warrior';
-    final appearance = magePreview ? 'female' : 'male';
+    const role = magePreview ? 'mage' : 'warrior';
+    const appearance = magePreview ? 'female' : 'male';
     var now = magePreview ? 20.15 : 1500.0;
     var finished = false;
     final state = BattleStateController(

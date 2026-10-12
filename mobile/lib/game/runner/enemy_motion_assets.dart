@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flame/game.dart';
 import 'package:flutter/services.dart';
+import '../../features/playable_stage/domain/playable_stage_catalog.dart';
 import '../../features/playable_stage/presentation/playable_stage_assets.dart';
 
 /// Completed originals; metadata selects held poses and world offsets.
@@ -31,6 +32,14 @@ class EnemyMotionAssets {
     }
     return EnemyMotionAssets._(motions);
   }
+
+  static Set<String> idsForArea(int? area) => area == null || area < 0
+      ? focusEnemyIds.toSet()
+      : {
+          PlayableStageCatalog.bossIds[area],
+          for (final stage in PlayableStageCatalog.stages.skip(area * 4).take(4))
+            for (final enemy in stage.opponents) enemy.id,
+        };
 
   StageFrame frame(String id, String action, double seconds,
           {bool loop = false}) =>

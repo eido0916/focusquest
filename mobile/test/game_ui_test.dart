@@ -54,6 +54,9 @@ void main() {
     expect(controller.state!.coins, 0);
     await tester.tap(find.text('閉じる'));
     await tester.pumpAndSettle();
+    expect(find.text('LEVEL UP!'), findsOneWidget);
+    await tester.tap(find.text('成長した力で冒険へ'));
+    await tester.pumpAndSettle();
     await tester.tap(find.byWidgetPredicate(
         (widget) => widget is Semantics && widget.properties.label == '戻る'));
     await tester.pumpAndSettle();

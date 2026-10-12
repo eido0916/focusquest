@@ -1,3 +1,4 @@
+import '../../character/presentation/growth_celebration.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../../core/config/game_balance.dart';
@@ -158,6 +159,7 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
       _error = null;
     });
     try {
+      final previousHero = widget.controller.state!.activeCharacter!;
       final result = await widget.controller.finishFocus(cancel: cancel);
       if (mounted && result != null) {
         final succeeded = result.status == FocusStatus.succeeded;
@@ -179,6 +181,10 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                           onPressed: () => Navigator.pop(context),
                           child: const Text('閉じる'))
                     ]));
+        if (mounted && succeeded) {
+          await showGrowthCelebration(
+              context, previousHero, widget.controller.state!.activeCharacter!);
+        }
       }
     } catch (_) {
       if (mounted) {
@@ -196,7 +202,6 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     final controller = widget.controller;
     final session = controller.activeFocus;
-    final seconds = session?.remaining(controller.clock()).inSeconds ?? 0;
     if (session == null) {
       final character = controller.state!.activeCharacter!;
       return FocusSelectionScene(
@@ -207,6 +212,11 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
         minutes: _minutes,
         stage: FocusAdventure.chapter(
             controller.state!.focusAdventureSeconds.toDouble()),
+        areaName:
+            FocusAdventure.area(0, areaIndex: controller.selectedFocusArea),
+        backgroundPath:
+            'assets/images/${FocusAdventure.background(0, areaIndex: controller.selectedFocusArea)}',
+        onArea: () => _chooseArea(),
         partyConnected: controller.party.connected,
         message: controller.partyStartError ?? controller.party.error,
         onMinutes: (minutes) => setState(() {
@@ -240,13 +250,13 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
       );
     }
     final character = controller.state!.activeCharacter!;
+    final seconds = session.remaining(controller.clock()).inSeconds;
     return FocusTimerScene(
       characterName: character.name,
       characterType: character.characterType,
       level: character.level,
-      chapter: FocusAdventure.chapter(session.adventureStartSeconds +
-          session.durationMinutes * 60 -
-          seconds.toDouble()),
+      chapter: FocusAdventure.chapter(
+          session.durationMinutes * 60 - seconds.toDouble()),
       seconds: seconds,
       progress: (1 - seconds / (session.durationMinutes * 60)).clamp(0, 1),
       partySize: session.partyMembers.length,
@@ -257,10 +267,36 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
           ? _openParty
           : null,
       onSound: () => showFocusSoundSettings(context, controller),
-      onBack: () => Navigator.of(context).maybePop(),
+      onBack: () {
+        if (widget.onNavigate != null) {
+          widget.onNavigate!(0);
+        } else {
+          Navigator.of(context).popUntil((route) => route.isFirst);
+        }
+      },
       onRetry: _settling ? null : () => _finish(),
       onCancel: _settling || controller.busy ? null : _confirmCancel,
     );
+  }
+
+  Future<void> _chooseArea() async {
+    final controller = widget.controller;
+    final selected = await showDialog<int>(
+        context: context,
+        builder: (context) =>
+            SimpleDialog(title: const Text('集中エリアを選ぶ'), children: [
+              SimpleDialogOption(
+                  onPressed: () => Navigator.pop(context, -1),
+                  child: const Text('訓練場')),
+              for (final area in controller.unlockedFocusAreas)
+                SimpleDialogOption(
+                    onPressed: () => Navigator.pop(context, area),
+                    child: Text(FocusAdventure.area(0, areaIndex: area))),
+              const Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Text('冒険で同じエリアの4ステージをクリアすると、集中エリアが解放されます。')),
+            ]));
+    if (selected != null) controller.selectFocusArea(selected);
   }
 
   Future<void> _confirmCancel() async {

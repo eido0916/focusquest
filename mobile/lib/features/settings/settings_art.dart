@@ -1,3 +1,4 @@
+import '../../core/widgets/game_ui.dart';
 import 'package:flutter/material.dart';
 import '../../core/widgets/sunlit_widgets.dart';
 import '../../core/widgets/quest_widgets.dart';
@@ -12,49 +13,36 @@ class SettingsArt extends StatelessWidget {
   final String name;
   final Rect? slice;
   @override
-  Widget build(BuildContext context) =>
-      Image.asset('$settingsAssetPath$name.png',
-          fit: BoxFit.fill,
-          scale: 3,
-          centerSlice: slice,
-          filterQuality: FilterQuality.high,
-          excludeFromSemantics: true);
+  Widget build(BuildContext context) => GameArtwork(switch (name) {
+        'title_banner' || 'section_header' => 'header_banner',
+        'parchment_panel' => 'parchment_panel',
+        _ => 'equipment_row',
+      });
 }
 
 class SettingsTitle extends StatelessWidget {
   const SettingsTitle({super.key, required this.unit});
   final double unit;
   @override
-  Widget build(BuildContext context) => SizedBox(
-      height:
-          (92 + (MediaQuery.textScalerOf(context).scale(1) - 1) * 45) * unit,
-      child: Stack(fit: StackFit.expand, children: [
-        const SettingsArt('title_banner'),
-        Padding(
-            padding:
-                EdgeInsets.fromLTRB(80 * unit, 24 * unit, 42 * unit, 12 * unit),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Text('設定',
-                  style: TextStyle(
-                      color: settingsCream,
-                      fontFamily: 'SunlitSerif',
-                      fontSize: 26 * unit,
-                      fontWeight: FontWeight.bold,
-                      height: 1.05,
-                      shadows: const [
-                        Shadow(color: Color(0xff001c39), offset: Offset(1, 2))
-                      ])),
-              SizedBox(height: 4 * unit),
-              SettingsRule(unit: unit, blue: true),
-              Text('冒険を、より快適に',
-                  style: TextStyle(
-                      color: settingsCream,
-                      fontFamily: 'SunlitSerif',
-                      fontSize: 10 * unit,
-                      fontWeight: FontWeight.bold)),
-            ])),
-      ]));
+  Widget build(BuildContext context) => GamePanel(
+      asset: 'header_banner',
+      padding: EdgeInsets.symmetric(vertical: 20 * unit, horizontal: 20 * unit),
+      child: SizedBox(
+          width: double.infinity,
+          child: Column(children: [
+            Text('設定',
+                style: TextStyle(
+                    color: gameWhite,
+                    fontFamily: 'SunlitSerif',
+                    fontSize: 26 * unit,
+                    fontWeight: FontWeight.bold)),
+            SizedBox(height: 4 * unit),
+            Text('冒険を、より快適に',
+                style: TextStyle(
+                    color: gameGold,
+                    fontFamily: 'SunlitSerif',
+                    fontSize: 10 * unit)),
+          ])));
 }
 
 class SettingsPanel extends StatelessWidget {
@@ -69,38 +57,28 @@ class SettingsPanel extends StatelessWidget {
   final double unit;
   final Widget child;
   @override
-  Widget build(BuildContext context) => Stack(children: [
-        const Positioned.fill(
-            child: SettingsArt('parchment_panel',
-                slice: Rect.fromLTRB(80, 80, 944, 560))),
-        Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          Stack(children: [
-            const Positioned.fill(
-                child: SettingsArt('section_header',
-                    slice: Rect.fromLTRB(110, 38, 914, 90))),
-            Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: 22 * unit, vertical: 5 * unit),
-                child: Row(children: [
-                  Icon(icon, color: settingsCream, size: 22 * unit),
-                  SizedBox(width: 10 * unit),
-                  Flexible(
-                      child: Text(title,
-                          style: TextStyle(
-                              color: settingsCream,
-                              fontFamily: 'SunlitSerif',
-                              fontSize: 15 * unit,
-                              fontWeight: FontWeight.bold))),
-                  SizedBox(width: 10 * unit),
-                  const Icon(Icons.auto_awesome, color: sunlitGold, size: 14),
-                ])),
-          ]),
-          Padding(
-              padding: EdgeInsets.fromLTRB(
-                  24 * unit, 8 * unit, 22 * unit, 14 * unit),
-              child: child),
-        ]),
-      ]);
+  Widget build(BuildContext context) => GamePanel(
+      asset: 'parchment_panel',
+      padding: EdgeInsets.all(20 * unit),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        GamePanel(
+            asset: 'equipment_row',
+            padding: EdgeInsets.symmetric(
+                horizontal: 14 * unit, vertical: 12 * unit),
+            child: Row(children: [
+              Icon(icon, color: gameGold, size: 22 * unit),
+              SizedBox(width: 10 * unit),
+              Flexible(
+                  child: Text(title,
+                      style: TextStyle(
+                          color: gameWhite,
+                          fontFamily: 'SunlitSerif',
+                          fontSize: 15 * unit,
+                          fontWeight: FontWeight.bold))),
+            ])),
+        SizedBox(height: 12 * unit),
+        child,
+      ]));
 }
 
 class SettingsMedallion extends StatelessWidget {

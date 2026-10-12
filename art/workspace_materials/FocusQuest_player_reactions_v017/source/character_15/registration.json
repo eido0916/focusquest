@@ -1,0 +1,20 @@
+{
+  "reference": "mobile/assets/images/playable_stage/character_15_attack_000.png",
+  "referenceSha256": "82ea9ae4d374db60b9001d90d67a2920f0c47e8648d93dc285ca8bba3f3bcfeb",
+  "sharedScale": 0.11785714285714285,
+  "sharedShift": 0,
+  "baselinePx": 120,
+  "standingReferenceHeightPx": 66,
+  "standingOriginalHeightPx": 66,
+  "canvas": [
+    128,
+    128
+  ],
+  "logicalGrid": [
+    64,
+    64
+  ],
+  "partTransforms": false,
+  "interpolation": "none",
+  "generationTool": "built-in image_gen"
+}

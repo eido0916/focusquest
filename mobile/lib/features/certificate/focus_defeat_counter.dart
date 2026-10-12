@@ -39,16 +39,17 @@ class FocusDefeatCounter {
               member.characterType, member.appearance);
           final hitAt = 2 + durations[character.id]![wave % 4 == 3 ? 1 : 0];
           if (time >= wave * 6 + hitAt &&
-              !FocusAdventure.fightingBoss(
-                  session.adventureStartSeconds + wave * 6 + hitAt)) defeats++;
+              !FocusAdventure.bossActive(wave * 6 + hitAt,
+                  durationSeconds: duration)) defeats++;
         }
       }
       return defeats +
-          FocusAdventure.cycle(session.adventureStartSeconds + time) -
-          FocusAdventure.cycle(session.adventureStartSeconds.toDouble());
+          FocusAdventure.completedBossCycles(time.toDouble(),
+              durationSeconds: duration);
     }
     final battle = BattleStateController(
         adventureStartSeconds: session.adventureStartSeconds,
+        focusAreaIndex: session.focusAreaIndex,
         config:
             PixelBattleAssets.runnerConfig(hero.characterType, hero.appearance),
         durationSeconds: duration);

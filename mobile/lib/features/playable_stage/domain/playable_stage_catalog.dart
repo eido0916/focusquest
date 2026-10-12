@@ -12,7 +12,8 @@ class StageOpponent {
 class PlayableStageDefinition {
   const PlayableStageDefinition(this.number, this.area, this.backgroundPath,
       this.groundLine, this.opponents,
-      {this.bossEscort});
+      {this.bossEscort, this.recommendedLevel = 1, int? difficultyLevel})
+      : difficultyLevel = difficultyLevel ?? recommendedLevel;
   final int number;
   final String area, backgroundPath;
   final double groundLine;
@@ -29,6 +30,28 @@ class PlayableStageDefinition {
       };
   bool get hasBoss => opponents.last.isBoss;
   String get title => 'STAGE $number · $area';
+
+  /// Guidance from seeded combat; changing it never changes enemy strength.
+  final int recommendedLevel;
+  /// Fixed stage difficulty independent of the player level.
+  final int difficultyLevel;
+
+  StageOpponent _leveledOpponent(StageOpponent enemy) {
+    if (difficultyLevel == 1) return enemy;
+    final growth = difficultyLevel - 1;
+    // Match FQ's +3 power, +5 combat speed and +12 HP per level.
+    // HP follows damage per second; enemy damage follows player durability.
+    final hpScale = (28 + growth * 3) /
+        28 *
+        (100 + growth * 5) /
+        100 *
+        (enemy.isBoss ? (number == 4 ? 1.0 : .8) : 1.7);
+    final damageScale = (160 + growth * 12) / 160 * (enemy.isBoss ? 1.0 : 1.35);
+    return StageOpponent(enemy.id, enemy.name, (enemy.hp * hpScale).ceil(),
+        (enemy.damage * damageScale).ceil(), enemy.interval, enemy.subtitle,
+        isBoss: enemy.isBoss, count: enemy.count);
+  }
+
   List<StageOpponent> wave(int phase) {
     final main = opponents[phase];
     return [
@@ -39,11 +62,50 @@ class PlayableStageDefinition {
                 StageOpponent(
                     'goblin', 'ゴブリン', 56 + number * 2, 6, 6.5, 'ボスの取り巻き')),
       ...List.filled(main.count, main),
-    ];
+    ].map(_leveledOpponent).toList(growable: false);
   }
 }
 
 class PlayableStageCatalog {
+  static const recommendedLevels = [
+    5,
+    6,
+    8,
+    11,
+    12,
+    14,
+    15,
+    17,
+    20,
+    22,
+    24,
+    27,
+    17,
+    18,
+    21,
+    24,
+    24,
+    26,
+    28,
+    33,
+    33,
+    35,
+    37,
+    44,
+    40,
+    43,
+    46,
+    55,
+    51,
+    55,
+    58,
+    70,
+    69,
+    71,
+    75,
+    84
+  ];
+
   static const areas = [
     '草原',
     '幽霊船',
@@ -147,6 +209,8 @@ class PlayableStageCatalog {
                     isBoss: true)
                 : mob(2)
           ]),
+          recommendedLevel: recommendedLevels[number - 1],
+          difficultyLevel: number + 7,
           bossEscort: StageOpponent(
               escort, _mobNames[escort]!, 64 + theme * 4, 6, 6.5, 'ボスの取り巻き'));
     }
@@ -175,6 +239,8 @@ class PlayableStageCatalog {
                   10 + sourceArea, 6.2, '最後の守り手',
                   count: 3),
         ]),
+        recommendedLevel: recommendedLevels[number - 1],
+        difficultyLevel: number + 7,
         bossEscort: StageOpponent(
             'goblin', 'ゴブリン', 56 + sourceNumber * 2, 6, 6.5, 'ボスの取り巻き'));
   }));
