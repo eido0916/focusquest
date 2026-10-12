@@ -12,6 +12,7 @@ import 'package:focusquest/features/playable_stage/presentation/playable_stage_a
 import 'package:focusquest/features/playable_stage/presentation/playable_stage_audio.dart';
 import 'package:focusquest/features/playable_stage/presentation/playable_stage_page.dart';
 import 'package:focusquest/features/playable_stage/presentation/playable_stage_selection_page.dart';
+import 'package:focusquest/game/runner/pixel_battle_assets.dart';
 import 'support/memory_repository.dart';
 
 void main() {
@@ -30,7 +31,11 @@ void main() {
         await controller.resetForDevelopment();
         await controller.onboard(type, appearance: appearance);
         final combat = fqAdventureCharacter(controller.state!.activeCharacter!);
-        expect(combat.female, appearance == 'female', reason: type.typeId);
+        expect(
+            combat.female,
+            PixelBattleAssets.roles.containsKey(type.typeId) &&
+                appearance == 'female',
+            reason: type.typeId);
         expect(combat.health, greaterThan(0));
       }
     }
@@ -49,7 +54,6 @@ void main() {
     await expectLater(controller.startFocus(30), throwsStateError);
     await expectLater(controller.beginPlayableAdventure(), throwsStateError);
     await expectLater(controller.selectCharacter('starter'), throwsStateError);
-    await expectLater(controller.startAdventure('forest_1'), throwsStateError);
     controller.endPlayableAdventure();
     repo.fail = true;
     await expectLater(controller.recordPlayableClear(1), throwsStateError);
@@ -60,7 +64,6 @@ void main() {
     final restored = PlayerState.fromJson(repo.state.toJson());
     expect(restored.clearedPlayableStages, {1});
     expect(restored.coins, 0);
-    expect(restored.clearedStages, isEmpty);
     await controller.startFocus(15);
     await expectLater(controller.beginPlayableAdventure(), throwsStateError);
     controller.dispose();
@@ -102,6 +105,8 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byKey(const Key('select-stage-1')), findsOneWidget);
     expect(find.text('冒険の書'), findsOneWidget);
+    expect(find.text('以前の冒険の書'), findsNothing);
+    expect(find.byKey(const Key('legacy-adventure')), findsNothing);
     await tester.ensureVisible(find.byKey(const Key('select-stage-1')));
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const Key('select-stage-1')));

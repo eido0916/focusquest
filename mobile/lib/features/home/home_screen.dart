@@ -98,8 +98,7 @@ class HomeScreen extends StatelessWidget {
                                                 color: sunlitGold,
                                                 fontFamily: 'SunlitSerif',
                                                 fontSize: 12)),
-                                        Text(
-                                            'Lv. ${hero.level}  ${hero.rarity}',
+                                        Text('Lv. ${hero.level}',
                                             style: TextStyle(
                                                 fontFamily: 'SunlitSerif',
                                                 fontSize: w * .043,
@@ -173,9 +172,7 @@ class HomeScreen extends StatelessWidget {
                   onTap: onFocus),
               const SizedBox(height: 12),
               SunlitAction(
-                  light: true,
-                  label: state.adventureRun == null ? '冒険に出発する' : '冒険へ戻る',
-                  onTap: () => onNavigate(3)),
+                  light: true, label: '冒険に出発する', onTap: () => onNavigate(3)),
             ])),
       ]));
     });

@@ -1,0 +1,42 @@
+00:00 +0: loading C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/certificate_assets_test.dart
+00:00 +0: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/certificate_assets_test.dart: render all 32 original-art certificates at production resolution
+03:43 +1: loading C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/certificate_test.dart
+03:55 +1: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/certificate_test.dart: all 16 roles unlock exact titles at levels 1..8 and cap above 8
+03:55 +2: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/certificate_test.dart: first play and stable number survive reload; defeats are idempotent
+03:55 +3: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/certificate_test.dart: legacy saves retain progress and leave unknown first-play date unknown
+03:55 +4: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/certificate_test.dart: focus defeats match the on-screen simulation and settle only once
+03:57 +5: loading C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/certificate_screen_test.dart
+04:01 +5: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/certificate_screen_test.dart: small phone shows real player card and enables PNG export
+04:10 +6: loading C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/local_game_test.dart
+04:13 +6: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/local_game_test.dart: disk persisted complete loop: diagnosis, focus, growth, equipment, restart
+04:13 +7: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/local_game_test.dart: repository serializes concurrent updates, rejects corrupt data without resetting
+04:14 +8: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/local_game_test.dart: guard requires both permissions and app warning does not fail new focus
+04:14 +9: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/local_game_test.dart: save failure retains active session and can retry without duplicate reward
+04:14 +10: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/local_game_test.dart: interrupted focus and current adventure clears restore
+04:15 +11: loading C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/developer_reset_test.dart
+04:20 +11: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/developer_reset_test.dart: developer reset persists initial state and allows a new role
+04:21 +12: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/developer_reset_test.dart: failed reset preserves state and permits retry
+04:21 +13: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/developer_reset_test.dart: settings reset can cancel or return to initial role setup
+04:28 +14: loading C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/character_lobby_test.dart
+04:31 +14: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/character_lobby_test.dart: (setUpAll)
+04:31 +14: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/character_lobby_test.dart: lobby inventory equips at Size(390.0, 844.0) scale 1.0
+04:37 +15: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/character_lobby_test.dart: lobby inventory equips at Size(390.0, 844.0) scale 1.6
+04:38 +16: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/character_lobby_test.dart: lobby inventory equips at Size(320.0, 568.0) scale 1.0
+04:39 +17: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/character_lobby_test.dart: lobby inventory equips at Size(320.0, 568.0) scale 1.6
+04:39 +18: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/character_lobby_test.dart: lobby inventory equips at Size(800.0, 1280.0) scale 1.0
+04:40 +19: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/character_lobby_test.dart: lobby inventory equips at Size(800.0, 1280.0) scale 1.6
+04:41 +20: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/character_lobby_test.dart: lobby inventory equips at Size(866.0, 1280.0) scale 1.0
+04:41 +21: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/character_lobby_test.dart: lobby inventory equips at Size(866.0, 1280.0) scale 1.6
+04:42 +22: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/character_lobby_test.dart: lobby inventory equips at Size(844.0, 390.0) scale 1.0
+04:43 +23: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/character_lobby_test.dart: lobby inventory equips at Size(844.0, 390.0) scale 1.6
+04:43 +24: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/character_lobby_test.dart: (tearDownAll)
+04:43 +24: loading C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/playable_stage_selection_test.dart
+04:47 +24: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/playable_stage_selection_test.dart: (setUpAll)
+04:50 +24: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/playable_stage_selection_test.dart: every area loads its background and only its selected enemies
+04:56 +25: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/playable_stage_selection_test.dart: 36 stages have nine backgrounds and exactly nine final-phase bosses
+04:57 +26: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/playable_stage_selection_test.dart: selection exposes all 36 stages without overflow at Size(320.0, 568.0)
+05:03 +27: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/playable_stage_selection_test.dart: selection exposes all 36 stages without overflow at Size(390.0, 844.0)
+05:04 +28: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/playable_stage_selection_test.dart: selection exposes all 36 stages without overflow at Size(844.0, 390.0)
+05:05 +29: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/playable_stage_selection_test.dart: clearing a boss stage returns automatically and marks the selected stage
+05:08 +30: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-20261011-200810/test/playable_stage_selection_test.dart: (tearDownAll)
+05:09 +30: All tests passed!

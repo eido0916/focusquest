@@ -1,12 +1,17 @@
-import 'dart:math' as math;
 import 'dart:convert';
 import 'dart:ui' as ui;
+import 'package:flame/cache.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../focus/domain/focus_session.dart';
 import '../data/party_connection.dart';
 import '../domain/party_member.dart';
+import '../../../game/runner/pixel_battle_assets.dart';
+import '../../../game/runner/background_component.dart';
+import '../../../game/runner/enemy_motion_assets.dart';
+import '../../focus/domain/focus_adventure.dart';
+import '../../../game/runner/role_skill_effects.dart';
 
 class PartyBattlePage extends StatefulWidget {
   const PartyBattlePage(
@@ -70,68 +75,32 @@ class _PartyBattlePageState extends State<PartyBattlePage> {
                           ])))))));
 }
 
-/// Every animation frame is a completed v010 original, drawn at 128×128.
+/// Every player animation frame is a completed v013 original, drawn at 128×128.
 /// Only world coordinates move. Elapsed time deterministically selects poses.
 class PartyBattleGame extends FlameGame {
   PartyBattleGame(
       {required this.session,
       required this.clock,
       required this.onFinished,
-      this.party});
+      this.party}) {
+    images = Images();
+  }
   final FocusSession session;
   final DateTime Function() clock;
   final VoidCallback onFinished;
   final PartyConnection? party;
   ui.Image? _background;
+  ui.Image? _ghostShip;
+  EnemyMotionAssets? _bossAssets;
   final Map<String, Map<String, _OriginalMotion>> _actors = {};
+  final Map<String, RoleSkillEffects> _effects = {};
   bool _reported = false;
+  double _finishAge = 0;
   String? loadError;
-  static const roleNumbers = {
-    'warrior': 1,
-    'boxer': 2,
-    'samurai': 3,
-    'guardian': 4,
-    'ninja': 5,
-    'assassin': 6,
-    'ranger': 7,
-    'mage': 8,
-    'gunner': 9,
-    'spellblade': 1,
-    'onmyoji': 8,
-    'reaper': 3,
-    'angel': 8,
-    'devil': 8,
-    'dragon_knight': 4,
-    'berserker': 1
-  };
-  static const attacks = [
-    'attack_down',
-    'punch_combo',
-    'iai',
-    'slam',
-    'shuriken',
-    'dagger_thrust',
-    'bow_shot',
-    'fire_cast',
-    'gun_shot'
-  ];
-  static const skills = [
-    'skill_wave',
-    'spin_kick',
-    'energy_flurry',
-    'charged_sweep',
-    'teleport_stab',
-    'critical_strike',
-    'rapid_shot',
-    'ice_burst',
-    'quick_fire'
-  ];
   String actorKey(PartyMember member) {
-    final number =
-        (roleNumbers[member.characterType] ?? 1).toString().padLeft(2, '0');
-    return member.appearance == 'female'
-        ? 'players_female/character_${number}_female'
-        : 'players/character_$number';
+    final hero =
+        PixelBattleAssets.characterFor(member.characterType, member.appearance);
+    return '${hero.female ? 'players_female' : 'players'}/${hero.id}';
   }
 
   @override
@@ -139,7 +108,15 @@ class PartyBattleGame extends FlameGame {
   @override
   Future<void> onLoad() async {
     try {
-      _background = await images.load('ui/forest_meadow_battlefield.png');
+      _background = await images.load(BackgroundComponent.asset);
+      _ghostShip =
+          await images.load('stage_backgrounds/ghost_ship_focus_v002.png');
+      _bossAssets = await EnemyMotionAssets.load(this);
+      for (final type
+          in session.partyMembers.map((m) => m.characterType).toSet()) {
+        _effects[type] = await RoleSkillEffects.load(type,
+            (path) => images.load(path.replaceFirst('assets/images/', '')));
+      }
       final catalog = jsonDecode(
               await rootBundle.loadString('assets/images/party/catalog.json'))
           as Map<String, dynamic>;
@@ -149,6 +126,18 @@ class PartyBattleGame extends FlameGame {
         'enemies/goblin'
       };
       await Future.wait(keys.map((key) async {
+        if (!key.startsWith('enemies/')) {
+          final member =
+              session.partyMembers.firstWhere((m) => actorKey(m) == key);
+          final assets = await PixelBattleAssets.load(
+              this, member.characterType, member.appearance);
+          _actors[key] = {
+            for (final entry in assets.motions.entries)
+              entry.key:
+                  _OriginalMotion(entry.value.metadata, entry.value.images),
+          };
+          return;
+        }
         final motions = Map<String, dynamic>.from(catalog[key] as Map);
         _actors[key] = {};
         final names = key.startsWith('enemies/')
@@ -173,7 +162,12 @@ class PartyBattleGame extends FlameGame {
   @override
   void update(double dt) {
     super.update(dt);
-    if (!_reported && elapsed >= session.durationMinutes * 60) {
+    if (elapsed >= session.durationMinutes * 60) _finishAge += dt;
+    final end = session.adventureStartSeconds + session.durationMinutes * 60;
+    final bossJustDefeated = end >= 1800 && end % 1800 == 0;
+    if (!_reported &&
+        elapsed >= session.durationMinutes * 60 &&
+        (!bossJustDefeated || _finishAge >= 1.3)) {
       _reported = true;
       onFinished();
     }
@@ -198,23 +192,31 @@ class PartyBattleGame extends FlameGame {
     super.render(canvas);
     canvas.save();
     canvas.scale(size.x / 960, size.y / 540);
-    final background = _background;
+    final time = elapsed.clamp(0.0, session.durationMinutes * 60.0).toDouble();
+    final adventureTime = session.adventureStartSeconds + time;
+    final bossBattle = FocusAdventure.fightingBoss(adventureTime);
+    final bossLeft = (1800 - FocusAdventure.age(adventureTime)).ceil();
+    final background =
+        FocusAdventure.chapter(adventureTime) == 2 ? _ghostShip : _background;
     if (background != null) {
-      canvas.drawImageRect(
-          background,
-          Rect.fromLTWH(
-              0, 0, background.width.toDouble(), background.height.toDouble()),
-          const Rect.fromLTWH(0, 0, 960, 540),
-          Paint());
+      BackgroundComponent.paintScenery(canvas, background);
     }
     canvas.drawRect(const Rect.fromLTWH(0, 0, 960, 80),
         Paint()..color = const Color(0xdd10231c));
     final remaining = session.remaining(clock()).inSeconds;
-    _text(canvas, '${session.partyMembers.length}人の集中パーティー', 20, 12,
-        width: 400, size: 23, color: const Color(0xffffdd98));
     _text(
         canvas,
-        '残り ${remaining ~/ 60}:${(remaining % 60).toString().padLeft(2, '0')}  ·  敵 ${session.partyMembers.length}体 / wave',
+        '第${FocusAdventure.chapter(adventureTime)}章 · ${FocusAdventure.area(adventureTime)} · ${session.partyMembers.length}人パーティー',
+        20,
+        12,
+        width: 400,
+        size: 23,
+        color: const Color(0xffffdd98));
+    _text(
+        canvas,
+        bossBattle
+            ? 'BOSS · ${FocusAdventure.bossName(adventureTime)} · 撃破まで ${bossLeft ~/ 60}:${(bossLeft % 60).toString().padLeft(2, '0')}'
+            : '残り ${remaining ~/ 60}:${(remaining % 60).toString().padLeft(2, '0')}  ·  敵 ${session.partyMembers.length}体 / wave',
         20,
         48,
         width: 600,
@@ -227,7 +229,7 @@ class PartyBattleGame extends FlameGame {
       _text(canvas, '接続切れ · 集中は継続中', 600, 48,
           width: 340, color: Colors.orangeAccent);
     }
-    final time = math.max(0.0, elapsed);
+
     final wave = time ~/ 6;
     final age = time % 6;
     final skillWave = wave % 4 == 3;
@@ -250,8 +252,7 @@ class PartyBattleGame extends FlameGame {
             size: 13, color: Colors.orangeAccent);
       }
       final actor = _actors[actorKey(member)];
-      final number = (roleNumbers[member.characterType] ?? 1) - 1;
-      final attack = actor?[skillWave ? skills[number] : attacks[number]];
+      final attack = actor?[skillWave ? 'skill' : 'attack'];
       final attackDuration = attack?.duration ?? 1;
       final hitAt = 2 + attackDuration;
       if (actor != null) {
@@ -261,7 +262,7 @@ class PartyBattleGame extends FlameGame {
             moving ? age % motion.duration : age - 2);
       }
       final enemy = _actors[i.isEven ? 'enemies/slime' : 'enemies/goblin'];
-      if (enemy != null) {
+      if (enemy != null && !bossBattle) {
         final defeated = age >= hitAt;
         final motion = enemy[defeated ? 'defeat' : 'locomotion']!;
         if (!defeated || age - hitAt < motion.duration) {
@@ -270,6 +271,51 @@ class PartyBattleGame extends FlameGame {
               defeated ? age - hitAt : age % motion.duration);
         }
       }
+      if (skillWave && age >= 2 && age < hitAt && attack != null) {
+        final character = PixelBattleAssets.characterFor(
+            member.characterType, member.appearance);
+        final events = (attack.data['events'] as List)
+            .where((e) => e['event'] == character.skillEvent)
+            .map((e) => (e['tick'] as num).toDouble() / 24)
+            .toList();
+        _effects[member.characterType]?.paint(canvas,
+            origin: Offset(284, y) + attack.offsetAt(age - 2),
+            viewport: Rect.fromLTWH(0, y - 96, 960, 100),
+            age: age - 2,
+            duration: attackDuration,
+            releases: events,
+            logicalPixel: 1);
+      }
+    }
+    final chapterAge = FocusAdventure.age(adventureTime);
+    final defeatingBoss =
+        adventureTime >= 1800 && chapterAge < 1.25 && time > 0;
+    if ((bossBattle || defeatingBoss) && _bossAssets != null) {
+      final id = FocusAdventure.bossId(
+          defeatingBoss ? adventureTime - chapterAge - 1 : adventureTime);
+      final bossAge = bossBattle
+          ? chapterAge - 1500
+          : (chapterAge == 0 ? _finishAge : chapterAge);
+      final action = defeatingBoss
+          ? 'defeat'
+          : bossAge % 4 >= 3
+              ? 'attack'
+              : 'locomotion';
+      final frame = _bossAssets!.frame(
+          id,
+          action,
+          defeatingBoss
+              ? bossAge
+              : action == 'attack'
+                  ? bossAge % 4 - 3
+                  : bossAge,
+          loop: !defeatingBoss);
+      canvas.drawImageRect(
+          frame.image,
+          const Rect.fromLTWH(0, 0, 128, 128),
+          Rect.fromLTWH(
+              580 + frame.offset.dx * 2, 150 + frame.offset.dy * 2, 256, 256),
+          Paint()..filterQuality = FilterQuality.none);
     }
     if (loadError != null) {
       _text(canvas, loadError!, 220, 270,
@@ -287,7 +333,7 @@ class _OriginalMotion {
   double get duration =>
       holds.fold<double>(0, (sum, h) => sum + (h['ticks'] as num).toDouble()) /
       (data['fps'] as num);
-  void paint(Canvas canvas, Offset position, double age) {
+  Map holdAt(double age) {
     var tick = (age * (data['fps'] as num)).floor();
     Map hold = holds.last as Map;
     for (final item in holds) {
@@ -295,12 +341,17 @@ class _OriginalMotion {
       if (tick < (hold['ticks'] as num)) break;
       tick -= (hold['ticks'] as num).toInt();
     }
-    final offset = hold['root_offset_px'] as List? ?? [0, 0];
-    canvas.drawImage(
-        frames[(hold['keyframe'] as num).toInt()],
-        position +
-            Offset(
-                (offset[0] as num).toDouble(), (offset[1] as num).toDouble()),
-        Paint()..filterQuality = FilterQuality.none);
+    return hold;
+  }
+
+  Offset offsetAt(double age) {
+    final offset = holdAt(age)['root_offset_px'] as List? ?? [0, 0];
+    return Offset((offset[0] as num).toDouble(), (offset[1] as num).toDouble());
+  }
+
+  void paint(Canvas canvas, Offset position, double age) {
+    final hold = holdAt(age);
+    canvas.drawImage(frames[(hold['keyframe'] as num).toInt()],
+        position + offsetAt(age), Paint()..filterQuality = FilterQuality.none);
   }
 }

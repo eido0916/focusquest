@@ -30,10 +30,49 @@ void main() {
   });
   tearDownAll(() => assets.dispose());
 
+  testWidgets('battle requests landscape and restores portrait on return',
+      (tester) async {
+    final orientations = <List<dynamic>>[];
+    tester.binding.defaultBinaryMessenger
+        .setMockMethodCallHandler(SystemChannels.platform, (call) async {
+      if (call.method == 'SystemChrome.setPreferredOrientations') {
+        orientations.add(call.arguments as List<dynamic>);
+      }
+      return null;
+    });
+    addTearDown(() => tester.binding.defaultBinaryMessenger
+        .setMockMethodCallHandler(SystemChannels.platform, null));
+    final battle = PlayableStageBattle();
+    addTearDown(battle.dispose);
+    await tester.pumpWidget(MaterialApp(
+        home: Builder(
+            builder: (context) => Scaffold(
+                body: TextButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute<void>(
+                            builder: (_) => PlayableStagePage(
+                                battle: battle,
+                                assets: assets,
+                                audioOutput: SilentStageAudioOutput()))),
+                    child: const Text('select stage'))))));
+    await tester.tap(find.text('select stage'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(orientations, [
+      ['DeviceOrientation.landscapeLeft', 'DeviceOrientation.landscapeRight']
+    ]);
+    await tester.pageBack();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(find.text('select stage'), findsOneWidget);
+    expect(orientations.last, ['DeviceOrientation.portraitUp']);
+  });
+
   for (final size in [
     const Size(390, 844),
     const Size(320, 568),
-    const Size(844, 390)
+    const Size(844, 390),
+    const Size(1672, 941)
   ]) {
     testWidgets('native stage controls, pause and rendering fit $size',
         (tester) async {

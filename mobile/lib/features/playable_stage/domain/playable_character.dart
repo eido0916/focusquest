@@ -3,10 +3,12 @@ enum ProjectileKind { arrow, bullet, fire, ice, shuriken }
 class PlayableCharacter {
   const PlayableCharacter(this.id, this.role, this.female, this.health,
       this.power, this.speed, this.attackEvent, this.skillEvent, this.skillName,
-      {this.ranged = false});
+      {this.ranged = false, this.effectType, this.level = 1});
   final String id, role, attackEvent, skillEvent, skillName;
   final bool female, ranged;
+  final String? effectType;
   final int health, power, speed;
+  final int level;
   String get name => '$role · ${female ? '女性' : '男性'}';
   double get attackSeconds => 100 / speed;
   double get skillSeconds => attackSeconds * 1.75;

@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import '../domain/playable_stage_battle.dart';
 import '../domain/playable_stage_catalog.dart';
 import 'playable_stage_assets.dart';
 import 'playable_stage_painter.dart';
 import 'playable_stage_audio.dart';
+import 'adventure_battle_hud.dart';
 
 class PlayableStagePage extends StatefulWidget {
   const PlayableStagePage(
@@ -34,9 +36,14 @@ class _PlayableStagePageState extends State<PlayableStagePage>
   String? _error;
   Timer? _returnTimer;
   bool _returned = false;
+  bool _auto = false;
   @override
   void initState() {
     super.initState();
+    unawaited(SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]));
     WidgetsBinding.instance.addObserver(this);
     _battle = widget.battle ?? PlayableStageBattle(stage: widget.stage);
     _audio = PlayableStageAudio(_battle, output: widget.audioOutput);
@@ -59,6 +66,13 @@ class _PlayableStagePageState extends State<PlayableStagePage>
               _assets!.motions['${enemy.definition.id}_defeat']!.duration;
         }
         _battle.update((elapsed - previous).inMicroseconds / 1000000);
+        if (_auto && !_battle.paused) {
+          if (_battle.canSkill) {
+            _battle.skill();
+          } else if (_battle.canAttack) {
+            _battle.attack();
+          }
+        }
       }
     })
       ..start();
@@ -145,6 +159,9 @@ class _PlayableStagePageState extends State<PlayableStagePage>
     unawaited(_audio.close());
     if (widget.battle == null) _battle.dispose();
     if (widget.assets == null) _assets?.dispose();
+    unawaited(SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]));
     super.dispose();
   }
 
@@ -153,79 +170,73 @@ class _PlayableStagePageState extends State<PlayableStagePage>
       animation: _battle,
       builder: (context, _) => Scaffold(
           backgroundColor: const Color(0xff122b24),
-          appBar: AppBar(
-              title: Text(_battle.stage.title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontSize: 18)),
-              backgroundColor: const Color(0xff19352b),
-              actions: [
-                IconButton(
-                    key: const Key('stage-sound'),
-                    tooltip: !_audio.available
-                        ? '音声を再生できません'
-                        : _audio.enabled
-                            ? '音を消す'
-                            : '音を出す',
-                    onPressed: _audio.available ? _audio.toggle : null,
-                    icon: Icon(
-                        _audio.enabled ? Icons.volume_up : Icons.volume_off)),
-                IconButton(
-                    key: const Key('stage-pause'),
-                    tooltip: _battle.paused ? '再開' : '一時停止',
-                    onPressed: !_battle.active
-                        ? null
-                        : () =>
-                            _battle.paused ? _battle.resume() : _battle.pause(),
-                    icon:
-                        Icon(_battle.paused ? Icons.play_arrow : Icons.pause)),
-                IconButton(
-                    key: const Key('stage-reset'),
-                    tooltip: 'やり直す',
-                    onPressed: _assets == null ? null : _battle.restart,
-                    icon: const Icon(Icons.restart_alt)),
-              ]),
-          body: SafeArea(child: LayoutBuilder(builder: (context, constraints) {
-            final landscape = constraints.maxWidth > constraints.maxHeight;
-            final controls = _controls();
-            final scene = _scene();
-            if (landscape) {
-              return Row(children: [
-                Expanded(child: scene),
-                SizedBox(
-                    width: constraints.maxWidth < 600 ? 170 : 220,
-                    child: SingleChildScrollView(child: controls))
-              ]);
-            }
-            return Column(children: [
-              _phaseHeader(),
-              Expanded(child: scene),
-              controls,
-            ]);
-          }))));
+          body: SafeArea(
+              child: Stack(fit: StackFit.expand, children: [
+            _scene(),
+            AdventureBattleHud(
+              battle: _battle,
+              auto: _auto,
+              onAuto: () => setState(() => _auto = !_auto),
+              utilities: _utilities(),
+            ),
+            if (_assets == null ||
+                _battle.mode == StageMode.ready ||
+                _battle.paused ||
+                _battle.mode == StageMode.won ||
+                _battle.mode == StageMode.lost)
+              ColoredBox(
+                  color: const Color(0x99112b23),
+                  child: Center(
+                      child: SingleChildScrollView(
+                          padding: const EdgeInsets.all(18),
+                          child: _overlay()))),
+            Positioned(
+                left: 4,
+                top: 4,
+                child: BackButton(
+                    color: const Color(0xffffecc0),
+                    onPressed: () => Navigator.of(context).maybePop())),
+          ]))));
 
-  Widget _phaseHeader() => Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-      child: Row(
-          children: List.generate(
-              3,
-              (index) => Expanded(
-                  child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 3),
-                      padding: const EdgeInsets.symmetric(vertical: 9),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(
-                              color: index == _battle.phase
-                                  ? const Color(0xffcfb674)
-                                  : const Color(0xff435d47)),
-                          color: index < _battle.cleared
-                              ? const Color(0xff2e563b)
-                              : const Color(0xff203b30)),
-                      child: Text(
-                          '${index + 1}  ${_battle.encounters[index].isBoss ? 'ボス' : _battle.encounters[index].name}',
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(fontSize: 12)))))));
+  Widget _utilities() => Row(mainAxisSize: MainAxisSize.min, children: [
+        _utility(
+            'stage-sound',
+            !_audio.available
+                ? '音声を再生できません'
+                : _audio.enabled
+                    ? '音を消す'
+                    : '音を出す',
+            _audio.enabled ? Icons.volume_up : Icons.volume_off,
+            _audio.available ? _audio.toggle : null),
+        _utility(
+            'stage-pause',
+            _battle.paused ? '再開' : '一時停止',
+            _battle.paused ? Icons.play_arrow : Icons.pause,
+            !_battle.active
+                ? null
+                : () => _battle.paused ? _battle.resume() : _battle.pause()),
+        _utility('stage-reset', 'やり直す', Icons.restart_alt,
+            _assets == null ? null : _battle.restart),
+      ]);
+
+  Widget _utility(
+      String key, String tooltip, IconData icon, VoidCallback? onTap) {
+    final side = (MediaQuery.sizeOf(context).width * .053).clamp(44.0, 80.0);
+    return Padding(
+        padding: const EdgeInsets.only(left: 6),
+        child: SizedBox(
+            width: side,
+            height: side,
+            child: Stack(fit: StackFit.expand, children: [
+              const AdventureFrame('utility_button'),
+              IconButton(
+                  key: Key(key),
+                  tooltip: tooltip,
+                  onPressed: onTap,
+                  color: const Color(0xffffecc0),
+                  icon: Icon(icon, size: side * .54)),
+            ])));
+  }
 
   Widget _scene() => LayoutBuilder(builder: (context, constraints) {
         final size = constraints.biggest;
@@ -240,29 +251,9 @@ class _PlayableStagePageState extends State<PlayableStagePage>
                 key: const Key('stage-canvas'),
                 painter: PlayableStagePainter(
                     _battle, _assets!, MediaQuery.devicePixelRatioOf(context))),
-          Positioned(
-              top: 12,
-              left: 10,
-              right: 10,
-              child:
-                  Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Expanded(
-                    child: _hp(_battle.character.role, _battle.hp,
-                        _battle.character.health, false)),
-                const SizedBox(width: 24),
-                Expanded(
-                    child: _battle.mode == StageMode.travel ||
-                            _battle.mode == StageMode.ready
-                        ? const SizedBox.shrink()
-                        : _hp(
-                            '${_battle.isBoss ? 'BOSS · ' : ''}残り${_battle.remainingEnemies}体',
-                            _battle.waveHp,
-                            _battle.waveMaxHp,
-                            true)),
-              ])),
           if (_battle.message.isNotEmpty && _battle.mode != StageMode.ready)
             Positioned(
-              top: 85,
+              top: constraints.maxWidth > constraints.maxHeight ? 125 : 290,
               left: 12,
               right: 12,
               child: Center(
@@ -277,40 +268,8 @@ class _PlayableStagePageState extends State<PlayableStagePage>
                               textAlign: TextAlign.center,
                               style: const TextStyle(fontSize: 12))))),
             ),
-          if (_assets == null ||
-              _battle.mode == StageMode.ready ||
-              _battle.paused ||
-              _battle.mode == StageMode.won ||
-              _battle.mode == StageMode.lost)
-            ColoredBox(
-                color: const Color(0x99112b23),
-                child: Center(
-                    child: SingleChildScrollView(
-                        padding: const EdgeInsets.all(18), child: _overlay()))),
         ]));
       });
-
-  Widget _hp(String name, int hp, int max, bool enemy) => Container(
-      padding: const EdgeInsets.all(9),
-      decoration: BoxDecoration(
-          color: const Color(0xe619352a),
-          borderRadius: BorderRadius.circular(8)),
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(name,
-                style:
-                    const TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
-            Text('$hp / $max', style: const TextStyle(fontSize: 10)),
-            const SizedBox(height: 5),
-            LinearProgressIndicator(
-                value: hp / max,
-                minHeight: 5,
-                backgroundColor: const Color(0xff09251c),
-                color:
-                    enemy ? const Color(0xffee9e75) : const Color(0xffb0d276)),
-          ]));
 
   Widget _overlay() {
     final won = _battle.mode == StageMode.won,
@@ -383,97 +342,5 @@ class _PlayableStagePageState extends State<PlayableStagePage>
                 onPressed: _returnToSelection, child: const Text('ステージ選択へ')),
           ],
         ]));
-  }
-
-  Widget _controls() => Padding(
-      padding: const EdgeInsets.all(10),
-      child: Column(mainAxisSize: MainAxisSize.min, children: [
-        Text('PHASE ${_battle.phase + 1} / 3 · 残り${_battle.remainingEnemies}体',
-            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
-        const SizedBox(height: 6),
-        LayoutBuilder(builder: (_, constraints) {
-          final commands = [
-            _command(
-                '攻撃',
-                Icons.gavel,
-                const Key('stage-attack'),
-                _battle.canAttack ? _battle.attack : null,
-                _battle.action != null
-                    ? '行動中'
-                    : '${_battle.attackDuration.toStringAsFixed(2)}秒 / 回',
-                false),
-            _command(
-                'スキル',
-                Icons.bolt,
-                const Key('stage-skill'),
-                _battle.canSkill ? _battle.skill : null,
-                _battle.charge == 3
-                    ? _battle.character.skillName
-                    : '命中 ${_battle.charge} / 3',
-                true),
-          ];
-          return constraints.maxWidth < 200
-              ? Column(children: [
-                  commands[0],
-                  const SizedBox(height: 8),
-                  commands[1]
-                ])
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: commands);
-        }),
-      ]));
-
-  Widget _command(String label, IconData icon, Key key, VoidCallback? onTap,
-      String caption, bool skill) {
-    final color = skill ? const Color(0xff247ce8) : const Color(0xffe43c46);
-    final busy = _battle.action != null;
-    final duration = _battle.action == HeroAction.skill
-        ? _battle.skillDuration
-        : _battle.attackDuration;
-    final progress = busy
-        ? (_battle.actionTime / duration).clamp(0.0, 1.0)
-        : (skill ? _battle.charge / 3 : 1.0);
-    return Column(mainAxisSize: MainAxisSize.min, children: [
-      SizedBox(
-          width: 96,
-          height: 96,
-          child: Stack(alignment: Alignment.center, children: [
-            SizedBox(
-                width: 96,
-                height: 96,
-                child: CircularProgressIndicator(
-                    value: progress,
-                    strokeWidth: 4,
-                    color: Colors.white70,
-                    backgroundColor: color.withOpacity(.25))),
-            Semantics(
-                label: '$label、$caption',
-                button: true,
-                enabled: onTap != null,
-                child: FilledButton(
-                    key: key,
-                    onPressed: onTap,
-                    style: FilledButton.styleFrom(
-                        fixedSize: const Size(84, 84),
-                        padding: EdgeInsets.zero,
-                        shape: const CircleBorder(),
-                        backgroundColor: color,
-                        disabledBackgroundColor: color.withOpacity(.4),
-                        foregroundColor: Colors.white,
-                        disabledForegroundColor: Colors.white60),
-                    child: Column(mainAxisSize: MainAxisSize.min, children: [
-                      Icon(icon, size: 30),
-                      Text(label,
-                          style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'SunlitSerif')),
-                    ]))),
-          ])),
-      const SizedBox(height: 5),
-      Text(caption,
-          style: const TextStyle(fontSize: 10), textAlign: TextAlign.center),
-    ]);
   }
 }

@@ -8,7 +8,7 @@ import 'package:focusquest/data/game_catalog.dart';
 import 'support/memory_repository.dart';
 
 void main() {
-  testWidgets('phone UI: focus EXP -> adventure reward -> equipment',
+  testWidgets('phone UI: focus EXP -> current adventure -> inventory',
       (tester) async {
     tester.view.physicalSize = const Size(390, 844);
     tester.view.devicePixelRatio = 1;
@@ -46,7 +46,6 @@ void main() {
     expect(controller.state!.coins, 0);
     await tester.tap(find.text('タイマーに戻る'));
     await tester.pumpAndSettle();
-    expect(controller.state!.adventureRun, isNull);
     now = now.add(const Duration(minutes: 30));
     await tester.pump(const Duration(seconds: 1));
     await tester.pumpAndSettle();
@@ -59,27 +58,9 @@ void main() {
     await tester.ensureVisible(find.text('冒険に出発する'));
     await tester.tap(find.text('冒険に出発する'));
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(
-        find.byKey(const Key('legacy-adventure')), 500);
-    await tester.tap(find.byKey(const Key('legacy-adventure')));
-    await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('冒険に出発する').first);
-    await tester.tap(find.text('冒険に出発する').first);
-    await tester.pump();
-    await tester.pump(const Duration(seconds: 1));
-    now = now.add(const Duration(minutes: 5));
-    await tester.pump(const Duration(milliseconds: 200));
-    await tester.pump(const Duration(seconds: 1));
-    expect(find.text('勝利！'), findsOneWidget);
-    expect(controller.state!.coins, 100);
-    await tester.ensureVisible(find.text('冒険の書へ戻る'));
-    await tester.tap(find.text('冒険の書へ戻る'));
-    await tester.pumpAndSettle();
-    expect(find.text('召喚'), findsNothing);
-    expect(controller.state!.coins, 100);
-    expect(controller.state!.inventory['wooden_sword'], 1);
-    await tester.pageBack();
-    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('select-stage-1')), findsOneWidget);
+    expect(find.text('以前の冒険の書'), findsNothing);
+    expect(controller.state!.coins, 0);
     await tester.tap(find.text('キャラクター'));
     await tester.pumpAndSettle();
     expect(find.text('所持アイテム'), findsOneWidget);

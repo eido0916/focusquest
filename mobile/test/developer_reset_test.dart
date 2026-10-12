@@ -33,8 +33,11 @@ void main() {
     final restored = GameController(LocalPlayerRepository(directory));
     addTearDown(restored.dispose);
     await restored.load();
-    expect(restored.state!.toJson(),
-        PlayerState(uid: GameController.uid).toJson());
+    expect(restored.state!.firstPlayedAt, isNotNull);
+    expect(restored.state!.adventurerNumber, matches(r'^AG-[0-9]{7}$'));
+    expect(restored.state!.toJson(), PlayerState(uid: GameController.uid,
+      firstPlayedAt: restored.state!.firstPlayedAt,
+      adventurerNumber: restored.state!.adventurerNumber).toJson());
     await restored.onboard(GameCatalog.types[3]!, name: '新しい冒険者');
     expect(restored.state!.activeCharacter!.name, '新しい冒険者');
     expect(restored.state!.activeCharacter!.characterType,
@@ -47,7 +50,7 @@ void main() {
     addTearDown(controller.dispose);
     await controller.load();
     await controller.onboard(GameCatalog.types[0]!);
-    await controller.startAdventure('forest_1');
+    await controller.recordPlayableClear(1);
     final before = controller.state!.toJson();
     repository.fail = true;
     await expectLater(controller.resetForDevelopment(), throwsStateError);

@@ -1,31 +1,31 @@
-import 'package:flame/components.dart';
+import 'dart:convert';
 import 'package:flame/game.dart';
-import 'package:flame/sprite.dart';
+import 'package:flutter/services.dart';
+import '../../features/playable_stage/presentation/playable_stage_assets.dart';
 
-/// Existing left-facing movement art. No enemy attack assets are loaded.
+/// Completed v013 originals; metadata selects held poses and world offsets.
 class EnemyMotionAssets {
-  EnemyMotionAssets._(this._movement);
-  final Map<String, SpriteAnimation> _movement;
-  static const cycleSeconds = .5;
-
+  EnemyMotionAssets._(this.motions);
+  final Map<String, StageMotion> motions;
   static Future<EnemyMotionAssets> load(FlameGame game) async {
-    final movement = <String, SpriteAnimation>{};
-    for (final id in ['slime', 'goblin']) {
-      final image = await game.images.load('enemies/${id}_move_sheet.png');
-      final sheet = SpriteSheet(image: image, srcSize: Vector2.all(128));
-      movement[id] = SpriteAnimation.spriteList(
-        [for (var i = 0; i < 6; i++) sheet.getSprite(i ~/ 3, i % 3)],
-        stepTime: cycleSeconds / 6,
-        loop: true,
-      );
+    final motions = <String, StageMotion>{};
+    for (final id in ['slime', 'goblin', 'boss_goblin_king', 'boss_dullahan']) {
+      for (final action in ['locomotion', 'attack', 'defeat']) {
+        final name = '${id}_$action';
+        final meta = jsonDecode(await rootBundle.loadString(
+            'assets/images/playable_stage/$name.json')) as Map<String, dynamic>;
+        final frames = [
+          for (final key in meta['keyframes'] as List)
+            await game.images.load(
+                'playable_stage/${name}_${(key['index'] as int).toString().padLeft(3, '0')}.png')
+        ];
+        motions[name] = StageMotion(meta, frames);
+      }
     }
-    return EnemyMotionAssets._(movement);
+    return EnemyMotionAssets._(motions);
   }
 
-  Sprite frameAt(String id, double seconds) {
-    final animation = _movement[id];
-    if (animation == null) throw StateError('Missing enemy movement art: $id');
-    final frame = ((seconds % cycleSeconds) / (cycleSeconds / 6)).floor();
-    return animation.frames[frame.clamp(0, 5).toInt()].sprite;
-  }
+  StageFrame frame(String id, String action, double seconds,
+          {bool loop = false}) =>
+      motions['${id}_$action']!.frame(seconds, loop: loop);
 }

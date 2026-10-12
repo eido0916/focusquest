@@ -1,0 +1,480 @@
+{
+  "role": "悪魔",
+  "skill": "獄炎の波",
+  "kind": "hellfire",
+  "palette": [
+    "#3b193e",
+    "#8b285d",
+    "#ee547c",
+    "#ffd5b2"
+  ],
+  "fps": 24,
+  "size": [
+    1536,
+    256
+  ],
+  "anchor_px": [
+    0,
+    256
+  ],
+  "interpolation": "none",
+  "loop": false,
+  "keyframes": [
+    {
+      "index": 0,
+      "file": "keyframes/devil_000.png"
+    },
+    {
+      "index": 1,
+      "file": "keyframes/devil_001.png"
+    },
+    {
+      "index": 2,
+      "file": "keyframes/devil_002.png"
+    },
+    {
+      "index": 3,
+      "file": "keyframes/devil_003.png"
+    },
+    {
+      "index": 4,
+      "file": "keyframes/devil_004.png"
+    },
+    {
+      "index": 5,
+      "file": "keyframes/devil_005.png"
+    },
+    {
+      "index": 6,
+      "file": "keyframes/devil_006.png"
+    },
+    {
+      "index": 7,
+      "file": "keyframes/devil_007.png"
+    },
+    {
+      "index": 8,
+      "file": "keyframes/devil_008.png"
+    },
+    {
+      "index": 9,
+      "file": "keyframes/devil_009.png"
+    },
+    {
+      "index": 10,
+      "file": "keyframes/devil_010.png"
+    },
+    {
+      "index": 11,
+      "file": "keyframes/devil_011.png"
+    }
+  ],
+  "holds": [
+    {
+      "keyframe": 0,
+      "ticks": 3
+    },
+    {
+      "keyframe": 1,
+      "ticks": 3
+    },
+    {
+      "keyframe": 2,
+      "ticks": 3
+    },
+    {
+      "keyframe": 3,
+      "ticks": 2
+    },
+    {
+      "keyframe": 4,
+      "ticks": 2
+    },
+    {
+      "keyframe": 5,
+      "ticks": 2
+    },
+    {
+      "keyframe": 6,
+      "ticks": 2
+    },
+    {
+      "keyframe": 7,
+      "ticks": 2
+    },
+    {
+      "keyframe": 8,
+      "ticks": 3
+    },
+    {
+      "keyframe": 9,
+      "ticks": 4
+    },
+    {
+      "keyframe": 10,
+      "ticks": 4
+    },
+    {
+      "keyframe": 11,
+      "ticks": 6
+    }
+  ],
+  "timeline": [
+    {
+      "tick": 0,
+      "keyframe": 0,
+      "file": "frames_24fps/000.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 1,
+      "keyframe": 0,
+      "file": "frames_24fps/001.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 2,
+      "keyframe": 0,
+      "file": "frames_24fps/002.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 3,
+      "keyframe": 1,
+      "file": "frames_24fps/003.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 4,
+      "keyframe": 1,
+      "file": "frames_24fps/004.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 5,
+      "keyframe": 1,
+      "file": "frames_24fps/005.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 6,
+      "keyframe": 2,
+      "file": "frames_24fps/006.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 7,
+      "keyframe": 2,
+      "file": "frames_24fps/007.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 8,
+      "keyframe": 2,
+      "file": "frames_24fps/008.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 9,
+      "keyframe": 3,
+      "file": "frames_24fps/009.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 10,
+      "keyframe": 3,
+      "file": "frames_24fps/010.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 11,
+      "keyframe": 4,
+      "file": "frames_24fps/011.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 12,
+      "keyframe": 4,
+      "file": "frames_24fps/012.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 13,
+      "keyframe": 5,
+      "file": "frames_24fps/013.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 14,
+      "keyframe": 5,
+      "file": "frames_24fps/014.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 15,
+      "keyframe": 6,
+      "file": "frames_24fps/015.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 16,
+      "keyframe": 6,
+      "file": "frames_24fps/016.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 17,
+      "keyframe": 7,
+      "file": "frames_24fps/017.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 18,
+      "keyframe": 7,
+      "file": "frames_24fps/018.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 19,
+      "keyframe": 8,
+      "file": "frames_24fps/019.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 20,
+      "keyframe": 8,
+      "file": "frames_24fps/020.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 21,
+      "keyframe": 8,
+      "file": "frames_24fps/021.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 22,
+      "keyframe": 9,
+      "file": "frames_24fps/022.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 23,
+      "keyframe": 9,
+      "file": "frames_24fps/023.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 24,
+      "keyframe": 9,
+      "file": "frames_24fps/024.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 25,
+      "keyframe": 9,
+      "file": "frames_24fps/025.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 26,
+      "keyframe": 10,
+      "file": "frames_24fps/026.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 27,
+      "keyframe": 10,
+      "file": "frames_24fps/027.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 28,
+      "keyframe": 10,
+      "file": "frames_24fps/028.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 29,
+      "keyframe": 10,
+      "file": "frames_24fps/029.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 30,
+      "keyframe": 11,
+      "file": "frames_24fps/030.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 31,
+      "keyframe": 11,
+      "file": "frames_24fps/031.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 32,
+      "keyframe": 11,
+      "file": "frames_24fps/032.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 33,
+      "keyframe": 11,
+      "file": "frames_24fps/033.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 34,
+      "keyframe": 11,
+      "file": "frames_24fps/034.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 35,
+      "keyframe": 11,
+      "file": "frames_24fps/035.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    }
+  ],
+  "events": [
+    {
+      "tick": 9,
+      "event": "release",
+      "world_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 30,
+      "event": "clear",
+      "world_offset_px": [
+        0,
+        0
+      ]
+    }
+  ],
+  "rgba_sha256": [
+    "974a0cbbeb9429728c8bfb1e8e19ec0eb010dcf70d2973ae5865873680528c1f",
+    "05f9b5c363503d890f7ca99194f8c4f3748141f4b0df7569ec5b4c5b1c3c8e0f",
+    "58d6213d7ffa98a73ea80936d8d82a742afbd6fcf4598a9199513509e95b355e",
+    "5abde22846abf2e788c35d41f1cfa53840fd4de2b1a4e19319a61d9f0be64cd3",
+    "422006952acdb73a17bf4b58b675bbc11e5aed5c24d8b1ea1e0dd72a9771bd78",
+    "8ebd0b1dbb64ab5235b832a806576291a00ec10dec20e0a452f050cb0e7e536b",
+    "ab7d7383d31827e9bdc4a6f10803e087e0581f57a6e8f83bd0a5d829387d9def",
+    "cfea19412d582905f7dbfdade2ea84c69d4921855383a5757f84e3525a4571a1",
+    "7d162a5cda3d07a9215fcc7bd9eeea103577785a0a9e0042aa535c0679b5953a",
+    "b8cb603db6b8da69975df2d710d046bd2d85ef8f8f7b869b30b76b69f726141c",
+    "8a246c885b87246474d4402e79bb1e48a967ae8fbd6e256a66af88c67e6f06fa",
+    "106f0647ae10a6516b1ab2968038161e287ef40d1b22ca047531ed768e594ef1"
+  ]
+}

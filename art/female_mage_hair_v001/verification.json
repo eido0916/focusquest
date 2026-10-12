@@ -1,0 +1,14 @@
+{
+  "size": [
+    1024,
+    1536
+  ],
+  "rgba": true,
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "alpha_identical": false,
+  "runtime_matches_edited": true,
+  "sha256": "9ca9b9fc36f8c6cf8958c63a2e510b236bb2724983398eacf287a863a08e2214"
+}

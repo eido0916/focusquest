@@ -1,3 +1,4 @@
+import '../../features/focus/domain/focus_adventure.dart';
 import 'run_slash_skill.dart';
 import 'archer_shot_timing.dart';
 import 'swordsman_normal_attack_sequence.dart';
@@ -39,6 +40,7 @@ class EnemyData {
 
 class RunnerConfig {
   const RunnerConfig({
+    this.pixelSkillName,
     this.normalAttackStyle = NormalAttackStyle.swordsman,
     this.archerProjectiles = false,
     this.normalAttackDurationSeconds,
@@ -64,6 +66,7 @@ class RunnerConfig {
     this.enemies = const [EnemyData('slime'), EnemyData('goblin')],
   });
   final bool archerProjectiles;
+  final String? pixelSkillName;
   final double spawnSeconds;
   final NormalAttackStyle normalAttackStyle;
   final double? normalAttackDurationSeconds;
@@ -129,7 +132,9 @@ class BattleResultData {
 /// Replaying elapsed focus time restores identical enemies and counters after sleep.
 class BattleStateController {
   BattleStateController(
-      {this.config = const RunnerConfig(), required this.durationSeconds}) {
+      {this.config = const RunnerConfig(),
+      required this.durationSeconds,
+      this.adventureStartSeconds}) {
     if (durationSeconds <= 0 ||
         config.spawnSeconds <= 0 ||
         config.attackSeconds <= 0 ||
@@ -157,6 +162,56 @@ class BattleStateController {
   }
   final RunnerConfig config;
   final double durationSeconds;
+  final int? adventureStartSeconds;
+  int bossDefeatedCount = 0;
+  double get adventureSeconds => (adventureStartSeconds ?? 0) + elapsedSeconds;
+  bool get isBossBattle =>
+      adventureStartSeconds != null &&
+      FocusAdventure.fightingBoss(adventureSeconds);
+  double get bossRemainingSeconds => isBossBattle
+      ? FocusAdventure.cycleSeconds - FocusAdventure.age(adventureSeconds)
+      : 0;
+  String get areaName => adventureStartSeconds == null
+      ? '木漏れ日の野原'
+      : '第${FocusAdventure.chapter(adventureSeconds)}章 · ${FocusAdventure.area(adventureSeconds)}';
+  String get bossName => FocusAdventure.bossName(adventureSeconds);
+  RunnerEnemy? _focusBoss;
+  int? _bossCycle;
+  void _updateFocusBoss(double now) {
+    if (adventureStartSeconds == null) return;
+    final clock = adventureStartSeconds! + now;
+    final cycle = FocusAdventure.cycle(clock);
+    if (_focusBoss != null && _bossCycle != cycle) {
+      final boss = _focusBoss!;
+      boss.hp = 0;
+      boss.phase = EnemyPhase.defeat;
+      boss.hitAge = 0;
+      defeatedCount++;
+      bossDefeatedCount++;
+      gainedExp += boss.data.expReward;
+      _focusBoss = null;
+      _spawnTimer = 0;
+    }
+    if (FocusAdventure.fightingBoss(clock) && _bossCycle != cycle) {
+      enemies.removeWhere(
+          (e) => e.phase == EnemyPhase.move || e.phase == EnemyPhase.spawn);
+      _arrowFlights.clear();
+      _focusBoss = RunnerEnemy(
+          _spawned++,
+          EnemyData(FocusAdventure.bossId(clock),
+              maxHp: 300, expReward: 100, isBoss: true),
+          x: config.enemyStopX + 24);
+      enemies.add(_focusBoss!);
+      _bossCycle = cycle;
+    }
+    final boss = _focusBoss;
+    if (boss != null) {
+      boss.hp = (FocusAdventure.cycleSeconds - FocusAdventure.age(clock))
+          .ceil()
+          .clamp(1, 300);
+    }
+  }
+
   final List<RunnerEnemy> enemies = [];
   BattlePhase phase = BattlePhase.running;
   double elapsedSeconds = 0;
@@ -223,13 +278,15 @@ class BattleStateController {
     return true;
   }
 
-  String get skillName => (_skillPlaying ? activeSkill : config.autoSkill) ==
-          SwordsmanSkill.frontKick
-      ? '前蹴り'
-      : (_skillPlaying ? activeSkill : config.autoSkill) ==
-              SwordsmanSkill.runSlash
-          ? '走り斬り'
-          : '蒼閃';
+  String get skillName =>
+      config.pixelSkillName ??
+      ((_skillPlaying ? activeSkill : config.autoSkill) ==
+              SwordsmanSkill.frontKick
+          ? '前蹴り'
+          : (_skillPlaying ? activeSkill : config.autoSkill) ==
+                  SwordsmanSkill.runSlash
+              ? '走り斬り'
+              : '蒼閃');
   double get activeSkillDuration => activeSkill == SwordsmanSkill.frontKick
       ? BoxerFrontKickSequence.duration
       : activeSkill == SwordsmanSkill.runSlash
@@ -295,6 +352,7 @@ class BattleStateController {
   }
 
   void _tick() {
+    _updateFocusBoss((_ticks + 1) * step);
     _boxerTravelSeconds += step *
         (_skillPlaying && activeSkill == SwordsmanSkill.frontKick
             ? BoxerFrontKickSequence.speedRatioAt(skillAge + step / 2)
@@ -309,7 +367,7 @@ class BattleStateController {
     _skillTimer += step;
     attackAge += step;
     if (_skillPlaying) skillAge += step;
-    if (_spawnTimer + 1e-7 >= config.spawnSeconds) {
+    if (_focusBoss == null && _spawnTimer + 1e-7 >= config.spawnSeconds) {
       _spawnTimer -= config.spawnSeconds;
       enemies.add(RunnerEnemy(
           _spawned, config.enemies[_spawned % config.enemies.length]));
@@ -321,7 +379,7 @@ class BattleStateController {
       enemy.damageAge += step;
       if (enemy.phase == EnemyPhase.hit || enemy.phase == EnemyPhase.defeat) {
         enemy.hitAge += step;
-        enemy.x += step * 150;
+        // Defeat knockback is supplied by the original animation metadata.
         if (enemy.hitAge > .12) enemy.phase = EnemyPhase.defeat;
       } else {
         enemy.phase = EnemyPhase.move;
@@ -449,7 +507,8 @@ class BattleStateController {
       playNormalAttack();
     }
     _advanceArcherFlights((_ticks + 1) * step);
-    enemies.removeWhere((enemy) => enemy.hitAge > .5);
+    enemies
+        .removeWhere((enemy) => enemy.hitAge > (enemy.data.isBoss ? 1.25 : .5));
     phase = _skillPlaying
         ? BattlePhase.skill
         : _normalAttackPlaying
@@ -501,7 +560,9 @@ class BattleStateController {
 
   void _damage(RunnerEnemy enemy, int damage) {
     if (enemy.phase != EnemyPhase.move || damage <= 0) return;
-    enemy.hp = (enemy.hp - damage).clamp(0, enemy.data.maxHp).toInt();
+    if (enemy != _focusBoss) {
+      enemy.hp = (enemy.hp - damage).clamp(0, enemy.data.maxHp).toInt();
+    }
     enemy.damageAge = 0;
     enemy.damageSerial++;
     enemy.lastDamage = damage;
@@ -518,7 +579,8 @@ class BattleStateController {
   BattleResultData get result => BattleResultData(
       elapsedTime: Duration(milliseconds: (elapsedSeconds * 1000).round()),
       defeatedCount: defeatedCount,
-      gainedExp: gainedExp);
+      gainedExp: gainedExp,
+      bossDefeatedCount: bossDefeatedCount);
 }
 
 class _ArcherFlight {

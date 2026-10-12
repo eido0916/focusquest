@@ -91,6 +91,27 @@ class PlayableStagePainter extends CustomPainter {
       }
     }
     final side = baseSpriteSide(size, pixelRatio);
+    if (battle.action == HeroAction.skill) {
+      final motion = assets.motions['hero_skill']!;
+      final age = battle.actionTime * motion.duration / battle.skillDuration;
+      final offset = motion.frame(age).offset;
+      assets.effect.paint(canvas,
+          origin: Offset(
+              battle.heroX / 1280 * size.width + offset.dx * side / 128,
+              size.height * battle.stage.groundLine + offset.dy * side / 128),
+          viewport: Offset.zero & size,
+          age: age,
+          duration: motion.duration,
+          releases: motion
+              .eventTicks(battle.character.skillEvent)
+              .map((t) => t / 24)
+              .toList(),
+          // Keep the charge arc in front of the torso on the smaller
+          // adventure sprite. Impact frames retain their ground anchors.
+          chargeHeight: 16,
+          logicalPixel: side / 64,
+          devicePixelRatio: pixelRatio);
+    }
     for (final projectile in battle.projectiles) {
       paintStageProjectile(
           canvas,

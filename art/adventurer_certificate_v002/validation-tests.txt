@@ -1,0 +1,8 @@
+00:00 +0: loading C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-v002-20261011-215400/test/certificate_test.dart
+00:00 +0: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-v002-20261011-215400/test/certificate_test.dart: all 16 roles unlock exact titles at levels 1..8 and cap above 8
+00:00 +1: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-v002-20261011-215400/test/certificate_test.dart: first play and stable number survive reload; defeats are idempotent
+00:00 +2: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-v002-20261011-215400/test/certificate_test.dart: legacy saves retain progress and leave unknown first-play date unknown
+00:00 +3: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-v002-20261011-215400/test/certificate_test.dart: focus defeats match the on-screen simulation and settle only once
+00:00 +4: loading C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-v002-20261011-215400/test/certificate_screen_test.dart
+00:05 +4: C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-v002-20261011-215400/test/certificate_screen_test.dart: small phone shows real player card and enables PNG export
+00:11 +5: All tests passed!

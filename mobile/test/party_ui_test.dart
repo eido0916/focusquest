@@ -42,8 +42,9 @@ void main() {
     await tester.pumpWidget(const SizedBox());
     controller.dispose();
   });
-  for (final count in [2, 4]) {
-    testWidgets('$count originals on the left and $count enemy lanes',
+  for (final (count, skill) in [(2, false), (4, false), (4, true)]) {
+    testWidgets(
+        '$count originals on the left and $count enemy lanes (${skill ? 'skill' : 'attack'})',
         (tester) async {
       tester.view.physicalSize = const Size(960, 540);
       tester.view.devicePixelRatio = 1;
@@ -85,7 +86,7 @@ void main() {
               startedAt: now,
               durationMinutes: 30,
               partyMembers: members),
-          clock: () => now.add(const Duration(milliseconds: 2600)),
+          clock: () => now.add(Duration(milliseconds: skill ? 21350 : 2600)),
           onFinished: () {});
       await tester.pumpWidget(MaterialApp(
           home: RepaintBoundary(key: boundary, child: GameWidget(game: game))));
@@ -106,7 +107,8 @@ void main() {
               as RenderRepaintBoundary;
           final image = await render.toImage();
           final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
-          final file = File('../output/party/party-$count.png');
+          final file =
+              File('../output/party/party-$count${skill ? '-skill' : ''}.png');
           await file.parent.create(recursive: true);
           await file.writeAsBytes(bytes!.buffer.asUint8List());
           image.dispose();

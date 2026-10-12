@@ -1,21 +1,15 @@
 import 'dart:async';
 import 'dart:math' as math;
+import 'package:flame/cache.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'background_component.dart';
 import 'fantasy_battle_hud.dart';
 import 'battle_state_controller.dart';
-import 'hero_component.dart';
-import 'swordsman_run_attack_assets.dart';
-import 'swordsman_sousen_assets.dart';
+import 'pixel_battle_assets.dart';
+import 'pixel_battle_hero_component.dart';
 import 'enemy_spawner.dart';
 import 'enemy_motion_assets.dart';
-import 'run_slash_assets.dart';
-import 'boxer_run_attack_assets.dart';
-import 'boxer_hero_component.dart';
-import 'boxer_front_kick_assets.dart';
-import 'female_battle_assets.dart';
-import 'female_battle_hero_component.dart';
 
 class FocusQuestBattleGame extends FlameGame {
   FocusQuestBattleGame(
@@ -26,7 +20,11 @@ class FocusQuestBattleGame extends FlameGame {
       this.characterType = 'warrior',
       this.appearance = 'male',
       this.jobName = '戦士',
-      this.levelLogoAsset = BattleUiAssets.levelLogo});
+      this.levelLogoAsset = BattleUiAssets.levelLogo}) {
+    // Keep large effect textures local to this battle instead of retaining
+    // every role's textures and pending loads in Flame's global cache.
+    images = Images();
+  }
   final BattleStateController state;
   final int heroLevel;
   final String characterType, appearance;
@@ -36,20 +34,23 @@ class FocusQuestBattleGame extends FlameGame {
   final double Function() elapsed;
   final ValueChanged<BattleResultData> onFinished;
   bool _reported = false;
+  double _finishDelay = 0;
   Future<void>? heroLoaded;
   @override
   Color backgroundColor() => Colors.transparent;
   @override
   Future<void> onLoad() async {
-    final scenery = await images.load('ui/forest_meadow_battlefield.png');
+    final scenery = await images.load(BackgroundComponent.asset);
     hud = FantasyBattleHud(
         window: await images.load(BattleUiAssets.window),
         orb: await images.load(BattleUiAssets.skillOrb),
         logo:
             levelLogoAsset == null ? null : await images.load(levelLogoAsset!));
+    final ghostShip =
+        await images.load('stage_backgrounds/ghost_ship_focus_v002.png');
     final enemyAssets = await EnemyMotionAssets.load(this);
     await addAll([
-      BackgroundComponent(state, image: scenery),
+      BackgroundComponent(state, image: scenery, ghostShip: ghostShip),
       EnemySpawner(state, enemyAssets),
     ]);
     // Image decoding can take more than one frame on a physical device. Keep
@@ -59,36 +60,20 @@ class FocusQuestBattleGame extends FlameGame {
   }
 
   Future<void> _loadHero() async {
-    if (FemaleBattleAssets.supports(characterType, appearance)) {
-      await add(FemaleBattleHeroComponent(
-          state, await FemaleBattleAssets.load(this, characterType)));
-      return;
-    }
-    if (state.config.normalAttackStyle == NormalAttackStyle.boxer) {
-      await add(BoxerHeroComponent(state, await BoxerRunAttackAssets.load(this),
-          skillAssets: await BoxerFrontKickAssets.load(this)));
-      return;
-    }
-    final assets = await Future.wait([
-      SwordsmanRunAttackAssets.load(this),
-      SwordsmanSousenAssets.load(this),
-      RunSlashAssets.load(this),
-    ]);
-    await add(
-      HeroComponent(
-        state,
-        assets[0] as SwordsmanRunAttackAssets,
-        assets[1] as SwordsmanSousenAssets,
-        assets[2] as RunSlashAssets,
-      ),
-    );
+    await add(PixelBattleHeroComponent(
+        state, await PixelBattleAssets.load(this, characterType, appearance)));
   }
 
   @override
   void update(double dt) {
     state.advanceTo(elapsed(), maxTicks: 120);
     super.update(dt);
-    if (!_reported && state.phase == BattlePhase.finished) {
+    if (state.phase == BattlePhase.finished) _finishDelay += dt;
+    final finalBossDefeat =
+        state.enemies.any((e) => e.data.isBoss && e.hp == 0);
+    if (!_reported &&
+        state.phase == BattlePhase.finished &&
+        (!finalBossDefeat || _finishDelay >= 1.3)) {
       _reported = true;
       onFinished(state.result);
     }

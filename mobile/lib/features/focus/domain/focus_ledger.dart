@@ -38,6 +38,9 @@ class FocusLedger {
     }
     return state.copyWith(
         characters: characters,
+        focusAdventureSeconds: status == FocusStatus.succeeded
+            ? session.adventureStartSeconds + session.durationMinutes * 60
+            : state.focusAdventureSeconds,
         sessions: {...state.sessions, sessionId: session.finish(status)},
         appliedOperations: {...state.appliedOperations, operation});
   }

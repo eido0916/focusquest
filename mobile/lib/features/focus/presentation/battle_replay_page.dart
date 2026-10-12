@@ -2,9 +2,10 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../game/runner/battle_state_controller.dart';
+import '../../../game/runner/background_component.dart';
 import '../../../game/runner/focus_quest_battle_game.dart';
 import '../../../game/runner/fantasy_battle_hud.dart';
-import '../../../game/runner/female_battle_assets.dart';
+import '../../../game/runner/pixel_battle_assets.dart';
 import '../../diagnosis/presentation/job_portrait.dart';
 import '../domain/focus_session.dart';
 
@@ -42,19 +43,15 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
         jobName: JobPortrait.roleNames[widget.characterType] ?? '戦士',
         levelLogoAsset: widget.levelLogoAsset,
         state: BattleStateController(
-            config: FemaleBattleAssets.supports(
-                    widget.characterType, widget.appearance)
-                ? FemaleBattleAssets.runnerConfig(widget.characterType)
-                : RunnerConfig(
-                    autoSkill: widget.characterType == 'boxer'
-                        ? SwordsmanSkill.frontKick
-                        : SwordsmanSkill.sousen,
-                    normalAttackStyle: widget.characterType == 'boxer'
-                        ? NormalAttackStyle.boxer
-                        : NormalAttackStyle.swordsman),
+            adventureStartSeconds: widget.session.adventureStartSeconds,
+            config: PixelBattleAssets.runnerConfig(
+                widget.characterType, widget.appearance),
             durationSeconds: widget.session.durationMinutes * 60.0),
         elapsed: () =>
-            widget.clock().difference(widget.session.startedAt).inMilliseconds /
+            widget.session
+                .focusNow(widget.clock())
+                .difference(widget.session.startedAt)
+                .inMilliseconds /
             1000,
         onFinished: (result) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -87,10 +84,8 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
                   child: LayoutBuilder(builder: (context, surface) {
                     final unit = surface.maxWidth / 960;
                     return Stack(fit: StackFit.expand, children: [
-                      Image.asset(
-                          'assets/images/ui/forest_meadow_battlefield.png',
-                          fit: BoxFit.cover,
-                          filterQuality: FilterQuality.high),
+                      Image.asset('assets/images/${BackgroundComponent.asset}',
+                          fit: BoxFit.cover, filterQuality: FilterQuality.none),
                       GameWidget(game: _game),
                       Positioned(
                           right: 5 * unit,

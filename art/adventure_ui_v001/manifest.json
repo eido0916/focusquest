@@ -1,0 +1,146 @@
+{
+  "version": "v001",
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "name": "status_panel",
+      "file": "frames/status_panel.png",
+      "width": 2093,
+      "height": 574,
+      "source": "raw/status_panel.png",
+      "crop": {
+        "left": 40,
+        "top": 74,
+        "width": 2093,
+        "height": 574
+      },
+      "hasTransparentPixels": true
+    },
+    {
+      "name": "stage_banner",
+      "file": "frames/stage_banner.png",
+      "width": 2139,
+      "height": 437,
+      "source": "raw/stage_banner.png",
+      "crop": {
+        "left": 17,
+        "top": 121,
+        "width": 2139,
+        "height": 437
+      },
+      "hasTransparentPixels": true
+    },
+    {
+      "name": "phase_panel",
+      "file": "frames/phase_panel.png",
+      "width": 2107,
+      "height": 477,
+      "source": "raw/phase_panel.png",
+      "crop": {
+        "left": 25,
+        "top": 108,
+        "width": 2107,
+        "height": 477
+      },
+      "hasTransparentPixels": true
+    },
+    {
+      "name": "attack_button",
+      "file": "frames/attack_button.png",
+      "width": 1191,
+      "height": 1184,
+      "source": "raw/attack_button.png",
+      "crop": {
+        "left": 31,
+        "top": 24,
+        "width": 1191,
+        "height": 1184
+      },
+      "hasTransparentPixels": true
+    },
+    {
+      "name": "skill_button",
+      "file": "frames/skill_button.png",
+      "width": 1191,
+      "height": 1174,
+      "source": "raw/skill_button.png",
+      "crop": {
+        "left": 31,
+        "top": 37,
+        "width": 1191,
+        "height": 1174
+      },
+      "hasTransparentPixels": true
+    },
+    {
+      "name": "auto_button",
+      "file": "frames/auto_button.png",
+      "width": 1164,
+      "height": 1162,
+      "source": "raw/auto_button.png",
+      "crop": {
+        "left": 55,
+        "top": 23,
+        "width": 1164,
+        "height": 1162
+      },
+      "hasTransparentPixels": true
+    },
+    {
+      "name": "utility_button",
+      "file": "frames/utility_button.png",
+      "width": 1192,
+      "height": 1158,
+      "source": "raw/utility_button.png",
+      "crop": {
+        "left": 31,
+        "top": 35,
+        "width": 1192,
+        "height": 1158
+      },
+      "hasTransparentPixels": true
+    },
+    {
+      "name": "caption_frame",
+      "file": "frames/caption_frame.png",
+      "width": 2022,
+      "height": 502,
+      "source": "raw/caption_frame.png",
+      "crop": {
+        "left": 38,
+        "top": 113,
+        "width": 2022,
+        "height": 502
+      },
+      "hasTransparentPixels": true
+    },
+    {
+      "name": "portrait_frame",
+      "file": "frames/portrait_frame.png",
+      "width": 1181,
+      "height": 1173,
+      "source": "raw/portrait_frame.png",
+      "crop": {
+        "left": 37,
+        "top": 34,
+        "width": 1181,
+        "height": 1173
+      },
+      "hasTransparentPixels": true
+    },
+    {
+      "name": "hp_frame",
+      "file": "frames/hp_frame.png",
+      "width": 1311,
+      "height": 116,
+      "source": "raw/hp_frame.png",
+      "crop": {
+        "left": 32,
+        "top": 516,
+        "width": 1311,
+        "height": 116
+      },
+      "hasTransparentPixels": true
+    }
+  ]
+}

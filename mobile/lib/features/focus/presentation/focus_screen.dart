@@ -4,6 +4,7 @@ import '../../../core/config/game_balance.dart';
 import '../../../core/game_controller.dart';
 import '../../../core/widgets/quest_widgets.dart';
 import '../domain/focus_session.dart';
+import '../domain/focus_adventure.dart';
 import '../../diagnosis/presentation/job_portrait.dart';
 import 'battle_replay_page.dart';
 import '../../party/presentation/party_page.dart';
@@ -231,12 +232,14 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                 if (controller.party.error != null)
                   Text(controller.party.error!),
                 QuestCard(
-                    caption: session == null ? '集中時間を選ぶ' : '集中クエスト進行中',
+                    caption: session == null
+                        ? '集中時間を選ぶ'
+                        : '第${FocusAdventure.chapter(session.adventureStartSeconds + session.durationMinutes * 60 - session.remaining(widget.controller.clock()).inSeconds.toDouble())}章 · 集中クエスト進行中',
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           if (session == null) ...[
-                            const Text('どのくらい集中しますか？',
+                            const Text('25分でボス出現、さらに5分で撃破。',
                                 style: TextStyle(fontSize: 16)),
                             const SizedBox(height: 24),
                             Wrap(spacing: 12, children: [
@@ -276,7 +279,8 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                                     ? null
                                     : _openBattle,
                                 child: const Text('戦いの様子を見る')),
-                            const Text('集中で得られる報酬はEXPです。'),
+                            const Text(
+                                '集中25分でボス出現。さらに5分で撃破し、草原から第二章の幽霊船へ進みます。短い集中でも達成した時間を引き継ぎます。'),
                             const SizedBox(height: 32),
                             Text(
                                 '${seconds ~/ 60}:${(seconds % 60).toString().padLeft(2, '0')}',

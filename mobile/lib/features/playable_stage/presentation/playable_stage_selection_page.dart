@@ -19,11 +19,9 @@ class PlayableStageSelectionPage extends StatefulWidget {
       this.character,
       this.onChooseCharacter,
       this.controller,
-      this.embedded = false,
-      this.onLegacyAdventure});
+      this.embedded = false});
   final GameController? controller;
   final bool embedded;
-  final VoidCallback? onLegacyAdventure;
   final PlayableCharacter? character;
   final Future<PlayableCharacter?> Function(PlayableCharacter)?
       onChooseCharacter;
@@ -43,13 +41,14 @@ class _PlayableStageSelectionPageState
   bool _opening = false;
   String? _error;
   int? _pendingClear;
+  (String, int)? _pendingDefeats;
   late PlayableCharacter _character =
       widget.character ?? PlayableCharacters.defaultCharacter;
   bool get _blocked =>
       _opening ||
       _pendingClear != null ||
+      _pendingDefeats != null ||
       widget.controller?.activeFocus != null ||
-      widget.controller?.state?.adventureRun != null ||
       widget.controller?.busy == true;
 
   Future<void> _saveClear(int number) async {
@@ -72,6 +71,25 @@ class _PlayableStageSelectionPageState
     }
   }
 
+  Future<void> _saveDefeats(String id, int count) async {
+    try {
+      await widget.controller!.recordAdventureDefeats(id, count);
+      if (mounted) {
+        setState(() {
+        _pendingDefeats = null;
+        _error = _pendingClear == null ? null : 'クリア記録を保存できませんでした。再試行してください。';
+        });
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(() {
+        _pendingDefeats = (id, count);
+        _error = '討伐記録を保存できませんでした。再試行してください。';
+        });
+      }
+    }
+  }
+
   Future<void> _open(PlayableStageDefinition stage) async {
     if (_blocked) return;
     setState(() {
@@ -80,6 +98,12 @@ class _PlayableStageSelectionPageState
     });
     PlayableStageBattle? battle;
     var began = false;
+    final defeated = <StageEnemy>{};
+    final operationId = '${DateTime.now().microsecondsSinceEpoch}-${stage.number}';
+    void observeDefeats() {
+      final current = battle;
+      if (current != null) defeated.addAll(current.enemies.where((e) => !e.alive));
+    }
     try {
       final controller = widget.controller;
       if (controller != null) {
@@ -90,6 +114,7 @@ class _PlayableStageSelectionPageState
       if (!mounted) return;
       battle = widget.battleFactory?.call(stage) ??
           PlayableStageBattle(stage: stage, character: _character);
+      battle.addListener(observeDefeats);
       final route = MaterialPageRoute<bool>(
           builder: (_) => PlayableStagePage(
               battle: battle,
@@ -109,6 +134,11 @@ class _PlayableStageSelectionPageState
     } catch (error) {
       if (mounted) setState(() => _error = '冒険を開始できませんでした。$error');
     } finally {
+      observeDefeats();
+      battle?.removeListener(observeDefeats);
+      if (defeated.isNotEmpty && widget.controller != null) {
+        await _saveDefeats(operationId, defeated.length);
+      }
       battle?.dispose();
       if (began) widget.controller?.endPlayableAdventure();
       if (mounted) setState(() => _opening = false);
@@ -140,8 +170,11 @@ class _PlayableStageSelectionPageState
                     _traveler(),
                     if (widget.controller?.activeFocus != null)
                       _notice('いまは集中の時間。終了後に冒険へ出発できます。'),
-                    if (widget.controller?.state?.adventureRun != null)
-                      _notice('以前の冒険が進行中です。「以前の冒険の書」で結果を確認してください。'),
+                    if (_pendingDefeats != null)
+                      TextButton.icon(
+                        onPressed: () => _saveDefeats(_pendingDefeats!.$1, _pendingDefeats!.$2),
+                        icon: const Icon(Icons.save_outlined),
+                        label: const Text('討伐記録を再保存')),
                     if (_error != null) ...[
                       _notice(_error!),
                       if (_pendingClear != null)
@@ -155,12 +188,6 @@ class _PlayableStageSelectionPageState
                         area < PlayableStageCatalog.areas.length;
                         area++)
                       _area(area),
-                    if (widget.onLegacyAdventure != null)
-                      TextButton.icon(
-                          key: const Key('legacy-adventure'),
-                          onPressed: _opening ? null : widget.onLegacyAdventure,
-                          icon: const Icon(Icons.history_edu),
-                          label: const Text('以前の冒険の書')),
                   ]))),
     ]);
     if (widget.embedded) return content;
@@ -180,9 +207,10 @@ class _PlayableStageSelectionPageState
         const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Icon(Icons.auto_awesome, color: sunlitGold, size: 17),
           SizedBox(width: 8),
-          Text('FOCUS QUEST',
-              style:
-                  TextStyle(color: sunlitGold, letterSpacing: 3, fontSize: 11)),
+          Flexible(
+              child: Text('FOCUS QUEST',
+                  style: TextStyle(
+                      color: sunlitGold, letterSpacing: 3, fontSize: 11))),
         ]),
         const SizedBox(height: 8),
         const Text('冒険の書',
@@ -200,8 +228,10 @@ class _PlayableStageSelectionPageState
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           const Icon(Icons.map_outlined, color: sunlitGold, size: 17),
           const SizedBox(width: 7),
-          Text('全36ステージ   ·   踏破 ${_cleared.length} / 36',
-              style: const TextStyle(color: Color(0xffffe5b1), fontSize: 12)),
+          Flexible(
+              child: Text('全36ステージ   ·   踏破 ${_cleared.length} / 36',
+                  style:
+                      const TextStyle(color: Color(0xffffe5b1), fontSize: 12))),
         ]),
       ]));
 

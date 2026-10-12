@@ -13,9 +13,11 @@ class FocusSession {
       this.verification = FocusVerification.timerOnly,
       this.targetPackages = const [],
       this.partyMembers = const [],
-      this.partyClockOffsetMs = 0});
+      this.partyClockOffsetMs = 0,
+      this.adventureStartSeconds = 0});
   final List<PartyMember> partyMembers;
   final int partyClockOffsetMs;
+  final int adventureStartSeconds;
   DateTime focusNow(DateTime now) =>
       now.add(Duration(milliseconds: partyClockOffsetMs));
   final String id;
@@ -36,7 +38,8 @@ class FocusSession {
           status: status,
           verification: verification,
           targetPackages: targetPackages,
-          partyMembers: partyMembers);
+          partyMembers: partyMembers,
+          adventureStartSeconds: adventureStartSeconds);
   Duration remaining(DateTime now) {
     final difference = endsAt.difference(focusNow(now));
     if (difference > Duration(minutes: durationMinutes)) {
@@ -53,7 +56,8 @@ class FocusSession {
       verification: verification,
       targetPackages: targetPackages,
       partyMembers: partyMembers,
-      partyClockOffsetMs: partyClockOffsetMs);
+      partyClockOffsetMs: partyClockOffsetMs,
+      adventureStartSeconds: adventureStartSeconds);
   Map<String, dynamic> toJson() => {
         'id': id,
         'startedAt': startedAt.toUtc().toIso8601String(),
@@ -62,6 +66,7 @@ class FocusSession {
         'verification': verification.name,
         'targetPackages': targetPackages,
         'partyMembers': partyMembers.map((m) => m.toJson()).toList(),
+        'adventureStartSeconds': adventureStartSeconds,
         'partyClockOffsetMs': partyClockOffsetMs
       };
   factory FocusSession.fromJson(Map<String, dynamic> json) => FocusSession(
@@ -73,6 +78,7 @@ class FocusSession {
           FocusVerification.values.byName(json['verification'] as String),
       targetPackages: List<String>.from(json['targetPackages'] as List),
       partyClockOffsetMs: json['partyClockOffsetMs'] as int? ?? 0,
+      adventureStartSeconds: json['adventureStartSeconds'] as int? ?? 0,
       partyMembers: (json['partyMembers'] as List? ?? [])
           .map((m) => PartyMember.fromJson(Map<String, dynamic>.from(m as Map)))
           .toList());

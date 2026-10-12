@@ -45,7 +45,7 @@ class _DeveloperCharacterScreenState extends State<DeveloperCharacterScreen> {
       builder: (context, _) {
         final controller = widget.controller;
         final inProgress = controller.activeFocus != null ||
-            controller.state!.adventureRun != null;
+            controller.playableAdventureActive;
         final enabled = !controller.busy && !inProgress;
         return Scaffold(
             appBar: AppBar(title: const Text('職業・性別を選択（開発者用）')),

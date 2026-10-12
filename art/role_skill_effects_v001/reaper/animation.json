@@ -1,0 +1,480 @@
+{
+  "role": "鎌使い",
+  "skill": "冥月刈り",
+  "kind": "reap",
+  "palette": [
+    "#26264c",
+    "#574796",
+    "#9d91dc",
+    "#d1fff1"
+  ],
+  "fps": 24,
+  "size": [
+    1536,
+    256
+  ],
+  "anchor_px": [
+    0,
+    256
+  ],
+  "interpolation": "none",
+  "loop": false,
+  "keyframes": [
+    {
+      "index": 0,
+      "file": "keyframes/reaper_000.png"
+    },
+    {
+      "index": 1,
+      "file": "keyframes/reaper_001.png"
+    },
+    {
+      "index": 2,
+      "file": "keyframes/reaper_002.png"
+    },
+    {
+      "index": 3,
+      "file": "keyframes/reaper_003.png"
+    },
+    {
+      "index": 4,
+      "file": "keyframes/reaper_004.png"
+    },
+    {
+      "index": 5,
+      "file": "keyframes/reaper_005.png"
+    },
+    {
+      "index": 6,
+      "file": "keyframes/reaper_006.png"
+    },
+    {
+      "index": 7,
+      "file": "keyframes/reaper_007.png"
+    },
+    {
+      "index": 8,
+      "file": "keyframes/reaper_008.png"
+    },
+    {
+      "index": 9,
+      "file": "keyframes/reaper_009.png"
+    },
+    {
+      "index": 10,
+      "file": "keyframes/reaper_010.png"
+    },
+    {
+      "index": 11,
+      "file": "keyframes/reaper_011.png"
+    }
+  ],
+  "holds": [
+    {
+      "keyframe": 0,
+      "ticks": 3
+    },
+    {
+      "keyframe": 1,
+      "ticks": 3
+    },
+    {
+      "keyframe": 2,
+      "ticks": 3
+    },
+    {
+      "keyframe": 3,
+      "ticks": 2
+    },
+    {
+      "keyframe": 4,
+      "ticks": 2
+    },
+    {
+      "keyframe": 5,
+      "ticks": 2
+    },
+    {
+      "keyframe": 6,
+      "ticks": 2
+    },
+    {
+      "keyframe": 7,
+      "ticks": 2
+    },
+    {
+      "keyframe": 8,
+      "ticks": 3
+    },
+    {
+      "keyframe": 9,
+      "ticks": 4
+    },
+    {
+      "keyframe": 10,
+      "ticks": 4
+    },
+    {
+      "keyframe": 11,
+      "ticks": 6
+    }
+  ],
+  "timeline": [
+    {
+      "tick": 0,
+      "keyframe": 0,
+      "file": "frames_24fps/000.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 1,
+      "keyframe": 0,
+      "file": "frames_24fps/001.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 2,
+      "keyframe": 0,
+      "file": "frames_24fps/002.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 3,
+      "keyframe": 1,
+      "file": "frames_24fps/003.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 4,
+      "keyframe": 1,
+      "file": "frames_24fps/004.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 5,
+      "keyframe": 1,
+      "file": "frames_24fps/005.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 6,
+      "keyframe": 2,
+      "file": "frames_24fps/006.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 7,
+      "keyframe": 2,
+      "file": "frames_24fps/007.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 8,
+      "keyframe": 2,
+      "file": "frames_24fps/008.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 9,
+      "keyframe": 3,
+      "file": "frames_24fps/009.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 10,
+      "keyframe": 3,
+      "file": "frames_24fps/010.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 11,
+      "keyframe": 4,
+      "file": "frames_24fps/011.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 12,
+      "keyframe": 4,
+      "file": "frames_24fps/012.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 13,
+      "keyframe": 5,
+      "file": "frames_24fps/013.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 14,
+      "keyframe": 5,
+      "file": "frames_24fps/014.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 15,
+      "keyframe": 6,
+      "file": "frames_24fps/015.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 16,
+      "keyframe": 6,
+      "file": "frames_24fps/016.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 17,
+      "keyframe": 7,
+      "file": "frames_24fps/017.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 18,
+      "keyframe": 7,
+      "file": "frames_24fps/018.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 19,
+      "keyframe": 8,
+      "file": "frames_24fps/019.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 20,
+      "keyframe": 8,
+      "file": "frames_24fps/020.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 21,
+      "keyframe": 8,
+      "file": "frames_24fps/021.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 22,
+      "keyframe": 9,
+      "file": "frames_24fps/022.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 23,
+      "keyframe": 9,
+      "file": "frames_24fps/023.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 24,
+      "keyframe": 9,
+      "file": "frames_24fps/024.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 25,
+      "keyframe": 9,
+      "file": "frames_24fps/025.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 26,
+      "keyframe": 10,
+      "file": "frames_24fps/026.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 27,
+      "keyframe": 10,
+      "file": "frames_24fps/027.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 28,
+      "keyframe": 10,
+      "file": "frames_24fps/028.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 29,
+      "keyframe": 10,
+      "file": "frames_24fps/029.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 30,
+      "keyframe": 11,
+      "file": "frames_24fps/030.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 31,
+      "keyframe": 11,
+      "file": "frames_24fps/031.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 32,
+      "keyframe": 11,
+      "file": "frames_24fps/032.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 33,
+      "keyframe": 11,
+      "file": "frames_24fps/033.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 34,
+      "keyframe": 11,
+      "file": "frames_24fps/034.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 35,
+      "keyframe": 11,
+      "file": "frames_24fps/035.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    }
+  ],
+  "events": [
+    {
+      "tick": 9,
+      "event": "release",
+      "world_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 30,
+      "event": "clear",
+      "world_offset_px": [
+        0,
+        0
+      ]
+    }
+  ],
+  "rgba_sha256": [
+    "a490d5a43016c427f25ca4bc3c736aa7cd985167beb7b999204a2251d16daa86",
+    "6fcb90febf3e8e2bb19daf06b8e5822568ad307632345eb4ded4bcb955884385",
+    "9e6256f804a6a3ff8366ee66ab87603e2f14d592e437313aefcf16fc2ae09140",
+    "6ddd898497a0c1b136133bc5797e0795b2525e37b158c551bc8be22db230adaa",
+    "80b33825d46c27b57430c14b832fda78c8f133936497b0cc71decbeb64c3a8b5",
+    "54a60c96d30dbe696bf05638d7702a8044d28d299f423cf4f1358bc627768f68",
+    "ce8f6fc2ab8bb918f27a7907f587de761e5815518c4c35fb96068cd55e053de9",
+    "a5e6b4a54a44cb54ec93a96def70c0ceede1c8d57468fcb0a221725383b8afc6",
+    "6b431b4ef152718195d16fc9748c29f34cb69b475f223f9764d31cf8aeda8584",
+    "a0281d8e4be23f2135a0eb562da770481642b87df5b8c2f6dc35fb5b8a9452a6",
+    "3a01679013bbe3da660dca21eaaae93d22a85de04377b3c337949ea5898d4380",
+    "106f0647ae10a6516b1ab2968038161e287ef40d1b22ca047531ed768e594ef1"
+  ]
+}

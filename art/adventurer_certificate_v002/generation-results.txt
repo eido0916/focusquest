@@ -1,0 +1,3 @@
+00:00 +0: loading C:/Users/eido0/AppData/Local/FocusQuestTools/build/certificate-v002-20261011-215400/test/certificate_assets_test.dart
+00:00 +0: render all 32 original-art certificates at production resolution
+03:07 +1: All tests passed!

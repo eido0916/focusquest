@@ -1,21 +1,25 @@
 import 'package:flame/game.dart';
+import 'package:flame/flame.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:focusquest/app.dart';
 import 'package:focusquest/core/game_controller.dart';
-import 'package:focusquest/core/widgets/quest_widgets.dart';
 import 'package:focusquest/data/game_catalog.dart';
-import 'package:focusquest/features/adventure/domain/adventure.dart';
-import 'package:focusquest/features/adventure/presentation/adventure_screen.dart';
-import 'package:focusquest/features/adventure/presentation/female_adventure_hero.dart';
 import 'package:focusquest/game/runner/female_battle_assets.dart';
-import 'package:focusquest/game/runner/female_battle_hero_component.dart';
+import 'package:focusquest/game/runner/pixel_battle_hero_component.dart';
 import 'package:focusquest/game/runner/focus_quest_battle_game.dart';
 import 'package:focusquest/game/runner/hero_component.dart';
 import 'support/memory_repository.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  // Cached bundle/image futures from a previous widget test belong to its
+  // fake async clock. Start each route with fresh loads, as replay tests do.
+  setUp(() {
+    rootBundle.clear();
+    Flame.images.clearCache();
+  });
   for (final type in ['warrior', 'ranger']) {
     test('$type female originals match combat timing and frame selection',
         () async {
@@ -32,68 +36,6 @@ void main() {
           age += frame.stepTime;
         }
       }
-    });
-
-    testWidgets(
-        '$type female adventure preserves appearance during attacks and resume',
-        (tester) async {
-      var now = DateTime(2026, 10, 10);
-      final repository = MemoryRepository();
-      var controller = GameController(repository, clock: () => now);
-      await controller.load();
-      await controller.onboard(
-          GameCatalog.types.values.firstWhere((t) => t.typeId == type),
-          appearance: 'female');
-      await tester.pumpWidget(FocusQuestApp(controller: controller));
-      await tester.pumpAndSettle();
-      await tester.tap(find.descendant(
-          of: find.byType(QuestNavigation), matching: find.text('冒険')));
-      await tester.pumpAndSettle();
-      await tester.scrollUntilVisible(
-          find.byKey(const Key('legacy-adventure')), 500);
-      await tester.tap(find.byKey(const Key('legacy-adventure')));
-      await tester.pumpAndSettle();
-      expect(
-          tester
-              .widget<FemaleAdventureHero>(find.byType(FemaleAdventureHero))
-              .characterType,
-          type);
-      await controller.startAdventure('forest_1');
-      final run = controller.state!.adventureRun!;
-      expect(run.characterType, type);
-      expect(run.appearance, 'female');
-      final json = run.toJson();
-      expect(AdventureRun.fromJson(json).appearance, 'female');
-      // Legacy adventures resolve the active hero instead of defaulting to a man.
-      json.remove('characterType');
-      json.remove('appearance');
-      expect(AdventureRun.fromJson(json).appearance, isNull);
-      repository.state =
-          repository.state.copyWith(adventureRun: AdventureRun.fromJson(json));
-      await tester.pumpWidget(const SizedBox.shrink());
-      controller.dispose();
-      controller = GameController(repository, clock: () => now);
-      await controller.load();
-      await tester.pumpWidget(
-          MaterialApp(home: AdventureBattlePage(controller: controller)));
-      await tester.pump();
-      final battle = AdventureBattle.simulate(run);
-      final attackIndex = battle.events.indexWhere((e) => e.heroAttacks);
-      now =
-          run.startedAt.add(AdventureBattle.eventDuration * (attackIndex + 1));
-      await tester.pump(const Duration(milliseconds: 100));
-      final shown =
-          tester.widget<FemaleAdventureHero>(find.byType(FemaleAdventureHero));
-      expect(shown.characterType, type);
-      expect(shown.attacking, isTrue);
-      expect(
-          find.byWidgetPredicate((w) =>
-              w is PixelSprite &&
-              w.asset == 'assets/images/adventure/hero_attack.png'),
-          findsNothing);
-      expect(tester.takeException(), isNull);
-      await tester.pumpWidget(const SizedBox.shrink());
-      controller.dispose();
     });
 
     testWidgets('$type female focus passes gender through the real start route',
@@ -134,11 +76,12 @@ void main() {
       await tester.pump();
       expect(
           game.children
-              .whereType<FemaleBattleHeroComponent>()
+              .whereType<PixelBattleHeroComponent>()
               .single
               .assets
-              .characterType,
-          type);
+              .character
+              .id,
+          type == 'warrior' ? 'character_01_female' : 'character_07_female');
       expect(game.children.whereType<HeroComponent>(), isEmpty);
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox.shrink());

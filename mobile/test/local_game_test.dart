@@ -8,7 +8,6 @@ import 'package:focusquest/data/local_player_repository.dart';
 import 'package:focusquest/features/focus/data/usage_monitor.dart';
 import 'package:focusquest/features/focus/domain/focus_session.dart';
 import 'support/memory_repository.dart';
-import 'package:focusquest/features/adventure/domain/adventure.dart';
 
 class TestUsage extends UsageMonitor {
   bool access = true;
@@ -54,11 +53,10 @@ void main() {
     expect(result!.status, FocusStatus.succeeded);
     expect(controller.state!.activeCharacter!.level, 3);
     expect(controller.state!.coins, 0);
-    await controller.startAdventure('forest_1');
-    final run = controller.state!.adventureRun!;
-    now = now.add(AdventureBattle.simulate(run).duration);
-    await controller.finishAdventure(run.id);
-    expect(controller.state!.coins, 100);
+    await controller.recordPlayableClear(1);
+    await controller.repository.transact(GameController.uid,
+        (s) => s.copyWith(coins: 100, inventory: {'wooden_sword': 1}));
+    await controller.load();
     expect(await controller.finishFocus(), isNull);
     await controller.equip('wooden_sword');
     expect(controller.state!.activeCharacter!.equippedItems.values,
@@ -154,7 +152,7 @@ void main() {
     expect(controller.state!.activeCharacter!.level, 3);
     expect(controller.state!.sessions.length, 1);
   });
-  test('interrupted focus and adventure rewards restore', () async {
+  test('interrupted focus and current adventure clears restore', () async {
     final repo = MemoryRepository();
     var now = DateTime(2026, 10, 3, 9);
     var controller = GameController(repo, clock: () => now, random: Random(5));
@@ -168,21 +166,15 @@ void main() {
       await controller.finishFocus();
     }
     expect(controller.state!.coins, 0);
-    for (final stage in AdventureCatalog.stages) {
-      await controller.startAdventure(stage.id);
-      final run = controller.state!.adventureRun!;
-      now = now.add(AdventureBattle.simulate(run).duration);
-      expect((await controller.finishAdventure(run.id)).won, isTrue,
-          reason: stage.name);
-      await controller.equip(stage.item);
+    for (var stage = 1; stage <= 5; stage++) {
+      await controller.recordPlayableClear(stage);
     }
-    expect(controller.state!.coins, 1200);
     final savedInventory = controller.state!.inventory;
     final savedEquipment = controller.state!.activeCharacter!.equippedItems;
     controller = GameController(repo, clock: () => now, random: Random(5));
     await controller.load();
-    expect(controller.state!.coins, 1200);
-    expect(controller.state!.clearedStages, hasLength(5));
+    expect(controller.state!.coins, 0);
+    expect(controller.state!.clearedPlayableStages, hasLength(5));
     expect(controller.state!.inventory, savedInventory);
     expect(controller.state!.activeCharacter!.equippedItems, savedEquipment);
   });

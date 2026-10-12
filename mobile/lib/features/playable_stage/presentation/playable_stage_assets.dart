@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/services.dart';
 import '../domain/playable_stage_catalog.dart';
 import '../domain/playable_character.dart';
+import '../../../game/runner/role_skill_effects.dart';
 
 class StageFrame {
   const StageFrame(this.image, this.offset);
@@ -41,10 +42,11 @@ class StageMotion {
 }
 
 class PlayableStageAssets {
-  PlayableStageAssets._(this.background, this.motions);
+  PlayableStageAssets._(this.background, this.motions, this.effect);
   static const base = 'assets/images/playable_stage/';
   final ui.Image background;
   final Map<String, StageMotion> motions;
+  final RoleSkillEffects effect;
 
   static Future<PlayableStageAssets> load(
       {PlayableStageDefinition? stage, PlayableCharacter? character}) async {
@@ -102,7 +104,10 @@ class PlayableStageAssets {
       }
       // Characters without an idle keep their original attack stance on screen.
       motions['hero_idle'] ??= motions['hero_attack']!;
-      return PlayableStageAssets._(background, motions);
+      final effect = await RoleSkillEffects.load(
+          hero.effectType ?? RoleSkillEffects.roleTypes[hero.role] ?? 'warrior',
+          decode);
+      return PlayableStageAssets._(background, motions, effect);
     } catch (_) {
       for (final image in allocated) {
         image.dispose();
@@ -113,6 +118,9 @@ class PlayableStageAssets {
 
   void dispose() {
     background.dispose();
+    for (final image in effect.frames) {
+      image.dispose();
+    }
     for (final motion in motions.values.toSet()) {
       for (final image in motion.images) {
         image.dispose();

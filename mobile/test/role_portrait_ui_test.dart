@@ -8,7 +8,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:focusquest/core/game_controller.dart';
 import 'package:focusquest/core/theme/app_theme.dart';
 import 'package:focusquest/data/game_catalog.dart';
-import 'package:focusquest/features/adventure/presentation/adventure_screen.dart';
 import 'package:focusquest/features/character/presentation/character_screen.dart';
 import 'package:focusquest/features/diagnosis/presentation/job_portrait.dart';
 import 'package:focusquest/features/focus/presentation/focus_screen.dart';
@@ -54,8 +53,6 @@ void main() {
               child: MaterialApp(
                   theme: AppTheme.dark, home: Scaffold(body: entry.value))));
           await tester.pumpAndSettle();
-          expect(find.byType(PixelHero), findsNothing);
-          expect(find.byType(PixelSprite), findsNothing);
           {
             final portrait =
                 tester.widget<JobPortrait>(find.byType(JobPortrait));

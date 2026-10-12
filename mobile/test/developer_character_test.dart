@@ -72,7 +72,7 @@ void main() {
     await expectLater(controller.setCharacterForDevelopment('mage', 'female'),
         throwsStateError);
     await controller.finishFocus(cancel: true);
-    await controller.startAdventure('forest_1');
+    await controller.beginPlayableAdventure();
     await expectLater(controller.setCharacterForDevelopment('mage', 'female'),
         throwsStateError);
     expect(controller.state!.activeCharacter!.toJson(), hero);

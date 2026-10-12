@@ -1,0 +1,480 @@
+{
+  "role": "拳闘士",
+  "skill": "旋風蹴り",
+  "kind": "wind",
+  "palette": [
+    "#145754",
+    "#30b79b",
+    "#96efd2",
+    "#f2fff1"
+  ],
+  "fps": 24,
+  "size": [
+    1536,
+    256
+  ],
+  "anchor_px": [
+    0,
+    256
+  ],
+  "interpolation": "none",
+  "loop": false,
+  "keyframes": [
+    {
+      "index": 0,
+      "file": "keyframes/boxer_000.png"
+    },
+    {
+      "index": 1,
+      "file": "keyframes/boxer_001.png"
+    },
+    {
+      "index": 2,
+      "file": "keyframes/boxer_002.png"
+    },
+    {
+      "index": 3,
+      "file": "keyframes/boxer_003.png"
+    },
+    {
+      "index": 4,
+      "file": "keyframes/boxer_004.png"
+    },
+    {
+      "index": 5,
+      "file": "keyframes/boxer_005.png"
+    },
+    {
+      "index": 6,
+      "file": "keyframes/boxer_006.png"
+    },
+    {
+      "index": 7,
+      "file": "keyframes/boxer_007.png"
+    },
+    {
+      "index": 8,
+      "file": "keyframes/boxer_008.png"
+    },
+    {
+      "index": 9,
+      "file": "keyframes/boxer_009.png"
+    },
+    {
+      "index": 10,
+      "file": "keyframes/boxer_010.png"
+    },
+    {
+      "index": 11,
+      "file": "keyframes/boxer_011.png"
+    }
+  ],
+  "holds": [
+    {
+      "keyframe": 0,
+      "ticks": 3
+    },
+    {
+      "keyframe": 1,
+      "ticks": 3
+    },
+    {
+      "keyframe": 2,
+      "ticks": 3
+    },
+    {
+      "keyframe": 3,
+      "ticks": 2
+    },
+    {
+      "keyframe": 4,
+      "ticks": 2
+    },
+    {
+      "keyframe": 5,
+      "ticks": 2
+    },
+    {
+      "keyframe": 6,
+      "ticks": 2
+    },
+    {
+      "keyframe": 7,
+      "ticks": 2
+    },
+    {
+      "keyframe": 8,
+      "ticks": 3
+    },
+    {
+      "keyframe": 9,
+      "ticks": 4
+    },
+    {
+      "keyframe": 10,
+      "ticks": 4
+    },
+    {
+      "keyframe": 11,
+      "ticks": 6
+    }
+  ],
+  "timeline": [
+    {
+      "tick": 0,
+      "keyframe": 0,
+      "file": "frames_24fps/000.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 1,
+      "keyframe": 0,
+      "file": "frames_24fps/001.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 2,
+      "keyframe": 0,
+      "file": "frames_24fps/002.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 3,
+      "keyframe": 1,
+      "file": "frames_24fps/003.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 4,
+      "keyframe": 1,
+      "file": "frames_24fps/004.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 5,
+      "keyframe": 1,
+      "file": "frames_24fps/005.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 6,
+      "keyframe": 2,
+      "file": "frames_24fps/006.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 7,
+      "keyframe": 2,
+      "file": "frames_24fps/007.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 8,
+      "keyframe": 2,
+      "file": "frames_24fps/008.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 9,
+      "keyframe": 3,
+      "file": "frames_24fps/009.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 10,
+      "keyframe": 3,
+      "file": "frames_24fps/010.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 11,
+      "keyframe": 4,
+      "file": "frames_24fps/011.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 12,
+      "keyframe": 4,
+      "file": "frames_24fps/012.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 13,
+      "keyframe": 5,
+      "file": "frames_24fps/013.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 14,
+      "keyframe": 5,
+      "file": "frames_24fps/014.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 15,
+      "keyframe": 6,
+      "file": "frames_24fps/015.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 16,
+      "keyframe": 6,
+      "file": "frames_24fps/016.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 17,
+      "keyframe": 7,
+      "file": "frames_24fps/017.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 18,
+      "keyframe": 7,
+      "file": "frames_24fps/018.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 19,
+      "keyframe": 8,
+      "file": "frames_24fps/019.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 20,
+      "keyframe": 8,
+      "file": "frames_24fps/020.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 21,
+      "keyframe": 8,
+      "file": "frames_24fps/021.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 22,
+      "keyframe": 9,
+      "file": "frames_24fps/022.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 23,
+      "keyframe": 9,
+      "file": "frames_24fps/023.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 24,
+      "keyframe": 9,
+      "file": "frames_24fps/024.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 25,
+      "keyframe": 9,
+      "file": "frames_24fps/025.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 26,
+      "keyframe": 10,
+      "file": "frames_24fps/026.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 27,
+      "keyframe": 10,
+      "file": "frames_24fps/027.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 28,
+      "keyframe": 10,
+      "file": "frames_24fps/028.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 29,
+      "keyframe": 10,
+      "file": "frames_24fps/029.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 30,
+      "keyframe": 11,
+      "file": "frames_24fps/030.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 31,
+      "keyframe": 11,
+      "file": "frames_24fps/031.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 32,
+      "keyframe": 11,
+      "file": "frames_24fps/032.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 33,
+      "keyframe": 11,
+      "file": "frames_24fps/033.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 34,
+      "keyframe": 11,
+      "file": "frames_24fps/034.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 35,
+      "keyframe": 11,
+      "file": "frames_24fps/035.png",
+      "root_offset_px": [
+        0,
+        0
+      ]
+    }
+  ],
+  "events": [
+    {
+      "tick": 9,
+      "event": "release",
+      "world_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "tick": 30,
+      "event": "clear",
+      "world_offset_px": [
+        0,
+        0
+      ]
+    }
+  ],
+  "rgba_sha256": [
+    "82c3cfd8ce9d1cf00720184eb18b75213f3aeac92e0cd7ee98700b8d72fab4d4",
+    "90ff2922520f11f71dc98ea75fb8a45223927da9e242e13763aea5a237ac7e90",
+    "eaf42819e42f78f91ff1bd035ab3e01905cae8037a7380e44c50fb22d3747063",
+    "2184427b49bd9e8f7f899ae01c45ac2997b921173bca5501a22b1a5dc66d7330",
+    "ef0638b3c9159df17015b646c85061e4f56f3de1a26b6fa228f425b7bcef9c1b",
+    "5bdee6a9669b66bee2fcc9aac1b1abc2c9c980b75b87f0078c2b2a1d05e16de9",
+    "dcc7136bd5eb3d08fb135fc73cc3d9bc11e7d399479a616c38bbde8cd20372f0",
+    "93e16593a213fb127332a3ff5d9b92aa86da0fcb2832a4fb10ea502be1968711",
+    "5a9ad34a92840216cd63c1113ffa27b4490a28d4e55c37a70743ed8782250034",
+    "aba9e4a2b1b4ba587a3c93e1a466027aa0100e915a0303ea009e255e6ed92af1",
+    "2e830ea5f6348c22615620b2a9b0f710a19c9147c6dcf4b33a57cd10c90cf02f",
+    "106f0647ae10a6516b1ab2968038161e287ef40d1b22ca047531ed768e594ef1"
+  ]
+}

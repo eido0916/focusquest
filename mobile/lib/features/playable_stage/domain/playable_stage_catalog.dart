@@ -48,7 +48,7 @@ class PlayableStageCatalog {
   ];
   static const backgrounds = [
     'assets/images/playable_stage/grassland.png',
-    'assets/images/stage_backgrounds/ghost_ship_v001.png',
+    'assets/images/stage_backgrounds/ghost_ship_focus_v002.png',
     'assets/images/stage_backgrounds/volcano_v001.png',
     'assets/images/stage_backgrounds/poison_marsh_v001.png',
     'assets/images/stage_backgrounds/desert_labyrinth_v001.png',

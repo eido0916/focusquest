@@ -47,7 +47,9 @@ class JobPortrait extends StatelessWidget {
       width: lobby ? double.infinity : null,
       child: Image.asset(
         lobby
-            ? 'assets/images/lobby/portraits/${variant == 'female' ? 'female/' : ''}$role.png'
+            ? (role == 'gunner' && variant == 'female'
+                ? 'assets/images/lobby/portraits/female/gunner_dark_brown_transparent_v002.png'
+                : 'assets/images/lobby/portraits/${variant == 'female' ? 'female/' : ''}$role.png')
             : 'assets/images/portraits/$variant/$role.webp',
         fit: fit,
         alignment:

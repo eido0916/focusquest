@@ -1,0 +1,18 @@
+{
+  "roles": 16,
+  "originals": 192,
+  "gender_bindings": 32,
+  "canonical_frames": 576,
+  "synchronized_frames": 1214,
+  "RGBA_all_identical": true,
+  "render_mode": "original_pixel_keyframes",
+  "interpolation": "none",
+  "validation": {
+    "effect_render_and_sync_tests": 19,
+    "party_and_replay_tests": 6,
+    "female_identity_and_route_tests": 4,
+    "adventure_and_original_frame_regression_tests": 50,
+    "changed_files_analysis": "No issues found",
+    "result": "passed"
+  }
+}

@@ -38,7 +38,8 @@ class FantasyBattleHud {
     frame(canvas, const Rect.fromLTWH(5, 408, 375, 140));
     frame(canvas, const Rect.fromLTWH(595, 408, 360, 140));
     frame(canvas, const Rect.fromLTWH(777, -12, 180, 70));
-    text(canvas, '木漏れ日の野原', const Rect.fromLTWH(76, 72, 232, 38), 26, gold);
+    text(
+        canvas, state.areaName, const Rect.fromLTWH(76, 72, 232, 38), 26, gold);
     for (final x in [323.0, 535.0, 728.0]) {
       canvas.drawLine(
           Offset(x, 75),
@@ -64,6 +65,34 @@ class FantasyBattleHud {
         cyan);
     jewel(canvas, const Offset(480, 57), 9);
     jewel(canvas, const Offset(480, 122), 6);
+
+    if (state.isBossBattle) {
+      canvas.drawRRect(
+          RRect.fromRectAndRadius(
+              const Rect.fromLTWH(545, 145, 395, 90), const Radius.circular(8)),
+          Paint()..color = const Color(0xee072641));
+      canvas.drawRRect(
+          RRect.fromRectAndRadius(
+              const Rect.fromLTWH(545, 145, 395, 90), const Radius.circular(8)),
+          Paint()
+            ..color = gold
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = 1.5);
+      final left = state.bossRemainingSeconds.ceil();
+      text(canvas, 'BOSS · ${state.bossName}',
+          const Rect.fromLTWH(575, 160, 330, 28), 22, gold);
+      text(
+          canvas,
+          '撃破まで ${left ~/ 60}:${(left % 60).toString().padLeft(2, '0')}',
+          const Rect.fromLTWH(575, 191, 330, 25),
+          19,
+          cyan);
+      canvas.drawRect(
+          const Rect.fromLTWH(575, 219, 330, 5), Paint()..color = Colors.black);
+      canvas.drawRect(
+          Rect.fromLTWH(575, 219, 330 * state.bossRemainingSeconds / 300, 5),
+          Paint()..color = const Color(0xffda5a62));
+    }
 
     // The full badge slot remains independent of the window and level text.
     const logoRect = Rect.fromLTWH(42, 426, 80, 92);

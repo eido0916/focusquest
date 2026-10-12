@@ -1,0 +1,47 @@
+{
+  "mode": "built-in image_gen",
+  "reference": "C:/Users/eido0/Downloads/草原ステージの忍者RPG画面.png",
+  "shared": "Standalone fantasy RPG UI frame. Polished gold double rim, hand painted crisp dark outlines matching reference. Empty center for dynamic text and icons. Exterior transparent. No text, landscape, characters, or asset sheet.",
+  "assets": [
+    {
+      "name": "status_panel",
+      "prompt": "Landscape player status panel about 3.2:1, navy opaque center, curled angular gold corners."
+    },
+    {
+      "name": "stage_banner",
+      "prompt": "ONE very wide 6:1 stage title banner frame, midnight navy opaque center, ornate gold double border, symmetric swept wing filigree extending left and right, small gold diamond finials at top and bottom middle. No text."
+    },
+    {
+      "name": "phase_panel",
+      "prompt": "ONE landscape 4:1 phase progress panel, navy opaque interior, ornate gold rim with clipped curled corners, small royal blue pennant hanging along inside left edge with small gold crossed swords emblem; all remaining interior empty, no text or progress dots."
+    },
+    {
+      "name": "attack_button",
+      "prompt": "ONE circular attack button frame, perfectly round gold bevel double rim, gold diamond compass accents at cardinal directions, rich glowing ruby red glossy opaque interior, subtle red radial highlight. Empty center, no sword no text."
+    },
+    {
+      "name": "skill_button",
+      "prompt": "ONE circular skill button frame, perfectly round gold bevel double rim, gold diamond compass accents at cardinal directions, rich glowing sapphire blue glossy opaque interior, subtle blue radial highlight. Empty center no icon no text."
+    },
+    {
+      "name": "auto_button",
+      "prompt": "ONE circular small auto button frame, gold bevel double rim, rich dark brown black glossy opaque interior. Empty center, no icon no text."
+    },
+    {
+      "name": "utility_button",
+      "prompt": "ONE square clipped corner octagonal utility button frame, polished gold double bevel border, rich dark brown black glossy opaque interior. Empty center no icon no text."
+    },
+    {
+      "name": "caption_frame",
+      "prompt": "ONE wide 3.5:1 small caption plaque frame, gold double bevel rim, clipped corners, black opaque interior. Empty center no text."
+    },
+    {
+      "name": "portrait_frame",
+      "prompt": "ONE square portrait frame, thin ornate gold double rim and angular corner flourishes matching player status panel. Center cutout genuinely TRANSPARENT for a portrait inserted by game. No character no text."
+    },
+    {
+      "name": "hp_frame",
+      "prompt": "Long thin 12:1 HP gauge with polished gold rim and empty dark green black interior."
+    }
+  ]
+}

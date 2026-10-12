@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import '../data/game_catalog.dart';
 import '../data/player_repository.dart';
 import '../data/player_state.dart';
+import '../features/certificate/focus_defeat_counter.dart';
 import '../features/character/domain/character.dart';
 import '../features/character/domain/progression_service.dart';
 import '../features/diagnosis/domain/diagnosis_service.dart';
@@ -12,7 +13,6 @@ import '../features/focus/domain/focus_ledger.dart';
 import '../features/focus/domain/focus_service.dart';
 import '../features/focus/domain/focus_session.dart';
 import '../features/focus/domain/reward_service.dart';
-import '../features/adventure/domain/adventure.dart';
 import '../features/party/data/party_connection.dart';
 import '../features/party/domain/party_member.dart';
 
@@ -40,10 +40,7 @@ class GameController extends ChangeNotifier {
 
   Future<void> prepareParty(bool ready) async {
     if (ready) {
-      if (activeFocus != null ||
-          state!.adventureRun != null ||
-          playableAdventureActive ||
-          busy) {
+      if (activeFocus != null || playableAdventureActive || busy) {
         throw StateError('集中・冒険・保存が終わってから準備してください。');
       }
       final permissions = await monitor.guardPermissions();
@@ -104,7 +101,6 @@ class GameController extends ChangeNotifier {
 
   Future<void> beginPlayableAdventure() => _action(() async {
         if (activeFocus != null) throw StateError('集中が終わってから冒険に出発しましょう。');
-        if (state!.adventureRun != null) throw StateError('以前の冒険の結果を確認してください。');
         if (playableAdventureActive) throw StateError('冒険はすでに始まっています。');
         playableAdventureActive = true;
       });
@@ -134,6 +130,14 @@ class GameController extends ChangeNotifier {
     startupError = null;
     try {
       state = await repository.load(uid);
+      if (state!.adventurerNumber == null ||
+          (!state!.onboardingComplete && state!.firstPlayedAt == null)) {
+        await _save((s) => s.copyWith(
+              firstPlayedAt: !s.onboardingComplete ? clock() : null,
+              adventurerNumber: s.adventurerNumber ??
+                  'AG-${random.nextInt(10000000).toString().padLeft(7, '0')}',
+            ));
+      }
     } catch (_) {
       startupError = '保存データを読み込めませんでした。データを保持したまま再試行できます。';
     }
@@ -170,6 +174,16 @@ class GameController extends ChangeNotifier {
     state = await repository.transact(uid, change);
   }
 
+  Future<void> recordAdventureDefeats(String operationId, int count) =>
+      _action(() => _save((s) {
+            if (count < 0) throw ArgumentError.value(count, 'count');
+            final operation = 'defeats:$operationId';
+            if (s.appliedOperations.contains(operation) || count == 0) return s;
+            return s.copyWith(
+                totalDefeats: s.totalDefeats + count,
+                appliedOperations: {...s.appliedOperations, operation});
+          }));
+
   // Temporary developer tool; remove together with the settings reset section.
   Future<void> resetForDevelopment() => _action(() async {
         await _save((s) => PlayerState(uid: s.uid));
@@ -179,9 +193,7 @@ class GameController extends ChangeNotifier {
   // Temporary developer tool; remove with the developer character screen.
   Future<void> setCharacterForDevelopment(String typeId, String appearance) =>
       _action(() => _save((s) {
-            if (activeFocus != null ||
-                s.adventureRun != null ||
-                playableAdventureActive) {
+            if (activeFocus != null || playableAdventureActive) {
               throw StateError('集中・冒険が終わってから変更してください。');
             }
             final type = GameCatalog.types.values
@@ -217,6 +229,9 @@ class GameController extends ChangeNotifier {
                 baseStats: type.stats);
             return s.copyWith(
                 onboardingComplete: true,
+                firstPlayedAt: s.firstPlayedAt ?? clock(),
+                adventurerNumber: s.adventurerNumber ??
+                    'AG-${random.nextInt(10000000).toString().padLeft(7, '0')}',
                 activeCharacterId: hero.id,
                 characters: {hero.id: hero});
           }));
@@ -225,9 +240,8 @@ class GameController extends ChangeNotifier {
           DateTime? startedAt,
           List<PartyMember> members = const []}) =>
       _action(() async {
-        final s = state!;
-        if (s.adventureRun != null || playableAdventureActive) {
-          throw StateError('冒険の結果を確認してから集中できます。');
+        if (playableAdventureActive) {
+          throw StateError('冒険の終了後に集中できます。');
         }
         final permissions = await monitor.guardPermissions();
         if (permissions != null &&
@@ -242,6 +256,7 @@ class GameController extends ChangeNotifier {
             id: basic.id,
             startedAt: basic.startedAt,
             durationMinutes: basic.durationMinutes,
+            adventureStartSeconds: state!.focusAdventureSeconds,
             verification: basic.verification,
             targetPackages: basic.targetPackages,
             partyMembers: List.unmodifiable(members),
@@ -277,14 +292,22 @@ class GameController extends ChangeNotifier {
         }
         final finished = session.finish(result);
         final reward = RewardService(random).focus(finished);
-        await _save((s) => FocusLedger().settle(s, session.id, result, reward));
+        final defeats = await FocusDefeatCounter.count(
+            session, state!.activeCharacter!, now);
+        await _save((s) {
+          final settled = FocusLedger().settle(s, session.id, result, reward);
+          final operation = 'defeats:focus:${session.id}';
+          if (s.appliedOperations.contains(operation)) return settled;
+          return settled.copyWith(
+              totalDefeats: settled.totalDefeats + defeats,
+              appliedOperations: {...settled.appliedOperations, operation});
+        });
         await monitor.stopGuard();
         if (session.partyMembers.isNotEmpty) party.report(result.name);
         return finished;
       });
   Future<void> equip(String itemId) => _action(() => _save((s) {
         if (playableAdventureActive) throw StateError('冒険の終了後に装備を変更できます。');
-        if (s.adventureRun != null) throw StateError('冒険の終了後に装備を変更できます。');
         if (activeFocus != null) {
           throw StateError('集中の完了後に装備を変更できます。');
         }
@@ -305,7 +328,6 @@ class GameController extends ChangeNotifier {
       }));
   Future<void> selectCharacter(String id) => _action(() => _save((s) {
         if (playableAdventureActive) throw StateError('冒険の終了後に仲間を変更できます。');
-        if (s.adventureRun != null) throw StateError('冒険の終了後に仲間を変更できます。');
         if (activeFocus != null) {
           throw StateError('集中中は仲間を変更できません。');
         }
@@ -322,72 +344,4 @@ class GameController extends ChangeNotifier {
                 monitoring: enabled,
                 targetPackages: List.unmodifiable(packages));
           }));
-
-  Future<void> startAdventure(String stageId) => _action(() async {
-        if (playableAdventureActive) throw StateError('進行中の冒険があります。');
-        final id = _id();
-        final seed = random.nextInt(1 << 30);
-        final startedAt = clock();
-        await _save((s) {
-          if (s.adventureRun != null) throw StateError('進行中の冒険があります。');
-          if (s.sessions.values.any((f) => f.status == FocusStatus.active)) {
-            throw StateError('集中が終わってから冒険に出発しましょう。');
-          }
-          if (!AdventureCatalog.unlocked(stageId, s.clearedStages)) {
-            throw StateError('前のステージをクリアしてください。');
-          }
-          final hero = s.activeCharacter;
-          if (hero == null) throw StateError('キャラクターを決定してください。');
-          return s.copyWith(
-              adventureRun: AdventureRun(
-                  id: id,
-                  stageId: stageId,
-                  heroName: hero.name,
-                  characterType: hero.characterType,
-                  appearance: hero.appearance,
-                  seed: seed,
-                  startedAt: startedAt,
-                  stats:
-                      ProgressionService().stats(hero, GameCatalog.equipment)));
-        });
-      });
-
-  Future<AdventureRecord> finishAdventure(String runId) => _action(() async {
-        AdventureRecord? record;
-        final now = clock();
-        await _save((s) {
-          if (s.lastAdventure?.runId == runId) {
-            record = s.lastAdventure;
-            return s;
-          }
-          final run = s.adventureRun;
-          if (run == null || run.id != runId) throw StateError('冒険が見つかりません。');
-          final battle = AdventureBattle.simulate(run);
-          if (battle.revealed(run, now) < battle.events.length) {
-            throw StateError('戦闘はまだ進行中です。');
-          }
-          final stage = AdventureCatalog.stage(run.stageId);
-          final firstClear = battle.won && !s.clearedStages.contains(stage.id);
-          record = AdventureRecord(
-              runId: run.id,
-              stageId: stage.id,
-              won: battle.won,
-              coins: firstClear ? stage.coins : 0,
-              item: firstClear ? stage.item : null);
-          return s.copyWith(
-              clearAdventureRun: true,
-              lastAdventure: record,
-              clearedStages: {...s.clearedStages, if (battle.won) stage.id},
-              coins: s.coins + record!.coins,
-              inventory: {
-                ...s.inventory,
-                if (firstClear) stage.item: (s.inventory[stage.item] ?? 0) + 1
-              },
-              appliedOperations: {
-                ...s.appliedOperations,
-                'adventure:${run.id}'
-              });
-        });
-        return record!;
-      });
 }

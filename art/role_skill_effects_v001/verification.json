@@ -1,0 +1,114 @@
+[
+  {
+    "role": "warrior",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "boxer",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "samurai",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "guardian",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "ninja",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "assassin",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "ranger",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "mage",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "gunner",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "spellblade",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "onmyoji",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "reaper",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "angel",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "devil",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "dragon_knight",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  },
+  {
+    "role": "berserker",
+    "originals": 12,
+    "ticks": 36,
+    "rgba_matches": true,
+    "transparent_end": true
+  }
+]

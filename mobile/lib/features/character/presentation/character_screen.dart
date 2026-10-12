@@ -4,6 +4,7 @@ import '../../../core/widgets/quest_widgets.dart';
 import '../../../data/game_catalog.dart';
 import '../domain/progression_service.dart';
 import '../../diagnosis/presentation/job_portrait.dart';
+import '../../certificate/certificate_screen.dart';
 
 const _gold = Color(0xffffd58b);
 const _white = Color(0xfffff8e9);
@@ -320,8 +321,14 @@ class CharacterScreen extends StatelessWidget {
                                           fontSize: large ? 24 : 18,
                                           height: 1.3,
                                           fontWeight: FontWeight.bold))),
+                              IconButton(
+                                tooltip: '冒険者証',
+                                icon: const Icon(Icons.badge_outlined, color: _gold),
+                                onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(
+                                  builder: (_) => CertificateScreen(controller: controller))),
+                              ),
                               if (large)
-                                Text('${hero.rarity}  Lv.${hero.level}',
+                                Text('Lv.${hero.level}',
                                     style: const TextStyle(
                                         fontSize: 17, height: 1.3)),
                             ]));
