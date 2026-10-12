@@ -238,7 +238,7 @@ class PartyBattleGame extends FlameGame {
     }
     canvas.drawRect(const Rect.fromLTWH(0, 0, 960, 80),
         Paint()..color = const Color(0xdd10231c));
-    final remaining = session.remaining(clock()).inSeconds;
+    final remaining = (session.durationMinutes * 60 - time).ceil();
     _text(
         canvas,
         '第${session.focusAreaIndex + 1}章 · ${FocusAdventure.area(adventureTime, areaIndex: session.focusAreaIndex)} · ${session.partyMembers.length}人パーティー',
@@ -254,8 +254,17 @@ class PartyBattleGame extends FlameGame {
             : '残り ${remaining ~/ 60}:${(remaining % 60).toString().padLeft(2, '0')}  ·  敵 ${session.partyMembers.length}体 / wave',
         20,
         48,
-        width: 600,
+        width: 570,
         size: 17);
+    if (bossBattle && (party == null || party!.connected)) {
+      _text(
+          canvas,
+          'BOSS · ${FocusAdventure.bossName(adventureTime, areaIndex: session.focusAreaIndex)} · 撃破まで ${FantasyBattleHud.clockText(bossLeft)}',
+          620,
+          48,
+          width: 320,
+          size: 13);
+    }
     if (elapsed < 0) {
       _text(canvas, '${(-elapsed).ceil()}秒後に一緒に開始', 450, 20,
           width: 280, size: 23);

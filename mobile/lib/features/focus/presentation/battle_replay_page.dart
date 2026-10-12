@@ -93,11 +93,12 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
                           fit: BoxFit.cover, filterQuality: FilterQuality.none),
                       GameWidget(game: _game),
                       Positioned(
-                          right: 5 * unit,
-                          top: 0,
-                          width: 175 * unit,
-                          height: 44 * unit,
+                          left: FantasyBattleHud.menuRect.left * unit,
+                          top: FantasyBattleHud.menuRect.top * unit,
+                          width: FantasyBattleHud.menuRect.width * unit,
+                          height: FantasyBattleHud.menuRect.height * unit,
                           child: TextButton(
+                              key: const Key('focus-battle-menu'),
                               style: TextButton.styleFrom(
                                   foregroundColor: Colors.white,
                                   padding: EdgeInsets.symmetric(
