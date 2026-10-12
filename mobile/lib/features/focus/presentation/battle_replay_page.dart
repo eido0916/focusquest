@@ -136,7 +136,7 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
                                 Icon(Icons.undo_rounded,
                                     color: FantasyBattleHud.gold, size: 25),
                                 SizedBox(width: 7),
-                                Text('集中メニュー',
+                                Text('タイマーに戻る',
                                     style: TextStyle(
                                         fontFamily: 'SunlitSerif',
                                         fontSize: 18,
