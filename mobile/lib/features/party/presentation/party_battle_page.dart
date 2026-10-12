@@ -97,6 +97,7 @@ class PartyBattleGame extends FlameGame {
   bool _reported = false;
   double _finishAge = 0;
   String? loadError;
+  final Map<String, ui.Image> _roleLogos = {};
   String actorKey(PartyMember member) {
     final hero =
         PixelBattleAssets.characterFor(member.characterType, member.appearance);
@@ -114,6 +115,7 @@ class PartyBattleGame extends FlameGame {
       _bossAssets = await EnemyMotionAssets.load(this);
       for (final type
           in session.partyMembers.map((m) => m.characterType).toSet()) {
+        _roleLogos[type] = await images.load('role_logos/$type.png');
         _effects[type] = await RoleSkillEffects.load(type,
             (path) => images.load(path.replaceFirst('assets/images/', '')));
       }
@@ -240,8 +242,17 @@ class PartyBattleGame extends FlameGame {
           RRect.fromRectAndRadius(
               Rect.fromLTWH(12, y - 88, 390, 94), const Radius.circular(10)),
           Paint()..color = const Color(0x6610231c));
-      _text(canvas, member.name, 22, y - 75,
-          width: 148, size: 19, color: const Color(0xffffdd98));
+      final logo = _roleLogos[member.characterType];
+      if (logo != null) {
+        paintImage(
+            canvas: canvas,
+            rect: Rect.fromLTWH(20, y - 77, 32, 32),
+            image: logo,
+            fit: BoxFit.contain,
+            filterQuality: FilterQuality.high);
+      }
+      _text(canvas, member.name, 58, y - 75,
+          width: 112, size: 19, color: const Color(0xffffdd98));
       _text(canvas, 'Lv.${member.level}', 22, y - 42, width: 140, size: 15);
       final live = party?.members.where((m) => m.id == member.id).firstOrNull;
       final status = live?.status;

@@ -53,6 +53,13 @@ void main() {
     expect(bindings.length, 32);
     for (final entry in bindings.entries) {
       final data = entry.value as Map;
+      final key = entry.key as String;
+      final female = key.endsWith('_female');
+      final type = key.substring(0, key.length - (female ? 7 : 5));
+      final character =
+          PixelBattleAssets.characterFor(type, female ? 'female' : 'male');
+      expect(data['source_motion'], character.id);
+      expect(data['source_event'], character.skillEvent);
       final duration = (data['duration_seconds'] as num).toDouble();
       final releases = (data['release_ticks'] as List)
           .map((t) => (t as num).toDouble() / 24)

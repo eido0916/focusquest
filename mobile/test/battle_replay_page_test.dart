@@ -61,6 +61,8 @@ void main() {
       final widget = tester
           .widget<GameWidget>(find.byWidgetPredicate((w) => w is GameWidget));
       final game = widget.game as FocusQuestBattleGame;
+      expect(game.levelLogoAsset, 'role_logos/warrior.png');
+      expect(game.heroName, '冒険者');
       var loaded = false;
       var heroReady = false;
       game.loaded.then((_) => loaded = true);

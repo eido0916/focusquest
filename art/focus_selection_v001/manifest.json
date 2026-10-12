@@ -1,0 +1,128 @@
+[
+  {
+    "name": "background",
+    "width": 1024,
+    "height": 1536,
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd4-afc2-7a62-9716-0611942553d4\\exec-a02dc3a9-e7a8-4060-a0ed-c6b56ab05848.png"
+  },
+  {
+    "name": "parchment_panel",
+    "width": 2107,
+    "height": 505,
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd4-afc2-7a62-9716-0611942553d4\\exec-1421a1e9-ea08-4f34-a715-8ddc8a9d788e.png"
+  },
+  {
+    "name": "party_panel",
+    "width": 2107,
+    "height": 408,
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd4-afc2-7a62-9716-0611942553d4\\exec-ec2cdd82-ea5b-4619-8bc2-e627d9e7320a.png"
+  },
+  {
+    "name": "custom_strip",
+    "width": 1344,
+    "height": 170,
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd4-afc2-7a62-9716-0611942553d4\\exec-b81e0606-05b1-4970-bd97-e10f22a12697.png"
+  },
+  {
+    "name": "blue_button",
+    "width": 2172,
+    "height": 576,
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd4-afc2-7a62-9716-0611942553d4\\exec-ca7b8790-04f8-4e78-afe4-6b9c6c663df3.png"
+  },
+  {
+    "name": "stage_banner",
+    "width": 2022,
+    "height": 754,
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd4-afc2-7a62-9716-0611942553d4\\exec-4b983551-ee5d-48e6-84a5-6fa731e9515b.png"
+  },
+  {
+    "name": "avatar_frame",
+    "width": 1208,
+    "height": 1150,
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd4-afc2-7a62-9716-0611942553d4\\exec-ae7ac2c4-8f5d-482a-ba58-d81ca3f8b850.png"
+  },
+  {
+    "name": "time_button",
+    "width": 1599,
+    "height": 478,
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd4-afc2-7a62-9716-0611942553d4\\exec-b86a5f41-6368-4a00-9f0f-4f24f80934b1.png"
+  },
+  {
+    "name": "time_selected",
+    "width": 1618,
+    "height": 584,
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd4-afc2-7a62-9716-0611942553d4\\exec-f8332365-faa5-4fe6-ab25-1f30ff6222c6.png"
+  },
+  {
+    "name": "back_button",
+    "width": 929,
+    "height": 853,
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd4-afc2-7a62-9716-0611942553d4\\exec-98f5f1f4-dcc5-42b8-a0f9-adf2b327b0de.png"
+  },
+  {
+    "name": "navigation_panel",
+    "width": 2151,
+    "height": 388,
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd4-afc2-7a62-9716-0611942553d4\\exec-cccc7e4e-6d9f-4f90-8c2d-765a691cbc50.png"
+  },
+  {
+    "name": "icon_hourglass",
+    "width": 128,
+    "height": 128,
+    "generator": "native SVG"
+  },
+  {
+    "name": "icon_party",
+    "width": 128,
+    "height": 128,
+    "generator": "native SVG"
+  },
+  {
+    "name": "icon_list",
+    "width": 128,
+    "height": 128,
+    "generator": "native SVG"
+  },
+  {
+    "name": "icon_compass",
+    "width": 128,
+    "height": 128,
+    "generator": "native SVG"
+  },
+  {
+    "name": "icon_bag",
+    "width": 128,
+    "height": 128,
+    "generator": "native SVG"
+  },
+  {
+    "name": "icon_book",
+    "width": 128,
+    "height": 128,
+    "generator": "native SVG"
+  },
+  {
+    "name": "icon_gear",
+    "width": 128,
+    "height": 128,
+    "generator": "native SVG"
+  },
+  {
+    "name": "icon_back",
+    "width": 128,
+    "height": 128,
+    "generator": "native SVG"
+  },
+  {
+    "name": "icon_chevron",
+    "width": 128,
+    "height": 128,
+    "generator": "native SVG"
+  },
+  {
+    "name": "icon_divider",
+    "width": 128,
+    "height": 128,
+    "generator": "native SVG"
+  }
+]

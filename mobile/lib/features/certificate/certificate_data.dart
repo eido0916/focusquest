@@ -13,11 +13,14 @@ class CertificateData {
       required this.days,
       required this.stages,
       required this.number,
-      required this.issuedAt});
+      required this.issuedAt,
+      this.selectedTitle});
   final String role, gender, name, number;
   final int level, focusMinutes, defeats, days, stages;
   final DateTime? issuedAt;
-  String get title => CertificateCatalog.title(role, level);
+  final String? selectedTitle;
+  String get title =>
+      CertificateCatalog.displayedTitle(role, level, selectedTitle);
 
   factory CertificateData.fromState(PlayerState state, DateTime now) {
     final hero = state.activeCharacter!;
@@ -31,6 +34,7 @@ class CertificateData {
         gender: hero.appearance,
         name: hero.name,
         level: hero.level,
+        selectedTitle: hero.selectedTitle,
         focusMinutes: summary.totalMinutes,
         defeats: state.totalDefeats,
         days: firstDay == null

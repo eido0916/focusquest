@@ -7,6 +7,7 @@ import 'features/diagnosis/presentation/diagnosis_screen.dart';
 import 'features/focus/presentation/focus_screen.dart';
 import 'features/home/home_screen.dart';
 import 'features/settings/settings_screen.dart';
+import 'features/settings/settings_art.dart';
 import 'features/adventure/presentation/adventure_screen.dart';
 
 class FocusQuestApp extends StatelessWidget {
@@ -73,7 +74,7 @@ class _QuestShellState extends State<QuestShell> {
     ];
     return Scaffold(
         body: SafeArea(
-            child: _tab == 1
+            child: _tab == 1 || _tab == 2
                 ? pages[_tab]
                 : QuestBackdrop(
                     dim: _tab == 0 ? 0 : .14,
@@ -81,7 +82,9 @@ class _QuestShellState extends State<QuestShell> {
                         child: ConstrainedBox(
                             constraints: const BoxConstraints(maxWidth: 640),
                             child: pages[_tab])))),
-        bottomNavigationBar: QuestNavigation(
-            selected: _tab, onSelect: (tab) => setState(() => _tab = tab)));
+        bottomNavigationBar: _tab == 2
+            ? SettingsNavigation(onSelect: (tab) => setState(() => _tab = tab))
+            : QuestNavigation(
+                selected: _tab, onSelect: (tab) => setState(() => _tab = tab)));
   }
 }

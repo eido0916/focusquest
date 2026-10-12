@@ -20,6 +20,7 @@ void main() {
   });
   for (final size in [
     const Size(390, 844),
+    const Size(390, 1150),
     const Size(320, 568),
     const Size(800, 1280),
     const Size(866, 1280),
@@ -66,35 +67,18 @@ void main() {
         }
         await tester.pumpAndSettle();
         expect(tester.takeException(), isNull);
-        final headerImage = find
-            .byWidgetPredicate((widget) =>
-                widget is Image &&
-                widget.image is AssetImage &&
-                (widget.image as AssetImage).assetName ==
-                    'assets/images/lobby/equipment_slot.png')
-            .first;
-        expect(tester.getSize(headerImage).width, lessThanOrEqualTo(640));
-        expect(tester.getTopLeft(find.text('Lv. 12　重騎士')).dy,
-            greaterThan(tester.getBottomLeft(find.text('キャラクター').first).dy));
-        expect(find.text('仲間'), findsNothing);
-        expect(find.text('編成中'), findsNothing);
+        expect(find.text('Lv. 12'), findsOneWidget);
+        expect(find.text('称号変更'), findsOneWidget);
+        expect(find.byKey(const ValueKey('character-stats')), findsOneWidget);
         expect(
-            find.descendant(
-                of: find.byType(CharacterScreen),
-                matching: find.byType(FittedBox)),
-            findsNothing);
-        if (size.width >= 600 && size.height >= 1000 && scale == 1) {
-          expect(find.byType(Scrollable), findsNothing);
-          final panel =
-              tester.getRect(find.byKey(const ValueKey('character-stats')));
-          final title = tester.getRect(find.text('Lv. 12　重騎士'));
-          expect(title.left - panel.left, greaterThanOrEqualTo(30));
-          expect(title.right, lessThan(panel.right - 30));
-          expect((tester.widget<Text>(find.text('攻撃力')).style!).fontSize,
-              greaterThanOrEqualTo(20));
-        }
+            find.byKey(const ValueKey('character-equipment')), findsOneWidget);
+        await tester.ensureVisible(find.text('所持アイテム'));
+        await tester.pumpAndSettle();
         expect(find.text('所持アイテム').hitTestable(), findsOneWidget);
         if (const bool.fromEnvironment('CAPTURE_LOBBY') && scale == 1) {
+          await tester.drag(find.byKey(const ValueKey('character-scroll')),
+              const Offset(0, 1800));
+          await tester.pumpAndSettle();
           await tester.runAsync(() async {
             final render = boundary.currentContext!.findRenderObject()!
                 as RenderRepaintBoundary;
@@ -108,6 +92,36 @@ void main() {
             image.dispose();
           });
         }
+        await tester.ensureVisible(find.byKey(const ValueKey('change-title')));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byKey(const ValueKey('change-title')));
+        await tester.pumpAndSettle();
+        for (final element in find.byType(Image).evaluate()) {
+          await tester.runAsync(
+              () => precacheImage((element.widget as Image).image, element));
+        }
+        await tester.pumpAndSettle();
+        expect(find.text('称号一覧'), findsOneWidget);
+        expect(tester.takeException(), isNull);
+        if (const bool.fromEnvironment('CAPTURE_LOBBY') &&
+            size.width == 390 &&
+            scale == 1) {
+          await tester.runAsync(() async {
+            final render = boundary.currentContext!.findRenderObject()!
+                as RenderRepaintBoundary;
+            final image = await render.toImage(pixelRatio: 2);
+            final bytes =
+                await image.toByteData(format: ui.ImageByteFormat.png);
+            final file = File(
+                '../output/character_lobby/titles-${size.height.toInt()}.png');
+            await file.writeAsBytes(bytes!.buffer.asUint8List());
+            image.dispose();
+          });
+        }
+        await tester.tap(find.byTooltip('閉じる'));
+        await tester.pumpAndSettle();
+        await tester.ensureVisible(find.text('所持アイテム'));
+        await tester.pumpAndSettle();
         await tester.tap(find.text('所持アイテム'));
         await tester.pumpAndSettle();
         final item = find.byKey(const ValueKey('inventory-wooden_sword'));

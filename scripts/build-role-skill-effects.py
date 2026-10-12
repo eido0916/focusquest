@@ -39,13 +39,13 @@ def frame_index(tick,total,events):
     return min(11,3+(tick-first)*9//max(1,total-first))
 
 def export_bindings():
-    events_by_role=[('wave_release','skill_release'),('kick_hit','kick_hit'),('slash_1','flurry_hit'),('sweep_hit','skill_release'),('dagger_hit','dagger_hit'),('critical_impact','skill_release'),('arrow_release','arrow_release'),('ice_release','ice_release'),('bullet_release','bullet_release'),('lightning_strike','lightning_strike')]
+    events_by_role=[('wave_release','skill_release'),('kick_hit','kick_hit'),('slash_1','flurry_hit'),('sweep_hit','skill_release'),('dagger_hit','dagger_hit'),('critical_impact','skill_release'),('arrow_release','arrow_release'),('ice_release','ice_release'),('bullet_release','bullet_release'),('lightning_strike','lightning_strike'),('shikigami_attack','shikigami_attack'),('chain_scythe_throw','chain_scythe_throw'),('holy_swords_release','holy_swords_release'),('curse_apply','curse_apply'),('dragon_flurry_hit','dragon_flurry_hit'),('floor_release','floor_release')]
     bindings={}
     for ri,(role,*_) in enumerate(ROLES):
         for female in [False,True]:
-            source=f'character_{ri+1:02}'+('_female' if female else '') if ri<10 else 'character_01'
+            source=f'character_{ri+1:02}'+('_female' if female else '')
             meta=json.loads((ROOT/f'mobile/assets/images/playable_stage/{source}_skill.json').read_text(encoding='utf-8-sig'))
-            event=events_by_role[ri][int(female)] if ri<10 else 'wave_release'
+            event=events_by_role[ri][int(female)]
             releases=[e['tick'] for e in meta['events'] if e['event']==event]
             assert releases,(source,event)
             total=len(meta['timeline']);key=role+('_female' if female else '_male')

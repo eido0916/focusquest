@@ -1,0 +1,162 @@
+[
+  {
+    "sex": "male",
+    "role": "warrior",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\warrior.webp"
+  },
+  {
+    "sex": "male",
+    "role": "boxer",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\boxer.webp"
+  },
+  {
+    "sex": "male",
+    "role": "samurai",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\samurai.webp"
+  },
+  {
+    "sex": "male",
+    "role": "guardian",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\guardian.webp"
+  },
+  {
+    "sex": "male",
+    "role": "ninja",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\ninja.webp"
+  },
+  {
+    "sex": "male",
+    "role": "assassin",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\assassin.webp"
+  },
+  {
+    "sex": "male",
+    "role": "ranger",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\ranger.webp"
+  },
+  {
+    "sex": "male",
+    "role": "mage",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\mage.webp"
+  },
+  {
+    "sex": "male",
+    "role": "gunner",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\gunner.webp"
+  },
+  {
+    "sex": "male",
+    "role": "spellblade",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\spellblade.webp"
+  },
+  {
+    "sex": "male",
+    "role": "onmyoji",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\onmyoji.webp"
+  },
+  {
+    "sex": "male",
+    "role": "reaper",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\reaper.webp"
+  },
+  {
+    "sex": "male",
+    "role": "angel",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\angel.webp"
+  },
+  {
+    "sex": "male",
+    "role": "devil",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\devil.webp"
+  },
+  {
+    "sex": "male",
+    "role": "dragon_knight",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\dragon_knight.webp"
+  },
+  {
+    "sex": "male",
+    "role": "berserker",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\male\\berserker.webp"
+  },
+  {
+    "sex": "female",
+    "role": "warrior",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\warrior.webp"
+  },
+  {
+    "sex": "female",
+    "role": "boxer",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\boxer.webp"
+  },
+  {
+    "sex": "female",
+    "role": "samurai",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\samurai.webp"
+  },
+  {
+    "sex": "female",
+    "role": "guardian",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\guardian.webp"
+  },
+  {
+    "sex": "female",
+    "role": "ninja",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\ninja.webp"
+  },
+  {
+    "sex": "female",
+    "role": "assassin",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\assassin.webp"
+  },
+  {
+    "sex": "female",
+    "role": "ranger",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\ranger.webp"
+  },
+  {
+    "sex": "female",
+    "role": "mage",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\mage.webp"
+  },
+  {
+    "sex": "female",
+    "role": "gunner",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\gunner.webp"
+  },
+  {
+    "sex": "female",
+    "role": "spellblade",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\spellblade.webp"
+  },
+  {
+    "sex": "female",
+    "role": "onmyoji",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\onmyoji.webp"
+  },
+  {
+    "sex": "female",
+    "role": "reaper",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\reaper.webp"
+  },
+  {
+    "sex": "female",
+    "role": "angel",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\angel.webp"
+  },
+  {
+    "sex": "female",
+    "role": "devil",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\devil.webp"
+  },
+  {
+    "sex": "female",
+    "role": "dragon_knight",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\dragon_knight.webp"
+  },
+  {
+    "sex": "female",
+    "role": "berserker",
+    "src": "C:\\Users\\eido0\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\portraits\\female\\berserker.webp"
+  }
+]

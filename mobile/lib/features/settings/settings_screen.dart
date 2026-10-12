@@ -1,11 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../core/game_controller.dart';
-import '../../core/theme/app_theme.dart';
 import '../../core/widgets/quest_widgets.dart';
-
-import '../focus/domain/focus_session.dart';
 import 'developer_character_screen.dart';
+import 'settings_art.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key, required this.controller});
@@ -57,17 +55,16 @@ class _SettingsScreenState extends State<SettingsScreen>
     final confirmed = await showDialog<bool>(
         context: context,
         builder: (context) => AlertDialog(
-              title: const Text('アプリをリセットしますか？'),
-              content: const Text('キャラクター・進行・集中履歴・アプリ内設定を初期化し、最初の役職決めに戻ります。'),
-              actions: [
-                TextButton(
-                    onPressed: () => Navigator.pop(context, false),
-                    child: const Text('キャンセル')),
-                FilledButton(
-                    onPressed: () => Navigator.pop(context, true),
-                    child: const Text('リセットする')),
-              ],
-            ));
+                title: const Text('アプリをリセットしますか？'),
+                content: const Text('キャラクター・進行・集中履歴・アプリ内設定を初期化し、最初の役職決めに戻ります。'),
+                actions: [
+                  TextButton(
+                      onPressed: () => Navigator.pop(context, false),
+                      child: const Text('キャンセル')),
+                  FilledButton(
+                      onPressed: () => Navigator.pop(context, true),
+                      child: const Text('リセットする')),
+                ]));
     if (!mounted || confirmed != true) return;
     await runAction(context, widget.controller.resetForDevelopment);
   }
@@ -75,196 +72,208 @@ class _SettingsScreenState extends State<SettingsScreen>
   @override
   Widget build(BuildContext context) {
     final controller = widget.controller;
-    final state = controller.state!;
-    return ListView(
-        padding: const EdgeInsets.fromLTRB(14, 18, 14, 24),
-        children: [
-          const QuestCard(
-              child: Row(children: [
-            Icon(Icons.settings_rounded, size: 31),
-            SizedBox(width: 12),
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text('設定',
-                  style: TextStyle(
-                      fontFamily: 'serif',
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold)),
-              Text('冒険を、より快適に', style: TextStyle(fontSize: 12)),
-            ]),
-          ])),
-          _Section(
-              title: '集中・使用状況設定',
-              icon: Icons.shield_rounded,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const Text(
-                        '集中開始後、Focus Quest以外のアプリを開くと警告します。ホーム画面・ロック画面は対象外です。'),
-                    const SizedBox(height: 10),
-                    const Text(
-                        '警告には「Focus Questに戻る」と「1分だけ使用する」を表示します。1分の許可はそのアプリだけに適用され、時間が切れると再び警告します。集中タイマーは止まりません。'),
-                    if (_error != null)
-                      Text(_error!, style: const TextStyle(color: Colors.red)),
-                    ListTile(
-                      contentPadding: EdgeInsets.zero,
-                      title: const Text('使用状況へのアクセス'),
-                      subtitle: Text(_access ? '許可済み' : '未許可'),
-                      trailing: OutlinedButton(
-                          onPressed: () => runAction(
-                              context, controller.monitor.requestAccess),
-                          child: const Text('設定を開く')),
-                    ),
-                    ListTile(
-                      contentPadding: EdgeInsets.zero,
-                      title: const Text('他のアプリの上に表示'),
-                      subtitle: Text(_overlayAccess ? '許可済み' : '未許可'),
-                      trailing: OutlinedButton(
-                          onPressed: () => runAction(
-                              context, controller.monitor.requestOverlay),
-                          child: const Text('設定を開く')),
-                    ),
-                    const Text(
-                        '使用状況は端末内だけで確認します。警告や1分の使用だけで集中が未達成になることはありません。'),
-                  ])),
-          const _Section(
-              title: 'サウンド設定',
-              icon: Icons.music_note_rounded,
-              child: Column(children: [
-                _DisplaySetting(
-                    icon: Icons.music_note_rounded, label: 'BGM', value: '準備中'),
-                Divider(color: Color(0xffb79a62), height: 1),
-                _DisplaySetting(
-                    icon: Icons.graphic_eq_rounded,
-                    label: 'SE（効果音）',
-                    value: '準備中'),
-              ])),
-          const _Section(
-              title: 'アカウント・データ',
-              icon: Icons.cloud_outlined,
-              child: Column(children: [
-                _DisplaySetting(
-                    icon: Icons.smartphone_rounded,
-                    label: '保存先',
-                    value: 'この端末'),
-                Divider(color: Color(0xffb79a62), height: 1),
-                _DisplaySetting(
-                    icon: Icons.cloud_off_rounded,
-                    label: 'クラウド同期',
-                    value: '今後追加予定'),
-              ])),
-          // Temporary developer tools; remove with their controller methods.
-          if (kDebugMode)
-            _Section(
-                title: '開発者用（仮設）',
-                icon: Icons.developer_mode_rounded,
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      OutlinedButton.icon(
-                          onPressed: controller.busy
-                              ? null
-                              : () => Navigator.of(context).push(
-                                  MaterialPageRoute<void>(
-                                      builder: (_) => DeveloperCharacterScreen(
-                                          controller: controller))),
-                          icon: const Icon(Icons.manage_accounts_rounded),
-                          label: const Text('職業・性別を選択')),
-                      const SizedBox(height: 12),
-                      const Text('保存データを初期化して、最初の役職決めからやり直します。'),
-                      const SizedBox(height: 12),
-                      OutlinedButton.icon(
-                          onPressed:
-                              controller.busy ? null : _resetForDevelopment,
-                          icon: const Icon(Icons.restart_alt_rounded),
-                          label: const Text('アプリをリセット')),
-                    ])),
-          _Section(
-              title: '集中履歴',
-              icon: Icons.history_rounded,
-              child: Column(children: [
-                if (state.sessions.isEmpty)
-                  const Padding(
-                      padding: EdgeInsets.all(16),
-                      child: Text('まだ集中履歴はありません。')),
-                for (final session
-                    in state.sessions.values.toList().reversed.take(50))
-                  ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    leading: Icon(
-                        session.status == FocusStatus.succeeded
-                            ? Icons.check_circle
-                            : Icons.timelapse,
-                        color: const Color(0xff96722e)),
-                    title: Text('${session.durationMinutes}分 • ${{
-                      FocusStatus.active: '集中中',
-                      FocusStatus.succeeded: '達成',
-                      FocusStatus.failed: '未達成',
-                      FocusStatus.cancelled: '中断'
-                    }[session.status]}'),
-                    subtitle: Text(
-                        '${session.startedAt.toLocal()}\n${session.verification == FocusVerification.usageStats ? '使用状況確認' : 'タイマーのみ'}'),
-                  ),
-              ])),
-        ]);
+    return Stack(fit: StackFit.expand, children: [
+      Image.asset('${settingsAssetPath}background.png',
+          fit: BoxFit.cover, alignment: Alignment.topCenter),
+      LayoutBuilder(builder: (context, constraints) {
+        final inset =
+            constraints.maxWidth > 600 ? 40.0 : constraints.maxWidth * .105;
+        final width = (constraints.maxWidth - inset * 2).clamp(0.0, 520.0);
+        final unit = (width / 360).clamp(.82, 1.35);
+        return SingleChildScrollView(
+            padding: EdgeInsets.fromLTRB(inset, 12 * unit, inset, 10 * unit),
+            child: Center(
+                child: SizedBox(
+                    width: width,
+                    child: DefaultTextStyle(
+                      style: TextStyle(
+                          color: settingsInk,
+                          fontSize: 9.5 * unit,
+                          height: 1.35,
+                          fontFamily: 'SunlitSerif',
+                          fontWeight: FontWeight.w500),
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            SettingsTitle(unit: unit),
+                            SizedBox(height: 10 * unit),
+                            SettingsPanel(
+                                title: '集中・使用状況設定',
+                                icon: Icons.shield_rounded,
+                                unit: unit,
+                                child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: [
+                                      const Text(
+                                          '集中開始後、Focus Quest以外のアプリを開くと警告します。\nホーム画面・ロック画面は対象外です。'),
+                                      SizedBox(height: 5 * unit),
+                                      const Text(
+                                          '警告には「Focus Questに戻る」と「1分だけ使用する」を表示します。\n1分の許可はそのアプリだけに適用され、時間が切れると再び警告します。\n集中タイマーは止まりません。'),
+                                      if (_error != null)
+                                        Text(_error!,
+                                            style: const TextStyle(
+                                                color: Color(0xff9e251e))),
+                                      SizedBox(height: 8 * unit),
+                                      SettingsRule(unit: unit),
+                                      _permissionRow(
+                                          '使用状況へのアクセス',
+                                          Icons.smartphone_rounded,
+                                          _access,
+                                          () => runAction(context,
+                                              controller.monitor.requestAccess),
+                                          unit),
+                                      SettingsRule(unit: unit),
+                                      _permissionRow(
+                                          '他のアプリの上に表示',
+                                          Icons.grid_view_rounded,
+                                          _overlayAccess,
+                                          () => runAction(
+                                              context,
+                                              controller
+                                                  .monitor.requestOverlay),
+                                          unit),
+                                      SettingsRule(unit: unit),
+                                      SizedBox(height: 6 * unit),
+                                      Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Icon(Icons.error_rounded,
+                                                size: 18 * unit,
+                                                color: settingsBrown),
+                                            SizedBox(width: 6 * unit),
+                                            const Expanded(
+                                                child: Text(
+                                                    '使用状況は端末内だけで確認します。警告や1分の使用だけで\n集中が未達成になることはありません。')),
+                                          ]),
+                                    ])),
+                            SizedBox(height: 10 * unit),
+                            SettingsPanel(
+                                title: 'サウンド設定',
+                                icon: Icons.music_note_rounded,
+                                unit: unit,
+                                child: Column(children: [
+                                  SettingsValueRow(
+                                      icon: Icons.music_note_rounded,
+                                      label: 'BGM',
+                                      value: '準備中',
+                                      unit: unit),
+                                  SettingsRule(unit: unit),
+                                  SettingsValueRow(
+                                      icon: Icons.volume_up_rounded,
+                                      label: 'SE（効果音）',
+                                      value: '準備中',
+                                      unit: unit),
+                                ])),
+                            SizedBox(height: 10 * unit),
+                            SettingsPanel(
+                                title: 'アカウント・データ',
+                                icon: Icons.cloud_outlined,
+                                unit: unit,
+                                child: Column(children: [
+                                  SettingsValueRow(
+                                      icon: Icons.smartphone_rounded,
+                                      label: '保存先',
+                                      value: 'この端末',
+                                      unit: unit),
+                                  SettingsRule(unit: unit),
+                                  SettingsValueRow(
+                                      icon: Icons.cloud_outlined,
+                                      label: 'クラウド同期',
+                                      value: '今後追加予定',
+                                      unit: unit),
+                                ])),
+                            if (kDebugMode) ...[
+                              SizedBox(height: 10 * unit),
+                              SettingsPanel(
+                                  title: '開発者用（仮設）',
+                                  icon: Icons.handyman_rounded,
+                                  unit: unit,
+                                  child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.stretch,
+                                      children: [
+                                        OutlinedButton.icon(
+                                            style: OutlinedButton.styleFrom(
+                                                foregroundColor: settingsBrown,
+                                                side: const BorderSide(
+                                                    color: Color(0xffc69c52)),
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.circular(
+                                                        7)),
+                                                textStyle: TextStyle(
+                                                    fontFamily: 'SunlitSerif',
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 11 * unit)),
+                                            onPressed: controller.busy
+                                                ? null
+                                                : () => Navigator.of(context)
+                                                    .push(MaterialPageRoute<void>(
+                                                        builder: (_) =>
+                                                            DeveloperCharacterScreen(
+                                                                controller:
+                                                                    controller))),
+                                            icon: Icon(Icons.person_rounded,
+                                                size: 18 * unit),
+                                            label: const Text('職業・性別を選択')),
+                                        SizedBox(height: 5 * unit),
+                                        const Text(
+                                            '保存データを初期化して、最初の役職決めからやり直します。'),
+                                        SizedBox(height: 8 * unit),
+                                        Center(
+                                            child: SizedBox(
+                                                width: width * .60,
+                                                child: SettingsArtButton(
+                                                    label: 'アプリをリセット',
+                                                    icon: Icons
+                                                        .restart_alt_rounded,
+                                                    red: true,
+                                                    unit: unit,
+                                                    onTap: controller.busy
+                                                        ? null
+                                                        : _resetForDevelopment))),
+                                      ])),
+                            ],
+                          ]),
+                    ))));
+      }),
+    ]);
   }
-}
 
-class _Section extends StatelessWidget {
-  const _Section(
-      {required this.title, required this.icon, required this.child});
-  final String title;
-  final IconData icon;
-  final Widget child;
-  @override
-  Widget build(BuildContext context) =>
-      Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 11),
-          decoration: const BoxDecoration(
-              color: Color(0xee082744),
-              border:
-                  Border(bottom: BorderSide(color: AppTheme.gold, width: 2))),
-          child: Row(children: [
-            Icon(icon),
-            const SizedBox(width: 10),
-            Text(title,
-                style:
-                    const TextStyle(fontSize: 17, fontWeight: FontWeight.bold))
-          ]),
-        ),
-        QuestCard(
-            parchment: true,
-            child: Theme(
-              data: Theme.of(context).copyWith(
-                textTheme: Theme.of(context)
-                    .textTheme
-                    .apply(bodyColor: AppTheme.ink, displayColor: AppTheme.ink),
-                listTileTheme: const ListTileThemeData(
-                    textColor: AppTheme.ink, iconColor: Color(0xff8d6a2d)),
-                iconTheme: const IconThemeData(color: Color(0xff8d6a2d)),
-              ),
-              child: DefaultTextStyle.merge(
-                  style: const TextStyle(color: AppTheme.ink), child: child),
-            )),
-      ]);
-}
-
-class _DisplaySetting extends StatelessWidget {
-  const _DisplaySetting(
-      {required this.icon, required this.label, required this.value});
-  final IconData icon;
-  final String label;
-  final String value;
-  @override
-  Widget build(BuildContext context) => Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
-      child: Row(children: [
-        Icon(icon),
-        const SizedBox(width: 14),
-        Expanded(
-            child: Text(label,
-                style: const TextStyle(
-                    fontSize: 16, fontWeight: FontWeight.bold))),
-        Text(value),
-      ]));
+  Widget _permissionRow(String label, IconData icon, bool allowed,
+          VoidCallback onTap, double unit) =>
+      Padding(
+          padding: EdgeInsets.symmetric(vertical: 2 * unit),
+          child: LayoutBuilder(builder: (context, constraints) {
+            final description = Row(children: [
+              SettingsMedallion(icon: icon, unit: unit, blue: true),
+              SizedBox(width: 10 * unit),
+              Expanded(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                    Text(label,
+                        style: TextStyle(
+                            fontSize: 12 * unit, fontWeight: FontWeight.bold)),
+                    Text(allowed ? '許可済み' : '未許可',
+                        style: TextStyle(fontSize: 10 * unit)),
+                  ])),
+            ]);
+            final action = SizedBox(
+                width: 108 * unit,
+                child: SettingsArtButton(
+                    label: '設定を開く', unit: unit, onTap: onTap));
+            if (MediaQuery.textScalerOf(context).scale(1) > 1.3 ||
+                constraints.maxWidth < 265) {
+              return Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [description, const SizedBox(height: 4), action]);
+            }
+            return Row(children: [
+              Expanded(child: description),
+              SizedBox(width: 5 * unit),
+              action
+            ]);
+          }));
 }

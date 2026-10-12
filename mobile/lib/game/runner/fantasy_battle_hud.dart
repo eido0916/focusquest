@@ -2,7 +2,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'battle_state_controller.dart';
 
-/// Set this to an image path relative to assets/images/ when the logo arrives.
+/// UI image paths are relative to assets/images/.
 class BattleUiAssets {
   static const window = 'ui/focus_window.png';
   static const skillOrb = 'ui/focus_skill_orb.png';
@@ -32,8 +32,8 @@ class FantasyBattleHud {
     canvas.restore();
   }
 
-  void paint(
-      Canvas canvas, BattleStateController state, int level, String job) {
+  void paint(Canvas canvas, BattleStateController state, int level, String job,
+      {String? name}) {
     frame(canvas, const Rect.fromLTWH(4, 25, 952, 125));
     frame(canvas, const Rect.fromLTWH(5, 408, 375, 140));
     frame(canvas, const Rect.fromLTWH(595, 408, 360, 140));
@@ -121,9 +121,17 @@ class FantasyBattleHud {
             ..strokeWidth = 2.5);
       jewel(canvas, const Offset(82, 473), 19);
     }
-    text(canvas, 'Lv. $level', const Rect.fromLTWH(145, 461, 103, 38), 29,
-        Colors.white);
-    text(canvas, job, const Rect.fromLTWH(255, 459, 85, 41), 29, Colors.white);
+    if (name != null) {
+      text(canvas, name, const Rect.fromLTWH(137, 442, 201, 32), 25,
+          Colors.white);
+      text(canvas, 'Lv. $level · $job', const Rect.fromLTWH(137, 477, 201, 26),
+          18, gold);
+    } else {
+      text(canvas, 'Lv. $level', const Rect.fromLTWH(145, 461, 103, 38), 29,
+          Colors.white);
+      text(
+          canvas, job, const Rect.fromLTWH(255, 459, 85, 41), 29, Colors.white);
+    }
     rule(canvas, 143, 338, 504);
     paintImage(
         canvas: canvas,

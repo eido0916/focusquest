@@ -1,14 +1,14 @@
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path $PSScriptRoot -Parent
 $assetRoot = Join-Path $taskRoot 'mobile/assets/images/playable_stage'
-$attackEvents = @('slash_active','jab','draw_cut_hit','downward_hit','projectile_release','thrust_active','arrow_release','fire_release','bullet_release','sword_hit')
-$femaleAttackEvents = @('attack_active','punch_hit','attack_active','attack_active','attack_active','attack_active','arrow_release','fire_release','bullet_release','sword_hit')
-$skillEvents = @('wave_release','kick_hit','slash_1','sweep_hit','dagger_hit','critical_impact','arrow_release','ice_release','bullet_release','lightning_strike')
-$femaleSkillEvents = @('skill_release','kick_hit','flurry_hit','skill_release','dagger_hit','skill_release','arrow_release','ice_release','bullet_release','lightning_strike')
-$skillNames = @('蓄力斬撃','旋風蹴り','連続居合','蓄力薙ぎ払い','瞬身突き','蓄力クリティカル','三連射','大氷結','早撃ち','雷剣・落雷')
+$attackEvents = @('slash_active','jab','draw_cut_hit','downward_hit','projectile_release','thrust_active','arrow_release','fire_release','bullet_release','sword_hit','holy_talisman_release','scythe_hit','holy_orb_release','dark_wave_release','spear_hit','punch_hit')
+$femaleAttackEvents = @('attack_active','punch_hit','attack_active','attack_active','attack_active','attack_active','arrow_release','fire_release','bullet_release','sword_hit','holy_talisman_release','scythe_hit','holy_orb_release','dark_wave_release','spear_hit','punch_hit')
+$skillEvents = @('wave_release','kick_hit','slash_1','sweep_hit','dagger_hit','critical_impact','arrow_release','ice_release','bullet_release','lightning_strike','shikigami_attack','chain_scythe_throw','holy_swords_release','curse_apply','dragon_flurry_hit','floor_release')
+$femaleSkillEvents = @('skill_release','kick_hit','flurry_hit','skill_release','dagger_hit','skill_release','arrow_release','ice_release','bullet_release','lightning_strike','shikigami_attack','chain_scythe_throw','holy_swords_release','curse_apply','dragon_flurry_hit','floor_release')
+$skillNames = @('蓄力斬撃','旋風蹴り','連続居合','蓄力薙ぎ払い','瞬身突き','蓄力クリティカル','三連射','大氷結','早撃ち','雷剣・落雷','五行封陣','冥月刈り','聖光の翼','獄炎の波','竜炎突撃','狂戦裂破')
 $lines = @("// Generated from the supplied original-frame metadata by package-focus-pixel-timing.ps1.", "// Focus normal attacks play at 30 source ticks/sec (20% shorter); skills stay at 24.", "import 'battle_state_controller.dart';", '', 'const pixelBattleTiming = <String, RunnerConfig>{')
 foreach ($female in @($false, $true)) {
-    for ($number = 1; $number -le 10; $number++) {
+    for ($number = 1; $number -le $skillNames.Count; $number++) {
         $id = 'character_{0:00}' -f $number
         if ($female) { $id += '_female' }
         $attack = Get-Content -LiteralPath (Join-Path $assetRoot "$($id)_attack.json") -Raw | ConvertFrom-Json

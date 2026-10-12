@@ -1,0 +1,13 @@
+00:00 +0: loading C:/Users/eido0/AppData/Local/FocusQuestTools/build/fq-settings-20261012/test/settings_layout_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: settings controls fit Size(470.0, 1000.0) scale 1.0
+00:04 +1: settings controls fit Size(470.0, 1000.0) scale 1.6
+00:05 +2: settings controls fit Size(390.0, 844.0) scale 1.0
+00:07 +3: settings controls fit Size(390.0, 844.0) scale 1.6
+00:07 +4: settings controls fit Size(320.0, 568.0) scale 1.0
+00:08 +5: settings controls fit Size(320.0, 568.0) scale 1.6
+00:08 +6: settings controls fit Size(844.0, 390.0) scale 1.0
+00:09 +7: settings controls fit Size(844.0, 390.0) scale 1.6
+00:10 +8: export each settings icon independently
+00:10 +9: (tearDownAll)
+00:10 +9: All tests passed!

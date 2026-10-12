@@ -1,0 +1,214 @@
+[
+  {
+    "asset": "identity_panel",
+    "size": [
+      1280,
+      350
+    ],
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12def-cf98-7153-bdf0-80bce61ef943\\exec-c10b87b0-5fe0-4c07-b73f-d03173aa0f7d.png"
+  },
+  {
+    "asset": "parchment_panel",
+    "size": [
+      1280,
+      382
+    ],
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12def-cf98-7153-bdf0-80bce61ef943\\exec-23dd6553-1b43-4f7e-b254-7d0c879581f4.png"
+  },
+  {
+    "asset": "header_banner",
+    "size": [
+      1280,
+      261
+    ],
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12def-cf98-7153-bdf0-80bce61ef943\\exec-a8e245af-fa76-4d62-931c-e47623570111.png"
+  },
+  {
+    "asset": "equipment_row",
+    "size": [
+      1280,
+      228
+    ],
+    "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12def-cf98-7153-bdf0-80bce61ef943\\exec-fd5dda23-0e92-4c91-ba9d-5ed7f0f0ee1f.png"
+  },
+  {
+    "asset": "castle_courtyard",
+    "source": "Existing lobby/castle_courtyard.png"
+  },
+  {
+    "asset": "icon_weapon",
+    "source": "Existing lobby/icon_weapon.png"
+  },
+  {
+    "asset": "icon_armor",
+    "source": "Existing lobby/icon_armor.png"
+  },
+  {
+    "asset": "icon_accessory",
+    "source": "Existing lobby/icon_accessory.png"
+  },
+  {
+    "asset": "title_list_panel",
+    "source": "Existing lobby/ornate_window.png"
+  },
+  {
+    "asset": "stat_hp",
+    "source": "MaterialIcons.favorite",
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "asset": "stat_attack",
+    "source": "MaterialIcons.bolt",
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "asset": "stat_defense",
+    "source": "MaterialIcons.shield",
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "asset": "stat_speed",
+    "source": "MaterialIcons.directions_run",
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "asset": "stat_critical",
+    "source": "MaterialIcons.auto_awesome",
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "asset": "bag_icon",
+    "source": "MaterialIcons.shopping_bag_outlined",
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "asset": "certificate_icon",
+    "source": "MaterialIcons.badge_outlined",
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "asset": "edit_icon",
+    "source": "MaterialIcons.edit_outlined",
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "asset": "level_icon",
+    "source": "MaterialIcons.workspace_premium_outlined",
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "asset": "chevron_icon",
+    "source": "MaterialIcons.chevron_right",
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "asset": "warrior",
+    "supplied_file": "01_剣士.png",
+    "sha256": "b7e61ffc6248e0a055d4597b4bd9de2b9e4608b6c508a2a02b931061a8d296ae"
+  },
+  {
+    "asset": "boxer",
+    "supplied_file": "02_拳闘士.png",
+    "sha256": "41f8f9033594d57d1c39b5bfbfb747db771388de86bf4366e6f171586cb59a75"
+  },
+  {
+    "asset": "samurai",
+    "supplied_file": "03_侍.png",
+    "sha256": "02f8bf6c2a1189188287349af22260f270d241f88a3ddf8333323e92a6de1008"
+  },
+  {
+    "asset": "guardian",
+    "supplied_file": "04_重騎士.png",
+    "sha256": "e1f0c663c946aeaa0e281a0aea2c56b904f37f86efcf7f3e38f2b4f69fd6f51f"
+  },
+  {
+    "asset": "ninja",
+    "supplied_file": "05_忍者.png",
+    "sha256": "6b01216127a5a634c6dc39f4e9532286d11c8b271d9a883bb600dba70428e0af"
+  },
+  {
+    "asset": "assassin",
+    "supplied_file": "06_アサシン.png",
+    "sha256": "a3ca97037f55a0590de41e0043d37c8a3ac5afb4d15d7a4a9ee07084efcdf1c6"
+  },
+  {
+    "asset": "ranger",
+    "supplied_file": "07_弓使い.png",
+    "sha256": "47b251de9868ca37d82080a6167b4b46f30c628ad2291d84dd82b63ec616536a"
+  },
+  {
+    "asset": "gunner",
+    "supplied_file": "08_ガンナー.png",
+    "sha256": "82bc56b4f891d1d920920a95068b6fc6a04471f2d8e0ba246256cdc709f8e0fc"
+  },
+  {
+    "asset": "mage",
+    "supplied_file": "09_魔法使い.png",
+    "sha256": "1a29d8203813c38a998530aa8dd635e7799f2d6ff971aacb9c1235d11eb9a0f1"
+  },
+  {
+    "asset": "spellblade",
+    "supplied_file": "10_魔剣士.png",
+    "sha256": "cf494cc7250d8f2e38135f5d3c054d4092de90aeb185d14cf008a4ecdf82dfe1"
+  },
+  {
+    "asset": "onmyoji",
+    "supplied_file": "11_陰陽師.png",
+    "sha256": "c57f817853c9da9cd7d14f39ba691ac387fee12833f435f8ff7cd510a146a4ec"
+  },
+  {
+    "asset": "reaper",
+    "supplied_file": "12_鎌使い.png",
+    "sha256": "4db1cdba37a3d26652865a52ce46984d50874d2a1027029e5e91e7df343ca8d8"
+  },
+  {
+    "asset": "angel",
+    "supplied_file": "13_天使.png",
+    "sha256": "04ad204f9b13cdc4a3394e83af9e24f49303654b37bc7da3e7d91cc5bd9b6fc5"
+  },
+  {
+    "asset": "devil",
+    "supplied_file": "14_悪魔.png",
+    "sha256": "ceadfb98f19fb58a9ea77f5d502444397d57b5fe9229bbf373dd56126f82887e"
+  },
+  {
+    "asset": "dragon_knight",
+    "supplied_file": "15_ドラゴンナイト.png",
+    "sha256": "ec0cb2b612ae61450fb84735deb079ffca96f395177e701e45f0f24084382e4a"
+  },
+  {
+    "asset": "berserker",
+    "supplied_file": "16_バーサーカー.png",
+    "sha256": "71ead2a21f02ecb9b4b78b10f9a32098d99529b08f3b6e3cf41d3f741e28eefb"
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "name": "background",
+      "width": 900,
+      "height": 1600,
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd6-c08f-7210-a6a4-f21fef96924a\\exec-05120e70-daac-4308-b75f-9098263c6cca.png",
+      "prompt": "Use case: stylized-concept. Create ONE standalone portrait background asset for the Focus Quest settings UI. Reference attached screenshot for scenery and rendering style only. Remove all UI, text, frames, icons, phone status bar and navigation. Paint sunlit medieval white stone terrace arches at left covered with green ivy and white blossoms, royal blue hanging banner with gold compass at left, distant pale castle at right, snowy blue mountains and vivid blue sky with white clouds, waterfall at lower right. Keep center mostly soft distant sky and landscape for UI readability. Rich hand painted fantasy game illustration, match reference colors and composition. Portrait 9:16. No text or UI."
+    },
+    {
+      "name": "section_header",
+      "width": 1024,
+      "height": 128,
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd6-c08f-7210-a6a4-f21fef96924a\\exec-eb91cb73-e60c-4264-bfb2-5e6628ce5ca2.png",
+      "prompt": "Use case: ui-mockup. ONE standalone reusable empty section header banner for Focus Quest settings. Match screenshot royal blue textured enamel, ornate polished gold double borders, filigree curled gold corners, small diamond flourish at middle bottom. Wide horizontal rectangle ratio 11:1 with beveled clipped corners, all edges fully visible, front orthographic. Blue interior empty for code-rendered section labels, no text, no symbols or icons. Transparent outside banner. Reference screenshot style only."
+    },
+    {
+      "name": "parchment_panel",
+      "width": 1024,
+      "height": 640,
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd6-c08f-7210-a6a4-f21fef96924a\\exec-4feedb37-9bf0-4dbc-a027-c0e8d39c342b.png",
+      "prompt": "Use case: ui-mockup. ONE standalone empty parchment panel asset for Focus Quest settings. Match attached reference settings pale ivory cream parchment, fine antique paper texture, elegant thin embossed gold double border, ornate small curled filigree at four corners, softly rounded rectangular silhouette. Front orthographic, width to height ratio 3:2. Entire interior blank, very light cream for dark text readability. No text, no header, no icons. All edges fully visible. Transparent outside panel, no backdrop. Restrained corners compatible with stretching central area."
+    },
+    {
+      "name": "title_banner",
+      "width": 1024,
+      "height": 288,
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd6-c08f-7210-a6a4-f21fef96924a\\exec-048f353a-1ee6-49ad-a097-a2198654b28f.png",
+      "prompt": "Use case: ui-mockup. ONE standalone settings title ornament for Focus Quest game. Match attached screenshot TOP TITLE plaque exactly in style. Wide horizontal ornate royal blue enamel blank plaque, lavish polished gold scrolling border, sapphire faceted blue diamond at top center. Large circular compass medallion overlapping left edge contains a raised gold gear, small gold compass rose at right end. Ratio 4:1, front orthographic. Blank center for separately rendered title and subtitle. No lettering, no text. All ornament fully visible with padding. Transparent outside silhouette. Luxury hand painted fantasy RPG UI, crisp detailed gold work."
+    },
+    {
+      "name": "blue_button",
+      "width": 512,
+      "height": 128,
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd6-c08f-7210-a6a4-f21fef96924a\\exec-fa8aa79c-1f5e-44c5-9be4-4ee7612970b7.png",
+      "prompt": "Use case: ui-mockup. ONE standalone empty blue settings button asset. Reference attached screenshot '設定を開く' button style only. Rich cobalt royal blue enamel center with subtle floral engraving, compact ornate polished gold double border, beveled corner curls, tiny small gold diamond at left and right border. Horizontal rounded rectangle ratio 4:1. NO text, NO icons or arrows, interior blank. Crisp front orthographic fantasy RPG control, all edges visible, no background, genuine transparent alpha outside the button."
+    },
+    {
+      "name": "reset_button",
+      "width": 512,
+      "height": 128,
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a12dd6-c08f-7210-a6a4-f21fef96924a\\exec-8dda90d7-eeed-4430-ae40-38fcbbe5b19c.png",
+      "prompt": "Use case: ui-mockup. ONE standalone empty red reset button asset for Focus Quest settings. Reference attached screenshot bottom 'アプリをリセット' red button style only. Deep ruby crimson red enamel center with subtle engraved swirling floral texture, ornate polished gold double border, beveled clipped rounded corners, curled gold filigree tips left and right. Horizontal rectangle ratio 5:1, luxurious fantasy RPG button, front orthographic. Interior completely blank NO text NO icons NO arrows. All edges fully visible with small transparent padding. Genuine transparent alpha outside button silhouette, no background."
+    }
+  ]
+}

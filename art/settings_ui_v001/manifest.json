@@ -1,0 +1,197 @@
+{
+  "version": "v001",
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "name": "background",
+      "file": "materials/background.png",
+      "width": 900,
+      "height": 1600,
+      "runtime": "mobile/assets/images/settings_ui_v001/background.png"
+    },
+    {
+      "name": "section_header",
+      "file": "materials/section_header.png",
+      "width": 1024,
+      "height": 128,
+      "crop": {
+        "left": 2,
+        "top": 515,
+        "width": 1312,
+        "height": 173
+      },
+      "runtime": "mobile/assets/images/settings_ui_v001/section_header.png"
+    },
+    {
+      "name": "parchment_panel",
+      "file": "materials/parchment_panel.png",
+      "width": 1024,
+      "height": 640,
+      "crop": {
+        "left": 48,
+        "top": 96,
+        "width": 1440,
+        "height": 808
+      },
+      "runtime": "mobile/assets/images/settings_ui_v001/parchment_panel.png"
+    },
+    {
+      "name": "title_banner",
+      "file": "materials/title_banner.png",
+      "width": 1024,
+      "height": 288,
+      "crop": {
+        "left": 18,
+        "top": 48,
+        "width": 2136,
+        "height": 600
+      },
+      "runtime": "mobile/assets/images/settings_ui_v001/title_banner.png"
+    },
+    {
+      "name": "blue_button",
+      "file": "materials/blue_button.png",
+      "width": 512,
+      "height": 128,
+      "crop": {
+        "left": 84,
+        "top": 202,
+        "width": 1813,
+        "height": 357
+      },
+      "runtime": "mobile/assets/images/settings_ui_v001/blue_button.png"
+    },
+    {
+      "name": "reset_button",
+      "file": "materials/reset_button.png",
+      "width": 512,
+      "height": 128,
+      "crop": {
+        "left": 46,
+        "top": 154,
+        "width": 2081,
+        "height": 387
+      },
+      "runtime": "mobile/assets/images/settings_ui_v001/reset_button.png"
+    },
+    {
+      "name": "icon-adventure",
+      "file": "materials/icon-adventure.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-characters",
+      "file": "materials/icon-characters.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-chevron",
+      "file": "materials/icon-chevron.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-cloud",
+      "file": "materials/icon-cloud.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-home",
+      "file": "materials/icon-home.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-music",
+      "file": "materials/icon-music.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-overlay",
+      "file": "materials/icon-overlay.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-person",
+      "file": "materials/icon-person.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-phone",
+      "file": "materials/icon-phone.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-reset",
+      "file": "materials/icon-reset.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-settings",
+      "file": "materials/icon-settings.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-shield",
+      "file": "materials/icon-shield.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-sound",
+      "file": "materials/icon-sound.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-sparkle",
+      "file": "materials/icon-sparkle.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-tools",
+      "file": "materials/icon-tools.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "icon-warning",
+      "file": "materials/icon-warning.png",
+      "width": 128,
+      "height": 128,
+      "generator": "Flutter Material Icons / native UI"
+    },
+    {
+      "name": "phone-medallion",
+      "file": "materials/phone-medallion.png",
+      "width": 144,
+      "height": 144,
+      "generator": "Flutter Material Icons / native UI"
+    }
+  ]
+}

@@ -20,6 +20,7 @@ class FocusQuestBattleGame extends FlameGame {
       this.characterType = 'warrior',
       this.appearance = 'male',
       this.jobName = '戦士',
+      this.heroName,
       this.levelLogoAsset = BattleUiAssets.levelLogo}) {
     // Keep large effect textures local to this battle instead of retaining
     // every role's textures and pending loads in Flame's global cache.
@@ -29,6 +30,7 @@ class FocusQuestBattleGame extends FlameGame {
   final int heroLevel;
   final String characterType, appearance;
   final String jobName;
+  final String? heroName;
   final String? levelLogoAsset;
   FantasyBattleHud? hud;
   final double Function() elapsed;
@@ -89,7 +91,7 @@ class FocusQuestBattleGame extends FlameGame {
     }
     super.render(canvas);
     canvas.restore();
-    hud?.paint(canvas, state, heroLevel, jobName);
+    hud?.paint(canvas, state, heroLevel, jobName, name: heroName);
     canvas.restore();
   }
 }

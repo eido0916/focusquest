@@ -64,6 +64,12 @@ flutter:
       fonts:
         - asset: assets/fonts/NotoSerifJP.ttf
   assets:
+    - assets/images/character_ui_v002/
+    - assets/images/role_logos/
+    - assets/images/focus_selection_v001/
+    - assets/images/focus_selection_v001/avatars/male/
+    - assets/images/focus_selection_v001/avatars/female/
+    - assets/images/settings_ui_v001/
     - assets/images/role_skill_effects/
     - assets/images/certificates_landscape_v002/
     - assets/images/party/catalog.json

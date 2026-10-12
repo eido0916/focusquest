@@ -17,10 +17,12 @@ class BattleReplayPage extends StatefulWidget {
       this.characterType = 'warrior',
       this.appearance = 'male',
       this.heroLevel = 1,
+      this.characterName = '冒険者',
       this.levelLogoAsset = BattleUiAssets.levelLogo});
   final String characterType;
   final String appearance;
   final int heroLevel;
+  final String characterName;
   final String? levelLogoAsset;
   final FocusSession session;
   final DateTime Function() clock;
@@ -40,8 +42,10 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
         characterType: widget.characterType,
         appearance: widget.appearance,
         heroLevel: widget.heroLevel,
+        heroName: widget.characterName,
         jobName: JobPortrait.roleNames[widget.characterType] ?? '戦士',
-        levelLogoAsset: widget.levelLogoAsset,
+        levelLogoAsset:
+            widget.levelLogoAsset ?? 'role_logos/${widget.characterType}.png',
         state: BattleStateController(
             adventureStartSeconds: widget.session.adventureStartSeconds,
             config: PixelBattleAssets.runnerConfig(

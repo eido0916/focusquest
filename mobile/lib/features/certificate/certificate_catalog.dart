@@ -125,6 +125,11 @@ class CertificateCatalog {
     return list[level.clamp(1, 8) - 1];
   }
 
+  static String displayedTitle(String role, int level, String? selected) {
+    final index = titles[role]?.indexOf(selected ?? '') ?? -1;
+    return index >= 0 && level >= index + 1 ? selected! : title(role, level);
+  }
+
   static Color accent(String role) => switch (role) {
         'boxer' || 'berserker' || 'devil' => const Color(0xff712e28),
         'assassin' || 'reaper' => const Color(0xff493045),

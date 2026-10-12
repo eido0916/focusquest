@@ -42,9 +42,16 @@ void main() {
     await tester.pumpWidget(const SizedBox());
     controller.dispose();
   });
-  for (final (count, skill) in [(2, false), (4, false), (4, true)]) {
+  for (final (count, skill, added) in [
+    (2, false, false),
+    (4, false, false),
+    (4, true, false),
+    (4, false, true),
+    (4, true, true),
+    (2, true, true),
+  ]) {
     testWidgets(
-        '$count originals on the left and $count enemy lanes (${skill ? 'skill' : 'attack'})',
+        '$count originals on the left and $count enemy lanes (${skill ? 'skill' : 'attack'}, added roles: $added)',
         (tester) async {
       tester.view.physicalSize = const Size(960, 540);
       tester.view.devicePixelRatio = 1;
@@ -53,32 +60,45 @@ void main() {
       rootBundle.clear();
       Flame.images.clearCache();
       final now = DateTime(2026, 10, 11);
-      final members = [
-        const PartyMember(
-            id: '1',
-            name: '剣士',
-            characterType: 'warrior',
-            appearance: 'male',
-            level: 12),
-        const PartyMember(
-            id: '2',
-            name: '弓使い',
-            characterType: 'ranger',
-            appearance: 'female',
-            level: 9),
-        const PartyMember(
-            id: '3',
-            name: '拳闘士',
-            characterType: 'boxer',
-            appearance: 'male',
-            level: 7),
-        const PartyMember(
-            id: '4',
-            name: '魔法使い',
-            characterType: 'mage',
-            appearance: 'female',
-            level: 10),
-      ].take(count).toList();
+      final members = added
+          ? [
+              for (final (index, type) in (count == 2
+                      ? ['dragon_knight', 'berserker']
+                      : ['onmyoji', 'reaper', 'angel', 'devil'])
+                  .indexed)
+                PartyMember(
+                    id: '$index',
+                    name: type,
+                    characterType: type,
+                    appearance: (index.isEven != skill) ? 'male' : 'female',
+                    level: 10),
+            ]
+          : [
+              const PartyMember(
+                  id: '1',
+                  name: '剣士',
+                  characterType: 'warrior',
+                  appearance: 'male',
+                  level: 12),
+              const PartyMember(
+                  id: '2',
+                  name: '弓使い',
+                  characterType: 'ranger',
+                  appearance: 'female',
+                  level: 9),
+              const PartyMember(
+                  id: '3',
+                  name: '拳闘士',
+                  characterType: 'boxer',
+                  appearance: 'male',
+                  level: 7),
+              const PartyMember(
+                  id: '4',
+                  name: '魔法使い',
+                  characterType: 'mage',
+                  appearance: 'female',
+                  level: 10),
+            ].take(count).toList();
       final boundary = GlobalKey();
       final game = PartyBattleGame(
           session: FocusSession(
@@ -117,6 +137,7 @@ void main() {
       expect(tester.takeException(), isNull);
       game.pauseEngine();
       await tester.pumpWidget(const SizedBox());
+      game.images.clearCache();
     });
   }
 }

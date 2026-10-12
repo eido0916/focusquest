@@ -5,6 +5,7 @@ import '../data/game_catalog.dart';
 import '../data/player_repository.dart';
 import '../data/player_state.dart';
 import '../features/certificate/focus_defeat_counter.dart';
+import '../features/certificate/certificate_catalog.dart';
 import '../features/character/domain/character.dart';
 import '../features/character/domain/progression_service.dart';
 import '../features/diagnosis/domain/diagnosis_service.dart';
@@ -326,6 +327,19 @@ class GameController extends ChangeNotifier {
         characters[hero.id] = hero;
         return s.copyWith(characters: characters);
       }));
+  Future<void> selectTitle(String title) => _action(() => _save((s) {
+        final hero = s.activeCharacter!;
+        final titles = CertificateCatalog.titles[hero.characterType]!;
+        final index = titles.indexOf(title);
+        if (index < 0 || hero.level < index + 1) {
+          throw StateError('この称号はまだ解放されていません。');
+        }
+        return s.copyWith(characters: {
+          ...s.characters,
+          hero.id: hero.copyWith(selectedTitle: title)
+        });
+      }));
+
   Future<void> selectCharacter(String id) => _action(() => _save((s) {
         if (playableAdventureActive) throw StateError('冒険の終了後に仲間を変更できます。');
         if (activeFocus != null) {

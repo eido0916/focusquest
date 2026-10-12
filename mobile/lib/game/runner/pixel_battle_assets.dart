@@ -7,7 +7,7 @@ import 'battle_state_controller.dart';
 import 'pixel_battle_timing.dart';
 import 'role_skill_effects.dart';
 
-/// The supplied v013 originals, shared with the playable stage.
+/// Complete originals for all sixteen roles, shared with the playable stage.
 class PixelBattleAssets {
   PixelBattleAssets(this.character, this.motions, this.effect);
   final PlayableCharacter character;
@@ -24,6 +24,12 @@ class PixelBattleAssets {
     'mage': '魔法使い',
     'gunner': 'ガンナー',
     'spellblade': '魔剣士',
+    'onmyoji': '陰陽師',
+    'reaper': '鎌使い',
+    'angel': '天使',
+    'devil': '悪魔',
+    'dragon_knight': 'ドラゴンナイト',
+    'berserker': 'バーサーカー',
   };
 
   static PlayableCharacter characterFor(String type, String appearance) {
@@ -32,23 +38,7 @@ class PixelBattleAssets {
         (c) => c.role == roles[type] && c.female == (appearance == 'female'));
   }
 
-  static final _additionalRoleTiming = {
-    for (final type
-        in RoleSkillEffects.names.keys.where((t) => !roles.containsKey(t)))
-      type: RunnerConfig(
-          attackSeconds: pixelBattleTiming['character_01']!.attackSeconds,
-          normalAttackDurationSeconds:
-              pixelBattleTiming['character_01']!.normalAttackDuration,
-          normalAttackHitTimes:
-              pixelBattleTiming['character_01']!.normalHitTimes,
-          sousenDurationSeconds:
-              pixelBattleTiming['character_01']!.sousenDurationSeconds,
-          sousenDamageTimeSeconds:
-              pixelBattleTiming['character_01']!.sousenDamageTimeSeconds,
-          pixelSkillName: RoleSkillEffects.names[type]),
-  };
   static RunnerConfig runnerConfig(String type, String appearance) =>
-      _additionalRoleTiming[type] ??
       pixelBattleTiming[characterFor(type, appearance).id]!;
 
   static Future<PixelBattleAssets> load(

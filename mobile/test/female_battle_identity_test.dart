@@ -10,6 +10,7 @@ import 'package:focusquest/game/runner/female_battle_assets.dart';
 import 'package:focusquest/game/runner/pixel_battle_hero_component.dart';
 import 'package:focusquest/game/runner/focus_quest_battle_game.dart';
 import 'package:focusquest/game/runner/hero_component.dart';
+import 'package:focusquest/game/runner/pixel_battle_assets.dart';
 import 'support/memory_repository.dart';
 
 void main() {
@@ -20,23 +21,26 @@ void main() {
     rootBundle.clear();
     Flame.images.clearCache();
   });
-  for (final type in ['warrior', 'ranger']) {
-    test('$type female originals match combat timing and frame selection',
-        () async {
-      final assets = await FemaleBattleAssets.load(FlameGame(), type);
-      final config = FemaleBattleAssets.runnerConfig(type);
-      expect(FemaleBattleAssets.duration(assets.attack),
-          closeTo(config.normalAttackDuration, 1e-7));
-      expect(FemaleBattleAssets.duration(assets.skill),
-          closeTo(config.sousenDurationSeconds, 1e-7));
-      for (final animation in [assets.run, assets.attack, assets.skill]) {
-        var age = 0.0;
-        for (final frame in animation.frames) {
-          expect(FemaleBattleAssets.poseAt(animation, age), same(frame.sprite));
-          age += frame.stepTime;
+  for (final type in ['warrior', 'ranger', 'onmyoji', 'berserker']) {
+    if (type == 'warrior' || type == 'ranger') {
+      test('$type female originals match combat timing and frame selection',
+          () async {
+        final assets = await FemaleBattleAssets.load(FlameGame(), type);
+        final config = FemaleBattleAssets.runnerConfig(type);
+        expect(FemaleBattleAssets.duration(assets.attack),
+            closeTo(config.normalAttackDuration, 1e-7));
+        expect(FemaleBattleAssets.duration(assets.skill),
+            closeTo(config.sousenDurationSeconds, 1e-7));
+        for (final animation in [assets.run, assets.attack, assets.skill]) {
+          var age = 0.0;
+          for (final frame in animation.frames) {
+            expect(
+                FemaleBattleAssets.poseAt(animation, age), same(frame.sprite));
+            age += frame.stepTime;
+          }
         }
-      }
-    });
+      });
+    }
 
     testWidgets('$type female focus passes gender through the real start route',
         (tester) async {
@@ -81,7 +85,7 @@ void main() {
               .assets
               .character
               .id,
-          type == 'warrior' ? 'character_01_female' : 'character_07_female');
+          PixelBattleAssets.characterFor(type, 'female').id);
       expect(game.children.whereType<HeroComponent>(), isEmpty);
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox.shrink());

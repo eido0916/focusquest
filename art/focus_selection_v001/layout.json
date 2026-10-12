@@ -1,0 +1,17 @@
+{
+  "referenceSize": {"width": 1024, "height": 1536},
+  "units": "reference pixels; scale by viewport width / 1024",
+  "background": "materials/background.png",
+  "stage": {"x": 274, "y": 16, "width": 420, "height": 184},
+  "back": {"x": 22, "y": 18, "width": 90, "height": 90},
+  "party": {"x": 28, "y": 584, "width": 968, "height": 170},
+  "avatarWithinParty": {"x": 48, "y": 12, "width": 144, "height": 144},
+  "timePanel": {"x": 24, "y": 774, "width": 976, "height": 342},
+  "start": {"x": 95, "y": 1132, "width": 814, "height": 160},
+  "navigation": {"x": 38, "y": 1342, "width": 924, "height": 142},
+  "responsive": "Controls anchor to the bottom; additional height extends the scenic view. Short viewports scroll.",
+  "presets": [15, 30, 45, 60],
+  "customRangeMinutes": {"min": 1, "max": 180},
+  "defaultMinutes": 30,
+  "portraitMapping": "avatars/{male|female}/{typeId}.png"
+}

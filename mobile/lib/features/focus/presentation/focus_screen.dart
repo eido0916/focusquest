@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import '../../../core/config/game_balance.dart';
 import '../../../core/game_controller.dart';
 import '../../../core/widgets/quest_widgets.dart';
+import '../../../core/widgets/role_logo.dart';
 import '../domain/focus_session.dart';
 import '../domain/focus_adventure.dart';
-import '../../diagnosis/presentation/job_portrait.dart';
 import 'battle_replay_page.dart';
 import '../../party/presentation/party_page.dart';
 import '../../party/presentation/party_battle_page.dart';
+import '../../character/presentation/character_screen.dart';
+import '../../settings/settings_screen.dart';
+import 'focus_selection_scene.dart';
 
 class FocusScreen extends StatefulWidget {
   const FocusScreen({super.key, required this.controller});
@@ -73,6 +76,8 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                   clock: widget.controller.clock,
                   party: widget.controller.party)
               : BattleReplayPage(
+                  characterName:
+                      widget.controller.state?.activeCharacter?.name ?? '冒険者',
                   appearance:
                       widget.controller.state?.activeCharacter?.appearance ??
                           'male',
@@ -187,162 +192,169 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
     final controller = widget.controller;
     final session = controller.activeFocus;
     final seconds = session?.remaining(controller.clock()).inSeconds ?? 0;
+    if (session == null) {
+      final character = controller.state!.activeCharacter!;
+      return FocusSelectionScene(
+        typeId: character.characterType,
+        characterName: character.name,
+        level: character.level,
+        appearance: character.appearance,
+        minutes: _minutes,
+        stage: FocusAdventure.chapter(
+            controller.state!.focusAdventureSeconds.toDouble()),
+        partyConnected: controller.party.connected,
+        message: controller.partyStartError ?? controller.party.error,
+        onMinutes: (minutes) => setState(() {
+          _minutes = minutes;
+          _custom.clear();
+        }),
+        onCustom: _chooseCustomTime,
+        onParty: controller.busy || _settling ? null : _openParty,
+        onStart: controller.busy ||
+                controller.party.connected ||
+                _minutes < 1 ||
+                _minutes > 180
+            ? null
+            : () => runAction(context, _startFocus),
+        onItems: () =>
+            CharacterScreen(controller: controller).openInventory(context),
+        onSettings: () => Navigator.of(context).push(MaterialPageRoute<void>(
+            builder: (_) => Scaffold(
+                appBar: AppBar(title: const Text('設定')),
+                body: SettingsScreen(controller: controller)))),
+        onBack: () => Navigator.of(context).maybePop(),
+      );
+    }
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
         body: SafeArea(
-          child: QuestBackdrop(
-              child: ListView(
-                  padding: const EdgeInsets.fromLTRB(20, 64, 20, 24),
-                  children: [
-                Row(children: [
-                  SizedBox(
-                      width: 96,
-                      child: JobPortrait(
-                          typeId:
-                              controller.state!.activeCharacter!.characterType,
-                          appearance:
-                              controller.state!.activeCharacter!.appearance,
-                          height: 128)),
-                  Expanded(
-                      child: QuestCard(
-                          caption: 'FOCUS QUEST',
-                          child: Text(
-                              session == null
-                                  ? '静かな決意が、旅路を照らす。'
-                                  : '集中の積み重ねが、冒険の力になる。',
-                              style: const TextStyle(
-                                  fontFamily: 'serif',
-                                  fontSize: 17,
-                                  height: 1.5))))
-                ]),
-                QuestActionButton(
-                    label: controller.party.connected ? 'パーティーを見る' : 'パーティを組む',
-                    icon: Icons.groups_rounded,
-                    onTap: controller.busy ||
-                            _settling ||
-                            (session != null && !controller.party.connected)
-                        ? null
-                        : _openParty),
-                if (session?.partyMembers.isNotEmpty == true)
-                  Text(
-                      '${session!.partyMembers.length}人で集中中 · 敵も${session.partyMembers.length}体ずつ出現'),
-                if (controller.partyStartError != null)
-                  Text(controller.partyStartError!),
-                if (controller.party.error != null)
-                  Text(controller.party.error!),
-                QuestCard(
-                    caption: session == null
-                        ? '集中時間を選ぶ'
-                        : '第${FocusAdventure.chapter(session.adventureStartSeconds + session.durationMinutes * 60 - session.remaining(widget.controller.clock()).inSeconds.toDouble())}章 · 集中クエスト進行中',
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          if (session == null) ...[
-                            const Text('25分でボス出現、さらに5分で撃破。',
-                                style: TextStyle(fontSize: 16)),
-                            const SizedBox(height: 24),
-                            Wrap(spacing: 12, children: [
-                              for (final minutes in GameBalance.focusPresets)
-                                ChoiceChip(
-                                    label: Text('$minutes分'),
-                                    selected: _minutes == minutes,
-                                    onSelected: (_) => setState(() {
-                                          _minutes = minutes;
-                                          _custom.clear();
-                                        }))
-                            ]),
-                            const SizedBox(height: 16),
-                            TextField(
-                                controller: _custom,
-                                keyboardType: TextInputType.number,
-                                decoration: const InputDecoration(
-                                    labelText: 'カスタム（1〜180分）'),
-                                onChanged: (value) => setState(
-                                    () => _minutes = int.tryParse(value) ?? 0)),
-                            const SizedBox(height: 24),
-                            const Text(
-                                '集中中は、Focus Quest以外のアプリを開くと警告します。「Focus Questに戻る」または「1分だけ使用する」を選べます。'),
-                            const SizedBox(height: 24),
-                            QuestActionButton(
-                                label: '集中を開始',
-                                icon: Icons.explore_rounded,
-                                onTap: controller.busy ||
-                                        controller.party.connected ||
-                                        _minutes < 1 ||
-                                        _minutes > 180
-                                    ? null
-                                    : () => runAction(context, _startFocus)),
-                          ] else ...[
-                            TextButton(
-                                onPressed: controller.busy || _settling
-                                    ? null
-                                    : _openBattle,
-                                child: const Text('戦いの様子を見る')),
-                            const Text(
-                                '集中25分でボス出現。さらに5分で撃破し、草原から第二章の幽霊船へ進みます。短い集中でも達成した時間を引き継ぎます。'),
-                            const SizedBox(height: 32),
-                            Text(
-                                '${seconds ~/ 60}:${(seconds % 60).toString().padLeft(2, '0')}',
-                                textAlign: TextAlign.center,
-                                style:
-                                    Theme.of(context).textTheme.displayLarge),
-                            const SizedBox(height: 24),
-                            LinearProgressIndicator(
-                                value: (1 -
-                                        seconds /
-                                            (session.durationMinutes * 60))
+            child: QuestBackdrop(
+                child: ListView(
+                    padding: const EdgeInsets.fromLTRB(20, 64, 20, 24),
+                    children: [
+              Row(children: [
+                RoleLogo(
+                    role: controller.state!.activeCharacter!.characterType,
+                    size: 44),
+                const SizedBox(width: 10),
+                Expanded(child: Text(controller.state!.activeCharacter!.name)),
+                Text('Lv. ${controller.state!.activeCharacter!.level}'),
+              ]),
+              const SizedBox(height: 12),
+              QuestActionButton(
+                  label: controller.party.connected ? 'パーティーを見る' : 'パーティを組む',
+                  icon: Icons.groups_rounded,
+                  onTap: controller.busy ||
+                          _settling ||
+                          !controller.party.connected
+                      ? null
+                      : _openParty),
+              if (session.partyMembers.isNotEmpty)
+                Text(
+                    '${session.partyMembers.length}人で集中中 · 敵も${session.partyMembers.length}体ずつ出現'),
+              if (controller.partyStartError != null)
+                Text(controller.partyStartError!),
+              if (controller.party.error != null) Text(controller.party.error!),
+              QuestCard(
+                  caption:
+                      '第${FocusAdventure.chapter(session.adventureStartSeconds + session.durationMinutes * 60 - seconds.toDouble())}章 · 集中クエスト進行中',
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        TextButton(
+                            onPressed: controller.busy || _settling
+                                ? null
+                                : _openBattle,
+                            child: const Text('戦いの様子を見る')),
+                        const Text(
+                            '集中25分でボス出現。さらに5分で撃破し、草原から第二章の幽霊船へ進みます。短い集中でも達成した時間を引き継ぎます。'),
+                        const SizedBox(height: 32),
+                        Text(
+                            '${seconds ~/ 60}:${(seconds % 60).toString().padLeft(2, '0')}',
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.displayLarge),
+                        const SizedBox(height: 24),
+                        LinearProgressIndicator(
+                            value:
+                                (1 - seconds / (session.durationMinutes * 60))
                                     .clamp(0, 1)),
-                            const SizedBox(height: 24),
-                            const Text(
-                                '画面を消して、自分の時間に集中しましょう。終了後にアプリへ戻ると結果を確認できます。'),
-                            const SizedBox(height: 24),
-                            Text(session.verification ==
-                                    FocusVerification.usageStats
-                                ? '対象アプリの使用を確認する集中'
-                                : '他のアプリを開くと警告します。1分の許可は選んだアプリだけに適用され、時間が切れると再び警告します。集中タイマーは進み続けます。'),
-                            if (_error != null) ...[
-                              Text(_error!),
-                              FilledButton(
-                                  onPressed: _settling ? null : () => _finish(),
-                                  child: const Text('結果の保存を再試行'))
-                            ],
-                            TextButton(
-                                onPressed: _settling || controller.busy
-                                    ? null
-                                    : () async {
-                                        final confirmed = await showDialog<
-                                                bool>(
-                                            context: context,
-                                            builder: (context) => AlertDialog(
-                                                    title: const Text(
-                                                        '集中を中断しますか？'),
-                                                    content: const Text(
-                                                        '途中終了では報酬を獲得できません。'),
-                                                    actions: [
-                                                      TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  context,
-                                                                  false),
-                                                          child: const Text(
-                                                              '続ける')),
-                                                      TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  context,
-                                                                  true),
-                                                          child: const Text(
-                                                              '中断する'))
-                                                    ]));
-                                        if (confirmed == true && mounted) {
-                                          await _finish(cancel: true);
-                                        }
-                                      },
-                                child: const Text('集中を中断')),
-                          ],
-                        ])),
-              ])),
-        ));
+                        const SizedBox(height: 24),
+                        const Text(
+                            '画面を消して、自分の時間に集中しましょう。終了後にアプリへ戻ると結果を確認できます。'),
+                        const SizedBox(height: 24),
+                        Text(session.verification ==
+                                FocusVerification.usageStats
+                            ? '対象アプリの使用を確認する集中'
+                            : '他のアプリを開くと警告します。1分の許可は選んだアプリだけに適用され、時間が切れると再び警告します。集中タイマーは進み続けます。'),
+                        if (_error != null) ...[
+                          Text(_error!),
+                          FilledButton(
+                              onPressed: _settling ? null : () => _finish(),
+                              child: const Text('結果の保存を再試行'))
+                        ],
+                        TextButton(
+                            onPressed: _settling || controller.busy
+                                ? null
+                                : () async {
+                                    final confirmed = await showDialog<bool>(
+                                        context: context,
+                                        builder: (context) => AlertDialog(
+                                                title: const Text('集中を中断しますか？'),
+                                                content: const Text(
+                                                    '途中終了では報酬を獲得できません。'),
+                                                actions: [
+                                                  TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              context, false),
+                                                      child: const Text('続ける')),
+                                                  TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              context, true),
+                                                      child: const Text('中断する'))
+                                                ]));
+                                    if (confirmed == true && mounted) {
+                                      await _finish(cancel: true);
+                                    }
+                                  },
+                            child: const Text('集中を中断')),
+                      ])),
+            ]))));
+  }
+
+  Future<void> _chooseCustomTime() async {
+    _custom.text = '$_minutes';
+    final result = await showDialog<int>(
+        context: context,
+        builder: (context) => StatefulBuilder(builder: (context, update) {
+              final value = int.tryParse(_custom.text);
+              final valid = value != null && value >= 1 && value <= 180;
+              return AlertDialog(
+                title: const Text('カスタム時間'),
+                content: TextField(
+                    controller: _custom,
+                    autofocus: true,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        labelText: '1〜180分',
+                        errorText: valid ? null : '1〜180の整数を入力してください'),
+                    onChanged: (_) => update(() {}),
+                    onSubmitted: (_) {
+                      if (valid) Navigator.pop(context, value);
+                    }),
+                actions: [
+                  TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text('キャンセル')),
+                  FilledButton(
+                      onPressed:
+                          valid ? () => Navigator.pop(context, value) : null,
+                      child: const Text('決定')),
+                ],
+              );
+            }));
+    if (mounted && result != null) setState(() => _minutes = result);
   }
 }

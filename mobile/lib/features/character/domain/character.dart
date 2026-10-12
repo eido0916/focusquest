@@ -10,6 +10,7 @@ class Character {
       this.appearance = 'male',
       this.level = 1,
       this.currentExp = 0,
+      this.selectedTitle,
       this.rarity = 'N',
       Map<String, String> equippedItems = const {}})
       : equippedItems = Map.unmodifiable(equippedItems);
@@ -20,11 +21,17 @@ class Character {
   final String rarity;
   final int level;
   final int currentExp;
+
+  /// Null follows the highest unlocked title; explicit choices persist.
+  final String? selectedTitle;
   final Stats baseStats;
   final Map<String, String> equippedItems;
   int get requiredExp => GameBalance.requiredExp(level);
   Character copyWith(
-          {int? level, int? currentExp, Map<String, String>? equippedItems}) =>
+          {int? level,
+          int? currentExp,
+          String? selectedTitle,
+          Map<String, String>? equippedItems}) =>
       Character(
           id: id,
           name: name,
@@ -34,6 +41,7 @@ class Character {
           rarity: rarity,
           level: level ?? this.level,
           currentExp: currentExp ?? this.currentExp,
+          selectedTitle: selectedTitle ?? this.selectedTitle,
           equippedItems: equippedItems ?? this.equippedItems);
   Map<String, dynamic> toJson() => {
         'id': id,
@@ -43,6 +51,7 @@ class Character {
         'rarity': rarity,
         'level': level,
         'currentExp': currentExp,
+        'selectedTitle': selectedTitle,
         'baseStats': baseStats.toJson(),
         'equippedItems': equippedItems
       };
@@ -56,5 +65,6 @@ class Character {
       rarity: json['rarity'] as String,
       level: json['level'] as int,
       currentExp: json['currentExp'] as int,
+      selectedTitle: json['selectedTitle'] as String?,
       equippedItems: Map<String, String>.from(json['equippedItems'] as Map));
 }
