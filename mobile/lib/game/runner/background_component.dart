@@ -27,7 +27,9 @@ class BackgroundComponent extends Component {
   void render(Canvas canvas) {
     paintScenery(
         canvas,
-        ghostShip != null && FocusAdventure.chapter(state.adventureSeconds) == 2
+        state.focusAreaIndex == null &&
+                ghostShip != null &&
+                FocusAdventure.chapter(state.adventureSeconds) == 2
             ? ghostShip!
             : image,
         travelSeconds: state.backgroundTravelSeconds,

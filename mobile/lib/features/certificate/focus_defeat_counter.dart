@@ -49,6 +49,7 @@ class FocusDefeatCounter {
     }
     final battle = BattleStateController(
         adventureStartSeconds: session.adventureStartSeconds,
+        focusAreaIndex: session.focusAreaIndex,
         config:
             PixelBattleAssets.runnerConfig(hero.characterType, hero.appearance),
         durationSeconds: duration);

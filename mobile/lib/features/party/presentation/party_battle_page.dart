@@ -1,3 +1,4 @@
+import '../../playable_stage/domain/playable_stage_catalog.dart';
 import 'dart:convert';
 import 'dart:ui' as ui;
 import 'package:flame/cache.dart';
@@ -69,9 +70,42 @@ class _PartyBattlePageState extends State<PartyBattlePage> {
                                 top: 4,
                                 right: 8,
                                 child: TextButton.icon(
-                                    onPressed: _return,
+                                    onPressed: () => showDialog<void>(
+                                        context: context,
+                                        builder: (context) => AlertDialog(
+                                                title: const Text('集中メニュー'),
+                                                content: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: [
+                                                      const Text('参加コード'),
+                                                      SelectableText(
+                                                          widget.party?.code ??
+                                                              'コードを取得できません',
+                                                          style:
+                                                              const TextStyle(
+                                                                  fontSize:
+                                                                      28)),
+                                                      const Text(
+                                                          '接続が切れた場合は、このコードを入力して復帰できます。')
+                                                    ]),
+                                                actions: [
+                                                  TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              context),
+                                                      child:
+                                                          const Text('戦闘に戻る')),
+                                                  TextButton(
+                                                      onPressed: () {
+                                                        Navigator.pop(context);
+                                                        _return();
+                                                      },
+                                                      child: const Text(
+                                                          'パーティー・集中メニューへ'))
+                                                ])),
                                     icon: const Icon(Icons.undo),
-                                    label: const Text('タイマーに戻る'))),
+                                    label: const Text('メニュー'))),
                           ])))))));
 }
 
@@ -90,7 +124,7 @@ class PartyBattleGame extends FlameGame {
   final VoidCallback onFinished;
   final PartyConnection? party;
   ui.Image? _background;
-  ui.Image? _ghostShip;
+
   EnemyMotionAssets? _bossAssets;
   final Map<String, Map<String, _OriginalMotion>> _actors = {};
   final Map<String, RoleSkillEffects> _effects = {};
@@ -109,9 +143,9 @@ class PartyBattleGame extends FlameGame {
   @override
   Future<void> onLoad() async {
     try {
-      _background = await images.load(BackgroundComponent.asset);
-      _ghostShip =
-          await images.load('stage_backgrounds/ghost_ship_focus_v002.png');
+      _background = await images.load(
+          FocusAdventure.background(0, areaIndex: session.focusAreaIndex));
+
       _bossAssets = await EnemyMotionAssets.load(this);
       for (final type
           in session.partyMembers.map((m) => m.characterType).toSet()) {
@@ -154,7 +188,7 @@ class PartyBattleGame extends FlameGame {
         }));
       }));
     } catch (_) {
-      loadError = '原画を読み込めませんでした。タイマー画面で集中を続けられます。';
+      loadError = '原画を読み込めませんでした。集中は続いています。メニューから戻って再試行してください。';
     }
   }
 
@@ -198,8 +232,7 @@ class PartyBattleGame extends FlameGame {
     final adventureTime = session.adventureStartSeconds + time;
     final bossBattle = FocusAdventure.fightingBoss(adventureTime);
     final bossLeft = (1800 - FocusAdventure.age(adventureTime)).ceil();
-    final background =
-        FocusAdventure.chapter(adventureTime) == 2 ? _ghostShip : _background;
+    final background = _background;
     if (background != null) {
       BackgroundComponent.paintScenery(canvas, background);
     }
@@ -208,7 +241,7 @@ class PartyBattleGame extends FlameGame {
     final remaining = session.remaining(clock()).inSeconds;
     _text(
         canvas,
-        '第${FocusAdventure.chapter(adventureTime)}章 · ${FocusAdventure.area(adventureTime)} · ${session.partyMembers.length}人パーティー',
+        '第${session.focusAreaIndex + 1}章 · ${FocusAdventure.area(adventureTime, areaIndex: session.focusAreaIndex)} · ${session.partyMembers.length}人パーティー',
         20,
         12,
         width: 400,
@@ -217,7 +250,7 @@ class PartyBattleGame extends FlameGame {
     _text(
         canvas,
         bossBattle
-            ? 'BOSS · ${FocusAdventure.bossName(adventureTime)} · 撃破まで ${bossLeft ~/ 60}:${(bossLeft % 60).toString().padLeft(2, '0')}'
+            ? 'BOSS · ${FocusAdventure.bossName(adventureTime, areaIndex: session.focusAreaIndex)} · 撃破まで ${bossLeft ~/ 60}:${(bossLeft % 60).toString().padLeft(2, '0')}'
             : '残り ${remaining ~/ 60}:${(remaining % 60).toString().padLeft(2, '0')}  ·  敵 ${session.partyMembers.length}体 / wave',
         20,
         48,
@@ -272,7 +305,17 @@ class PartyBattleGame extends FlameGame {
         motion.paint(canvas, Offset(220, y - 114),
             moving ? age % motion.duration : age - 2);
       }
-      final enemy = _actors[i.isEven ? 'enemies/slime' : 'enemies/goblin'];
+      final mobIds = session.focusAreaIndex < 0
+          ? ['slime', 'goblin']
+          : {
+              for (final stage in PlayableStageCatalog.stages
+                  .skip(session.focusAreaIndex * 4)
+                  .take(4))
+                for (final enemy in stage.opponents)
+                  if (!enemy.isBoss) enemy.id
+            }.toList();
+      final mobId = mobIds[i % mobIds.length];
+      final enemy = _actors['enemies/$mobId'];
       if (enemy != null && !bossBattle) {
         final defeated = age >= hitAt;
         final motion = enemy[defeated ? 'defeat' : 'locomotion']!;
@@ -281,6 +324,17 @@ class PartyBattleGame extends FlameGame {
           motion.paint(canvas, Offset(x, y - 114),
               defeated ? age - hitAt : age % motion.duration);
         }
+      }
+      if (enemy == null && _bossAssets != null && !bossBattle) {
+        final defeated = age >= hitAt;
+        final frame = _bossAssets!.frame(mobId,
+            defeated ? 'defeat' : 'locomotion', defeated ? age - hitAt : age,
+            loop: !defeated);
+        final x = age < 2 ? 800 - age * 135 : 530.0;
+        canvas.drawImage(
+            frame.image,
+            Offset(x + frame.offset.dx, y - 114 + frame.offset.dy),
+            Paint()..filterQuality = FilterQuality.none);
       }
       if (skillWave && age >= 2 && age < hitAt && attack != null) {
         final character = PixelBattleAssets.characterFor(
@@ -303,7 +357,8 @@ class PartyBattleGame extends FlameGame {
         adventureTime >= 1800 && chapterAge < 1.25 && time > 0;
     if ((bossBattle || defeatingBoss) && _bossAssets != null) {
       final id = FocusAdventure.bossId(
-          defeatingBoss ? adventureTime - chapterAge - 1 : adventureTime);
+          defeatingBoss ? adventureTime - chapterAge - 1 : adventureTime,
+          areaIndex: session.focusAreaIndex);
       final bossAge = bossBattle
           ? chapterAge - 1500
           : (chapterAge == 0 ? _finishAge : chapterAge);
@@ -323,9 +378,10 @@ class PartyBattleGame extends FlameGame {
           loop: !defeatingBoss);
       canvas.drawImageRect(
           frame.image,
-          const Rect.fromLTWH(0, 0, 128, 128),
+          Rect.fromLTWH(0, 0, frame.image.width.toDouble(),
+              frame.image.height.toDouble()),
           Rect.fromLTWH(
-              580 + frame.offset.dx * 2, 150 + frame.offset.dy * 2, 256, 256),
+              540 + frame.offset.dx * 3, 90 + frame.offset.dy * 3, 384, 384),
           Paint()..filterQuality = FilterQuality.none);
     }
     if (loadError != null) {

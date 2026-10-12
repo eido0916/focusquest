@@ -488,7 +488,8 @@ class _PlayableStageSelectionPageState
   Widget _stageCard(PlayableStageDefinition stage) => Semantics(
       button: true,
       enabled: !_blocked,
-      label: '${stage.area} ステージ${stage.number}',
+      label:
+          '${stage.area} ステージ${stage.number}${_cleared.contains(stage.number) ? ' クリア済み' : ''}',
       child: Material(
           color: Colors.transparent,
           child: InkWell(
@@ -499,13 +500,22 @@ class _PlayableStageSelectionPageState
                   compact: true,
                   padding:
                       const EdgeInsets.symmetric(vertical: 22, horizontal: 12),
-                  child: Center(
-                      child: Text('Stage ${stage.number}',
-                          style: TextStyle(
-                              color: _blocked
-                                  ? Colors.white38
-                                  : const Color(0xffffe5b2),
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'SunlitSerif')))))));
+                  child: Column(mainAxisSize: MainAxisSize.min, children: [
+                    Text('Stage ${stage.number}',
+                        style: TextStyle(
+                            color: _blocked
+                                ? Colors.white38
+                                : const Color(0xffffe5b2),
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'SunlitSerif')),
+                    if (_cleared.contains(stage.number))
+                      const Padding(
+                          padding: EdgeInsets.only(top: 4),
+                          child: Text('✓ CLEAR',
+                              style: TextStyle(
+                                  color: Color(0xff80ed9c),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold))),
+                  ])))));
 }

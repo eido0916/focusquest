@@ -119,15 +119,19 @@ class CertificateCatalog {
     ],
   };
 
+  static int unlockLevel(int index) => index == 0 ? 1 : index * 10;
+
   static String title(String role, int level) {
     final list = titles[role];
     if (list == null) throw ArgumentError.value(role, 'role');
-    return list[level.clamp(1, 8) - 1];
+    return list[(level ~/ 10).clamp(0, list.length - 1)];
   }
 
   static String displayedTitle(String role, int level, String? selected) {
     final index = titles[role]?.indexOf(selected ?? '') ?? -1;
-    return index >= 0 && level >= index + 1 ? selected! : title(role, level);
+    return index >= 0 && level >= unlockLevel(index)
+        ? selected!
+        : title(role, level);
   }
 
   static Color accent(String role) => switch (role) {

@@ -84,6 +84,35 @@ class PlayableStageBattle extends ChangeNotifier {
     _spawn();
     message = '${this.stage.area}の冒険へようこそ';
   }
+  void configureHeroTiming(
+      Map<String, dynamic> attack, Map<String, dynamic> skill) {
+    double duration(Map<String, dynamic> motion) =>
+        (motion['duration_seconds'] as num).toDouble();
+    List<double> releases(Map<String, dynamic> motion, String event) => [
+          for (final row in motion['events'] as List)
+            if (row['event'] == event)
+              (row['tick'] as num).toDouble() / (24 * duration(motion))
+        ];
+    if (int.parse(character.id.split('_')[1]) >= 11) {
+      attackDuration = duration(attack);
+      skillDuration = duration(skill);
+    }
+    attackReleaseFractions = releases(attack, character.attackEvent);
+    skillReleaseFractions = releases(skill, character.skillEvent);
+    attackHitFraction = attackReleaseFractions.isEmpty
+        ? 12 / (24 * duration(attack))
+        : attackReleaseFractions.first;
+    skillHitFraction = skillReleaseFractions.isEmpty
+        ? 20 / (24 * duration(skill))
+        : skillReleaseFractions.first;
+    actionOffsetPx = (isSkill, progress) {
+      final timeline = (isSkill ? skill : attack)['timeline'] as List;
+      final tick =
+          (progress * timeline.length).floor().clamp(0, timeline.length - 1);
+      return ((timeline[tick]['root_offset_px'] as List)[0] as num).toDouble();
+    };
+  }
+
   final PlayableStageDefinition stage;
   final PlayableCharacter character;
   final List<StageEnemy> enemies = [];

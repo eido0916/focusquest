@@ -1,3 +1,4 @@
+import 'package:focusquest/features/playable_stage/domain/playable_stage_catalog.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flame/game.dart';
 import 'package:focusquest/features/focus/domain/focus_adventure.dart';
@@ -94,12 +95,12 @@ void main() {
   test('bosses load original movement, attack and transparent defeat frames',
       () async {
     final assets = await EnemyMotionAssets.load(FlameGame());
-    for (final id in ['boss_goblin_king', 'boss_dullahan']) {
+    for (final id in PlayableStageCatalog.bossIds) {
       for (final action in ['locomotion', 'attack', 'defeat']) {
         final motion = assets.motions['${id}_$action']!;
         expect(motion.metadata['interpolation'], 'none');
         expect(motion.metadata['direction'], 'left');
-        expect(motion.frame(0).image.width, 128);
+        expect(motion.frame(0).image.width, (motion.metadata['canvas'] as List).first);
       }
       final defeat = assets.motions['${id}_defeat']!;
       final rgba = await defeat.frame(defeat.duration).image.toByteData();

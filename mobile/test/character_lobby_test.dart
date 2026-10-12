@@ -27,7 +27,7 @@ void main() {
     const Size(844, 390)
   ]) {
     for (final scale in [1.0, 1.6]) {
-      testWidgets('lobby inventory equips at $size scale $scale',
+      testWidgets('lobby has growth and no equipment at $size scale $scale',
           (tester) async {
         tester.view.physicalSize = size;
         tester.view.devicePixelRatio = 1;
@@ -71,37 +71,9 @@ void main() {
         expect(find.text('称号変更'), findsOneWidget);
         expect(find.byKey(const ValueKey('character-stats')), findsOneWidget);
         expect(
-            find.byKey(const ValueKey('character-equipment')), findsOneWidget);
-        await tester.ensureVisible(find.text('所持アイテム'));
-        await tester.pumpAndSettle();
-        expect(find.text('所持アイテム').hitTestable(), findsOneWidget);
-        if (const bool.fromEnvironment('CAPTURE_LOBBY') && scale == 1) {
-          await tester.drag(find.byKey(const ValueKey('character-scroll')),
-              const Offset(0, 1800));
-          await tester.pumpAndSettle();
-          await tester.runAsync(() async {
-            final render = boundary.currentContext!.findRenderObject()!
-                as RenderRepaintBoundary;
-            final image = await render.toImage(pixelRatio: 2);
-            final bytes =
-                await image.toByteData(format: ui.ImageByteFormat.png);
-            final file = File(
-                '../output/character_lobby/character-${size.width.toInt()}x${size.height.toInt()}.png');
-            await file.parent.create(recursive: true);
-            await file.writeAsBytes(bytes!.buffer.asUint8List());
-            image.dispose();
-          });
-        }
-        await tester.ensureVisible(find.byKey(const ValueKey('change-title')));
-        await tester.pumpAndSettle();
-        await tester.tap(find.byKey(const ValueKey('change-title')));
-        await tester.pumpAndSettle();
-        for (final element in find.byType(Image).evaluate()) {
-          await tester.runAsync(
-              () => precacheImage((element.widget as Image).image, element));
-        }
-        await tester.pumpAndSettle();
-        expect(find.text('称号一覧'), findsOneWidget);
+            find.byKey(const ValueKey('character-equipment')), findsNothing);
+        expect(find.text('装備'), findsNothing);
+        expect(find.text('所持アイテム'), findsNothing);
         expect(tester.takeException(), isNull);
         if (const bool.fromEnvironment('CAPTURE_LOBBY') &&
             size.width == 390 &&
@@ -118,20 +90,6 @@ void main() {
             image.dispose();
           });
         }
-        await tester.tap(find.byTooltip('閉じる'));
-        await tester.pumpAndSettle();
-        await tester.ensureVisible(find.text('所持アイテム'));
-        await tester.pumpAndSettle();
-        await tester.tap(find.text('所持アイテム'));
-        await tester.pumpAndSettle();
-        final item = find.byKey(const ValueKey('inventory-wooden_sword'));
-        await tester
-            .tap(find.descendant(of: item, matching: find.text('装備する')));
-        await tester.pumpAndSettle();
-        expect(controller.state!.activeCharacter!.equippedItems['weapon'],
-            'wooden_sword');
-        expect(controller.state!.inventory['wooden_sword'], 11);
-        expect(tester.takeException(), isNull);
         await tester.pumpWidget(const SizedBox.shrink());
         controller.dispose();
       });
