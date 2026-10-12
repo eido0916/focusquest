@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:focusquest/app.dart';
+import 'package:focusquest/core/widgets/quest_widgets.dart';
 import 'package:focusquest/core/game_controller.dart';
 import 'package:focusquest/data/game_catalog.dart';
 import 'package:focusquest/core/widgets/role_logo.dart';
@@ -15,6 +17,51 @@ void main() {
   setUpAll(() async {
     final font = await rootBundle.load('assets/fonts/NotoSerifJP.ttf');
     await (FontLoader('SunlitSerif')..addFont(Future.value(font))).load();
+    final icons = await rootBundle.load('fonts/MaterialIcons-Regular.otf');
+    await (FontLoader('MaterialIcons')..addFont(Future.value(icons))).load();
+  });
+
+  testWidgets('focus navigation returns to each shell tab in home order',
+      (tester) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final controller = GameController(MemoryRepository());
+    await controller.load();
+    await controller.onboard(GameCatalog.types[3]!);
+    await tester.pumpWidget(FocusQuestApp(controller: controller));
+    await tester.pumpAndSettle();
+    const labels = ['ホーム', 'キャラクター', '冒険', '設定'];
+    for (var tab = 0; tab < labels.length; tab++) {
+      await tester.tap(find.descendant(
+          of: find.byType(QuestNavigation), matching: find.text('ホーム')));
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(find.text('集中をはじめる'));
+      await tester.tap(find.text('集中をはじめる'));
+      await tester.pumpAndSettle();
+      final navigation = find.descendant(
+          of: find.byType(FocusSelectionScene),
+          matching: find.byType(QuestNavigation));
+      expect(navigation, findsOneWidget);
+      final positions = labels
+          .map((label) => tester
+              .getCenter(
+                  find.descendant(of: navigation, matching: find.text(label)))
+              .dx)
+          .toList();
+      expect(positions, orderedEquals([...positions]..sort()));
+      await tester.tap(
+          find.descendant(of: navigation, matching: find.text(labels[tab])));
+      await tester.pumpAndSettle();
+      expect(find.byType(FocusSelectionScene), findsNothing);
+      expect(
+          tester.widget<QuestNavigation>(find.byType(QuestNavigation)).selected,
+          tab);
+      expect(tester.takeException(), isNull);
+    }
+    await tester.pumpWidget(const SizedBox());
+    controller.dispose();
   });
 
   testWidgets('presets, validated custom time and portrait mapping',
@@ -88,8 +135,7 @@ void main() {
                   onCustom: () {},
                   onParty: () {},
                   onStart: () {},
-                  onItems: () {},
-                  onSettings: () {},
+                  onNavigate: (_) {},
                   onBack: () {}))));
       await tester.pumpAndSettle();
       await tester.runAsync(() async {

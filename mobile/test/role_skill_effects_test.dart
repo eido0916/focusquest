@@ -75,7 +75,7 @@ void main() {
   });
 
   for (final type in RoleSkillEffects.names.keys) {
-    test('$type draws from the hero to the right edge, clears at end',
+    test('$type draws one focal effect without repeats, clears at end',
         () async {
       final effects = await RoleSkillEffects.load(type, (path) async {
         final bytes = await rootBundle.load(path);
@@ -88,6 +88,7 @@ void main() {
       try {
         expect(effects.frames.length, 12);
         expect(effects.metadata['interpolation'], 'none');
+        expect(effects.metadata['composition'], 'single');
         Future<ui.Image> render(double age) async {
           final recorder = ui.PictureRecorder();
           effects.paint(ui.Canvas(recorder),
@@ -107,18 +108,18 @@ void main() {
             (await active.toByteData(format: ui.ImageByteFormat.rawRgba))!
                 .buffer
                 .asUint8List();
-        var atRight = 0, beforeHero = 0, beyondViewport = 0;
+        var attackPixels = 0, beforeHero = 0, beyondViewport = 0;
         for (var y = 0; y < 320; y++) {
           for (var x = 0; x < 750; x++) {
             final alpha = rgba[(y * 750 + x) * 4 + 3];
             if (x < 30) beforeHero += alpha;
-            if (x >= 660 && x < 700) atRight += alpha;
+            if (x >= 30 && x < 480) attackPixels += alpha;
             if (x >= 700) beyondViewport += alpha;
           }
         }
         expect(beforeHero, 0);
         expect(beyondViewport, 0);
-        expect(atRight, greaterThan(0));
+        expect(attackPixels, greaterThan(0));
         active.dispose();
         final wideRecorder = ui.PictureRecorder();
         effects.paint(ui.Canvas(wideRecorder),
@@ -136,11 +137,12 @@ void main() {
                 .asUint8List();
         var wideRight = 0;
         for (var y = 0; y < 200; y++) {
-          for (var x = 1760; x < 1800; x++) {
+          for (var x = 254; x < 1800; x++) {
             wideRight += wideBytes[(y * 1800 + x) * 4 + 3];
           }
         }
-        expect(wideRight, greaterThan(0));
+        expect(wideRight, 0,
+            reason: 'The original must never tile across a wide viewport');
         wide.dispose();
         widePicture.dispose();
         final end = await render(1.5);

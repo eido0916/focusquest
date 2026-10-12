@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path $PSScriptRoot -Parent
 $assetRoot = Join-Path $taskRoot 'mobile/assets/images/playable_stage'
-$bindingPath = Join-Path $taskRoot 'mobile/assets/images/role_skill_effects/bindings.json'
+$bindingPath = Join-Path $taskRoot 'mobile/assets/images/role_skill_effects_v002/bindings.json'
 $bindings = Get-Content -LiteralPath $bindingPath -Raw | ConvertFrom-Json -AsHashtable
 $roles = @('warrior','boxer','samurai','guardian','ninja','assassin','ranger','mage','gunner','spellblade','onmyoji','reaper','angel','devil','dragon_knight','berserker')
 $addedEvents = @('shikigami_attack','chain_scythe_throw','holy_swords_release','curse_apply','dragon_flurry_hit','floor_release')

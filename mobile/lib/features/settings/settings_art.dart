@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/widgets/sunlit_widgets.dart';
+import '../../core/widgets/quest_widgets.dart';
 
 const settingsAssetPath = 'assets/images/settings_ui_v001/';
 const settingsInk = Color(0xff2c170b);
@@ -239,67 +240,6 @@ class SettingsNavigation extends StatelessWidget {
   const SettingsNavigation({super.key, required this.onSelect});
   final ValueChanged<int> onSelect;
   @override
-  Widget build(BuildContext context) => ColoredBox(
-      color: const Color(0xff063260),
-      child: SafeArea(
-          top: false,
-          child: CustomPaint(
-              foregroundPainter: const SunlitFramePainter(),
-              child: Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: Row(
-                      children: List.generate(4, (i) {
-                    const labels = ['ホーム', 'キャラクター', '設定', '冒険'];
-                    const icons = [
-                      Icons.home_outlined,
-                      Icons.people_alt_rounded,
-                      Icons.settings_rounded,
-                      Icons.map_outlined
-                    ];
-                    final content = Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 7, horizontal: 2),
-                        child: SizedBox(
-                            width: double.infinity,
-                            child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(icons[i],
-                                      size: 25,
-                                      color: settingsCream,
-                                      shadows: i == 2
-                                          ? const [
-                                              Shadow(
-                                                  color: Color(0xffffd275),
-                                                  blurRadius: 14)
-                                            ]
-                                          : null),
-                                  const SizedBox(height: 2),
-                                  Text(labels[i],
-                                      maxLines: 1,
-                                      style: const TextStyle(
-                                          fontFamily: 'SunlitSerif',
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.bold,
-                                          color: settingsCream)),
-                                ])));
-                    return Expanded(
-                        child: Semantics(
-                            selected: i == 2,
-                            button: true,
-                            child: Material(
-                                color: Colors.transparent,
-                                child: InkWell(
-                                    onTap: () => onSelect(i),
-                                    child: i == 2
-                                        ? Stack(children: [
-                                            const Positioned.fill(
-                                                child: SettingsArt(
-                                                    'blue_button',
-                                                    slice: Rect.fromLTRB(
-                                                        80, 54, 432, 74))),
-                                            content,
-                                          ])
-                                        : content))));
-                  }))))));
+  Widget build(BuildContext context) =>
+      QuestNavigation(selected: 3, onSelect: onSelect);
 }

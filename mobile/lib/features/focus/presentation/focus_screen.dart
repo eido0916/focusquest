@@ -11,11 +11,13 @@ import '../../party/presentation/party_page.dart';
 import '../../party/presentation/party_battle_page.dart';
 import '../../character/presentation/character_screen.dart';
 import '../../settings/settings_screen.dart';
+import '../../adventure/presentation/adventure_screen.dart';
 import 'focus_selection_scene.dart';
 
 class FocusScreen extends StatefulWidget {
-  const FocusScreen({super.key, required this.controller});
+  const FocusScreen({super.key, required this.controller, this.onNavigate});
   final GameController controller;
+  final ValueChanged<int>? onNavigate;
   @override
   State<FocusScreen> createState() => _FocusScreenState();
 }
@@ -216,12 +218,21 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                 _minutes > 180
             ? null
             : () => runAction(context, _startFocus),
-        onItems: () =>
-            CharacterScreen(controller: controller).openInventory(context),
-        onSettings: () => Navigator.of(context).push(MaterialPageRoute<void>(
-            builder: (_) => Scaffold(
-                appBar: AppBar(title: const Text('設定')),
-                body: SettingsScreen(controller: controller)))),
+        onNavigate: (tab) {
+          if (widget.onNavigate != null) {
+            widget.onNavigate!(tab);
+          } else if (tab == 0) {
+            Navigator.of(context).maybePop();
+          } else {
+            final page = switch (tab) {
+              1 => CharacterScreen(controller: controller),
+              2 => AdventureScreen(controller: controller),
+              _ => SettingsScreen(controller: controller),
+            };
+            Navigator.of(context).push(MaterialPageRoute<void>(
+                builder: (_) => Scaffold(body: SafeArea(child: page))));
+          }
+        },
         onBack: () => Navigator.of(context).maybePop(),
       );
     }

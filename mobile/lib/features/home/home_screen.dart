@@ -172,7 +172,7 @@ class HomeScreen extends StatelessWidget {
                   onTap: onFocus),
               const SizedBox(height: 12),
               SunlitAction(
-                  light: true, label: '冒険に出発する', onTap: () => onNavigate(3)),
+                  light: true, label: '冒険に出発する', onTap: () => onNavigate(2)),
             ])),
       ]));
     });

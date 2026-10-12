@@ -10,7 +10,7 @@ class RoleSkillEffects {
   final String type;
   final Map<String, dynamic> metadata;
   final List<ui.Image> frames;
-  static const base = 'assets/images/role_skill_effects/';
+  static const base = 'assets/images/role_skill_effects_v002/';
   static const names = {
     'warrior': '蓄力斬撃',
     'boxer': '旋風蹴り',
@@ -148,21 +148,14 @@ class RoleSkillEffects {
     canvas.clipRect(ui.Rect.fromLTRB(math.max(viewport.left, x), viewport.top,
         viewport.right, viewport.bottom));
     final width = frame.width * scale;
-    // Unusually wide stage viewports reuse complete originals at subsequent
-    // world positions. Charging remains only at the character's position.
-    final copies = index >= 3 && index < 11
-        ? math.max(1, ((viewport.right - x) / width).ceil())
-        : 1;
-    for (var copy = 0; copy < copies; copy++) {
-      canvas.drawImageRect(
-          frame,
-          ui.Rect.fromLTWH(
-              0, 0, frame.width.toDouble(), frame.height.toDouble()),
-          ui.Rect.fromLTWH(x + copy * width, y, width, frame.height * scale),
-          ui.Paint()
-            ..filterQuality = ui.FilterQuality.none
-            ..isAntiAlias = false);
-    }
+    // One authored focal effect per character, including wide viewports.
+    canvas.drawImageRect(
+        frame,
+        ui.Rect.fromLTWH(0, 0, frame.width.toDouble(), frame.height.toDouble()),
+        ui.Rect.fromLTWH(x, y, width, frame.height * scale),
+        ui.Paint()
+          ..filterQuality = ui.FilterQuality.none
+          ..isAntiAlias = false);
     canvas.restore();
   }
 }

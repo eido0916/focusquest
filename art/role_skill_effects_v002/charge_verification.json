@@ -1,0 +1,242 @@
+[
+  {
+    "role": "warrior",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "warrior",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "warrior",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "boxer",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "boxer",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "boxer",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "samurai",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "samurai",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "samurai",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "guardian",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "guardian",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "guardian",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "ninja",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "ninja",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "ninja",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "assassin",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "assassin",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "assassin",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "ranger",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "ranger",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "ranger",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "mage",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "mage",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "mage",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "gunner",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "gunner",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "gunner",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "spellblade",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "spellblade",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "spellblade",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "onmyoji",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "onmyoji",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "onmyoji",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "reaper",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "reaper",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "reaper",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "angel",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "angel",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "angel",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "devil",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "devil",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "devil",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "dragon_knight",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "dragon_knight",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "dragon_knight",
+    "keyframe": 2,
+    "rgba_identical": true
+  },
+  {
+    "role": "berserker",
+    "keyframe": 0,
+    "rgba_identical": true
+  },
+  {
+    "role": "berserker",
+    "keyframe": 1,
+    "rgba_identical": true
+  },
+  {
+    "role": "berserker",
+    "keyframe": 2,
+    "rgba_identical": true
+  }
+]

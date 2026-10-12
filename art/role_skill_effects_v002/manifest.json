@@ -1,0 +1,1186 @@
+{
+  "warrior": {
+    "role": "剣士",
+    "skill": "蓄力斬撃",
+    "kind": "crescent",
+    "palette": [
+      "#173877",
+      "#248ce8",
+      "#79ddff",
+      "#eeffff"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "一枚の青白い巨大な三日月斬撃"
+  },
+  "boxer": {
+    "role": "拳闘士",
+    "skill": "旋風蹴り",
+    "kind": "wind",
+    "palette": [
+      "#145754",
+      "#30b79b",
+      "#96efd2",
+      "#f2fff1"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "一つの翡翠色の渦巻く旋風"
+  },
+  "samurai": {
+    "role": "侍",
+    "skill": "連続居合",
+    "kind": "cuts",
+    "palette": [
+      "#542b65",
+      "#b756a0",
+      "#ffb8df",
+      "#fff2fa"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "桜色の一閃と刀の切先"
+  },
+  "guardian": {
+    "role": "重騎士",
+    "skill": "蓄力薙ぎ払い",
+    "kind": "earth",
+    "palette": [
+      "#674125",
+      "#b88036",
+      "#f1c46b",
+      "#fff1c2"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "一つの岩盤隆起と金色の衝撃弧"
+  },
+  "ninja": {
+    "role": "忍者",
+    "skill": "瞬身突き",
+    "kind": "shadow",
+    "palette": [
+      "#302854",
+      "#6953a3",
+      "#aaa3eb",
+      "#eee7ff"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "一筋の影を引く巨大な苦無"
+  },
+  "assassin": {
+    "role": "アサシン",
+    "skill": "蓄力クリティカル",
+    "kind": "dagger",
+    "palette": [
+      "#531b3c",
+      "#b42765",
+      "#f16ba2",
+      "#ffe0ef"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "紅紫の短剣と一つのクリティカル閃光"
+  },
+  "ranger": {
+    "role": "弓使い",
+    "skill": "三連射",
+    "kind": "arrows",
+    "palette": [
+      "#17493f",
+      "#38a369",
+      "#97df89",
+      "#efffd4"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "葉の風をまとった一本の巨大な光矢"
+  },
+  "mage": {
+    "role": "魔法使い",
+    "skill": "大氷結",
+    "kind": "ice",
+    "palette": [
+      "#243f87",
+      "#407acc",
+      "#8ee8ff",
+      "#efffff"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "一つの巨大な六角氷晶"
+  },
+  "gunner": {
+    "role": "ガンナー",
+    "skill": "早撃ち",
+    "kind": "bullets",
+    "palette": [
+      "#713b22",
+      "#cc7429",
+      "#ffd079",
+      "#fff4cf"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "一発の巨大な銃弾と琥珀色の衝撃尾"
+  },
+  "spellblade": {
+    "role": "魔剣士",
+    "skill": "雷剣・落雷",
+    "kind": "lightning",
+    "palette": [
+      "#3a276b",
+      "#8761df",
+      "#d3baff",
+      "#fcf4ff"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "一本の雷剣を中心とした落雷"
+  },
+  "onmyoji": {
+    "role": "陰陽師",
+    "skill": "五行封陣",
+    "kind": "talismans",
+    "palette": [
+      "#3c295b",
+      "#b03e65",
+      "#f0c96c",
+      "#fff4d7"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "一つの五行封陣と中央の大符"
+  },
+  "reaper": {
+    "role": "鎌使い",
+    "skill": "冥月刈り",
+    "kind": "reap",
+    "palette": [
+      "#26264c",
+      "#574796",
+      "#9d91dc",
+      "#d1fff1"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "一振りの巨大な冥月鎌"
+  },
+  "angel": {
+    "role": "天使",
+    "skill": "聖光の翼",
+    "kind": "holy",
+    "palette": [
+      "#79662d",
+      "#d7b961",
+      "#fff2b7",
+      "#ffffff"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "一対の翼をもつ一つの聖剣"
+  },
+  "devil": {
+    "role": "悪魔",
+    "skill": "獄炎の波",
+    "kind": "hellfire",
+    "palette": [
+      "#3b193e",
+      "#8b285d",
+      "#ee547c",
+      "#ffd5b2"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "一つの角をもつ獄炎の波"
+  },
+  "dragon_knight": {
+    "role": "ドラゴンナイト",
+    "skill": "竜炎突撃",
+    "kind": "dragon",
+    "palette": [
+      "#69332b",
+      "#d4502a",
+      "#ff9b38",
+      "#fff0a7"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "一頭の竜の形をした炎の突撃"
+  },
+  "berserker": {
+    "role": "バーサーカー",
+    "skill": "狂戦裂破",
+    "kind": "rage",
+    "palette": [
+      "#631c28",
+      "#bb3438",
+      "#f37b53",
+      "#ffe4b0"
+    ],
+    "fps": 24,
+    "size": [
+      1536,
+      256
+    ],
+    "anchor_px": [
+      0,
+      256
+    ],
+    "holds": [
+      {
+        "keyframe": 0,
+        "ticks": 3
+      },
+      {
+        "keyframe": 1,
+        "ticks": 3
+      },
+      {
+        "keyframe": 2,
+        "ticks": 3
+      },
+      {
+        "keyframe": 3,
+        "ticks": 2
+      },
+      {
+        "keyframe": 4,
+        "ticks": 2
+      },
+      {
+        "keyframe": 5,
+        "ticks": 2
+      },
+      {
+        "keyframe": 6,
+        "ticks": 2
+      },
+      {
+        "keyframe": 7,
+        "ticks": 2
+      },
+      {
+        "keyframe": 8,
+        "ticks": 3
+      },
+      {
+        "keyframe": 9,
+        "ticks": 4
+      },
+      {
+        "keyframe": 10,
+        "ticks": 4
+      },
+      {
+        "keyframe": 11,
+        "ticks": 6
+      }
+    ],
+    "interpolation": "none",
+    "version": 2,
+    "composition": "single",
+    "design": "一振りの巨大な赤い裂斬と地割れ"
+  }
+}

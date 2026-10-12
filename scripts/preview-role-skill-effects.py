@@ -4,10 +4,10 @@ import json
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT=Path(__file__).resolve().parents[1]
-ART=ROOT/'art/role_skill_effects_v001'
+ART=ROOT/'art/role_skill_effects_v002'
 ASSETS=ROOT/'mobile/assets/images'
 manifest=json.loads((ART/'manifest.json').read_text(encoding='utf-8'))
-bindings=json.loads((ASSETS/'role_skill_effects/bindings.json').read_text(encoding='utf-8'))
+bindings=json.loads((ASSETS/'role_skill_effects_v002/bindings.json').read_text(encoding='utf-8'))
 font=ImageFont.truetype('C:/Windows/Fonts/meiryo.ttc',18)
 background=Image.open(ASSETS/'ui/forest_meadow_pixel_v001.png').convert('RGBA')
 background=background.resize((960,540),Image.Resampling.NEAREST)
@@ -24,7 +24,9 @@ for ri,(role,data) in enumerate(manifest.items()):
     scene.alpha_composite(hero,(round(345+(dx-anchor[0])*1.5),round(405+(dy-anchor[1])*1.5)))
     fx=Image.open(ART/role/'keyframes'/f"{role}_{bind['timeline'][tick]['keyframe']:03}.png").convert('RGBA')
     fx=fx.resize((2304,384),Image.Resampling.NEAREST)
-    scene.alpha_composite(fx,(round(345+dx*1.5),round(405+dy*1.5-384)))
+    kind=data['kind']
+    anchor_y=248 if kind in ('earth','ice','lightning','talismans','hellfire','dragon','rage') else {'holy':196,'reap':182,'arrows':186,'bullets':186}.get(kind,188)
+    scene.alpha_composite(fx,(round(345+dx*1.5),round(405+dy*1.5-anchor_y*1.5)))
     draw=ImageDraw.Draw(scene);draw.rectangle((0,0,960,55),fill='#14272b')
     draw.text((18,16),data['role']+' / '+data['skill'],font=font,fill='white')
     scene.convert('RGB').save(ART/role/'battle_preview.png')

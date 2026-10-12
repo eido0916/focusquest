@@ -67,7 +67,7 @@ void main() {
         await tester.ensureVisible(find.text('冒険に出発する'));
         await tester.tap(find.text('冒険に出発する'));
         await tester.pumpAndSettle();
-        expect(find.text('ステージ選択'), findsOneWidget);
+        expect(find.text('冒険の書'), findsOneWidget);
         await tester.scrollUntilVisible(
             find.byKey(const Key('select-stage-1')), 150);
         await tester.pumpAndSettle();

@@ -1,0 +1,423 @@
+{
+  "effect_type": "angel",
+  "source_motion": "character_13_female",
+  "source_event": "holy_swords_release",
+  "fps": 24,
+  "duration_seconds": 1.5,
+  "release_ticks": [
+    22
+  ],
+  "holds": [
+    {
+      "keyframe": 0,
+      "ticks": 8
+    },
+    {
+      "keyframe": 1,
+      "ticks": 7
+    },
+    {
+      "keyframe": 2,
+      "ticks": 7
+    },
+    {
+      "keyframe": 3,
+      "ticks": 2
+    },
+    {
+      "keyframe": 4,
+      "ticks": 2
+    },
+    {
+      "keyframe": 5,
+      "ticks": 1
+    },
+    {
+      "keyframe": 6,
+      "ticks": 2
+    },
+    {
+      "keyframe": 7,
+      "ticks": 1
+    },
+    {
+      "keyframe": 8,
+      "ticks": 2
+    },
+    {
+      "keyframe": 9,
+      "ticks": 1
+    },
+    {
+      "keyframe": 10,
+      "ticks": 2
+    },
+    {
+      "keyframe": 11,
+      "ticks": 1
+    }
+  ],
+  "timeline": [
+    {
+      "tick": 0,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/000.png"
+    },
+    {
+      "tick": 1,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/001.png"
+    },
+    {
+      "tick": 2,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/002.png"
+    },
+    {
+      "tick": 3,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/003.png"
+    },
+    {
+      "tick": 4,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/004.png"
+    },
+    {
+      "tick": 5,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/005.png"
+    },
+    {
+      "tick": 6,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/006.png"
+    },
+    {
+      "tick": 7,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/007.png"
+    },
+    {
+      "tick": 8,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/008.png"
+    },
+    {
+      "tick": 9,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/009.png"
+    },
+    {
+      "tick": 10,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/010.png"
+    },
+    {
+      "tick": 11,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/011.png"
+    },
+    {
+      "tick": 12,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/012.png"
+    },
+    {
+      "tick": 13,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/013.png"
+    },
+    {
+      "tick": 14,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/014.png"
+    },
+    {
+      "tick": 15,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/015.png"
+    },
+    {
+      "tick": 16,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/016.png"
+    },
+    {
+      "tick": 17,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/017.png"
+    },
+    {
+      "tick": 18,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/018.png"
+    },
+    {
+      "tick": 19,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/019.png"
+    },
+    {
+      "tick": 20,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/020.png"
+    },
+    {
+      "tick": 21,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/021.png"
+    },
+    {
+      "tick": 22,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/022.png"
+    },
+    {
+      "tick": 23,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/023.png"
+    },
+    {
+      "tick": 24,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/024.png"
+    },
+    {
+      "tick": 25,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/025.png"
+    },
+    {
+      "tick": 26,
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/026.png"
+    },
+    {
+      "tick": 27,
+      "keyframe": 6,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/027.png"
+    },
+    {
+      "tick": 28,
+      "keyframe": 6,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/028.png"
+    },
+    {
+      "tick": 29,
+      "keyframe": 7,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/029.png"
+    },
+    {
+      "tick": 30,
+      "keyframe": 8,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/030.png"
+    },
+    {
+      "tick": 31,
+      "keyframe": 8,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/031.png"
+    },
+    {
+      "tick": 32,
+      "keyframe": 9,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/032.png"
+    },
+    {
+      "tick": 33,
+      "keyframe": 10,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/033.png"
+    },
+    {
+      "tick": 34,
+      "keyframe": 10,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/034.png"
+    },
+    {
+      "tick": 35,
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/035.png"
+    }
+  ],
+  "events": [
+    {
+      "event": "holy_swords_summon",
+      "tick": 9,
+      "keyframe": 3,
+      "direction": [
+        1,
+        0
+      ],
+      "count": 3,
+      "applies_damage": false
+    },
+    {
+      "event": "holy_swords_release",
+      "tick": 22,
+      "keyframe": 7,
+      "direction": [
+        1,
+        0
+      ],
+      "count": 3,
+      "target_offset_world_px": [
+        48,
+        0
+      ],
+      "applies_damage": false
+    },
+    {
+      "event": "ranged_attack_spawn",
+      "tick": 22,
+      "combat_rule_id": "character_13_female/holy_swords",
+      "applies_damage": false
+    }
+  ],
+  "rgba_matches": true,
+  "coordinate_space": "world_px",
+  "interpolation": "none"
+}

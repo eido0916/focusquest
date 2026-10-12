@@ -7,7 +7,6 @@ import 'features/diagnosis/presentation/diagnosis_screen.dart';
 import 'features/focus/presentation/focus_screen.dart';
 import 'features/home/home_screen.dart';
 import 'features/settings/settings_screen.dart';
-import 'features/settings/settings_art.dart';
 import 'features/adventure/presentation/adventure_screen.dart';
 
 class FocusQuestApp extends StatelessWidget {
@@ -62,19 +61,24 @@ class _QuestShellState extends State<QuestShell> {
     void focus() => Navigator.of(context).push(MaterialPageRoute<void>(
         builder: (context) => AnimatedBuilder(
             animation: controller,
-            builder: (_, __) => FocusScreen(controller: controller))));
+            builder: (_, __) => FocusScreen(
+                controller: controller,
+                onNavigate: (tab) {
+                  Navigator.of(context).pop();
+                  setState(() => _tab = tab);
+                }))));
     final pages = [
       HomeScreen(
           controller: controller,
           onFocus: focus,
           onNavigate: (tab) => setState(() => _tab = tab)),
       CharacterScreen(controller: controller),
-      SettingsScreen(controller: controller),
-      AdventureScreen(controller: controller)
+      AdventureScreen(controller: controller),
+      SettingsScreen(controller: controller)
     ];
     return Scaffold(
         body: SafeArea(
-            child: _tab == 1 || _tab == 2
+            child: _tab == 1 || _tab == 3
                 ? pages[_tab]
                 : QuestBackdrop(
                     dim: _tab == 0 ? 0 : .14,
@@ -82,9 +86,7 @@ class _QuestShellState extends State<QuestShell> {
                         child: ConstrainedBox(
                             constraints: const BoxConstraints(maxWidth: 640),
                             child: pages[_tab])))),
-        bottomNavigationBar: _tab == 2
-            ? SettingsNavigation(onSelect: (tab) => setState(() => _tab = tab))
-            : QuestNavigation(
-                selected: _tab, onSelect: (tab) => setState(() => _tab = tab)));
+        bottomNavigationBar: QuestNavigation(
+            selected: _tab, onSelect: (tab) => setState(() => _tab = tab)));
   }
 }
