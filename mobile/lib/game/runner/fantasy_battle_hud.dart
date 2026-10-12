@@ -16,6 +16,11 @@ class FantasyBattleHud {
   final ui.Image? logo;
   static const gold = Color(0xfff5d68f);
   static const cyan = Color(0xffa9f4ff);
+  static const menuRect = Rect.fromLTWH(777, 4, 180, 52);
+  static const statusRect = Rect.fromLTWH(4, 68, 952, 105);
+  static const bossRect = Rect.fromLTWH(545, 185, 395, 90);
+  static String clockText(int seconds) =>
+      '${(seconds ~/ 60).toString().padLeft(2, '0')}:${(seconds % 60).toString().padLeft(2, '0')}';
 
   void frame(Canvas canvas, Rect rect) {
     // Preserve the sculpted endcaps while stretching only the blank interior.
@@ -34,63 +39,65 @@ class FantasyBattleHud {
 
   void paint(Canvas canvas, BattleStateController state, int level, String job,
       {String? name}) {
-    frame(canvas, const Rect.fromLTWH(4, 25, 952, 125));
+    frame(canvas, statusRect);
     frame(canvas, const Rect.fromLTWH(5, 408, 375, 140));
     frame(canvas, const Rect.fromLTWH(595, 408, 360, 140));
-    frame(canvas, const Rect.fromLTWH(777, -12, 180, 70));
-    text(
-        canvas, state.areaName, const Rect.fromLTWH(76, 72, 232, 38), 26, gold);
+    frame(canvas, menuRect);
+    text(canvas, state.areaName, const Rect.fromLTWH(76, 100, 232, 38), 26,
+        gold);
     for (final x in [323.0, 535.0, 728.0]) {
       canvas.drawLine(
-          Offset(x, 75),
-          Offset(x, 108),
+          Offset(x, 91),
+          Offset(x, 147),
           Paint()
             ..color = gold.withOpacity(.7)
             ..strokeWidth = .7);
     }
-    icon(canvas, Icons.hourglass_bottom_outlined, const Offset(346, 77), 28);
+    icon(canvas, Icons.hourglass_bottom_outlined, const Offset(346, 94), 28);
     text(
-        canvas, '経過時間', const Rect.fromLTWH(380, 80, 78, 26), 15, Colors.white);
-    final seconds = state.elapsedSeconds.floor();
-    final time =
-        '${(seconds ~/ 60).toString().padLeft(2, '0')}:${(seconds % 60).toString().padLeft(2, '0')}';
-    text(canvas, time, const Rect.fromLTWH(458, 77, 69, 31), 23, cyan);
-    icon(canvas, Icons.sports_martial_arts, const Offset(556, 78), 27);
-    text(canvas, '討伐数', const Rect.fromLTWH(590, 80, 62, 26), 15, Colors.white);
-    text(canvas, '${state.defeatedCount}', const Rect.fromLTWH(662, 77, 58, 31),
-        23, cyan);
-    icon(canvas, Icons.auto_awesome, const Offset(749, 78), 27);
-    text(canvas, 'EXP', const Rect.fromLTWH(784, 80, 43, 26), 17, cyan);
-    text(canvas, '${state.gainedExp}', const Rect.fromLTWH(834, 77, 87, 31), 23,
-        cyan);
-    jewel(canvas, const Offset(480, 57), 9);
-    jewel(canvas, const Offset(480, 122), 6);
+        canvas, '経過時間', const Rect.fromLTWH(380, 92, 78, 25), 15, Colors.white);
+    text(canvas, clockText(state.elapsedSeconds.floor()),
+        const Rect.fromLTWH(458, 89, 69, 29), 22, cyan);
+    text(canvas, '残り時間', const Rect.fromLTWH(380, 124, 78, 25), 15,
+        Colors.white);
+    text(canvas, clockText(state.focusRemainingSeconds),
+        const Rect.fromLTWH(458, 121, 69, 29), 22, cyan);
+    icon(canvas, Icons.sports_martial_arts, const Offset(556, 107), 27);
+    text(
+        canvas, '討伐数', const Rect.fromLTWH(590, 109, 62, 26), 15, Colors.white);
+    text(canvas, '${state.defeatedCount}',
+        const Rect.fromLTWH(662, 106, 58, 31), 23, cyan);
+    icon(canvas, Icons.auto_awesome, const Offset(749, 107), 27);
+    text(
+        canvas, 'EXP', const Rect.fromLTWH(784, 109, 43, 26), 17, Colors.white);
+    text(canvas, '${state.focusRewardExp} / ${state.focusTotalRewardExp}',
+        const Rect.fromLTWH(834, 106, 87, 31), 23, cyan);
+    jewel(canvas, const Offset(480, 83), 6);
+    jewel(canvas, const Offset(480, 157), 6);
 
     if (state.isBossBattle) {
       canvas.drawRRect(
-          RRect.fromRectAndRadius(
-              const Rect.fromLTWH(545, 145, 395, 90), const Radius.circular(8)),
+          RRect.fromRectAndRadius(bossRect, const Radius.circular(8)),
           Paint()..color = const Color(0xee072641));
       canvas.drawRRect(
-          RRect.fromRectAndRadius(
-              const Rect.fromLTWH(545, 145, 395, 90), const Radius.circular(8)),
+          RRect.fromRectAndRadius(bossRect, const Radius.circular(8)),
           Paint()
             ..color = gold
             ..style = PaintingStyle.stroke
             ..strokeWidth = 1.5);
       final left = state.bossRemainingSeconds.ceil();
       text(canvas, 'BOSS · ${state.bossName}',
-          const Rect.fromLTWH(575, 160, 330, 28), 22, gold);
+          const Rect.fromLTWH(575, 200, 330, 28), 22, gold);
       text(
           canvas,
           '撃破まで ${left ~/ 60}:${(left % 60).toString().padLeft(2, '0')}',
-          const Rect.fromLTWH(575, 191, 330, 25),
+          const Rect.fromLTWH(575, 231, 330, 25),
           19,
           cyan);
       canvas.drawRect(
-          const Rect.fromLTWH(575, 219, 330, 5), Paint()..color = Colors.black);
+          const Rect.fromLTWH(575, 259, 330, 5), Paint()..color = Colors.black);
       canvas.drawRect(
-          Rect.fromLTWH(575, 219, 330 * state.bossRemainingSeconds / 300, 5),
+          Rect.fromLTWH(575, 259, 330 * state.bossRemainingSeconds / 300, 5),
           Paint()..color = const Color(0xffda5a62));
     }
 

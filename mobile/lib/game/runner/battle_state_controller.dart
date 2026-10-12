@@ -1,3 +1,4 @@
+import '../../core/config/game_balance.dart';
 import '../../features/playable_stage/domain/playable_stage_catalog.dart';
 import '../../features/focus/domain/focus_adventure.dart';
 import 'run_slash_skill.dart';
@@ -234,6 +235,12 @@ class BattleStateController {
   double elapsedSeconds = 0;
   int defeatedCount = 0;
   int gainedExp = 0;
+  int get focusRewardExp => GameBalance.focusExpForSeconds(elapsedSeconds,
+      durationSeconds: durationSeconds);
+  int get focusTotalRewardExp => GameBalance.focusExpForSeconds(durationSeconds,
+      durationSeconds: durationSeconds);
+  int get focusRemainingSeconds =>
+      (durationSeconds - elapsedSeconds).clamp(0.0, durationSeconds).ceil();
   int attackSerial = 0;
   int skillSerial = 0;
   int damageSerial = 0;
