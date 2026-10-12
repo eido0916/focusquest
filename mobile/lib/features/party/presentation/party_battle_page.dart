@@ -1,5 +1,3 @@
-import '../../../core/config/game_balance.dart';
-import '../../../game/runner/fantasy_battle_hud.dart';
 import '../../playable_stage/domain/playable_stage_catalog.dart';
 import 'dart:convert';
 import 'dart:ui' as ui;
@@ -251,7 +249,9 @@ class PartyBattleGame extends FlameGame {
         color: const Color(0xffffdd98));
     _text(
         canvas,
-        '経過 ${FantasyBattleHud.clockText(time.floor())}  ·  残り ${FantasyBattleHud.clockText(remaining)}  ·  EXP ${GameBalance.focusExpForSeconds(time, durationSeconds: session.durationMinutes * 60.0)} / ${session.durationMinutes * GameBalance.expPerMinute}',
+        bossBattle
+            ? 'BOSS · ${FocusAdventure.bossName(adventureTime, areaIndex: session.focusAreaIndex)} · 撃破まで ${bossLeft ~/ 60}:${(bossLeft % 60).toString().padLeft(2, '0')}'
+            : '残り ${remaining ~/ 60}:${(remaining % 60).toString().padLeft(2, '0')}  ·  敵 ${session.partyMembers.length}体 / wave',
         20,
         48,
         width: 570,

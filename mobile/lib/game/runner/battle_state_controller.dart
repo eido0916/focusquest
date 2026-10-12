@@ -1,4 +1,3 @@
-import '../../core/config/game_balance.dart';
 import '../../features/playable_stage/domain/playable_stage_catalog.dart';
 import '../../features/focus/domain/focus_adventure.dart';
 import 'run_slash_skill.dart';
