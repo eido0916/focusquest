@@ -259,6 +259,20 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                               label: '戦闘画面に戻る',
                               icon: Icons.play_arrow,
                               onTap: _openBattle),
+                          QuestActionButton(
+                              key: const Key('focus-return-home'),
+                              label: 'ホームに戻る',
+                              icon: Icons.home_outlined,
+                              onTap: _settling
+                                  ? null
+                                  : () {
+                                      if (widget.onNavigate != null) {
+                                        widget.onNavigate!(0);
+                                      } else {
+                                        Navigator.of(context)
+                                            .popUntil((route) => route.isFirst);
+                                      }
+                                    }),
                           if (session.partyMembers.isNotEmpty)
                             QuestActionButton(
                                 label: 'パーティー・参加コード',

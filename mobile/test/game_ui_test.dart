@@ -6,6 +6,8 @@ import 'package:focusquest/core/game_controller.dart';
 import 'package:focusquest/core/widgets/quest_widgets.dart';
 import 'package:focusquest/data/game_catalog.dart';
 import 'support/memory_repository.dart';
+import 'package:focusquest/features/focus/presentation/focus_screen.dart';
+import 'package:focusquest/features/focus/domain/focus_session.dart';
 
 void main() {
   testWidgets('phone UI: focus EXP -> current adventure -> growth',
@@ -69,6 +71,38 @@ void main() {
     expect(find.text('所持アイテム'), findsNothing);
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox.shrink());
+    controller.dispose();
+  });
+  testWidgets('focus menu returns home without interrupting the saved session',
+      (tester) async {
+    var now = DateTime(2026, 10, 12, 12);
+    final controller = GameController(MemoryRepository(), clock: () => now);
+    await controller.load();
+    await controller.onboard(GameCatalog.types[15]!);
+    await controller.startFocus(5);
+    final sessionId = controller.activeFocus!.id;
+    await tester.pumpWidget(FocusQuestApp(controller: controller));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('集中へ戻る'));
+    await tester.tap(find.text('集中へ戻る'));
+    await tester.pumpAndSettle();
+    expect(find.byType(FocusScreen), findsOneWidget);
+    await tester.tap(find.byKey(const Key('focus-return-home')));
+    await tester.pumpAndSettle();
+    expect(find.byType(FocusScreen), findsNothing);
+    expect(find.text('集中へ戻る'), findsOneWidget);
+    expect(controller.activeFocus!.id, sessionId);
+    expect(controller.activeFocus!.status, FocusStatus.active);
+    now = now.add(const Duration(minutes: 1));
+    expect(controller.activeFocus!.remaining(now), const Duration(minutes: 4));
+    expect(controller.state!.activeCharacter!.currentExp, 0);
+    await tester.ensureVisible(find.text('集中へ戻る'));
+    await tester.tap(find.text('集中へ戻る'));
+    await tester.pumpAndSettle();
+    expect(find.text('戦闘画面に戻る'), findsOneWidget);
+    expect(controller.activeFocus!.id, sessionId);
+    expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox());
     controller.dispose();
   });
 }
