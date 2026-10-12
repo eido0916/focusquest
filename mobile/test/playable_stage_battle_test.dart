@@ -1,3 +1,4 @@
+import 'support/mechanics_stage.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:focusquest/features/playable_stage/domain/playable_stage_battle.dart';
 
@@ -9,7 +10,7 @@ void advance(PlayableStageBattle battle, double seconds) {
 
 void main() {
   test('3 hits unlock one skill and repeated taps cannot double damage', () {
-    final battle = PlayableStageBattle(roll: () => .5);
+    final battle = PlayableStageBattle(stage: mechanicsStage(), roll: () => .5);
     addTearDown(battle.dispose);
     battle.start();
     advance(battle, 3);
@@ -29,7 +30,7 @@ void main() {
     expect(battle.skills, 1);
   });
   test('three phases have running transitions and finish in boss victory', () {
-    final battle = PlayableStageBattle(roll: () => .5);
+    final battle = PlayableStageBattle(stage: mechanicsStage(), roll: () => .5);
     addTearDown(battle.dispose);
     battle.start();
     final travels = <int>{};
@@ -56,7 +57,7 @@ void main() {
   });
   test('pause freezes action, HP and world position; restart clears counters',
       () {
-    final battle = PlayableStageBattle(roll: () => .5);
+    final battle = PlayableStageBattle(stage: mechanicsStage(), roll: () => .5);
     addTearDown(battle.dispose);
     battle.start();
     advance(battle, 3);
@@ -80,7 +81,7 @@ void main() {
     expect(battle.hp, PlayableStageBattle.maxHp);
   });
   test('inactive input can lose and a fresh attempt recovers', () {
-    final battle = PlayableStageBattle(roll: () => .5);
+    final battle = PlayableStageBattle(stage: mechanicsStage(), roll: () => .5);
     addTearDown(battle.dispose);
     battle.start();
     advance(battle, 140);

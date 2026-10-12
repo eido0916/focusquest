@@ -1,3 +1,4 @@
+import '../../../core/widgets/game_ui.dart';
 import 'package:flutter/material.dart';
 import '../../../core/widgets/sunlit_widgets.dart';
 
@@ -53,8 +54,8 @@ AppBar adventureAppBar(String title,
         actions: actions,
         flexibleSpace: const IgnorePointer(
             child: SafeArea(
-                child: SunlitFrame(
-                    compact: true,
+                child: GamePanel(
+                    asset: 'header_banner',
                     padding: EdgeInsets.zero,
                     child: SizedBox.expand()))));
 
@@ -63,7 +64,7 @@ class AdventureBackdrop extends StatelessWidget {
   final Widget child;
   @override
   Widget build(BuildContext context) => Stack(fit: StackFit.expand, children: [
-        Image.asset('assets/images/ui/sunlit_kingdom.png',
+        Image.asset(gameBackground,
             fit: BoxFit.cover, alignment: Alignment.topCenter),
         const DecoratedBox(
             decoration: BoxDecoration(

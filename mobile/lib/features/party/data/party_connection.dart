@@ -75,12 +75,22 @@ class PartyConnection extends ChangeNotifier {
       }));
       await _joined!.future.timeout(const Duration(seconds: 10));
       serverUrl = uri.toString();
-    } catch (_) {
+    } catch (failure) {
       final socket = _socket;
       _socket = null;
       await socket?.close();
       code = null;
+      selfId = hostId = null;
       members = const [];
+      session = null;
+      if (failure is TimeoutException) {
+        throw StateError('接続に時間がかかっています。少し待ってから再試行してください。');
+      }
+      if (failure is SocketException ||
+          failure is HttpException ||
+          failure is WebSocketException) {
+        throw StateError('パーティーサーバーに接続できませんでした。通信状況を確認して再試行してください。');
+      }
       rethrow;
     } finally {
       _joined = null;

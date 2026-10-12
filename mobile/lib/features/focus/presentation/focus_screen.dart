@@ -1,3 +1,4 @@
+import '../../../core/widgets/game_ui.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../../core/config/game_balance.dart';
@@ -238,7 +239,8 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
     }
     return Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
+        appBar:
+            const GameAppBar(backgroundColor: Colors.transparent, elevation: 0),
         body: SafeArea(
             child: QuestBackdrop(
                 child: ListView(

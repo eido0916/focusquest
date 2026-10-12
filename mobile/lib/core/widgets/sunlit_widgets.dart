@@ -1,7 +1,8 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'game_ui.dart';
 
-const sunlitGold = Color(0xffdfbd77);
+const sunlitGold = gameGold;
 const sunlitInk = Color(0xff071c3c);
 
 /// Reference-inspired ornament drawn at the actual control size.
@@ -19,29 +20,15 @@ class SunlitFrame extends StatelessWidget {
   final bool scenery;
   final EdgeInsetsGeometry padding;
   @override
-  Widget build(BuildContext context) => CustomPaint(
-      foregroundPainter: SunlitFramePainter(compact: compact),
-      child: ClipPath(
-          clipper: const _FrameClipper(),
-          child: Container(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: light
-                          ? const [Color(0xfffffbec), Color(0xffeee0c0)]
-                          : const [Color(0xef071d31), Color(0xf2051628)])),
-              child: Stack(alignment: Alignment.center, children: [
-                if (scenery)
-                  Positioned.fill(
-                      child: Opacity(
-                          opacity: light ? .10 : .12,
-                          child: Image.asset(
-                              'assets/images/ui/sunlit_kingdom.png',
-                              fit: BoxFit.cover,
-                              alignment: const Alignment(1, -.45)))),
-                Padding(padding: padding, child: child),
-              ]))));
+  Widget build(BuildContext context) => GamePanel(
+      asset: light
+          ? 'parchment_panel'
+          : compact
+              ? 'equipment_row'
+              : 'identity_panel',
+      protectContent: padding != EdgeInsets.zero,
+      padding: padding,
+      child: child);
 }
 
 Path _outline(Size s, double inset) {
@@ -56,14 +43,6 @@ Path _outline(Size s, double inset) {
     ..lineTo(inset, s.height - inset - cut)
     ..lineTo(inset, inset + cut)
     ..close();
-}
-
-class _FrameClipper extends CustomClipper<Path> {
-  const _FrameClipper();
-  @override
-  Path getClip(Size size) => _outline(size, 0);
-  @override
-  bool shouldReclip(_FrameClipper oldClipper) => false;
 }
 
 class SunlitFramePainter extends CustomPainter {
@@ -209,37 +188,17 @@ class SunlitAction extends StatelessWidget {
                     return ConstrainedBox(
                         constraints: BoxConstraints(minHeight: width * .195),
                         child: Stack(alignment: Alignment.center, children: [
-                          Positioned.fill(
-                              child: Image.asset(
-                                  'assets/images/ui/sunlit_kingdom.png',
-                                  fit: BoxFit.cover,
-                                  alignment: const Alignment(1, -.4))),
-                          Positioned.fill(
-                              child: DecoratedBox(
-                                  decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                          colors: light
-                                              ? const [
-                                                  Color(0xfffff9e9),
-                                                  Color(0xf4fff9e9),
-                                                  Color(0x20fff9e9)
-                                                ]
-                                              : const [
-                                                  Color(0xff084d88),
-                                                  Color(0xf5084d88),
-                                                  Color(0x20084d88)
-                                                ],
-                                          stops: const [0, .6, 1])))),
                           Padding(
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 15, vertical: 14),
+                                  horizontal: 32, vertical: 24),
                               child: Row(children: [
                                 if (light)
                                   Icon(Icons.map_outlined,
                                       color: const Color(0xffb28b4c),
-                                      size: width * .125)
+                                      size: math.min(52, width * .125))
                                 else
-                                  CompassEmblem(size: width * .16),
+                                  CompassEmblem(
+                                      size: math.min(56, width * .13)),
                                 const SizedBox(width: 12),
                                 Expanded(
                                     child: Text(label,

@@ -1,3 +1,4 @@
+import '../../../core/widgets/game_ui.dart';
 import 'package:flutter/material.dart';
 import '../../../data/game_catalog.dart';
 import '../domain/diagnosis_service.dart';
@@ -55,25 +56,7 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
   Widget build(BuildContext context) {
     if (_step == -1) return KingIntroScene(onTouchStone: () => _go(0));
     final base = Theme.of(context);
-    final theme = base.copyWith(
-      scaffoldBackgroundColor: const Color(0xff080c18),
-      colorScheme: const ColorScheme.dark(
-          primary: Colors.white,
-          onPrimary: Colors.black,
-          surface: Color(0xff080c18),
-          onSurface: Colors.white),
-      textTheme: base.textTheme
-          .apply(bodyColor: Colors.white, displayColor: Colors.white),
-      inputDecorationTheme: const InputDecorationTheme(
-          filled: true,
-          fillColor: Color(0xff121a30),
-          border:
-              OutlineInputBorder(borderSide: BorderSide(color: Colors.white))),
-      textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(foregroundColor: Colors.white)),
-      radioTheme:
-          RadioThemeData(fillColor: WidgetStateProperty.all(Colors.white)),
-    );
+    final theme = base;
     final questions = _step == 1 || _step == 2
         ? GameCatalog.questions.sublist((_step - 1) * 5, _step * 5)
         : <DiagnosisQuestion>[];
@@ -81,9 +64,10 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
     return Theme(
         data: theme,
         child: Scaffold(
-            body: SafeArea(
-                child: Center(
-                    child: ConstrainedBox(
+            body: GameBackdrop(
+                child: SafeArea(
+                    child: Center(
+                        child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 720),
           child: SingleChildScrollView(
               controller: _scroll,
@@ -281,7 +265,7 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
                     ],
                     const SizedBox(height: 24),
                   ])),
-        )))));
+        ))))));
   }
 }
 
@@ -290,26 +274,15 @@ class _Window extends StatelessWidget {
   final String title;
   final Widget child;
   @override
-  Widget build(BuildContext context) =>
-      Stack(clipBehavior: Clip.none, children: [
-        Container(
-            width: double.infinity,
-            padding: const EdgeInsets.fromLTRB(18, 26, 18, 18),
-            decoration: BoxDecoration(
-                color: const Color(0xff080c18),
-                border: Border.all(color: Colors.white, width: 2),
-                borderRadius: BorderRadius.circular(4)),
-            child: child),
-        Positioned(
-            top: -10,
-            left: 16,
-            child: Container(
-                color: const Color(0xff080c18),
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Text(title,
-                    style: const TextStyle(
-                        color: Colors.white, letterSpacing: 1)))),
-      ]);
+  Widget build(BuildContext context) => GamePanel(
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        Text(title,
+            style: const TextStyle(
+                color: gameGold, fontSize: 16, fontWeight: FontWeight.bold)),
+        const SizedBox(height: 12),
+        child,
+      ]));
 }
 
 class _Command extends StatelessWidget {
@@ -317,18 +290,15 @@ class _Command extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
   @override
-  Widget build(BuildContext context) => OutlinedButton(
-        style: OutlinedButton.styleFrom(
-            foregroundColor: Colors.white,
-            disabledForegroundColor: Colors.white38,
-            side: BorderSide(
-                color: onPressed == null ? Colors.white30 : Colors.white,
-                width: 2),
-            minimumSize: const Size(double.infinity, 56),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(4))),
-        onPressed: onPressed,
-        child: Text('▶  $label',
-            style: const TextStyle(fontSize: 17, letterSpacing: 1)),
-      );
+  Widget build(BuildContext context) => GamePanel(
+      asset: 'equipment_row',
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: OutlinedButton(
+          style: OutlinedButton.styleFrom(
+              foregroundColor: gameWhite,
+              disabledForegroundColor: Colors.white38,
+              side: BorderSide.none,
+              minimumSize: const Size(double.infinity, 48)),
+          onPressed: onPressed,
+          child: Text('▶  $label', style: const TextStyle(fontSize: 17))));
 }

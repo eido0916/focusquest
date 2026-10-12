@@ -1,3 +1,4 @@
+import '../../core/widgets/game_ui.dart';
 import 'package:flutter/material.dart';
 import '../../core/game_controller.dart';
 import '../../core/widgets/quest_widgets.dart';
@@ -48,7 +49,7 @@ class _DeveloperCharacterScreenState extends State<DeveloperCharacterScreen> {
             controller.playableAdventureActive;
         final enabled = !controller.busy && !inProgress;
         return Scaffold(
-            appBar: AppBar(title: const Text('職業・性別を選択（開発者用）')),
+            appBar: const GameAppBar(title: Text('職業・性別を選択（開発者用）')),
             body: SafeArea(
                 child: QuestBackdrop(
                     child: Center(

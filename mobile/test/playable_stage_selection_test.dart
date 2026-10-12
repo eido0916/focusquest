@@ -1,3 +1,4 @@
+import 'support/trained_stage_hero.dart';
 import 'package:focusquest/features/playable_stage/presentation/playable_stage_audio.dart';
 import 'dart:io';
 import 'dart:ui' as ui;
@@ -83,7 +84,9 @@ void main() {
     for (final stage in stages) {
       expect(stage.opponents.length, 3);
       expect(stage.opponents.take(2).every((enemy) => !enemy.isBoss), true);
-      final battle = PlayableStageBattle(stage: stage, roll: () => .5)..start();
+      final battle = PlayableStageBattle(
+          stage: stage, character: trainedStageHero(), roll: () => .5)
+        ..start();
       final phases = <int>{};
       for (var tick = 0; tick < 120 * 120 && battle.active; tick++) {
         if (battle.mode == StageMode.travel) phases.add(battle.phase);
@@ -182,12 +185,15 @@ void main() {
         home: PlayableStageSelectionPage(
             assets: assets,
             audioOutput: SilentStageAudioOutput(),
-            battleFactory: (stage) =>
-                PlayableStageBattle(stage: stage, roll: () => .5))));
+            battleFactory: (stage) => PlayableStageBattle(
+                stage: stage, character: trainedStageHero(), roll: () => .5))));
     await tester.scrollUntilVisible(
         find.byKey(const Key('select-stage-4')), 150,
         scrollable: find.byType(Scrollable).first);
     await tester.tap(find.byKey(const Key('select-stage-4')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    await tester.tap(find.byKey(const Key('challenge-stage-4')));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
     final page =
@@ -215,7 +221,7 @@ void main() {
     expect(
         find.descendant(
             of: find.byKey(const Key('select-stage-4')),
-            matching: find.text('✓ CLEAR')),
+            matching: find.text('Stage 4')),
         findsOneWidget);
     expect(tester.takeException(), isNull);
     // A new stage starts with its own phase, HP and charge.
@@ -223,13 +229,16 @@ void main() {
     await tester.pump();
     await tester.tap(find.byKey(const Key('select-stage-1')));
     await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    await tester.tap(find.byKey(const Key('challenge-stage-1')));
+    await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
     final next = tester
         .widget<PlayableStagePage>(find.byType(PlayableStagePage))
         .battle!;
     expect(next.stage.number, 1);
     expect(next.phase, 0);
-    expect(next.hp, PlayableStageBattle.maxHp);
+    expect(next.hp, trainedStageHero().health);
     expect(next.charge, 0);
     // Close the route before tearing down; selection owns the battle notifier.
     tester.state<NavigatorState>(find.byType(Navigator)).pop();

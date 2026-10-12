@@ -4,7 +4,7 @@ import 'battle_state_controller.dart';
 
 /// UI image paths are relative to assets/images/.
 class BattleUiAssets {
-  static const window = 'ui/focus_window.png';
+  static const window = 'character_ui_v002/equipment_row.png';
   static const skillOrb = 'ui/focus_skill_orb.png';
   static const String? levelLogo = null;
 }

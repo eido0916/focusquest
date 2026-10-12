@@ -24,6 +24,7 @@ motions = {
     'hero_attack': 'players/character_01/attack_down',
     'hero_skill': 'players/character_01/skill_wave',
 }
+reaction_source = root / 'art/workspace_materials/FocusQuest_player_reactions_v017'
 actions = [('attack_down', 'skill_wave'), ('punch_combo', 'spin_kick'),
            ('iai', 'energy_flurry'), ('slam', 'charged_sweep'),
            ('shuriken', 'teleport_stab'), ('dagger_thrust', 'critical_strike'),
@@ -40,6 +41,9 @@ for female in [False, True]:
             motions[f'{character}_{action}'] = f'{folder}/{original}'
         if (source / folder / 'idle').exists():
             motions[f'{character}_idle'] = f'{folder}/idle'
+        for action in ['hurt', 'defeat']:
+            if (reaction_source / folder / action).exists():
+                motions[f'{character}_{action}'] = f'{folder}/{action}'
 for enemy in ['slime', 'goblin', 'dracula', 'mob_bat', 'mob_wolf', 'mob_skeleton', 'mob_poison_mushroom', 'mob_imp']:
     for action in ['locomotion', 'attack', 'defeat']:
         source_action = 'walk' if enemy.startswith('mob_') and action == 'locomotion' else action
@@ -52,6 +56,8 @@ files = []
 boss_source = root / 'art/workspace_materials/FocusQuest_pixel_keyframes_v014'
 for name, relative in motions.items():
     selected_source = boss_source if name.startswith('boss_') and boss_source.exists() else source
+    if name.startswith('character_') and name.endswith(('_hurt', '_defeat')):
+        selected_source = reaction_source
     folder = selected_source / relative
     meta = json.loads((folder / 'animation.json').read_text(encoding='utf-8'))
     shutil.copy2(folder / 'animation.json', dest / f'{name}.json')
@@ -67,6 +73,8 @@ for name, relative in motions.items():
         source_path = f"{relative}/{key['file']}"
         if selected_source == boss_source:
             source_path = f"{boss_source.name}/{source_path}"
+        elif selected_source == reaction_source:
+            source_path = f"{reaction_source.name}/{source_path}"
         files.append({'file': target.name, 'source': source_path, 'sha256': digest, 'rgba_sha256': key['rgba_sha256']})
 shutil.copy2(root / 'art/workspace_materials/FocusQuest_stage_backgrounds_v001/grassland_v001.png', dest / 'grassland.png')
 if (source / 'combat').exists():
@@ -76,5 +84,5 @@ if (source / 'combat').exists():
             shutil.copy2(frame, dest / f'floor_{material.name}_{frame.stem[-3:]}.png')
     for projectile in (source / 'combat/projectiles').iterdir():
         shutil.copy2(projectile / 'frame_000.png', dest / f'effect_{projectile.name}.png')
-(dest / 'manifest.json').write_text(json.dumps({'source': source.name, 'boss_source': boss_source.name if boss_source.exists() else source.name, 'motions': list(motions), 'files': files, 'fps': 24, 'interpolation': 'none'}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+(dest / 'manifest.json').write_text(json.dumps({'source': source.name, 'boss_source': boss_source.name if boss_source.exists() else source.name, 'player_reactions_source': reaction_source.name if reaction_source.exists() else None, 'motions': list(motions), 'files': files, 'fps': 24, 'interpolation': 'none'}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(f'Flutter assets: {len(motions)} motions, {len(files)} original PNGs.')

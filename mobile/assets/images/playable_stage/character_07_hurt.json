@@ -1,0 +1,200 @@
+{
+  "asset": "character_07",
+  "action": "hurt",
+  "render_mode": "original_pixel_keyframes",
+  "canvas": [
+    128,
+    128
+  ],
+  "fps": 24,
+  "direction": "right",
+  "interpolation": "none",
+  "part_transforms": false,
+  "crossfade": false,
+  "loop_in_game": false,
+  "hold_last_frame": false,
+  "duration_seconds": 0.5,
+  "sprite_anchor_px": [
+    64,
+    120
+  ],
+  "root_motion_space": "world_px_absolute_offset",
+  "keyframes": [
+    {
+      "index": 0,
+      "file": "keyframes/frame_000.png",
+      "rgba_sha256": "4d72eafd761a410abff7e7726f0f53852ee76133b80f8dc8705aa811f5c3cc9f"
+    },
+    {
+      "index": 1,
+      "file": "keyframes/frame_001.png",
+      "rgba_sha256": "b1d68eab00c09996c67a76486c1afff5a3c2faff4e3fef78b5bfb9b54451edaa"
+    },
+    {
+      "index": 2,
+      "file": "keyframes/frame_002.png",
+      "rgba_sha256": "e5ec64251e49a1ebb91afc024cd088915dbaa8a0d1928ee0bf35e236b80fac00"
+    },
+    {
+      "index": 3,
+      "file": "keyframes/frame_003.png",
+      "rgba_sha256": "c744f4b6624c49a0b40017e20adbbf0c454e8883daa95c55da974ec8c08adae5"
+    }
+  ],
+  "holds": [
+    {
+      "keyframe": 0,
+      "ticks": 1,
+      "root_offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "keyframe": 1,
+      "ticks": 2,
+      "root_offset_px": [
+        -4,
+        0
+      ]
+    },
+    {
+      "keyframe": 2,
+      "ticks": 3,
+      "root_offset_px": [
+        -6,
+        0
+      ]
+    },
+    {
+      "keyframe": 3,
+      "ticks": 6,
+      "root_offset_px": [
+        0,
+        0
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "damage_reaction",
+      "tick": 0,
+      "keyframe": 0
+    },
+    {
+      "event": "recovered",
+      "tick": 11,
+      "keyframe": 3
+    }
+  ],
+  "timeline": [
+    {
+      "tick": 0,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_000.png"
+    },
+    {
+      "tick": 1,
+      "keyframe": 1,
+      "root_offset_px": [
+        -4,
+        0
+      ],
+      "file": "frames_24fps/frame_001.png"
+    },
+    {
+      "tick": 2,
+      "keyframe": 1,
+      "root_offset_px": [
+        -4,
+        0
+      ],
+      "file": "frames_24fps/frame_002.png"
+    },
+    {
+      "tick": 3,
+      "keyframe": 2,
+      "root_offset_px": [
+        -6,
+        0
+      ],
+      "file": "frames_24fps/frame_003.png"
+    },
+    {
+      "tick": 4,
+      "keyframe": 2,
+      "root_offset_px": [
+        -6,
+        0
+      ],
+      "file": "frames_24fps/frame_004.png"
+    },
+    {
+      "tick": 5,
+      "keyframe": 2,
+      "root_offset_px": [
+        -6,
+        0
+      ],
+      "file": "frames_24fps/frame_005.png"
+    },
+    {
+      "tick": 6,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_006.png"
+    },
+    {
+      "tick": 7,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_007.png"
+    },
+    {
+      "tick": 8,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_008.png"
+    },
+    {
+      "tick": 9,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_009.png"
+    },
+    {
+      "tick": 10,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_010.png"
+    },
+    {
+      "tick": 11,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_011.png"
+    }
+  ]
+}

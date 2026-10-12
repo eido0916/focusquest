@@ -154,7 +154,71 @@
     "boss_cerberus_defeat",
     "boss_demon_lord_locomotion",
     "boss_demon_lord_attack",
-    "boss_demon_lord_defeat"
+    "boss_demon_lord_defeat",
+    "character_01_hurt",
+    "character_01_defeat",
+    "character_01_female_hurt",
+    "character_01_female_defeat",
+    "character_02_hurt",
+    "character_02_defeat",
+    "character_02_female_hurt",
+    "character_02_female_defeat",
+    "character_03_hurt",
+    "character_03_defeat",
+    "character_03_female_hurt",
+    "character_03_female_defeat",
+    "character_04_hurt",
+    "character_04_defeat",
+    "character_04_female_hurt",
+    "character_04_female_defeat",
+    "character_05_hurt",
+    "character_05_defeat",
+    "character_05_female_hurt",
+    "character_05_female_defeat",
+    "character_06_hurt",
+    "character_06_defeat",
+    "character_06_female_hurt",
+    "character_06_female_defeat",
+    "character_07_hurt",
+    "character_07_defeat",
+    "character_07_female_hurt",
+    "character_07_female_defeat",
+    "character_08_hurt",
+    "character_08_defeat",
+    "character_08_female_hurt",
+    "character_08_female_defeat",
+    "character_09_hurt",
+    "character_09_defeat",
+    "character_09_female_hurt",
+    "character_09_female_defeat",
+    "character_10_hurt",
+    "character_10_defeat",
+    "character_10_female_hurt",
+    "character_10_female_defeat",
+    "character_11_hurt",
+    "character_11_defeat",
+    "character_11_female_hurt",
+    "character_11_female_defeat",
+    "character_12_hurt",
+    "character_12_defeat",
+    "character_12_female_hurt",
+    "character_12_female_defeat",
+    "character_13_hurt",
+    "character_13_defeat",
+    "character_13_female_hurt",
+    "character_13_female_defeat",
+    "character_14_hurt",
+    "character_14_defeat",
+    "character_14_female_hurt",
+    "character_14_female_defeat",
+    "character_15_hurt",
+    "character_15_defeat",
+    "character_15_female_hurt",
+    "character_15_female_defeat",
+    "character_16_hurt",
+    "character_16_defeat",
+    "character_16_female_hurt",
+    "character_16_female_defeat"
   ],
   "files": [
     {
@@ -7446,8 +7510,1545 @@
       "source": "FocusQuest_pixel_keyframes_v014/enemies/boss_demon_lord/defeat/keyframes/frame_004.png",
       "sha256": "76b73017feb8331ae927179b500f9dd049daac90845788f25f40246345bec8bc",
       "rgba_sha256": "250480ecefa3655c774b6a4e5d4eb16675ee4f181c2285c25020fac6e3aaf3b5"
+    },
+    {
+      "file": "character_01_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_01/hurt/keyframes/frame_000.png",
+      "sha256": "71c6454a039380bd6884b52c0e2af13f05ff9164aa2a961025aa572bff8cd708",
+      "rgba_sha256": "446da1b6c02665a74262ac79ab28acb12e6029c448b42d44247222f62e4f1c2a"
+    },
+    {
+      "file": "character_01_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_01/hurt/keyframes/frame_001.png",
+      "sha256": "66bea7d9f89b62bd97c44feb578ff8a6d9f37b2c4b217a3342226a2cb5a929e0",
+      "rgba_sha256": "64f9f8f64281199f92d3e7c7288296e7f6c008fcd200092dd05b74147eb83c66"
+    },
+    {
+      "file": "character_01_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_01/hurt/keyframes/frame_002.png",
+      "sha256": "82b78a4dd2fd00cd196994fcc9eb0a71ec57c50f33b5ed070a907758fb3417ab",
+      "rgba_sha256": "0131eef63ce5ee3a20277e5d169db02467952ec49404030e6e6c4a5f8273670a"
+    },
+    {
+      "file": "character_01_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_01/hurt/keyframes/frame_003.png",
+      "sha256": "519c975c6fca0a6a4ddb0d9dff6487669b64f77e284e55d97388b945250ec73d",
+      "rgba_sha256": "a8d38650e3590e53cee62db8a2a2a36d6a8076c8777c273bf04026482c50f90b"
+    },
+    {
+      "file": "character_01_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_01/defeat/keyframes/frame_000.png",
+      "sha256": "acf3a0a14d39076d9669f056e5884e12d3e506ac48b18f8843874505e818e1ec",
+      "rgba_sha256": "dafbcefd7f445d9d5f2c0f0eff216b251c0c72547513a94cf8bd2d880a6bad02"
+    },
+    {
+      "file": "character_01_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_01/defeat/keyframes/frame_001.png",
+      "sha256": "9a2890d78164cb8b46aabf404d6bc24acbd2ea5db6a08e77b07ec77d9c817be4",
+      "rgba_sha256": "36b6141dafa5afa84c75e760fc43e4d87179ef3538e8ccd66de1fa1dc9e6c0b7"
+    },
+    {
+      "file": "character_01_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_01/defeat/keyframes/frame_002.png",
+      "sha256": "db9ca7b7d4d4aa93f5a1c82dae69491737bcd33aacfb6bb4abcf298aa1e77cb1",
+      "rgba_sha256": "a1fc8a3f5effd78679f8ebc38ae5e20e6f1c976f2869471c73d6d6e28f754ec1"
+    },
+    {
+      "file": "character_01_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_01/defeat/keyframes/frame_003.png",
+      "sha256": "c6d038e1adb76da7f5df82315cd6828c13a39077b3501f7195d03f11d0fa0ea1",
+      "rgba_sha256": "10c000a94d88f666ee2f0eb2d19b91b17e6d799eb131822849914b29fc805003"
+    },
+    {
+      "file": "character_01_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_01_female/hurt/keyframes/frame_000.png",
+      "sha256": "1a3386ec7822bb80acc4fad1400adfc7ac905af7df6dcbbacc4b8ed307533742",
+      "rgba_sha256": "9bf19360adb772b7c9b0d689c906ec0cb4b9f08da91e8e067b9af9f70914d610"
+    },
+    {
+      "file": "character_01_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_01_female/hurt/keyframes/frame_001.png",
+      "sha256": "a67c43868441c02cc5519e68d718a482bcb3b5711547b158781dc0b3b3c3d890",
+      "rgba_sha256": "745654a04be2faa8d73f50c50f3bf376106bf6d288e3750428631f88ece5f1be"
+    },
+    {
+      "file": "character_01_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_01_female/hurt/keyframes/frame_002.png",
+      "sha256": "6e21ff300ad94b67238b6796a14a7b78848ef82bf7b98858fad70019f0106b83",
+      "rgba_sha256": "339f899fe1c783936de8aa0e0ce7ca98d140c34f423e9eda6e35504ec1426499"
+    },
+    {
+      "file": "character_01_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_01_female/hurt/keyframes/frame_003.png",
+      "sha256": "93a41b96e6edc2b3bc693ffffafa36f01a5f1e5b207996317abff98db00e5e35",
+      "rgba_sha256": "f793bda52d49b45054326fcd8760bae684fa66daa4bd0fdf9f4ddbbf688b5a2d"
+    },
+    {
+      "file": "character_01_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_01_female/defeat/keyframes/frame_000.png",
+      "sha256": "50ddc092ca1c5200f1bb24632ed852858de07233a3a499e0e2bb35b7f623349d",
+      "rgba_sha256": "f67e293de13406abb735e2e36a3636026698095a38b76971bb548e419b803f58"
+    },
+    {
+      "file": "character_01_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_01_female/defeat/keyframes/frame_001.png",
+      "sha256": "974d7ed8c729f53e5a43490b27e1f20b51855475714fa3436b76c764137f752d",
+      "rgba_sha256": "89a989250ae3a8f95cd6d1d49c3214e2ad5f2e705526cf9fad8a4712a7079df1"
+    },
+    {
+      "file": "character_01_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_01_female/defeat/keyframes/frame_002.png",
+      "sha256": "64fb791220d3b09a40779aa964453db8a29468c26e50dc6b863cf107aa2bb1ec",
+      "rgba_sha256": "0b4cdd7cba83e19ef56c904a7474386d70af1b3a60349605b7154dcd8795dcf4"
+    },
+    {
+      "file": "character_01_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_01_female/defeat/keyframes/frame_003.png",
+      "sha256": "0b543ebc4a6efbd927d3ae2e57b2b706044b4dddd1b9646dc21b6d261421d826",
+      "rgba_sha256": "71be966a67a96d6587e0c970560d8bfa90f34f099ef85dbcb2311764cf0505ea"
+    },
+    {
+      "file": "character_02_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_02/hurt/keyframes/frame_000.png",
+      "sha256": "4c8eca55cf48e3c87ec966314a7cf60964e30dd480be0088376b83827554a28b",
+      "rgba_sha256": "c42f46aa23cc436243f881ae69682034a4b5c9f5d62d5ee4ed637f770d5f7991"
+    },
+    {
+      "file": "character_02_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_02/hurt/keyframes/frame_001.png",
+      "sha256": "0379d173538d476ff1a45ad90e497ca50a69f9f18f42825b57573389c089d6ba",
+      "rgba_sha256": "da4eacb13546e60f3459abd77d8a146c1dd01e5814050be6fd524c3413537e60"
+    },
+    {
+      "file": "character_02_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_02/hurt/keyframes/frame_002.png",
+      "sha256": "c5a7cd1ff22f5e03f288756cc71d2b3b42b4a2acdf99b0a46ce725c55cee800b",
+      "rgba_sha256": "69232242f823d1c736511734d559de0a39736917d5586f006d5c2149a7c99d60"
+    },
+    {
+      "file": "character_02_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_02/hurt/keyframes/frame_003.png",
+      "sha256": "896c1b59909b4600478499b9921444cd2e063b2e087b05738436972caa8c5b39",
+      "rgba_sha256": "79d8f08a1afe375cf28cf33b3c7d5b78b527f701d0ad3fa68f13d2903973282f"
+    },
+    {
+      "file": "character_02_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_02/defeat/keyframes/frame_000.png",
+      "sha256": "e3a5ef46e9af1012148a4fe79a74da4518e6f2503c62cbcc5d4d03790129d0fe",
+      "rgba_sha256": "69ceed3e4499cb677a585ae76d9fd3659ef102b70bff54c3c0fcbea014aad76f"
+    },
+    {
+      "file": "character_02_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_02/defeat/keyframes/frame_001.png",
+      "sha256": "1f0bd6b2c2855e86cea1aead47f6334a5cdf48b27eefc0f639bcd551adb71047",
+      "rgba_sha256": "a6e4e9d4ee6c8e32ca9471ebcb21f7633c8518abb1e358d33ac25fed3c1ba20a"
+    },
+    {
+      "file": "character_02_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_02/defeat/keyframes/frame_002.png",
+      "sha256": "c8d86a748df385d36f7c1ff8b920d2c383f19b3ddc40c96e63ab950f3741c1e8",
+      "rgba_sha256": "c5bc5c046c394563d2f10d28683bf01bfd2eee853fccf4ba054c2182c69ca629"
+    },
+    {
+      "file": "character_02_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_02/defeat/keyframes/frame_003.png",
+      "sha256": "1e1d86eda1d70ca57c9706a0ee71a1d589a4849f1daf8f771bb74a960788031e",
+      "rgba_sha256": "43d2081d7277583eb9282643888fae80c3c1d169b9dfe02949b5863bfb860fc9"
+    },
+    {
+      "file": "character_02_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_02_female/hurt/keyframes/frame_000.png",
+      "sha256": "560929e3abf50b5e868814a703c7609856660513a91077f479fa15d6f15a0eff",
+      "rgba_sha256": "844f86756caeebe8b14bedd6e2ae5032deb8a36df117dec72087bafb4be45b1d"
+    },
+    {
+      "file": "character_02_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_02_female/hurt/keyframes/frame_001.png",
+      "sha256": "f03b0af5952d879fc8595edd2f75a77d3c0bc1cc5eea6910510df36d31d5f947",
+      "rgba_sha256": "c49b0cac101e469d9375ad3c11af8b331bdda6f3b1f64037f2162522f6df71d8"
+    },
+    {
+      "file": "character_02_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_02_female/hurt/keyframes/frame_002.png",
+      "sha256": "ac9d3d1caa20ff6f7a9c890135e8ddbb2295b4896b3dbf243575f57ffa4c7600",
+      "rgba_sha256": "1cb352555247fe65e374dfaf1402698a90c46b64654c5f1c103b0b7cd9959f8c"
+    },
+    {
+      "file": "character_02_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_02_female/hurt/keyframes/frame_003.png",
+      "sha256": "da6f9084be956ad4f940aa56f816c590c39f738bb4742bf3dab536fb1bd60062",
+      "rgba_sha256": "826372e2583e49216e63a736e55498f116d2f9beb0712870752d0b3286cc3cc7"
+    },
+    {
+      "file": "character_02_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_02_female/defeat/keyframes/frame_000.png",
+      "sha256": "ff67797027dd4b9a6bb690b7a59ef44cc3f3c83e64253deeedab6b5e700ebdc3",
+      "rgba_sha256": "8151734cc29958570591954888df71ba2f5174a2b16a35d815fd47783606b594"
+    },
+    {
+      "file": "character_02_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_02_female/defeat/keyframes/frame_001.png",
+      "sha256": "d2371b493c8ed1985e91f0c310a3f494a363477dffd0fb21393e27faec6eb91d",
+      "rgba_sha256": "7db1c4f108f502fbe32054a7bb96177146a36eec6c2105a1e39ea1211096e35e"
+    },
+    {
+      "file": "character_02_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_02_female/defeat/keyframes/frame_002.png",
+      "sha256": "74a12df7dc963908cbcfcaeba7a4bdf176112c321d8d92664c5af96137add680",
+      "rgba_sha256": "94e014a01bf17e7087b2c2a79187e6ead075219e933d7f70e50834e95bd72fa6"
+    },
+    {
+      "file": "character_02_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_02_female/defeat/keyframes/frame_003.png",
+      "sha256": "835f97fa690bbedb8fd1cdeebc0560fce96b81c977da468af550873774c2a736",
+      "rgba_sha256": "71335ec8eed04325b48828581babfcafbc58c2d3fd1972a262d910f3c86afd99"
+    },
+    {
+      "file": "character_03_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_03/hurt/keyframes/frame_000.png",
+      "sha256": "09d27561ce2b0c227aa2fae54b38a9748a8784141d562ea738987b53062e965b",
+      "rgba_sha256": "c5c24ca4d3b1abf980150fed30a9f33ce284615a514132e3dfaa6aaae6def9fa"
+    },
+    {
+      "file": "character_03_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_03/hurt/keyframes/frame_001.png",
+      "sha256": "769b5f8859410e239c25baf882569a2e3c71c87bc44837e44a1438ae2edd1a58",
+      "rgba_sha256": "55f5bc47df6c12880a98cca36be32869aae05134501d364444f1d012c805e4dc"
+    },
+    {
+      "file": "character_03_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_03/hurt/keyframes/frame_002.png",
+      "sha256": "9abc99e9f2b68d4b50bce71c77bec189ade34a8f22a20f64e75cb6922562fc58",
+      "rgba_sha256": "5975ebc494e2c15733e5fe6cc5ba9e0e56d0f9ab128143c6156d614b1e508bc5"
+    },
+    {
+      "file": "character_03_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_03/hurt/keyframes/frame_003.png",
+      "sha256": "7711f3227bb467f633a905253f9d2ee03395b5f71eab38a05362f9aa734972f2",
+      "rgba_sha256": "a3bcdab19c761d8c4c252ca02fb1ec6062d40d7e63e4db5434df7e46a79b8ac6"
+    },
+    {
+      "file": "character_03_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_03/defeat/keyframes/frame_000.png",
+      "sha256": "123135b49c634d4fa57f5cd69a820f4370a9c912e84764bee34211a0fdf2e121",
+      "rgba_sha256": "2132c18545e98a07431953d4ce9aa8ba7f178b38b299ee7e8f84026a52faef9b"
+    },
+    {
+      "file": "character_03_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_03/defeat/keyframes/frame_001.png",
+      "sha256": "a9ba32793095e3f2b19102d3042a6cbfcfab7f49cd3c5fe56bbb08e25d8ea26c",
+      "rgba_sha256": "edcf1884bd3181230b148f5f44b0b522549740f78886f5ac878612409e501e67"
+    },
+    {
+      "file": "character_03_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_03/defeat/keyframes/frame_002.png",
+      "sha256": "2a6a78db4eeb05721d4d805489f3abf122726763b9de5b01303060e5b0181afa",
+      "rgba_sha256": "564cd9f3e8f5758ea3c8583b39a22d64e49f4611f99f62fe7bf3ce8ca737decb"
+    },
+    {
+      "file": "character_03_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_03/defeat/keyframes/frame_003.png",
+      "sha256": "12d650db82e47598f7f608e8a1792e3daa40e5f9a43d80c9c0fb818f482b5cf7",
+      "rgba_sha256": "c69e6b9c617d5b5813917046debc0ef249591b8d5e74a63823749b88cffb2f3c"
+    },
+    {
+      "file": "character_03_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_03_female/hurt/keyframes/frame_000.png",
+      "sha256": "99b995593e930a4ad1fada5c0623e6fdc0ca2e4182699dbf50d5cdd5eac1b64c",
+      "rgba_sha256": "9746aea0d373104bbfd602f58638586aee306afbc2e4b0ce77bd7b6c65eaa9fc"
+    },
+    {
+      "file": "character_03_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_03_female/hurt/keyframes/frame_001.png",
+      "sha256": "011c648e48d16196dbaf0f4102148c9c8d22f02b0155adc5bc0e0267b54d1719",
+      "rgba_sha256": "322c807f1fde5bf33be5f27933e2a2e9e98bbdc283d5cd98d86dc4e341b37727"
+    },
+    {
+      "file": "character_03_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_03_female/hurt/keyframes/frame_002.png",
+      "sha256": "d015b0c766fbb3ada6c8f9e9b17748d9dc0263d83a8e6204acc16c0133a3743a",
+      "rgba_sha256": "3375b0464c62380db2049a0cc9d304e41f3f90f40d9df4a355388325847db26c"
+    },
+    {
+      "file": "character_03_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_03_female/hurt/keyframes/frame_003.png",
+      "sha256": "f6b760ccdb2d4d0e66fc5833a76bb9ac36ad69cfaff954fe43b0065f9124b913",
+      "rgba_sha256": "d470b4ba7866f9bdb8855a75a831e787149f4df8d0609dac397296df7d6dc5a4"
+    },
+    {
+      "file": "character_03_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_03_female/defeat/keyframes/frame_000.png",
+      "sha256": "de8126cdd82f42e14afdd9165ce9c49b2f58fbe03c4632c62b9dc1cd92bb4ad4",
+      "rgba_sha256": "8ba641be031313c24f30b4d9330cc47c62d9cfd2252b98b2728447f07b943415"
+    },
+    {
+      "file": "character_03_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_03_female/defeat/keyframes/frame_001.png",
+      "sha256": "c7335870da675267f0d3281acb3f631b663dce6acd31ae73bcaa4db744472b92",
+      "rgba_sha256": "6008c68edfc1b67163654f5921965fdfffe968668e2155d6d20a23b34eba5335"
+    },
+    {
+      "file": "character_03_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_03_female/defeat/keyframes/frame_002.png",
+      "sha256": "7286289c408fbed7d1c59c9e4c70a273ffb652ad24bef81046402f0de2b5f0a0",
+      "rgba_sha256": "5341c26dbac8f04117440c87c2704eb1e83c2215f046e86b656385ea27b231f8"
+    },
+    {
+      "file": "character_03_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_03_female/defeat/keyframes/frame_003.png",
+      "sha256": "9ece5784672f31ac46c9f6dbb7089397fbc9fdd90a0c47943eadcc4cb878a359",
+      "rgba_sha256": "42f97d0180da27a6767dbe9aef23fe982379a0d90bc4a91d102c9899446c99b7"
+    },
+    {
+      "file": "character_04_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_04/hurt/keyframes/frame_000.png",
+      "sha256": "4d89ae81da5becdc97606ee3a670588d15b4c6e74d4f25b93f268d990c8ca87f",
+      "rgba_sha256": "9ab4a3afb78c93c27de74d12a3a52ae6724563447d85c3d03b2fb22427c7ae13"
+    },
+    {
+      "file": "character_04_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_04/hurt/keyframes/frame_001.png",
+      "sha256": "7aa5ccca4af27c201f60a4babcddc1482f3aced80b687c48d0eeddafc0253023",
+      "rgba_sha256": "a32dd271683d3f957121287c31cfe2095265fc2015b3a089a5553d67f504def6"
+    },
+    {
+      "file": "character_04_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_04/hurt/keyframes/frame_002.png",
+      "sha256": "36ed9bd430467eea8296a2c5430dcaeb6bd1eb5b55d0635b6acd15607c1b590d",
+      "rgba_sha256": "a631e37a934c5ea6d63a21429bb22e85c3e146ef40afcac4d580fa920501985d"
+    },
+    {
+      "file": "character_04_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_04/hurt/keyframes/frame_003.png",
+      "sha256": "f3385b7208438c440a3e4ffa9c0a6c901d845bee800d8484cfdf3edb9f0e5bce",
+      "rgba_sha256": "3a8cca3502f4f92a903eef9d863552d482b9e7e03f4b20dfead730bb1645a4e7"
+    },
+    {
+      "file": "character_04_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_04/defeat/keyframes/frame_000.png",
+      "sha256": "50a7b8d050172718501c08ed4b76eb4258b751845575518b7f6431b2fdc6c471",
+      "rgba_sha256": "0ac8ecb08b18c014319697e39b4001de96655e71fcba635248561b791b79d479"
+    },
+    {
+      "file": "character_04_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_04/defeat/keyframes/frame_001.png",
+      "sha256": "eaf71e7dbde8f0b3cded970651b03f709392fda218c2ad80227184613f1e2777",
+      "rgba_sha256": "9a39e946f439a94bfa62aff6f64d4edce3e845af1bf5e0807c6a46348f526ad2"
+    },
+    {
+      "file": "character_04_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_04/defeat/keyframes/frame_002.png",
+      "sha256": "eff403e58a96282d5165f7583cc46a286a07ece7b4df08a793bf505b6de2a5c0",
+      "rgba_sha256": "bf2eabccb16571ec1b7b14ad28da35c774bcefd7616c3e1b14693fd86e81605d"
+    },
+    {
+      "file": "character_04_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_04/defeat/keyframes/frame_003.png",
+      "sha256": "e9d4bc516164f79a0ab2ef7ef557a29af2a7e62d94dd338d4a1debb1ccd42b99",
+      "rgba_sha256": "d3142f27a0f8c6a8f6a4ce0d8f11fa140ab5614f0a3aa21375bb4d27da35a75e"
+    },
+    {
+      "file": "character_04_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_04_female/hurt/keyframes/frame_000.png",
+      "sha256": "44f9f77072a239b2674d051dfdfad2c7fb209f5fe42c7fbed43d20a043e36ac7",
+      "rgba_sha256": "ee01e01eff0fc1f33a6bc88ac52e3f39e329636725885e58d26445d6b314effe"
+    },
+    {
+      "file": "character_04_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_04_female/hurt/keyframes/frame_001.png",
+      "sha256": "4895bde55fe01adcdfca9598e3e69c33949b7e2321c43396d7408fe1c982f5c5",
+      "rgba_sha256": "c2b6a7841aa2c91de9dd864826d1057d272d54a8c1fbfb10cafe70728250d7fd"
+    },
+    {
+      "file": "character_04_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_04_female/hurt/keyframes/frame_002.png",
+      "sha256": "9b56761a4ca35e14c26c35789caad72a98ed045474f5804cea2b38395e3d0287",
+      "rgba_sha256": "5e1acfb612477884cd213988e3d7c21a5ae3676805f32c343fd65280bee22266"
+    },
+    {
+      "file": "character_04_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_04_female/hurt/keyframes/frame_003.png",
+      "sha256": "f3946f7ee32dd6f2c4e0e10ceb47e87ef5f99a011f850b499e8c06e279a9a9e1",
+      "rgba_sha256": "26d5fd7b534ad4b741db050191b3681fb729a2f17ce2ae03616fd1ae5776048b"
+    },
+    {
+      "file": "character_04_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_04_female/defeat/keyframes/frame_000.png",
+      "sha256": "1bd7424f198b140aa98683f7de6555020f10ca362543c15c502c62e215bb175c",
+      "rgba_sha256": "e01f6747a71c4b533f209104b7efe88e6c6a38286af552dd16685fe7d8a4a949"
+    },
+    {
+      "file": "character_04_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_04_female/defeat/keyframes/frame_001.png",
+      "sha256": "a0ee6dae9f7e90e10c7716b1010f4ccfff808d10b6f7016344296fdd450fef07",
+      "rgba_sha256": "bd5ca1efe619b774bd145b97d7c22e17d9ff0f189067bf5c431a16e71302e082"
+    },
+    {
+      "file": "character_04_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_04_female/defeat/keyframes/frame_002.png",
+      "sha256": "1b63225bd2032489d151d255cde28095db719a3c6c029d4ececed8c504b2834e",
+      "rgba_sha256": "d3ce02e9b98ce7cbed7b6e46ba29f222a87b0dc1619488206378afe4e94cb3de"
+    },
+    {
+      "file": "character_04_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_04_female/defeat/keyframes/frame_003.png",
+      "sha256": "44b8d9ba2e7b23ae3e100d7d729368bb718558283ccd32cd780a4532338e3654",
+      "rgba_sha256": "3c0ac5a865c82b33d2baf0522c2f0d169fd010244ff20dde01ee62c420cead9d"
+    },
+    {
+      "file": "character_05_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_05/hurt/keyframes/frame_000.png",
+      "sha256": "746cc12382a9a62a73955b7f5cf9450a424170ec643858cc31b821f834f6e204",
+      "rgba_sha256": "dd846efacfea29eaff9971028798b9213dd95fa4cdeeae69fba4931c040e24bb"
+    },
+    {
+      "file": "character_05_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_05/hurt/keyframes/frame_001.png",
+      "sha256": "5f575ed7cd739ab6b17fa089d489f10e1395bb0c24522dc17e7817b8ea0d426a",
+      "rgba_sha256": "430ee42ba5931c2e72718e4f4106001b885c722fd21ceebc9a45178d234d1d3f"
+    },
+    {
+      "file": "character_05_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_05/hurt/keyframes/frame_002.png",
+      "sha256": "d1a78fc1c1cb0ca4cfc4ed636682b52fc73cad5b9bf344bb78e31fbc9d5bf273",
+      "rgba_sha256": "9333108eec29af13a0d77d7a83258480027b3b40cfafbfe591211214dffef868"
+    },
+    {
+      "file": "character_05_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_05/hurt/keyframes/frame_003.png",
+      "sha256": "1caab06d885bd56fd6e18b7936dbcc881742843fed739c4f385b7d863f3445c8",
+      "rgba_sha256": "204df145bc8a31a83d721d239810d1f69361fca3ca51ecab61185f10f0301a1c"
+    },
+    {
+      "file": "character_05_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_05/defeat/keyframes/frame_000.png",
+      "sha256": "bbad02a3062244f736ee3562946145b4dd0e0dfe2d9e4dab76e8e2c693c32b6a",
+      "rgba_sha256": "d9f51de95f2dd2ff1be0664f01d5473b0db38243d591cae7eaae8cf8e86ebb21"
+    },
+    {
+      "file": "character_05_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_05/defeat/keyframes/frame_001.png",
+      "sha256": "4dda8d1de70715bbbd963f64909a4d68e2c0f64db3c4ad560626cf6d5ffbf48b",
+      "rgba_sha256": "e5b7f8349f580eb638dfb6d4eac568734f3a3e7e6521ff65a8ed2ed001897b3b"
+    },
+    {
+      "file": "character_05_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_05/defeat/keyframes/frame_002.png",
+      "sha256": "9911626dc1e61831ea9fdb958e4c2cd07cb47b282874c30b9d7ab5fa3cad018d",
+      "rgba_sha256": "ca29d51667a57c22fe8a72d6cf80b98f721c9756b4629a1446dc02025b6e079e"
+    },
+    {
+      "file": "character_05_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_05/defeat/keyframes/frame_003.png",
+      "sha256": "6ac7eda2b1a247ad957b4b45bb1ba7ce6df00487e84fb27a51d946d4861f883d",
+      "rgba_sha256": "fcbe2e507fed0344025a15c8949bb3d3ffc5fbcf4878305dd2047e9983f8f7ea"
+    },
+    {
+      "file": "character_05_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_05_female/hurt/keyframes/frame_000.png",
+      "sha256": "d6527c9ffd4029c7089e55c7d193c8b8503492b35a98f91843620bdaff5119cb",
+      "rgba_sha256": "df6bb2d5ce48cc9202bc60276d6d6a171b33bc3c308f2a5fd275baf93858a375"
+    },
+    {
+      "file": "character_05_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_05_female/hurt/keyframes/frame_001.png",
+      "sha256": "a438ba7de66b283eb7c88a64fb1260910dc80b34b8018869466608bf906e7645",
+      "rgba_sha256": "699f4788157a44e8ffdb656abc8359f130de30c98c72b2ee065cc8995eae1de7"
+    },
+    {
+      "file": "character_05_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_05_female/hurt/keyframes/frame_002.png",
+      "sha256": "a3ea52c8d1523608942891e260a62e53fa579625631ecd5c6878809aca074c9b",
+      "rgba_sha256": "8cf9a49bae0c3e01c046db3acc4992f06ec00202253f53bde9a9e53edcb130e4"
+    },
+    {
+      "file": "character_05_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_05_female/hurt/keyframes/frame_003.png",
+      "sha256": "6c3af5111bb1c6ebbd04b71e94ad9fbb1d0ac445257e582033f4681a9bf0c5a9",
+      "rgba_sha256": "c7e6b6a6073d0eab76fa18ab5cec0bab58a12cdda4fbf53d7d35ef0816c31502"
+    },
+    {
+      "file": "character_05_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_05_female/defeat/keyframes/frame_000.png",
+      "sha256": "8cc540156b1952445b599f87ed5c4620f3bd315aba529d7b891e38b50925331a",
+      "rgba_sha256": "498925d52cbc29f488afaca8454138ba927e1ce7d796f5197af7ffeae1d9bf3d"
+    },
+    {
+      "file": "character_05_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_05_female/defeat/keyframes/frame_001.png",
+      "sha256": "ff906592d18283b845b38901ed640ad6491afc744ab9f75a87e89cb0764be033",
+      "rgba_sha256": "5306def9de75a6110d2c777cda93b400a841e07ed15ca8c08958778259f45825"
+    },
+    {
+      "file": "character_05_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_05_female/defeat/keyframes/frame_002.png",
+      "sha256": "504270ad21fee454dca6f4452f6eaddeb25ce2c8ee6a8941adb02f4c987ea7ef",
+      "rgba_sha256": "36f658bc2256850631a7db9823b15c12cc7de343281fb79ac54a20327c72982c"
+    },
+    {
+      "file": "character_05_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_05_female/defeat/keyframes/frame_003.png",
+      "sha256": "8cc315a6587194511c86b779fd98a7dceeb1ec717f7f503598ece228968e1de0",
+      "rgba_sha256": "2024b64d6667876e95529b124dc8c8d95954368b4e59d84d1d0514191c4bedd7"
+    },
+    {
+      "file": "character_06_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_06/hurt/keyframes/frame_000.png",
+      "sha256": "6b2b83e558d4ecab5326b40be61d26f4de3f9b2f3c86ee70db98d12e2789662e",
+      "rgba_sha256": "ddc791dadeef28c719786e41fab8e793f1b9d8a6bf62d8a6ddea06b4304e7785"
+    },
+    {
+      "file": "character_06_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_06/hurt/keyframes/frame_001.png",
+      "sha256": "7e5fdd19283ecae56ebd92568da4d0959d88bb94cd784caf17fd0c67d3e5541c",
+      "rgba_sha256": "796933b77981ccc4c2bed24541c98d97be8bb34168b0dbc2457d0347512e31ab"
+    },
+    {
+      "file": "character_06_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_06/hurt/keyframes/frame_002.png",
+      "sha256": "573d2aec26dd9f2c718cc370815e73de1a08bfa486bde1cd012ea5e3bdbb0a4c",
+      "rgba_sha256": "0ee796060d6cb3281e8b7f8687f43e4481f5bdb1eaaeac96e9264d7a2279851a"
+    },
+    {
+      "file": "character_06_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_06/hurt/keyframes/frame_003.png",
+      "sha256": "3398ae3f4508dd3cc3cc30373e93c99abfc8a31d5c66c8fe4b9d00325e0353bb",
+      "rgba_sha256": "078d67ec741ef48232c43030c684b7610b15f5b52f267f0292fae7b550f9911f"
+    },
+    {
+      "file": "character_06_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_06/defeat/keyframes/frame_000.png",
+      "sha256": "1a8b11a42ee666acb962a24459ea4dcded8d81ed1349261838afd706f45e05aa",
+      "rgba_sha256": "0637c11bbec5dc79acfb8858c1d6c4aabd9766cc09c2ae18b7be029227b9efbb"
+    },
+    {
+      "file": "character_06_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_06/defeat/keyframes/frame_001.png",
+      "sha256": "52a46ea45fc9bee8ef8527da1c69567fb6846efc77ada5700fd350a7758d3f7c",
+      "rgba_sha256": "06036d6cedb401c66e86fb618d06f13e318ff7add1305035d1554befafdd5356"
+    },
+    {
+      "file": "character_06_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_06/defeat/keyframes/frame_002.png",
+      "sha256": "e0cc00031e79aaed4a51dea62d5371fc39537d178328fd4f0993fd0825fa6aeb",
+      "rgba_sha256": "97c84673622e37b028c75c48f98977507f9265ded69d62e54fe5a39ddb5bae58"
+    },
+    {
+      "file": "character_06_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_06/defeat/keyframes/frame_003.png",
+      "sha256": "5782bf21966cfb3819d209e1d987bbce062a6b17e18f379be5586d42323dac2d",
+      "rgba_sha256": "a448153364bd411580666cc7f43c4e8eac49a4dde6782d328a0dbd7829efa59b"
+    },
+    {
+      "file": "character_06_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_06_female/hurt/keyframes/frame_000.png",
+      "sha256": "54c90bee5fe0b002c4d389fe8f20edd6763e0e3a434d1f936391ae2436cb068b",
+      "rgba_sha256": "fe1c154d6d6620c237a9c0cbf42a45f8430ebf9ccc15b8e6472f9bde264672e5"
+    },
+    {
+      "file": "character_06_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_06_female/hurt/keyframes/frame_001.png",
+      "sha256": "1832f23a54bf714b7f75772097a29eb07f6607d63d554a8fe756403188b0a598",
+      "rgba_sha256": "7c64cb4e906d8bda2ba432bfb79d184f48c79a85badc8d8942f14800db0194c4"
+    },
+    {
+      "file": "character_06_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_06_female/hurt/keyframes/frame_002.png",
+      "sha256": "0691febc33ee0d27dd5c4d00cf98ba5aabc7215dbee67fe396aba18242ba7f78",
+      "rgba_sha256": "5bf9d48225ef6e79abd320ce99698a641d03eeeedd78a281831ffb4bbb265e56"
+    },
+    {
+      "file": "character_06_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_06_female/hurt/keyframes/frame_003.png",
+      "sha256": "1b7c00286be6a4f5fa39c86e9135987510b27c4cef13baf1c7b8f5e8cff23473",
+      "rgba_sha256": "793d229d2e3bcbef70d6ea6961fb14d35d6460b06d31122384e0326547480580"
+    },
+    {
+      "file": "character_06_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_06_female/defeat/keyframes/frame_000.png",
+      "sha256": "495afc2073b48db3fb4b845db9e166a9235971a5169cc64e030086fbf191af1c",
+      "rgba_sha256": "eb81bf1ac16195340a07cfe1e4326a627fac1a51a4d622875f7cdcd4c7210231"
+    },
+    {
+      "file": "character_06_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_06_female/defeat/keyframes/frame_001.png",
+      "sha256": "2976f9775fe032224a38c057c9a0bbe018a67a96c2c760ffcb807972bc17e833",
+      "rgba_sha256": "6b783a09fad7f495283dd31b0589061a5557417436b5c9e84fa149e60d304503"
+    },
+    {
+      "file": "character_06_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_06_female/defeat/keyframes/frame_002.png",
+      "sha256": "c5b60660c286520918ce7c03ede2b5cd8f336f0d614ff77b56fc790912441e12",
+      "rgba_sha256": "47a7e607bbcf20fc7056e4b9a8a5a23238b795e23b0195cb31410f48b0e11b7f"
+    },
+    {
+      "file": "character_06_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_06_female/defeat/keyframes/frame_003.png",
+      "sha256": "0c150ecad9e8fc65cfdd94caec06087bae2ed9782f8183cf20ceac10f8dbac92",
+      "rgba_sha256": "a44fcbe7855148446813fd3021118f14b71346ae27a35a86e2d37cac2068ae94"
+    },
+    {
+      "file": "character_07_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_07/hurt/keyframes/frame_000.png",
+      "sha256": "f3b5e6dbc5383cdf8196ac42d99099430592a23b00c28732222b1edd46c6ca25",
+      "rgba_sha256": "4d72eafd761a410abff7e7726f0f53852ee76133b80f8dc8705aa811f5c3cc9f"
+    },
+    {
+      "file": "character_07_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_07/hurt/keyframes/frame_001.png",
+      "sha256": "c57b199f674cd4047c9dd233c57c37be854f7d77c860b11f7afde4bb791dc2b1",
+      "rgba_sha256": "b1d68eab00c09996c67a76486c1afff5a3c2faff4e3fef78b5bfb9b54451edaa"
+    },
+    {
+      "file": "character_07_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_07/hurt/keyframes/frame_002.png",
+      "sha256": "be8eee8f6258c36942dfe3c7781803fe565d1a75c428b8f11db0880d74b07f81",
+      "rgba_sha256": "e5ec64251e49a1ebb91afc024cd088915dbaa8a0d1928ee0bf35e236b80fac00"
+    },
+    {
+      "file": "character_07_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_07/hurt/keyframes/frame_003.png",
+      "sha256": "a8a642c0d4fe18005380f51d74726fb17257ad1240e5a89bdde495b9e438dc91",
+      "rgba_sha256": "c744f4b6624c49a0b40017e20adbbf0c454e8883daa95c55da974ec8c08adae5"
+    },
+    {
+      "file": "character_07_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_07/defeat/keyframes/frame_000.png",
+      "sha256": "74b8ed94b3df741e0cb010433f69811cd914ebff531a04f93beea5583333036c",
+      "rgba_sha256": "f49167083db4654b99fa233b57ae1e2a8142962c0abbb4231154a88627b97195"
+    },
+    {
+      "file": "character_07_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_07/defeat/keyframes/frame_001.png",
+      "sha256": "6bb336d83f6f4d90aca279c4e6af992ae66d53b3d33a0c395f48ee4b5d24331b",
+      "rgba_sha256": "4a3e5d9e3c795573c8c0703e064161f5bde67f6877cd31598c3c80d051661c55"
+    },
+    {
+      "file": "character_07_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_07/defeat/keyframes/frame_002.png",
+      "sha256": "977fa962387993cf565fe185f647924e697c988486cfdd3d7860f33252fe85a7",
+      "rgba_sha256": "390252b8d62bf6418522a4a43555c445346ea8546b585cd5998a35dbb545c6d5"
+    },
+    {
+      "file": "character_07_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_07/defeat/keyframes/frame_003.png",
+      "sha256": "6828e5a27007bb02940a7d29a4dc521aa64044c5bcc4f4ca427c0804955a47d0",
+      "rgba_sha256": "388040b1792927ac107fc21dd827ff19ad797adf14a7f550ec9036161af3663e"
+    },
+    {
+      "file": "character_07_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_07_female/hurt/keyframes/frame_000.png",
+      "sha256": "34d0a3d1de2e2fed29f24c1112852efe7d5a19c183b71999843a084ccc9eb0a5",
+      "rgba_sha256": "a6217e6deb3554474826e310bce41789622cb786e084ea5867301505457f3711"
+    },
+    {
+      "file": "character_07_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_07_female/hurt/keyframes/frame_001.png",
+      "sha256": "0e03c2cc24cb7fb21fd78ee904bebf76ec6bbee09b1bd5947b913a4c5b2c3d0b",
+      "rgba_sha256": "d095167e169d3bd76b05afadc8b4d56611c1ad1f6c7ef5857376f418d8499817"
+    },
+    {
+      "file": "character_07_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_07_female/hurt/keyframes/frame_002.png",
+      "sha256": "e98422311471a4d18094a567c8000c58273d158a1f0e80ec0a67ec3be3dc1407",
+      "rgba_sha256": "396763e1bf87b6d88dddfee8380700b453644546aaaaff95c697f66a81ec1911"
+    },
+    {
+      "file": "character_07_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_07_female/hurt/keyframes/frame_003.png",
+      "sha256": "4d02792afe8f8132db1221e2ed2f9f76f7f553a03c80caa4a6960f27ce6f6a05",
+      "rgba_sha256": "50027f954615afcc40246889c7a5aec691b860a02c676ebe6dba7d32926c320a"
+    },
+    {
+      "file": "character_07_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_07_female/defeat/keyframes/frame_000.png",
+      "sha256": "bbd7bb7ec422c2dab83026aaac7e6ed4d6324ca6d84f24fb108f8b0eba27950e",
+      "rgba_sha256": "d1cec5c170eebf1c60b44d7d201c7259df8861d328442c7d26d2499498225a24"
+    },
+    {
+      "file": "character_07_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_07_female/defeat/keyframes/frame_001.png",
+      "sha256": "0acf96c5b7cebdc27293e733affc6df33e52422c4a48098db48661a2c1d18b65",
+      "rgba_sha256": "d2f93c5a169425b156cc5bda9db13853a530b88d35bf912515e46484dd05245f"
+    },
+    {
+      "file": "character_07_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_07_female/defeat/keyframes/frame_002.png",
+      "sha256": "b1520db61b6deedf593700c526a26320e121ef72b87ee34027cd5fb3d226dfa7",
+      "rgba_sha256": "4c41987e45e973722266c2602b0e2c102ba0637d3e1954a46d6e52517c86c2e4"
+    },
+    {
+      "file": "character_07_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_07_female/defeat/keyframes/frame_003.png",
+      "sha256": "085f42589013e9682348da4512440a8636996c38f9524576200f8f5ba58a6968",
+      "rgba_sha256": "579dbef326910bcd65de0e4e81cdbb4171c184cbcd6be2ddeca0b3184e308bc5"
+    },
+    {
+      "file": "character_08_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_08/hurt/keyframes/frame_000.png",
+      "sha256": "d58b7c655910bea68a8fdbe5c73d922a1e96ed67664b8e75196636638ab6854c",
+      "rgba_sha256": "29bd5b6f7898c7617ff50698f5ba30fc10c5e8255d328341552b9b8df81df591"
+    },
+    {
+      "file": "character_08_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_08/hurt/keyframes/frame_001.png",
+      "sha256": "0f0308ae4133e7d0e92ec60ab352535fc709e9935f2819c8b6946c783796f8ac",
+      "rgba_sha256": "81d6f5f93ed99524ca4649076242754ce1c95b13454dd3efd4da17d85a45b019"
+    },
+    {
+      "file": "character_08_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_08/hurt/keyframes/frame_002.png",
+      "sha256": "2a8283f5fcfca3d490f16111db30a33932860eae8e937c241af85746fa1ac06b",
+      "rgba_sha256": "073c38ea1b0e4c6c7dbc1a1344da3e28f4122dd93176d862070310e5b06af231"
+    },
+    {
+      "file": "character_08_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_08/hurt/keyframes/frame_003.png",
+      "sha256": "7a908259d9275703ea5296946f96cd95db19fd1f2a8bbe68b03509a70ec03424",
+      "rgba_sha256": "78b71c2827f2d61451e612015346177c3b15b339ef2e87f8cdbdfe4e7941b37e"
+    },
+    {
+      "file": "character_08_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_08/defeat/keyframes/frame_000.png",
+      "sha256": "93700f5c69a00a021cc66179114d5325a838d1f4bb6cb68f7d041e8396e13aef",
+      "rgba_sha256": "2584183751f4dd00af2118b0468b45c56ff55567886f7f9c1d209e7a0bd9ff6d"
+    },
+    {
+      "file": "character_08_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_08/defeat/keyframes/frame_001.png",
+      "sha256": "2aa1996f1aec05d02a237a7b3c7caf1b7d43d6fb3626c5ca3e25d694ac6f269d",
+      "rgba_sha256": "8e82e89e21f41bbc6ec184efe4f3b2cdbc422a4ba4de96a5781cb6efe5f72fa7"
+    },
+    {
+      "file": "character_08_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_08/defeat/keyframes/frame_002.png",
+      "sha256": "b440cb6beed5d84522475956c05b6e9ced42b463a06f2a79ceba73693cffe3e1",
+      "rgba_sha256": "b9f5d69a4bcac52aa0b295ef70dd10d5dd632b2b434ac6274ce8b6a01acfe65d"
+    },
+    {
+      "file": "character_08_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_08/defeat/keyframes/frame_003.png",
+      "sha256": "03625ff7de9198d9bc030b1e7f7d4b996691e94a03338a70a731997fa19d7a88",
+      "rgba_sha256": "e8fcce8c28b80edc9a3ea79996c81ad8db38e6012f4b0d6576cfef80e0a0719a"
+    },
+    {
+      "file": "character_08_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_08_female/hurt/keyframes/frame_000.png",
+      "sha256": "46717700e94988f71c084ba9e195c663a46b5f8011d514bae4faf8864e862287",
+      "rgba_sha256": "6901b268199779fd74731490d49ea7d6f0728cae2eef6280c7ec3bf595837f03"
+    },
+    {
+      "file": "character_08_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_08_female/hurt/keyframes/frame_001.png",
+      "sha256": "0ad9eacb10617f6d805733265cb02b6c9fff39ba8af5d246701f1975516494e8",
+      "rgba_sha256": "039d3472d293ccbf054554cd9fa049fe2e28bfd00aa1574164fb2739a0768e34"
+    },
+    {
+      "file": "character_08_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_08_female/hurt/keyframes/frame_002.png",
+      "sha256": "8794dd51d7133c341a652a146bc0d40df93f7f646617ab4ee716e13d32a7471c",
+      "rgba_sha256": "68ff6ebe3bbf2e5fd76ba4e31a76e43341370f5408c5ea813346df27c5261e25"
+    },
+    {
+      "file": "character_08_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_08_female/hurt/keyframes/frame_003.png",
+      "sha256": "9a1c84e730a963ce6d91d86beedfe628e534060a0b33114f5b8cec8c6886cdff",
+      "rgba_sha256": "36f2b56ec177edd45337cda14f02b56a1771cc2d3ebf2ade9fd187bf47133170"
+    },
+    {
+      "file": "character_08_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_08_female/defeat/keyframes/frame_000.png",
+      "sha256": "194543ae657ac961c8a27129b688fb430393b2135ede40702d7b7020c521f968",
+      "rgba_sha256": "0715505834eb631eed4285d516ece22295c65fb9fc729c31eb2de0bbf1ca469c"
+    },
+    {
+      "file": "character_08_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_08_female/defeat/keyframes/frame_001.png",
+      "sha256": "0d7fd97ec7a634384c7e4ef2238523d0bcc736fc73b1e0f01a168f643640e290",
+      "rgba_sha256": "84aa8291ca3b4d5d45097f897cc2a872c884d4ade4acde0966139b6be5ac56bf"
+    },
+    {
+      "file": "character_08_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_08_female/defeat/keyframes/frame_002.png",
+      "sha256": "1547024eccd394c86f169b04651c6703638e40b374cc1fdf015ef9a0dd31aa80",
+      "rgba_sha256": "a4738e929a7e709010e4a7b751e0a42aee809f37b05bb690936acbc8af6bdad0"
+    },
+    {
+      "file": "character_08_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_08_female/defeat/keyframes/frame_003.png",
+      "sha256": "804435c95253b5587175a7b8fc5d4ab2339eaff7eab2d7ea9aef8fa45421bc4e",
+      "rgba_sha256": "45a554a87cc22010f1a93b98eb80d561056fe4aadaf15d33ddb95fd5d1e7505f"
+    },
+    {
+      "file": "character_09_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_09/hurt/keyframes/frame_000.png",
+      "sha256": "6dd98904b96377449c0674bed11aaf9f9d4b082cec176a072688672d81ece359",
+      "rgba_sha256": "7bb036e6d2d3e92a7f96204d31c2c1f5ff96af8798f7040f088f9e9ffe329008"
+    },
+    {
+      "file": "character_09_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_09/hurt/keyframes/frame_001.png",
+      "sha256": "e0209972919de1fa6a464116f52baf0f57cdc24f9749cfd3f0cd5acf8a6fd079",
+      "rgba_sha256": "1770d251e2c22e6a4c508d6daa3ee250820bc538486138286ecc27710a3b2123"
+    },
+    {
+      "file": "character_09_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_09/hurt/keyframes/frame_002.png",
+      "sha256": "529296024ef04afaf5e275d37c943952c18f07cb1d477cc32b08650448641f4d",
+      "rgba_sha256": "740986d3f86bc1347a0ec3e9be80ce74fb244cfe9e9d6069a265ad29b51176cb"
+    },
+    {
+      "file": "character_09_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_09/hurt/keyframes/frame_003.png",
+      "sha256": "de8272f4bc97a6d4fac5857d4b4ef1ad560eed74e796028add23df809ab154d5",
+      "rgba_sha256": "8e544991324f3a6760e9956e424df723157c397a57a9ede0e273754874e8f20c"
+    },
+    {
+      "file": "character_09_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_09/defeat/keyframes/frame_000.png",
+      "sha256": "63f6e3c290cbda11241c23298a3ccb5926d75fc08605c4dc26998a87c2b7301c",
+      "rgba_sha256": "21384a7be1a0ed1452a494834cc108ca1da94d0b0f91fd99e48826eddb428eb4"
+    },
+    {
+      "file": "character_09_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_09/defeat/keyframes/frame_001.png",
+      "sha256": "1709687d337559e082bf805f7d9f0ada48e3b90a909a792c88b81414676ec796",
+      "rgba_sha256": "a0bf8ffe64cc117e81b1e3cb089c9c93532a9820a21a6d0a4d019ace1066b169"
+    },
+    {
+      "file": "character_09_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_09/defeat/keyframes/frame_002.png",
+      "sha256": "7660b7c709e0f2950780eece29e8c64980618becfa4fef40f1753d30d2d6a57b",
+      "rgba_sha256": "1e5cf8c07effe73a3ef76d1d81ef724e765fb5c5401bddeb2dfaf81b1ac9fd1c"
+    },
+    {
+      "file": "character_09_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_09/defeat/keyframes/frame_003.png",
+      "sha256": "3352f41964e20e274bc252d4ccbe346f4ccc7977a5695d4eec396372315ebcef",
+      "rgba_sha256": "acdf5fcf5f14cf23ea0a6a8b73428bfe30566db93e64a03fecdc2ada3427a1d4"
+    },
+    {
+      "file": "character_09_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_09_female/hurt/keyframes/frame_000.png",
+      "sha256": "c630bd157044bdbc82c6fae7414a2af8b5e24de698f3459a3080d16961b75944",
+      "rgba_sha256": "f08fa818bc0ca4d992b7ce848dad97c2b59d44188b02e057a689d3994fb8d0f0"
+    },
+    {
+      "file": "character_09_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_09_female/hurt/keyframes/frame_001.png",
+      "sha256": "fffbbff1c46caeee3991aca974e458c76190114f93acfd6c62554c029838ae3e",
+      "rgba_sha256": "e92d5147be8c3338878eeffbba0c7a81d5eddf29bc2fcada24b536d725ec9784"
+    },
+    {
+      "file": "character_09_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_09_female/hurt/keyframes/frame_002.png",
+      "sha256": "18ce1a310731f8cf66bf6f52d02c7dc9e8b79bfc56317996828fea96df0507cd",
+      "rgba_sha256": "71101cb67b738355b926aa6b95dd5445f0009a8268a14a72498f264c5af50445"
+    },
+    {
+      "file": "character_09_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_09_female/hurt/keyframes/frame_003.png",
+      "sha256": "8b879f9e42d2526f5568e8656dad463615cddb8533534c222ff290c135f90969",
+      "rgba_sha256": "479497f9a84e3885f5569b9ec91e62230c932714a38694595d3cf62ed68d926c"
+    },
+    {
+      "file": "character_09_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_09_female/defeat/keyframes/frame_000.png",
+      "sha256": "3702651abe275330721383f585ac4d169cedcbf47438979b467ca264b93648c7",
+      "rgba_sha256": "ffec2c37eb8645d150a0c0a8292e50e55da31df69711c506055b71d5c666a149"
+    },
+    {
+      "file": "character_09_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_09_female/defeat/keyframes/frame_001.png",
+      "sha256": "070d2f2eca9227c2f8a78552e7a561f29fc48f8a01f46ee0e221ee5695694e09",
+      "rgba_sha256": "ab1271fa5b7908e9c681677a76a905979c4b7b4cf05fd0e86eeab745fd4cf82f"
+    },
+    {
+      "file": "character_09_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_09_female/defeat/keyframes/frame_002.png",
+      "sha256": "d30fcd6e7e5725c7fbb33a6435738ddb5ef6ca1bb390b22e87e5716986113a31",
+      "rgba_sha256": "834cecfed1b15e586d15ad86d1b898e8d28891eb1491df044226a3ba168001f8"
+    },
+    {
+      "file": "character_09_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_09_female/defeat/keyframes/frame_003.png",
+      "sha256": "1cea1bd5d6b864f715a55fb4cd356634de7268cf622af0d745a8e5fa9c6ed15b",
+      "rgba_sha256": "5ba5ee660a9e01ce48fa4242ee67fa9260628b2a14a8061dc87b0fdef11bab3b"
+    },
+    {
+      "file": "character_10_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_10/hurt/keyframes/frame_000.png",
+      "sha256": "b4f3d78fefba26bee42c4a1a714b65cbd48cf78fb9023bc693a71c77843f3469",
+      "rgba_sha256": "90e388bc8499e2b1a7bc1bf0b6996b28a5d2adb32434c5606fa95377c6bcad52"
+    },
+    {
+      "file": "character_10_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_10/hurt/keyframes/frame_001.png",
+      "sha256": "c7d64f097acde84a93f71c9cf2f267097c510dc612887255c1183e84a485b9e6",
+      "rgba_sha256": "cbb4e8de645e339f50a6c2df6fa59e7ae903849a492dcd58b6dd69c3ed339fd7"
+    },
+    {
+      "file": "character_10_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_10/hurt/keyframes/frame_002.png",
+      "sha256": "edc472e6ac9748e2e6dacffd00998a29c5beecd943c19503196f0d739f80dd24",
+      "rgba_sha256": "219168b6d778939c11191ec35a70f94f13c62ecd924bf980c7939b8646d03cab"
+    },
+    {
+      "file": "character_10_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_10/hurt/keyframes/frame_003.png",
+      "sha256": "1f5d90edf2bb74458862e9db52dfe15697e8ee1d5f1a0d2640e26827d4cf64ef",
+      "rgba_sha256": "454330a22686c9cf1e2589ff3a6242de530033265b18cbdcf2443a7b836177f8"
+    },
+    {
+      "file": "character_10_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_10/defeat/keyframes/frame_000.png",
+      "sha256": "00884880af7586d1801227ab165a8964c4b5b5f8bc3af0da0abbfda8fa3689a4",
+      "rgba_sha256": "25d56fba23d4d9ec124822568012ad15c2996f42f5a25e8805c19863c97d1df8"
+    },
+    {
+      "file": "character_10_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_10/defeat/keyframes/frame_001.png",
+      "sha256": "1d0ec35e6d104e9ccf3be5ff866ee87ed51e519e06ed0ad5560d34e54a26d6ff",
+      "rgba_sha256": "a06ce931a8a4a8d3bec0632ba10436a50bed99375ebc5e99ce644477362f00b5"
+    },
+    {
+      "file": "character_10_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_10/defeat/keyframes/frame_002.png",
+      "sha256": "62ab877f3c10062c98c78c20050e65cc76a9861021dab8447af191ae605a00fe",
+      "rgba_sha256": "e8b86ad2687048fcc8142d49e8a44202b79b631f70b5722e16c21eacadbd658b"
+    },
+    {
+      "file": "character_10_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_10/defeat/keyframes/frame_003.png",
+      "sha256": "7eb6145f0b8f8e4542bdc665dbb1945497a4d84ebbf2a3ef208ebe2db2cea078",
+      "rgba_sha256": "827b8c769bb94b57712c5ad7007d7f3a6779d0499df19e99fb7e576c1c857aca"
+    },
+    {
+      "file": "character_10_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_10_female/hurt/keyframes/frame_000.png",
+      "sha256": "c343b03dbea9e5220a7e0747a13e688e1e4c795f6ec52dc82ea44d9f5e7983f4",
+      "rgba_sha256": "1136cad38ca3105445058415825ecddd3adc05beb14f25f434c1e5b19365e36e"
+    },
+    {
+      "file": "character_10_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_10_female/hurt/keyframes/frame_001.png",
+      "sha256": "bc43f5d9c3abb845ee8dbb29398d6908e18dd750df9db00e6e40ed0eaae77c09",
+      "rgba_sha256": "adb538c570d7538d4958d45f1aad3e5111188fb655765d3da3a3921b8b772ab4"
+    },
+    {
+      "file": "character_10_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_10_female/hurt/keyframes/frame_002.png",
+      "sha256": "c1b8a6d694eb50854529385e84cab2d532c737975a60999fd2319bee6701838d",
+      "rgba_sha256": "d927ca287c51c3d9ce0dd3a110b61d5538d72d39952fa088d1a435d3b0a42b39"
+    },
+    {
+      "file": "character_10_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_10_female/hurt/keyframes/frame_003.png",
+      "sha256": "7e0864a14d78c34a258c8cb9823a2bdf4788e95a14f9a71c7645bdaa11f0f877",
+      "rgba_sha256": "6a7787806b8724ebadd4fffd521680e923e34527268ddfaa0e064a1e489437c1"
+    },
+    {
+      "file": "character_10_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_10_female/defeat/keyframes/frame_000.png",
+      "sha256": "da61177d3fdcedba23a3640b1ed51fe2730509670c0125c67bdaf0a9d5a175f4",
+      "rgba_sha256": "796bae04947f355c0f93f90b4e1e97616638fd29589d577be31139a1176722cb"
+    },
+    {
+      "file": "character_10_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_10_female/defeat/keyframes/frame_001.png",
+      "sha256": "5bc69295fc0ce31f029273a1877d5ebc8198e00a5a1c25403d8a144a4cac1fe3",
+      "rgba_sha256": "f26eaed0c23279602f14bb4177aa404affda23057844f7d8288028c31df85d89"
+    },
+    {
+      "file": "character_10_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_10_female/defeat/keyframes/frame_002.png",
+      "sha256": "ea7ab741e84323c8cc2ba2574b4700842627c281a7a46bb4109c64ce3ab0b24c",
+      "rgba_sha256": "de86360f68586cfb8dbd6fcb6fcb14c7159c2673d3ab931c71e232a257c1b9c9"
+    },
+    {
+      "file": "character_10_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_10_female/defeat/keyframes/frame_003.png",
+      "sha256": "1b2a6100492ae7a0e220cd54ce7a74c81d597b63bb0ceb8b91ea8c9732b62fd2",
+      "rgba_sha256": "2f542609589461bc5e5c4d13e6d3d9ced1ada7998f5e7d0d42eef51a4ef346d4"
+    },
+    {
+      "file": "character_11_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_11/hurt/keyframes/frame_000.png",
+      "sha256": "710142c0e3392fd3650257fd31c33d36ae1a6398179ca3862ee92713c2a34217",
+      "rgba_sha256": "6a18290ebaf33561308b3519b432550b65c2cf02579eeaeaceb4ca832231746e"
+    },
+    {
+      "file": "character_11_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_11/hurt/keyframes/frame_001.png",
+      "sha256": "b6835ca121ea25fda00fa0fff46451191f0e48c1fb1634c17f5bf21d4db90e79",
+      "rgba_sha256": "80fdffe62844fdbdca855981f1d86fe36d24176e46ad294d138c7bef0450a7ec"
+    },
+    {
+      "file": "character_11_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_11/hurt/keyframes/frame_002.png",
+      "sha256": "97da3e07ddfbab6a36682fb72430c84800ac344ee47dc1373feb278a8b50e8d6",
+      "rgba_sha256": "cb4890250104b65f9eb0f0a386c28f8accadebf19f4ce95d29660aa3a437959c"
+    },
+    {
+      "file": "character_11_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_11/hurt/keyframes/frame_003.png",
+      "sha256": "143881279f729ca552be75f5e03cb550d69678d8483b5e7de369c273272e6233",
+      "rgba_sha256": "289fcfca039a0b259711152a5d7759db371e5963f9d79ae255570d72b7531735"
+    },
+    {
+      "file": "character_11_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_11/defeat/keyframes/frame_000.png",
+      "sha256": "e93975a799feb9c3b9baaa2236cad3c88865ceb0749652ff127f1cf3f64e7c7c",
+      "rgba_sha256": "e722de369d5bfd8ba37e50c8d16ecc012155f4e15e30035a551a4c1f95cd2a74"
+    },
+    {
+      "file": "character_11_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_11/defeat/keyframes/frame_001.png",
+      "sha256": "e6c59ea7d8c8cd5ca3dd84cc13f8a80e44ff7f4291287cfa2280393d963bdb8f",
+      "rgba_sha256": "1fa9cbfcc9862d65780c4d9f2c1f57a353bc13f62d66444bd529f04f25128251"
+    },
+    {
+      "file": "character_11_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_11/defeat/keyframes/frame_002.png",
+      "sha256": "a935d4e2a7a4d11a4821b87e325b88ffc3e525389658f7da83e9e4cf1569e932",
+      "rgba_sha256": "9189e7707313b2a8a53a6b3daf9896aa6b2426c69e8faebcacab76cb7f675c6e"
+    },
+    {
+      "file": "character_11_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_11/defeat/keyframes/frame_003.png",
+      "sha256": "ad51f974de7deef1e4e2ef188ed41f9dcb818a845e231318f9c11d49bc530722",
+      "rgba_sha256": "18d37c2c51521a4a9e1e738f7e30d06acb7f8da6146a7763bbea01310753c0cd"
+    },
+    {
+      "file": "character_11_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_11_female/hurt/keyframes/frame_000.png",
+      "sha256": "b2923911d2bd923709a448ef21aaf95957150a3d188edd65a4faf3e08d3f45d4",
+      "rgba_sha256": "ed4caae9b7a4e34824fe147467cb74c65535248283de393242cf96c9afbc7a67"
+    },
+    {
+      "file": "character_11_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_11_female/hurt/keyframes/frame_001.png",
+      "sha256": "ef147256ac7a76b57591e6c713b25c5f6617955498932e6ad93bea1fbbd238d9",
+      "rgba_sha256": "63a2e41b68f0172d2566905679fd5306f82e9a41276d6d6bddaea8f947819321"
+    },
+    {
+      "file": "character_11_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_11_female/hurt/keyframes/frame_002.png",
+      "sha256": "0c3162ff5561f469b76e2c3a1f521fc2e0710bbb69f05af40be57c5fb1b7ab3a",
+      "rgba_sha256": "b51ac4bedb68f3be54c01f6229301df3fcac5a162420d19a7ead541fdbc490a9"
+    },
+    {
+      "file": "character_11_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_11_female/hurt/keyframes/frame_003.png",
+      "sha256": "89126edd92fe511b1653a3f6e022a3bbf1c1dac3ef54eb6213efb44e949b7cdf",
+      "rgba_sha256": "7bad230bd09d347fbc0e92a3a5c79f55f536a88db6a177494445576d8dcc7fd4"
+    },
+    {
+      "file": "character_11_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_11_female/defeat/keyframes/frame_000.png",
+      "sha256": "373d04950dfa1d9f609ba113be2b57620fe8032279b93c91325d6f68616cfbcc",
+      "rgba_sha256": "688fa57c107efcb5115bdd8c3490c2f9866912843b674ec47c79e9bd0c2fbb85"
+    },
+    {
+      "file": "character_11_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_11_female/defeat/keyframes/frame_001.png",
+      "sha256": "6de180af26cf481e830a8864e9c8de0a3e3f1a84c1088315accc501998fffbd4",
+      "rgba_sha256": "4263395b5d464c5b7c703b75734fef1e9719fdc73972c4cffae4dfb928e93cce"
+    },
+    {
+      "file": "character_11_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_11_female/defeat/keyframes/frame_002.png",
+      "sha256": "2d25831e09a2c32ddbcf6798838142fc10c26689c60e05a04920958dc8368527",
+      "rgba_sha256": "8d18445875e95a8464882885eddb448b6c4715515c892c1accacb1cfd7796ed5"
+    },
+    {
+      "file": "character_11_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_11_female/defeat/keyframes/frame_003.png",
+      "sha256": "686bfc649373d0089780de3a905836423f4861d7209705ffc9cc921ad232db60",
+      "rgba_sha256": "f94066247aa97140841c762197e5301b01e0264063abe27ae9a3e0ff1dd82bbf"
+    },
+    {
+      "file": "character_12_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_12/hurt/keyframes/frame_000.png",
+      "sha256": "c92515fb1b2192599074fbecc55c0102819e821c4042ac1a2037cea61856c77a",
+      "rgba_sha256": "46210078cd7d694971def169117d37f8ec02c4edbd6b90569e71ee447a21ae64"
+    },
+    {
+      "file": "character_12_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_12/hurt/keyframes/frame_001.png",
+      "sha256": "af253368d4a90ab6fbb03d4a0b37a0a897fd1b143fc2fc16a170ec90ce3cc4c2",
+      "rgba_sha256": "71ee84859bb3bd5705ed35bd28b94f2495ac1ad12770b41a8da27aa4fc1e0505"
+    },
+    {
+      "file": "character_12_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_12/hurt/keyframes/frame_002.png",
+      "sha256": "ef942e79387218cbc86ce5c3658a75ae5749442b3b178973b70f2342bf047805",
+      "rgba_sha256": "6331ff3a8d66c241a3fa23490863a9e5bb829afaa0a6128c0aa5bcb040d3e318"
+    },
+    {
+      "file": "character_12_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_12/hurt/keyframes/frame_003.png",
+      "sha256": "e37400f4c2fc8199b68858beefc7ab3ca05ed361e983e5589dd23fe15316f897",
+      "rgba_sha256": "81229daa58fb26a5b73fce5ac5b8b7e5f71302629cdc6c1ba7e0f50259c54185"
+    },
+    {
+      "file": "character_12_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_12/defeat/keyframes/frame_000.png",
+      "sha256": "60e9b123ae06b9fbb1e251b111055c616ff7896a490dc296eda40f9d64471984",
+      "rgba_sha256": "14de7af08e7b6a22df7440797e0320ef96fe7ea908fe87650065c9b3eab63c58"
+    },
+    {
+      "file": "character_12_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_12/defeat/keyframes/frame_001.png",
+      "sha256": "3ecc2b4fb9f874237606b217ac09d4d445aef80a759653f03da7f645eb045717",
+      "rgba_sha256": "e5feefdb08e3af36120c317da4bc53a0a57a5e7c693d68054fa8e3d3f34ec090"
+    },
+    {
+      "file": "character_12_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_12/defeat/keyframes/frame_002.png",
+      "sha256": "4e4a20ffd32915df3fb8dccd279412ca97c10b481cf6f75feaeee22ebbdf88f8",
+      "rgba_sha256": "93d87d545e966cef7857b3aa19f33d1857fef8f888c84bf3a4419d83e523c221"
+    },
+    {
+      "file": "character_12_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_12/defeat/keyframes/frame_003.png",
+      "sha256": "e7086d1aebdf64bb48aa37405f16cbe30da0ebc0bebf205a1e90cc998f2f32c2",
+      "rgba_sha256": "b62a125136f61bae19cca2a499f06a2e8b405c3ac335c2b7d0b80eb84ee261dd"
+    },
+    {
+      "file": "character_12_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_12_female/hurt/keyframes/frame_000.png",
+      "sha256": "ca0e105e0cc9904808dda0e5dd8e5ea128409522da3bcddecfa333509b788ac9",
+      "rgba_sha256": "69fdc67c45202f598633d14e6d8c284699dc934a2de2cef3e573f651c83bce04"
+    },
+    {
+      "file": "character_12_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_12_female/hurt/keyframes/frame_001.png",
+      "sha256": "1986cd67709531a3fab21a60f66da93cd50c709f3ff88f7058f865760c18cce3",
+      "rgba_sha256": "4749d4a4c437cf4351d450ac124f879211dfda6ee6dfe75785f2c466e254564b"
+    },
+    {
+      "file": "character_12_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_12_female/hurt/keyframes/frame_002.png",
+      "sha256": "cd7cf37191276d086b74c49cbfe3fec6ebb625b710eb9739afa6c76a81c8e9c7",
+      "rgba_sha256": "831f802b3525d040510e4f7c46e4f25da8ef9ba157289725e5e332a5a41496bb"
+    },
+    {
+      "file": "character_12_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_12_female/hurt/keyframes/frame_003.png",
+      "sha256": "cacde7b25cbeb7ed3ffaed4e43fae4f8d9e1a79ed18ba2b063a8389a378f678e",
+      "rgba_sha256": "e35aad31f663bdaabdd7b189383d3b3a2962439b334239c796853724e4419b9c"
+    },
+    {
+      "file": "character_12_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_12_female/defeat/keyframes/frame_000.png",
+      "sha256": "1c725ba44019330cf10dcfb62d06ee73b779bfea8124492941b6ca0ae47b07d9",
+      "rgba_sha256": "975c9d356274a324eb47a9784bb15cd0f291dbb1553bc2baa57da50571902298"
+    },
+    {
+      "file": "character_12_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_12_female/defeat/keyframes/frame_001.png",
+      "sha256": "97c44b2f7fef0652e75293b693f65784082d318e8db6cc2e4354d2bef70534db",
+      "rgba_sha256": "fd43abb8ca5c3eae18ac1b89db3c8d7b3d5f206ed0617a6e3412f3c497d942a7"
+    },
+    {
+      "file": "character_12_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_12_female/defeat/keyframes/frame_002.png",
+      "sha256": "68dcf65299e12af7bb67091c8ea389f444da2bf1138e317ea4f44f21e5100bda",
+      "rgba_sha256": "983dc28884900d8c33a5870124db59da256ee125756680b914476ff841d79ccb"
+    },
+    {
+      "file": "character_12_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_12_female/defeat/keyframes/frame_003.png",
+      "sha256": "83d02c8bd799eaee524a06c3386a8d49f1828f664529e0bdb5839bc9556a9a07",
+      "rgba_sha256": "be920f5086546060adb3978993808a8280f8328436d3248c8e798294146b8dfa"
+    },
+    {
+      "file": "character_13_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_13/hurt/keyframes/frame_000.png",
+      "sha256": "1c198e76243d0352ca7917b234825ead25739e818423570a76f6d42a323bf522",
+      "rgba_sha256": "44ff26b147745619ea0da7b00704a54a0aa49f8041abe012cda198b8eefb047b"
+    },
+    {
+      "file": "character_13_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_13/hurt/keyframes/frame_001.png",
+      "sha256": "cac499117a90b276bf0d1b56cbd250be566f7c18aa8047a366f782fd5b544095",
+      "rgba_sha256": "893bfcb25f6feaf6548abffa1a4e6538c3eaa0cbe21c78670a96b1de1ce4af6d"
+    },
+    {
+      "file": "character_13_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_13/hurt/keyframes/frame_002.png",
+      "sha256": "fbc7a995eb37b0702c7f71c59636658a00c3af36e52b5148bbb168fb74b57fa3",
+      "rgba_sha256": "9b79ecc67147cab382384940c8a802dcb3cd1e30669a2a95a8bc4681084cb5e8"
+    },
+    {
+      "file": "character_13_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_13/hurt/keyframes/frame_003.png",
+      "sha256": "314cb1161f805b82c9ffaa2048287dd39aeef204cba04a627130ab19e5489805",
+      "rgba_sha256": "78de75fa280807187fa789ca450b2889e4c7ef3aaa846de259805100e3b01795"
+    },
+    {
+      "file": "character_13_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_13/defeat/keyframes/frame_000.png",
+      "sha256": "fbc875bf3220db45a32ba8cb758185f3ca8651e50789be6c19a1c5654cb93ea2",
+      "rgba_sha256": "bf85bc912e009a11d9ad1e70d2f19c80b2addf776cfadc9ad55b18ffd875dfa6"
+    },
+    {
+      "file": "character_13_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_13/defeat/keyframes/frame_001.png",
+      "sha256": "fbcbaa2a20d309cfa797814945e9ce9384341d9bd2db733d89740bf4096734c3",
+      "rgba_sha256": "670b15486c2860689123639021c5842651ff9e0b63dc9f1781c7c86cea4d3226"
+    },
+    {
+      "file": "character_13_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_13/defeat/keyframes/frame_002.png",
+      "sha256": "66b89cf4453aec94b80e67f0a72b646c94480a166214a193911abd31a066b15e",
+      "rgba_sha256": "0c7d8840cd60e97191c57034cd2edbeec3ddf7af773bc53b55b441b428d78870"
+    },
+    {
+      "file": "character_13_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_13/defeat/keyframes/frame_003.png",
+      "sha256": "6adce1e5faf9b2b79ccf7ec63b0e5badace6d95eb34211db3976e0b5af6d2de1",
+      "rgba_sha256": "5fae0b0e97d3b32ec411e03d46f9c2b80646138feb3e573804cc0eb5e717cebb"
+    },
+    {
+      "file": "character_13_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_13_female/hurt/keyframes/frame_000.png",
+      "sha256": "c7c292bdaf23807445db7083f80953f0c3a1116562b34d5a57bf29e33ee28deb",
+      "rgba_sha256": "ce91ea825127c86b3032eea8f4feed08d8efea6ae1fb5e5fa8d7dec9ddef6101"
+    },
+    {
+      "file": "character_13_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_13_female/hurt/keyframes/frame_001.png",
+      "sha256": "331fb798580a17c37f74b0f65c1429ade499c3822ac6ff8e1019ab9df13aaa90",
+      "rgba_sha256": "7ec2a17f75664fc8f826dc0d02d1c4f01c6697bd5bc4236e9cfefd93f633b8d0"
+    },
+    {
+      "file": "character_13_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_13_female/hurt/keyframes/frame_002.png",
+      "sha256": "d7c7f9edb0ef510d3fcb5a59f15271d07b016a6b99791e7566637c2542d85519",
+      "rgba_sha256": "fcea3c5cc47fa277878f986338e0133fe353bf55ba39124c1f62d9a6634ffd9a"
+    },
+    {
+      "file": "character_13_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_13_female/hurt/keyframes/frame_003.png",
+      "sha256": "56290cc129c56ea69c3294d724eaaaf01130904cadadd76fd9e2ef7447a7e3ad",
+      "rgba_sha256": "1f9cb009a054b2f8cc6469d4769aa45a631ba9ea872c4db0c27b0c5cf3155fc8"
+    },
+    {
+      "file": "character_13_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_13_female/defeat/keyframes/frame_000.png",
+      "sha256": "993dd40ccec0330cdc9d349e17b96384d541677da36f66af047de46fa51425b7",
+      "rgba_sha256": "c71155e5f6aae6cea6d35aecc00955b8e51181acf0ca45300692a570487d38e6"
+    },
+    {
+      "file": "character_13_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_13_female/defeat/keyframes/frame_001.png",
+      "sha256": "3887097148f30734b32b85f5a54099a8897fcf43e6ad58512268ec5096e646ab",
+      "rgba_sha256": "747a1f344f3c08de6006efab5407a5f81e9c9f3bd403be6740eecd664ebaf25b"
+    },
+    {
+      "file": "character_13_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_13_female/defeat/keyframes/frame_002.png",
+      "sha256": "2395b0e1b067bb55dab3bb3d133406b7b738f06a7c408dcab266f7c7b67925e4",
+      "rgba_sha256": "213d0f00fb3c0ec2a7b6ef9ace26109b5b7c000b618c54a9d3b9871808a70401"
+    },
+    {
+      "file": "character_13_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_13_female/defeat/keyframes/frame_003.png",
+      "sha256": "554425fb4237b1f912e7e95291a596d77d52631718195ae93625d7b16bcbd65f",
+      "rgba_sha256": "0ba6f60885193560a0d8c053104e4b49c4bd373ce1def77c5e1c3cfdfdfbf130"
+    },
+    {
+      "file": "character_14_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_14/hurt/keyframes/frame_000.png",
+      "sha256": "1a7bef2eca1edb4208be3ab68bc92b35b54fb966739bfabd6c1820d2a5164c25",
+      "rgba_sha256": "c1b73ebe1ba4ebf1050c5f4dd6f2991a797171858d6305d7a55954fe75d85c85"
+    },
+    {
+      "file": "character_14_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_14/hurt/keyframes/frame_001.png",
+      "sha256": "b45dde66d44c6e7101d35a9bbbf87c75b2211e30b4c0b68302985102f264e890",
+      "rgba_sha256": "4bd5b91100c224a7529b878d967d59e0d75ebff3d8e0320282edbd4aae5b17d9"
+    },
+    {
+      "file": "character_14_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_14/hurt/keyframes/frame_002.png",
+      "sha256": "964e5a47773818fb80abf05dfb5f2e3d4a2f7dc50009a87722f9fd7296d944c7",
+      "rgba_sha256": "16f9f6ba805a8d8cbddccc5a80f34eb67770f8cd8fb7cd50874b67a5501b6664"
+    },
+    {
+      "file": "character_14_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_14/hurt/keyframes/frame_003.png",
+      "sha256": "85987195859bbdb9b5b3577a333182add3d9a220a864447f28d44a26562221fe",
+      "rgba_sha256": "3650b71a0b852a9860a99f390e3b9e586c6ded5909a3a7fdbd620b91c3d33f93"
+    },
+    {
+      "file": "character_14_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_14/defeat/keyframes/frame_000.png",
+      "sha256": "d07ec6d595429621e81f61fc298441353f3d7661f0e2922c99cfd49579342959",
+      "rgba_sha256": "69af27c6732eb148f8293855702b3b4fb42931b0531115fe600558aec2e42deb"
+    },
+    {
+      "file": "character_14_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_14/defeat/keyframes/frame_001.png",
+      "sha256": "50cad09b1c24beba7d796a230d3c909c5c3e1555cdad0d491387dac6652baab6",
+      "rgba_sha256": "590085faa3e611f22a6c6105ac25cb4cf0491f414aa28a627ad601c620745f9b"
+    },
+    {
+      "file": "character_14_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_14/defeat/keyframes/frame_002.png",
+      "sha256": "d7c675d95955d796110f5808e40d2890f92c459b0602662e4cbdb47de8bf9c4f",
+      "rgba_sha256": "871df8e48b4d67ce57e04bf8b0e8fd1257f3552c29a2c47a83f957942a643aea"
+    },
+    {
+      "file": "character_14_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_14/defeat/keyframes/frame_003.png",
+      "sha256": "cca79fe416b6fb138299862dcc1943af63678927a0bae858672a569efecc9958",
+      "rgba_sha256": "ccafee1f8d22a0d63e59b10faaaa822ccc0e67896835d6e1341d6f93056df437"
+    },
+    {
+      "file": "character_14_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_14_female/hurt/keyframes/frame_000.png",
+      "sha256": "d386989e606cb9e654e9136557cd49e0b4f2e5806da34520833b6fc697797927",
+      "rgba_sha256": "4390ca469602d23ff6aaa52f2b40456cfa65d6d6e0c4edfadac18465ba32840d"
+    },
+    {
+      "file": "character_14_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_14_female/hurt/keyframes/frame_001.png",
+      "sha256": "0684e2f96cc99d7139dc3e7787df41cb9544e81ecbf8a2552c29f037772d2d15",
+      "rgba_sha256": "a58fcafb68677e1e5102b92e3a7d1066529a3c27ab73f0f2bc088002722b9465"
+    },
+    {
+      "file": "character_14_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_14_female/hurt/keyframes/frame_002.png",
+      "sha256": "9dd78e0c359dd524979df07dfd44a10bd675cbaa38258c5c71be19f88b8a437d",
+      "rgba_sha256": "09e7e4d21279c582f9958eb1eba5f28651cf168a614ad98327cf81abb74c3ee0"
+    },
+    {
+      "file": "character_14_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_14_female/hurt/keyframes/frame_003.png",
+      "sha256": "eb57c330215090e19d42db8e4533b436006cbe5d3aeb68134406b2219ffc71f7",
+      "rgba_sha256": "9fd0351e6de812710b7604f260bc865970c5820ed27f2a4a2a8dd6ef5998c136"
+    },
+    {
+      "file": "character_14_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_14_female/defeat/keyframes/frame_000.png",
+      "sha256": "2f70c491bfe83812fa488c95d7a5c01014079c4d506c6428e8408d95a9a5672d",
+      "rgba_sha256": "f2444134cfa4b1fb9215653dd14e4e3dcd662f9a7ee97568062e3468077649a8"
+    },
+    {
+      "file": "character_14_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_14_female/defeat/keyframes/frame_001.png",
+      "sha256": "ee541687c7d7848955b495abb8a57e3a72b5c48bf67f5bb46ca1955b7367b670",
+      "rgba_sha256": "6e42c1e014e3a2ba3e63f61ece05ee755694d61e88ce42022e330c9d070ab17c"
+    },
+    {
+      "file": "character_14_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_14_female/defeat/keyframes/frame_002.png",
+      "sha256": "bf926aaf1b54116974bc9f667db4eb7e878cc166a3891ba46b6283ffcc40bbd9",
+      "rgba_sha256": "4780c80e4d5b3f4f97db53f072eaebc66c2ec6d6c868f09c57bdee981ac5065c"
+    },
+    {
+      "file": "character_14_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_14_female/defeat/keyframes/frame_003.png",
+      "sha256": "bd6e03658e90a112d9ff69e7e462cc7d1693f8b25d48fdcc06ad7c148ca29418",
+      "rgba_sha256": "44a70c34d361fac348f05cbd687040ac54e0b8e8eb753f0771122c2c7978664e"
+    },
+    {
+      "file": "character_15_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_15/hurt/keyframes/frame_000.png",
+      "sha256": "f7335d4875ab1c629f2f84da4fdee87a4555368f38faeae011df928d2dde4ea8",
+      "rgba_sha256": "8b18bc5ba96621332291b1629e6fbe10373d16137287acef440d6d80811fe944"
+    },
+    {
+      "file": "character_15_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_15/hurt/keyframes/frame_001.png",
+      "sha256": "51616e29eecd1d0e176b7a6c840d87d14e775a2f5320f066ce47e9f31bac5621",
+      "rgba_sha256": "7a816edff306f4606a47417139246ba5c76334102f020319bc1bc46d926916ce"
+    },
+    {
+      "file": "character_15_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_15/hurt/keyframes/frame_002.png",
+      "sha256": "a86d4539e6932bfa497f3238e6b25e104aead4f2c640100958aa44cb43b6dea4",
+      "rgba_sha256": "8a5689db7e3d42535f5e89ceb9c4031ebc88da06894f28539a4a29963eaa2664"
+    },
+    {
+      "file": "character_15_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_15/hurt/keyframes/frame_003.png",
+      "sha256": "86109851b3257b6fe73e3ed3ff6c45b7f8bb6c89d59a7d1533274f0b134610d9",
+      "rgba_sha256": "8ae23ca8a9d354dd057a2acb8f411ae9c26aafb831b799b418546b8717345a55"
+    },
+    {
+      "file": "character_15_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_15/defeat/keyframes/frame_000.png",
+      "sha256": "dfa3d008dbdec635f237e2e8c9dd61125706dfd28bfafb84cc5c59ca70dece32",
+      "rgba_sha256": "74596022c72202b80a07ecbcd9d04980189b9b90596662e7ff026efef409513d"
+    },
+    {
+      "file": "character_15_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_15/defeat/keyframes/frame_001.png",
+      "sha256": "373a8006f130ec0e5c631845cb12b9cf889681db2ebbf605e163911497ff0476",
+      "rgba_sha256": "dc79a34ebb16d35de96e7058f42c838dba74e9ca91a12473afaab6df2c1a14c3"
+    },
+    {
+      "file": "character_15_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_15/defeat/keyframes/frame_002.png",
+      "sha256": "1394556e5b2be283300eb2c665301f71c0618ee97a07ec616009f76ecf796ac2",
+      "rgba_sha256": "11906cd70a2f470441f46398679cae68749363d2c5f01021fa7f4618cf21515f"
+    },
+    {
+      "file": "character_15_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_15/defeat/keyframes/frame_003.png",
+      "sha256": "d619807d5f77a9546d12e1978a229561d0372fd44d1c0a94e6c9fb78de0df01f",
+      "rgba_sha256": "863bed3217b7166bafe83cbb2e64511c01e89763cefd68038e2c5db271522587"
+    },
+    {
+      "file": "character_15_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_15_female/hurt/keyframes/frame_000.png",
+      "sha256": "ab56fe4b28042c076e8661ff94d4ce65be8913d374f9f33f799236e2d162c8d0",
+      "rgba_sha256": "96b44c5e5e9993c788746827af327bc078799d23c650e64b4f9f187d79d4c5fb"
+    },
+    {
+      "file": "character_15_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_15_female/hurt/keyframes/frame_001.png",
+      "sha256": "aefeefce0f096b2d33908ff88ab52cc0979b84dc847dd284b25881f3c1845ccd",
+      "rgba_sha256": "ee9485223f98fa516144d2f34a52666745c24a5af452613d2c9b74db9b55a7eb"
+    },
+    {
+      "file": "character_15_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_15_female/hurt/keyframes/frame_002.png",
+      "sha256": "7c9a1bf0957632644db14196ddb6a63576dd3c1701beb90af85eb5fe71a6571f",
+      "rgba_sha256": "35ba670c7ec51027a99aa2f6217b99dac16fcefd364428bb6ec19d75e06ce1be"
+    },
+    {
+      "file": "character_15_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_15_female/hurt/keyframes/frame_003.png",
+      "sha256": "fb92dbfcce46f81c3eb704741d96e7f952c0227c65cf76b0ed3a57147d64ba7c",
+      "rgba_sha256": "432bd4748a31ace4783443ee4d29724e3a296d726cd75b61891149cbdc6b664b"
+    },
+    {
+      "file": "character_15_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_15_female/defeat/keyframes/frame_000.png",
+      "sha256": "a9bc99d63992405a16f4b238ec6bc39b5327f9865c68641e3843d7f2df60d444",
+      "rgba_sha256": "c642506acb0da216a3d48f08539141e84a72653733e0b026a3064775211069f8"
+    },
+    {
+      "file": "character_15_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_15_female/defeat/keyframes/frame_001.png",
+      "sha256": "39b968ccd074c00338f95475f703aba59653a0f34122ecfae5d4f973025b7ba3",
+      "rgba_sha256": "08c9e64d1f2a480df6c9c646dbc1adabd46320eb06e5c4887acedd1569b3e325"
+    },
+    {
+      "file": "character_15_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_15_female/defeat/keyframes/frame_002.png",
+      "sha256": "9f70d3497adc60c088ceb0172128bfea576472268392163cae3d0ddc1efcddf8",
+      "rgba_sha256": "dff91141ecee76a468167c69f0e9936d747ae97b0a2d41d9cee5febe4a1dc244"
+    },
+    {
+      "file": "character_15_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_15_female/defeat/keyframes/frame_003.png",
+      "sha256": "730559fbbd421cec6aa0f6a14f4b9525ad612d55e0d3b50f96d097ec9880782d",
+      "rgba_sha256": "e4154346d6ebf201f437739608095cb6ea90a377aae6c19dd408f0a44d75fd67"
+    },
+    {
+      "file": "character_16_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_16/hurt/keyframes/frame_000.png",
+      "sha256": "2259c6d14968251816d3b8eefc72fb79fbb9f450a99a7ede9a4142bac70257b4",
+      "rgba_sha256": "585b787639f40eb8c7576e5e6657da6f54b705018a56c466423c76e2c63062c3"
+    },
+    {
+      "file": "character_16_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_16/hurt/keyframes/frame_001.png",
+      "sha256": "84031034d2d9ea763d4bf0ff7ca3f860ce6ff2336b89ebfde5a999db69a1fc72",
+      "rgba_sha256": "f59e0ad26df6b37297b99d99784543cbbd528ad6a1e9b2397d7279e225f28bf4"
+    },
+    {
+      "file": "character_16_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_16/hurt/keyframes/frame_002.png",
+      "sha256": "9540d1d21ba7b524e57e02fb7bffbfb64cacf5db02caa93becbe1342cbce79ac",
+      "rgba_sha256": "cecf290741df633aab5386b64a607ec1a4c2722f1430fc206df6c35caa85c059"
+    },
+    {
+      "file": "character_16_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_16/hurt/keyframes/frame_003.png",
+      "sha256": "c0bdcd49ba26b0e24abaef98f6ab15af8a59b6105b53f985dd3f659f0976a58a",
+      "rgba_sha256": "8499f9477d2d1d9df4c156f2720e54d50b7f8c0be8f85ed4cd788f708d2537b5"
+    },
+    {
+      "file": "character_16_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_16/defeat/keyframes/frame_000.png",
+      "sha256": "8d81eff3e37229730f12d3d4cc28e771ecf73202bffd682cdd1e3aeb0dca302b",
+      "rgba_sha256": "f0eca2e122f69dc0f3f098217ce86ea8d02ba4345252a3a8bcee78580155fbc3"
+    },
+    {
+      "file": "character_16_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_16/defeat/keyframes/frame_001.png",
+      "sha256": "b7d92e336e9e2d7359d9cdbeab6f233c599752cfcb5eb83ba13d3050e933faee",
+      "rgba_sha256": "d968f021e0c48664e755a131c09a5f4da19fedd9a5f0a65281caed8a67a9c3e4"
+    },
+    {
+      "file": "character_16_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_16/defeat/keyframes/frame_002.png",
+      "sha256": "c59f768ff596f3c23a2eaee51040b4bb2835becf2783901c87570553d3a0bb47",
+      "rgba_sha256": "7036507dfa2f227155234b9a4108929f424268457334c3d27a03ef0b50799e82"
+    },
+    {
+      "file": "character_16_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players/character_16/defeat/keyframes/frame_003.png",
+      "sha256": "4b8841d661d79ba9f670eb2e34ba1fb37a181af65dac1109e1d77b0210544b88",
+      "rgba_sha256": "ebb7f94a8c29420e46ab23dd94bc0c3457a703816e90dc0b8fc2ff7212154ce7"
+    },
+    {
+      "file": "character_16_female_hurt_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_16_female/hurt/keyframes/frame_000.png",
+      "sha256": "e70b8e9c05c07d77b749781d73eb99beee1d1ed942102c8b3f4895f02bb5ebac",
+      "rgba_sha256": "70a33c7a8c98da749129ffa266e310743d222bd5ac134f79c3ee6e529264ab68"
+    },
+    {
+      "file": "character_16_female_hurt_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_16_female/hurt/keyframes/frame_001.png",
+      "sha256": "efa1c0602b09af453d05e34dc05f85c16f7bf439d89aa11ec269dda8edb57abf",
+      "rgba_sha256": "1fc3ae8f06860ef3118d637412fb07801e554513bf75c90ecbfd74b351a462fc"
+    },
+    {
+      "file": "character_16_female_hurt_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_16_female/hurt/keyframes/frame_002.png",
+      "sha256": "de016aff1de4fec52bb5ee88fb9d75e7b9513a3a4f8715a80f369a6e0be20a48",
+      "rgba_sha256": "9392556580420233a44083ef32e7de77df71d585f096310d26aec635d262985b"
+    },
+    {
+      "file": "character_16_female_hurt_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_16_female/hurt/keyframes/frame_003.png",
+      "sha256": "602e68ffc9a0348457dd1c8012ca7c8e98c0dd35296d5e48c2e0a62129b2a947",
+      "rgba_sha256": "f761928555e3b1860214460fc5a2e319473133f6a65737d436a65a9c3895a826"
+    },
+    {
+      "file": "character_16_female_defeat_000.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_16_female/defeat/keyframes/frame_000.png",
+      "sha256": "f8141c13ef927a9fd88f3bc863787ff07e84886296650aaf20f5f35b51969c6a",
+      "rgba_sha256": "cc4574abb31f09426f0c715b8c221f87076bd73927f3484871747f91f1a9bec2"
+    },
+    {
+      "file": "character_16_female_defeat_001.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_16_female/defeat/keyframes/frame_001.png",
+      "sha256": "dc0114fbbd04d3a7208b1adce6af9c8ff909a70166b14b89949c526e3915a425",
+      "rgba_sha256": "535c363669220bc4e4d15782462221d49907ee698761f9f5eb5da805dde8e851"
+    },
+    {
+      "file": "character_16_female_defeat_002.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_16_female/defeat/keyframes/frame_002.png",
+      "sha256": "ce5d6b0f6feb0d0eb5debe7f61f7d336f036443d3a73d75a8328f53716c8dfa5",
+      "rgba_sha256": "9d6c88a838f693a544e02a8e9ce2744a417c6f987e8ccf74dc73866928fa9d61"
+    },
+    {
+      "file": "character_16_female_defeat_003.png",
+      "source": "FocusQuest_player_reactions_v017/players_female/character_16_female/defeat/keyframes/frame_003.png",
+      "sha256": "85cefcf491f5ba4d700562e1efe96ef2e8ff516c28cc8f42c80279ebb21fd761",
+      "rgba_sha256": "761520552f75573158fdbb30dbd950d5817c59944ad4772c6a0acfdadf3af37c"
     }
   ],
   "fps": 24,
-  "interpolation": "none"
+  "interpolation": "none",
+  "player_reactions_source": "FocusQuest_player_reactions_v017"
 }

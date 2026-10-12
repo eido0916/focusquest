@@ -53,7 +53,7 @@ void main() {
     expect(controller.state!.coins, 0);
     await tester.tap(find.text('閉じる'));
     await tester.pumpAndSettle();
-    await tester.pageBack();
+    await tester.tap(find.byKey(const Key('focus-back')));
     await tester.pumpAndSettle();
     await tester.ensureVisible(find.text('冒険に出発する'));
     await tester.tap(find.text('冒険に出発する'));

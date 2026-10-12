@@ -14,12 +14,14 @@ class PlayerState {
       this.totalDefeats = 0,
       this.focusAdventureSeconds = 0,
       Set<int> clearedPlayableStages = const {},
+      Set<String> encounteredEnemyIds = const {},
       Map<String, Character> characters = const {},
       Map<String, int> inventory = const {},
       Map<String, FocusSession> sessions = const {},
       Set<String> appliedOperations = const {}})
       : characters = Map.unmodifiable(characters),
         clearedPlayableStages = Set.unmodifiable(clearedPlayableStages),
+        encounteredEnemyIds = Set.unmodifiable(encounteredEnemyIds),
         inventory = Map.unmodifiable(inventory),
         sessions = Map.unmodifiable(sessions),
         appliedOperations = Set.unmodifiable(appliedOperations);
@@ -38,6 +40,7 @@ class PlayerState {
   final Map<String, FocusSession> sessions;
   final Set<String> appliedOperations;
   final Set<int> clearedPlayableStages;
+  final Set<String> encounteredEnemyIds;
   Character? get activeCharacter => characters[activeCharacterId];
 
   PlayerState copyWith(
@@ -54,6 +57,7 @@ class PlayerState {
           Map<String, int>? inventory,
           Map<String, FocusSession>? sessions,
           Set<int>? clearedPlayableStages,
+          Set<String>? encounteredEnemyIds,
           Set<String>? appliedOperations}) =>
       PlayerState(
           uid: uid,
@@ -72,6 +76,7 @@ class PlayerState {
           sessions: sessions ?? this.sessions,
           clearedPlayableStages:
               clearedPlayableStages ?? this.clearedPlayableStages,
+          encounteredEnemyIds: encounteredEnemyIds ?? this.encounteredEnemyIds,
           appliedOperations: appliedOperations ?? this.appliedOperations);
 
   Map<String, dynamic> toJson() => {
@@ -87,6 +92,7 @@ class PlayerState {
         'monitoring': monitoring,
         'targetPackages': targetPackages,
         'clearedPlayableStages': clearedPlayableStages.toList(),
+        'encounteredEnemyIds': encounteredEnemyIds.toList(),
         'characters':
             characters.map((key, value) => MapEntry(key, value.toJson())),
         'inventory': inventory,
@@ -110,6 +116,8 @@ class PlayerState {
         monitoring: json['monitoring'] as bool? ?? false,
         clearedPlayableStages:
             Set<int>.from(json['clearedPlayableStages'] as List? ?? []),
+        encounteredEnemyIds:
+            Set<String>.from(json['encounteredEnemyIds'] as List? ?? []),
         targetPackages:
             List<String>.from(json['targetPackages'] as List? ?? []),
         characters: (json['characters'] as Map).map((key, value) => MapEntry(

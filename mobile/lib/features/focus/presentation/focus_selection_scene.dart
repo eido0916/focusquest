@@ -1,3 +1,4 @@
+import '../../../core/widgets/game_ui.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../../diagnosis/presentation/job_portrait.dart';
@@ -44,9 +45,25 @@ class FocusSelectionScene extends StatelessWidget {
     return '${_base}avatars/$sex/$role.png';
   }
 
-  Widget _image(String asset) => Image.asset('$_base$asset.png',
-      fit: BoxFit.fill, excludeFromSemantics: true);
-
+  Widget _image(String asset) => asset == 'custom_strip'
+      ? const DecoratedBox(
+          decoration: BoxDecoration(
+              color: Color(0xfffff8e9),
+              border:
+                  Border.fromBorderSide(BorderSide(color: Color(0xffbfa166))),
+              borderRadius: BorderRadius.all(Radius.circular(3))))
+      : asset == 'avatar_frame'
+          ? Image.asset('${_base}avatar_frame.png',
+              fit: BoxFit.fill, excludeFromSemantics: true)
+          : GameArtwork(switch (asset) {
+              'stage_banner' => 'header_banner',
+              'party_panel' || 'avatar_frame' => 'identity_panel',
+              'parchment_panel' ||
+              'time_button' ||
+              'custom_strip' =>
+                'parchment_panel',
+              _ => 'equipment_row',
+            });
   Widget _icon(String icon, double size, {Color? color}) =>
       Image.asset('${_base}icon_$icon.png',
           width: size, height: size, color: color, excludeFromSemantics: true);
@@ -69,6 +86,7 @@ class FocusSelectionScene extends StatelessWidget {
           required VoidCallback? onTap,
           bool selected = false}) =>
       Semantics(
+          key: label == '戻る' ? const Key('focus-back') : null,
           button: true,
           label: label,
           selected: selected,
@@ -87,22 +105,31 @@ class FocusSelectionScene extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
       backgroundColor: const Color(0xff092036),
       bottomNavigationBar: QuestNavigation(selected: -1, onSelect: onNavigate),
-      body: Stack(children: [
+      body: Stack(fit: StackFit.expand, children: [
         Positioned.fill(
             child: Image.asset(
                 stage == 1
-                    ? '${_base}background.png'
+                    ? gameBackground
                     : 'assets/images/stage_backgrounds/ghost_ship_focus_v002.png',
                 fit: BoxFit.cover,
                 excludeFromSemantics: true)),
         SafeArea(child: LayoutBuilder(builder: (context, constraints) {
-          final width = math.min(constraints.maxWidth, 1024.0);
+          final portrait =
+              MediaQuery.orientationOf(context) == Orientation.portrait;
+          final contentUnits = message == null ? 952.0 : 1012.0;
+          final width = portrait
+              ? math.min(constraints.maxWidth, 1024.0)
+              : math.min(
+                  constraints.maxWidth,
+                  math.min(
+                      1024.0, constraints.maxHeight * 1024 / contentUnits));
           final scale = width / 1024;
-          final height = math.max(constraints.maxHeight, width * 1.5);
-          final bottom = height - 52 * scale;
-          final startY = bottom - 160 * scale;
-          final panelY = startY - 358 * scale;
-          final partyY = panelY - 190 * scale;
+          final height = portrait
+              ? math.max(constraints.maxHeight, width * 1.5)
+              : contentUnits * scale;
+          final startY = portrait ? height - 212 * scale : 768 * scale;
+          final panelY = portrait ? startY - 358 * scale : 410 * scale;
+          final partyY = portrait ? panelY - 190 * scale : 220 * scale;
           Widget place(double x, double y, double w, double h, Widget child) =>
               Positioned(
                   left: x * scale,

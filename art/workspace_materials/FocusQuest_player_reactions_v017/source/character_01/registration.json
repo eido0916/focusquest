@@ -1,0 +1,20 @@
+{
+  "reference": "mobile/assets/images/playable_stage/character_01_idle_000.png",
+  "referenceSha256": "ff11b60c7a6862277f4b28fbc286da02724715749f232f3464003d1a4e762abf",
+  "sharedScale": 0.1299093655589124,
+  "sharedShift": 0,
+  "baselinePx": 114,
+  "standingReferenceHeightPx": 86,
+  "standingOriginalHeightPx": 86,
+  "canvas": [
+    128,
+    128
+  ],
+  "logicalGrid": [
+    64,
+    64
+  ],
+  "partTransforms": false,
+  "interpolation": "none",
+  "generationTool": "built-in image_gen"
+}

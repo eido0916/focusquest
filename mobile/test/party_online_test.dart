@@ -23,6 +23,7 @@ Future<void> until(bool Function() check) async {
 }
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
   late PartyServer server;
   late Uri uri;
   final clients = <PartyConnection>[];
