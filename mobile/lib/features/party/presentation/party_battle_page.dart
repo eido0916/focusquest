@@ -200,7 +200,7 @@ class PartyBattleGame extends FlameGame {
   void update(double dt) {
     super.update(dt);
     if (elapsed >= session.durationMinutes * 60) _finishAge += dt;
-    final end = session.adventureStartSeconds + session.durationMinutes * 60;
+    final end = session.durationMinutes * 60;
     final bossJustDefeated = end >= 1800 && end % 1800 == 0;
     if (!_reported &&
         elapsed >= session.durationMinutes * 60 &&
@@ -230,8 +230,9 @@ class PartyBattleGame extends FlameGame {
     canvas.save();
     canvas.scale(size.x / 960, size.y / 540);
     final time = elapsed.clamp(0.0, session.durationMinutes * 60.0).toDouble();
-    final adventureTime = session.adventureStartSeconds + time;
-    final bossBattle = FocusAdventure.fightingBoss(adventureTime);
+    final adventureTime = time;
+    final bossBattle = FocusAdventure.bossActive(time,
+        durationSeconds: session.durationMinutes * 60.0);
     final bossLeft = (1800 - FocusAdventure.age(adventureTime)).ceil();
     final background = _background;
     if (background != null) {

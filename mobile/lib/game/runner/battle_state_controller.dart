@@ -184,20 +184,21 @@ class BattleStateController {
   double get adventureSeconds => (adventureStartSeconds ?? 0) + elapsedSeconds;
   bool get isBossBattle =>
       adventureStartSeconds != null &&
-      FocusAdventure.fightingBoss(adventureSeconds);
+      FocusAdventure.bossActive(elapsedSeconds,
+          durationSeconds: durationSeconds);
   double get bossRemainingSeconds => isBossBattle
-      ? FocusAdventure.cycleSeconds - FocusAdventure.age(adventureSeconds)
+      ? FocusAdventure.cycleSeconds - FocusAdventure.age(elapsedSeconds)
       : 0;
   String get areaName => adventureStartSeconds == null
       ? '木漏れ日の野原'
       : FocusAdventure.area(adventureSeconds, areaIndex: focusAreaIndex);
   String get bossName =>
-      FocusAdventure.bossName(adventureSeconds, areaIndex: focusAreaIndex);
+      FocusAdventure.bossName(elapsedSeconds, areaIndex: focusAreaIndex);
   RunnerEnemy? _focusBoss;
   int? _bossCycle;
   void _updateFocusBoss(double now) {
     if (adventureStartSeconds == null) return;
-    final clock = adventureStartSeconds! + now;
+    final clock = now;
     final cycle = FocusAdventure.cycle(clock);
     if (_focusBoss != null && _bossCycle != cycle) {
       final boss = _focusBoss!;
@@ -210,7 +211,8 @@ class BattleStateController {
       _focusBoss = null;
       _spawnTimer = 0;
     }
-    if (FocusAdventure.fightingBoss(clock) && _bossCycle != cycle) {
+    if (FocusAdventure.bossActive(clock, durationSeconds: durationSeconds) &&
+        _bossCycle != cycle) {
       enemies.removeWhere(
           (e) => e.phase == EnemyPhase.move || e.phase == EnemyPhase.spawn);
       _arrowFlights.clear();
