@@ -1,0 +1,1270 @@
+{
+  "asset": "character_16_female",
+  "action": "floor_throw",
+  "render_mode": "original_pixel_keyframes",
+  "canvas": [
+    128,
+    128
+  ],
+  "fps": 24,
+  "direction": "right",
+  "interpolation": "none",
+  "part_transforms": false,
+  "crossfade": false,
+  "loop_in_game": false,
+  "duration_seconds": 1.5,
+  "keyframes": [
+    {
+      "index": 0,
+      "file": "keyframes/frame_000.png",
+      "rgba_sha256": "a7fb00ffa8e694b2453515bddd2a80dff113fffd8b4c0b7fb2d1ecffc26deeab"
+    },
+    {
+      "index": 1,
+      "file": "keyframes/frame_001.png",
+      "rgba_sha256": "17ad7a9ce3858c5e89635cc729910858054974da29a483a42d1efd8966ec93f1"
+    },
+    {
+      "index": 2,
+      "file": "keyframes/frame_002.png",
+      "rgba_sha256": "218716da6d263cf2a07b0a09b7fe5e6d8c2d4b09a704f39649c7862fbf23612c"
+    },
+    {
+      "index": 3,
+      "file": "keyframes/frame_003.png",
+      "rgba_sha256": "c628c5e64cf4504a680adee2d06d170ffe7ca97eb072d588498af5d8fad7e4d3"
+    },
+    {
+      "index": 4,
+      "file": "keyframes/frame_004.png",
+      "rgba_sha256": "79a9c33c21f0fb8ee541f866660af8bacf93b58ea0b2abe2e3d196d10939a507"
+    },
+    {
+      "index": 5,
+      "file": "keyframes/frame_005.png",
+      "rgba_sha256": "1feb35cb04aeb90cf8b0cf451b805ea016d36dc23a8680475fba033e1fb56c8a"
+    },
+    {
+      "index": 6,
+      "file": "keyframes/frame_006.png",
+      "rgba_sha256": "3c46e2133dec5e4f33cd638f3628ea3439c8f639c271d0bc76edcdb74fc88d54"
+    },
+    {
+      "index": 7,
+      "file": "keyframes/frame_007.png",
+      "rgba_sha256": "4c1ee23b5cace8b8df910870ec60b53de8ee391047f66046e0ee5e2b1ec80afa"
+    },
+    {
+      "index": 8,
+      "file": "keyframes/frame_008.png",
+      "rgba_sha256": "038e712240617a2822585b9b347fe77cc073c1102b199034b34ecbb6992d6d0d"
+    },
+    {
+      "index": 9,
+      "file": "keyframes/frame_009.png",
+      "rgba_sha256": "b19123fe0d675a34c35ad5b320555eeb540a2a3aeb9e0fd2fbbacf38d341f1dd"
+    },
+    {
+      "index": 10,
+      "file": "keyframes/frame_010.png",
+      "rgba_sha256": "4bd0565b1d54cc88a340b1c571e1d749cd417ae7e7f1cecbddf8a53f4380e3cb"
+    },
+    {
+      "index": 11,
+      "file": "keyframes/frame_011.png",
+      "rgba_sha256": "9c764a635380954b90884ed8e36fb25dee009c3d3eeb504691088f79bdb0c9de"
+    }
+  ],
+  "holds": [
+    {
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 4
+    },
+    {
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 4
+    },
+    {
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 6,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 7,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 8,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 9,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 10,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 4
+    }
+  ],
+  "events": [
+    {
+      "event": "floor_rip",
+      "tick": 9,
+      "keyframe": 3,
+      "direction": [
+        1,
+        0
+      ]
+    },
+    {
+      "event": "floor_lift",
+      "tick": 13,
+      "keyframe": 4,
+      "direction": [
+        1,
+        0
+      ]
+    },
+    {
+      "event": "floor_overhead",
+      "tick": 20,
+      "keyframe": 6,
+      "direction": [
+        1,
+        0
+      ]
+    },
+    {
+      "event": "floor_release",
+      "tick": 24,
+      "keyframe": 8,
+      "direction": [
+        1,
+        0
+      ],
+      "material_source": "stage.floorMaterial",
+      "applies_damage": false
+    }
+  ],
+  "timeline": [
+    {
+      "tick": 0,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_000.png"
+    },
+    {
+      "tick": 1,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_001.png"
+    },
+    {
+      "tick": 2,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_002.png"
+    },
+    {
+      "tick": 3,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_003.png"
+    },
+    {
+      "tick": 4,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_004.png"
+    },
+    {
+      "tick": 5,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_005.png"
+    },
+    {
+      "tick": 6,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_006.png"
+    },
+    {
+      "tick": 7,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_007.png"
+    },
+    {
+      "tick": 8,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_008.png"
+    },
+    {
+      "tick": 9,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_009.png"
+    },
+    {
+      "tick": 10,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_010.png"
+    },
+    {
+      "tick": 11,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_011.png"
+    },
+    {
+      "tick": 12,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_012.png"
+    },
+    {
+      "tick": 13,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_013.png"
+    },
+    {
+      "tick": 14,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_014.png"
+    },
+    {
+      "tick": 15,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_015.png"
+    },
+    {
+      "tick": 16,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_016.png"
+    },
+    {
+      "tick": 17,
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_017.png"
+    },
+    {
+      "tick": 18,
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_018.png"
+    },
+    {
+      "tick": 19,
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_019.png"
+    },
+    {
+      "tick": 20,
+      "keyframe": 6,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_020.png"
+    },
+    {
+      "tick": 21,
+      "keyframe": 6,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_021.png"
+    },
+    {
+      "tick": 22,
+      "keyframe": 7,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_022.png"
+    },
+    {
+      "tick": 23,
+      "keyframe": 7,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_023.png"
+    },
+    {
+      "tick": 24,
+      "keyframe": 8,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_024.png"
+    },
+    {
+      "tick": 25,
+      "keyframe": 8,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_025.png"
+    },
+    {
+      "tick": 26,
+      "keyframe": 8,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_026.png"
+    },
+    {
+      "tick": 27,
+      "keyframe": 9,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_027.png"
+    },
+    {
+      "tick": 28,
+      "keyframe": 9,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_028.png"
+    },
+    {
+      "tick": 29,
+      "keyframe": 10,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_029.png"
+    },
+    {
+      "tick": 30,
+      "keyframe": 10,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_030.png"
+    },
+    {
+      "tick": 31,
+      "keyframe": 10,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_031.png"
+    },
+    {
+      "tick": 32,
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_032.png"
+    },
+    {
+      "tick": 33,
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_033.png"
+    },
+    {
+      "tick": 34,
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_034.png"
+    },
+    {
+      "tick": 35,
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_035.png"
+    }
+  ],
+  "variant": "female",
+  "job": "バーサーカー",
+  "root_motion_space": "world_px_absolute_offset",
+  "sprite_anchor_px": [
+    64,
+    120
+  ],
+  "stage_floor_object": {
+    "fps": 24,
+    "stage_materials": {
+      "草原": "grass",
+      "幽霊船": "wood",
+      "火山": "basalt",
+      "毒茸の湿地": "mud",
+      "砂漠の迷宮": "sandstone",
+      "氷晶洞窟": "ice",
+      "月影の墓地": "stone",
+      "星界の祭壇": "stone",
+      "魔王城": "stone"
+    },
+    "materials": {
+      "grass": {
+        "folder": "combat/floors/grass",
+        "keyframes": [
+          {
+            "index": 0,
+            "file": "frame_000.png",
+            "rgba_sha256": "3e108e64bbcfd214e3d0acd6585dccce260d993d2ba6d3e8154154f944f6ef08"
+          },
+          {
+            "index": 1,
+            "file": "frame_001.png",
+            "rgba_sha256": "f8eda87ea30b1db2daea4e8b3776fefd7be4f7d353c4b7b0393e0adb584d4b99"
+          },
+          {
+            "index": 2,
+            "file": "frame_002.png",
+            "rgba_sha256": "9129f552ba78c1f465ce83792f55e0d9d7fb0e7ebf8687cf8d0f1d0d61bb774f"
+          },
+          {
+            "index": 3,
+            "file": "frame_003.png",
+            "rgba_sha256": "c66e890fa30bb7a9e7ea7913bdbb21ccc8df89201ccca6f9631753fef65f538a"
+          }
+        ],
+        "canvas": [
+          128,
+          128
+        ],
+        "anchor_px": [
+          64,
+          64
+        ],
+        "pose_names": [
+          "lift",
+          "overhead",
+          "flight",
+          "impact"
+        ],
+        "interpolation": "none",
+        "part_transforms": false,
+        "motion_space": "world_px"
+      },
+      "wood": {
+        "folder": "combat/floors/wood",
+        "keyframes": [
+          {
+            "index": 0,
+            "file": "frame_000.png",
+            "rgba_sha256": "bf186b6cb195d4d3bebf488cfcded85925c84ffd0e74484bf4bc17a31546908d"
+          },
+          {
+            "index": 1,
+            "file": "frame_001.png",
+            "rgba_sha256": "52ba27d869183cbae6083273bb3256a4012ed0c3fffb9b47b84a21020a25f9b8"
+          },
+          {
+            "index": 2,
+            "file": "frame_002.png",
+            "rgba_sha256": "451bdbf85ef684a60411d4030f6dd8f22daf0fb48f15023ba302307b84d02a04"
+          },
+          {
+            "index": 3,
+            "file": "frame_003.png",
+            "rgba_sha256": "b63b24e60ba802eb19546ca4bc996ec174c53e2535b016fff84e85457fe4cb45"
+          }
+        ],
+        "canvas": [
+          128,
+          128
+        ],
+        "anchor_px": [
+          64,
+          64
+        ],
+        "pose_names": [
+          "lift",
+          "overhead",
+          "flight",
+          "impact"
+        ],
+        "interpolation": "none",
+        "part_transforms": false,
+        "motion_space": "world_px"
+      },
+      "basalt": {
+        "folder": "combat/floors/basalt",
+        "keyframes": [
+          {
+            "index": 0,
+            "file": "frame_000.png",
+            "rgba_sha256": "f9b94904721e747f1924ce26081a2cee79f56f6bbb5afc5ffa3a49a2c30ac415"
+          },
+          {
+            "index": 1,
+            "file": "frame_001.png",
+            "rgba_sha256": "f573ba7d964742703eb1a60eabc12028cc720fbdf2e47e756e39a3d7f151c73a"
+          },
+          {
+            "index": 2,
+            "file": "frame_002.png",
+            "rgba_sha256": "6fc9faa3051142aa1c8a0f06d3ef29a12d92717828465b4a96b33830e96dd623"
+          },
+          {
+            "index": 3,
+            "file": "frame_003.png",
+            "rgba_sha256": "fffd1b5482268bd2dbb816447a2d89eb9dbcad1d2a989fe3539c21151c39e1aa"
+          }
+        ],
+        "canvas": [
+          128,
+          128
+        ],
+        "anchor_px": [
+          64,
+          64
+        ],
+        "pose_names": [
+          "lift",
+          "overhead",
+          "flight",
+          "impact"
+        ],
+        "interpolation": "none",
+        "part_transforms": false,
+        "motion_space": "world_px"
+      },
+      "stone": {
+        "folder": "combat/floors/stone",
+        "keyframes": [
+          {
+            "index": 0,
+            "file": "frame_000.png",
+            "rgba_sha256": "7965540151bdcc2227fbf2c0718d707991eef1baefc461121c4c2a1cad9ed7b9"
+          },
+          {
+            "index": 1,
+            "file": "frame_001.png",
+            "rgba_sha256": "dccbb7d458dd24682007be33421257ef0ea7606a9584fa7904d6833f265c479b"
+          },
+          {
+            "index": 2,
+            "file": "frame_002.png",
+            "rgba_sha256": "f0047951cb513062a290c57bf8ee8da0b2c2e5f208b4e2a0ff9d8b18bbb3b58e"
+          },
+          {
+            "index": 3,
+            "file": "frame_003.png",
+            "rgba_sha256": "d7e19495a30387074aba04eba301aa452cc823f0a41dc0bd75b0df6f4b8afe1a"
+          }
+        ],
+        "canvas": [
+          128,
+          128
+        ],
+        "anchor_px": [
+          64,
+          64
+        ],
+        "pose_names": [
+          "lift",
+          "overhead",
+          "flight",
+          "impact"
+        ],
+        "interpolation": "none",
+        "part_transforms": false,
+        "motion_space": "world_px"
+      },
+      "mud": {
+        "folder": "combat/floors/mud",
+        "keyframes": [
+          {
+            "index": 0,
+            "file": "frame_000.png",
+            "rgba_sha256": "0508d6e763953aa8d74c826eba05da5707362b21423c4f8d062838add1d0da4e"
+          },
+          {
+            "index": 1,
+            "file": "frame_001.png",
+            "rgba_sha256": "09c9d08699685f423cb7d14835a9b82122621db169a843b1b2c5ca7b8ce52ac7"
+          },
+          {
+            "index": 2,
+            "file": "frame_002.png",
+            "rgba_sha256": "ab3f50ed52a03b315d14396df5e0a7944f2c15472b22fed62f8c17b3a7e8a0e6"
+          },
+          {
+            "index": 3,
+            "file": "frame_003.png",
+            "rgba_sha256": "0c9de54266224a66fa748bed710600f4d753a102052d62c79c94e134049cafb1"
+          }
+        ],
+        "canvas": [
+          128,
+          128
+        ],
+        "anchor_px": [
+          64,
+          64
+        ],
+        "pose_names": [
+          "lift",
+          "overhead",
+          "flight",
+          "impact"
+        ],
+        "interpolation": "none",
+        "part_transforms": false,
+        "motion_space": "world_px"
+      },
+      "sandstone": {
+        "folder": "combat/floors/sandstone",
+        "keyframes": [
+          {
+            "index": 0,
+            "file": "frame_000.png",
+            "rgba_sha256": "da2f8104ec97cf7349b06fa132622b912fdeadd05b0c8672b58482e9b23a5b39"
+          },
+          {
+            "index": 1,
+            "file": "frame_001.png",
+            "rgba_sha256": "a3cffd548f6bf2915e3790d707f017c8bcbffe81b4c1e51c0b2f04dd7966cb53"
+          },
+          {
+            "index": 2,
+            "file": "frame_002.png",
+            "rgba_sha256": "3f46ef996d4b9aa672576a4250aab2505cb64f82c54c24191acf9718c0d896e9"
+          },
+          {
+            "index": 3,
+            "file": "frame_003.png",
+            "rgba_sha256": "831ec1164d5f48a517e22df02b35a64471155cd829674aff751c1ad41c360e76"
+          }
+        ],
+        "canvas": [
+          128,
+          128
+        ],
+        "anchor_px": [
+          64,
+          64
+        ],
+        "pose_names": [
+          "lift",
+          "overhead",
+          "flight",
+          "impact"
+        ],
+        "interpolation": "none",
+        "part_transforms": false,
+        "motion_space": "world_px"
+      },
+      "ice": {
+        "folder": "combat/floors/ice",
+        "keyframes": [
+          {
+            "index": 0,
+            "file": "frame_000.png",
+            "rgba_sha256": "c0392fc4749ad47fa0f0f402b47f819a50ae90e5f8ac5fd7b5a8662110b0224c"
+          },
+          {
+            "index": 1,
+            "file": "frame_001.png",
+            "rgba_sha256": "37ba141fc0de0c0a18b1113b252dc4fad757dab27234a1e3b255d9bcac3de067"
+          },
+          {
+            "index": 2,
+            "file": "frame_002.png",
+            "rgba_sha256": "d377d80bb197d9d88c45f2d58880a0366e45490a700457bde55b9dbcaa4ba143"
+          },
+          {
+            "index": 3,
+            "file": "frame_003.png",
+            "rgba_sha256": "dac8b8326a93195bf964a1c1002b7d81ddc412a5b8b0cc88bec8b383d6d481d0"
+          }
+        ],
+        "canvas": [
+          128,
+          128
+        ],
+        "anchor_px": [
+          64,
+          64
+        ],
+        "pose_names": [
+          "lift",
+          "overhead",
+          "flight",
+          "impact"
+        ],
+        "interpolation": "none",
+        "part_transforms": false,
+        "motion_space": "world_px"
+      }
+    },
+    "character_floor_centers_from_feet_px": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        28,
+        -35
+      ],
+      [
+        22,
+        -42
+      ],
+      [
+        27,
+        -64
+      ],
+      [
+        5,
+        -94
+      ],
+      [
+        -5,
+        -88
+      ]
+    ],
+    "throw_release_keyframe": 8,
+    "collision_damage_only": true,
+    "interpolation": "none",
+    "world_motion_only": true
+  },
+  "floor_entity_timeline": [
+    {
+      "tick": 0,
+      "visible": false,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        0,
+        0
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 1,
+      "visible": false,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        0,
+        0
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 2,
+      "visible": false,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        0,
+        0
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 3,
+      "visible": false,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        0,
+        0
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 4,
+      "visible": false,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        0,
+        0
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 5,
+      "visible": false,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        0,
+        0
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 6,
+      "visible": false,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        0,
+        0
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 7,
+      "visible": false,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        0,
+        0
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 8,
+      "visible": false,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        0,
+        0
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 9,
+      "visible": true,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        28,
+        -35
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 10,
+      "visible": true,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        28,
+        -35
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 11,
+      "visible": true,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        28,
+        -35
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 12,
+      "visible": true,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        28,
+        -35
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 13,
+      "visible": true,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        22,
+        -42
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 14,
+      "visible": true,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        22,
+        -42
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 15,
+      "visible": true,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        22,
+        -42
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 16,
+      "visible": true,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        22,
+        -42
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 17,
+      "visible": true,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        27,
+        -64
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 18,
+      "visible": true,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        27,
+        -64
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 19,
+      "visible": true,
+      "floor_original": 0,
+      "world_center_from_character_feet_px": [
+        27,
+        -64
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 20,
+      "visible": true,
+      "floor_original": 1,
+      "world_center_from_character_feet_px": [
+        5,
+        -94
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 21,
+      "visible": true,
+      "floor_original": 1,
+      "world_center_from_character_feet_px": [
+        5,
+        -94
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 22,
+      "visible": true,
+      "floor_original": 1,
+      "world_center_from_character_feet_px": [
+        -5,
+        -88
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 23,
+      "visible": true,
+      "floor_original": 1,
+      "world_center_from_character_feet_px": [
+        -5,
+        -88
+      ],
+      "flight_after_release": null
+    },
+    {
+      "tick": 24,
+      "visible": true,
+      "floor_original": 2,
+      "world_center_from_character_feet_px": [
+        46,
+        -62
+      ],
+      "flight_after_release": "game_world_coordinates_only"
+    },
+    {
+      "tick": 25,
+      "visible": true,
+      "floor_original": 2,
+      "world_center_from_character_feet_px": [
+        58,
+        -62
+      ],
+      "flight_after_release": "game_world_coordinates_only"
+    },
+    {
+      "tick": 26,
+      "visible": true,
+      "floor_original": 2,
+      "world_center_from_character_feet_px": [
+        70,
+        -62
+      ],
+      "flight_after_release": "game_world_coordinates_only"
+    },
+    {
+      "tick": 27,
+      "visible": true,
+      "floor_original": 2,
+      "world_center_from_character_feet_px": [
+        82,
+        -62
+      ],
+      "flight_after_release": "game_world_coordinates_only"
+    },
+    {
+      "tick": 28,
+      "visible": true,
+      "floor_original": 2,
+      "world_center_from_character_feet_px": [
+        94,
+        -62
+      ],
+      "flight_after_release": "game_world_coordinates_only"
+    },
+    {
+      "tick": 29,
+      "visible": true,
+      "floor_original": 2,
+      "world_center_from_character_feet_px": [
+        106,
+        -62
+      ],
+      "flight_after_release": "game_world_coordinates_only"
+    },
+    {
+      "tick": 30,
+      "visible": true,
+      "floor_original": 2,
+      "world_center_from_character_feet_px": [
+        118,
+        -62
+      ],
+      "flight_after_release": "game_world_coordinates_only"
+    },
+    {
+      "tick": 31,
+      "visible": true,
+      "floor_original": 2,
+      "world_center_from_character_feet_px": [
+        130,
+        -62
+      ],
+      "flight_after_release": "game_world_coordinates_only"
+    },
+    {
+      "tick": 32,
+      "visible": true,
+      "floor_original": 2,
+      "world_center_from_character_feet_px": [
+        142,
+        -62
+      ],
+      "flight_after_release": "game_world_coordinates_only"
+    },
+    {
+      "tick": 33,
+      "visible": true,
+      "floor_original": 2,
+      "world_center_from_character_feet_px": [
+        154,
+        -62
+      ],
+      "flight_after_release": "game_world_coordinates_only"
+    },
+    {
+      "tick": 34,
+      "visible": true,
+      "floor_original": 2,
+      "world_center_from_character_feet_px": [
+        166,
+        -62
+      ],
+      "flight_after_release": "game_world_coordinates_only"
+    },
+    {
+      "tick": 35,
+      "visible": true,
+      "floor_original": 2,
+      "world_center_from_character_feet_px": [
+        178,
+        -62
+      ],
+      "flight_after_release": "game_world_coordinates_only"
+    }
+  ],
+  "combat": {
+    "mode": "projectile",
+    "projectile": "stage.floorMaterial",
+    "range_world_px": 384,
+    "speed_world_px_per_second": 448,
+    "damage_timing": "collision",
+    "damage_on_release": false,
+    "release_ticks": [
+      24
+    ]
+  }
+}

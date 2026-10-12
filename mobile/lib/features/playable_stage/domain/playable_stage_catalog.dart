@@ -18,6 +18,15 @@ class PlayableStageDefinition {
   final double groundLine;
   final List<StageOpponent> opponents;
   final StageOpponent? bossEscort;
+  String get floorMaterial => switch (area) {
+        '草原' => 'grass',
+        '幽霊船' => 'wood',
+        '火山' => 'basalt',
+        '毒茸の湿地' => 'mud',
+        '砂漠の迷宮' => 'sandstone',
+        '氷晶洞窟' => 'ice',
+        _ => 'stone',
+      };
   bool get hasBoss => opponents.last.isBoss;
   String get title => 'STAGE $number · $area';
   List<StageOpponent> wave(int phase) {

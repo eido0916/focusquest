@@ -7,14 +7,7 @@ import 'playable_character.dart';
 /// Keep the original combat events/animation identity, adding FQ growth and gear.
 PlayableCharacter fqAdventureCharacter(Character hero) {
   final role = JobPortrait.roleNames[hero.characterType] ?? '剣士';
-  const substitutes = {
-    '陰陽師': '魔法使い',
-    '鎌使い': 'アサシン',
-    '天使': '魔法使い',
-    '悪魔': '魔剣士',
-    'ドラゴンナイト': '重騎士',
-    'バーサーカー': '剣士',
-  };
+  const substitutes = {};
   final base = PlayableCharacters.all.firstWhere((character) =>
       character.role == (substitutes[role] ?? role) &&
       character.female == (hero.appearance == 'female'));

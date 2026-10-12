@@ -45,15 +45,18 @@ class AdventureUi extends StatelessWidget {
   }
 }
 
-AppBar adventureAppBar(String title, {List<Widget>? actions}) => AppBar(
-    title: Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
-    actions: actions,
-    flexibleSpace: const IgnorePointer(
-        child: SafeArea(
-            child: SunlitFrame(
-                compact: true,
-                padding: EdgeInsets.zero,
-                child: SizedBox.expand()))));
+AppBar adventureAppBar(String title,
+        {List<Widget>? actions, bool automaticallyImplyLeading = true}) =>
+    AppBar(
+        automaticallyImplyLeading: automaticallyImplyLeading,
+        title: Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
+        actions: actions,
+        flexibleSpace: const IgnorePointer(
+            child: SafeArea(
+                child: SunlitFrame(
+                    compact: true,
+                    padding: EdgeInsets.zero,
+                    child: SizedBox.expand()))));
 
 class AdventureBackdrop extends StatelessWidget {
   const AdventureBackdrop({super.key, required this.child});

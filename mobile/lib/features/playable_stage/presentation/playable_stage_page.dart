@@ -90,6 +90,10 @@ class _PlayableStagePageState extends State<PlayableStagePage>
     _assets = assets;
     final attack = assets.motions['hero_attack']!;
     final skill = assets.motions['hero_skill']!;
+    if (int.parse(_battle.character.id.split('_')[1]) >= 11) {
+      _battle.attackDuration = attack.duration;
+      _battle.skillDuration = skill.duration;
+    }
     _battle.attackHitFraction =
         attack.eventTick(_battle.character.attackEvent, 12) /
             (24 * attack.duration);

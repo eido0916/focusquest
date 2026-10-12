@@ -1,9 +1,9 @@
+import '../diagnosis/presentation/job_portrait.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../../core/game_controller.dart';
 import '../../core/widgets/sunlit_widgets.dart';
 import '../focus/domain/streak_service.dart';
-import '../playable_stage/presentation/playable_stage_selection_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen(
@@ -175,14 +175,7 @@ class HomeScreen extends StatelessWidget {
               SunlitAction(
                   light: true,
                   label: state.adventureRun == null ? '冒険に出発する' : '冒険へ戻る',
-                  onTap: () {
-                    if (state.adventureRun != null) {
-                      onNavigate(4);
-                      return;
-                    }
-                    Navigator.of(context).push(MaterialPageRoute<void>(
-                        builder: (_) => const PlayableStageSelectionPage()));
-                  }),
+                  onTap: () => onNavigate(3)),
             ])),
       ]));
     });

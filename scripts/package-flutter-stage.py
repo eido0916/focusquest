@@ -7,6 +7,7 @@ from PIL import Image
 
 root = Path(__file__).resolve().parent.parent
 source = next(path for path in [
+    root.parent / 'FocusQuest_pixel_keyframes_v016',
     root / 'art/workspace_materials/FocusQuest_pixel_keyframes_v013',
     root.parent / 'FocusQuest_pixel_keyframes_v013',
     root / 'art/workspace_materials/FocusQuest_pixel_keyframes_v012',
@@ -27,12 +28,15 @@ actions = [('attack_down', 'skill_wave'), ('punch_combo', 'spin_kick'),
            ('iai', 'energy_flurry'), ('slam', 'charged_sweep'),
            ('shuriken', 'teleport_stab'), ('dagger_thrust', 'critical_strike'),
            ('bow_shot', 'rapid_shot'), ('fire_cast', 'ice_burst'),
-           ('gun_shot', 'quick_fire'), ('sword_slash', 'thunder_slash')]
+           ('gun_shot', 'quick_fire'), ('sword_slash', 'thunder_slash'),
+           ('holy_talisman', 'shikigami'), ('scythe_slash', 'chain_scythe'),
+           ('holy_orb', 'holy_swords'), ('dark_wave', 'curse'),
+           ('spear_thrust', 'dragon_flurry'), ('heavy_punch', 'floor_throw')]
 for female in [False, True]:
     for index, (attack, skill) in enumerate(actions, 1):
         character = f"character_{index:02}" + ('_female' if female else '')
         folder = f"{'players_female' if female else 'players'}/{character}"
-        for action, original in [('run', 'run'), ('attack', attack), ('skill', skill)]:
+        for action, original in [('run', 'float' if index in [13,14] else 'run'), ('attack', attack), ('skill', skill)]:
             motions[f'{character}_{action}'] = f'{folder}/{original}'
         if (source / folder / 'idle').exists():
             motions[f'{character}_idle'] = f'{folder}/idle'
@@ -65,5 +69,12 @@ for name, relative in motions.items():
             source_path = f"{boss_source.name}/{source_path}"
         files.append({'file': target.name, 'source': source_path, 'sha256': digest, 'rgba_sha256': key['rgba_sha256']})
 shutil.copy2(root / 'art/workspace_materials/FocusQuest_stage_backgrounds_v001/grassland_v001.png', dest / 'grassland.png')
+if (source / 'combat').exists():
+    shutil.copy2(source / 'combat/floor_materials.json', dest / 'floor_materials.json')
+    for material in (source / 'combat/floors').iterdir():
+        for frame in material.glob('frame_*.png'):
+            shutil.copy2(frame, dest / f'floor_{material.name}_{frame.stem[-3:]}.png')
+    for projectile in (source / 'combat/projectiles').iterdir():
+        shutil.copy2(projectile / 'frame_000.png', dest / f'effect_{projectile.name}.png')
 (dest / 'manifest.json').write_text(json.dumps({'source': source.name, 'boss_source': boss_source.name if boss_source.exists() else source.name, 'motions': list(motions), 'files': files, 'fps': 24, 'interpolation': 'none'}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(f'Flutter assets: {len(motions)} motions, {len(files)} original PNGs.')

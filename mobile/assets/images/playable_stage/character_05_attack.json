@@ -125,7 +125,14 @@
     {
       "event": "projectile_release",
       "keyframe": 3,
-      "tick": 11
+      "tick": 11,
+      "applies_damage": false
+    },
+    {
+      "event": "ranged_attack_spawn",
+      "tick": 11,
+      "combat_rule_id": "character_05/shuriken",
+      "applies_damage": false
     }
   ],
   "timeline": [
@@ -453,5 +460,32 @@
       ],
       "file": "frames_24fps/frame_035.png"
     }
-  ]
+  ],
+  "combat": {
+    "id": "character_05/shuriken",
+    "actor": "character_05",
+    "gender": "male",
+    "name": "忍者 男性 / shuriken",
+    "folder": "players/character_05/shuriken",
+    "mode": "projectile",
+    "range_world_px": 384,
+    "min_distance_world_px": 0,
+    "speed_world_px_per_tick": 12,
+    "fps": 24,
+    "release_ticks": [
+      11
+    ],
+    "projectile": "combat/projectiles/shuriken/frame_000.png",
+    "projectile_count": 1,
+    "direction": [
+      1,
+      0
+    ],
+    "damage_timing": "collision",
+    "damage_on_release": false,
+    "interpolation": "none",
+    "world_motion_only": true,
+    "spell_delay_ticks": 8,
+    "requires_line_of_sight": true
+  }
 }

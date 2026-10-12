@@ -43,10 +43,13 @@ class StageMotion {
 }
 
 class PlayableStageAssets {
-  PlayableStageAssets._(this.background, this.motions);
+  PlayableStageAssets._(
+      this.background, this.motions, this.effects, this.floorMetadata);
   static const base = 'assets/images/playable_stage/';
   final ui.Image background;
   final Map<String, StageMotion> motions;
+  final Map<String, ui.Image> effects;
+  final Map<String, dynamic> floorMetadata;
 
   static Future<PlayableStageAssets> load(
       {PlayableStageDefinition? stage, PlayableCharacter? character}) async {
@@ -117,7 +120,34 @@ class PlayableStageAssets {
       }
       // Characters without an idle keep their original attack stance on screen.
       motions['hero_idle'] ??= motions['hero_attack']!;
-      return PlayableStageAssets._(background, motions);
+      final effects = <String, ui.Image>{};
+      for (final name in [
+        'arrow',
+        'bullet',
+        'fire',
+        'ice',
+        'shuriken',
+        'holy_sword',
+        'talisman',
+        'holy_orb',
+        'dark_wave',
+        'wave',
+        'sickle',
+        'impact'
+      ]) {
+        effects[name] = await decode('${base}effect_$name.png');
+      }
+      final floorMeta =
+          jsonDecode(await rootBundle.loadString('${base}floor_materials.json'))
+              as Map<String, dynamic>;
+      if (hero.role == 'バーサーカー') {
+        final material = stage?.floorMaterial ?? 'grass';
+        for (var pose = 0; pose < 4; pose++) {
+          effects['floor_${material}_$pose'] = await decode(
+              '${base}floor_${material}_${pose.toString().padLeft(3, '0')}.png');
+        }
+      }
+      return PlayableStageAssets._(background, motions, effects, floorMeta);
     } catch (_) {
       for (final image in allocated) {
         image.dispose();
@@ -128,6 +158,9 @@ class PlayableStageAssets {
 
   void dispose() {
     background.dispose();
+    for (final image in effects.values) {
+      image.dispose();
+    }
     for (final motion in motions.values.toSet()) {
       for (final image in motion.images) {
         image.dispose();

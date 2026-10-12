@@ -45,6 +45,12 @@ void main() {
       await tester.tap(find.descendant(
           of: find.byType(QuestNavigation), matching: find.text('冒険')));
       await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(
+          find.byKey(const Key('legacy-adventure')), 500);
+      await tester.pumpAndSettle();
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('legacy-adventure')));
+      await tester.pumpAndSettle();
       expect(find.text('踏破 0 / 5'), findsOneWidget);
       expect(tester.takeException(), isNull);
       await tester.runAsync(
@@ -114,6 +120,11 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.descendant(
         of: find.byType(QuestNavigation), matching: find.text('冒険')));
+    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(
+        find.byKey(const Key('legacy-adventure')), 500);
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('legacy-adventure')));
     await tester.pumpAndSettle();
     await tester.scrollUntilVisible(find.text('冒険に出発する'), 150);
     await tester.pumpAndSettle();

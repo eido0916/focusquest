@@ -1,0 +1,547 @@
+{
+  "asset": "character_15_female",
+  "action": "dragon_flurry",
+  "render_mode": "original_pixel_keyframes",
+  "canvas": [
+    128,
+    128
+  ],
+  "fps": 24,
+  "direction": "right",
+  "interpolation": "none",
+  "part_transforms": false,
+  "crossfade": false,
+  "loop_in_game": false,
+  "duration_seconds": 1.5,
+  "keyframes": [
+    {
+      "index": 0,
+      "file": "keyframes/frame_000.png",
+      "rgba_sha256": "685f744dcea06f39dda0d5ee8bacc399132d675850483254b33db7cacae22487"
+    },
+    {
+      "index": 1,
+      "file": "keyframes/frame_001.png",
+      "rgba_sha256": "dffc7bf0aac1462161b394826289b8f47da9046c309ac37a8452de2b67196ebb"
+    },
+    {
+      "index": 2,
+      "file": "keyframes/frame_002.png",
+      "rgba_sha256": "fd1fbff1cf4bf58f31f378378886fd262dd4d333c4bcb0d55b67d2919ccb43c7"
+    },
+    {
+      "index": 3,
+      "file": "keyframes/frame_003.png",
+      "rgba_sha256": "5afa43eb8c4697281f24c8b096933e29d45b693d72c7419e65400149e565f2a7"
+    },
+    {
+      "index": 4,
+      "file": "keyframes/frame_004.png",
+      "rgba_sha256": "940f9cf5eea33f0423fecd9f3ee38a33aade0d6be9a63a508f46c28dd1b11d81"
+    },
+    {
+      "index": 5,
+      "file": "keyframes/frame_005.png",
+      "rgba_sha256": "735f1babd00c5fe45715ec9ac562d5e50aaea827704fc3a6ef2e0da1275738b2"
+    },
+    {
+      "index": 6,
+      "file": "keyframes/frame_006.png",
+      "rgba_sha256": "7bf6166285460449b97b28f3df6a0abd50374bbe11e80b61530d4ddf606d8745"
+    },
+    {
+      "index": 7,
+      "file": "keyframes/frame_007.png",
+      "rgba_sha256": "b38661090c213ded89a80e7fc263ff3a0feb7ff1ed313fc29e425c20e10e2f29"
+    },
+    {
+      "index": 8,
+      "file": "keyframes/frame_008.png",
+      "rgba_sha256": "1b4aac93acc41306539770b8256397742b15300c343be1aa1464be77a04baba0"
+    },
+    {
+      "index": 9,
+      "file": "keyframes/frame_009.png",
+      "rgba_sha256": "1e77e470a3fd04dee232d8023864b7fb32db8580a9ab7452a180054c4a5e0184"
+    },
+    {
+      "index": 10,
+      "file": "keyframes/frame_010.png",
+      "rgba_sha256": "e465c80c3b5d6634798b89eba5d566c5be79004ca7777fdbcec498cae9061232"
+    },
+    {
+      "index": 11,
+      "file": "keyframes/frame_011.png",
+      "rgba_sha256": "072a73feb5601974d3e2abcfaa15477781144971ad3a63acd97bc02663ad97c2"
+    }
+  ],
+  "holds": [
+    {
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 4
+    },
+    {
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 4
+    },
+    {
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 6,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 7,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 8,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 9,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 10,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 4
+    }
+  ],
+  "events": [
+    {
+      "event": "dragon_charge",
+      "tick": 9,
+      "keyframe": 3,
+      "direction": [
+        1,
+        0
+      ]
+    },
+    {
+      "event": "dragon_flurry_hit",
+      "tick": 20,
+      "keyframe": 6,
+      "direction": [
+        1,
+        0
+      ]
+    },
+    {
+      "event": "dragon_flurry_hit",
+      "tick": 22,
+      "keyframe": 7,
+      "direction": [
+        1,
+        0
+      ]
+    },
+    {
+      "event": "dragon_flurry_hit",
+      "tick": 24,
+      "keyframe": 8,
+      "direction": [
+        1,
+        0
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "tick": 0,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_000.png"
+    },
+    {
+      "tick": 1,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_001.png"
+    },
+    {
+      "tick": 2,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_002.png"
+    },
+    {
+      "tick": 3,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_003.png"
+    },
+    {
+      "tick": 4,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_004.png"
+    },
+    {
+      "tick": 5,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_005.png"
+    },
+    {
+      "tick": 6,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_006.png"
+    },
+    {
+      "tick": 7,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_007.png"
+    },
+    {
+      "tick": 8,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_008.png"
+    },
+    {
+      "tick": 9,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_009.png"
+    },
+    {
+      "tick": 10,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_010.png"
+    },
+    {
+      "tick": 11,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_011.png"
+    },
+    {
+      "tick": 12,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_012.png"
+    },
+    {
+      "tick": 13,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_013.png"
+    },
+    {
+      "tick": 14,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_014.png"
+    },
+    {
+      "tick": 15,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_015.png"
+    },
+    {
+      "tick": 16,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_016.png"
+    },
+    {
+      "tick": 17,
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_017.png"
+    },
+    {
+      "tick": 18,
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_018.png"
+    },
+    {
+      "tick": 19,
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_019.png"
+    },
+    {
+      "tick": 20,
+      "keyframe": 6,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_020.png"
+    },
+    {
+      "tick": 21,
+      "keyframe": 6,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_021.png"
+    },
+    {
+      "tick": 22,
+      "keyframe": 7,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_022.png"
+    },
+    {
+      "tick": 23,
+      "keyframe": 7,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_023.png"
+    },
+    {
+      "tick": 24,
+      "keyframe": 8,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_024.png"
+    },
+    {
+      "tick": 25,
+      "keyframe": 8,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_025.png"
+    },
+    {
+      "tick": 26,
+      "keyframe": 8,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_026.png"
+    },
+    {
+      "tick": 27,
+      "keyframe": 9,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_027.png"
+    },
+    {
+      "tick": 28,
+      "keyframe": 9,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_028.png"
+    },
+    {
+      "tick": 29,
+      "keyframe": 10,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_029.png"
+    },
+    {
+      "tick": 30,
+      "keyframe": 10,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_030.png"
+    },
+    {
+      "tick": 31,
+      "keyframe": 10,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_031.png"
+    },
+    {
+      "tick": 32,
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_032.png"
+    },
+    {
+      "tick": 33,
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_033.png"
+    },
+    {
+      "tick": 34,
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_034.png"
+    },
+    {
+      "tick": 35,
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_035.png"
+    }
+  ],
+  "variant": "female",
+  "job": "ドラゴンナイト",
+  "root_motion_space": "world_px_absolute_offset",
+  "sprite_anchor_px": [
+    64,
+    120
+  ]
+}

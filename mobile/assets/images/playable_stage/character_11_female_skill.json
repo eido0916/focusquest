@@ -1,0 +1,573 @@
+{
+  "asset": "character_11_female",
+  "action": "shikigami",
+  "render_mode": "original_pixel_keyframes",
+  "canvas": [
+    128,
+    128
+  ],
+  "fps": 24,
+  "direction": "right",
+  "interpolation": "none",
+  "part_transforms": false,
+  "crossfade": false,
+  "loop_in_game": false,
+  "duration_seconds": 1.5,
+  "keyframes": [
+    {
+      "index": 0,
+      "file": "keyframes/frame_000.png",
+      "rgba_sha256": "27dcf63beb968607b82bfc33ff013166e0c52b6f36ba1b8988f9e49512e0b998"
+    },
+    {
+      "index": 1,
+      "file": "keyframes/frame_001.png",
+      "rgba_sha256": "f54fad9f0843344a1c8ebbf3959103ffa4a8c91abd4a869e00c7ea4d83f9cf56"
+    },
+    {
+      "index": 2,
+      "file": "keyframes/frame_002.png",
+      "rgba_sha256": "1e0289edaa11c67ceed9005a14b885269be8bedcf9cf629dcca5e60982524e9f"
+    },
+    {
+      "index": 3,
+      "file": "keyframes/frame_003.png",
+      "rgba_sha256": "0ceb4432d1edd999380ccbc12cc8a5a4c294a5d7588c648c525a5f9afdc56e52"
+    },
+    {
+      "index": 4,
+      "file": "keyframes/frame_004.png",
+      "rgba_sha256": "e1f609ca1f4edd52bb6f705b4ce4eda9a5525b0b2775b607a5aba922e389efbd"
+    },
+    {
+      "index": 5,
+      "file": "keyframes/frame_005.png",
+      "rgba_sha256": "607110a53710c080390c00744cc7688a31445bdbe039e97cf17500dd5339b574"
+    },
+    {
+      "index": 6,
+      "file": "keyframes/frame_006.png",
+      "rgba_sha256": "469ee94b286a2db118ffe5bdb0bb13efe922299e6926e5eee7cfb0d428baa830"
+    },
+    {
+      "index": 7,
+      "file": "keyframes/frame_007.png",
+      "rgba_sha256": "2d09af250d9169269d9fd5cf176802f0e7232d66780db94cf790d5cb9cdafa1a"
+    },
+    {
+      "index": 8,
+      "file": "keyframes/frame_008.png",
+      "rgba_sha256": "a14753bc630caa5f53a08ea1530f89e3a78da1e24fd762bea36c54e25df3a36d"
+    },
+    {
+      "index": 9,
+      "file": "keyframes/frame_009.png",
+      "rgba_sha256": "11489c71273c12b70b686e78773751d32c97a9c1c4baa56d8076b14f1f81f559"
+    },
+    {
+      "index": 10,
+      "file": "keyframes/frame_010.png",
+      "rgba_sha256": "5f94193b0eb14b25f157e5270b0689c7e23ed3b509cefdaf4f610eb2fb05785a"
+    },
+    {
+      "index": 11,
+      "file": "keyframes/frame_011.png",
+      "rgba_sha256": "f5343504ba778bc2ef8e7e43a995f1a13516ccb89bc8ec0e4f5c0300777f5a52"
+    }
+  ],
+  "holds": [
+    {
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 4
+    },
+    {
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 4
+    },
+    {
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 6,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 7,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 8,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 9,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 2
+    },
+    {
+      "keyframe": 10,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 3
+    },
+    {
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "ticks": 4
+    }
+  ],
+  "events": [
+    {
+      "event": "summon_begin",
+      "tick": 9,
+      "keyframe": 3,
+      "direction": [
+        1,
+        0
+      ],
+      "applies_damage": false
+    },
+    {
+      "event": "shikigami_attack",
+      "tick": 22,
+      "keyframe": 7,
+      "direction": [
+        1,
+        0
+      ],
+      "spirits": [
+        "dog",
+        "monkey",
+        "pheasant"
+      ],
+      "target_offset_world_px": [
+        48,
+        0
+      ],
+      "applies_damage": false
+    },
+    {
+      "event": "ranged_attack_spawn",
+      "tick": 22,
+      "combat_rule_id": "character_11_female/shikigami",
+      "applies_damage": false
+    }
+  ],
+  "timeline": [
+    {
+      "tick": 0,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_000.png"
+    },
+    {
+      "tick": 1,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_001.png"
+    },
+    {
+      "tick": 2,
+      "keyframe": 0,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_002.png"
+    },
+    {
+      "tick": 3,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_003.png"
+    },
+    {
+      "tick": 4,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_004.png"
+    },
+    {
+      "tick": 5,
+      "keyframe": 1,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_005.png"
+    },
+    {
+      "tick": 6,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_006.png"
+    },
+    {
+      "tick": 7,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_007.png"
+    },
+    {
+      "tick": 8,
+      "keyframe": 2,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_008.png"
+    },
+    {
+      "tick": 9,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_009.png"
+    },
+    {
+      "tick": 10,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_010.png"
+    },
+    {
+      "tick": 11,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_011.png"
+    },
+    {
+      "tick": 12,
+      "keyframe": 3,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_012.png"
+    },
+    {
+      "tick": 13,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_013.png"
+    },
+    {
+      "tick": 14,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_014.png"
+    },
+    {
+      "tick": 15,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_015.png"
+    },
+    {
+      "tick": 16,
+      "keyframe": 4,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_016.png"
+    },
+    {
+      "tick": 17,
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_017.png"
+    },
+    {
+      "tick": 18,
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_018.png"
+    },
+    {
+      "tick": 19,
+      "keyframe": 5,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_019.png"
+    },
+    {
+      "tick": 20,
+      "keyframe": 6,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_020.png"
+    },
+    {
+      "tick": 21,
+      "keyframe": 6,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_021.png"
+    },
+    {
+      "tick": 22,
+      "keyframe": 7,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_022.png"
+    },
+    {
+      "tick": 23,
+      "keyframe": 7,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_023.png"
+    },
+    {
+      "tick": 24,
+      "keyframe": 8,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_024.png"
+    },
+    {
+      "tick": 25,
+      "keyframe": 8,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_025.png"
+    },
+    {
+      "tick": 26,
+      "keyframe": 8,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_026.png"
+    },
+    {
+      "tick": 27,
+      "keyframe": 9,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_027.png"
+    },
+    {
+      "tick": 28,
+      "keyframe": 9,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_028.png"
+    },
+    {
+      "tick": 29,
+      "keyframe": 10,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_029.png"
+    },
+    {
+      "tick": 30,
+      "keyframe": 10,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_030.png"
+    },
+    {
+      "tick": 31,
+      "keyframe": 10,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_031.png"
+    },
+    {
+      "tick": 32,
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_032.png"
+    },
+    {
+      "tick": 33,
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_033.png"
+    },
+    {
+      "tick": 34,
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_034.png"
+    },
+    {
+      "tick": 35,
+      "keyframe": 11,
+      "root_offset_px": [
+        0,
+        0
+      ],
+      "file": "frames_24fps/frame_035.png"
+    }
+  ],
+  "variant": "female",
+  "job": "onmyoji",
+  "root_motion_space": "world_px_absolute_offset",
+  "sprite_anchor_px": [
+    64,
+    120
+  ],
+  "combat": {
+    "id": "character_11_female/shikigami",
+    "actor": "character_11_female",
+    "gender": "female",
+    "name": "陰陽師 女性 / shikigami",
+    "folder": "players_female/character_11_female/shikigami",
+    "mode": "targeted_spell",
+    "range_world_px": 384,
+    "min_distance_world_px": 0,
+    "speed_world_px_per_tick": 12,
+    "fps": 24,
+    "release_ticks": [
+      22
+    ],
+    "projectile": null,
+    "projectile_count": 1,
+    "direction": [
+      1,
+      0
+    ],
+    "damage_timing": "target_resolution",
+    "damage_on_release": false,
+    "interpolation": "none",
+    "world_motion_only": true,
+    "spell_delay_ticks": 8,
+    "requires_line_of_sight": true
+  }
+}
