@@ -125,7 +125,8 @@
     {
       "event": "fire_charge_begin",
       "tick": 9,
-      "keyframe": 3
+      "keyframe": 3,
+      "applies_damage": false
     },
     {
       "event": "fire_release",
@@ -134,7 +135,14 @@
       "direction": [
         1,
         0
-      ]
+      ],
+      "applies_damage": false
+    },
+    {
+      "event": "ranged_attack_spawn",
+      "tick": 12,
+      "combat_rule_id": "character_08_female/fire_cast",
+      "applies_damage": false
     }
   ],
   "timeline": [
@@ -361,5 +369,32 @@
   "sprite_anchor_px": [
     64,
     120
-  ]
+  ],
+  "combat": {
+    "id": "character_08_female/fire_cast",
+    "actor": "character_08_female",
+    "gender": "female",
+    "name": "魔法使い 女性 / fire_cast",
+    "folder": "players_female/character_08_female/fire_cast",
+    "mode": "projectile",
+    "range_world_px": 384,
+    "min_distance_world_px": 0,
+    "speed_world_px_per_tick": 12,
+    "fps": 24,
+    "release_ticks": [
+      12
+    ],
+    "projectile": "combat/projectiles/fire/frame_000.png",
+    "projectile_count": 1,
+    "direction": [
+      1,
+      0
+    ],
+    "damage_timing": "collision",
+    "damage_on_release": false,
+    "interpolation": "none",
+    "world_motion_only": true,
+    "spell_delay_ticks": 8,
+    "requires_line_of_sight": true
+  }
 }

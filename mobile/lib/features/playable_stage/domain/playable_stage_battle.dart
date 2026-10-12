@@ -34,8 +34,9 @@ class StageProjectile {
   double get x => missed && resolved
       ? endX + (age - flightSeconds) * 1600
       : startX + (endX - startX) * progress;
-  double get height =>
-      .5 + ((target.definition.isBoss ? 1.05 : .3) - .5) * progress;
+  double get height => kind == ProjectileKind.floor
+      ? .4 + math.sin(progress * math.pi) * 1.2
+      : .5 + ((target.definition.isBoss ? 1.05 : .3) - .5) * progress;
 }
 
 enum StageMode { ready, travel, battle, defeat, won, lost }
@@ -329,7 +330,9 @@ class PlayableStageBattle extends ChangeNotifier {
           final startX = heroHomeX + spriteWorldSide * .2;
           final endX =
               enemy.x - spriteWorldSide * (enemy.definition.isBoss ? .6 : .08);
-          final seconds = ((endX - startX).abs() / 2400).clamp(.06, .28);
+          final seconds = projectile == ProjectileKind.floor
+              ? ((endX - startX).abs() / 700).clamp(.3, 1.5)
+              : ((endX - startX).abs() / 2400).clamp(.06, .28);
           final total = skill ? character.skillPower : character.power;
           final power = total ~/ releases.length +
               (_releasedShots < total % releases.length ? 1 : 0);
@@ -350,7 +353,18 @@ class PlayableStageBattle extends ChangeNotifier {
         heroX =
             (heroHomeX + (destination - heroHomeX) * excursion - heroPoseOffset)
                 .roundToDouble();
-        if (!_heroHit && actionTime >= hitTime) {
+        if (skill &&
+            character.role == 'ドラゴンナイト' &&
+            skillReleaseFractions.isNotEmpty) {
+          while (_releasedShots < skillReleaseFractions.length &&
+              progress >= skillReleaseFractions[_releasedShots]) {
+            final count = skillReleaseFractions.length;
+            _damageEnemy(true,
+                basePower: character.skillPower ~/ count +
+                    (_releasedShots < character.skillPower % count ? 1 : 0));
+            _releasedShots++;
+          }
+        } else if (!_heroHit && actionTime >= hitTime) {
           _heroHit = true;
           _damageEnemy(skill);
         }
@@ -448,6 +462,8 @@ class PlayableStageBattle extends ChangeNotifier {
     for (final projectile in projectiles) {
       projectile.age += dt;
       if (!projectile.resolved) {
+        // All targeted ranged skills land at the moving enemy. Display scale
+        // must not determine whether a launched attack can deal damage.
         projectile.endX = projectile.target.x -
             spriteWorldSide * (projectile.target.definition.isBoss ? .6 : .08);
         if (projectile.age >= projectile.flightSeconds) {

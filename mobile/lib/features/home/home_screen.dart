@@ -1,9 +1,9 @@
+import '../diagnosis/presentation/job_portrait.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../../core/game_controller.dart';
 import '../../core/widgets/sunlit_widgets.dart';
 import '../focus/domain/streak_service.dart';
-import '../diagnosis/presentation/job_portrait.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen(

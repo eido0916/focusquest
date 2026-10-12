@@ -12,7 +12,7 @@ import 'package:focusquest/features/playable_stage/presentation/playable_stage_a
 import 'package:focusquest/features/playable_stage/presentation/playable_stage_audio.dart';
 import 'package:focusquest/features/playable_stage/presentation/playable_stage_page.dart';
 import 'package:focusquest/features/playable_stage/presentation/playable_stage_selection_page.dart';
-import 'package:focusquest/game/runner/pixel_battle_assets.dart';
+import 'package:focusquest/features/diagnosis/presentation/job_portrait.dart';
 import 'support/memory_repository.dart';
 
 void main() {
@@ -31,10 +31,8 @@ void main() {
         await controller.resetForDevelopment();
         await controller.onboard(type, appearance: appearance);
         final combat = fqAdventureCharacter(controller.state!.activeCharacter!);
-        expect(
-            combat.female,
-            PixelBattleAssets.roles.containsKey(type.typeId) &&
-                appearance == 'female',
+        expect(combat.female, appearance == 'female', reason: type.typeId);
+        expect(combat.role, JobPortrait.roleNames[type.typeId],
             reason: type.typeId);
         expect(combat.health, greaterThan(0));
       }
@@ -177,6 +175,106 @@ void main() {
             of: find.byKey(const Key('select-stage-1')),
             matching: find.text('✓ CLEAR')),
         findsOneWidget);
+    await tester.pumpWidget(const SizedBox());
+    controller.dispose();
+  });
+  testWidgets('home adventure uses the shared controller and returns to focus',
+      (tester) async {
+    final controller = GameController(MemoryRepository());
+    await controller.load();
+    await controller.onboard(GameCatalog.types[8]!,
+        name: 'アオイ', appearance: 'female');
+    await controller.recordPlayableClear(1);
+    await tester.pumpWidget(FocusQuestApp(controller: controller));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('冒険に出発する'));
+    await tester.tap(find.text('冒険に出発する'));
+    await tester.pumpAndSettle();
+    final selection = tester.widget<PlayableStageSelectionPage>(
+        find.byType(PlayableStageSelectionPage));
+    expect(selection.controller, same(controller));
+    expect(selection.embedded, true);
+    await tester.ensureVisible(find.byKey(const Key('select-stage-1')));
+    expect(
+        find.descendant(
+            of: find.byKey(const Key('select-stage-1')),
+            matching: find.text('✓ CLEAR')),
+        findsOneWidget);
+    await tester.tap(find.descendant(
+        of: find.byType(QuestNavigation), matching: find.text('ホーム')));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('集中をはじめる'));
+    await tester.tap(find.text('集中をはじめる'));
+    await tester.pumpAndSettle();
+    expect(find.text('集中を開始'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox());
+    controller.dispose();
+  });
+
+  testWidgets('selection reacts to focus and exposes failed clear save retry',
+      (tester) async {
+    final repo = MemoryRepository();
+    final controller = GameController(repo);
+    await controller.load();
+    await controller.onboard(GameCatalog.types[15]!);
+    await tester.pumpWidget(MaterialApp(
+        home: PlayableStageSelectionPage(
+            controller: controller,
+            assets: assets,
+            audioOutput: SilentStageAudioOutput(),
+            battleFactory: (stage) => PlayableStageBattle(
+                stage: stage,
+                character:
+                    fqAdventureCharacter(controller.state!.activeCharacter!),
+                roll: () => .5))));
+    await tester.pumpAndSettle();
+    await controller.startFocus(15);
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.byKey(const Key('select-stage-1')));
+    expect(
+        tester.widget<InkWell>(find.byKey(const Key('select-stage-1'))).onTap,
+        isNull);
+    await controller.finishFocus(cancel: true);
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.byKey(const Key('select-stage-1')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('select-stage-1')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    final battle = tester
+        .widget<PlayableStagePage>(find.byType(PlayableStagePage))
+        .battle!;
+    battle.start();
+    for (var tick = 0; tick < 120 * 120 && battle.active; tick++) {
+      if (battle.canSkill) {
+        battle.skill();
+      } else if (battle.canAttack) {
+        battle.attack();
+      }
+      battle.update(1 / 120);
+    }
+    expect(battle.mode, StageMode.won);
+    repo.fail = true;
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 1500));
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.pump();
+    expect(controller.playableAdventureActive, false);
+    expect(repo.state.clearedPlayableStages, isEmpty);
+    await tester.ensureVisible(find.byKey(const Key('select-stage-1')));
+    expect(
+        tester.widget<InkWell>(find.byKey(const Key('select-stage-1'))).onTap,
+        isNull);
+    repo.fail = false;
+    await tester.scrollUntilVisible(
+        find.byKey(const Key('retry-stage-clear')), -150);
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('retry-stage-clear')));
+    await tester.pumpAndSettle();
+    expect(repo.state.clearedPlayableStages, {1});
+    expect(find.byKey(const Key('retry-stage-clear')), findsNothing);
+    expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox());
     controller.dispose();
   });

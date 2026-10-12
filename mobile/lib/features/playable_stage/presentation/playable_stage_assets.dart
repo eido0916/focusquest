@@ -6,15 +6,17 @@ import '../domain/playable_character.dart';
 import '../../../game/runner/role_skill_effects.dart';
 
 class StageFrame {
-  const StageFrame(this.image, this.offset);
+  const StageFrame(this.image, this.offset, [this.topPixel = 0]);
   final ui.Image image;
   final ui.Offset offset;
+  final double topPixel;
 }
 
 class StageMotion {
-  StageMotion(this.metadata, this.images);
+  StageMotion(this.metadata, this.images, {this.topPixels = const []});
   final Map<String, dynamic> metadata;
   final List<ui.Image> images;
+  final List<double> topPixels;
   List<dynamic> get timeline => metadata['timeline'] as List<dynamic>;
   double get duration => (metadata['duration_seconds'] as num).toDouble();
   int eventTick(String event, int fallback) {
@@ -36,16 +38,19 @@ class StageMotion {
     final offset = row['root_offset_px'] as List<dynamic>;
     return StageFrame(
         images[row['keyframe'] as int],
-        ui.Offset(
-            (offset[0] as num).toDouble(), (offset[1] as num).toDouble()));
+        ui.Offset((offset[0] as num).toDouble(), (offset[1] as num).toDouble()),
+        topPixels.isEmpty ? 0 : topPixels[row['keyframe'] as int]);
   }
 }
 
 class PlayableStageAssets {
-  PlayableStageAssets._(this.background, this.motions, this.effect);
+  PlayableStageAssets._(this.background, this.motions, this.effects,
+      this.floorMetadata, this.effect);
   static const base = 'assets/images/playable_stage/';
   final ui.Image background;
   final Map<String, StageMotion> motions;
+  final Map<String, ui.Image> effects;
+  final Map<String, dynamic> floorMetadata;
   final RoleSkillEffects effect;
 
   static Future<PlayableStageAssets> load(
@@ -95,19 +100,60 @@ class PlayableStageAssets {
         final meta = jsonDecode(await rootBundle.loadString('$base$name.json'))
             as Map<String, dynamic>;
         final frames = <ui.Image>[];
+        final topPixels = <double>[];
         for (final key in meta['keyframes'] as List<dynamic>) {
           frames.add(await decode(
               '$base${name}_${(key['index'] as int).toString().padLeft(3, '0')}.png'));
+          final rgba =
+              await frames.last.toByteData(format: ui.ImageByteFormat.rawRgba);
+          var top = frames.last.height.toDouble();
+          if (rgba != null) {
+            for (var i = 3; i < rgba.lengthInBytes; i += 4) {
+              if (rgba.getUint8(i) != 0) {
+                top = ((i ~/ 4) ~/ frames.last.width).toDouble();
+                break;
+              }
+            }
+          }
+          topPixels.add(top);
         }
         motions[heroMotion ? name.replaceFirst('${hero.id}_', 'hero_') : name] =
-            StageMotion(meta, frames);
+            StageMotion(meta, frames, topPixels: topPixels);
       }
       // Characters without an idle keep their original attack stance on screen.
       motions['hero_idle'] ??= motions['hero_attack']!;
+      final effects = <String, ui.Image>{};
+      for (final name in [
+        'arrow',
+        'bullet',
+        'fire',
+        'ice',
+        'shuriken',
+        'holy_sword',
+        'talisman',
+        'holy_orb',
+        'dark_wave',
+        'wave',
+        'sickle',
+        'impact'
+      ]) {
+        effects[name] = await decode('${base}effect_$name.png');
+      }
+      final floorMeta =
+          jsonDecode(await rootBundle.loadString('${base}floor_materials.json'))
+              as Map<String, dynamic>;
+      if (hero.role == 'バーサーカー') {
+        final material = stage?.floorMaterial ?? 'grass';
+        for (var pose = 0; pose < 4; pose++) {
+          effects['floor_${material}_$pose'] = await decode(
+              '${base}floor_${material}_${pose.toString().padLeft(3, '0')}.png');
+        }
+      }
       final effect = await RoleSkillEffects.load(
           hero.effectType ?? RoleSkillEffects.roleTypes[hero.role] ?? 'warrior',
           decode);
-      return PlayableStageAssets._(background, motions, effect);
+      return PlayableStageAssets._(
+          background, motions, effects, floorMeta, effect);
     } catch (_) {
       for (final image in allocated) {
         image.dispose();
@@ -119,6 +165,9 @@ class PlayableStageAssets {
   void dispose() {
     background.dispose();
     for (final image in effect.frames) {
+      image.dispose();
+    }
+    for (final image in effects.values) {
       image.dispose();
     }
     for (final motion in motions.values.toSet()) {

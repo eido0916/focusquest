@@ -1,0 +1,29 @@
+{
+  "tool": "built-in image_gen",
+  "sourceAssets": [
+    {
+      "file": "source/boss_goblin_king/original_atlas.png"
+    }
+  ],
+  "canvas": [
+    384,
+    384
+  ],
+  "logicalGrid": [
+    192,
+    192
+  ],
+  "previousCanvas": [
+    128,
+    128
+  ],
+  "resolutionMultiplier": 3,
+  "drawnDetail": true,
+  "registration": {
+    "sharedScale": 150.21774193548387,
+    "xOrigin": 12,
+    "minLeft": -0.05411499436302142,
+    "footBaseline": 360
+  },
+  "constraints": "Preserve left facing identity, palette, pose order and animation timing; add fine pixel details; no intermediate poses or deformation."
+}

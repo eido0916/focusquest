@@ -56,31 +56,36 @@ class AdventureBattleHud extends StatelessWidget {
           Positioned(
               right: 10,
               bottom: landscape ? box.maxHeight * .06 : 14,
-              child:
-                  Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-                _command(false, commandSide),
-                const SizedBox(width: 6),
-                _command(true, commandSide),
-                const SizedBox(width: 6),
-                SizedBox(
-                    width: commandSide * .62,
-                    height: commandSide * .62,
-                    child: Stack(fit: StackFit.expand, children: [
-                      const AdventureFrame('auto_button'),
-                      FilledButton(
-                          key: const Key('stage-auto'),
-                          onPressed: onAuto,
-                          style: _buttonStyle(),
-                          child: FittedBox(
-                              child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                Icon(auto ? Icons.pause : Icons.fast_forward,
-                                    color: const Color(0xffffecc0), size: 27),
-                                Text(auto ? 'オート ON' : 'オート', style: _text(12)),
-                              ]))),
-                    ])),
-              ])),
+              child: Row(
+                  key: const Key('stage-floating-controls'),
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    _command(false, commandSide),
+                    const SizedBox(width: 6),
+                    _command(true, commandSide),
+                    const SizedBox(width: 6),
+                    SizedBox(
+                        width: commandSide * .62,
+                        height: commandSide * .62,
+                        child: Stack(fit: StackFit.expand, children: [
+                          const AdventureFrame('auto_button'),
+                          FilledButton(
+                              key: const Key('stage-auto'),
+                              onPressed: onAuto,
+                              style: _buttonStyle(),
+                              child: FittedBox(
+                                  child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                    Icon(
+                                        auto ? Icons.pause : Icons.fast_forward,
+                                        color: const Color(0xffffecc0),
+                                        size: 27),
+                                    Text(auto ? 'オート ON' : 'オート',
+                                        style: _text(12)),
+                                  ]))),
+                        ])),
+                  ])),
         ]);
       });
 

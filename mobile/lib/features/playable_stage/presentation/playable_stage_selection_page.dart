@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import '../../../core/game_controller.dart';
+import 'package:flutter/material.dart';
 import '../../../core/widgets/sunlit_widgets.dart';
 import '../../diagnosis/presentation/job_portrait.dart';
 import '../domain/playable_stage_battle.dart';
@@ -51,6 +51,41 @@ class _PlayableStageSelectionPageState
       widget.controller?.activeFocus != null ||
       widget.controller?.busy == true;
 
+  @override
+  void initState() {
+    super.initState();
+    widget.controller?.addListener(_controllerChanged);
+  }
+
+  @override
+  void didUpdateWidget(covariant PlayableStageSelectionPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.controller != widget.controller) {
+      oldWidget.controller?.removeListener(_controllerChanged);
+      widget.controller?.addListener(_controllerChanged);
+      _syncClears();
+    }
+  }
+
+  void _syncClears() {
+    final saved = widget.controller?.state?.clearedPlayableStages;
+    if (saved != null) {
+      _cleared
+        ..clear()
+        ..addAll(saved);
+    }
+  }
+
+  void _controllerChanged() {
+    if (mounted) setState(_syncClears);
+  }
+
+  @override
+  void dispose() {
+    widget.controller?.removeListener(_controllerChanged);
+    super.dispose();
+  }
+
   Future<void> _saveClear(int number) async {
     try {
       await widget.controller?.recordPlayableClear(number);
@@ -76,15 +111,15 @@ class _PlayableStageSelectionPageState
       await widget.controller!.recordAdventureDefeats(id, count);
       if (mounted) {
         setState(() {
-        _pendingDefeats = null;
-        _error = _pendingClear == null ? null : 'クリア記録を保存できませんでした。再試行してください。';
+          _pendingDefeats = null;
+          _error = _pendingClear == null ? null : 'クリア記録を保存できませんでした。再試行してください。';
         });
       }
     } catch (_) {
       if (mounted) {
         setState(() {
-        _pendingDefeats = (id, count);
-        _error = '討伐記録を保存できませんでした。再試行してください。';
+          _pendingDefeats = (id, count);
+          _error = '討伐記録を保存できませんでした。再試行してください。';
         });
       }
     }
@@ -99,11 +134,15 @@ class _PlayableStageSelectionPageState
     PlayableStageBattle? battle;
     var began = false;
     final defeated = <StageEnemy>{};
-    final operationId = '${DateTime.now().microsecondsSinceEpoch}-${stage.number}';
+    final operationId =
+        '${DateTime.now().microsecondsSinceEpoch}-${stage.number}';
     void observeDefeats() {
       final current = battle;
-      if (current != null) defeated.addAll(current.enemies.where((e) => !e.alive));
+      if (current != null) {
+        defeated.addAll(current.enemies.where((e) => !e.alive));
+      }
     }
+
     try {
       final controller = widget.controller;
       if (controller != null) {
@@ -172,14 +211,19 @@ class _PlayableStageSelectionPageState
                       _notice('いまは集中の時間。終了後に冒険へ出発できます。'),
                     if (_pendingDefeats != null)
                       TextButton.icon(
-                        onPressed: () => _saveDefeats(_pendingDefeats!.$1, _pendingDefeats!.$2),
-                        icon: const Icon(Icons.save_outlined),
-                        label: const Text('討伐記録を再保存')),
+                          onPressed: () => _saveDefeats(
+                              _pendingDefeats!.$1, _pendingDefeats!.$2),
+                          icon: const Icon(Icons.save_outlined),
+                          label: const Text('討伐記録を再保存')),
                     if (_error != null) ...[
                       _notice(_error!),
                       if (_pendingClear != null)
                         TextButton.icon(
-                            onPressed: () => _saveClear(_pendingClear!),
+                            key: const Key('retry-stage-clear'),
+                            onPressed:
+                                _opening || widget.controller?.busy == true
+                                    ? null
+                                    : () => _saveClear(_pendingClear!),
                             icon: const Icon(Icons.save_outlined),
                             label: const Text('クリア記録の保存を再試行')),
                     ],

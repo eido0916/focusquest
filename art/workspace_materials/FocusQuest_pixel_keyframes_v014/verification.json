@@ -1,0 +1,449 @@
+{
+  "bossCount": 9,
+  "animationCount": 36,
+  "checks": [
+    {
+      "boss": "boss_goblin_king",
+      "action": "walk",
+      "keyframes": 8,
+      "timelineFrames": 24,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_goblin_king",
+      "action": "attack",
+      "keyframes": 8,
+      "timelineFrames": 24,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_goblin_king",
+      "action": "hurt",
+      "keyframes": 8,
+      "timelineFrames": 16,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_goblin_king",
+      "action": "defeat",
+      "keyframes": 9,
+      "timelineFrames": 30,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_cyclops",
+      "action": "walk",
+      "keyframes": 8,
+      "timelineFrames": 24,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_cyclops",
+      "action": "attack",
+      "keyframes": 8,
+      "timelineFrames": 24,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_cyclops",
+      "action": "hurt",
+      "keyframes": 8,
+      "timelineFrames": 16,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_cyclops",
+      "action": "defeat",
+      "keyframes": 9,
+      "timelineFrames": 30,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_fire_dragon",
+      "action": "walk",
+      "keyframes": 8,
+      "timelineFrames": 24,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_fire_dragon",
+      "action": "attack",
+      "keyframes": 8,
+      "timelineFrames": 24,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_fire_dragon",
+      "action": "hurt",
+      "keyframes": 8,
+      "timelineFrames": 16,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_fire_dragon",
+      "action": "defeat",
+      "keyframes": 9,
+      "timelineFrames": 30,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_dullahan",
+      "action": "walk",
+      "keyframes": 8,
+      "timelineFrames": 24,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_dullahan",
+      "action": "attack",
+      "keyframes": 8,
+      "timelineFrames": 24,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_dullahan",
+      "action": "hurt",
+      "keyframes": 8,
+      "timelineFrames": 16,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_dullahan",
+      "action": "defeat",
+      "keyframes": 9,
+      "timelineFrames": 30,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_lich",
+      "action": "walk",
+      "keyframes": 4,
+      "timelineFrames": 16,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_lich",
+      "action": "attack",
+      "keyframes": 4,
+      "timelineFrames": 20,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_lich",
+      "action": "hurt",
+      "keyframes": 4,
+      "timelineFrames": 12,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_lich",
+      "action": "defeat",
+      "keyframes": 5,
+      "timelineFrames": 30,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_minotaur",
+      "action": "walk",
+      "keyframes": 4,
+      "timelineFrames": 16,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_minotaur",
+      "action": "attack",
+      "keyframes": 4,
+      "timelineFrames": 20,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_minotaur",
+      "action": "hurt",
+      "keyframes": 4,
+      "timelineFrames": 12,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_minotaur",
+      "action": "defeat",
+      "keyframes": 5,
+      "timelineFrames": 30,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_stone_golem",
+      "action": "walk",
+      "keyframes": 4,
+      "timelineFrames": 16,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_stone_golem",
+      "action": "attack",
+      "keyframes": 4,
+      "timelineFrames": 20,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_stone_golem",
+      "action": "hurt",
+      "keyframes": 4,
+      "timelineFrames": 12,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_stone_golem",
+      "action": "defeat",
+      "keyframes": 5,
+      "timelineFrames": 30,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_cerberus",
+      "action": "walk",
+      "keyframes": 4,
+      "timelineFrames": 16,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_cerberus",
+      "action": "attack",
+      "keyframes": 4,
+      "timelineFrames": 20,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_cerberus",
+      "action": "hurt",
+      "keyframes": 4,
+      "timelineFrames": 12,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_cerberus",
+      "action": "defeat",
+      "keyframes": 5,
+      "timelineFrames": 30,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_demon_lord",
+      "action": "walk",
+      "keyframes": 4,
+      "timelineFrames": 16,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_demon_lord",
+      "action": "attack",
+      "keyframes": 4,
+      "timelineFrames": 20,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_demon_lord",
+      "action": "hurt",
+      "keyframes": 4,
+      "timelineFrames": 12,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    },
+    {
+      "boss": "boss_demon_lord",
+      "action": "defeat",
+      "keyframes": 5,
+      "timelineFrames": 30,
+      "canvas": [
+        384,
+        384
+      ],
+      "framePixelEquality": true,
+      "originalTimingAndWorldOffsets": true
+    }
+  ],
+  "totalOriginals": 217,
+  "totalTimelineFrames": 766,
+  "previousBossOriginalsPreserved": 217,
+  "runtimeBossFrames": 165,
+  "otherRuntimeFramesUnchanged": 714,
+  "logicalGrid": [
+    192,
+    192
+  ],
+  "exact2xExport": true,
+  "notSimple3xEnlargement": true
+}

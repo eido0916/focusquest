@@ -1,4 +1,20 @@
-enum ProjectileKind { arrow, bullet, fire, ice, shuriken }
+enum ProjectileKind {
+  arrow,
+  bullet,
+  fire,
+  ice,
+  shuriken,
+  wave,
+  talisman,
+  sickle,
+  holyOrb,
+  holySword,
+  darkWave,
+  lightning,
+  spirits,
+  curse,
+  floor
+}
 
 class PlayableCharacter {
   const PlayableCharacter(this.id, this.role, this.female, this.health,
@@ -18,6 +34,13 @@ class PlayableCharacter {
         'ガンナー' => ProjectileKind.bullet,
         '魔法使い' => skill ? ProjectileKind.ice : ProjectileKind.fire,
         '忍者' => skill ? null : ProjectileKind.shuriken,
+        '剣士' => skill ? ProjectileKind.wave : null,
+        '魔剣士' => skill ? ProjectileKind.lightning : null,
+        '陰陽師' => skill ? ProjectileKind.spirits : ProjectileKind.talisman,
+        '鎌使い' => skill ? ProjectileKind.sickle : null,
+        '天使' => skill ? ProjectileKind.holySword : ProjectileKind.holyOrb,
+        '悪魔' => skill ? ProjectileKind.curse : ProjectileKind.darkWave,
+        'バーサーカー' => skill ? ProjectileKind.floor : null,
         _ => null,
       };
 }
@@ -89,6 +112,21 @@ class PlayableCharacters {
           ranged: true),
       PlayableCharacter('character_10${female ? '_female' : ''}', '魔剣士', female,
           170, 36, 95, 'sword_hit', 'lightning_strike', '雷剣・落雷'),
+      PlayableCharacter('character_11${female ? '_female' : ''}', '陰陽師', female,
+          130, 32, 90, 'holy_talisman_release', 'shikigami_attack', '犬・猿・雉の式神',
+          ranged: true),
+      PlayableCharacter('character_12${female ? '_female' : ''}', '鎌使い', female,
+          155, 34, 105, 'scythe_hit', 'chain_scythe_throw', '鎖鎌'),
+      PlayableCharacter('character_13${female ? '_female' : ''}', '天使', female,
+          145, 30, 100, 'holy_orb_release', 'holy_swords_release', '聖剣三連',
+          ranged: true),
+      PlayableCharacter('character_14${female ? '_female' : ''}', '悪魔', female,
+          145, 35, 100, 'dark_wave_release', 'curse_apply', '呪い',
+          ranged: true),
+      PlayableCharacter('character_15${female ? '_female' : ''}', 'ドラゴンナイト',
+          female, 210, 38, 100, 'spear_hit', 'dragon_flurry_hit', '龍の力・剣槍乱舞'),
+      PlayableCharacter('character_16${female ? '_female' : ''}', 'バーサーカー',
+          female, 230, 42, 90, 'punch_hit', 'floor_release', '床剥がし投げ'),
     ]
   ]);
   static PlayableCharacter get defaultCharacter => all.first;

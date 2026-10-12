@@ -1,4 +1,5 @@
 import 'dart:async';
+import '../../../core/widgets/sunlit_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -102,6 +103,10 @@ class _PlayableStagePageState extends State<PlayableStagePage>
     _assets = assets;
     final attack = assets.motions['hero_attack']!;
     final skill = assets.motions['hero_skill']!;
+    if (int.parse(_battle.character.id.split('_')[1]) >= 11) {
+      _battle.attackDuration = attack.duration;
+      _battle.skillDuration = skill.duration;
+    }
     _battle.attackHitFraction =
         attack.eventTick(_battle.character.attackEvent, 12) /
             (24 * attack.duration);
@@ -239,6 +244,10 @@ class _PlayableStagePageState extends State<PlayableStagePage>
   }
 
   Widget _scene() => LayoutBuilder(builder: (context, constraints) {
+        _battle.spriteWorldSide = PlayableStagePainter.baseSpriteSide(
+                constraints.biggest, MediaQuery.devicePixelRatioOf(context)) *
+            1280 /
+            constraints.maxWidth;
         final size = constraints.biggest;
         _battle.spriteWorldSide = PlayableStagePainter.baseSpriteSide(
                 size, MediaQuery.devicePixelRatioOf(context)) *
@@ -246,11 +255,16 @@ class _PlayableStagePageState extends State<PlayableStagePage>
             size.width;
         return ClipRect(
             child: Stack(fit: StackFit.expand, children: [
-          if (_assets != null)
+          if (_assets != null) ...[
             CustomPaint(
                 key: const Key('stage-canvas'),
                 painter: PlayableStagePainter(
                     _battle, _assets!, MediaQuery.devicePixelRatioOf(context))),
+            ..._headHealth(
+                PlayableStagePainter(
+                    _battle, _assets!, MediaQuery.devicePixelRatioOf(context)),
+                constraints.biggest),
+          ],
           if (_battle.message.isNotEmpty && _battle.mode != StageMode.ready)
             Positioned(
               top: constraints.maxWidth > constraints.maxHeight ? 125 : 290,
@@ -270,6 +284,111 @@ class _PlayableStagePageState extends State<PlayableStagePage>
             ),
         ]));
       });
+
+  List<Widget> _headHealth(PlayableStagePainter painter, Size size) {
+    final occupied = <Rect>[];
+    final widgets = <Widget>[];
+    void place(Offset head, double width, double height, Widget child) {
+      final left = (head.dx - width / 2).clamp(6.0, size.width - width - 6);
+      var top = (head.dy - height - 7).clamp(56.0, size.height - height);
+      var rect = Rect.fromLTWH(left, top, width, height);
+      for (var attempt = 0; attempt < occupied.length + 1; attempt++) {
+        final collisions =
+            occupied.where((other) => other.inflate(3).overlaps(rect));
+        if (collisions.isEmpty) break;
+        final next = (collisions.first.top - height - 4).clamp(56.0, top);
+        if (next == top) break;
+        top = next;
+        rect = Rect.fromLTWH(left, top, width, height);
+      }
+      occupied.add(rect);
+      widgets.add(Positioned(
+          left: rect.left, top: rect.top, width: rect.width, child: child));
+    }
+
+    place(painter.heroHead(size), 96, 24,
+        _hp(_battle.character.role, _battle.hp, _battle.character.health));
+    if (_battle.mode == StageMode.battle ||
+        (_battle.mode == StageMode.travel && _battle.modeTime > 1.8)) {
+      for (final enemy in _battle.enemies.where((enemy) => enemy.alive).toList()
+        ..sort((a, b) => (b.definition.isBoss ? 1 : 0)
+            .compareTo(a.definition.isBoss ? 1 : 0))) {
+        place(
+            painter.enemyHead(size, enemy),
+            enemy.definition.isBoss ? 128 : 64,
+            enemy.definition.isBoss ? 44 : 24,
+            _enemyHp(enemy));
+      }
+    }
+    return widgets;
+  }
+
+  Widget _enemyHp(StageEnemy enemy) => Semantics(
+      label: '敵${enemy.index + 1} ${enemy.definition.name}',
+      value: enemy.alive ? 'HP ${enemy.hp} / ${enemy.definition.hp}' : '撃破',
+      child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (enemy.definition.isBoss)
+              Text(
+                  '${enemy.definition.isBoss ? 'BOSS' : enemy.index + 1} · ${enemy.definition.name}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      fontSize: enemy.definition.isBoss ? 12 : 11,
+                      fontWeight: FontWeight.bold,
+                      color: !enemy.alive
+                          ? Colors.white38
+                          : enemy.definition.isBoss
+                              ? sunlitGold
+                              : Colors.white)),
+            Text(enemy.alive ? '${enemy.hp} / ${enemy.definition.hp}' : '撃破',
+                key: Key('enemy-hp-value-${enemy.index}'),
+                style: const TextStyle(
+                    fontFamily: 'SunlitSerif',
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    shadows: [
+                      Shadow(color: Colors.black, blurRadius: 4),
+                      Shadow(color: Colors.black, offset: Offset(1, 1))
+                    ])),
+            const SizedBox(height: 2),
+            LinearProgressIndicator(
+                key: Key('enemy-hp-${enemy.index}'),
+                value: (enemy.hp / enemy.definition.hp).clamp(0.0, 1.0),
+                minHeight: enemy.definition.isBoss ? 6 : 3,
+                backgroundColor: const Color(0xff233b51),
+                color: enemy.definition.isBoss
+                    ? sunlitGold
+                    : const Color(0xffee8877)),
+          ]));
+
+  Widget _hp(String name, int hp, int max) => Semantics(
+      label: '$name HP',
+      value: '$hp / $max',
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('$hp / $max',
+                style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    shadows: [
+                      Shadow(color: Colors.black, blurRadius: 4),
+                      Shadow(color: Colors.black, offset: Offset(1, 1))
+                    ])),
+            const SizedBox(height: 3),
+            LinearProgressIndicator(
+                key: const Key('player-hp'),
+                value: (hp / max).clamp(0.0, 1.0),
+                minHeight: 3,
+                backgroundColor: const Color(0xaa041328),
+                color: const Color(0xff6dc5e9)),
+          ]));
 
   Widget _overlay() {
     final won = _battle.mode == StageMode.won,

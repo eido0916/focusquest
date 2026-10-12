@@ -21,7 +21,7 @@ void main() {
   late PlayableStageAssets assets;
   setUpAll(() async {
     final font = await rootBundle.load('assets/fonts/NotoSerifJP.ttf');
-    for (final family in ['Roboto', 'serif', 'Ahem']) {
+    for (final family in ['SunlitSerif', 'Roboto', 'serif', 'Ahem']) {
       await (FontLoader(family)..addFont(Future.value(font))).load();
     }
     final icons = await rootBundle.load('fonts/MaterialIcons-Regular.otf');
@@ -86,6 +86,7 @@ void main() {
       await tester.pumpWidget(RepaintBoundary(
           key: boundary,
           child: MaterialApp(
+              debugShowCheckedModeBanner: false,
               theme: AppTheme.dark,
               home: PlayableStagePage(
                   battle: battle,
@@ -93,15 +94,55 @@ void main() {
                   audioOutput: SilentStageAudioOutput()))));
       await tester.pump();
       expect(find.text('冒険をはじめる'), findsOneWidget);
+      expect(find.text(battle.stage.title), findsNothing);
       await tester.tap(find.byKey(const Key('stage-start')));
       await tester.pump();
       expect(battle.mode, StageMode.travel);
       advance(battle, 3);
       await tester.pump();
+      final canvasRect = tester.getRect(find.byKey(const Key('stage-canvas')));
+      final controlsRect =
+          tester.getRect(find.byKey(const Key('stage-floating-controls')));
+      expect(canvasRect.contains(controlsRect.topLeft), true);
+      expect(canvasRect.contains(controlsRect.bottomRight), true);
+      expect(find.text('次のフェーズへ走行中'), findsNothing);
+      expect(find.byKey(const Key('enemy-health-strip')), findsNothing);
+      final initialEnemyHp = battle.enemies.map((enemy) => enemy.hp).toList();
+      for (final enemy in battle.enemies) {
+        expect(find.byKey(Key('enemy-hp-${enemy.index}')), findsOneWidget);
+        expect(tester.getSize(find.byKey(Key('enemy-hp-${enemy.index}'))).width,
+            lessThanOrEqualTo(64));
+        expect(
+            canvasRect.contains(tester
+                .getRect(find.byKey(Key('enemy-hp-${enemy.index}')))
+                .center),
+            true);
+      }
+      expect(tester.getSize(find.byKey(const Key('player-hp'))),
+          const Size(96, 3));
+      final heroHpBeforeAttack =
+          tester.getRect(find.byKey(const Key('player-hp'))).center.dx;
       await tester.tap(find.byKey(const Key('stage-attack')));
       await tester.pump();
-      advance(battle, 1.1);
+      advance(battle, .2);
+      await tester.pump();
+      expect(tester.getRect(find.byKey(const Key('player-hp'))).center.dx,
+          greaterThan(heroHpBeforeAttack));
+      advance(battle, .9);
       expect(battle.hits, 1);
+      await tester.pump();
+      expect(battle.enemies.first.hp, lessThan(initialEnemyHp.first));
+      for (final enemy in battle.enemies) {
+        expect(
+            tester
+                .widget<LinearProgressIndicator>(
+                    find.byKey(Key('enemy-hp-${enemy.index}')))
+                .value,
+            enemy.hp / enemy.definition.hp);
+        if (enemy.index > 0) {
+          expect(enemy.hp, initialEnemyHp[enemy.index]);
+        }
+      }
       for (var i = 0; i < 2; i++) {
         battle.attack();
         advance(battle, 1.1);

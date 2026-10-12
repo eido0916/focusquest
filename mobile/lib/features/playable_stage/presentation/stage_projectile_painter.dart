@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:ui' as ui;
 import '../domain/playable_character.dart';
 import '../domain/playable_stage_battle.dart';
 
@@ -69,7 +70,25 @@ const _palette = {
 };
 
 void paintStageProjectile(Canvas canvas, StageProjectile projectile, Offset tip,
-    double dot, double pixelRatio) {
+    double dot, double pixelRatio,
+    {ui.Image? image}) {
+  if (image != null) {
+    final side = 64 *
+        dot *
+        (projectile.skill && projectile.kind == ProjectileKind.ice ? 2 : 1);
+    canvas.drawImageRect(
+        image,
+        Rect.fromLTWH(0, 0, image.width.toDouble(), image.height.toDouble()),
+        Rect.fromLTWH(
+            ((tip.dx - side / 2) * pixelRatio).round() / pixelRatio,
+            ((tip.dy - side / 2) * pixelRatio).round() / pixelRatio,
+            side,
+            side),
+        Paint()
+          ..filterQuality = FilterQuality.none
+          ..isAntiAlias = false);
+    return;
+  }
   final pattern = projectile.resolved && !projectile.missed
       ? _impact
       : _patterns[projectile.kind]!;
