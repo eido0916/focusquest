@@ -1,7 +1,6 @@
 import '../../playable_stage/domain/playable_stage_catalog.dart';
 
-/// A chapter consists of 25 minutes of travel and five minutes of boss combat.
-/// The second chapter stays on the ghost ship until another area is specified.
+/// Each complete 30-minute session cycle has a boss during its last five minutes.
 class FocusAdventure {
   static List<int> unlockedAreas(Set<int> cleared) => [
         for (var area = 0; area < 9; area++)
@@ -16,6 +15,19 @@ class FocusAdventure {
   static int chapter(double seconds) => seconds < cycleSeconds ? 1 : 2;
   static double age(double seconds) => seconds % cycleSeconds;
   static bool fightingBoss(double seconds) => age(seconds) >= travelSeconds;
+
+  /// Use session elapsed time, never cumulative focus history. Incomplete
+  /// trailing cycles keep ordinary enemies instead of starting a partial boss.
+  static bool bossActive(double elapsedSeconds,
+          {required double durationSeconds}) =>
+      elapsedSeconds >= 0 &&
+      elapsedSeconds < durationSeconds &&
+      cycle(elapsedSeconds) < durationSeconds ~/ cycleSeconds &&
+      fightingBoss(elapsedSeconds);
+  static int completedBossCycles(double elapsedSeconds,
+          {required double durationSeconds}) =>
+      elapsedSeconds.clamp(0.0, durationSeconds).toDouble() ~/ cycleSeconds;
+
   static String bossId(double seconds, {int? areaIndex}) => areaIndex != null
       ? PlayableStageCatalog.bossIds[areaIndex < 0 ? 0 : areaIndex]
       : chapter(seconds) == 1
