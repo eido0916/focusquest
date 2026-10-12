@@ -56,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                   bottom: 16,
                   child: SunlitFrame(
                       scenery: true,
-                      padding: EdgeInsets.all(w * .033),
+                      padding: const EdgeInsets.fromLTRB(22, 22, 22, 28),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

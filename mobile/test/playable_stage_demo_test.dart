@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'support/trained_stage_hero.dart';
+import 'package:focusquest/features/playable_stage/presentation/adventure_battle_hud.dart';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -80,6 +82,8 @@ void main() {
       await tester.scrollUntilVisible(
           find.byKey(const Key('character-character_04')), 80,
           scrollable: find.byType(Scrollable).first);
+      await tester.ensureVisible(find.byKey(const Key('character-character_04')));
+      await tester.pump();
       await tester.tap(find.byKey(const Key('character-character_04')));
       await tester.pump();
       expect(find.text('250'), findsOneWidget);
@@ -104,8 +108,10 @@ void main() {
       addTearDown(tester.view.resetDevicePixelRatio);
       final stage = PlayableStageCatalog.stages[3];
       final assets = bossAssets;
-      final battle = PlayableStageBattle(stage: stage, roll: () => .5)..start();
-      while (battle.phase < 2) {
+      final battle = PlayableStageBattle(
+          stage: stage, character: trainedStageHero(), roll: () => .5)
+        ..start();
+      while (battle.phase < 2 && battle.active) {
         if (battle.canSkill) {
           battle.skill();
         } else if (battle.canAttack) {
@@ -144,10 +150,19 @@ void main() {
           tester.widget<FilledButton>(find.byKey(const Key('stage-skill')));
       expect(red.style!.shape!.resolve({}), isA<CircleBorder>());
       expect(blue.style!.shape!.resolve({}), isA<CircleBorder>());
-      expect(red.style!.backgroundColor!.resolve({}), const Color(0xffe43c46));
-      expect(blue.style!.backgroundColor!.resolve({}), const Color(0xff247ce8));
-      expect(tester.getSize(find.byKey(const Key('stage-attack'))),
-          const Size(84, 84));
+      // The visible red/blue circles are original PNG frames behind transparent
+      // hit targets, so verify the decoration and usable circular tap surface.
+      expect(red.style!.backgroundColor!.resolve({}), Colors.transparent);
+      expect(blue.style!.backgroundColor!.resolve({}), Colors.transparent);
+      for (final name in ['attack_button', 'skill_button']) {
+        expect(
+            find.byWidgetPredicate(
+                (w) => w is AdventureFrame && w.name == name),
+            findsOneWidget);
+      }
+      final attackSize = tester.getSize(find.byKey(const Key('stage-attack')));
+      expect(attackSize.width, attackSize.height);
+      expect(attackSize.width, greaterThanOrEqualTo(48));
       expect(tester.takeException(), isNull);
       await capture(tester, boundary,
           'boss-party-${size.width.toInt()}x${size.height.toInt()}.png');
@@ -252,7 +267,12 @@ void main() {
             assets: ninjaAssets,
             audioOutput: SilentStageAudioOutput())));
     expect(find.byKey(const Key('demo-change-character')), findsNothing);
+    await tester.ensureVisible(find.byKey(const Key('select-stage-1')));
+    await tester.pumpAndSettle();
     await tester.tap(find.byKey(const Key('select-stage-1')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    await tester.tap(find.byKey(const Key('challenge-stage-1')));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
     final battle = tester

@@ -19,13 +19,17 @@ import '../features/party/domain/party_member.dart';
 
 class GameController extends ChangeNotifier {
   GameController(this.repository,
-      {UsageMonitor? monitor, DateTime Function()? clock, Random? random})
+      {UsageMonitor? monitor,
+      DateTime Function()? clock,
+      Random? random,
+      PartyConnection? party})
       : monitor = monitor ?? UsageMonitor(),
         clock = clock ?? DateTime.now,
-        random = random ?? Random.secure() {
-    party.addListener(_partyChanged);
+        random = random ?? Random.secure(),
+        party = party ?? PartyConnection() {
+    this.party.addListener(_partyChanged);
   }
-  final PartyConnection party = PartyConnection();
+  final PartyConnection party;
   String? _handledPartySession;
   bool _joiningFocus = false;
   String? partyStartError;
@@ -116,6 +120,9 @@ class GameController extends ChangeNotifier {
         return s.copyWith(
             clearedPlayableStages: {...s.clearedPlayableStages, stage});
       }));
+  Future<void> recordPlayableEncounters(Set<String> ids) =>
+      _action(() => _save((s) =>
+          s.copyWith(encounteredEnemyIds: {...s.encounteredEnemyIds, ...ids})));
   String? startupError;
   static const uid = 'local-player';
   String _id() =>

@@ -13,6 +13,8 @@ void main() {
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
+    final cardImage = find.byWidgetPredicate(
+        (widget) => widget is Image && widget.image is MemoryImage);
     final controller =
         GameController(MemoryRepository(), clock: () => DateTime(2026, 10, 11));
     addTearDown(controller.dispose);
@@ -22,14 +24,14 @@ void main() {
     await tester.runAsync(() async {
       await tester.pumpWidget(
           MaterialApp(home: CertificateScreen(controller: controller)));
-      for (var i = 0; i < 100 && find.byType(Image).evaluate().isEmpty; i++) {
+      for (var i = 0; i < 100 && cardImage.evaluate().isEmpty; i++) {
         await Future<void>.delayed(const Duration(milliseconds: 100));
         await tester.pump();
       }
     });
     await tester.pump();
-    expect(find.byType(Image), findsOneWidget);
-    final image = tester.widget<Image>(find.byType(Image));
+    expect(cardImage, findsOneWidget);
+    final image = tester.widget<Image>(cardImage);
     expect(image.semanticLabel, 'アオイの冒険者証');
     final codec = await tester.runAsync(
         () => ui.instantiateImageCodec((image.image as MemoryImage).bytes));
@@ -47,7 +49,7 @@ void main() {
     expect(tester.takeException(), isNull);
     tester.view.physicalSize = const Size(844, 390);
     await tester.pump();
-    expect(find.byType(Image), findsOneWidget);
+    expect(cardImage, findsOneWidget);
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox());
   });

@@ -1,3 +1,4 @@
+import 'support/trained_stage_hero.dart';
 import 'dart:io';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
@@ -52,7 +53,9 @@ void main() {
           expect(wave.first.id, stage.bossEscort!.id);
         }
       }
-      final battle = PlayableStageBattle(stage: stage, roll: () => .5)..start();
+      final battle = PlayableStageBattle(
+          stage: stage, character: trainedStageHero(), roll: () => .5)
+        ..start();
       for (var tick = 0; tick < 120 * 120 && battle.active; tick++) {
         if (battle.canSkill) {
           battle.skill();
@@ -78,7 +81,8 @@ void main() {
         addTearDown(tester.view.resetPhysicalSize);
         addTearDown(tester.view.resetDevicePixelRatio);
         final stage = PlayableStageCatalog.stages[number - 1];
-        final battle = PlayableStageBattle(stage: stage, roll: () => .5)
+        final battle = PlayableStageBattle(
+            stage: stage, character: trainedStageHero(), roll: () => .5)
           ..phase = 2
           ..start();
         addTearDown(battle.dispose);
@@ -96,7 +100,7 @@ void main() {
                     assets: assets[number]!,
                     audioOutput: SilentStageAudioOutput()))));
         await tester.pump();
-        expect(find.text(stage.title), findsOneWidget);
+        expect(find.text(stage.title), findsNothing);
         expect(battle.remainingEnemies, 3);
         expect(battle.enemies.last.definition.id,
             PlayableStageCatalog.bossIds[number ~/ 4 - 1]);

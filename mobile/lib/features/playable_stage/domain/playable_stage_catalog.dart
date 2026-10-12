@@ -12,7 +12,7 @@ class StageOpponent {
 class PlayableStageDefinition {
   const PlayableStageDefinition(this.number, this.area, this.backgroundPath,
       this.groundLine, this.opponents,
-      {this.bossEscort});
+      {this.bossEscort, this.recommendedLevel = 1});
   final int number;
   final String area, backgroundPath;
   final double groundLine;
@@ -29,6 +29,27 @@ class PlayableStageDefinition {
       };
   bool get hasBoss => opponents.last.isBoss;
   String get title => 'STAGE $number · $area';
+
+  /// Fixed stage difficulty: leveling helps rather than scaling enemies with it.
+  final int recommendedLevel;
+
+  StageOpponent _leveledOpponent(StageOpponent enemy) {
+    if (recommendedLevel == 1) return enemy;
+    final growth = recommendedLevel - 1;
+    // Match FQ's +3 power, +5 combat speed and +12 HP per level.
+    // HP follows damage per second; enemy damage follows player durability.
+    final hpScale = (28 + growth * 3) /
+        28 *
+        (100 + growth * 5) /
+        100 *
+        (enemy.isBoss ? (number == 4 ? 1.0 : .8) : 1.7);
+    final damageScale =
+        (160 + growth * 12) / 160 * (enemy.isBoss ? 1.0 : 1.35);
+    return StageOpponent(enemy.id, enemy.name, (enemy.hp * hpScale).ceil(),
+        (enemy.damage * damageScale).ceil(), enemy.interval, enemy.subtitle,
+        isBoss: enemy.isBoss, count: enemy.count);
+  }
+
   List<StageOpponent> wave(int phase) {
     final main = opponents[phase];
     return [
@@ -39,7 +60,7 @@ class PlayableStageDefinition {
                 StageOpponent(
                     'goblin', 'ゴブリン', 56 + number * 2, 6, 6.5, 'ボスの取り巻き')),
       ...List.filled(main.count, main),
-    ];
+    ].map(_leveledOpponent).toList(growable: false);
   }
 }
 
@@ -147,6 +168,7 @@ class PlayableStageCatalog {
                     isBoss: true)
                 : mob(2)
           ]),
+          recommendedLevel: number + 7,
           bossEscort: StageOpponent(
               escort, _mobNames[escort]!, 64 + theme * 4, 6, 6.5, 'ボスの取り巻き'));
     }
@@ -175,6 +197,7 @@ class PlayableStageCatalog {
                   10 + sourceArea, 6.2, '最後の守り手',
                   count: 3),
         ]),
+        recommendedLevel: number + 7,
         bossEscort: StageOpponent(
             'goblin', 'ゴブリン', 56 + sourceNumber * 2, 6, 6.5, 'ボスの取り巻き'));
   }));

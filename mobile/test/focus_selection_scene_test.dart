@@ -114,6 +114,8 @@ void main() {
   for (final size in [
     const Size(390, 844),
     const Size(320, 568),
+    const Size(844, 390),
+    const Size(1920, 1080),
     const Size(1024, 1536)
   ]) {
     testWidgets('illustrated scene fits $size', (tester) async {
@@ -179,7 +181,7 @@ void main() {
           final image = await boundary.toImage();
           final data = await image.toByteData(format: ui.ImageByteFormat.png);
           final file = File(
-              '../art/focus_selection_v001/preview_${size.width.toInt()}.png');
+              'build/unified-ui/focus-${size.width.toInt()}.png');
           file.parent.createSync(recursive: true);
           file.writeAsBytesSync(data!.buffer.asUint8List());
           image.dispose();

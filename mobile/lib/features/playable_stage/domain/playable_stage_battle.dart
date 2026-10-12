@@ -151,6 +151,12 @@ class PlayableStageBattle extends ChangeNotifier {
   List<double> attackReleaseFractions = [], skillReleaseFractions = [];
   int _releasedShots = 0;
   double attackDuration = 1, skillDuration = 1.75;
+  double heroHurtDuration = .5, heroDefeatDuration = 1.25;
+  double heroHurtTime = .5, heroDefeatTime = 0;
+  bool get heroHurt =>
+      mode == StageMode.battle && hp > 0 && heroHurtTime < heroHurtDuration;
+  bool get heroDefeatFinished =>
+      mode == StageMode.lost && heroDefeatTime >= heroDefeatDuration;
   double attackHitFraction = 13 / 24, skillHitFraction = 31 / 42;
 
   StageOpponent get opponent => encounters[phase];
@@ -187,6 +193,8 @@ class PlayableStageBattle extends ChangeNotifier {
     _actionTarget = null;
     heroPoseOffset = 0;
     actionTime = 0;
+    heroHurtTime = heroHurtDuration;
+    heroDefeatTime = 0;
     _heroHit = false;
     message = '${stage.area}の冒険へようこそ';
     _messageUntil = 0;
@@ -297,8 +305,19 @@ class PlayableStageBattle extends ChangeNotifier {
   }
 
   void update(double elapsed) {
-    if (paused || !active) return;
+    if (paused) return;
     final dt = elapsed.clamp(0.0, 0.1).toDouble();
+    // HP-zero is already a loss; keep ticking only the drawn kneeling motion.
+    // No combat, movement, healing or projectile hits continue after defeat.
+    if (mode == StageMode.lost) {
+      if (!heroDefeatFinished) {
+        heroDefeatTime = math.min(heroDefeatDuration, heroDefeatTime + dt);
+        notifyListeners();
+      }
+      return;
+    }
+    if (!active) return;
+    heroHurtTime = math.min(heroHurtDuration, heroHurtTime + dt);
     clock += dt;
     modeTime += dt;
     for (final enemy in enemies.where((enemy) => !enemy.alive)) {
@@ -432,7 +451,12 @@ class PlayableStageBattle extends ChangeNotifier {
               if (hp == 0) {
                 mode = StageMode.lost;
                 action = null;
+                _actionTarget = null;
+                heroPoseOffset = 0;
+                heroDefeatTime = 0;
                 _sound(BattleSound.loss);
+              } else if (damage > 0) {
+                heroHurtTime = 0;
               }
             }
             if (enemy.actionTime >= enemy.attackDuration) {

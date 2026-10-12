@@ -1,0 +1,20 @@
+{
+  "reference": "mobile/assets/images/playable_stage/character_08_female_attack_000.png",
+  "referenceSha256": "6db961870938adbc776a2b25febe0bcc69264f250978b05c095d3b5ff0413e0d",
+  "sharedScale": 0.12225705329153605,
+  "sharedShift": 0,
+  "baselinePx": 120,
+  "standingReferenceHeightPx": 78,
+  "standingOriginalHeightPx": 78,
+  "canvas": [
+    128,
+    128
+  ],
+  "logicalGrid": [
+    64,
+    64
+  ],
+  "partTransforms": false,
+  "interpolation": "none",
+  "generationTool": "built-in image_gen"
+}

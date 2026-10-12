@@ -90,7 +90,7 @@ void main() {
         expect(find.text('許可済み'), findsNWidgets(2));
         if (const bool.fromEnvironment('CAPTURE_SETTINGS') && scale == 1) {
           await tester.runAsync(() => _save(boundary,
-              '../art/settings_ui_v001/preview-${size.width.toInt()}.png'));
+              'build/unified-ui/settings-${size.width.toInt()}.png'));
         }
         final access = find.widgetWithText(SettingsArtButton, '設定を開く');
         await tester.ensureVisible(access.first);
@@ -152,7 +152,7 @@ void main() {
                           size: 48, color: settingsBrown))))));
       await tester.pumpAndSettle();
       await tester.runAsync(() => _save(
-          key, '../art/settings_ui_v001/materials/icon-${entry.key}.png'));
+          key, 'build/unified-ui/materials/icon-${entry.key}.png'));
     }
     final key = GlobalKey();
     await tester.pumpWidget(MaterialApp(
@@ -163,6 +163,6 @@ void main() {
                     icon: Icons.smartphone_rounded, unit: 2, blue: true)))));
     await tester.pumpAndSettle();
     await tester.runAsync(() =>
-        _save(key, '../art/settings_ui_v001/materials/phone-medallion.png'));
+        _save(key, 'build/unified-ui/materials/phone-medallion.png'));
   });
 }

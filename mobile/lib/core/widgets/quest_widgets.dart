@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 import 'sunlit_widgets.dart';
+import 'game_ui.dart';
 
 /// A game window, with a restrained double border and an inset caption.
 class QuestCard extends StatelessWidget {
@@ -11,55 +12,33 @@ class QuestCard extends StatelessWidget {
   final bool parchment;
   final String? caption;
   @override
-  Widget build(BuildContext context) => CustomPaint(
-      painter: _GoldFramePainter(parchment: parchment),
-      child: Container(
-          margin: const EdgeInsets.only(bottom: 10),
-          padding: const EdgeInsets.all(5),
-          decoration: BoxDecoration(
-              gradient: parchment
-                  ? const LinearGradient(
-                      colors: [Color(0xfffff3d2), Color(0xffe4c994)])
-                  : const LinearGradient(
-                      colors: [Color(0xf5080c18), Color(0xf5080c18)]),
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: AppTheme.gold, width: 1.4),
-              boxShadow: const [
-                BoxShadow(
-                    color: Colors.black54, blurRadius: 8, offset: Offset(0, 3))
-              ]),
-          child: Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                  border: Border.all(
-                      color: parchment
-                          ? const Color(0xff9f7840)
-                          : const Color(0xffa9afbd)),
-                  borderRadius: BorderRadius.circular(4)),
-              child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    if (caption != null) ...[
-                      Text(caption!,
-                          style: TextStyle(
-                              color: parchment ? AppTheme.ink : AppTheme.gold,
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1.5)),
-                      const SizedBox(height: 8),
-                    ],
-                    child,
-                  ]))));
+  Widget build(BuildContext context) => Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: GamePanel(
+          asset: parchment ? 'parchment_panel' : 'identity_panel',
+          child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                if (caption != null) ...[
+                  Text(caption!,
+                      style: TextStyle(
+                          color: parchment ? gamePaperInk : gameGold,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 10),
+                ],
+                child,
+              ])));
 }
 
 class QuestBackdrop extends StatelessWidget {
-  const QuestBackdrop({super.key, required this.child, this.dim = .25});
+  const QuestBackdrop({super.key, required this.child, this.dim = .08});
   final Widget child;
   final double dim;
   @override
   Widget build(BuildContext context) => Stack(fit: StackFit.expand, children: [
-        Image.asset('assets/images/ui/sunlit_kingdom.png',
+        Image.asset(gameBackground,
             fit: BoxFit.cover, alignment: Alignment.topCenter),
         ColoredBox(color: Colors.black.withOpacity(dim)),
         const DecoratedBox(
@@ -179,37 +158,41 @@ class QuestNavigation extends StatelessWidget {
                     children: List.generate(labels.length, (i) {
                   final active = selected == i;
                   final content = SizedBox(
-                      height: 64,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(icons[i],
-                                size: 27,
-                                color: active
-                                    ? const Color(0xffffe8b0)
-                                    : sunlitGold,
-                                shadows: active
-                                    ? const [
-                                        Shadow(
-                                            color: Color(0xffffd584),
-                                            blurRadius: 14)
-                                      ]
-                                    : null),
-                            const SizedBox(height: 4),
-                            FittedBox(
-                                fit: BoxFit.scaleDown,
-                                child: Text(labels[i],
-                                    maxLines: 1,
-                                    style: TextStyle(
-                                        fontFamily: 'SunlitSerif',
-                                        fontSize: 12,
-                                        fontWeight: active
-                                            ? FontWeight.bold
-                                            : FontWeight.normal,
-                                        color: active
-                                            ? const Color(0xffffe8b0)
-                                            : sunlitGold))),
-                          ]));
+                      height: 88,
+                      width: double.infinity,
+                      child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 12, horizontal: 12),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(icons[i],
+                                    size: 27,
+                                    color: active
+                                        ? const Color(0xffffe8b0)
+                                        : sunlitGold,
+                                    shadows: active
+                                        ? const [
+                                            Shadow(
+                                                color: Color(0xffffd584),
+                                                blurRadius: 14)
+                                          ]
+                                        : null),
+                                const SizedBox(height: 4),
+                                FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child: Text(labels[i],
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                            fontFamily: 'SunlitSerif',
+                                            fontSize: 12,
+                                            fontWeight: active
+                                                ? FontWeight.bold
+                                                : FontWeight.normal,
+                                            color: active
+                                                ? const Color(0xffffe8b0)
+                                                : sunlitGold))),
+                              ])));
                   return Expanded(
                       child: Semantics(
                           selected: active,
@@ -219,8 +202,9 @@ class QuestNavigation extends StatelessWidget {
                               child: InkWell(
                                   onTap: () => onSelect(i),
                                   child: active
-                                      ? SunlitFrame(
-                                          compact: true,
+                                      ? GamePanel(
+                                          asset: 'equipment_row',
+                                          protectContent: false,
                                           padding: EdgeInsets.zero,
                                           child: content)
                                       : Container(
@@ -262,73 +246,40 @@ class QuestActionButton extends StatelessWidget {
   final VoidCallback? onTap;
   final bool compact;
   @override
-  Widget build(BuildContext context) => Opacity(
-      opacity: onTap == null ? .48 : 1,
-      child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(12),
-          child: Container(
-              height: compact ? 72 : 92,
-              padding: const EdgeInsets.symmetric(horizontal: 18),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: AppTheme.gold, width: 2),
-                  gradient: const LinearGradient(colors: [
-                    Color(0xff0b65b9),
-                    Color(0xff06396f),
-                    Color(0xff082744)
-                  ]),
-                  boxShadow: const [
-                    BoxShadow(
-                        color: Colors.black54,
-                        blurRadius: 8,
-                        offset: Offset(0, 4))
-                  ]),
-              child:
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Icon(icon, color: AppTheme.gold, size: compact ? 26 : 36),
-                const SizedBox(width: 14),
-                Flexible(
-                    child: Text(label,
-                        style: TextStyle(
-                            fontFamily: 'serif',
-                            fontSize: compact ? 19 : 25,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white))),
-                const SizedBox(width: 10),
-                const Icon(Icons.chevron_right_rounded, color: AppTheme.gold)
-              ]))));
-}
-
-class _GoldFramePainter extends CustomPainter {
-  const _GoldFramePainter({required this.parchment});
-  final bool parchment;
-  @override
-  void paint(Canvas canvas, Size size) {
-    final p = Paint()
-      ..color = parchment ? const Color(0xff9b7536) : AppTheme.gold;
-    const d = 10.0;
-    for (final corner in [
-      const Offset(0, 0),
-      Offset(size.width, 0),
-      Offset(0, size.height),
-      Offset(size.width, size.height)
-    ]) {
-      final sx = corner.dx == 0 ? 1.0 : -1.0;
-      final sy = corner.dy == 0 ? 1.0 : -1.0;
-      final path = Path()
-        ..moveTo(corner.dx, corner.dy + sy * d * 2)
-        ..lineTo(corner.dx + sx * d, corner.dy + sy * d)
-        ..lineTo(corner.dx + sx * d * 2, corner.dy)
-        ..lineTo(corner.dx + sx * d * .7, corner.dy + sy * d * .7)
-        ..close();
-      canvas.drawPath(path, p);
-    }
-  }
-
-  @override
-  bool shouldRepaint(_GoldFramePainter oldDelegate) =>
-      oldDelegate.parchment != parchment;
+  Widget build(BuildContext context) => Semantics(
+      button: true,
+      enabled: onTap != null,
+      child: Opacity(
+          opacity: onTap == null ? .48 : 1,
+          child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                  onTap: onTap,
+                  child: GamePanel(
+                      asset: 'equipment_row',
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 16),
+                      child: ConstrainedBox(
+                          constraints:
+                              BoxConstraints(minHeight: compact ? 40 : 56),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(icon,
+                                    color: gameGold, size: compact ? 26 : 32),
+                                const SizedBox(width: 12),
+                                Flexible(
+                                    child: Text(label,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontFamily: 'SunlitSerif',
+                                            fontSize: compact ? 18 : 23,
+                                            fontWeight: FontWeight.bold,
+                                            color: gameWhite))),
+                                const SizedBox(width: 8),
+                                const Icon(Icons.chevron_right_rounded,
+                                    color: gameGold),
+                              ])))))));
 }
 
 Future<void> runAction(

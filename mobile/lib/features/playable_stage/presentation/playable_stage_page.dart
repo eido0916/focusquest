@@ -1,3 +1,4 @@
+import '../../../core/widgets/game_ui.dart';
 import 'dart:async';
 import '../../../core/widgets/sunlit_widgets.dart';
 import 'package:flutter/material.dart';
@@ -103,6 +104,9 @@ class _PlayableStagePageState extends State<PlayableStagePage>
     _assets = assets;
     final attack = assets.motions['hero_attack']!;
     final skill = assets.motions['hero_skill']!;
+    _battle.heroHurtDuration = assets.motions['hero_hurt']?.duration ?? .5;
+    _battle.heroDefeatDuration =
+        assets.motions['hero_defeat']?.duration ?? 1.25;
     if (int.parse(_battle.character.id.split('_')[1]) >= 11) {
       _battle.attackDuration = attack.duration;
       _battle.skillDuration = skill.duration;
@@ -188,7 +192,7 @@ class _PlayableStagePageState extends State<PlayableStagePage>
                 _battle.mode == StageMode.ready ||
                 _battle.paused ||
                 _battle.mode == StageMode.won ||
-                _battle.mode == StageMode.lost)
+                (_battle.mode == StageMode.lost && _battle.heroDefeatFinished))
               ColoredBox(
                   color: const Color(0x99112b23),
                   child: Center(
@@ -404,62 +408,59 @@ class _PlayableStagePageState extends State<PlayableStagePage>
                     : lost
                         ? 'もう一度、挑もう。'
                         : '${_battle.character.role}で、${_battle.stage.area}へ。';
-    return Container(
-        constraints: const BoxConstraints(maxWidth: 400),
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-            color: const Color(0xff19382c),
-            border: Border.all(color: const Color(0xffbca773)),
-            borderRadius: BorderRadius.circular(12)),
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Text(title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                  fontSize: 21,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xfff5e5b6))),
-          const SizedBox(height: 12),
-          Text(
-              _error ??
-                  (won
-                      ? '3フェーズ突破！\n命中 ${_battle.hits}回 · ミス ${_battle.misses}回\nクリティカル ${_battle.criticals}回 · スキル ${_battle.skills}回\n${_battle.clock.ceil()}秒でクリア'
-                      : lost
-                          ? '${_battle.phase + 1}フェーズ目で力尽きた。\n攻撃とスキルを組み合わせよう。'
-                          : _battle.paused
-                              ? '準備ができたら、冒険を続けよう。'
-                              : '通常攻撃：命中90%\nクリティカル：20%・ダメージ2倍\n通常攻撃を3回当てると必中スキルが使える。'),
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 12, height: 1.8)),
-          const SizedBox(height: 16),
-          if (_assets == null && _error == null)
-            const CircularProgressIndicator()
-          else
-            FilledButton(
-                key: const Key('stage-start'),
-                style: FilledButton.styleFrom(
-                    backgroundColor: const Color(0xffe8cd85),
-                    foregroundColor: const Color(0xff233629)),
-                onPressed: _error != null
-                    ? _load
-                    : _battle.paused
-                        ? _battle.resume
-                        : won && widget.returnToSelection
-                            ? _returnToSelection
-                            : _battle.restart,
-                child: Text(_error != null
-                    ? '再試行'
-                    : _battle.paused
-                        ? '冒険を再開'
-                        : won && widget.returnToSelection
-                            ? 'ステージ選択へ'
-                            : won || lost
-                                ? 'もう一度プレイ'
-                                : '冒険をはじめる')),
-          if (widget.returnToSelection && lost) ...[
-            const SizedBox(height: 8),
-            TextButton(
-                onPressed: _returnToSelection, child: const Text('ステージ選択へ')),
-          ],
-        ]));
+    return GamePanel(
+        child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 400),
+            child: Column(mainAxisSize: MainAxisSize.min, children: [
+              Text(title,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                      fontSize: 21,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xfff5e5b6))),
+              const SizedBox(height: 12),
+              Text(
+                  _error ??
+                      (won
+                          ? '3フェーズ突破！\n命中 ${_battle.hits}回 · ミス ${_battle.misses}回\nクリティカル ${_battle.criticals}回 · スキル ${_battle.skills}回\n${_battle.clock.ceil()}秒でクリア'
+                          : lost
+                              ? '${_battle.phase + 1}フェーズ目で力尽きた。\n集中でレベルを上げ、装備を整えよう。\n推奨 Lv.${_battle.stage.recommendedLevel}'
+                              : _battle.paused
+                                  ? '準備ができたら、冒険を続けよう。'
+                                  : '通常攻撃：命中90%\nクリティカル：20%・ダメージ2倍\n通常攻撃を3回当てると必中スキルが使える。'),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 12, height: 1.8)),
+              const SizedBox(height: 16),
+              if (_assets == null && _error == null)
+                const CircularProgressIndicator()
+              else
+                FilledButton(
+                    key: const Key('stage-start'),
+                    style: FilledButton.styleFrom(
+                        backgroundColor: const Color(0xffe8cd85),
+                        foregroundColor: const Color(0xff233629)),
+                    onPressed: _error != null
+                        ? _load
+                        : _battle.paused
+                            ? _battle.resume
+                            : won && widget.returnToSelection
+                                ? _returnToSelection
+                                : _battle.restart,
+                    child: Text(_error != null
+                        ? '再試行'
+                        : _battle.paused
+                            ? '冒険を再開'
+                            : won && widget.returnToSelection
+                                ? 'ステージ選択へ'
+                                : won || lost
+                                    ? 'もう一度プレイ'
+                                    : '冒険をはじめる')),
+              if (widget.returnToSelection && lost) ...[
+                const SizedBox(height: 8),
+                TextButton(
+                    onPressed: _returnToSelection,
+                    child: const Text('ステージ選択へ')),
+              ],
+            ])));
   }
 }

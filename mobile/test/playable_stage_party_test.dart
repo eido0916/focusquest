@@ -1,3 +1,5 @@
+import 'support/trained_stage_hero.dart';
+import 'support/mechanics_stage.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:focusquest/features/playable_stage/domain/playable_character.dart';
 import 'package:focusquest/features/playable_stage/domain/playable_stage_battle.dart';
@@ -23,7 +25,8 @@ void main() {
   });
   test('a defeated target plays once while other enemies keep fighting',
       () async {
-    final battle = PlayableStageBattle(roll: () => .5)..start();
+    final battle = PlayableStageBattle(stage: mechanicsStage(), roll: () => .5)
+      ..start();
     final sounds = <BattleSound>[];
     final subscription = battle.soundEvents.listen(sounds.add);
     advance(battle, 3);
@@ -49,10 +52,14 @@ void main() {
   test('speed changes action lock; power and health apply to combat and reset',
       () {
     final fast = PlayableStageBattle(
-        character: PlayableCharacters.all[4], roll: () => .5)
+        stage: mechanicsStage(),
+        character: PlayableCharacters.all[4],
+        roll: () => .5)
       ..start();
     final slow = PlayableStageBattle(
-        character: PlayableCharacters.all[3], roll: () => .5)
+        stage: mechanicsStage(),
+        character: PlayableCharacters.all[3],
+        roll: () => .5)
       ..start();
     advance(fast, 3);
     advance(slow, 3);
@@ -74,12 +81,12 @@ void main() {
     fast.dispose();
     slow.dispose();
   });
-  test('all twenty heroes can clear the final castle with attack and skill',
+  test('trained heroes can clear the final castle with attack and skill',
       () async {
     for (final hero in PlayableCharacters.all) {
       final battle = PlayableStageBattle(
           stage: PlayableStageCatalog.stages.last,
-          character: hero,
+          character: trainedStageHero(hero),
           roll: () => .5)
         ..start();
       final assets = await PlayableStageAssets.load(

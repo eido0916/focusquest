@@ -109,6 +109,9 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const Key('select-stage-1')));
     await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    await tester.tap(find.byKey(const Key('challenge-stage-1')));
+    await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
     final page =
         tester.widget<PlayableStagePage>(find.byType(PlayableStagePage));
@@ -134,7 +137,8 @@ void main() {
     final controller = GameController(repo);
     await controller.load();
     await controller.onboard(GameCatalog.types[15]!);
-    final character = fqAdventureCharacter(controller.state!.activeCharacter!);
+    final character = fqAdventureCharacter(
+        controller.state!.activeCharacter!.copyWith(level: 60));
     await tester.pumpWidget(MaterialApp(
         home: PlayableStageSelectionPage(
             controller: controller,
@@ -145,6 +149,9 @@ void main() {
     await tester.ensureVisible(find.byKey(const Key('select-stage-1')));
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const Key('select-stage-1')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    await tester.tap(find.byKey(const Key('challenge-stage-1')));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
     final battle = tester
@@ -165,15 +172,22 @@ void main() {
     await tester.pump(const Duration(milliseconds: 400));
     await tester.pump();
     expect(repo.state.clearedPlayableStages, {1});
+    final encountered = {
+      for (var phase = 0; phase < 3; phase++)
+        for (final enemy in PlayableStageCatalog.stages.first.wave(phase))
+          enemy.id,
+    };
+    expect(repo.state.encounteredEnemyIds, encountered);
     await tester.pumpWidget(const SizedBox());
     await controller.load();
     await tester.pumpWidget(
         MaterialApp(home: PlayableStageSelectionPage(controller: controller)));
     await tester.pump();
+    expect(controller.state!.encounteredEnemyIds, encountered);
     expect(
         find.descendant(
             of: find.byKey(const Key('select-stage-1')),
-            matching: find.text('✓ CLEAR')),
+            matching: find.text('Stage 1')),
         findsOneWidget);
     await tester.pumpWidget(const SizedBox());
     controller.dispose();
@@ -198,7 +212,7 @@ void main() {
     expect(
         find.descendant(
             of: find.byKey(const Key('select-stage-1')),
-            matching: find.text('✓ CLEAR')),
+            matching: find.text('Stage 1')),
         findsOneWidget);
     await tester.tap(find.descendant(
         of: find.byType(QuestNavigation), matching: find.text('ホーム')));
@@ -225,8 +239,8 @@ void main() {
             audioOutput: SilentStageAudioOutput(),
             battleFactory: (stage) => PlayableStageBattle(
                 stage: stage,
-                character:
-                    fqAdventureCharacter(controller.state!.activeCharacter!),
+                character: fqAdventureCharacter(
+                    controller.state!.activeCharacter!.copyWith(level: 60)),
                 roll: () => .5))));
     await tester.pumpAndSettle();
     await controller.startFocus(15);
@@ -240,6 +254,9 @@ void main() {
     await tester.ensureVisible(find.byKey(const Key('select-stage-1')));
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const Key('select-stage-1')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    await tester.tap(find.byKey(const Key('challenge-stage-1')));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
     final battle = tester

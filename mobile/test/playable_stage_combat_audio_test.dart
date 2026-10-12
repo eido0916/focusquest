@@ -1,3 +1,4 @@
+import 'support/mechanics_stage.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:focusquest/features/playable_stage/domain/playable_stage_battle.dart';
 import 'package:focusquest/features/playable_stage/domain/playable_stage_catalog.dart';
@@ -93,7 +94,7 @@ void main() {
     advance(skill, 3);
     skill.charge = 3;
     skill.skill();
-    advance(skill, 1.4);
+    advance(skill, 1.9);
     expect(skill.enemyHp, 0);
     expect(skill.misses, 0);
     expect(skill.charge, 0);
@@ -105,17 +106,20 @@ void main() {
     skill.dispose();
   });
   test('enemy miss and critical use separate probabilities', () {
-    final miss = PlayableStageBattle(roll: () => .85)..start();
+    final miss = PlayableStageBattle(stage: mechanicsStage(), roll: () => .85)
+      ..start();
     advance(miss, 5.2);
     expect(miss.hp, 160);
     expect(miss.damageNumbers.single.miss, true);
     expect(miss.damageNumbers.single.toHero, true);
     miss.dispose();
     final values = [.849, .099].iterator;
-    final critical = PlayableStageBattle(roll: () {
-      values.moveNext();
-      return values.current;
-    })
+    final critical = PlayableStageBattle(
+        stage: mechanicsStage(),
+        roll: () {
+          values.moveNext();
+          return values.current;
+        })
       ..start();
     advance(critical, 5.2);
     expect(critical.hp, 148);
@@ -126,7 +130,7 @@ void main() {
       () async {
     final output = RecordingAudio();
     final battle = PlayableStageBattle(
-        stage: PlayableStageCatalog.stages[3], roll: () => .5);
+        stage: mechanicsStage(PlayableStageCatalog.stages[3]), roll: () => .5);
     final audio = PlayableStageAudio(battle, output: output);
     Future<void> flush() => Future<void>.delayed(Duration.zero);
     await flush();

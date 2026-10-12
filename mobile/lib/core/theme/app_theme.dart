@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import '../widgets/game_ui.dart';
 
 class AppTheme {
-  static const forest = Color(0xff080c18);
-  static const navy = Color(0xff0c1222);
-  static const royalBlue = Color(0xff263952);
-  static const gold = Color(0xfff1f2fa);
-  static const parchment = Color(0xfff1f2fa);
+  static const forest = gameInk;
+  static const navy = Color(0xff102c47);
+  static const royalBlue = Color(0xff183b5a);
+  static const gold = gameGold;
+  static const parchment = gameWhite;
   static const ink = Color(0xff352819);
 
   static ThemeData get dark {
-    final base = ThemeData(brightness: Brightness.dark, useMaterial3: true);
+    final base = ThemeData(
+        brightness: Brightness.dark,
+        useMaterial3: true,
+        fontFamily: 'SunlitSerif');
     final shape = RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(5),
         side: const BorderSide(color: gold));
@@ -28,21 +32,27 @@ class AppTheme {
           centerTitle: true,
           elevation: 0,
           titleTextStyle: TextStyle(
-              fontFamily: 'serif',
+              fontFamily: 'SunlitSerif',
               fontSize: 22,
               fontWeight: FontWeight.bold,
               letterSpacing: 1.5)),
       dividerTheme: const DividerThemeData(color: Color(0xff6f6040), space: 28),
       iconTheme: const IconThemeData(color: gold),
+      cardTheme: CardTheme(
+          color: navy,
+          surfaceTintColor: Colors.transparent,
+          elevation: 0,
+          shape: shape),
       filledButtonTheme: FilledButtonThemeData(
           style: FilledButton.styleFrom(
               backgroundColor: royalBlue,
-              foregroundColor: Colors.white,
+              foregroundColor: gameWhite,
               disabledBackgroundColor: const Color(0xff344755),
               disabledForegroundColor: const Color(0xffc2bba9),
               minimumSize: const Size(48, 54),
               shape: shape,
               textStyle: const TextStyle(
+                  fontFamily: 'SunlitSerif',
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1))),
@@ -72,7 +82,7 @@ class AppTheme {
           surfaceTintColor: Colors.transparent,
           shape: shape),
       progressIndicatorTheme: const ProgressIndicatorThemeData(
-          color: Color(0xff69ebed),
+          color: gameGold,
           linearTrackColor: Color(0xff173851),
           linearMinHeight: 7),
       listTileTheme:
