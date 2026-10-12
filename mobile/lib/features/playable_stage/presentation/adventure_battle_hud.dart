@@ -1,5 +1,5 @@
 import '../../../core/widgets/game_ui.dart';
-import 'dart:math' as math;
+import 'adventure_stage_layout.dart';
 import 'package:flutter/material.dart';
 import '../domain/playable_stage_battle.dart';
 import '../../diagnosis/presentation/job_portrait.dart';
@@ -23,40 +23,43 @@ class AdventureBattleHud extends StatelessWidget {
   Widget build(BuildContext context) => LayoutBuilder(builder: (_, box) {
         final w = box.maxWidth;
         final landscape = w > box.maxHeight;
-        final commandSide = landscape ? (w * .115).clamp(80.0, 200.0) : 96.0;
+        final layout = AdventureStageLayout(box.biggest);
+        final commandSide = layout.commandSide;
+        final compact = w < 1000 || box.maxHeight < 500;
         return Stack(children: [
           if (landscape) ...[
             Positioned(
-                left: w * .015,
-                top: w * .036,
-                width: w * .27,
-                height: w * .085,
+                left: 12,
+                top: 48,
+                width: w * (compact ? .36 : .27),
+                height: compact ? 82 : 124,
                 child: _status()),
             Positioned(
-                left: w * .285,
-                top: 2,
-                width: w * .43,
-                height: w * .073,
+                left: w * (compact ? .25 : .30),
+                top: 4,
+                width: w * (compact ? .47 : .40),
+                height: compact ? 52 : 84,
                 child: _title()),
             Positioned(right: 10, top: 8, child: utilities),
             Positioned(
-                right: w * .015,
-                top: math.max(60, w * .065),
-                width: w * .27,
-                height: math.max(52, w * .066),
+                left: compact ? w * .36 + 20 : null,
+                right: compact ? null : 12,
+                top: compact ? 62 : 100,
+                width: w * (compact ? .26 : .27),
+                height: 82,
                 child: _phase()),
           ] else ...[
             Positioned(
-                left: 10, right: 10, top: 5, height: 56, child: _title()),
-            Positioned(right: 8, top: 64, child: utilities),
+                left: 10, right: 10, top: 5, height: 64, child: _title()),
+            Positioned(right: 8, top: 74, child: utilities),
             Positioned(
-                left: 10, right: 10, top: 116, height: 98, child: _status()),
+                left: 10, right: 10, top: 128, height: 104, child: _status()),
             Positioned(
-                left: 10, right: 10, top: 218, height: 64, child: _phase()),
+                left: 10, right: 10, top: 238, height: 68, child: _phase()),
           ],
           Positioned(
               right: 10,
-              bottom: landscape ? box.maxHeight * .06 : 14,
+              bottom: 14,
               child: Row(
                   key: const Key('stage-floating-controls'),
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -66,8 +69,8 @@ class AdventureBattleHud extends StatelessWidget {
                     _command(true, commandSide),
                     const SizedBox(width: 6),
                     SizedBox(
-                        width: commandSide * .62,
-                        height: commandSide * .62,
+                        width: commandSide * .70,
+                        height: commandSide * .70,
                         child: Stack(fit: StackFit.expand, children: [
                           const AdventureFrame('auto_button'),
                           FilledButton(
@@ -82,8 +85,14 @@ class AdventureBattleHud extends StatelessWidget {
                                         auto ? Icons.pause : Icons.fast_forward,
                                         color: const Color(0xffffecc0),
                                         size: 27),
-                                    Text(auto ? 'オート ON' : 'オート',
-                                        style: _text(12)),
+                                    Text(
+                                        commandSide < 110
+                                            ? 'オート'
+                                            : auto
+                                                ? 'オート ON'
+                                                : 'オート',
+                                        style:
+                                            _text(commandSide < 110 ? 14 : 16)),
                                   ]))),
                         ])),
                   ])),
@@ -93,7 +102,7 @@ class AdventureBattleHud extends StatelessWidget {
   Widget _title() => Stack(fit: StackFit.expand, children: [
         const AdventureFrame('stage_banner'),
         Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 12),
             child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
@@ -106,124 +115,91 @@ class AdventureBattleHud extends StatelessWidget {
         .firstWhere((entry) => entry.value == battle.character.role,
             orElse: () => const MapEntry('warrior', '剣士'))
         .key;
-    return Stack(fit: StackFit.expand, children: [
-      const AdventureFrame('status_panel'),
-      Padding(
-          padding: const EdgeInsets.all(16),
-          child: FittedBox(
-              child: SizedBox(
-                  width: 410,
-                  height: 112,
-                  child: Row(children: [
-                    SizedBox(
-                        width: 98,
-                        height: 104,
-                        child: Stack(fit: StackFit.expand, children: [
-                          Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: ClipRect(
-                                  child: JobPortrait(
-                                      typeId: role,
-                                      appearance: battle.character.female
-                                          ? 'female'
-                                          : 'male',
-                                      lobby: true,
-                                      fit: BoxFit.cover,
-                                      alignment: Alignment.topCenter))),
-                          const AdventureFrame('portrait_frame'),
-                        ])),
-                    const SizedBox(width: 12),
-                    Expanded(
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                          Row(children: [
-                            Expanded(
-                                child: Text(battle.character.role,
-                                    style: _text(25))),
-                            Text('Lv. ${battle.character.level}',
-                                style: _text(20, gold: true))
-                          ]),
-                          const Divider(height: 14, color: Color(0xffad8646)),
-                          Text('HP  ${battle.hp} / ${battle.character.health}',
-                              style: _text(20)),
-                          const SizedBox(height: 7),
-                          SizedBox(
-                              height: 18,
-                              child: Stack(fit: StackFit.expand, children: [
-                                const AdventureFrame('hp_frame'),
-                                Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 8, vertical: 4),
-                                    child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(6),
-                                        child: LinearProgressIndicator(
-                                            value: (battle.hp /
-                                                    battle.character.health)
-                                                .clamp(0.0, 1.0),
-                                            color: const Color(0xff85f42e),
-                                            backgroundColor:
-                                                const Color(0xff23391e)))),
-                              ])),
-                        ])),
-                  ]))))
-    ]);
+    return LayoutBuilder(builder: (context, bounds) {
+      final small = bounds.maxHeight < 100;
+      final font = small
+          ? 14.0
+          : bounds.maxWidth > 420
+              ? 22.0
+              : 18.0;
+      return Stack(fit: StackFit.expand, children: [
+        const AdventureFrame('status_panel'),
+        Padding(
+            padding: const EdgeInsets.fromLTRB(28, 12, 28, 18),
+            child: Row(children: [
+              if (bounds.maxWidth >= 340) ...[
+                SizedBox(
+                    width: 64,
+                    child: JobPortrait(
+                        typeId: role,
+                        appearance: battle.character.female ? 'female' : 'male',
+                        lobby: true)),
+                const SizedBox(width: 12),
+              ],
+              Expanded(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                    Row(children: [
+                      Expanded(
+                          child: Text(battle.character.role,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: _text(font))),
+                      const SizedBox(width: 6),
+                      Text('Lv. ${battle.character.level}',
+                          style: _text(font, gold: true)),
+                    ]),
+                    const SizedBox(height: 4),
+                    Text('HP  ${battle.hp} / ${battle.character.health}',
+                        style: _text(font)),
+                    const SizedBox(height: 5),
+                    LinearProgressIndicator(
+                        minHeight: small ? 4 : 8,
+                        value: (battle.hp / battle.character.health)
+                            .clamp(0.0, 1.0),
+                        color: const Color(0xff85f42e),
+                        backgroundColor: const Color(0xff23391e)),
+                  ])),
+            ])),
+      ]);
+    });
   }
 
-  Widget _phase() => Stack(fit: StackFit.expand, children: [
-        const AdventureFrame('phase_panel'),
-        Padding(
-            padding: const EdgeInsets.fromLTRB(72, 9, 14, 8),
-            child: FittedBox(
-                child: SizedBox(
-                    width: 330,
-                    height: 80,
-                    child: Column(children: [
-                      Row(children: [
-                        Expanded(
-                            flex: 3,
-                            child: FittedBox(
-                                fit: BoxFit.scaleDown,
-                                alignment: Alignment.centerLeft,
-                                child: Text('PHASE ${battle.phase + 1} / 3',
-                                    style: _text(23)))),
-                        const SizedBox(width: 10),
-                        Expanded(
-                            flex: 2,
-                            child: FittedBox(
-                                fit: BoxFit.scaleDown,
-                                alignment: Alignment.centerRight,
-                                child: Text('残り ${battle.remainingEnemies} 体',
-                                    style: _text(20))))
-                      ]),
-                      const SizedBox(height: 12),
-                      Row(children: [
-                        for (var i = 0; i < 3; i++) ...[
-                          Container(
-                              width: 17,
-                              height: 17,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: i <= battle.phase
-                                      ? const Color(0xff59efff)
-                                      : const Color(0xff253546),
-                                  border: Border.all(
-                                      color: i <= battle.phase
-                                          ? Colors.white
-                                          : Colors.grey,
-                                      width: 2))),
-                          if (i < 2)
-                            Expanded(
-                                child: Container(
-                                    height: 3,
-                                    color: i < battle.phase
-                                        ? const Color(0xff59efff)
-                                        : Colors.grey)),
-                        ]
-                      ]),
-                    ])))),
-      ]);
+  Widget _phase() => LayoutBuilder(builder: (context, bounds) {
+        final font = bounds.maxWidth < 320
+            ? 14.0
+            : bounds.maxWidth > 420
+                ? 22.0
+                : 18.0;
+        return Stack(fit: StackFit.expand, children: [
+          const AdventureFrame('phase_panel'),
+          Padding(
+              padding: const EdgeInsets.fromLTRB(28, 12, 28, 18),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                              child: Text('PHASE ${battle.phase + 1} / 3',
+                                  style: _text(font))),
+                          Expanded(
+                              child: Text('残り ${battle.remainingEnemies} 体',
+                                  textAlign: TextAlign.right,
+                                  style: _text(font))),
+                        ]),
+                    const SizedBox(height: 6),
+                    LinearProgressIndicator(
+                        minHeight: 4,
+                        value: (battle.phase + 1) / 3,
+                        color: const Color(0xff59efff),
+                        backgroundColor: const Color(0xff253546)),
+                  ])),
+        ]);
+      });
 
   Widget _command(bool skill, double side) {
     final onTap = skill
@@ -231,7 +207,7 @@ class AdventureBattleHud extends StatelessWidget {
         : (battle.canAttack ? battle.attack : null);
     final caption = skill
         ? '命中 ${battle.charge} / 3'
-        : '${battle.attackDuration.toStringAsFixed(2)}秒 / 回';
+        : '${battle.attackDuration.toStringAsFixed(2)}秒';
     return SizedBox(
         width: side,
         child: Column(mainAxisSize: MainAxisSize.min, children: [
@@ -256,14 +232,19 @@ class AdventureBattleHud extends StatelessWidget {
                     ]))),
               ])),
           SizedBox(
-              height: 28,
+              height: 34,
               child: Stack(fit: StackFit.expand, children: [
-                const AdventureFrame('caption_frame'),
+                DecoratedBox(
+                    decoration: BoxDecoration(
+                        color: gameInk,
+                        border: Border.all(color: gameGold),
+                        borderRadius: BorderRadius.circular(8))),
                 Center(
                     child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 9),
-                        child:
-                            FittedBox(child: Text(caption, style: _text(12))))),
+                        child: Text(caption,
+                            textAlign: TextAlign.center,
+                            style: _text(side < 110 ? 13 : 15)))),
               ])),
         ]));
   }
@@ -291,20 +272,18 @@ class AdventureFrame extends StatelessWidget {
   final String name;
   @override
   Widget build(BuildContext context) => IgnorePointer(
-      child: Image.asset(
-          switch (name) {
-            'stage_banner' ||
-            'phase_panel' ||
-            'caption_frame' =>
-              '${gameUiAssets}header_banner.png',
-            'status_panel' => '${gameUiAssets}identity_panel.png',
-            'auto_button' ||
-            'utility_button' =>
-              '${gameUiAssets}equipment_row.png',
-            _ => '$adventureFramePath$name.png',
-          },
-          fit: BoxFit.fill,
-          excludeFromSemantics: true));
+          child: switch (name) {
+        'stage_banner' ||
+        'phase_panel' ||
+        'caption_frame' =>
+          const GameArtwork('header_banner'),
+        'status_panel' => const GameArtwork('identity_panel'),
+        'auto_button' ||
+        'utility_button' =>
+          const GameArtwork('equipment_row', minimumScale: 8),
+        _ => Image.asset('$adventureFramePath$name.png',
+            fit: BoxFit.fill, excludeFromSemantics: true),
+      });
 }
 
 class _SwordIcon extends CustomPainter {

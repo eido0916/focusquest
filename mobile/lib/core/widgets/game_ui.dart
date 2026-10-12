@@ -9,8 +9,9 @@ const gameUiAssets = 'assets/images/character_ui_v002/';
 const gameBackground = 'assets/images/lobby/castle_courtyard.png';
 
 class GameArtwork extends StatelessWidget {
-  const GameArtwork(this.asset, {super.key});
+  const GameArtwork(this.asset, {super.key, this.minimumScale = 4});
   final String asset;
+  final double minimumScale;
   @override
   Widget build(BuildContext context) {
     final height = switch (asset) {
@@ -32,7 +33,7 @@ class GameArtwork extends StatelessWidget {
             : 112.0;
     return LayoutBuilder(builder: (context, bounds) {
       final scale = math.max(
-          4.0,
+          minimumScale,
           math.max(
               bounds.maxWidth.isFinite
                   ? 250 / math.max(1, bounds.maxWidth)

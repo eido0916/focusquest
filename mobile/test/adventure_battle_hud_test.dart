@@ -1,3 +1,4 @@
+import 'support/trained_stage_hero.dart';
 import 'dart:io';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
@@ -5,6 +6,10 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:focusquest/core/theme/app_theme.dart';
+import 'package:focusquest/core/widgets/game_ui.dart';
+import 'package:focusquest/features/playable_stage/presentation/adventure_stage_layout.dart';
+import 'package:focusquest/features/playable_stage/presentation/adventure_battle_hud.dart';
+import 'package:focusquest/features/playable_stage/presentation/playable_stage_painter.dart';
 import 'package:focusquest/features/playable_stage/domain/playable_character.dart';
 import 'package:focusquest/features/playable_stage/domain/playable_stage_battle.dart';
 import 'package:focusquest/features/playable_stage/domain/playable_stage_catalog.dart';
@@ -13,6 +18,128 @@ import 'package:focusquest/features/playable_stage/presentation/playable_stage_a
 import 'package:focusquest/features/playable_stage/presentation/playable_stage_page.dart';
 
 void main() {
+  setUpAll(() async {
+    final font = await rootBundle.load('assets/fonts/NotoSerifJP.ttf');
+    final icons = await rootBundle.load('fonts/MaterialIcons-Regular.otf');
+    await (FontLoader('MaterialIcons')..addFont(Future.value(icons))).load();
+    for (final family in ['Ahem', 'Roboto', 'SunlitSerif']) {
+      await (FontLoader(family)..addFont(Future.value(font))).load();
+    }
+  });
+  test('all terrain ground baselines leave a clear control band', () {
+    for (final size in [
+      const Size(844, 390),
+      const Size(1920, 1080),
+      const Size(390, 844)
+    ]) {
+      final layout = AdventureStageLayout(size);
+      for (final stage in PlayableStageCatalog.stages) {
+        final world = PlayableStagePainter.worldSize(
+            size, layout.bottomInset(stage.groundLine));
+        expect(world.height * stage.groundLine, closeTo(layout.groundY, .001));
+        expect(
+            layout.groundY, lessThan(size.height - 14 - layout.controlHeight));
+      }
+    }
+  });
+  for (final size in [
+    const Size(740, 360),
+    const Size(844, 390),
+    const Size(320, 568)
+  ]) {
+    testWidgets('readable HUD fits $size with buttons below actors',
+        (tester) async {
+      tester.view.physicalSize = size;
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final battle =
+          PlayableStageBattle(character: PlayableCharacters.all.first);
+      await tester.pumpWidget(MaterialApp(
+          theme: AppTheme.dark,
+          home: Scaffold(
+              body: AdventureBattleHud(
+                  battle: battle,
+                  utilities: const SizedBox(width: 150, height: 44),
+                  auto: false,
+                  onAuto: () {}))));
+      await tester.pump();
+      final buttons =
+          tester.getRect(find.byKey(const Key('stage-floating-controls')));
+      expect(buttons.top, greaterThan(AdventureStageLayout(size).groundY));
+      expect(buttons.right, lessThanOrEqualTo(size.width));
+      expect(tester.takeException(), isNull);
+      await tester.pumpWidget(const SizedBox());
+      battle.dispose();
+    });
+  }
+  for (final size in [const Size(844, 390), const Size(390, 844)]) {
+    testWidgets('boss stage scene keeps enemies above controls at $size',
+        (tester) async {
+      tester.view.physicalSize = size;
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final stage = PlayableStageCatalog.stages[3];
+      final assets = (await tester
+          .runAsync(() => PlayableStageAssets.load(stage: stage)))!;
+      final battle = PlayableStageBattle(
+          stage: stage, character: trainedStageHero(), roll: () => .5)
+        ..start();
+      while (battle.phase < 2 && battle.active) {
+        if (battle.canSkill) {
+          battle.skill();
+        } else if (battle.canAttack) {
+          battle.attack();
+        }
+        battle.update(1 / 120);
+      }
+      for (var i = 0; i < 360; i++) {
+        battle.update(1 / 120);
+      }
+      final boundary = GlobalKey();
+      await tester.pumpWidget(RepaintBoundary(
+          key: boundary,
+          child: MaterialApp(
+              theme: AppTheme.dark,
+              debugShowCheckedModeBanner: false,
+              home: PlayableStagePage(
+                  battle: battle,
+                  assets: assets,
+                  audioOutput: SilentStageAudioOutput()))));
+      await tester.runAsync(() async {
+        for (final widget in tester.widgetList<Image>(find.byType(Image))) {
+          await precacheImage(
+              widget.image, tester.element(find.byType(Scaffold)));
+        }
+      });
+      await tester.pump();
+      final controls =
+          tester.getRect(find.byKey(const Key('stage-floating-controls')));
+      for (final enemy in battle.enemies) {
+        expect(
+            tester.getRect(find.byKey(Key('enemy-hp-${enemy.index}'))).bottom,
+            lessThan(controls.top));
+      }
+      expect(tester.takeException(), isNull);
+      if (const bool.fromEnvironment('CAPTURE_STAGE')) {
+        await tester.runAsync(() async {
+          final render = boundary.currentContext!.findRenderObject()!
+              as RenderRepaintBoundary;
+          final image = await render.toImage();
+          final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
+          final file =
+              File('build/adventure-layout/boss-${size.width.toInt()}.png');
+          await file.parent.create(recursive: true);
+          await file.writeAsBytes(bytes!.buffer.asUint8List());
+          image.dispose();
+        });
+      }
+      await tester.pumpWidget(const SizedBox.shrink());
+      battle.dispose();
+      assets.dispose();
+    });
+  }
   testWidgets('reference layout and auto combat use live battle values',
       (tester) async {
     tester.view.physicalSize = const Size(1672, 941);
@@ -34,6 +161,13 @@ void main() {
     await tester.pumpWidget(const MaterialApp(home: SizedBox()));
     await tester.runAsync(() async {
       final context = tester.element(find.byType(SizedBox).first);
+      for (final panel in [
+        'identity_panel',
+        'header_banner',
+        'equipment_row'
+      ]) {
+        await precacheImage(AssetImage('$gameUiAssets$panel.png'), context);
+      }
       for (final name in [
         'status_panel',
         'stage_banner',
@@ -70,6 +204,13 @@ void main() {
     expect(find.text('忍者'), findsOneWidget);
     expect(find.text('Lv. 1'), findsOneWidget);
     expect(find.text('HP  120 / 120'), findsOneWidget);
+    await tester.runAsync(() async {
+      for (final widget in tester.widgetList<Image>(find.byType(Image))) {
+        await precacheImage(
+            widget.image, tester.element(find.byType(Scaffold)));
+      }
+    });
+    await tester.pump();
     if (const bool.fromEnvironment('CAPTURE_STAGE')) {
       await tester.runAsync(() async {
         final render = boundary.currentContext!.findRenderObject()!
