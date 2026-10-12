@@ -99,7 +99,9 @@ void main() {
         final motion = assets.motions['${id}_$action']!;
         expect(motion.metadata['interpolation'], 'none');
         expect(motion.metadata['direction'], 'left');
-        expect(motion.frame(0).image.width, 128);
+        expect(motion.frame(0).image.width, 384);
+        expect(motion.frame(0).image.height, 384);
+        expect(motion.metadata['coordinate_canvas'], [128, 128]);
       }
       final defeat = assets.motions['${id}_defeat']!;
       final rgba = await defeat.frame(defeat.duration).image.toByteData();

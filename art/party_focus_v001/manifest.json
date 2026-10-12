@@ -1,0 +1,17 @@
+[
+  {
+    "file": "header_frame.png",
+    "width": 960,
+    "height": 74
+  },
+  {
+    "file": "member_frame.png",
+    "width": 180,
+    "height": 72
+  },
+  {
+    "file": "compass.png",
+    "width": 48,
+    "height": 56
+  }
+]

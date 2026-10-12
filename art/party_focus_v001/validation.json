@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-12",
+  "analysis": {
+    "command": "flutter analyze --no-pub lib/features/party/presentation/party_battle_page.dart test/party_ui_test.dart",
+    "result": "No issues found"
+  },
+  "tests": {
+    "scene": 10,
+    "online": 5,
+    "result": "passed",
+    "sceneLog": "artifacts/party_focus_v001_test.log",
+    "onlineLog": "artifacts/party_focus_v001_online_retest.log",
+    "pageControls": 3,
+    "total": 18,
+    "pageLog": "artifacts/party_focus_v001_page_verified_test.log"
+  },
+  "portraits": 32,
+  "visualReview": [
+    "previews/ghost-ship-4.png",
+    "previews/ghost-ship-4-skill.png",
+    "previews/grassland-4.png",
+    "previews/complete-page.png"
+  ],
+  "notes": [
+    "Scene tests passed; initial combined run lacked staged server fixture.",
+    "Online tests passed after initializing the test Flutter binding required by the current reward asset loader.",
+    "Preview images capture the battle canvas; the page adds sound settings and the return-to-timer control."
+  ],
+  "android": {
+    "apk": "FocusQuest-party-focus-v001-debug.apk",
+    "bytes": 609590662,
+    "sha256": "1789149BA4F4239EF68A1221FA131F4EB352B23F4E15B4814B11EFA6F21338B8",
+    "verifiedAssets": 53,
+    "buildLog": "artifacts/party_focus_v001_android_build.log",
+    "result": "built and verified",
+    "physicalDeviceTest": "Installed and launched on TB373FU; shared battle not tested on device",
+    "saveNote": "The build succeeded; a same-volume move saved the completed APK after the first copy ran out of disk space. One verified duplicate temporary APK was removed.",
+    "deviceReport": "art/party_focus_v001/device-verification.json"
+  }
+}

@@ -1,0 +1,258 @@
+[
+  {
+    "appearance": "male",
+    "role": "angel",
+    "asset": "focus_selection_v001/avatars/male/angel.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "207c4a03fec2971849d252cc7a1b1f72ae046424dd399fc6a0a5a7ba815d669c"
+  },
+  {
+    "appearance": "male",
+    "role": "assassin",
+    "asset": "focus_selection_v001/avatars/male/assassin.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "9e2507275dbb3415abbec1248f05d5cb1026c7e8a7cfab0230c469e3a32801b5"
+  },
+  {
+    "appearance": "male",
+    "role": "berserker",
+    "asset": "focus_selection_v001/avatars/male/berserker.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "aa271fcab1955641b603f51dfac8928ba5d5c6ae385dbec65236a7326df84276"
+  },
+  {
+    "appearance": "male",
+    "role": "boxer",
+    "asset": "focus_selection_v001/avatars/male/boxer.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "d1d446e2da7b846c50089709e1e0df0aeea026837e0a2dcf909b23408cc7b81b"
+  },
+  {
+    "appearance": "male",
+    "role": "devil",
+    "asset": "focus_selection_v001/avatars/male/devil.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "a40bf8a31ebe62997c23e7498d2f27f19e103a3d307036db8dcee31693bc626e"
+  },
+  {
+    "appearance": "male",
+    "role": "dragon_knight",
+    "asset": "focus_selection_v001/avatars/male/dragon_knight.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "310d2f8f73660fb171a5f6cf5fa5bbeb40906a0bb599a07686dc345914cfde57"
+  },
+  {
+    "appearance": "male",
+    "role": "guardian",
+    "asset": "focus_selection_v001/avatars/male/guardian.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "ea088d36eba2ae7f6068f8baf9050b4553c2e5575887c4128f60083a81798c50"
+  },
+  {
+    "appearance": "male",
+    "role": "gunner",
+    "asset": "focus_selection_v001/avatars/male/gunner.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "86c918138fd8527cdff78830f4eeeb1b15134bb0d4c4544ce511b3ed988bbb3a"
+  },
+  {
+    "appearance": "male",
+    "role": "mage",
+    "asset": "focus_selection_v001/avatars/male/mage.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "a61cb52167f16248f6a32b0fc475e05886b86c9b7560def72dd276e70e35035d"
+  },
+  {
+    "appearance": "male",
+    "role": "ninja",
+    "asset": "focus_selection_v001/avatars/male/ninja.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "e150d15ce698e82afb04cba8cee84eddcbf0b8fad2c3b9b1a413c87919ccd344"
+  },
+  {
+    "appearance": "male",
+    "role": "onmyoji",
+    "asset": "focus_selection_v001/avatars/male/onmyoji.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "9547ba86b07e1d5e646ebafd1b84c40e1a7e879979c27e6d0f1de2776fc446d6"
+  },
+  {
+    "appearance": "male",
+    "role": "ranger",
+    "asset": "focus_selection_v001/avatars/male/ranger.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "6667b33b27dac8af69f799e625ef1fd5d68f92d820be99609487b54ee6adff1f"
+  },
+  {
+    "appearance": "male",
+    "role": "reaper",
+    "asset": "focus_selection_v001/avatars/male/reaper.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "77ca24d565dfc9ba6589a6fb6d3c040bdb48666cfce0e567e9bdda473562a115"
+  },
+  {
+    "appearance": "male",
+    "role": "samurai",
+    "asset": "focus_selection_v001/avatars/male/samurai.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "5c876b1e2ab5c6cde70bdc0e3e93dc2be6f2ef6db7781caa3f83f38e6e083160"
+  },
+  {
+    "appearance": "male",
+    "role": "spellblade",
+    "asset": "focus_selection_v001/avatars/male/spellblade.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "3af41beecfcd4d4df9b7dbf44541ab570b170f202634ba4d027af69eec8bf386"
+  },
+  {
+    "appearance": "male",
+    "role": "warrior",
+    "asset": "focus_selection_v001/avatars/male/warrior.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "d0a48eada3321e7b28a86cdef3dcdbf9a4bf9e376f9617a184a0244383fe2ffb"
+  },
+  {
+    "appearance": "female",
+    "role": "angel",
+    "asset": "focus_selection_v001/avatars/female/angel.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "b1d29e598a3d8e06ab2cf3724849a798c87d1a0066a81332b257f13d6ce313ea"
+  },
+  {
+    "appearance": "female",
+    "role": "assassin",
+    "asset": "focus_selection_v001/avatars/female/assassin.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "549a9c179fb23abec8ec2a14140ccd87f89426153c86fb9438ee11ee72ba504a"
+  },
+  {
+    "appearance": "female",
+    "role": "berserker",
+    "asset": "focus_selection_v001/avatars/female/berserker.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "5bfdbdda71f44bdc082e7e6aba67ff6bbd2d341ec94f19b4016f43eb25a6a24d"
+  },
+  {
+    "appearance": "female",
+    "role": "boxer",
+    "asset": "focus_selection_v001/avatars/female/boxer.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "5a69b1eb4968e311b37a2145c7995c4773ac968ec2895f1ef04f8132659280b6"
+  },
+  {
+    "appearance": "female",
+    "role": "devil",
+    "asset": "focus_selection_v001/avatars/female/devil.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "f9a0bd64e6376ca4d2733b89dcf0f29893785a65c8133c42fab4a0c680703a46"
+  },
+  {
+    "appearance": "female",
+    "role": "dragon_knight",
+    "asset": "focus_selection_v001/avatars/female/dragon_knight.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "db87514093821a6730ace00ff338b37e0ae85282b024185eeeb6e01b58d42bfe"
+  },
+  {
+    "appearance": "female",
+    "role": "guardian",
+    "asset": "focus_selection_v001/avatars/female/guardian.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "65b525cf37454cbc2524096fed302339287826b07a4d85741f075d0f607b1286"
+  },
+  {
+    "appearance": "female",
+    "role": "gunner",
+    "asset": "focus_selection_v001/avatars/female/gunner.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "38e7a7a2d8a2e90e475257f2fc0398ab7d3f5f36244284eea47d4ec6adc5bc6f"
+  },
+  {
+    "appearance": "female",
+    "role": "mage",
+    "asset": "focus_selection_v001/avatars/female/mage.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "d688efdea06da14ed0f9bd93d047bd266cad39e59f1f2c11e5419786f72e17c7"
+  },
+  {
+    "appearance": "female",
+    "role": "ninja",
+    "asset": "focus_selection_v001/avatars/female/ninja.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "932e1b520338e8490ae60bfaff67d6abbdc5a8965a3eeca8d7e61d6facdc0b7e"
+  },
+  {
+    "appearance": "female",
+    "role": "onmyoji",
+    "asset": "focus_selection_v001/avatars/female/onmyoji.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "ca200e024b29a8b57ee8107bb7806bb9c36144eedbb323ba7e739bc7ec1c3770"
+  },
+  {
+    "appearance": "female",
+    "role": "ranger",
+    "asset": "focus_selection_v001/avatars/female/ranger.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "bb77ce205502d187ba7a202b207bcbea8fbe6ca8841fba3119345deea6455f30"
+  },
+  {
+    "appearance": "female",
+    "role": "reaper",
+    "asset": "focus_selection_v001/avatars/female/reaper.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "14533dfebb18bf0c96fb9c27151012f1d13d75bd32851278292409711bbdb265"
+  },
+  {
+    "appearance": "female",
+    "role": "samurai",
+    "asset": "focus_selection_v001/avatars/female/samurai.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "c2d240cebf5e439769ee0d60bc512a226f5faa8ba0ffe4641252b4ce06e91d6e"
+  },
+  {
+    "appearance": "female",
+    "role": "spellblade",
+    "asset": "focus_selection_v001/avatars/female/spellblade.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "decfcd7806261da5ce178d43efb4553f9143213492539feff5e19afdb5b3ebad"
+  },
+  {
+    "appearance": "female",
+    "role": "warrior",
+    "asset": "focus_selection_v001/avatars/female/warrior.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "f231ee2157a44b21cbd40b0b0a18a3b25c14e0a58ab7f3477538e739412300d1"
+  }
+]

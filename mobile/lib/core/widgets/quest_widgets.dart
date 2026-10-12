@@ -158,6 +158,8 @@ class QuestNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const labels = ['ホーム', 'キャラクター', '冒険', '設定'];
+    final navigationHeight =
+        math.max(48.0, 29 + MediaQuery.textScalerOf(context).scale(12) * 1.5);
     const icons = [
       Icons.home_rounded,
       Icons.people_alt_rounded,
@@ -174,17 +176,19 @@ class QuestNavigation extends StatelessWidget {
         child: SafeArea(
             top: false,
             child: Padding(
-                padding: const EdgeInsets.fromLTRB(8, 4, 8, 8),
+                padding: const EdgeInsets.fromLTRB(8, 2, 8, 4),
                 child: Row(
-                    children: List.generate(labels.length, (i) {
+                    children: List.generate(labels.length, (position) {
+                  const order = [0, 1, 3, 2];
+                  final i = order[position];
                   final active = selected == i;
                   final content = SizedBox(
-                      height: 64,
+                      height: navigationHeight,
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(icons[i],
-                                size: 27,
+                                size: 23,
                                 color: active
                                     ? const Color(0xffffe8b0)
                                     : sunlitGold,
@@ -192,7 +196,7 @@ class QuestNavigation extends StatelessWidget {
                                     ? const [
                                         Shadow(
                                             color: Color(0xffffd584),
-                                            blurRadius: 14)
+                                            blurRadius: 6)
                                       ]
                                     : null),
                             const SizedBox(height: 4),
@@ -225,7 +229,7 @@ class QuestNavigation extends StatelessWidget {
                                           child: content)
                                       : Container(
                                           decoration: BoxDecoration(
-                                              border: i > 0
+                                              border: position > 0
                                                   ? const Border(
                                                       left: BorderSide(
                                                           color: Color(

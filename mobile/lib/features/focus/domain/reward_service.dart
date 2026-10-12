@@ -26,10 +26,6 @@ class RewardService {
   Reward battle(int defeated) {
     if (defeated < 0) throw ArgumentError.value(defeated);
     return Reward(
-        exp: defeated * 20,
-        coins: defeated * 10,
-        defeatedEnemies: defeated,
-        items:
-            defeated > 0 && random.nextDouble() < 0.15 ? ['cloth_armor'] : []);
+        exp: defeated * 20, coins: defeated * 10, defeatedEnemies: defeated);
   }
 }

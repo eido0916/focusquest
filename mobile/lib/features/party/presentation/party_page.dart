@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../core/game_controller.dart';
-import '../../../core/widgets/quest_widgets.dart';
-import '../../diagnosis/presentation/job_portrait.dart';
+import 'party_lobby_art.dart';
 
 class PartyPage extends StatefulWidget {
   const PartyPage({super.key, required this.controller});
@@ -13,15 +12,13 @@ class PartyPage extends StatefulWidget {
 
 class _PartyPageState extends State<PartyPage> {
   final _code = TextEditingController();
-  late final TextEditingController _server;
-  String? _error;
-  bool _working = false;
-  String? _initialSessionId;
-  bool _returning = false;
+  String? _error, _initialSessionId;
+  bool _working = false, _returning = false;
+  int _minutes = 30;
   @override
   void initState() {
     super.initState();
-    _server = TextEditingController(text: widget.controller.party.serverUrl);
+    _minutes = widget.controller.party.minutes;
     _initialSessionId = widget.controller.activeFocus?.id;
     widget.controller.addListener(_changed);
   }
@@ -44,7 +41,6 @@ class _PartyPageState extends State<PartyPage> {
   void dispose() {
     widget.controller.removeListener(_changed);
     _code.dispose();
-    _server.dispose();
     super.dispose();
   }
 
@@ -62,173 +58,323 @@ class _PartyPageState extends State<PartyPage> {
     }
   }
 
+  Future<void> _copyCode() async {
+    final code = widget.controller.party.code;
+    if (code == null) return;
+    await Clipboard.setData(ClipboardData(text: code));
+    if (mounted) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('コードをコピーしました')));
+    }
+  }
+
+  Future<void> _join() async {
+    _code.clear();
+    final submit = await showDialog<bool>(
+        context: context,
+        builder: (context) => StatefulBuilder(builder: (context, update) {
+              final valid = RegExp(r'^[A-Z2-9]{6}$')
+                  .hasMatch(_code.text.trim().toUpperCase());
+              return AlertDialog(
+                  backgroundColor: const Color(0xff0b2340),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      side: const BorderSide(color: lobbyGold)),
+                  title: const Text('パーティーコード', style: lobbyTitle),
+                  content: TextField(
+                      controller: _code,
+                      autofocus: true,
+                      maxLength: 6,
+                      style: lobbyTitle.copyWith(letterSpacing: 5),
+                      textCapitalization: TextCapitalization.characters,
+                      autocorrect: false,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(RegExp('[a-zA-Z2-9]'))
+                      ],
+                      onChanged: (_) => update(() {}),
+                      onSubmitted: (_) {
+                        if (valid) Navigator.pop(context, true);
+                      },
+                      decoration: const InputDecoration(
+                          hintText: '6文字のコード', helperText: 'リーダーから届いたコードを入力')),
+                  actions: [
+                    TextButton(
+                        onPressed: () => Navigator.pop(context, false),
+                        child: const Text('キャンセル')),
+                    TextButton(
+                        onPressed:
+                            valid ? () => Navigator.pop(context, true) : null,
+                        child: const Text('参加する')),
+                  ]);
+            }));
+    if (submit == true && mounted) {
+      await _act(() => widget.controller.party.connect(
+          url: widget.controller.party.serverUrl,
+          member: widget.controller.partyIdentity,
+          joinCode: _code.text));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final controller = widget.controller;
     final party = controller.party;
     final started = party.session != null;
     final enabled = !_working && !party.connecting && !controller.busy;
-    const statuses = {
-      'waiting': '待機中',
-      'starting': '開始準備中',
-      'focusing': '集中中',
-      'succeeded': '達成',
-      'failed': '未達成',
-      'cancelled': '中断',
-      'cannotStart': '開始できませんでした',
-      'disconnected': '接続切れ'
-    };
+    final canConnect = enabled && controller.activeFocus == null;
+    final minutes = party.connected ? party.minutes : _minutes;
     return Scaffold(
-        appBar: AppBar(title: const Text('パーティーを組む')),
-        body: QuestBackdrop(
-            child: ListView(padding: const EdgeInsets.all(20), children: [
-          const Text('離れていても、一緒に集中。', style: TextStyle(fontSize: 22)),
-          const SizedBox(height: 8),
-          const Text('最大4人。リーダーがコードを共有し、仲間が入力して参加します。'),
-          const SizedBox(height: 20),
-          if (!party.connected) ...[
-            if (_server.text.isEmpty || party.serverUrl.isEmpty)
-              const Padding(
-                  padding: EdgeInsets.only(bottom: 16),
-                  child: Text(
-                      'オンライン接続先がまだ設定されていません。サーバー公開後に接続先を設定すると、別々のWi-Fiから参加できます。')),
-            ExpansionTile(
-                title: const Text('オンライン接続の設定'),
-                initiallyExpanded: _server.text.isEmpty,
-                children: [
-                  TextField(
-                      controller: _server,
-                      autocorrect: false,
-                      keyboardType: TextInputType.url,
-                      decoration: const InputDecoration(
-                          labelText: '接続先', hintText: 'wss://…/party'))
-                ]),
-            const SizedBox(height: 20),
-            QuestActionButton(
-                label: 'パーティーを作成',
-                icon: Icons.group_add,
-                onTap: enabled && controller.activeFocus == null
-                    ? () => _act(() => party.connect(
-                        url: _server.text, member: controller.partyIdentity))
-                    : null),
-            const SizedBox(height: 28),
-            TextField(
-                controller: _code,
-                maxLength: 6,
-                textCapitalization: TextCapitalization.characters,
-                autocorrect: false,
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp('[a-zA-Z2-9]'))
-                ],
-                decoration: const InputDecoration(
-                    labelText: 'パーティーコード', hintText: '6文字のコード')),
-            QuestActionButton(
-                label: 'コードで参加',
-                icon: Icons.login,
-                onTap: enabled && controller.activeFocus == null
-                    ? () => _act(() => party.connect(
-                        url: _server.text,
-                        member: controller.partyIdentity,
-                        joinCode: _code.text))
-                    : null),
-          ] else ...[
-            QuestCard(
-                caption: 'パーティーコード',
-                child: Column(children: [
-                  SelectableText(party.code!,
-                      style: const TextStyle(fontSize: 32, letterSpacing: 6)),
-                  TextButton.icon(
-                      onPressed: () async {
-                        await Clipboard.setData(
-                            ClipboardData(text: party.code!));
-                        if (context.mounted) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('コードをコピーしました')));
-                        }
-                      },
-                      icon: const Icon(Icons.copy),
-                      label: const Text('コードをコピー')),
+        backgroundColor: const Color(0xff0b2340),
+        body: Stack(fit: StackFit.expand, children: [
+          Image.asset('assets/images/party_lobby_v001/castle_valley.png',
+              fit: BoxFit.cover,
+              alignment: Alignment.topCenter,
+              excludeFromSemantics: true),
+          const DecoratedBox(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Color(0x000b2340), Color(0x220b2340)]))),
+          SafeArea(
+              child: Column(children: [
+            const SizedBox(height: 18),
+            LobbyPanel(
+                asset: 'header',
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Row(children: [
+                  IconButton(
+                      tooltip: '戻る',
+                      onPressed: () => Navigator.maybePop(context),
+                      icon: const Icon(Icons.arrow_back,
+                          color: lobbyWhite, size: 28)),
+                  const Expanded(
+                      child: Text('パーティーを組む',
+                          textAlign: TextAlign.center, style: lobbyTitle)),
+                  const SizedBox(width: 48),
                 ])),
-            Text('${party.members.length} / 4人',
-                style: const TextStyle(fontSize: 20)),
-            for (var i = 0; i < 4; i++)
-              Card(
-                  child: i >= party.members.length
-                      ? const ListTile(
-                          leading: Icon(Icons.person_add_outlined),
-                          title: Text('仲間の参加を待っています'))
-                      : ListTile(
-                          leading: SizedBox(
-                              width: 48,
-                              child: JobPortrait(
-                                  typeId: party.members[i].characterType,
-                                  appearance: party.members[i].appearance,
-                                  height: 64)),
-                          title: Text(
-                              '${party.members[i].name}${party.members[i].id == party.selfId ? '（あなた）' : ''}'),
-                          subtitle: Text(
-                              '${JobPortrait.roleNames[party.members[i].characterType] ?? '冒険者'}  Lv.${party.members[i].level}'),
-                          trailing: Text(started
-                              ? statuses[party.members[i].status] ?? '待機中'
-                              : party.members[i].ready
-                                  ? '準備OK'
-                                  : '待機中'))),
-            const SizedBox(height: 16),
-            if (!started) ...[
-              Text('集中時間：${party.minutes}分'),
-              if (party.isHost) ...[
-                Wrap(spacing: 8, children: [
-                  for (final minutes in [15, 30, 45, 60])
-                    ChoiceChip(
-                        label: Text('$minutes分'),
-                        selected: minutes == party.minutes,
-                        onSelected:
-                            enabled ? (_) => party.setMinutes(minutes) : null)
-                ]),
-                const Text('時間を変更すると、全員の準備が解除されます。'),
-              ],
-              const SizedBox(height: 16),
-              QuestActionButton(
-                  label: party.ready ? '準備を解除' : '準備OK',
-                  icon: Icons.check_circle_outline,
-                  onTap: enabled
-                      ? () => _act(() => controller.prepareParty(!party.ready))
-                      : null),
-              if (party.isHost)
-                QuestActionButton(
-                    label: 'みんなで集中を開始',
-                    icon: Icons.play_arrow,
-                    onTap: enabled &&
-                            party.members.length >= 2 &&
-                            party.members.every((m) => m.ready)
-                        ? () {
-                            party.start();
-                          }
-                        : null)
-              else
-                const Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Text('全員の準備ができたら、リーダーが開始します。')),
-            ] else ...[
-              const Text('パーティーで集中中。各自の集中結果とEXPは、それぞれの端末に保存されます。'),
-              QuestActionButton(
-                  label: '集中画面へ',
-                  icon: Icons.timer,
-                  onTap: controller.activeFocus != null
-                      ? () => Navigator.pop(context)
-                      : null),
-            ],
-            TextButton(
-                onPressed: enabled ? () => _act(party.leave) : null,
-                child: Text(started ? 'パーティーから退出（集中は継続）' : 'パーティーから退出')),
-          ],
-          if (_working || party.connecting) const LinearProgressIndicator(),
-          if (_error ?? party.error ?? controller.partyStartError
-              case final String error)
-            Padding(
-                padding: const EdgeInsets.all(12),
-                child: Text(error,
-                    style: const TextStyle(color: Colors.orangeAccent))),
-        ])));
+            Expanded(child: LayoutBuilder(builder: (context, constraints) {
+              final width = constraints.maxWidth.clamp(0.0, 620.0);
+              return SingleChildScrollView(
+                  padding: EdgeInsets.fromLTRB(
+                      (constraints.maxWidth - width) / 2 + 16,
+                      24,
+                      (constraints.maxWidth - width) / 2 + 16,
+                      24),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        if (!party.connected) ...[
+                          SizedBox(
+                              height: (constraints.maxHeight * .22)
+                                  .clamp(36.0, 170.0)),
+                          LobbyAction(
+                              label: 'パーティーを作成',
+                              icon: Icons.group_add_outlined,
+                              onTap: canConnect
+                                  ? () => _act(() async {
+                                        await party.connect(
+                                            url: party.serverUrl,
+                                            member: controller.partyIdentity);
+                                        if (_minutes != party.minutes) {
+                                          party.setMinutes(_minutes);
+                                        }
+                                      })
+                                  : null),
+                          const SizedBox(height: 24),
+                          LobbyAction(
+                              label: 'コードで参加',
+                              icon: Icons.login,
+                              onTap: canConnect ? _join : null),
+                          const SizedBox(height: 20),
+                          LobbyPanel(
+                              child: Text('最大4人で、同じ時間に集中。\nコードを共有して仲間を招待しましょう。',
+                                  textAlign: TextAlign.center,
+                                  style: lobbyBody.copyWith(height: 1.8))),
+                        ] else ...[
+                          LobbyPanel(
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                const Text('パーティーコード', style: lobbyBody),
+                                const SizedBox(height: 10),
+                                Row(children: [
+                                  const LobbyCompass(size: 38),
+                                  const SizedBox(width: 10),
+                                  Expanded(
+                                      child: FittedBox(
+                                          fit: BoxFit.scaleDown,
+                                          child: SelectableText(party.code!,
+                                              style: lobbyTitle.copyWith(
+                                                  fontSize: 32,
+                                                  letterSpacing: 5)))),
+                                  IconButton(
+                                      tooltip: 'コードをコピー',
+                                      onPressed: _copyCode,
+                                      icon: const Icon(Icons.copy,
+                                          color: lobbyWhite)),
+                                ])
+                              ])),
+                          const SizedBox(height: 20),
+                          Row(children: [
+                            Text('${party.members.length} / 4人',
+                                style: lobbyTitle.copyWith(fontSize: 22)),
+                            const SizedBox(width: 16),
+                            const Expanded(child: Divider(color: lobbyGold)),
+                            const Icon(Icons.auto_awesome,
+                                color: lobbyGold, size: 16)
+                          ]),
+                          const SizedBox(height: 10),
+                          LayoutBuilder(builder: (context, size) {
+                            final columns = size.maxWidth < 340 ||
+                                    MediaQuery.textScalerOf(context).scale(12) >
+                                        15
+                                ? 2
+                                : 4;
+                            return Wrap(spacing: 8, runSpacing: 12, children: [
+                              for (var i = 0; i < 4; i++)
+                                SizedBox(
+                                    width: (size.maxWidth - (columns - 1) * 8) /
+                                        columns,
+                                    child: LobbyMemberCard(
+                                        member: i < party.members.length
+                                            ? party.members[i]
+                                            : null,
+                                        selfId: party.selfId,
+                                        hostId: party.hostId,
+                                        started: started))
+                            ]);
+                          }),
+                          const SizedBox(height: 20),
+                          if (!started)
+                            LobbyAction(
+                                label: '仲間を招待する',
+                                icon: Icons.person_add_outlined,
+                                onTap: _copyCode),
+                        ],
+                        const SizedBox(height: 24),
+                        LobbyPanel(
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                              Row(children: [
+                                const Icon(Icons.hourglass_top,
+                                    color: lobbyGold, size: 20),
+                                const SizedBox(width: 8),
+                                const Expanded(
+                                    child: Text('集中時間の設定', style: lobbyBody)),
+                                Text('$minutes分',
+                                    style: lobbyTitle.copyWith(fontSize: 24))
+                              ]),
+                              const SizedBox(height: 14),
+                              Wrap(spacing: 8, runSpacing: 8, children: [
+                                for (final value in [15, 30, 45, 60])
+                                  ChoiceChip(
+                                      label: Text('$value分'),
+                                      selected: value == minutes,
+                                      showCheckmark: false,
+                                      labelStyle: lobbyBody.copyWith(
+                                          fontSize: 14,
+                                          color: value == minutes
+                                              ? const Color(0xff132b47)
+                                              : lobbyWhite),
+                                      backgroundColor: const Color(0xff112e50),
+                                      selectedColor: lobbyGold,
+                                      side: const BorderSide(color: lobbyGold),
+                                      onSelected: enabled &&
+                                              !started &&
+                                              (!party.connected || party.isHost)
+                                          ? (_) {
+                                              if (value == minutes) return;
+                                              if (party.connected) {
+                                                party.setMinutes(value);
+                                              } else {
+                                                setState(
+                                                    () => _minutes = value);
+                                              }
+                                            }
+                                          : null)
+                              ]),
+                              const SizedBox(height: 10),
+                              Text(
+                                  started
+                                      ? 'この時間で集中中です。'
+                                      : !party.connected
+                                          ? '作成するパーティーの集中時間を選びます。'
+                                          : party.isHost
+                                              ? '時間を変更すると、全員の準備が解除されます。'
+                                              : 'リーダーが集中時間を設定します。',
+                                  style: lobbyBody.copyWith(
+                                      fontSize: 11,
+                                      color: const Color(0xffd1dce8))),
+                            ])),
+                        if (party.connected) ...[
+                          const SizedBox(height: 18),
+                          if (!started) ...[
+                            LobbyAction(
+                                label: party.ready ? '準備を解除' : '準備OK',
+                                icon: Icons.check_circle_outline,
+                                onTap: enabled
+                                    ? () => _act(() =>
+                                        controller.prepareParty(!party.ready))
+                                    : null),
+                            const SizedBox(height: 12),
+                            if (party.isHost) ...[
+                              LobbyAction(
+                                  label: 'みんなで集中を開始',
+                                  icon: Icons.play_arrow,
+                                  onTap: enabled &&
+                                          party.members.length >= 2 &&
+                                          party.members.every((m) => m.ready)
+                                      ? party.start
+                                      : null),
+                              const SizedBox(height: 8),
+                              const LobbyPanel(
+                                  child: Text('2人以上で、全員の準備ができたら開始できます。',
+                                      textAlign: TextAlign.center,
+                                      style: lobbyBody)),
+                            ] else
+                              const LobbyPanel(
+                                  child: Text('全員の準備ができたら、リーダーが開始します。',
+                                      textAlign: TextAlign.center,
+                                      style: lobbyBody)),
+                          ] else
+                            LobbyAction(
+                                label: '集中画面へ',
+                                icon: Icons.timer_outlined,
+                                onTap: controller.activeFocus != null
+                                    ? () => Navigator.pop(context)
+                                    : null),
+                          TextButton(
+                              onPressed:
+                                  enabled ? () => _act(party.leave) : null,
+                              child: Text(
+                                  started ? 'パーティーから退出（集中は継続）' : 'パーティーから退出',
+                                  style: lobbyBody.copyWith(fontSize: 12))),
+                        ],
+                        if (controller.activeFocus != null && !party.connected)
+                          const LobbyPanel(
+                              child: Text('集中が終了するとパーティーに参加できます。',
+                                  style: lobbyBody)),
+                        if (_working || party.connecting) ...[
+                          const SizedBox(height: 16),
+                          const LinearProgressIndicator(color: lobbyGold),
+                          const LobbyPanel(
+                              child: Text('仲間の待つ場所へ接続しています…',
+                                  textAlign: TextAlign.center,
+                                  style: lobbyBody)),
+                        ],
+                        if (_error ?? party.error ?? controller.partyStartError
+                            case final String error) ...[
+                          const SizedBox(height: 12),
+                          LobbyPanel(
+                              child: Text(error,
+                                  style: lobbyBody.copyWith(
+                                      color: const Color(0xffffd6a8)))),
+                        ],
+                      ]));
+            })),
+          ])),
+        ]));
   }
 }

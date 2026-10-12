@@ -31,14 +31,23 @@ class EnemyComponent extends Component {
         : attacking
             ? enemy.age % 4 - 3
             : enemy.age;
-    final frame = assets.frame(enemy.data.id, action, age, loop: !defeated);
-    // Integer enlargement of the complete original. Knockback comes from JSON.
+    final motion = assets.motions['${enemy.data.id}_$action']!;
+    final frame = motion.frame(age, loop: !defeated);
+    final anchor = motion.metadata['sprite_anchor_px'] as List<dynamic>?;
+    final anchorX = anchor == null ? 64.0 : (anchor[0] as num).toDouble();
+    final anchorY = anchor == null ? 112.0 : (anchor[1] as num).toDouble();
+    // Detailed bosses use 384px PNGs, but anchors and world offsets retain
+    // their 128px coordinate units. Display the entire held original.
     final scale = enemy.data.isBoss ? 2.0 : 1.0;
     canvas.drawImageRect(
         frame.image,
-        const Rect.fromLTWH(0, 0, 128, 128),
-        Rect.fromLTWH(enemy.x + (frame.offset.dx - 64) * scale,
-            413 + (frame.offset.dy - 112) * scale, 128 * scale, 128 * scale),
+        Rect.fromLTWH(
+            0, 0, frame.image.width.toDouble(), frame.image.height.toDouble()),
+        Rect.fromLTWH(
+            enemy.x + (frame.offset.dx - anchorX) * scale,
+            413 + (frame.offset.dy - anchorY) * scale,
+            128 * scale,
+            128 * scale),
         Paint()
           ..filterQuality = FilterQuality.none
           ..isAntiAlias = false);

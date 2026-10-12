@@ -10,12 +10,14 @@ import 'pixel_battle_assets.dart';
 import 'pixel_battle_hero_component.dart';
 import 'enemy_spawner.dart';
 import 'enemy_motion_assets.dart';
+import '../../features/focus/presentation/focus_audio.dart';
 
 class FocusQuestBattleGame extends FlameGame {
   FocusQuestBattleGame(
       {required this.state,
       required this.elapsed,
       required this.onFinished,
+      this.onAudioFrame,
       this.heroLevel = 1,
       this.characterType = 'warrior',
       this.appearance = 'male',
@@ -26,6 +28,11 @@ class FocusQuestBattleGame extends FlameGame {
     // every role's textures and pending loads in Flame's global cache.
     images = Images();
   }
+  final void Function(double time,
+      {required bool boss,
+      required bool active,
+      required List<FocusSoundPose> poses})? onAudioFrame;
+  PixelBattleAssets? _audioAssets;
   final BattleStateController state;
   final int heroLevel;
   final String characterType, appearance;
@@ -62,14 +69,44 @@ class FocusQuestBattleGame extends FlameGame {
   }
 
   Future<void> _loadHero() async {
-    await add(PixelBattleHeroComponent(
-        state, await PixelBattleAssets.load(this, characterType, appearance)));
+    final assets =
+        await PixelBattleAssets.load(this, characterType, appearance);
+    _audioAssets = assets;
+    await add(PixelBattleHeroComponent(state, assets));
   }
 
   @override
   void update(double dt) {
     state.advanceTo(elapsed(), maxTicks: 120);
     super.update(dt);
+    final assets = _audioAssets;
+    final skill = state.isSkillPlaying;
+    final action = skill ? 'skill' : 'attack';
+    final motion = assets?.motions[action];
+    final duration =
+        skill ? state.activeSkillDuration : state.config.normalAttackDuration;
+    final times = motion == null
+        ? <double>[]
+        : focusSoundTimes(
+            motion.metadata,
+            skill
+                ? assets!.character.skillEvent
+                : assets!.character.attackEvent,
+            playbackDuration: duration);
+    onAudioFrame?.call(state.elapsedSeconds,
+        boss: state.isBossBattle,
+        active: elapsed() >= 0 && state.phase != BattlePhase.finished,
+        poses: assets == null || (!skill && !state.isNormalAttackPlaying)
+            ? []
+            : [
+                FocusSoundPose(
+                    'hero',
+                    characterType,
+                    skill ? state.skillSerial : state.attackSerial,
+                    skill,
+                    skill ? state.skillAge : state.attackAge,
+                    times),
+              ]);
     if (state.phase == BattlePhase.finished) _finishDelay += dt;
     final finalBossDefeat =
         state.enemies.any((e) => e.data.isBoss && e.hp == 0);

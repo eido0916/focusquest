@@ -1,4 +1,7 @@
 import 'dart:convert';
+import 'dart:async';
+import '../../../core/game_controller.dart';
+import '../../focus/presentation/focus_audio.dart';
 import 'dart:ui' as ui;
 import 'package:flame/cache.dart';
 import 'package:flame/game.dart';
@@ -15,7 +18,12 @@ import '../../../game/runner/role_skill_effects.dart';
 
 class PartyBattlePage extends StatefulWidget {
   const PartyBattlePage(
-      {super.key, required this.session, required this.clock, this.party});
+      {super.key,
+      required this.session,
+      required this.clock,
+      this.party,
+      this.controller});
+  final GameController? controller;
   final FocusSession session;
   final DateTime Function() clock;
   final PartyConnection? party;
@@ -25,13 +33,16 @@ class PartyBattlePage extends StatefulWidget {
 
 class _PartyBattlePageState extends State<PartyBattlePage> {
   late final PartyBattleGame _game;
+  late final FocusAudio _audio;
   bool _returned = false;
   @override
   void initState() {
     super.initState();
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+    _audio = FocusAudio(controller: widget.controller);
     _game = PartyBattleGame(
+        onAudioFrame: _audio.update,
         session: widget.session,
         clock: widget.clock,
         onFinished: () =>
@@ -49,6 +60,7 @@ class _PartyBattlePageState extends State<PartyBattlePage> {
   @override
   void dispose() {
     _game.pauseEngine();
+    unawaited(_audio.close());
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     super.dispose();
   }
@@ -56,23 +68,56 @@ class _PartyBattlePageState extends State<PartyBattlePage> {
   @override
   Widget build(BuildContext context) => Scaffold(
       backgroundColor: Colors.black,
-      body: SafeArea(
-          child: LayoutBuilder(
-              builder: (context, box) => RotatedBox(
-                  quarterTurns: box.maxHeight > box.maxWidth ? 1 : 0,
-                  child: Center(
-                      child: AspectRatio(
-                          aspectRatio: 16 / 9,
-                          child: Stack(children: [
-                            Positioned.fill(child: GameWidget(game: _game)),
-                            Positioned(
-                                top: 4,
-                                right: 8,
-                                child: TextButton.icon(
-                                    onPressed: _return,
-                                    icon: const Icon(Icons.undo),
-                                    label: const Text('タイマーに戻る'))),
-                          ])))))));
+      body: SafeArea(child: LayoutBuilder(builder: (context, box) {
+        return RotatedBox(
+          quarterTurns: box.maxHeight > box.maxWidth ? 1 : 0,
+          child: Center(
+              child: AspectRatio(
+            aspectRatio: 16 / 9,
+            child: LayoutBuilder(builder: (context, surface) {
+              final unit = surface.maxWidth / 960;
+              return Stack(fit: StackFit.expand, children: [
+                GameWidget(game: _game),
+                if (widget.controller != null)
+                  Positioned(
+                      top: 7 * unit,
+                      right: 173 * unit,
+                      width: 42 * unit,
+                      height: 48 * unit,
+                      child: IconButton(
+                        padding: EdgeInsets.zero,
+                        tooltip: 'サウンド設定',
+                        icon: Icon(Icons.volume_up,
+                            color: Colors.white, size: 24 * unit),
+                        onPressed: () =>
+                            showFocusSoundSettings(context, widget.controller!),
+                      )),
+                Positioned(
+                    top: 7 * unit,
+                    right: 16 * unit,
+                    width: 156 * unit,
+                    height: 48 * unit,
+                    child: TextButton(
+                      onPressed: _return,
+                      style: TextButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          padding: EdgeInsets.symmetric(horizontal: 5 * unit),
+                          minimumSize: Size.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+                      child: const FittedBox(
+                          child: Row(children: [
+                        Icon(Icons.undo_rounded, size: 25),
+                        SizedBox(width: 7),
+                        Text('タイマーに戻る',
+                            style: TextStyle(
+                                fontFamily: 'SunlitSerif', fontSize: 18)),
+                      ])),
+                    )),
+              ]);
+            }),
+          )),
+        );
+      })));
 }
 
 /// Every player animation frame is a completed v013 original, drawn at 128×128.
@@ -82,12 +127,17 @@ class PartyBattleGame extends FlameGame {
       {required this.session,
       required this.clock,
       required this.onFinished,
-      this.party}) {
+      this.party,
+      this.onAudioFrame}) {
     images = Images();
   }
   final FocusSession session;
   final DateTime Function() clock;
   final VoidCallback onFinished;
+  final void Function(double time,
+      {required bool boss,
+      required bool active,
+      required List<FocusSoundPose> poses})? onAudioFrame;
   final PartyConnection? party;
   ui.Image? _background;
   ui.Image? _ghostShip;
@@ -98,6 +148,10 @@ class PartyBattleGame extends FlameGame {
   double _finishAge = 0;
   String? loadError;
   final Map<String, ui.Image> _roleLogos = {};
+  final Map<String, ui.Image> _portraits = {};
+  ui.Image? _headerFrame, _memberFrame, _compass;
+  String portraitKey(PartyMember member) =>
+      '${member.appearance}/${member.characterType}';
   String actorKey(PartyMember member) {
     final hero =
         PixelBattleAssets.characterFor(member.characterType, member.appearance);
@@ -113,6 +167,14 @@ class PartyBattleGame extends FlameGame {
       _ghostShip =
           await images.load('stage_backgrounds/ghost_ship_focus_v002.png');
       _bossAssets = await EnemyMotionAssets.load(this);
+      _headerFrame = await images.load('party_focus_v001/header_frame.png');
+      _memberFrame = await images.load('party_focus_v001/member_frame.png');
+      _compass = await images.load('party_focus_v001/compass.png');
+      for (final member in session.partyMembers) {
+        final key = portraitKey(member);
+        _portraits[key] ??=
+            await images.load('focus_selection_v001/avatars/$key.png');
+      }
       for (final type
           in session.partyMembers.map((m) => m.characterType).toSet()) {
         _roleLogos[type] = await images.load('role_logos/$type.png');
@@ -164,6 +226,26 @@ class PartyBattleGame extends FlameGame {
   @override
   void update(double dt) {
     super.update(dt);
+    final time = elapsed.clamp(0.0, session.durationMinutes * 60.0).toDouble();
+    final wave = time ~/ 6;
+    final age = time % 6 - 2;
+    final skill = wave % 4 == 3;
+    final poses = <FocusSoundPose>[];
+    for (var i = 0; i < session.partyMembers.length; i++) {
+      final member = session.partyMembers[i];
+      final motion = _actors[actorKey(member)]?[skill ? 'skill' : 'attack'];
+      if (motion == null || age < 0 || age >= motion.duration) continue;
+      final character = PixelBattleAssets.characterFor(
+          member.characterType, member.appearance);
+      final events = focusSoundTimes(
+          motion.data, skill ? character.skillEvent : character.attackEvent);
+      poses.add(
+          FocusSoundPose('$i', member.characterType, wave, skill, age, events));
+    }
+    onAudioFrame?.call(time,
+        boss: FocusAdventure.fightingBoss(session.adventureStartSeconds + time),
+        active: elapsed >= 0 && elapsed < session.durationMinutes * 60,
+        poses: poses);
     if (elapsed >= session.durationMinutes * 60) _finishAge += dt;
     final end = session.adventureStartSeconds + session.durationMinutes * 60;
     final bossJustDefeated = end >= 1800 && end % 1800 == 0;
@@ -189,6 +271,15 @@ class PartyBattleGame extends FlameGame {
     painter.paint(canvas, Offset(x, y));
   }
 
+  void _frame(Canvas canvas, ui.Image? image, Rect rect) {
+    if (image == null) return;
+    canvas.drawImageNine(
+        image,
+        Rect.fromLTRB(32, 32, image.width - 32.0, image.height - 32.0),
+        rect,
+        Paint()..filterQuality = FilterQuality.high);
+  }
+
   @override
   void render(Canvas canvas) {
     super.render(canvas);
@@ -203,32 +294,34 @@ class PartyBattleGame extends FlameGame {
     if (background != null) {
       BackgroundComponent.paintScenery(canvas, background);
     }
-    canvas.drawRect(const Rect.fromLTWH(0, 0, 960, 80),
-        Paint()..color = const Color(0xdd10231c));
+    _frame(canvas, _headerFrame, const Rect.fromLTWH(3, 2, 954, 72));
+    if (_compass != null) {
+      canvas.drawImage(_compass!, const Offset(13, 10), Paint());
+    }
     final remaining = session.remaining(clock()).inSeconds;
     _text(
         canvas,
         '第${FocusAdventure.chapter(adventureTime)}章 · ${FocusAdventure.area(adventureTime)} · ${session.partyMembers.length}人パーティー',
-        20,
-        12,
-        width: 400,
+        64,
+        10,
+        width: 655,
         size: 23,
         color: const Color(0xffffdd98));
     _text(
         canvas,
         bossBattle
             ? 'BOSS · ${FocusAdventure.bossName(adventureTime)} · 撃破まで ${bossLeft ~/ 60}:${(bossLeft % 60).toString().padLeft(2, '0')}'
-            : '残り ${remaining ~/ 60}:${(remaining % 60).toString().padLeft(2, '0')}  ·  敵 ${session.partyMembers.length}体 / wave',
-        20,
-        48,
+            : '残り ${remaining ~/ 60}:${(remaining % 60).toString().padLeft(2, '0')}  ·  敵 ${session.partyMembers.length}体 / wave ${time ~/ 6 + 1}',
+        64,
+        46,
         width: 600,
         size: 17);
     if (elapsed < 0) {
-      _text(canvas, '${(-elapsed).ceil()}秒後に一緒に開始', 450, 20,
+      _text(canvas, '${(-elapsed).ceil()}秒後に一緒に開始', 420, 46,
           width: 280, size: 23);
     }
     if (party != null && !party!.connected) {
-      _text(canvas, '接続切れ · 集中は継続中', 600, 48,
+      _text(canvas, '接続切れ · 集中は継続中', 600, 46,
           width: 340, color: Colors.orangeAccent);
     }
 
@@ -237,31 +330,45 @@ class PartyBattleGame extends FlameGame {
     final skillWave = wave % 4 == 3;
     for (var i = 0; i < session.partyMembers.length; i++) {
       final member = session.partyMembers[i];
-      final y = 182.0 + i * 104;
-      canvas.drawRRect(
-          RRect.fromRectAndRadius(
-              Rect.fromLTWH(12, y - 88, 390, 94), const Radius.circular(10)),
-          Paint()..color = const Color(0x6610231c));
+      final cardTop = 84.0 + i * 76;
+      _frame(canvas, _memberFrame, Rect.fromLTWH(5, cardTop, 175, 72));
+      final portrait = _portraits[portraitKey(member)];
+      if (portrait != null) {
+        // Existing 64 logical pixel portrait, at its original logical size.
+        canvas.drawImageRect(
+            portrait,
+            const Rect.fromLTWH(0, 0, 128, 128),
+            Rect.fromLTWH(34, cardTop + 4, 64, 64),
+            Paint()..filterQuality = FilterQuality.none);
+      }
       final logo = _roleLogos[member.characterType];
       if (logo != null) {
         paintImage(
             canvas: canvas,
-            rect: Rect.fromLTWH(20, y - 77, 32, 32),
+            rect: Rect.fromLTWH(12, cardTop + 12, 28, 36),
             image: logo,
             fit: BoxFit.contain,
             filterQuality: FilterQuality.high);
       }
-      _text(canvas, member.name, 58, y - 75,
-          width: 112, size: 19, color: const Color(0xffffdd98));
-      _text(canvas, 'Lv.${member.level}', 22, y - 42, width: 140, size: 15);
+      _text(canvas, member.name, 101, cardTop + 12, width: 70, size: 16);
+      _text(canvas, 'Lv.${member.level}', 101, cardTop + 38,
+          width: 70, size: 15);
       final live = party?.members.where((m) => m.id == member.id).firstOrNull;
       final status = live?.status;
       if (status == 'disconnected' ||
           status == 'cancelled' ||
           status == 'cannotStart') {
-        _text(canvas, status == 'disconnected' ? '接続切れ' : '離脱', 22, y - 18,
-            size: 13, color: Colors.orangeAccent);
+        _text(
+            canvas, status == 'disconnected' ? '接続切れ' : '離脱', 101, cardTop + 56,
+            width: 70, size: 10, color: Colors.orangeAccent);
       }
+      // Two rows on the battlefield, independent of the portrait sidebar.
+      // Positions are world coordinates; completed original frames never deform.
+      final column = i % 2;
+      final row = i ~/ 2;
+      final y = (session.partyMembers.length <= 2 ? 380.0 : 332.0) + row * 100;
+      final heroX = 210.0 + column * 144;
+      final enemyX = 638.0 + column * 136;
       final actor = _actors[actorKey(member)];
       final attack = actor?[skillWave ? 'skill' : 'attack'];
       final attackDuration = attack?.duration ?? 1;
@@ -269,7 +376,7 @@ class PartyBattleGame extends FlameGame {
       if (actor != null) {
         final moving = age < 2 || age >= hitAt;
         final motion = moving ? actor['run']! : attack!;
-        motion.paint(canvas, Offset(220, y - 114),
+        motion.paint(canvas, Offset(heroX, y - 114),
             moving ? age % motion.duration : age - 2);
       }
       final enemy = _actors[i.isEven ? 'enemies/slime' : 'enemies/goblin'];
@@ -277,7 +384,7 @@ class PartyBattleGame extends FlameGame {
         final defeated = age >= hitAt;
         final motion = enemy[defeated ? 'defeat' : 'locomotion']!;
         if (!defeated || age - hitAt < motion.duration) {
-          final x = age < 2 ? 800 - age * 135 : 530.0;
+          final x = age < 2 ? enemyX + (2 - age) * 55 : enemyX;
           motion.paint(canvas, Offset(x, y - 114),
               defeated ? age - hitAt : age % motion.duration);
         }
@@ -290,8 +397,8 @@ class PartyBattleGame extends FlameGame {
             .map((e) => (e['tick'] as num).toDouble() / 24)
             .toList();
         _effects[member.characterType]?.paint(canvas,
-            origin: Offset(284, y) + attack.offsetAt(age - 2),
-            viewport: Rect.fromLTWH(0, y - 96, 960, 100),
+            origin: Offset(heroX + 64, y) + attack.offsetAt(age - 2),
+            viewport: Rect.fromLTWH(heroX, y - 96, 960 - heroX, 100),
             age: age - 2,
             duration: attackDuration,
             releases: events,
@@ -325,7 +432,7 @@ class PartyBattleGame extends FlameGame {
           frame.image,
           const Rect.fromLTWH(0, 0, 128, 128),
           Rect.fromLTWH(
-              580 + frame.offset.dx * 2, 150 + frame.offset.dy * 2, 256, 256),
+              660 + frame.offset.dx * 2, 180 + frame.offset.dy * 2, 256, 256),
           Paint()..filterQuality = FilterQuality.none);
     }
     if (loadError != null) {

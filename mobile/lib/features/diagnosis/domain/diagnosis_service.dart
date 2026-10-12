@@ -39,6 +39,25 @@ class DiagnosisService {
   final List<DiagnosisQuestion> questions;
   final Map<int, PersonalityType> types;
   final int axes;
+
+  /// Four letters use the same bit order as the diagnosis scores.
+  /// D/S: breakthrough/insight, F/H: tempo/focused, I/T: independent/teamwork,
+  /// R/V: realistic/visionary.
+  String codeFor(PersonalityType type) {
+    final mask = types.entries
+        .firstWhere(
+          (entry) => entry.value.typeId == type.typeId,
+          orElse: () => throw ArgumentError('診断対象外の職業です。'),
+        )
+        .key;
+    return [
+      mask & 1 != 0 ? 'D' : 'S',
+      mask & 2 != 0 ? 'F' : 'H',
+      mask & 4 != 0 ? 'I' : 'T',
+      mask & 8 != 0 ? 'R' : 'V',
+    ].join();
+  }
+
   PersonalityType evaluate(Map<String, int> answers) {
     final scores = List.filled(axes, 0);
     for (final question in questions) {

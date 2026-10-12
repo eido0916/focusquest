@@ -7,7 +7,6 @@ import '../data/player_state.dart';
 import '../features/certificate/focus_defeat_counter.dart';
 import '../features/certificate/certificate_catalog.dart';
 import '../features/character/domain/character.dart';
-import '../features/character/domain/progression_service.dart';
 import '../features/diagnosis/domain/diagnosis_service.dart';
 import '../features/focus/data/usage_monitor.dart';
 import '../features/focus/domain/focus_ledger.dart';
@@ -110,6 +109,9 @@ class GameController extends ChangeNotifier {
     playableAdventureActive = false;
     notifyListeners();
   }
+
+  Future<void> setSoundSettings({bool? bgm, bool? se}) =>
+      _action(() => _save((s) => s.copyWith(bgmEnabled: bgm, seEnabled: se)));
 
   Future<void> recordPlayableClear(int stage) => _action(() => _save((s) {
         if (stage < 1 || stage > 36) throw ArgumentError.value(stage, 'stage');
@@ -307,31 +309,14 @@ class GameController extends ChangeNotifier {
         if (session.partyMembers.isNotEmpty) party.report(result.name);
         return finished;
       });
-  Future<void> equip(String itemId) => _action(() => _save((s) {
-        if (playableAdventureActive) throw StateError('冒険の終了後に装備を変更できます。');
-        if (activeFocus != null) {
-          throw StateError('集中の完了後に装備を変更できます。');
-        }
-        final hero = ProgressionService().equip(
-            s.activeCharacter!, GameCatalog.equipment[itemId]!, s.inventory);
-        // Equipment instances cannot be equipped by two characters simultaneously.
-        final characters = {...s.characters};
-        for (final other in characters.values.toList()) {
-          if (other.id != hero.id &&
-              other.equippedItems.values.contains(itemId)) {
-            characters[other.id] = other.copyWith(
-                equippedItems: {...other.equippedItems}
-                  ..removeWhere((_, value) => value == itemId));
-          }
-        }
-        characters[hero.id] = hero;
-        return s.copyWith(characters: characters);
-      }));
+  Future<void> equip(String itemId) => _action(() async {
+        throw StateError('装備機能は廃止されました。');
+      });
   Future<void> selectTitle(String title) => _action(() => _save((s) {
         final hero = s.activeCharacter!;
         final titles = CertificateCatalog.titles[hero.characterType]!;
         final index = titles.indexOf(title);
-        if (index < 0 || hero.level < index + 1) {
+        if (index < 0 || hero.level < CertificateCatalog.unlockLevel(index)) {
           throw StateError('この称号はまだ解放されていません。');
         }
         return s.copyWith(characters: {

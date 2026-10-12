@@ -21,13 +21,19 @@ class _SettingsScreenState extends State<SettingsScreen>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    widget.controller.addListener(_settingsChanged);
     _refresh();
   }
 
   @override
   void dispose() {
+    widget.controller.removeListener(_settingsChanged);
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
+  }
+
+  void _settingsChanged() {
+    if (mounted) setState(() {});
   }
 
   @override
@@ -154,17 +160,25 @@ class _SettingsScreenState extends State<SettingsScreen>
                                 icon: Icons.music_note_rounded,
                                 unit: unit,
                                 child: Column(children: [
-                                  SettingsValueRow(
-                                      icon: Icons.music_note_rounded,
-                                      label: 'BGM',
-                                      value: '準備中',
-                                      unit: unit),
+                                  SwitchListTile(
+                                      title: const Text('BGM'),
+                                      value: controller.state!.bgmEnabled,
+                                      onChanged: controller.busy
+                                          ? null
+                                          : (value) => runAction(
+                                              context,
+                                              () => controller.setSoundSettings(
+                                                  bgm: value))),
                                   SettingsRule(unit: unit),
-                                  SettingsValueRow(
-                                      icon: Icons.volume_up_rounded,
-                                      label: 'SE（効果音）',
-                                      value: '準備中',
-                                      unit: unit),
+                                  SwitchListTile(
+                                      title: const Text('SE（効果音）'),
+                                      value: controller.state!.seEnabled,
+                                      onChanged: controller.busy
+                                          ? null
+                                          : (value) => runAction(
+                                              context,
+                                              () => controller.setSoundSettings(
+                                                  se: value))),
                                 ])),
                             SizedBox(height: 10 * unit),
                             SettingsPanel(

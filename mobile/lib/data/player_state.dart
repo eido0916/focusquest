@@ -8,6 +8,8 @@ class PlayerState {
       this.coins = 0,
       this.activeCharacterId,
       this.monitoring = false,
+      this.bgmEnabled = true,
+      this.seEnabled = true,
       this.targetPackages = const [],
       this.firstPlayedAt,
       this.adventurerNumber,
@@ -32,6 +34,7 @@ class PlayerState {
   final int coins;
   final String? activeCharacterId;
   final bool monitoring;
+  final bool bgmEnabled, seEnabled;
   final List<String> targetPackages;
   final Map<String, Character> characters;
   final Map<String, int> inventory;
@@ -49,6 +52,8 @@ class PlayerState {
           int? coins,
           String? activeCharacterId,
           bool? monitoring,
+          bool? bgmEnabled,
+          bool? seEnabled,
           List<String>? targetPackages,
           Map<String, Character>? characters,
           Map<String, int>? inventory,
@@ -66,6 +71,8 @@ class PlayerState {
           coins: coins ?? this.coins,
           activeCharacterId: activeCharacterId ?? this.activeCharacterId,
           monitoring: monitoring ?? this.monitoring,
+          bgmEnabled: bgmEnabled ?? this.bgmEnabled,
+          seEnabled: seEnabled ?? this.seEnabled,
           targetPackages: targetPackages ?? this.targetPackages,
           characters: characters ?? this.characters,
           inventory: inventory ?? this.inventory,
@@ -85,6 +92,8 @@ class PlayerState {
         'coins': coins,
         'activeCharacterId': activeCharacterId,
         'monitoring': monitoring,
+        'bgmEnabled': bgmEnabled,
+        'seEnabled': seEnabled,
         'targetPackages': targetPackages,
         'clearedPlayableStages': clearedPlayableStages.toList(),
         'characters':
@@ -108,6 +117,8 @@ class PlayerState {
         coins: json['coins'] as int,
         activeCharacterId: json['activeCharacterId'] as String?,
         monitoring: json['monitoring'] as bool? ?? false,
+        bgmEnabled: json['bgmEnabled'] as bool? ?? true,
+        seEnabled: json['seEnabled'] as bool? ?? true,
         clearedPlayableStages:
             Set<int>.from(json['clearedPlayableStages'] as List? ?? []),
         targetPackages:

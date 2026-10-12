@@ -64,14 +64,19 @@ flutter:
       fonts:
         - asset: assets/fonts/NotoSerifJP.ttf
   assets:
+    - assets/images/diagnosis/job_reveal_v001/
+    - assets/images/character_ui_v004/
     - assets/images/character_ui_v002/
     - assets/images/role_logos/
+    - assets/images/focus_timer_v001/
     - assets/images/focus_selection_v001/
     - assets/images/focus_selection_v001/avatars/male/
     - assets/images/focus_selection_v001/avatars/female/
     - assets/images/settings_ui_v001/
     - assets/images/role_skill_effects_v002/
     - assets/images/certificates_landscape_v002/
+    - assets/images/party_lobby_v001/
+    - assets/images/party_focus_v001/
     - assets/images/party/catalog.json
     - assets/images/party/enemies/dracula/attack/keyframes/
     - assets/images/party/enemies/dracula/defeat/keyframes/
@@ -148,12 +153,15 @@ flutter:
     - assets/images/characters/boxer/skills/front_kick/front_kick.json
     - assets/images/characters/boxer/skills/front_kick/wind_spear.png
     - assets/audio/playable_stage/
+    - assets/audio/focus_adventure/
     - assets/images/playable_stage/
     - assets/images/stage_backgrounds/
     - assets/fonts/OFL.txt
     - assets/images/portraits/male/
     - assets/images/portraits/female/
     - assets/images/diagnosis/old-king-magic-stone.png
+    - assets/images/diagnosis/sanctuary_v001/
+    - assets/images/diagnosis/king_intro_v002/
     - assets/images/enchanted_forest.png
     - assets/images/ui/
     - assets/images/adventure_ui_v001/

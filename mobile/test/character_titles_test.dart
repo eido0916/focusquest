@@ -23,14 +23,18 @@ void main() {
       expect(controller.state!.activeCharacter!.selectedTitle, isNull);
       final hero = controller.state!.activeCharacter!;
       repo.state =
-          repo.state.copyWith(characters: {hero.id: hero.copyWith(level: 4)});
+          repo.state.copyWith(characters: {hero.id: hero.copyWith(level: 9)});
+      await controller.load();
+      await expectLater(controller.selectTitle(titles[1]), throwsStateError);
+      repo.state =
+          repo.state.copyWith(characters: {hero.id: hero.copyWith(level: 10)});
       await controller.load();
       await controller.selectTitle(titles[1]);
       await controller.load();
       final restored =
           Character.fromJson(controller.state!.activeCharacter!.toJson());
       expect(restored.selectedTitle, titles[1]);
-      expect(restored.copyWith(level: 5).selectedTitle, titles[1]);
+      expect(restored.copyWith(level: 20).selectedTitle, titles[1]);
       expect(
           CertificateData.fromState(controller.state!, DateTime(2026, 10, 12))
               .title,
@@ -50,7 +54,7 @@ void main() {
         name: 'たろう');
     final hero = controller.state!.activeCharacter!;
     repo.state =
-        repo.state.copyWith(characters: {hero.id: hero.copyWith(level: 4)});
+        repo.state.copyWith(characters: {hero.id: hero.copyWith(level: 20)});
     await controller.load();
     await tester.pumpWidget(MaterialApp(
         home: AnimatedBuilder(
@@ -63,7 +67,7 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('change-title')));
     await tester.pumpAndSettle();
     expect(find.text('称号一覧'), findsOneWidget);
-    expect(find.text('Lv. 2で解放 · 解放済み'), findsOneWidget);
+    expect(find.text('Lv. 10で解放 · 解放済み'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('title-1')));
     await tester.pumpAndSettle();
     expect(controller.state!.activeCharacter!.selectedTitle, '見習い剣士');
@@ -71,7 +75,7 @@ void main() {
     await tester.scrollUntilVisible(locked, 140,
         scrollable: find.descendant(
             of: find.byType(Dialog), matching: find.byType(Scrollable)));
-    expect(find.text('Lv. 8で解放 · 未解放'), findsOneWidget);
+    expect(find.text('Lv. 70で解放 · 未解放'), findsOneWidget);
     expect(tester.widget<ListTile>(locked).onTap, isNull);
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox());

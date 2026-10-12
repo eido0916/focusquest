@@ -1,3 +1,6 @@
+import 'dart:async';
+import '../../../core/game_controller.dart';
+import 'focus_audio.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,6 +15,7 @@ import '../domain/focus_session.dart';
 class BattleReplayPage extends StatefulWidget {
   const BattleReplayPage(
       {super.key,
+      this.controller,
       required this.session,
       required this.clock,
       this.characterType = 'warrior',
@@ -19,6 +23,7 @@ class BattleReplayPage extends StatefulWidget {
       this.heroLevel = 1,
       this.characterName = '冒険者',
       this.levelLogoAsset = BattleUiAssets.levelLogo});
+  final GameController? controller;
   final String characterType;
   final String appearance;
   final int heroLevel;
@@ -32,13 +37,16 @@ class BattleReplayPage extends StatefulWidget {
 
 class _BattleReplayPageState extends State<BattleReplayPage> {
   late final FocusQuestBattleGame _game;
+  late final FocusAudio _audio;
   bool _returned = false;
   @override
   void initState() {
     super.initState();
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+    _audio = FocusAudio(controller: widget.controller);
     _game = FocusQuestBattleGame(
+        onAudioFrame: _audio.update,
         characterType: widget.characterType,
         appearance: widget.appearance,
         heroLevel: widget.heroLevel,
@@ -70,6 +78,7 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
   @override
   void dispose() {
     _game.pauseEngine();
+    unawaited(_audio.close());
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     super.dispose();
   }
@@ -91,6 +100,16 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
                       Image.asset('assets/images/${BackgroundComponent.asset}',
                           fit: BoxFit.cover, filterQuality: FilterQuality.none),
                       GameWidget(game: _game),
+                      if (widget.controller != null)
+                        Positioned(
+                            right: 185 * unit,
+                            top: 0,
+                            child: IconButton(
+                                tooltip: 'サウンド設定',
+                                icon: const Icon(Icons.volume_up,
+                                    color: Colors.white),
+                                onPressed: () => showFocusSoundSettings(
+                                    context, widget.controller!))),
                       Positioned(
                           right: 5 * unit,
                           top: 0,

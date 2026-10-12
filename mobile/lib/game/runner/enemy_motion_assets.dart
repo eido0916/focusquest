@@ -3,13 +3,20 @@ import 'package:flame/game.dart';
 import 'package:flutter/services.dart';
 import '../../features/playable_stage/presentation/playable_stage_assets.dart';
 
-/// Completed v013 originals; metadata selects held poses and world offsets.
+/// Completed originals; metadata selects held poses and world offsets.
 class EnemyMotionAssets {
   EnemyMotionAssets._(this.motions);
   final Map<String, StageMotion> motions;
-  static Future<EnemyMotionAssets> load(FlameGame game) async {
+  static const focusEnemyIds = [
+    'slime',
+    'goblin',
+    'boss_goblin_king',
+    'boss_dullahan'
+  ];
+  static Future<EnemyMotionAssets> load(FlameGame game,
+      {Iterable<String> ids = focusEnemyIds}) async {
     final motions = <String, StageMotion>{};
-    for (final id in ['slime', 'goblin', 'boss_goblin_king', 'boss_dullahan']) {
+    for (final id in ids) {
       for (final action in ['locomotion', 'attack', 'defeat']) {
         final name = '${id}_$action';
         final meta = jsonDecode(await rootBundle.loadString(

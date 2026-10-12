@@ -5,10 +5,11 @@ import 'package:focusquest/app.dart';
 import 'package:focusquest/core/game_controller.dart';
 import 'package:focusquest/core/widgets/quest_widgets.dart';
 import 'package:focusquest/data/game_catalog.dart';
+import 'package:focusquest/features/character/presentation/character_screen.dart';
 import 'support/memory_repository.dart';
 
 void main() {
-  testWidgets('phone UI: focus EXP -> current adventure -> inventory',
+  testWidgets('phone UI: focus EXP -> current adventure -> character',
       (tester) async {
     tester.view.physicalSize = const Size(390, 844);
     tester.view.devicePixelRatio = 1;
@@ -53,7 +54,8 @@ void main() {
     expect(controller.state!.coins, 0);
     await tester.tap(find.text('閉じる'));
     await tester.pumpAndSettle();
-    await tester.pageBack();
+    await tester.tap(find.byWidgetPredicate(
+        (widget) => widget is Semantics && widget.properties.label == '戻る'));
     await tester.pumpAndSettle();
     await tester.ensureVisible(find.text('冒険に出発する'));
     await tester.tap(find.text('冒険に出発する'));
@@ -63,7 +65,7 @@ void main() {
     expect(controller.state!.coins, 0);
     await tester.tap(find.text('キャラクター'));
     await tester.pumpAndSettle();
-    expect(find.text('所持アイテム'), findsOneWidget);
+    expect(find.byType(CharacterScreen), findsOneWidget);
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox.shrink());
     controller.dispose();

@@ -15,7 +15,7 @@ void main() {
     const fontPath = String.fromEnvironment('QA_FONT');
     if (fontPath.isEmpty) return;
     final bytes = await File(fontPath).readAsBytes();
-    for (final family in ['Ahem', 'Roboto', 'serif']) {
+    for (final family in ['Ahem', 'Roboto', 'serif', 'SunlitSerif']) {
       final loader = FontLoader(family)
         ..addFont(Future.value(ByteData.sublistView(bytes)));
       await loader.load();
@@ -24,6 +24,7 @@ void main() {
   for (final size in [
     const Size(390, 844),
     const Size(320, 568),
+    const Size(800, 1280),
     const Size(844, 390)
   ]) {
     testWidgets('onboarding to saved home fits $size', (tester) async {
@@ -46,13 +47,22 @@ void main() {
 
       Future<void> capture(String name) async {
         if (!const bool.fromEnvironment('CAPTURE_DIAGNOSIS')) return;
+        final scrollable = find.byType(Scrollable).first;
+        tester.state<ScrollableState>(scrollable).position.jumpTo(0);
+        await tester.pumpAndSettle();
+        for (final element in find.byType(Image).evaluate()) {
+          await tester.runAsync(
+              () => precacheImage((element.widget as Image).image, element));
+        }
+        await tester.pumpAndSettle();
         await tester.runAsync(() async {
           final render = boundary.currentContext!.findRenderObject()!
               as RenderRepaintBoundary;
           final image = await render.toImage();
           final data = await image.toByteData(format: ui.ImageByteFormat.png);
-          final file =
-              File('../output/diagnosis/${size.width.toInt()}-$name.png');
+          const output = String.fromEnvironment('DIAGNOSIS_OUTPUT',
+              defaultValue: '../output/diagnosis');
+          final file = File('$output/${size.width.toInt()}-$name.png');
           await file.parent.create(recursive: true);
           await file.writeAsBytes(data!.buffer.asUint8List());
           image.dispose();
@@ -63,19 +73,28 @@ void main() {
       await tester.pump(const Duration(milliseconds: 750));
       await tester.pumpAndSettle();
       await capture('identity');
+      if (size.width == 800) {
+        final nameField = find.byKey(const Key('adventurer-name'));
+        expect(tester.getSize(nameField).width, greaterThan(600));
+        final voice = find.text('まばゆい光の中から、声が響く。\n「そなたの名と、望む姿を教えておくれ。」');
+        final text = tester.widget<Text>(voice);
+        expect(
+            MediaQuery.textScalerOf(tester.element(voice))
+                .scale(text.style!.fontSize!),
+            greaterThanOrEqualTo(24));
+      }
       await tester.enterText(find.byKey(const Key('adventurer-name')), 'アオイ');
       await tap(find.byKey(const Key('appearance-female')));
-      await tap(find.text('▶  石の問いに答える'));
+      await tap(find.text('石の問いに答える'));
       await capture('questions');
-      for (var page = 0; page < 2; page++) {
-        for (var i = page * 5 + 1; i <= page * 5 + 5; i++) {
-          await tap(find.byKey(Key('q$i-2')));
-        }
-        await tap(find.text(page == 0 ? '▶  次の5問へ' : '▶  診断結果を見る'));
+      for (var i = 1; i <= 10; i++) {
+        await tap(find.byKey(Key('q$i-2')));
+        if (i == 1) await capture('question-selected');
+        await tap(find.text(i < 10 ? 'この答えで進む' : '診断結果を見る'));
       }
       expect(find.text('魔法使い'), findsOneWidget);
       await capture('result');
-      await tap(find.text('▶  冒険に進む'));
+      await tap(find.byKey(const Key('begin-adventure')));
       expect(find.byType(DiagnosisScreen), findsNothing);
       expect(controller.state!.activeCharacter!.name, 'アオイ');
       expect(controller.state!.activeCharacter!.appearance, 'female');
@@ -98,7 +117,7 @@ void main() {
     await tester.tap(find.byKey(const Key('magic-stone')));
     await tester.pump(const Duration(milliseconds: 750));
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('▶  石の問いに答える'));
+    await tester.ensureVisible(find.text('石の問いに答える'));
     await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
   });

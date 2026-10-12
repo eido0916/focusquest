@@ -43,23 +43,28 @@ void main() {
       expect(GameBalance.requiredExp(4), greaterThan(grown.requiredExp));
       expect(() => service.addExp(hero, -1), throwsArgumentError);
     });
-    test('owned equipment applies once and survives serialization', () {
+    test('retired equipment survives loading without stat bonuses', () {
       final service = ProgressionService();
       final sword = GameCatalog.equipment['wooden_sword']!;
       expect(() => service.equip(hero, sword, {}), throwsStateError);
-      final equipped = service.equip(hero, sword, {'wooden_sword': 1});
+      expect(() => service.equip(hero, sword, {'wooden_sword': 1}),
+          throwsStateError);
+      final equipped = hero.copyWith(equippedItems: {'weapon': 'wooden_sword'});
       final restored = Character.fromJson(equipped.toJson());
-      expect(service.stats(restored, GameCatalog.equipment).attack, 18);
-      expect(
-          service
-              .stats(service.equip(restored, sword, {'wooden_sword': 1}),
-                  GameCatalog.equipment)
-              .attack,
-          18);
+      expect(service.stats(restored, GameCatalog.equipment).attack,
+          hero.baseStats.attack);
+      expect(restored.equippedItems['weapon'], 'wooden_sword');
       expect(hero.equippedItems, isEmpty);
     });
   });
   group('Focus', () {
+    test('battle rewards no longer award equipment', () {
+      final reward = RewardService(FixedRandom(0, 0)).battle(5);
+      expect(reward.items, isEmpty);
+      expect(reward.exp, 100);
+      expect(reward.coins, 50);
+      expect(reward.defeatedEnemies, 5);
+    });
     test('timer ends at exact deadline, including background gap', () {
       final session = focus.start(id: 's', now: start, minutes: 30);
       expect(focus.evaluate(session, start.add(const Duration(minutes: 29))),

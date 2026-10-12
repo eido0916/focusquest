@@ -1,0 +1,159 @@
+{
+  "composition": "FocusQuest original music and synthesized SFX, 2026-10-12",
+  "license": "Original project assets; no third-party recordings.",
+  "sample_rate": 44100,
+  "channels": 1,
+  "bits": 16,
+  "files": {
+    "peaceful": {
+      "seconds": 87.27272108843538,
+      "loop": true,
+      "peak": 0.3802614191134915,
+      "rms": 0.09663460045274685
+    },
+    "boss": {
+      "seconds": 53.333333333333336,
+      "loop": true,
+      "peak": 0.5025561106480214,
+      "rms": 0.12263045057473068
+    },
+    "sword": {
+      "seconds": 0.22,
+      "loop": false,
+      "peak": 0.6098678738442003,
+      "rms": 0.08867987230495036
+    },
+    "sword_wave": {
+      "seconds": 0.55,
+      "loop": false,
+      "peak": 0.5912872844088499,
+      "rms": 0.08495439138997067
+    },
+    "punch": {
+      "seconds": 0.16,
+      "loop": false,
+      "peak": 0.7473090899712445,
+      "rms": 0.10358524726083324
+    },
+    "kick": {
+      "seconds": 0.3,
+      "loop": false,
+      "peak": 0.75,
+      "rms": 0.1053171488666838
+    },
+    "katana": {
+      "seconds": 0.18,
+      "loop": false,
+      "peak": 0.6210763883426934,
+      "rms": 0.08359220783044034
+    },
+    "heavy": {
+      "seconds": 0.34,
+      "loop": false,
+      "peak": 0.75,
+      "rms": 0.09829467735288538
+    },
+    "shuriken": {
+      "seconds": 0.19,
+      "loop": false,
+      "peak": 0.40466930475816393,
+      "rms": 0.0625965761503862
+    },
+    "dagger": {
+      "seconds": 0.15,
+      "loop": false,
+      "peak": 0.5307395917245148,
+      "rms": 0.07421100655815255
+    },
+    "critical_dagger": {
+      "seconds": 0.26,
+      "loop": false,
+      "peak": 0.75,
+      "rms": 0.09743955741528168
+    },
+    "bow": {
+      "seconds": 0.24,
+      "loop": false,
+      "peak": 0.41327539501521465,
+      "rms": 0.0725381918999716
+    },
+    "gun": {
+      "seconds": 0.18,
+      "loop": false,
+      "peak": 0.75,
+      "rms": 0.08838737272600018
+    },
+    "fire": {
+      "seconds": 0.5,
+      "loop": false,
+      "peak": 0.75,
+      "rms": 0.08782689749393774
+    },
+    "ice": {
+      "seconds": 0.65,
+      "loop": false,
+      "peak": 0.6001496845485732,
+      "rms": 0.07369274241600696
+    },
+    "lightning": {
+      "seconds": 0.55,
+      "loop": false,
+      "peak": 0.75,
+      "rms": 0.08920349983024635
+    },
+    "talisman": {
+      "seconds": 0.3,
+      "loop": false,
+      "peak": 0.39220757842913667,
+      "rms": 0.0671836328746884
+    },
+    "spirits": {
+      "seconds": 0.7,
+      "loop": false,
+      "peak": 0.5944428237688519,
+      "rms": 0.078397354843344
+    },
+    "scythe": {
+      "seconds": 0.38,
+      "loop": false,
+      "peak": 0.75,
+      "rms": 0.10196176446637238
+    },
+    "holy": {
+      "seconds": 0.4,
+      "loop": false,
+      "peak": 0.41678933034939286,
+      "rms": 0.06224621184524943
+    },
+    "holy_sword": {
+      "seconds": 0.55,
+      "loop": false,
+      "peak": 0.5822069732670694,
+      "rms": 0.07840402970508316
+    },
+    "dark": {
+      "seconds": 0.4,
+      "loop": false,
+      "peak": 0.5942612472539733,
+      "rms": 0.08831029188589892
+    },
+    "curse": {
+      "seconds": 0.75,
+      "loop": false,
+      "peak": 0.7316022649680775,
+      "rms": 0.10016083533648763
+    },
+    "dragon": {
+      "seconds": 0.65,
+      "loop": false,
+      "peak": 0.75,
+      "rms": 0.08527780893176537
+    },
+    "earth": {
+      "seconds": 0.6,
+      "loop": false,
+      "peak": 0.75,
+      "rms": 0.09185630135660795
+    }
+  }
+}

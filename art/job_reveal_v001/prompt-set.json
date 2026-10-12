@@ -1,0 +1,14 @@
+{
+  "mode": "built-in image_gen",
+  "reference": "reference.png",
+  "assets": {
+    "background": "Vertical 9:16 sapphire cathedral matching reference, blue banners and crystals, golden celestial floor, remove every UI panel, text and character; uninterrupted cathedral.",
+    "card": "Transparent isolated tall ivory parchment result card, 4:5, fine gold double-line frame, stepped corners, delicate vine filigree and compass crests, pale cathedral towers and circular compass seal; no text or character.",
+    "dialogue": "Transparent isolated wide ivory textured parchment dialogue window, 6:1, thin gold double-line frame and pale compass seal at right; no attached name plaque, no text.",
+    "button": "Transparent isolated sapphire hexagonal action button, 5:1, layered gold edge, star-map texture, gold compass at left and arrow at right; empty center without text.",
+    "plaque": "Transparent isolated navy enamel speaker plaque, 4:1, fine double gold outline and pointed ends; empty center without text.",
+    "guide": "Transparent isolated midnight-blue information rectangle, 5.5:1, delicate gold double-line border and corner curls; no text or icons.",
+    "book": "Transparent isolated open ivory parchment book icon, warm gold outline and dark navy shadow, slight tilt, no writing.",
+    "traits": "Transparent isolated narrow ivory trait strip, 10:1, extremely restrained bronze double-line stepped end frame and tiny compass diamond; no text."
+  }
+}
