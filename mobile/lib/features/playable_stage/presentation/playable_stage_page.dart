@@ -1,3 +1,4 @@
+import 'adventure_stage_layout.dart';
 import '../../../core/widgets/game_ui.dart';
 import 'dart:async';
 import '../../../core/widgets/sunlit_widgets.dart';
@@ -227,11 +228,10 @@ class _PlayableStagePageState extends State<PlayableStagePage>
   }
 
   Widget _scene() => LayoutBuilder(builder: (context, constraints) {
-        _battle.spriteWorldSide = PlayableStagePainter.baseSpriteSide(
-                constraints.biggest, MediaQuery.devicePixelRatioOf(context)) *
-            1280 /
-            constraints.maxWidth;
-        final size = constraints.biggest;
+        final layout = AdventureStageLayout(constraints.biggest);
+        final bottomInset = layout.bottomInset(_battle.stage.groundLine);
+        final size =
+            PlayableStagePainter.worldSize(constraints.biggest, bottomInset);
         _battle.spriteWorldSide = PlayableStagePainter.baseSpriteSide(
                 size, MediaQuery.devicePixelRatioOf(context)) *
             1280 /
@@ -242,15 +242,17 @@ class _PlayableStagePageState extends State<PlayableStagePage>
             CustomPaint(
                 key: const Key('stage-canvas'),
                 painter: PlayableStagePainter(
-                    _battle, _assets!, MediaQuery.devicePixelRatioOf(context))),
+                    _battle, _assets!, MediaQuery.devicePixelRatioOf(context),
+                    bottomInset: bottomInset)),
             ..._headHealth(
                 PlayableStagePainter(
-                    _battle, _assets!, MediaQuery.devicePixelRatioOf(context)),
+                    _battle, _assets!, MediaQuery.devicePixelRatioOf(context),
+                    bottomInset: bottomInset),
                 constraints.biggest),
           ],
           if (_battle.message.isNotEmpty && _battle.mode != StageMode.ready)
             Positioned(
-              top: constraints.maxWidth > constraints.maxHeight ? 125 : 290,
+              top: layout.messageTop,
               left: 12,
               right: 12,
               child: Center(
@@ -263,7 +265,8 @@ class _PlayableStagePageState extends State<PlayableStagePage>
                               horizontal: 12, vertical: 6),
                           child: Text(_battle.message,
                               textAlign: TextAlign.center,
-                              style: const TextStyle(fontSize: 12))))),
+                              style: const TextStyle(
+                                  fontSize: 15, color: Colors.white))))),
             ),
         ]));
       });
@@ -289,7 +292,7 @@ class _PlayableStagePageState extends State<PlayableStagePage>
           left: rect.left, top: rect.top, width: rect.width, child: child));
     }
 
-    place(painter.heroHead(size), 96, 24,
+    place(painter.heroHead(size), 112, 28,
         _hp(_battle.character.role, _battle.hp, _battle.character.health));
     if (_battle.mode == StageMode.battle ||
         (_battle.mode == StageMode.travel && _battle.modeTime > 1.8)) {
@@ -298,8 +301,8 @@ class _PlayableStagePageState extends State<PlayableStagePage>
             .compareTo(a.definition.isBoss ? 1 : 0))) {
         place(
             painter.enemyHead(size, enemy),
-            enemy.definition.isBoss ? 128 : 64,
-            enemy.definition.isBoss ? 44 : 24,
+            enemy.definition.isBoss ? 168 : 96,
+            enemy.definition.isBoss ? 48 : 28,
             _enemyHp(enemy));
       }
     }
@@ -319,7 +322,7 @@ class _PlayableStagePageState extends State<PlayableStagePage>
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                      fontSize: enemy.definition.isBoss ? 12 : 11,
+                      fontSize: 14,
                       fontWeight: FontWeight.bold,
                       color: !enemy.alive
                           ? Colors.white38
@@ -330,7 +333,7 @@ class _PlayableStagePageState extends State<PlayableStagePage>
                 key: Key('enemy-hp-value-${enemy.index}'),
                 style: const TextStyle(
                     fontFamily: 'SunlitSerif',
-                    fontSize: 11,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                     shadows: [
@@ -357,7 +360,7 @@ class _PlayableStagePageState extends State<PlayableStagePage>
           children: [
             Text('$hp / $max',
                 style: const TextStyle(
-                    fontSize: 12,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                     shadows: [
