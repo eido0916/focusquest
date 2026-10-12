@@ -124,11 +124,19 @@
   "events": [
     {
       "event": "energy_charge_begin",
-      "tick": 8
+      "tick": 8,
+      "applies_damage": false
     },
     {
       "event": "skill_release",
-      "tick": 20
+      "tick": 20,
+      "applies_damage": false
+    },
+    {
+      "event": "ranged_attack_spawn",
+      "tick": 20,
+      "combat_rule_id": "character_01_female/skill_wave",
+      "applies_damage": false
     }
   ],
   "timeline": [
@@ -423,5 +431,32 @@
   ],
   "variant": "female",
   "corresponding_male": "character_01",
-  "root_motion_space": "world_px_absolute_offset"
+  "root_motion_space": "world_px_absolute_offset",
+  "combat": {
+    "id": "character_01_female/skill_wave",
+    "actor": "character_01_female",
+    "gender": "female",
+    "name": "剣士 女性 / skill_wave",
+    "folder": "players_female/character_01_female/skill_wave",
+    "mode": "projectile",
+    "range_world_px": 384,
+    "min_distance_world_px": 0,
+    "speed_world_px_per_tick": 12,
+    "fps": 24,
+    "release_ticks": [
+      20
+    ],
+    "projectile": "combat/projectiles/wave/frame_000.png",
+    "projectile_count": 1,
+    "direction": [
+      1,
+      0
+    ],
+    "damage_timing": "collision",
+    "damage_on_release": false,
+    "interpolation": "none",
+    "world_motion_only": true,
+    "spell_delay_ticks": 8,
+    "requires_line_of_sight": true
+  }
 }

@@ -23,8 +23,6 @@ void main() {
       await (FontLoader(family)..addFont(Future.value(data))).load();
     }
     assets = await PlayableStageAssets.load();
-    final icons = await rootBundle.load('fonts/MaterialIcons-Regular.otf');
-    await (FontLoader('MaterialIcons')..addFont(Future.value(icons))).load();
   });
   tearDownAll(() => assets.dispose());
   test('every area loads its background and only its selected enemies',

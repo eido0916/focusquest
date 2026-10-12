@@ -1,3 +1,4 @@
+import '../../../core/game_controller.dart';
 import 'package:flutter/material.dart';
 import '../../../core/widgets/sunlit_widgets.dart';
 import 'adventure_ui.dart';
@@ -50,6 +51,41 @@ class _PlayableStageSelectionPageState
       widget.controller?.activeFocus != null ||
       widget.controller?.state?.adventureRun != null ||
       widget.controller?.busy == true;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.controller?.addListener(_controllerChanged);
+  }
+
+  @override
+  void didUpdateWidget(covariant PlayableStageSelectionPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.controller != widget.controller) {
+      oldWidget.controller?.removeListener(_controllerChanged);
+      widget.controller?.addListener(_controllerChanged);
+      _syncClears();
+    }
+  }
+
+  void _syncClears() {
+    final saved = widget.controller?.state?.clearedPlayableStages;
+    if (saved != null) {
+      _cleared
+        ..clear()
+        ..addAll(saved);
+    }
+  }
+
+  void _controllerChanged() {
+    if (mounted) setState(_syncClears);
+  }
+
+  @override
+  void dispose() {
+    widget.controller?.removeListener(_controllerChanged);
+    super.dispose();
+  }
 
   Future<void> _saveClear(int number) async {
     try {
@@ -117,7 +153,8 @@ class _PlayableStageSelectionPageState
   @override
   Widget build(BuildContext context) => AdventureUi(
       child: Scaffold(
-          appBar: adventureAppBar('ステージ選択'),
+          appBar: adventureAppBar('ステージ選択',
+              automaticallyImplyLeading: !widget.embedded),
           body: AdventureBackdrop(
               child: SafeArea(
                   child: Center(
@@ -205,107 +242,38 @@ class _PlayableStageSelectionPageState
                                     ],
                                   ),
                                 ),
+                                if (widget.controller != null)
+                                  _notice(
+                                      '${widget.controller!.state!.activeCharacter!.name} '
+                                      'Lv.${widget.controller!.state!.activeCharacter!.level}で出発します。'),
+                                if (widget.controller?.activeFocus != null)
+                                  _notice('いまは集中の時間。終了後に冒険できます。'),
+                                if (widget.controller?.state?.adventureRun !=
+                                    null)
+                                  _notice('以前の冒険の結果を確認してから出発してください。'),
+                                if (_error != null) _notice(_error!),
+                                if (_pendingClear != null)
+                                  TextButton(
+                                      key: const Key('retry-stage-clear'),
+                                      onPressed: _opening ||
+                                              widget.controller?.busy == true
+                                          ? null
+                                          : () => _saveClear(_pendingClear!),
+                                      child: const Text('クリア記録の保存を再試行')),
                                 const SizedBox(height: 22),
                                 for (var area = 0;
                                     area < PlayableStageCatalog.areas.length;
                                     area++)
                                   _area(area),
+                                if (widget.onLegacyAdventure != null)
+                                  OutlinedButton.icon(
+                                      key: const Key('legacy-adventure'),
+                                      onPressed: _opening
+                                          ? null
+                                          : widget.onLegacyAdventure,
+                                      icon: const Icon(Icons.history_edu),
+                                      label: const Text('以前の冒険の書')),
                               ])))))));
-
-  Widget _area(int area) => Padding(
-      padding: const EdgeInsets.only(bottom: 24),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        SunlitFrame(
-            padding: EdgeInsets.zero,
-            child: SizedBox(
-                height: 150,
-                child: Stack(fit: StackFit.expand, children: [
-                  Image.asset(PlayableStageCatalog.backgrounds[area],
-                      fit: BoxFit.cover, filterQuality: FilterQuality.none),
-                  const DecoratedBox(
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                        Colors.transparent,
-                        Color(0xee071c3c)
-                      ]))),
-                  Positioned(
-                      top: 16,
-                      left: 18,
-                      child: Text('第${area + 1}章',
-                          style: const TextStyle(
-                              color: sunlitGold,
-                              fontSize: 12,
-                              letterSpacing: 2))),
-                  Positioned(
-                      left: 18,
-                      bottom: 18,
-                      child: Text(
-                          '${PlayableStageCatalog.areas[area]}  ·  STAGE ${area * 4 + 1}–${area * 4 + 4}',
-                          style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontFamily: 'SunlitSerif'))),
-                ]))),
-        const SizedBox(height: 10),
-        LayoutBuilder(builder: (context, constraints) {
-          final columns = constraints.maxWidth < 620 ? 2 : 4;
-          final width = (constraints.maxWidth - (columns - 1) * 10) / columns;
-          return Wrap(spacing: 10, runSpacing: 10, children: [
-            for (final stage
-                in PlayableStageCatalog.stages.skip(area * 4).take(4))
-              SizedBox(width: width, child: _stageCard(stage)),
-          ]);
-        }),
-      ]));
-
-  Widget _stageCard(PlayableStageDefinition stage) {
-    final cleared = _cleared.contains(stage.number);
-    return SunlitFrame(
-        light: !stage.hasBoss,
-        compact: true,
-        padding: EdgeInsets.zero,
-        child: OutlinedButton(
-            key: Key('select-stage-${stage.number}'),
-            onPressed: _opening ? null : () => _open(stage),
-            style: OutlinedButton.styleFrom(
-                alignment: Alignment.centerLeft,
-                padding: const EdgeInsets.all(14),
-                backgroundColor: Colors.transparent,
-                foregroundColor:
-                    stage.hasBoss ? const Color(0xfffff3d9) : sunlitInk,
-                side: BorderSide.none,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10))),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text('STAGE ${stage.number}',
-                  style: const TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'SunlitSerif')),
-              const SizedBox(height: 7),
-              Text(
-                  stage.hasBoss
-                      ? 'BOSS · ${stage.opponents.last.name}'
-                      : '3フェーズの戦い',
-                  style: const TextStyle(
-                      fontSize: 11, height: 1.5, fontFamily: 'SunlitSerif')),
-              const SizedBox(height: 8),
-              Text(cleared ? '✓ CLEAR' : '挑戦する →',
-                  style: TextStyle(
-                      fontSize: 11,
-                      color: cleared
-                          ? const Color(0xff36866d)
-                          : stage.hasBoss
-                              ? sunlitGold
-                              : const Color(0xff8b632c),
-                      fontFamily: 'SunlitSerif')),
-            ])));
-  }
 
   Widget _notice(String message) => Padding(
       padding: const EdgeInsets.only(top: 12),

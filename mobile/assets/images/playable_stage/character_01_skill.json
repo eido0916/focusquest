@@ -177,22 +177,32 @@
     {
       "event": "charge_begin",
       "tick": 7,
-      "keyframe": 2
+      "keyframe": 2,
+      "applies_damage": false
     },
     {
       "event": "charged",
       "tick": 24,
-      "keyframe": 5
+      "keyframe": 5,
+      "applies_damage": false
     },
     {
       "event": "slash_active",
       "tick": 30,
-      "keyframe": 7
+      "keyframe": 7,
+      "applies_damage": false
     },
     {
       "event": "wave_release",
       "tick": 31,
-      "keyframe": 8
+      "keyframe": 8,
+      "applies_damage": false
+    },
+    {
+      "event": "ranged_attack_spawn",
+      "tick": 31,
+      "combat_rule_id": "character_01/skill_wave",
+      "applies_damage": false
     }
   ],
   "timeline": [
@@ -574,5 +584,32 @@
       ],
       "file": "frames_24fps/frame_041.png"
     }
-  ]
+  ],
+  "combat": {
+    "id": "character_01/skill_wave",
+    "actor": "character_01",
+    "gender": "male",
+    "name": "剣士 男性 / skill_wave",
+    "folder": "players/character_01/skill_wave",
+    "mode": "projectile",
+    "range_world_px": 384,
+    "min_distance_world_px": 0,
+    "speed_world_px_per_tick": 12,
+    "fps": 24,
+    "release_ticks": [
+      31
+    ],
+    "projectile": "combat/projectiles/wave/frame_000.png",
+    "projectile_count": 1,
+    "direction": [
+      1,
+      0
+    ],
+    "damage_timing": "collision",
+    "damage_on_release": false,
+    "interpolation": "none",
+    "world_motion_only": true,
+    "spell_delay_ticks": 8,
+    "requires_line_of_sight": true
+  }
 }

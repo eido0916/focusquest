@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../domain/playable_stage_battle.dart';
+import '../domain/playable_character.dart';
 import 'playable_stage_assets.dart';
 import 'stage_projectile_painter.dart';
 
@@ -127,6 +128,33 @@ class PlayableStagePainter extends CustomPainter {
     final motion = heroMotion;
     _sprite(canvas, size, motion, heroTime, battle.heroX,
         loop: battle.action == null);
+    if (battle.character.role == 'バーサーカー' &&
+        battle.action == HeroAction.skill) {
+      final skill = assets.motions['hero_skill']!;
+      final tick = (heroTime * 24).floor().clamp(0, skill.timeline.length - 1);
+      final key = skill.timeline[tick]['keyframe'] as int;
+      if (key >= 3 && key < 8) {
+        final offset =
+            (assets.floorMetadata['character_floor_centers_from_feet_px']
+                as List)[key] as List;
+        final side = baseSpriteSide(size, pixelRatio);
+        final image = assets
+            .effects['floor_${battle.stage.floorMaterial}_${key < 6 ? 0 : 1}']!;
+        final center = Offset(
+            battle.heroX / 1280 * size.width + (offset[0] as num) * side / 128,
+            size.height * battle.stage.groundLine +
+                (offset[1] as num) * side / 128);
+        canvas.drawImageRect(
+            image,
+            const Rect.fromLTWH(0, 0, 128, 128),
+            Rect.fromLTWH(
+                ((center.dx - side / 2) * pixelRatio).round() / pixelRatio,
+                ((center.dy - side / 2) * pixelRatio).round() / pixelRatio,
+                side,
+                side),
+            pixelPaint);
+      }
+    }
     for (final unit in [...battle.enemies]
       ..sort((a, b) => b.homeX.compareTo(a.homeX))) {
       final enemy = unit.definition.id;
@@ -159,7 +187,21 @@ class PlayableStagePainter extends CustomPainter {
           Offset(projectile.x / 1280 * size.width,
               size.height * battle.stage.groundLine - side * projectile.height),
           side / 64,
-          pixelRatio);
+          pixelRatio,
+          image: assets.effects[projectile.kind == ProjectileKind.floor
+              ? 'floor_${battle.stage.floorMaterial}_${projectile.resolved && !projectile.missed ? 3 : 2}'
+              : projectile.resolved && !projectile.missed
+                  ? 'impact'
+                  : switch (projectile.kind) {
+                      ProjectileKind.holySword => 'holy_sword',
+                      ProjectileKind.holyOrb => 'holy_orb',
+                      ProjectileKind.darkWave => 'dark_wave',
+                      ProjectileKind.lightning ||
+                      ProjectileKind.spirits ||
+                      ProjectileKind.curse =>
+                        'impact',
+                      _ => projectile.kind.name,
+                    }]);
     }
     for (final damage in battle.damageNumbers) {
       final age = battle.clock - damage.createdAt;

@@ -182,7 +182,8 @@
       "direction": [
         1,
         0
-      ]
+      ],
+      "applies_damage": false
     },
     {
       "event": "bullet_release",
@@ -192,7 +193,8 @@
       "direction": [
         1,
         0
-      ]
+      ],
+      "applies_damage": false
     },
     {
       "event": "bullet_release",
@@ -202,7 +204,14 @@
       "direction": [
         1,
         0
-      ]
+      ],
+      "applies_damage": false
+    },
+    {
+      "event": "ranged_attack_spawn",
+      "tick": 7,
+      "combat_rule_id": "character_09_female/quick_fire",
+      "applies_damage": false
     }
   ],
   "timeline": [
@@ -393,5 +402,34 @@
   "sprite_anchor_px": [
     64,
     120
-  ]
+  ],
+  "combat": {
+    "id": "character_09_female/quick_fire",
+    "actor": "character_09_female",
+    "gender": "female",
+    "name": "ガンナー 女性 / quick_fire",
+    "folder": "players_female/character_09_female/quick_fire",
+    "mode": "projectile",
+    "range_world_px": 384,
+    "min_distance_world_px": 0,
+    "speed_world_px_per_tick": 12,
+    "fps": 24,
+    "release_ticks": [
+      7,
+      10,
+      13
+    ],
+    "projectile": "combat/projectiles/bullet/frame_000.png",
+    "projectile_count": 1,
+    "direction": [
+      1,
+      0
+    ],
+    "damage_timing": "collision",
+    "damage_on_release": false,
+    "interpolation": "none",
+    "world_motion_only": true,
+    "spell_delay_ticks": 8,
+    "requires_line_of_sight": true
+  }
 }

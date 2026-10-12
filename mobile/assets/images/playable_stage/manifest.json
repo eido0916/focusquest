@@ -1,5 +1,6 @@
 {
-  "source": "FocusQuest_pixel_keyframes_v013",
+  "source": "FocusQuest_pixel_keyframes_v016",
+  "boss_source": "FocusQuest_pixel_keyframes_v014",
   "motions": [
     "hero_idle",
     "hero_run",
@@ -36,6 +37,24 @@
     "character_10_run",
     "character_10_attack",
     "character_10_skill",
+    "character_11_run",
+    "character_11_attack",
+    "character_11_skill",
+    "character_12_run",
+    "character_12_attack",
+    "character_12_skill",
+    "character_13_run",
+    "character_13_attack",
+    "character_13_skill",
+    "character_14_run",
+    "character_14_attack",
+    "character_14_skill",
+    "character_15_run",
+    "character_15_attack",
+    "character_15_skill",
+    "character_16_run",
+    "character_16_attack",
+    "character_16_skill",
     "character_01_female_run",
     "character_01_female_attack",
     "character_01_female_skill",
@@ -67,6 +86,24 @@
     "character_10_female_run",
     "character_10_female_attack",
     "character_10_female_skill",
+    "character_11_female_run",
+    "character_11_female_attack",
+    "character_11_female_skill",
+    "character_12_female_run",
+    "character_12_female_attack",
+    "character_12_female_skill",
+    "character_13_female_run",
+    "character_13_female_attack",
+    "character_13_female_skill",
+    "character_14_female_run",
+    "character_14_female_attack",
+    "character_14_female_skill",
+    "character_15_female_run",
+    "character_15_female_attack",
+    "character_15_female_skill",
+    "character_16_female_run",
+    "character_16_female_attack",
+    "character_16_female_skill",
     "slime_locomotion",
     "slime_attack",
     "slime_defeat",
@@ -2077,6 +2114,1014 @@
       "rgba_sha256": "21f0a10058862664f6cb5db7c7f10bdcf24ded014b69ac52146e24d7d9b1f715"
     },
     {
+      "file": "character_11_run_000.png",
+      "source": "players/character_11/run/keyframes/frame_000.png",
+      "sha256": "0b99ca83de277674129e668176f8cc86d4fd69035e554bc6f9c1bc51c4d57a1c",
+      "rgba_sha256": "ea491c4fd58b1378b9697e3cfaea8de2e67351df6120ddf6f6446904f2de2a35"
+    },
+    {
+      "file": "character_11_run_001.png",
+      "source": "players/character_11/run/keyframes/frame_001.png",
+      "sha256": "951bef2461064f722620651d0fd4a36e0e184d842390c2133f3cd9ad9cef2367",
+      "rgba_sha256": "341bca52715485f8a1b923a1c62af4f0f4ce5ca1e7ed5a33b1241a75ef56b4e8"
+    },
+    {
+      "file": "character_11_run_002.png",
+      "source": "players/character_11/run/keyframes/frame_002.png",
+      "sha256": "9e81d04d708b55d2e6cb6faabf1ad931ae8f6b254d8d03d7401c032027250b72",
+      "rgba_sha256": "83c938c4b5efebeb851f01f51290901cb757a8d3c73bb8040496ad78181e8d60"
+    },
+    {
+      "file": "character_11_run_003.png",
+      "source": "players/character_11/run/keyframes/frame_003.png",
+      "sha256": "8d4db50a8c9f4f2fda955fb8ee5ff56e14348f54222507703c7ee20a3f479b22",
+      "rgba_sha256": "3415bf2424e114d3ab3a1b3ac0758cfc6287a0a5053d696c88c69e37ce33891d"
+    },
+    {
+      "file": "character_11_run_004.png",
+      "source": "players/character_11/run/keyframes/frame_004.png",
+      "sha256": "0778c031aff29ba0baf7f6f4b64c63b22f3a2a30200469fd04c1de2a4e7e0805",
+      "rgba_sha256": "c861662937ae0cf470379543c6d181aaeda9e4319996cd7803bc91dd0000c3f5"
+    },
+    {
+      "file": "character_11_run_005.png",
+      "source": "players/character_11/run/keyframes/frame_005.png",
+      "sha256": "b0a45b18acdfb29e05de8585d650ea371502876cd0181c68d4fefff9b83bbd2c",
+      "rgba_sha256": "ebc3d9da1916ccc66b4a3eadf2509b52c27e6d2828ec8131802355a5830c9583"
+    },
+    {
+      "file": "character_11_run_006.png",
+      "source": "players/character_11/run/keyframes/frame_006.png",
+      "sha256": "cfec6c7d8c2e5d1fdd519fa329223e8bc1cd431ee780f648888b92eae1efab53",
+      "rgba_sha256": "833257d8cc670282205244f9e9fc88ac0ef1f69c0414f23dce6033fa309bf8fe"
+    },
+    {
+      "file": "character_11_run_007.png",
+      "source": "players/character_11/run/keyframes/frame_007.png",
+      "sha256": "6805909aa4bc55d9e9fbb19df3fada7c0937149380d32c99aa9d41b46a900c07",
+      "rgba_sha256": "33828ee83b7267d4f4fa299281ff68fa4c84fb901f35cde311ebdbdac5f0258c"
+    },
+    {
+      "file": "character_11_attack_000.png",
+      "source": "players/character_11/holy_talisman/keyframes/frame_000.png",
+      "sha256": "549b0cdc52a312cac4784780ba382d661eabb0c5a4ade5b35c3341e574714e24",
+      "rgba_sha256": "e4728dab76efc35b5c0499e021be36e91793ef01d3c43763babb3e9a58b3fba6"
+    },
+    {
+      "file": "character_11_attack_001.png",
+      "source": "players/character_11/holy_talisman/keyframes/frame_001.png",
+      "sha256": "1d186ff27fcfbc18b2cc7644bbf073b9d39fa85ab1c92f2249fd0f19d05c0f1a",
+      "rgba_sha256": "a2ff52b33b27dda72766facaeba449f46789644572a0870a6c1ac2357d7fa818"
+    },
+    {
+      "file": "character_11_attack_002.png",
+      "source": "players/character_11/holy_talisman/keyframes/frame_002.png",
+      "sha256": "03d912460a91ac959d992040580fb68eda1d417c24654d1fa3827ef7631b2ecf",
+      "rgba_sha256": "e59cc6bb083fd7d4f15fef8a91c6ea2b6626bf452c70d4a366b68475573450da"
+    },
+    {
+      "file": "character_11_attack_003.png",
+      "source": "players/character_11/holy_talisman/keyframes/frame_003.png",
+      "sha256": "e1dc323f85a5d4a3e3ed4595e9ec4c3bd57e1a99666763c12055863440273ea0",
+      "rgba_sha256": "c2522330e50a3e291e311e8b2d73b3c8502a7a7194b53a41acd106ec761fde03"
+    },
+    {
+      "file": "character_11_attack_004.png",
+      "source": "players/character_11/holy_talisman/keyframes/frame_004.png",
+      "sha256": "0680e62f5b4e3b5f2aa8cbcbe61bdce60a3578d72e3ca6f8ca0227289ec2f985",
+      "rgba_sha256": "f118cfaee7805e292d4316de078d755a3c1365242590ee07c0015f2bc12cfc03"
+    },
+    {
+      "file": "character_11_attack_005.png",
+      "source": "players/character_11/holy_talisman/keyframes/frame_005.png",
+      "sha256": "181226432c97ec8c0fe61ccfd88899cca1bb51d2b0e920f826762051513cd12b",
+      "rgba_sha256": "106e62408e772c68f5d7aeda60600512fff9987583edbe6d44d0236fb70ec850"
+    },
+    {
+      "file": "character_11_attack_006.png",
+      "source": "players/character_11/holy_talisman/keyframes/frame_006.png",
+      "sha256": "a74fb32c2722a7f64a9dea8a700590468bd3480afdf32eb27a801999f1e27053",
+      "rgba_sha256": "a96295e2d5affec76b42a479b6870d72dca19c90db81dd791ba9dab9efb4d4de"
+    },
+    {
+      "file": "character_11_attack_007.png",
+      "source": "players/character_11/holy_talisman/keyframes/frame_007.png",
+      "sha256": "ba3cb98cf3519c7800cdde6e11ef3f925ae7dd9ab848d8089796a8fdf69320d9",
+      "rgba_sha256": "6c23c93674de072ae9b4b5c05e465bdcbaae64d236616932c9aed4e7fc5c69ba"
+    },
+    {
+      "file": "character_11_skill_000.png",
+      "source": "players/character_11/shikigami/keyframes/frame_000.png",
+      "sha256": "793ef2b2cbbdee1ad48d8ba8becf78ae9472ec7765811c4df7e6f5b4de6f4af4",
+      "rgba_sha256": "0a289c92440d57fa07c95b1cd7ac76b28c824c06b21ad2aecd0fe16ef5d24236"
+    },
+    {
+      "file": "character_11_skill_001.png",
+      "source": "players/character_11/shikigami/keyframes/frame_001.png",
+      "sha256": "02c15d9ad9a97186871ef2f31004920506c2980203942674930b02c11813c393",
+      "rgba_sha256": "549193ddd4fd6309fb5225672f5f50b47a44b3d3f4ddb82d3b8c0687e4c3e9a0"
+    },
+    {
+      "file": "character_11_skill_002.png",
+      "source": "players/character_11/shikigami/keyframes/frame_002.png",
+      "sha256": "f14c7e2fa572b1ca2685fdd8a783abe4603c862d9d560593968967dda329d800",
+      "rgba_sha256": "aed85a64fd79ace6675f447b668694bcaf02139f0d57d176f4db452eebae1f33"
+    },
+    {
+      "file": "character_11_skill_003.png",
+      "source": "players/character_11/shikigami/keyframes/frame_003.png",
+      "sha256": "390c467c3cda5867f808f61dad3a6b056553b04fb937c9c4367e1fb5f99f98d2",
+      "rgba_sha256": "5b3c5fb71fe55cb0a43c00d07e269703f6b2b76627ea937a890eb5179953b997"
+    },
+    {
+      "file": "character_11_skill_004.png",
+      "source": "players/character_11/shikigami/keyframes/frame_004.png",
+      "sha256": "ccbfe1b0a05bc8cd0069ed06ce318d0a61f17efb65659ee510ac5541f6405bda",
+      "rgba_sha256": "a7e400e3a00c4a684456bdb421984834c8ee42acc6c1ce8ec9a3aa29b7947e69"
+    },
+    {
+      "file": "character_11_skill_005.png",
+      "source": "players/character_11/shikigami/keyframes/frame_005.png",
+      "sha256": "ad201dd5da22df46f623f8bcdf3e5cb63a55254e207659466415b2b0dc22ed95",
+      "rgba_sha256": "a1f3e8172c2378aa273f71799d64d07090cb19b6c1b6364e252f364ac19b3a97"
+    },
+    {
+      "file": "character_11_skill_006.png",
+      "source": "players/character_11/shikigami/keyframes/frame_006.png",
+      "sha256": "4c03df6bd3ff59c447f681016e3d2f0c7b7c75086b055a9435a3875cfb625dd0",
+      "rgba_sha256": "4f9aafd1d305be56632418f25fccd7eab400bfb110d5d462110b0154486372be"
+    },
+    {
+      "file": "character_11_skill_007.png",
+      "source": "players/character_11/shikigami/keyframes/frame_007.png",
+      "sha256": "bb8c53934c0d09531a9fbd2162809c075159a4edf0475cebc0766d34f5f132dd",
+      "rgba_sha256": "10bf3f91991d468aa4ba38eb41b3f21a501a07aa0797c6d53165215137aa43de"
+    },
+    {
+      "file": "character_11_skill_008.png",
+      "source": "players/character_11/shikigami/keyframes/frame_008.png",
+      "sha256": "522d12b6f6c8250295edad717d02ef67045c77bafd23de0ca509f57a83c4504f",
+      "rgba_sha256": "d50ae486424b96a2d3a06f662e75bd60f70882383f2ce586d90189fdfd9268fe"
+    },
+    {
+      "file": "character_11_skill_009.png",
+      "source": "players/character_11/shikigami/keyframes/frame_009.png",
+      "sha256": "c004d28b3f8660182d191c208c249c15d6893da2775980f4a142a451cb573395",
+      "rgba_sha256": "6caef3a93f0c9c1d30366518fe6ac6f1134caeb3c8dedb2c3aab8d12a3f2ae67"
+    },
+    {
+      "file": "character_11_skill_010.png",
+      "source": "players/character_11/shikigami/keyframes/frame_010.png",
+      "sha256": "2ed7993acd34247fcd4468d98ef19390c1cbd0c5b87a892eb0cbc06075e89930",
+      "rgba_sha256": "bc94a8d467cec658267824a7f0266d8cca48564820c389ba9f86292d42767936"
+    },
+    {
+      "file": "character_11_skill_011.png",
+      "source": "players/character_11/shikigami/keyframes/frame_011.png",
+      "sha256": "8dea8e88d80a2738cf2fed8f46c294060de07479eac900b917c56361fb55f562",
+      "rgba_sha256": "cdbbde06edb31e26d378d23dec3b2f3c1280594a0fbf8ba460698c951ed87573"
+    },
+    {
+      "file": "character_12_run_000.png",
+      "source": "players/character_12/run/keyframes/frame_000.png",
+      "sha256": "a6dee49612157a3ae57ea3f24d1ab6068c44a49296c8bab92a4127abca974187",
+      "rgba_sha256": "8d72e1f653b9d04d139130f44d57f8c6657aa55fbcb7670032684cb33f4e8d5d"
+    },
+    {
+      "file": "character_12_run_001.png",
+      "source": "players/character_12/run/keyframes/frame_001.png",
+      "sha256": "9f9bb9c0d31b83a5e89f81ab7e7d1b0e4f87ddab60569c25079c8d8d1ed017e8",
+      "rgba_sha256": "687cf8bfc221e31f4bd08a82878d75b8f58f197c834b8fa8f6a64c4715c3eaeb"
+    },
+    {
+      "file": "character_12_run_002.png",
+      "source": "players/character_12/run/keyframes/frame_002.png",
+      "sha256": "5ca11bc2862ae7d578eb957489c599a5977b96add85b9ed4689e572bbd800cf6",
+      "rgba_sha256": "d3e9931cc61bfa4cb9ccd187303d3b0a58ae0b20fc8530e21cf2c5dddc71fb8f"
+    },
+    {
+      "file": "character_12_run_003.png",
+      "source": "players/character_12/run/keyframes/frame_003.png",
+      "sha256": "ed88875ccb4f9e0afcb95c298754af1bb0b6936f1a70ee28062038f98534de24",
+      "rgba_sha256": "9d4f367fe2532c7f895052087811eaf10034643e6345b05368568288577f93b1"
+    },
+    {
+      "file": "character_12_run_004.png",
+      "source": "players/character_12/run/keyframes/frame_004.png",
+      "sha256": "4bf6e1dce9df21ad159de395803d1f32fea9bfbaee3f3735f66478b34c9023f8",
+      "rgba_sha256": "e754e1f6de7f642344860061d13f950cbe7244662b3c2ad82a9832596b1a8dd6"
+    },
+    {
+      "file": "character_12_run_005.png",
+      "source": "players/character_12/run/keyframes/frame_005.png",
+      "sha256": "3b832d23deb8e35a90d1612fc2d7eea9931e37cbf2bb5ae0d65baab1ec470403",
+      "rgba_sha256": "fe13e2660f6bf156f48740be8fbb1fdeb659800d72e7291a0078ee0e0ec03a74"
+    },
+    {
+      "file": "character_12_run_006.png",
+      "source": "players/character_12/run/keyframes/frame_006.png",
+      "sha256": "a03f8c1d969def67dac1b02b617f580c1f73de020cfe28502c05bf88947ca6b2",
+      "rgba_sha256": "198a6bed7ad3f3d9a1aa4d5fbb9319e89daa181e9fca4f962e6a6339ad39197b"
+    },
+    {
+      "file": "character_12_run_007.png",
+      "source": "players/character_12/run/keyframes/frame_007.png",
+      "sha256": "28c1767f99e8a8417bf21ad6a3338601538e96fbe906bb30a5e4ce5e48ed6540",
+      "rgba_sha256": "30877eeee1931369d582a65a7383dd5d0fb82b104e2080a67f0c3c3cb019110f"
+    },
+    {
+      "file": "character_12_attack_000.png",
+      "source": "players/character_12/scythe_slash/keyframes/frame_000.png",
+      "sha256": "e3054bf9e6c08eaf633ae8fb78de156d138793722fe551de9367a9df8a96652a",
+      "rgba_sha256": "caff64cd27047bd86087f1005a028362c6d1bb3e70685f0ba0d9852f95d6a409"
+    },
+    {
+      "file": "character_12_attack_001.png",
+      "source": "players/character_12/scythe_slash/keyframes/frame_001.png",
+      "sha256": "57c2c263277136f424cb2473b0c4f9e82e2f57d077590ab93d9c0c7b832c4ffe",
+      "rgba_sha256": "bc59d360fa2720583e704bcb64af7b31916bea07d3d1beaa155e1fd94f56d1e6"
+    },
+    {
+      "file": "character_12_attack_002.png",
+      "source": "players/character_12/scythe_slash/keyframes/frame_002.png",
+      "sha256": "db620702d435303b69be692bb8667387f5973d7b356d446db7ce0800d53c5451",
+      "rgba_sha256": "4623c50fe8fb78c1049f8da4a3667262cee006deb03e90bcff024d549160c81e"
+    },
+    {
+      "file": "character_12_attack_003.png",
+      "source": "players/character_12/scythe_slash/keyframes/frame_003.png",
+      "sha256": "4601decd08d2f2955abacd6aeb60e70b300ffee3268f62d1ea6809fd5c1b0460",
+      "rgba_sha256": "0a50bfd0a2d117b9e3e83efee4cff1fa2b3cbff003560c082df3a60a55c9ca52"
+    },
+    {
+      "file": "character_12_attack_004.png",
+      "source": "players/character_12/scythe_slash/keyframes/frame_004.png",
+      "sha256": "b348cb761306b4d48d26064da633c990995a7c57365483a53b00fd0114f45c66",
+      "rgba_sha256": "0072c95bd2b0dde7c85cfd4542dd6a80aec5ff68e86d16d4c5bb31f54764d007"
+    },
+    {
+      "file": "character_12_attack_005.png",
+      "source": "players/character_12/scythe_slash/keyframes/frame_005.png",
+      "sha256": "b58af2f7a380ce73aecd5ec767ae7debf2f2b186d9b5c9ea71f0df714c62cfb3",
+      "rgba_sha256": "7789f835191ad4891ba3ec7293f4d1c4f9501b46ed7d58dc00697a19bbdea532"
+    },
+    {
+      "file": "character_12_attack_006.png",
+      "source": "players/character_12/scythe_slash/keyframes/frame_006.png",
+      "sha256": "2bad47b6d0ea0ec616388195fc50fd742def3c94e55693714f574f47b697e808",
+      "rgba_sha256": "52f8c5adaa7ee1e859bb946efcc084c8396d0727dac9650e8ce53ce361ac67b3"
+    },
+    {
+      "file": "character_12_attack_007.png",
+      "source": "players/character_12/scythe_slash/keyframes/frame_007.png",
+      "sha256": "12a5947238a3b9518a8c337dbaf20d0116726e98757cfbdcf5e412b149822fbc",
+      "rgba_sha256": "c3a9d14c3826cef3c732fb81025526a27f343eea28bfe52de3216cfa8052e3bf"
+    },
+    {
+      "file": "character_12_skill_000.png",
+      "source": "players/character_12/chain_scythe/keyframes/frame_000.png",
+      "sha256": "2e3f6bfe119db7c4457e8b02b1b1cfeca317d7cf0aabcc3d6aa12aeaaa865707",
+      "rgba_sha256": "161bbe5ce25cd57e652ede18e501d91516b55743d019b279bcf5242ac33bd288"
+    },
+    {
+      "file": "character_12_skill_001.png",
+      "source": "players/character_12/chain_scythe/keyframes/frame_001.png",
+      "sha256": "d00ae3b124fce4f8febf143ac454bbd5582da629509579e4c370b1f6b8e19e94",
+      "rgba_sha256": "934522516fa7ddc465a001931a3ca5cb6773bdb9d58c58e67869429c5baab67d"
+    },
+    {
+      "file": "character_12_skill_002.png",
+      "source": "players/character_12/chain_scythe/keyframes/frame_002.png",
+      "sha256": "ec3498462fedb6de6a2e03ede473e089f96354d68c0c4442c42ced81bdf0300f",
+      "rgba_sha256": "dd56cd13f943cc8e27d2199f46a73b6560e48b483ef31314f5af3c78e0560348"
+    },
+    {
+      "file": "character_12_skill_003.png",
+      "source": "players/character_12/chain_scythe/keyframes/frame_003.png",
+      "sha256": "f673be8ca820c32c8d0c0b110593ead01d11f6a9f5aa8649bb303df923a6d812",
+      "rgba_sha256": "dd915faf263ee0ecbbcb20cda520db24533e403aaeb0cf5f97ca65340280da2d"
+    },
+    {
+      "file": "character_12_skill_004.png",
+      "source": "players/character_12/chain_scythe/keyframes/frame_004.png",
+      "sha256": "bd2a6bb9c77aa97065e8d3adee7c69ae9dc1c5adb12ab8dc2afb5ed155991df3",
+      "rgba_sha256": "9374d6a311ab9c245103fedf2c08329f11e20218dae6b750c2c422d01d999453"
+    },
+    {
+      "file": "character_12_skill_005.png",
+      "source": "players/character_12/chain_scythe/keyframes/frame_005.png",
+      "sha256": "0b33b805cdf9eb9bcacf03250b54e8c7e92369b1b7fd22fd163fc0bfa3021009",
+      "rgba_sha256": "7cfdcd6848d0a27ec5a345a32966f09cc4f1c09804965d8ce23bb4f0945d0b0b"
+    },
+    {
+      "file": "character_12_skill_006.png",
+      "source": "players/character_12/chain_scythe/keyframes/frame_006.png",
+      "sha256": "22e7e096947bd8560cb29c00ef396701288fc04e19d0e2c9c54a4a02519b593e",
+      "rgba_sha256": "024a444a1848ec6f3072de22fa08209b136a091e9b3dd4518eed50b94df938af"
+    },
+    {
+      "file": "character_12_skill_007.png",
+      "source": "players/character_12/chain_scythe/keyframes/frame_007.png",
+      "sha256": "63577b07df1e7520acf69f84acfbb0bab1dd1692882f886a81a76a3557b98839",
+      "rgba_sha256": "d0086012c291523528e4196d29e2513234233cc5583e38f14f3019f69ee2c10b"
+    },
+    {
+      "file": "character_12_skill_008.png",
+      "source": "players/character_12/chain_scythe/keyframes/frame_008.png",
+      "sha256": "ac0a42ad318f4cc6470268e087fb8343a8dc6a0c1cb9a0ecd69cb63b01eb269c",
+      "rgba_sha256": "a568e77fe14658b38da544b9345102b250f395c07dc083d4983bb295854a1eee"
+    },
+    {
+      "file": "character_12_skill_009.png",
+      "source": "players/character_12/chain_scythe/keyframes/frame_009.png",
+      "sha256": "eb76733e5420d9f7c5e46ba9422584e64636d40238d207bad9122fd4dac54b33",
+      "rgba_sha256": "96be31a2340fc8b8643e864cb07b8b9b57b96706d8a2cf018cc1ee621e410a1e"
+    },
+    {
+      "file": "character_12_skill_010.png",
+      "source": "players/character_12/chain_scythe/keyframes/frame_010.png",
+      "sha256": "da9e5b1eecf27127b72696399e9efd62d0a0c757469691bf75eec71b1b1a35ac",
+      "rgba_sha256": "549c2635eeaadd93b110844e5beb2fc5d4bf774791c7accbd19c77296a76c8b3"
+    },
+    {
+      "file": "character_12_skill_011.png",
+      "source": "players/character_12/chain_scythe/keyframes/frame_011.png",
+      "sha256": "1e311baff51ae896ba324df70a49c5f3a4607444a483c326fba48af55776d4b8",
+      "rgba_sha256": "b142a22498545f78ed84bccecfa53b9156bf1a13a798efd9a67110e550369ef2"
+    },
+    {
+      "file": "character_13_run_000.png",
+      "source": "players/character_13/float/keyframes/frame_000.png",
+      "sha256": "65f966224ad88488248c7da2a43532ed66f9ee3366aa7b191d7c0dd4fcea2855",
+      "rgba_sha256": "2a45a5cbeba7a4a84388792b594b6900a949cefb59ac542d227fa40a6a4da1dc"
+    },
+    {
+      "file": "character_13_run_001.png",
+      "source": "players/character_13/float/keyframes/frame_001.png",
+      "sha256": "6f3fe129be90ce5a4541771a41c6ca5521af91345731170735ad29273173bf2e",
+      "rgba_sha256": "be9f5e5693f44d7be38c134c58bd7c139830bb6e81d1b575fd568edcf285c092"
+    },
+    {
+      "file": "character_13_run_002.png",
+      "source": "players/character_13/float/keyframes/frame_002.png",
+      "sha256": "e128a69134f57d121d21444596218a6b63c0a9858e715a6ddca60a266813be8a",
+      "rgba_sha256": "aafed7c46eba4f956dbaec1ff874dcad0b42aaed7e17577315321c0b2a70d952"
+    },
+    {
+      "file": "character_13_run_003.png",
+      "source": "players/character_13/float/keyframes/frame_003.png",
+      "sha256": "43117d8c4cb1649c999506159a64485f762bc574afaffc72edb451451149c31a",
+      "rgba_sha256": "f7ea9c4478eea01d5ae8f35f8765b7947e477628e95da58f988494c4730fd477"
+    },
+    {
+      "file": "character_13_run_004.png",
+      "source": "players/character_13/float/keyframes/frame_004.png",
+      "sha256": "db8d2305bce8e282506596e425be37ac6a827384710233e712b89a38953602d4",
+      "rgba_sha256": "a7f47ccd104de483de4b39a5a2e2a1f5d4bf9c3bf55e560656fb7a0395d3dff3"
+    },
+    {
+      "file": "character_13_run_005.png",
+      "source": "players/character_13/float/keyframes/frame_005.png",
+      "sha256": "682df77440128d9817168a3e9a596150e5be4c9a5e635f2e24fe7a03e19fdab8",
+      "rgba_sha256": "4c4e18f7605698d1a87bab3da7d203a163a0ee6e085c4fd51d307d39eee6c787"
+    },
+    {
+      "file": "character_13_run_006.png",
+      "source": "players/character_13/float/keyframes/frame_006.png",
+      "sha256": "e597c859e07cab86831d7901872aa13f74aadd0509e6660e9a6a1d7c97811bcb",
+      "rgba_sha256": "2cdb56fca8ffb0c134bdbcde623a5cc22182aad389f77060f5dfbe440035122d"
+    },
+    {
+      "file": "character_13_run_007.png",
+      "source": "players/character_13/float/keyframes/frame_007.png",
+      "sha256": "ff98b8f249378201d264849dccfd469bac546b1aec0dba5c40ddb3aaa3d50497",
+      "rgba_sha256": "e431a3de59a9a72eb055f6822732e4517836447250bb5c85467c00819aa2cbdf"
+    },
+    {
+      "file": "character_13_attack_000.png",
+      "source": "players/character_13/holy_orb/keyframes/frame_000.png",
+      "sha256": "9ef6d8a53a03fba750a5c955094853c04363ebb50f829c06e2090e6839b3f42f",
+      "rgba_sha256": "b3ba591affdefe93da5b47e1c778949c77d01f3e4a3e4434a5d663ee2911e69f"
+    },
+    {
+      "file": "character_13_attack_001.png",
+      "source": "players/character_13/holy_orb/keyframes/frame_001.png",
+      "sha256": "0c6aa7a4b2be0f868dcbd2191cd633a8c19174b74e789bb1a6d2e63b93a43c2b",
+      "rgba_sha256": "e68a3eb8448498ddb5fd5c06f85c3821a4db3d618e75c0b63c7cf63f844612bf"
+    },
+    {
+      "file": "character_13_attack_002.png",
+      "source": "players/character_13/holy_orb/keyframes/frame_002.png",
+      "sha256": "23b7a0c822896a9b7d777a268e2968d120ae911997e3bbf9f5ba5c63b829ee66",
+      "rgba_sha256": "20903c10a16194e5c7aef03e055b749f21ec09a84c180ac8cd8085efd5636ad3"
+    },
+    {
+      "file": "character_13_attack_003.png",
+      "source": "players/character_13/holy_orb/keyframes/frame_003.png",
+      "sha256": "1a2ef73bc3c3f1829ab1aeba5c4a9f50ed8794eb20e39ac3725d31a1332b826c",
+      "rgba_sha256": "007ca4eafb33a981265db50d8ea5a5caeccf9ab6dd0e240fec83345b0c973024"
+    },
+    {
+      "file": "character_13_attack_004.png",
+      "source": "players/character_13/holy_orb/keyframes/frame_004.png",
+      "sha256": "8ff78744c403275dd3bec06f1f9a7a1e41cf2749fc4e3579e88527b8695bb34f",
+      "rgba_sha256": "b6dcfbbd149f90b5bfb1136f1036741b6ed80ee535a98118f50586325f0b6b82"
+    },
+    {
+      "file": "character_13_attack_005.png",
+      "source": "players/character_13/holy_orb/keyframes/frame_005.png",
+      "sha256": "05453dfc6b711fd756de8023c962a21bca4dbb646ac25e0d854fe48a9c020033",
+      "rgba_sha256": "faf85e5bb0b60b6328a646c1688f6c21e2afc45dad21e898d05f6dfc908915f5"
+    },
+    {
+      "file": "character_13_attack_006.png",
+      "source": "players/character_13/holy_orb/keyframes/frame_006.png",
+      "sha256": "8d7e0207b318b9902208ef748a5597552eb6e5b9b1bd64378631e71f39e11176",
+      "rgba_sha256": "c0dc681ce1ddd4220d6cb6bd0316ad9e64eadd64527c0ce95b9884d8ab3356cd"
+    },
+    {
+      "file": "character_13_attack_007.png",
+      "source": "players/character_13/holy_orb/keyframes/frame_007.png",
+      "sha256": "11b9181aaf048f8a3b73e7a3586377be0cae210309db81af1176ea92eeb77e9d",
+      "rgba_sha256": "9c054ab566c2cc1d70b8f2b2208fe0bce86690dd726f8ffc2ac676be585ecf1d"
+    },
+    {
+      "file": "character_13_skill_000.png",
+      "source": "players/character_13/holy_swords/keyframes/frame_000.png",
+      "sha256": "e7fd1688344fcf0596fede3fa42364f9b5621acfb7351d12af80f779f3e8f473",
+      "rgba_sha256": "1896b6129a65ca059be0b9b7aec67b4a38a36b6485546ba85e9af9ce8fef2a88"
+    },
+    {
+      "file": "character_13_skill_001.png",
+      "source": "players/character_13/holy_swords/keyframes/frame_001.png",
+      "sha256": "cfb1a441fa831b7da4d553a86c56497e2006e746d7a4256e6ef79904f6976114",
+      "rgba_sha256": "290f93b021edc5ffbc598e38531831d5c3e9ef4dcdda6896bf507a90ca8d30df"
+    },
+    {
+      "file": "character_13_skill_002.png",
+      "source": "players/character_13/holy_swords/keyframes/frame_002.png",
+      "sha256": "7f791319de6a49675a3b40d1f1a075723268bc91fb9a3c0a023dea0c727ff2a0",
+      "rgba_sha256": "8b719cd21c7631e966ee0ba87de678688737bddf7c285f9cc61b3ef889a6102b"
+    },
+    {
+      "file": "character_13_skill_003.png",
+      "source": "players/character_13/holy_swords/keyframes/frame_003.png",
+      "sha256": "6ca7b0cfe0449ee63c472d6983c287cbc6264603b414346a987dcfbb5f10091b",
+      "rgba_sha256": "7366f1eb0e0d4cd9159d2988e653f9096e97501af895f915c713dc49c293712d"
+    },
+    {
+      "file": "character_13_skill_004.png",
+      "source": "players/character_13/holy_swords/keyframes/frame_004.png",
+      "sha256": "a37439db4748da45d6f377faf6750bf157eaa99640d04b32cf3bb06de888c76c",
+      "rgba_sha256": "06009f839a23f2df773965940f479fadcdbe610c13a7061b009d2ec7e7102a7a"
+    },
+    {
+      "file": "character_13_skill_005.png",
+      "source": "players/character_13/holy_swords/keyframes/frame_005.png",
+      "sha256": "f84079ab7005943affd4d87bbfebb9c6bfdeb535905382e3e474a5c4e090e3b8",
+      "rgba_sha256": "69f0fd5b699adf37e9b79954dfe103ad785f2e2df3dbbec4b3f8e2e1f39e5ed6"
+    },
+    {
+      "file": "character_13_skill_006.png",
+      "source": "players/character_13/holy_swords/keyframes/frame_006.png",
+      "sha256": "d924c6d7b5259513b9fdf2fd2ad90eac5c2f85c3ef3518e9424271f6e6f1fd1b",
+      "rgba_sha256": "b85f46ede2ecd098e3fdca952bf0b6b86313c4e8edb26b95dd43c0e90581bc7a"
+    },
+    {
+      "file": "character_13_skill_007.png",
+      "source": "players/character_13/holy_swords/keyframes/frame_007.png",
+      "sha256": "8ef14add6340c1532af395d65f08c856d74f11acf603e40c29c10fa91056e772",
+      "rgba_sha256": "9d7ff6960d315e70fda10ed729b912e63392d8034dd53a57c3ee1a50523b505e"
+    },
+    {
+      "file": "character_13_skill_008.png",
+      "source": "players/character_13/holy_swords/keyframes/frame_008.png",
+      "sha256": "7ccbda3c86a146cfcf44c04ca5874f481e62c505f9e03f4777c37113129c2285",
+      "rgba_sha256": "e13541649cfc948665893522c79ef1df0ad061dd65524214016b2c39d6d9624d"
+    },
+    {
+      "file": "character_13_skill_009.png",
+      "source": "players/character_13/holy_swords/keyframes/frame_009.png",
+      "sha256": "376e125e86edfdcbb02e8274caf70231e4e22b006713283cc58e4ba8b5e57750",
+      "rgba_sha256": "2f2b6d0a247549b52e3152aa56500fc678d2516a0626babeb2f49da1e8ce75ff"
+    },
+    {
+      "file": "character_13_skill_010.png",
+      "source": "players/character_13/holy_swords/keyframes/frame_010.png",
+      "sha256": "777fc652d0a5cf7b97b6060841c9e1dbc1c942e6170b732a7cd8fac320ec420e",
+      "rgba_sha256": "324d4acf326d15f8562dc2920f252cbd88dd8760b4c7de5e765e08a7557317b0"
+    },
+    {
+      "file": "character_13_skill_011.png",
+      "source": "players/character_13/holy_swords/keyframes/frame_011.png",
+      "sha256": "4b0c77280990f68b70c3d1de04a5d69e49aa1bce4b71e1fe8d844a937fde2579",
+      "rgba_sha256": "3de67b55adfb662cffda18916ed09a399473b162fccc1c126bdf1c954239109f"
+    },
+    {
+      "file": "character_14_run_000.png",
+      "source": "players/character_14/float/keyframes/frame_000.png",
+      "sha256": "6133605e212c37e7c65342e4b6284e691d17ea2e45ac9be05017c3c3be43c98c",
+      "rgba_sha256": "d98baae4652c09824e10c2d0d85fb794262c571aab17a4efafea4bd1bafebeca"
+    },
+    {
+      "file": "character_14_run_001.png",
+      "source": "players/character_14/float/keyframes/frame_001.png",
+      "sha256": "ba47303fdc0305747b81dc481032bdf925ec75a02a44290a5185be6524d04b4a",
+      "rgba_sha256": "b75995d0584fcded49f2be690b107b8d6873a60788ecddaf6a8d299e0b91ba10"
+    },
+    {
+      "file": "character_14_run_002.png",
+      "source": "players/character_14/float/keyframes/frame_002.png",
+      "sha256": "9be7000df8b7c158beaf3160f557316920f2c5a5262f6095391a057713b9ee79",
+      "rgba_sha256": "397aec32125f37b27403cc3200a4573738d58aea6eab3a0f0181540327a0e3fc"
+    },
+    {
+      "file": "character_14_run_003.png",
+      "source": "players/character_14/float/keyframes/frame_003.png",
+      "sha256": "52692be8938c2c511be232e7f2b3db02aa1b9d7c2782b0c502de995505a1926f",
+      "rgba_sha256": "06b433d96c46c9c6cbcc7699a3fd4525f67fa103699ef233e5a217ac95ec90c7"
+    },
+    {
+      "file": "character_14_run_004.png",
+      "source": "players/character_14/float/keyframes/frame_004.png",
+      "sha256": "9b2ee9cab0462eed6da2387df57c94024958ae5aaa69ed145c581e81eb9c155c",
+      "rgba_sha256": "7fe04a4f1f3e0303f28a64a9ddebf7b7c1460a1a36a830a5c6dd2b1b8317cc1d"
+    },
+    {
+      "file": "character_14_run_005.png",
+      "source": "players/character_14/float/keyframes/frame_005.png",
+      "sha256": "45c45a2918d31478d43414f3506920003b2731c732660a3959ef87c190ee06fe",
+      "rgba_sha256": "aba17166a192ad71447606b42e38ea9249f469918201a72ed8c4e2354a5232f2"
+    },
+    {
+      "file": "character_14_run_006.png",
+      "source": "players/character_14/float/keyframes/frame_006.png",
+      "sha256": "0a79a9f72e69bbd340204a6f19d498bd8b7e6bf37b9b3680a28cc9f0d8fb8213",
+      "rgba_sha256": "672de8d71c1b6d9909d0986f5b2b3ca24fad7db272f9c55ba1a792b8a375ad5c"
+    },
+    {
+      "file": "character_14_run_007.png",
+      "source": "players/character_14/float/keyframes/frame_007.png",
+      "sha256": "7c238eae756d427cd95d0e681d5f175fd7ad81b2ea30b45be6dbaf38a4f538e5",
+      "rgba_sha256": "787d50399c26acc1153f156f2ce048b2c344a3ae058661e2e4c712b05e66ce34"
+    },
+    {
+      "file": "character_14_attack_000.png",
+      "source": "players/character_14/dark_wave/keyframes/frame_000.png",
+      "sha256": "03577b380729cf30e11e3ee6f49c109f39d004f6602f054f5791f95b81da2ecc",
+      "rgba_sha256": "dc68fee29f9dffb41a35cd909141ea29cbaac433a2181f1b20e87983b37e49ca"
+    },
+    {
+      "file": "character_14_attack_001.png",
+      "source": "players/character_14/dark_wave/keyframes/frame_001.png",
+      "sha256": "28204e96e4882ec1379c5e01126ec2725ac60ad0fc0eb54896f094061afe872d",
+      "rgba_sha256": "e3d9e8d8b86dba737613f7dad0e610cbbdbb00eb7138e60514961f14b6d520b4"
+    },
+    {
+      "file": "character_14_attack_002.png",
+      "source": "players/character_14/dark_wave/keyframes/frame_002.png",
+      "sha256": "7c3ed7588a63debceba23b44f8165357d86fc5cd11c7464e900411718d7cf0b9",
+      "rgba_sha256": "5be3d8c33b3fd5cb50181881528f7d846fd818646dea3e462de0504bb5516045"
+    },
+    {
+      "file": "character_14_attack_003.png",
+      "source": "players/character_14/dark_wave/keyframes/frame_003.png",
+      "sha256": "1ed8c2ff443455f3b3bcb958e188fe5395ee616b256b20edc365e873136ac387",
+      "rgba_sha256": "31258b7662e1ec78b550cc8adcd8d1ae91ba261d0c2f941f0a43f7fc081d49b0"
+    },
+    {
+      "file": "character_14_attack_004.png",
+      "source": "players/character_14/dark_wave/keyframes/frame_004.png",
+      "sha256": "f20d9d269206e1d335080cc518dd83bf52fe2c8162766a2753a4ce5db8a82469",
+      "rgba_sha256": "3c8942bf3d282c0e32860c6a639a8cde66d0aa464921106ed49cad80e0ad6b4f"
+    },
+    {
+      "file": "character_14_attack_005.png",
+      "source": "players/character_14/dark_wave/keyframes/frame_005.png",
+      "sha256": "e9dd0358bc74bbc0e24ec18972f6adb64a524acc53b500ec8076bb2be0e4aa40",
+      "rgba_sha256": "af9bd1e29c183b78927fe52438a21f7235f3a2e07d058ce1da8ca08ddde38b31"
+    },
+    {
+      "file": "character_14_attack_006.png",
+      "source": "players/character_14/dark_wave/keyframes/frame_006.png",
+      "sha256": "cbb1b322827b6db682d81ccf1feb9137f7296d603061a188004087bb7a5dd318",
+      "rgba_sha256": "10e99e0b9484118b7b7e6f66ad6669743cdc0019f503a3ebd1a88b854f2a4dd6"
+    },
+    {
+      "file": "character_14_attack_007.png",
+      "source": "players/character_14/dark_wave/keyframes/frame_007.png",
+      "sha256": "bab1d4de9156fb7d5b80ebbabe3e3741ca38abd3c2aa3b2391cac4baa4f524c2",
+      "rgba_sha256": "ea147e870f128771238fa6c7fc11832f32368bdfb524d99345f9b592e76ec27c"
+    },
+    {
+      "file": "character_14_skill_000.png",
+      "source": "players/character_14/curse/keyframes/frame_000.png",
+      "sha256": "9c629e29187e3027ebe6949a21b78cfc73c40435101a0235da421de56df1f06e",
+      "rgba_sha256": "3248f1cfe705a726deec8df91bc32443084f0cd9334c920f4c1dc489331eb511"
+    },
+    {
+      "file": "character_14_skill_001.png",
+      "source": "players/character_14/curse/keyframes/frame_001.png",
+      "sha256": "0df2dfc8b06721b900fea14d553c4360ff7ccdd1e32443112b3445e6df2155d8",
+      "rgba_sha256": "bc1e0f1a372b46a81e467b9b50af8a9511f55d8abd47e61079ea7dab01d8cd11"
+    },
+    {
+      "file": "character_14_skill_002.png",
+      "source": "players/character_14/curse/keyframes/frame_002.png",
+      "sha256": "d5bc98773f7334bfc44cba8b9f825cc6075e6ed202d7a4ce4e8139a36daa033b",
+      "rgba_sha256": "0f8080937cc57af89e98cabad8a7a82374aaeffd235ea0db6122ef62ee36dc75"
+    },
+    {
+      "file": "character_14_skill_003.png",
+      "source": "players/character_14/curse/keyframes/frame_003.png",
+      "sha256": "14da415fa416beaed85aed8dacb48e13a5d1bfd2d7d0bb5ae82e581876e9cc27",
+      "rgba_sha256": "3d95faf29bfb1dad8e53e3812d93ea82bd1cf204359fb5a33cf0f736b3a47bb6"
+    },
+    {
+      "file": "character_14_skill_004.png",
+      "source": "players/character_14/curse/keyframes/frame_004.png",
+      "sha256": "dd22deed695467ab2ed3afe92bc2bc95cb53e7cbad4fb067e262551f2c9a6bc9",
+      "rgba_sha256": "738191643a21d7b3593dbf122246c062fbe85b4c7bbbca660e7f6d6d86e2b1f2"
+    },
+    {
+      "file": "character_14_skill_005.png",
+      "source": "players/character_14/curse/keyframes/frame_005.png",
+      "sha256": "b6dd5a58bcfae75feee4f99f779e44c3f9872456b390a392bb6c841ce2ddf7f2",
+      "rgba_sha256": "4a5d37cd1b0e9a7f0397b63440c7dbc8da91bca6ccecbe8f8d81b01940215a53"
+    },
+    {
+      "file": "character_14_skill_006.png",
+      "source": "players/character_14/curse/keyframes/frame_006.png",
+      "sha256": "b31379f8a2bbac61b49db8f341316fa00dd3ddb32bec0472264e82c262a97ee3",
+      "rgba_sha256": "98983718c4183453b6f6f82f18296da5b563058806fa1304e530a7e784760db1"
+    },
+    {
+      "file": "character_14_skill_007.png",
+      "source": "players/character_14/curse/keyframes/frame_007.png",
+      "sha256": "2bd758b85970e7f56b386a7b5e25e6b3d368a6ec04f0c4a103f8f5e3e72997e2",
+      "rgba_sha256": "fad9ab4ecdad5e94b628b790568f41a84b9968a9aa6c89077b7bbac083e4ab79"
+    },
+    {
+      "file": "character_14_skill_008.png",
+      "source": "players/character_14/curse/keyframes/frame_008.png",
+      "sha256": "97224c08ff7d1152ddb226643efe8d1d4bbe0f47b458d48b2a58041c969262fc",
+      "rgba_sha256": "d68a58393db2b74b4fd2f9af0317ccb30a7a70cb1214d0b5b71f821d4956a5bc"
+    },
+    {
+      "file": "character_14_skill_009.png",
+      "source": "players/character_14/curse/keyframes/frame_009.png",
+      "sha256": "5c7c563e6f12f89432d7b535a6db1ccd86771f7147adfe933dbee81a02387c12",
+      "rgba_sha256": "84cb9c97a9c2faa96e4fb271af0ea25faab845408406667d61a009e71cbebf8d"
+    },
+    {
+      "file": "character_14_skill_010.png",
+      "source": "players/character_14/curse/keyframes/frame_010.png",
+      "sha256": "a748e1334f4d5cbbac7be3e7fb7ed4288544abdc6898db7df32ab3ce72626610",
+      "rgba_sha256": "dddd0d52aebd4683b21c3a5f4e1f0a7c5b2bd02d25d3229a9b11423e5ec57d4e"
+    },
+    {
+      "file": "character_14_skill_011.png",
+      "source": "players/character_14/curse/keyframes/frame_011.png",
+      "sha256": "e9eaf515bbcb9fb393866dbd8c561d7116dce5a67c6fc6540700014d6f6144cc",
+      "rgba_sha256": "35a0c9a2f9dc6ed7278032ee1f678f1619bdd11bef1e5101d2fd2f577543ef76"
+    },
+    {
+      "file": "character_15_run_000.png",
+      "source": "players/character_15/run/keyframes/frame_000.png",
+      "sha256": "d62f8fab3e03379235ca30ee418091d109655af0b575c0b4b2b30d35548e3172",
+      "rgba_sha256": "3cd9624d58d630fd62df9a5fa8a725f952a6741e319bab428e7f4c6b4d7f1748"
+    },
+    {
+      "file": "character_15_run_001.png",
+      "source": "players/character_15/run/keyframes/frame_001.png",
+      "sha256": "7fb4e64126e7e12ed8eb727f938fcce789d775fb50e8158afcd25fa03c2e2b0b",
+      "rgba_sha256": "f85b1f244fe1259cbeafbd789984b0c1fc8ecc4b9009688a229afc8238b913b4"
+    },
+    {
+      "file": "character_15_run_002.png",
+      "source": "players/character_15/run/keyframes/frame_002.png",
+      "sha256": "e0b91b1af72052deb637b9bfd56b5059a26e9b6c4207738d0b93142acaaf711e",
+      "rgba_sha256": "db94d353f75a7101abae12ad4b2b4b4b29d1b64996268f900755768980c59042"
+    },
+    {
+      "file": "character_15_run_003.png",
+      "source": "players/character_15/run/keyframes/frame_003.png",
+      "sha256": "42b81769845da257e1c120f55e48c9ddbe58a065f9193c6fc0d46ffd7c80d569",
+      "rgba_sha256": "02360ee207bf3e7195774c7c037a53ca1777b4753de10b98cb0e6ca86b701f65"
+    },
+    {
+      "file": "character_15_run_004.png",
+      "source": "players/character_15/run/keyframes/frame_004.png",
+      "sha256": "bfcfbbeb3d317c9afa23fdeeabd2aaf0b689c9a2c913d9e0a7df139f1cad0505",
+      "rgba_sha256": "a90572595e699e272ce887dec967a27df78db00904c8965b6264e63d92568370"
+    },
+    {
+      "file": "character_15_run_005.png",
+      "source": "players/character_15/run/keyframes/frame_005.png",
+      "sha256": "9334efe98f627c6dbe795603c7c203c4a23cb2aa5a263b846e721e8224cdc73f",
+      "rgba_sha256": "12d1adb93f0e8444d4f7fa0e7bd6ff32a1870002c753acd066fdb4af83ddae7b"
+    },
+    {
+      "file": "character_15_run_006.png",
+      "source": "players/character_15/run/keyframes/frame_006.png",
+      "sha256": "ae45a14dc58c4256f7a68e622aebfdc8a2470c5b9beda6aaa16ef1c226baa32b",
+      "rgba_sha256": "768af847499c6803dfd0d6e0ee623357590aa8f2ac7ef1438897c03a1965265e"
+    },
+    {
+      "file": "character_15_run_007.png",
+      "source": "players/character_15/run/keyframes/frame_007.png",
+      "sha256": "254b331f6f381538ce9f409d25d564515f1eebe8a0086931594c2a6a85d36dd7",
+      "rgba_sha256": "c3f3d91f5e98bedfd30e8632b06e8b88f5da3431f73067f24b1be88220517e03"
+    },
+    {
+      "file": "character_15_attack_000.png",
+      "source": "players/character_15/spear_thrust/keyframes/frame_000.png",
+      "sha256": "82ea9ae4d374db60b9001d90d67a2920f0c47e8648d93dc285ca8bba3f3bcfeb",
+      "rgba_sha256": "61c6f1b521e78ff26aa6c9c1de3658b3263798167fbb7a6232c880e47dbbc95a"
+    },
+    {
+      "file": "character_15_attack_001.png",
+      "source": "players/character_15/spear_thrust/keyframes/frame_001.png",
+      "sha256": "eee89543529c35f6d821e77ad08a745568969585880e9e499fa0aac45d0d1b83",
+      "rgba_sha256": "9411610294750d071d3e0aee743756c60de448c7e9f2e3e18a3a21ea08d9e1bd"
+    },
+    {
+      "file": "character_15_attack_002.png",
+      "source": "players/character_15/spear_thrust/keyframes/frame_002.png",
+      "sha256": "b112b6ed44c599df7e662ed22942f78d089065023f3e62b2990490fa4afcdd1a",
+      "rgba_sha256": "61614a0c1bd670279fc4d48ad72def551cba2ad598ddc0a2b20050931b235ea0"
+    },
+    {
+      "file": "character_15_attack_003.png",
+      "source": "players/character_15/spear_thrust/keyframes/frame_003.png",
+      "sha256": "4e00f6e627bf9723bf865fe2b5f401a32fe6f841e2341bd392883b544fb98995",
+      "rgba_sha256": "c33bf5c6b12badecf1f7fdb6999c43f2e06ad6a49bb34abcf57eea5bdb1da130"
+    },
+    {
+      "file": "character_15_attack_004.png",
+      "source": "players/character_15/spear_thrust/keyframes/frame_004.png",
+      "sha256": "dc47663fcb9961c17323d932619b6705988fa66d80bb1ac549cb6fafa985a3d9",
+      "rgba_sha256": "f8ca1b88d16b1973d45f0a762c98e6b81557552c999bb03ef6ea3e0fef798722"
+    },
+    {
+      "file": "character_15_attack_005.png",
+      "source": "players/character_15/spear_thrust/keyframes/frame_005.png",
+      "sha256": "5f2bc96b871932b9b3fa042003d244af76decd0cb70bbefc71163e0e821e9c23",
+      "rgba_sha256": "e2d85aef08b3585b2fb1167e0cdb79764eff7cbb93e34889985ee1742ad4ce9f"
+    },
+    {
+      "file": "character_15_attack_006.png",
+      "source": "players/character_15/spear_thrust/keyframes/frame_006.png",
+      "sha256": "5ae43402269c20a11a922f02bfd0e2a99b8aa537041ac7532a3682ae3acbee69",
+      "rgba_sha256": "3def6f2765cc1317cace9975c5b56f38226151098bc28d450df2fe5e16854fc8"
+    },
+    {
+      "file": "character_15_attack_007.png",
+      "source": "players/character_15/spear_thrust/keyframes/frame_007.png",
+      "sha256": "0f038a5a7c88bfc9553901803fbca85db457fe0c84dea2c417f7c6cbc45914b6",
+      "rgba_sha256": "38ac15bbb89081d45b8fcb66614e7657aba33ffbc4fe77cbab051fd5cf92e2be"
+    },
+    {
+      "file": "character_15_skill_000.png",
+      "source": "players/character_15/dragon_flurry/keyframes/frame_000.png",
+      "sha256": "17ca766e1c70cdaf2cebd3d66f56cc0de88b75a763fc9bdf95849bd5b5127777",
+      "rgba_sha256": "4077a0b84f61bd6a1cade2121a3da12ab089d238e79665598f20658324ec4241"
+    },
+    {
+      "file": "character_15_skill_001.png",
+      "source": "players/character_15/dragon_flurry/keyframes/frame_001.png",
+      "sha256": "5a7364e2141023b0d021dbc72283c2335a5fda9aaa3b14bb5328f1b502fdf0c4",
+      "rgba_sha256": "5914eaa1c234f04cf93ebd7393039e9894895ba6b29453e7444067d07f47c614"
+    },
+    {
+      "file": "character_15_skill_002.png",
+      "source": "players/character_15/dragon_flurry/keyframes/frame_002.png",
+      "sha256": "fd2d2427b32670fec0d2eee0477ef78eca366c5919b82d2c2e1410588171c85b",
+      "rgba_sha256": "24b9297baf9eb330eaa87a402aa028f770db1654c2318bce94045642eee3e958"
+    },
+    {
+      "file": "character_15_skill_003.png",
+      "source": "players/character_15/dragon_flurry/keyframes/frame_003.png",
+      "sha256": "2b5090f5272aa8e2d7101284620497cc273107249929d386f4d9562809343e47",
+      "rgba_sha256": "972fab6ebf4c6c8b109bce4938a432a8596f11b68beb35d7961ac50f87812b12"
+    },
+    {
+      "file": "character_15_skill_004.png",
+      "source": "players/character_15/dragon_flurry/keyframes/frame_004.png",
+      "sha256": "9765b4354a54ec9a05184aaaed7e68ecd303ede9f53e80bd451f69dba314dcd1",
+      "rgba_sha256": "1214f4ad818da3371ee5cbb185081abf05114fd66ba3c56bc2aaf631ca8d924d"
+    },
+    {
+      "file": "character_15_skill_005.png",
+      "source": "players/character_15/dragon_flurry/keyframes/frame_005.png",
+      "sha256": "68f048931ec58ade88b567cbbfd2ac35ac8b55117cb88c90cf813a3948dc7e6e",
+      "rgba_sha256": "1cb46a49ad0b9d7e82bd1334531505f5fc8da29959c73154657ea971cfa2742a"
+    },
+    {
+      "file": "character_15_skill_006.png",
+      "source": "players/character_15/dragon_flurry/keyframes/frame_006.png",
+      "sha256": "a356e821758af6a5a11b96e73cb22c7abb573900a9a9a926211ee924213b67d1",
+      "rgba_sha256": "a302b026c428e544dfd2ab1bc2dd0d2a7f8b802a3a0a4e5fda645bc8f75b3f0b"
+    },
+    {
+      "file": "character_15_skill_007.png",
+      "source": "players/character_15/dragon_flurry/keyframes/frame_007.png",
+      "sha256": "081456f36c091cb586be74e4a98bf2b0cd0a38c209fca304d1dc2131202ed2a4",
+      "rgba_sha256": "724bea1c12d0b87e481ed8cda5b1a8e5b55d7e02fe53b88da9992a7db7d3516a"
+    },
+    {
+      "file": "character_15_skill_008.png",
+      "source": "players/character_15/dragon_flurry/keyframes/frame_008.png",
+      "sha256": "0da577691251f5e98f22fb59219f61381450a78b6d80c9f2232a304f2b9aed22",
+      "rgba_sha256": "af1ba6b3c94a2f6fbfd721d4a3f2bfd53d8824f431df7379148d66dc9b8a517e"
+    },
+    {
+      "file": "character_15_skill_009.png",
+      "source": "players/character_15/dragon_flurry/keyframes/frame_009.png",
+      "sha256": "ed3f616c7230a301a41301c3aeb4fe4b8e08f6bae7a2e2abaad3da3a4f47d3c7",
+      "rgba_sha256": "434b2974ab308f29569aa67328a29ff0d7c18bbd23bb5c72f4c70a1ca62671f3"
+    },
+    {
+      "file": "character_15_skill_010.png",
+      "source": "players/character_15/dragon_flurry/keyframes/frame_010.png",
+      "sha256": "30a23f82c9f68f0ecb23212b01394990d01274d2b1a11762ae1870a106c9d479",
+      "rgba_sha256": "9405ce31046e042ef54182407d53464aa7ab7b286b68d0945826572a051b4b5d"
+    },
+    {
+      "file": "character_15_skill_011.png",
+      "source": "players/character_15/dragon_flurry/keyframes/frame_011.png",
+      "sha256": "cc298deb6ff4a0387a55f7929b40710c643dfc31dbc35fb9ede9388e32decf89",
+      "rgba_sha256": "3b0ad20eb46c55708be08df4a4832be29ae5549ba1f7ef7bb88b17d3cb4ef3f7"
+    },
+    {
+      "file": "character_16_run_000.png",
+      "source": "players/character_16/run/keyframes/frame_000.png",
+      "sha256": "baa4f158070404f6e9db23b9b0dec5f09a81b037b8dd903a81f4183b95e76107",
+      "rgba_sha256": "66c2abc074cd408d58e8df800346fa8e9e3db160a67c113d8046e83a914b1f38"
+    },
+    {
+      "file": "character_16_run_001.png",
+      "source": "players/character_16/run/keyframes/frame_001.png",
+      "sha256": "e4d2f0f8492a1eacd702cdb1bd43575e18c78a097f60d91efd4bf93f2fc16a59",
+      "rgba_sha256": "d09217e7398cc5b9e7620db0a4037ab2a3f5669b823b6e9c47991093ff70f5c6"
+    },
+    {
+      "file": "character_16_run_002.png",
+      "source": "players/character_16/run/keyframes/frame_002.png",
+      "sha256": "63fd5611f02d6da7b0fe84fe3fa8741e1e9913653b97b7dbad2c8ee2c689e192",
+      "rgba_sha256": "6a5072dba51368c35aa11552ac343f736131c0b823677136e5a4820640231846"
+    },
+    {
+      "file": "character_16_run_003.png",
+      "source": "players/character_16/run/keyframes/frame_003.png",
+      "sha256": "5e510772c5e4310c248f4718e53e8238d293af0ef2e284bc889b36aee8a5463c",
+      "rgba_sha256": "880fed5d51607157b52c144112e06e2c6f044a8438f64f4f209ad62299d1bedc"
+    },
+    {
+      "file": "character_16_run_004.png",
+      "source": "players/character_16/run/keyframes/frame_004.png",
+      "sha256": "7fdaf0374fa3e6ae4fb8a9c7341f497d9db6c86eaf24ac536bcd516b6dd7fb6f",
+      "rgba_sha256": "db71270bfd394355eeab17de081f70f1879778948fc0939caf3592df7f01b227"
+    },
+    {
+      "file": "character_16_run_005.png",
+      "source": "players/character_16/run/keyframes/frame_005.png",
+      "sha256": "a724ab6227e8ce88e5b774adbff06468acd5a2d8113492159c63d4faa4e937d8",
+      "rgba_sha256": "c84e2836c258f1ef2c901cb990320322f9921184968ecf2b9b825d7574294c3f"
+    },
+    {
+      "file": "character_16_run_006.png",
+      "source": "players/character_16/run/keyframes/frame_006.png",
+      "sha256": "1a91e4439aaef478f1af187f25ed12d7ecd2b8f2d3a8b288b2b146c4f86d2328",
+      "rgba_sha256": "4b34d521f67d5fd130f94fd95a0aa9fe28fa0ea81d2a8fb1c1de937ad8fd93a2"
+    },
+    {
+      "file": "character_16_run_007.png",
+      "source": "players/character_16/run/keyframes/frame_007.png",
+      "sha256": "b1edb92d3b6c7b79fb65933643daa5ece442dcde8e8ee117168c45047d9cfa29",
+      "rgba_sha256": "a81a59b07c4ee974c85bc307ed3d7c045d1533f9ba17607dbdd04809a491c30e"
+    },
+    {
+      "file": "character_16_attack_000.png",
+      "source": "players/character_16/heavy_punch/keyframes/frame_000.png",
+      "sha256": "a237e643b5b7c6b5054e61561e4bf2c22b9df8d42b7001acbcc7055c208dc11c",
+      "rgba_sha256": "0c1bc14a68a8384fd1c30f0b99cc04909782760c3d3bca6921be454c4cbd98d5"
+    },
+    {
+      "file": "character_16_attack_001.png",
+      "source": "players/character_16/heavy_punch/keyframes/frame_001.png",
+      "sha256": "10edc7baf5f1bd7b653e9160ae73e422a4bf8d0cc404cbc86dca679bce685ba8",
+      "rgba_sha256": "1686cdc3fe4a9c6c7ec84885b0a733ecc72e935f541611fb1a9cdb4e641d6744"
+    },
+    {
+      "file": "character_16_attack_002.png",
+      "source": "players/character_16/heavy_punch/keyframes/frame_002.png",
+      "sha256": "5cf74fd5786b198dba59bc06ea51eca5779a4807c18d4604251d6ec8d8c3e08e",
+      "rgba_sha256": "c1266cfb91d61ab0799d3838a0f105c0e0455efbd23545c5ee99eaf7fd4bf1f9"
+    },
+    {
+      "file": "character_16_attack_003.png",
+      "source": "players/character_16/heavy_punch/keyframes/frame_003.png",
+      "sha256": "b87f9bd5945e636521a7305847abc2edf813c811b547349cbd13bca458a43b15",
+      "rgba_sha256": "ca20e4083b8f01f843636f4ba2eb01b5319585ef05a2bb4d308147766be5a7b9"
+    },
+    {
+      "file": "character_16_attack_004.png",
+      "source": "players/character_16/heavy_punch/keyframes/frame_004.png",
+      "sha256": "ed0040a673f10520c350acb4a1926f87abf85f31277b208586a7543866a3c92c",
+      "rgba_sha256": "0bd6fd6b72899aaee46929523c1ff2ebe47337b554ac67f07e4c06f61530e158"
+    },
+    {
+      "file": "character_16_attack_005.png",
+      "source": "players/character_16/heavy_punch/keyframes/frame_005.png",
+      "sha256": "d2af48c1d71004d91226cfbef51417216a8c6ba4d22f51324f3f412ffb1e9cb0",
+      "rgba_sha256": "24929122f7d49df777b879da6a01d84bdb5ca91ef2f6f32a64a3479391ea2231"
+    },
+    {
+      "file": "character_16_attack_006.png",
+      "source": "players/character_16/heavy_punch/keyframes/frame_006.png",
+      "sha256": "c5ea4a841d3fdb7ca5584f4afc9d0fff5e2c39e8807d78b717a099957a43a076",
+      "rgba_sha256": "ac664fd78f1fa57021506240deca61ee775b44e13985f463d261ae4c7f38547f"
+    },
+    {
+      "file": "character_16_attack_007.png",
+      "source": "players/character_16/heavy_punch/keyframes/frame_007.png",
+      "sha256": "d71949c0270b2ea25d1e551877f748d1ee5efa0710eb96b908d60a9210534cab",
+      "rgba_sha256": "23a50e791ed2c2e21d6073740f2b875c83500c4f66347aa46e56db318f5cd093"
+    },
+    {
+      "file": "character_16_skill_000.png",
+      "source": "players/character_16/floor_throw/keyframes/frame_000.png",
+      "sha256": "2b304b3c58e81f6e0bdb59632231148ae5e4a6b62fbf33f6583ba6763d3f29fc",
+      "rgba_sha256": "bd8f0c9ad54980041253d24bf444688056065d6749b047e39c6a76be3b6a7787"
+    },
+    {
+      "file": "character_16_skill_001.png",
+      "source": "players/character_16/floor_throw/keyframes/frame_001.png",
+      "sha256": "e0ebd4c7a40cd5f9f2ff795b1b84deab25c0099ef647c43f06d1a4324aa3eb2a",
+      "rgba_sha256": "252419d6033ce68d0ae3ca294b07be979187348b93d48862275167ae45516707"
+    },
+    {
+      "file": "character_16_skill_002.png",
+      "source": "players/character_16/floor_throw/keyframes/frame_002.png",
+      "sha256": "8ab51c7e304f96025e0cc3299f8d88d5045244b01a54a42659a9525e08dec8f6",
+      "rgba_sha256": "4e3e2b78074ef965aacd26f81cf45f560048c6a6cf903cc0330b8c1e572686c9"
+    },
+    {
+      "file": "character_16_skill_003.png",
+      "source": "players/character_16/floor_throw/keyframes/frame_003.png",
+      "sha256": "c4d7aeace958e03502792c810d74bb9fe0f257c51bd4151825a5e528f08d1e23",
+      "rgba_sha256": "cc0a0e5fae185fac9d8b897551e558efca19fe46cfdf46a44aa42248c308f8e8"
+    },
+    {
+      "file": "character_16_skill_004.png",
+      "source": "players/character_16/floor_throw/keyframes/frame_004.png",
+      "sha256": "6d57ecc1ff378a58bc4da4a0da70a22823b146577a80a66b272c64e77dd6b557",
+      "rgba_sha256": "84985c48a26e5153f1b59ff19ded1a86924c94cc60996267f063382a5bb3edc1"
+    },
+    {
+      "file": "character_16_skill_005.png",
+      "source": "players/character_16/floor_throw/keyframes/frame_005.png",
+      "sha256": "db171f31a4450d6b0f71f68c668268cd60a2e21122b048fab0157a2a8d45fa31",
+      "rgba_sha256": "b9610fc2dfbe12bf5a7650c9793ad12e216f8a0edd35a37a01fe33b341274d54"
+    },
+    {
+      "file": "character_16_skill_006.png",
+      "source": "players/character_16/floor_throw/keyframes/frame_006.png",
+      "sha256": "e70ccedb4237a3fa02c2f2d9b52eaf0f7af2ac26a00547d06a561b7efbceae80",
+      "rgba_sha256": "9d5ff1af1603e628a5da2d9ff2f48d73e16dc2066ba216aad563e4264e1f92ac"
+    },
+    {
+      "file": "character_16_skill_007.png",
+      "source": "players/character_16/floor_throw/keyframes/frame_007.png",
+      "sha256": "71b113789be32b3dfaed53102deaeef46ca476fc2698d4266bc7bab1db9a0709",
+      "rgba_sha256": "b76601a9af15eb4f03ebca209dd87b8eab1c3fb5c874db32cc32e7b08ddf0227"
+    },
+    {
+      "file": "character_16_skill_008.png",
+      "source": "players/character_16/floor_throw/keyframes/frame_008.png",
+      "sha256": "38fb4239fcb06875ee1372a85cd4125804d5b54a500d4eb63293d3fd594c3b68",
+      "rgba_sha256": "a4bac7b9bf044de24a27f0e4ee00cbfcd391ed64761d64f14402bbe814cb5c63"
+    },
+    {
+      "file": "character_16_skill_009.png",
+      "source": "players/character_16/floor_throw/keyframes/frame_009.png",
+      "sha256": "13c6c262b5c8f22d673ec692ff4a13a615398e65fc6c6459c8252c477dd02e31",
+      "rgba_sha256": "a860ce0642addf62470379c019dad94814452bccaed5128d41c09896db077f73"
+    },
+    {
+      "file": "character_16_skill_010.png",
+      "source": "players/character_16/floor_throw/keyframes/frame_010.png",
+      "sha256": "8ea8d3937319d3b871e015fa24a88eec3a348c466e3f7f7f4d099b73101773a7",
+      "rgba_sha256": "55e8a0aa694723db9cf822c7dadb6c270a7ed5e59d08e27dab6579dfe5773676"
+    },
+    {
+      "file": "character_16_skill_011.png",
+      "source": "players/character_16/floor_throw/keyframes/frame_011.png",
+      "sha256": "9ee34ce6b209a1c7acfd2b76c3f23d9ebb8dc69ab725313b989bf7ab67592516",
+      "rgba_sha256": "e22bee0b0acda3efe4bf235bf4776c805f337cf6c0c1fe43fb92dcf5b9267726"
+    },
+    {
       "file": "character_01_female_run_000.png",
       "source": "players_female/character_01_female/run/keyframes/frame_000.png",
       "sha256": "2b2116289fa8e63fcd57b232225fecee39b0b81d9e90ea33fe9d4e2dd9e19e98",
@@ -3617,6 +4662,1014 @@
       "source": "players_female/character_10_female/thunder_slash/keyframes/frame_011.png",
       "sha256": "59f427e3ed57997657e109e451dacf1cbe807c28ada2b09b344eef066747741f",
       "rgba_sha256": "97e4bf5c35289b8aebdb3ac40c69059838a39c3dca3bc2719359fa4774ecc3a7"
+    },
+    {
+      "file": "character_11_female_run_000.png",
+      "source": "players_female/character_11_female/run/keyframes/frame_000.png",
+      "sha256": "f1069e4ca08b8b6f8cdf4d584db4ce93811136442f6fca59db365af6a3c1bf81",
+      "rgba_sha256": "0a44f260a754ba3e7524bb1cda8b84ab406366aff8d2aba7c62840179e6a2739"
+    },
+    {
+      "file": "character_11_female_run_001.png",
+      "source": "players_female/character_11_female/run/keyframes/frame_001.png",
+      "sha256": "01064bc708a3dd0be155ec6cf7ba1dabf6e94378009a9ebdacb26b39a5843a5f",
+      "rgba_sha256": "930c419cd259ac54785fa06953a09d572cda4a7ec0b24ce449cc181a5d33b04e"
+    },
+    {
+      "file": "character_11_female_run_002.png",
+      "source": "players_female/character_11_female/run/keyframes/frame_002.png",
+      "sha256": "75756b81042e6589af44ff542eb28548a57fefaae3ce2e8ff07554db58581ecb",
+      "rgba_sha256": "bb5b093b62690fb6355f0f1926c463770cfac40a9b7f66abf379d843054393d6"
+    },
+    {
+      "file": "character_11_female_run_003.png",
+      "source": "players_female/character_11_female/run/keyframes/frame_003.png",
+      "sha256": "b7e6abab3291ceded9b8825be267fc63348630e48c4dad8d094913d825e804de",
+      "rgba_sha256": "20bcd452cb2c023078af7a475aeb6f737f28484803c76eedfa0790ef9adb9fe0"
+    },
+    {
+      "file": "character_11_female_run_004.png",
+      "source": "players_female/character_11_female/run/keyframes/frame_004.png",
+      "sha256": "5220aa3e8201f3d8d73db26a4173915ce715cbaf928e4864d7796283341e1581",
+      "rgba_sha256": "bef6f7519b176d892722baab0f9c12b272047fdb51823e139837cab6ef35dae1"
+    },
+    {
+      "file": "character_11_female_run_005.png",
+      "source": "players_female/character_11_female/run/keyframes/frame_005.png",
+      "sha256": "5da619e46eeca66b71b2fc6cc7eef02765e82ff6f78c4a09a42bbe2083a23a3b",
+      "rgba_sha256": "06272b9fb3f1fa3c92accef370f0efc0228d6ad1a3e147724813ede2b940ad0a"
+    },
+    {
+      "file": "character_11_female_run_006.png",
+      "source": "players_female/character_11_female/run/keyframes/frame_006.png",
+      "sha256": "2cc525e280f54456927f97e86711126ea95b336c5eeb696fd79a346c481fb285",
+      "rgba_sha256": "457101534827b567c67260c5ff0becac4e4ee9a402b62250d1f239fb6dd222bb"
+    },
+    {
+      "file": "character_11_female_run_007.png",
+      "source": "players_female/character_11_female/run/keyframes/frame_007.png",
+      "sha256": "0454b85748ce5fe50d11b980af95885770eb914b838635a64a7750d47486b3ec",
+      "rgba_sha256": "b61f82b17be4dbaf9f801a32eb00e2259723348515377b80b9af0a6876475013"
+    },
+    {
+      "file": "character_11_female_attack_000.png",
+      "source": "players_female/character_11_female/holy_talisman/keyframes/frame_000.png",
+      "sha256": "3cb129d2339241270eaf36b8d3618e6c6597de7dea0cbfdf07b269c4e0251ae2",
+      "rgba_sha256": "13850c0b0b29aad685295292d5a5aa334b8bfcce0ef85438a62ae87f724c5cd9"
+    },
+    {
+      "file": "character_11_female_attack_001.png",
+      "source": "players_female/character_11_female/holy_talisman/keyframes/frame_001.png",
+      "sha256": "be1cf27330c091542d10dad59b446026e24327a97857f5b71aa4331170b66fb9",
+      "rgba_sha256": "b762083ea89c570f12c84369ce894fc7c9ff8df4f995d4c375529a76230debed"
+    },
+    {
+      "file": "character_11_female_attack_002.png",
+      "source": "players_female/character_11_female/holy_talisman/keyframes/frame_002.png",
+      "sha256": "ec413b1d174d06f7ced43838cd98b5828b815ab2dab2b947afc886b7349b360f",
+      "rgba_sha256": "fb75889ab70a00e3b76e35c2acaae70d8b7f70377c5630f6613da6fe12747d69"
+    },
+    {
+      "file": "character_11_female_attack_003.png",
+      "source": "players_female/character_11_female/holy_talisman/keyframes/frame_003.png",
+      "sha256": "6aab24ce91044c455ebd9b8c401c19e2cc500ef1e9598f5d9bffea272134fe9c",
+      "rgba_sha256": "401369d5a494c6b1ec00b2b40d5a753ca2e81cc0088f23f77a213ed47d56aec1"
+    },
+    {
+      "file": "character_11_female_attack_004.png",
+      "source": "players_female/character_11_female/holy_talisman/keyframes/frame_004.png",
+      "sha256": "40e71302bba28f91e2812286a3857839eb2c770bbc7d51db9a6c9e245d443e18",
+      "rgba_sha256": "2ab86a560936860ecc428d362c5527b148ca3dd1438f51c3ff82fc9d54bb9230"
+    },
+    {
+      "file": "character_11_female_attack_005.png",
+      "source": "players_female/character_11_female/holy_talisman/keyframes/frame_005.png",
+      "sha256": "53a26de943626eb0aba574e1f80527a4deabe94203c767af6c7a3f339029e9f9",
+      "rgba_sha256": "9903be5d9915e02582748f081e1e86f82cb2c93fa9269caa141c547869858c1f"
+    },
+    {
+      "file": "character_11_female_attack_006.png",
+      "source": "players_female/character_11_female/holy_talisman/keyframes/frame_006.png",
+      "sha256": "8fbe7f5685c49176cbe3ab398d51570a77e71104dda8d3168b23d60554442f62",
+      "rgba_sha256": "9c1e7239773116aa7ef3df930ca1d49d027c7021384d8ccf4f7a12e72020575c"
+    },
+    {
+      "file": "character_11_female_attack_007.png",
+      "source": "players_female/character_11_female/holy_talisman/keyframes/frame_007.png",
+      "sha256": "8b2a345050e2801139df1c81feed1d7b8e60e827efd7c0ca46c53f9cfad048b5",
+      "rgba_sha256": "b4b3ee0e2676889984e455ec6d170aee84a638a762739ee476b9e283f9995fa5"
+    },
+    {
+      "file": "character_11_female_skill_000.png",
+      "source": "players_female/character_11_female/shikigami/keyframes/frame_000.png",
+      "sha256": "900da6982f13de3ff5640986042052b113f36acb6dccf4e290d067a55c381c4f",
+      "rgba_sha256": "27dcf63beb968607b82bfc33ff013166e0c52b6f36ba1b8988f9e49512e0b998"
+    },
+    {
+      "file": "character_11_female_skill_001.png",
+      "source": "players_female/character_11_female/shikigami/keyframes/frame_001.png",
+      "sha256": "e26094a026c4500d8a4e42d19c32478692cd176c681f7d3df2d3735e8a229126",
+      "rgba_sha256": "f54fad9f0843344a1c8ebbf3959103ffa4a8c91abd4a869e00c7ea4d83f9cf56"
+    },
+    {
+      "file": "character_11_female_skill_002.png",
+      "source": "players_female/character_11_female/shikigami/keyframes/frame_002.png",
+      "sha256": "a32c26c58c99ace642745fe955d544234f84d0f9e71b6d4ee93637025a69039c",
+      "rgba_sha256": "1e0289edaa11c67ceed9005a14b885269be8bedcf9cf629dcca5e60982524e9f"
+    },
+    {
+      "file": "character_11_female_skill_003.png",
+      "source": "players_female/character_11_female/shikigami/keyframes/frame_003.png",
+      "sha256": "bba82e218556033d53e9a406d48cb98a0cefd313811fefe326831620f093a85a",
+      "rgba_sha256": "0ceb4432d1edd999380ccbc12cc8a5a4c294a5d7588c648c525a5f9afdc56e52"
+    },
+    {
+      "file": "character_11_female_skill_004.png",
+      "source": "players_female/character_11_female/shikigami/keyframes/frame_004.png",
+      "sha256": "3722dcd6c4a4836997a2a2ae98007a3a6c4d61beeeb1bb60df562d7cff9ba300",
+      "rgba_sha256": "e1f609ca1f4edd52bb6f705b4ce4eda9a5525b0b2775b607a5aba922e389efbd"
+    },
+    {
+      "file": "character_11_female_skill_005.png",
+      "source": "players_female/character_11_female/shikigami/keyframes/frame_005.png",
+      "sha256": "2bf2de38e06811e445eccc36f96eb1066b470b6328d63d17940876cd924b81da",
+      "rgba_sha256": "607110a53710c080390c00744cc7688a31445bdbe039e97cf17500dd5339b574"
+    },
+    {
+      "file": "character_11_female_skill_006.png",
+      "source": "players_female/character_11_female/shikigami/keyframes/frame_006.png",
+      "sha256": "5d677d1a156381055bf4e2ae95451c3fb913905f586e914b4110b08bf73f2536",
+      "rgba_sha256": "469ee94b286a2db118ffe5bdb0bb13efe922299e6926e5eee7cfb0d428baa830"
+    },
+    {
+      "file": "character_11_female_skill_007.png",
+      "source": "players_female/character_11_female/shikigami/keyframes/frame_007.png",
+      "sha256": "4ce94436d3045bdb4b2ab81d2edbad31412dd21865f73028c8e2ff996b9a65cd",
+      "rgba_sha256": "2d09af250d9169269d9fd5cf176802f0e7232d66780db94cf790d5cb9cdafa1a"
+    },
+    {
+      "file": "character_11_female_skill_008.png",
+      "source": "players_female/character_11_female/shikigami/keyframes/frame_008.png",
+      "sha256": "4d08aca64f9b1989f6164d5a195dfd08f2e292657b9d7483a406f13724a422b3",
+      "rgba_sha256": "a14753bc630caa5f53a08ea1530f89e3a78da1e24fd762bea36c54e25df3a36d"
+    },
+    {
+      "file": "character_11_female_skill_009.png",
+      "source": "players_female/character_11_female/shikigami/keyframes/frame_009.png",
+      "sha256": "d90d2d66b4cd10183a3b2843d7514e4bad39c0b7bdff41d1a28820d1c2fb76f2",
+      "rgba_sha256": "11489c71273c12b70b686e78773751d32c97a9c1c4baa56d8076b14f1f81f559"
+    },
+    {
+      "file": "character_11_female_skill_010.png",
+      "source": "players_female/character_11_female/shikigami/keyframes/frame_010.png",
+      "sha256": "d43470290723048edf70d6265c132e6ea6f5bfa1984061119d2f4ad5d1aa764c",
+      "rgba_sha256": "5f94193b0eb14b25f157e5270b0689c7e23ed3b509cefdaf4f610eb2fb05785a"
+    },
+    {
+      "file": "character_11_female_skill_011.png",
+      "source": "players_female/character_11_female/shikigami/keyframes/frame_011.png",
+      "sha256": "85c071df3f78b7684ff4058e80ece819345c3bc0228a0f00c9b9130e6806de28",
+      "rgba_sha256": "f5343504ba778bc2ef8e7e43a995f1a13516ccb89bc8ec0e4f5c0300777f5a52"
+    },
+    {
+      "file": "character_12_female_run_000.png",
+      "source": "players_female/character_12_female/run/keyframes/frame_000.png",
+      "sha256": "b9a94a04d91f90d238cc4fc0b0d8c880e62d0887e742f81f92c0ae291f02cfa6",
+      "rgba_sha256": "67e821ee0227d944cbaca01e685dea787e462acdad49c125f732d0937e61f27e"
+    },
+    {
+      "file": "character_12_female_run_001.png",
+      "source": "players_female/character_12_female/run/keyframes/frame_001.png",
+      "sha256": "ae679512ac68538969cbc1d10ff178aff4dbd310d0d701e5fe259c50ae02cece",
+      "rgba_sha256": "3a6c59516783db6148125ab38da90afd885308a493cfb017ae8d2694bb1a35e3"
+    },
+    {
+      "file": "character_12_female_run_002.png",
+      "source": "players_female/character_12_female/run/keyframes/frame_002.png",
+      "sha256": "732c69f26381e07e9418f3bb71469a1cd6fba12920e5ac8c886986d9fa0bb4ff",
+      "rgba_sha256": "e43bffb21c84442a8b9ec10e471f347caabd46e0e8f81fdcf597c4708cc0fc19"
+    },
+    {
+      "file": "character_12_female_run_003.png",
+      "source": "players_female/character_12_female/run/keyframes/frame_003.png",
+      "sha256": "056cc50b716a2dd80371863cb5340b0f35c27732c3fd6197dfeda2c844a59243",
+      "rgba_sha256": "9a5272668a4a3d74df6b96e82fa094bdc0f93464951c2bd9fd356757d6d1b593"
+    },
+    {
+      "file": "character_12_female_run_004.png",
+      "source": "players_female/character_12_female/run/keyframes/frame_004.png",
+      "sha256": "7c38579be412c03094a97743ceadec3f5e8bf37ab97f1af1525df4403227b14b",
+      "rgba_sha256": "b51c529b24c7c9c2ded8b1469fee19dc6b43b8ebd7206512219d6c0d1bcc02d7"
+    },
+    {
+      "file": "character_12_female_run_005.png",
+      "source": "players_female/character_12_female/run/keyframes/frame_005.png",
+      "sha256": "f699a66cc2c8987efbd62b44edb18904a10f332004541b879aa5900982d09c95",
+      "rgba_sha256": "d061d084c8696dfc7bd32973fc7bf011921b7268e8e6bf931ab452ed90fb0b46"
+    },
+    {
+      "file": "character_12_female_run_006.png",
+      "source": "players_female/character_12_female/run/keyframes/frame_006.png",
+      "sha256": "76ae95a6ff4d95b95bf5434dc77b3be8983c3069136f46b3655985c3d9fc1007",
+      "rgba_sha256": "eb3f8091a9f68867587365419736a87ab0bc0333fd60d36bc1420b08aa791aed"
+    },
+    {
+      "file": "character_12_female_run_007.png",
+      "source": "players_female/character_12_female/run/keyframes/frame_007.png",
+      "sha256": "f87ad6c9357eaf2d609b914ed045e36e2b101d69abfd27d8ae0c41871957cde2",
+      "rgba_sha256": "a97dbee806724bf312bca3367928887fcba3e086818e6afa3a7dd02ad286e050"
+    },
+    {
+      "file": "character_12_female_attack_000.png",
+      "source": "players_female/character_12_female/scythe_slash/keyframes/frame_000.png",
+      "sha256": "602636d98493a622a4ffa5510bdbe5004798276700dbab15e133fc42d5aeca59",
+      "rgba_sha256": "1f7e674ed9cfd98ce6c736b071105c5b3c1033fe080716e9330e8fb9daf2da4f"
+    },
+    {
+      "file": "character_12_female_attack_001.png",
+      "source": "players_female/character_12_female/scythe_slash/keyframes/frame_001.png",
+      "sha256": "eb0f3092c77e60f5f8addec3ce37624b61ae8c2c0f94c228bc3e65831f7e1ee3",
+      "rgba_sha256": "d9d4f6912a190b6bda05f1a77ff2ac1a3da3e01b1adb128aa7c3ad624a6eabbc"
+    },
+    {
+      "file": "character_12_female_attack_002.png",
+      "source": "players_female/character_12_female/scythe_slash/keyframes/frame_002.png",
+      "sha256": "970afe20d977d26016f72653dee2ba6404f53a7ac631d1ac42301cc215c5244c",
+      "rgba_sha256": "95c0cc5e4bb3ce7f613622e07a904ef5dcc6296ac602dda39a83e6109b62882e"
+    },
+    {
+      "file": "character_12_female_attack_003.png",
+      "source": "players_female/character_12_female/scythe_slash/keyframes/frame_003.png",
+      "sha256": "282b139eae64a0dde23d6ee61a2a82ce82747ad78d5f520775929d840ce6bdfd",
+      "rgba_sha256": "04a1ba29170afa0248be31c13213834ff77305eee5aa1b3337faee11262ea2e2"
+    },
+    {
+      "file": "character_12_female_attack_004.png",
+      "source": "players_female/character_12_female/scythe_slash/keyframes/frame_004.png",
+      "sha256": "52c53ad21b9d33fd277abbefb6094066f23d3cd1ffc5dc9047da9172127a6bde",
+      "rgba_sha256": "a84dfdaa753657bc08b1f0795342aebecf41d0fd1e85ed1a1a9525f73a4181fc"
+    },
+    {
+      "file": "character_12_female_attack_005.png",
+      "source": "players_female/character_12_female/scythe_slash/keyframes/frame_005.png",
+      "sha256": "1aaea70370488e22fd850472d128df6dfa13925c53866bc0233722e4127eef03",
+      "rgba_sha256": "ab698e403970728e8f74901660981da523703c92e9dde4f6954247515e23aa32"
+    },
+    {
+      "file": "character_12_female_attack_006.png",
+      "source": "players_female/character_12_female/scythe_slash/keyframes/frame_006.png",
+      "sha256": "8f33b6beaec0451e2500c070f5c9a2c28d9dd6be425158983fc46d7edd5303dc",
+      "rgba_sha256": "4ad65ddc61e363e786fd5cd7c3904f5fbdc42639ffb4ffae8bcedc66c2ed3eff"
+    },
+    {
+      "file": "character_12_female_attack_007.png",
+      "source": "players_female/character_12_female/scythe_slash/keyframes/frame_007.png",
+      "sha256": "11a9198d1585797253f4fa6a7286d9c572d140b158e4b65b9adb8f6b882d6bae",
+      "rgba_sha256": "676c83d18a9b3b6ade87f519d489b123bf938b865a9b4d28f61395d513013f7f"
+    },
+    {
+      "file": "character_12_female_skill_000.png",
+      "source": "players_female/character_12_female/chain_scythe/keyframes/frame_000.png",
+      "sha256": "8853a2a198868be085109a17c01cba458ef7dadf973ecf1f1ca38631cc5c9a47",
+      "rgba_sha256": "e0ef40d5da7f8c73a7105d4ee1791e11a4512867097b6afdf345b79c13b772a3"
+    },
+    {
+      "file": "character_12_female_skill_001.png",
+      "source": "players_female/character_12_female/chain_scythe/keyframes/frame_001.png",
+      "sha256": "30ec9bf2936cba51755876b71f51fc474059d7048df4f1557e33e9abbba27e40",
+      "rgba_sha256": "ddb35cad94b99da2dff68f0e502b8f3d747b412898109f4220a3eb2f4f00215d"
+    },
+    {
+      "file": "character_12_female_skill_002.png",
+      "source": "players_female/character_12_female/chain_scythe/keyframes/frame_002.png",
+      "sha256": "3625e29922c0c2ad8007677ceab0c1a036acb1a639fd45c833b290af3102846b",
+      "rgba_sha256": "cee005dbecc572ced47e025a21c89c269859ca70c6e9a908d816a222edaf5c62"
+    },
+    {
+      "file": "character_12_female_skill_003.png",
+      "source": "players_female/character_12_female/chain_scythe/keyframes/frame_003.png",
+      "sha256": "1ffb0b5d6c409537d742b4538d10708e7ffabaef89ef1929e67acf21aea66106",
+      "rgba_sha256": "dad5515b7e529d1f82b1587159b5394743cf6e555a4b3891561851c92b449222"
+    },
+    {
+      "file": "character_12_female_skill_004.png",
+      "source": "players_female/character_12_female/chain_scythe/keyframes/frame_004.png",
+      "sha256": "15f8c77e2035f2c9886e58b8e71bc2a4f3753bd78f4b185568813664f08ef103",
+      "rgba_sha256": "45be881bfeaf340396b5d200157ee7886472f194a5e15737a27e14216b6b3266"
+    },
+    {
+      "file": "character_12_female_skill_005.png",
+      "source": "players_female/character_12_female/chain_scythe/keyframes/frame_005.png",
+      "sha256": "6932ad735048deca913ddba267ca3b90c51267f114658290addf9b949b231bc8",
+      "rgba_sha256": "92d8491d1f1b4646b054f1cd6cd4c166299a5136a416c660bc89d85976ff454c"
+    },
+    {
+      "file": "character_12_female_skill_006.png",
+      "source": "players_female/character_12_female/chain_scythe/keyframes/frame_006.png",
+      "sha256": "7cc45c5fc57b53470956fd649f743d3ead9b651131958ad9de02009abcfe5e56",
+      "rgba_sha256": "855fdde004a01fe8428d75b0fcad4b0ea621fdd9122f5c42ebaf16b8cf42f042"
+    },
+    {
+      "file": "character_12_female_skill_007.png",
+      "source": "players_female/character_12_female/chain_scythe/keyframes/frame_007.png",
+      "sha256": "47efdcf109abda00c818d8ee97e18ff8c5ad9b587b3319626a1ccc5323c5eef3",
+      "rgba_sha256": "0e09a8f9a82d419675e19929e3d32d7c880af793ba80d9b77676b30e934183bb"
+    },
+    {
+      "file": "character_12_female_skill_008.png",
+      "source": "players_female/character_12_female/chain_scythe/keyframes/frame_008.png",
+      "sha256": "6b9cd73d4b2c47073a4449678fff6d2c24c6963574408a46aa1268825b220fd6",
+      "rgba_sha256": "72deaca1f3f4c98d4efd093f51d3ab6d9c5a826090192b14e88ba8aeac0b2fdd"
+    },
+    {
+      "file": "character_12_female_skill_009.png",
+      "source": "players_female/character_12_female/chain_scythe/keyframes/frame_009.png",
+      "sha256": "5eadf6ae07e07bee00d9571f57fa9a04836181d575fd1a5a12c9c6797d808f02",
+      "rgba_sha256": "e791e1c2e06e31df1dbc5c7540e2494d1345d2d32f7ec09090cb562321a66ef6"
+    },
+    {
+      "file": "character_12_female_skill_010.png",
+      "source": "players_female/character_12_female/chain_scythe/keyframes/frame_010.png",
+      "sha256": "277397b561950acd4f78d5af348457c27f029284d451d5376fb57917386e6d80",
+      "rgba_sha256": "45222f1404dd9287fd551757f961091725189d17dbc7c9427344074b981929df"
+    },
+    {
+      "file": "character_12_female_skill_011.png",
+      "source": "players_female/character_12_female/chain_scythe/keyframes/frame_011.png",
+      "sha256": "c6570f0e605bc0ab609a7dbef33e0950e27ecc925636ddf05470ec4d965a7e67",
+      "rgba_sha256": "0c0b1eab2c385c7268eeced58cbbcb15ed15f44edf1358f3c4df048b9a4610f9"
+    },
+    {
+      "file": "character_13_female_run_000.png",
+      "source": "players_female/character_13_female/float/keyframes/frame_000.png",
+      "sha256": "21046443dd10e7b3aa6451391d26eadccf911231de55011502e9050a0f6258a7",
+      "rgba_sha256": "8419da8b2dd485556d0b6ffc5e9cde9390d0d05a665a5ee9e018b5ef1219cde0"
+    },
+    {
+      "file": "character_13_female_run_001.png",
+      "source": "players_female/character_13_female/float/keyframes/frame_001.png",
+      "sha256": "e0ccabd54a8b77af489359e0a6d4ee46c6648e559c77c51225a2102a62c917c0",
+      "rgba_sha256": "7636e2c8c92c8ca9ceefdb63c4f5b813eeda50fb94e921fa5e3fcb8410af2175"
+    },
+    {
+      "file": "character_13_female_run_002.png",
+      "source": "players_female/character_13_female/float/keyframes/frame_002.png",
+      "sha256": "5b3d85feeaafe572ccd6b131bfe39ce08e1ab843965cb6f18ae153fb441fd48c",
+      "rgba_sha256": "4785dc28f9fb9624f0371addc781b1b16b6657a47e63477e194f200877d295c7"
+    },
+    {
+      "file": "character_13_female_run_003.png",
+      "source": "players_female/character_13_female/float/keyframes/frame_003.png",
+      "sha256": "81f2a2b6475b22c14f133a8f80a3d5fc97144ccff61a11f430465fd7df48c458",
+      "rgba_sha256": "55658763f4b70ba86621e2ea1b1022e50ae8af36b444ddb2d40fb2a268b35d54"
+    },
+    {
+      "file": "character_13_female_run_004.png",
+      "source": "players_female/character_13_female/float/keyframes/frame_004.png",
+      "sha256": "d9747f1ac034a6373e4eac180b4e50af62a24cc6dbd8b35c7febf8ef7696e3c7",
+      "rgba_sha256": "70b1643a7d870c79c88a299f582b930981853bb2077f9908efaa497adbc3aa14"
+    },
+    {
+      "file": "character_13_female_run_005.png",
+      "source": "players_female/character_13_female/float/keyframes/frame_005.png",
+      "sha256": "45b61b49febda841ab45de1e2538b9dfcb4bbeb10b897db65bc0748c405a6ac9",
+      "rgba_sha256": "eb8dc7d84644977c3144841741c8cebee036844ff4adcab2f655863fb63786d7"
+    },
+    {
+      "file": "character_13_female_run_006.png",
+      "source": "players_female/character_13_female/float/keyframes/frame_006.png",
+      "sha256": "6968ce9b718141b81c3c04b5cb6a671bac5ed0805fa5000c1e36fdaee8e0ee11",
+      "rgba_sha256": "e4abdc11c1e1e1c6651b21ac1bfd87352fdeaa9732af6983a00d0880e5193acc"
+    },
+    {
+      "file": "character_13_female_run_007.png",
+      "source": "players_female/character_13_female/float/keyframes/frame_007.png",
+      "sha256": "113599f162da76b03f63459ba413ff8e3db11a956fea24aa63f496725231fb2c",
+      "rgba_sha256": "3c1dae35166a9d4b3bdddd2bc5fea152de56e313dc24a7930ce41e3dd757f9af"
+    },
+    {
+      "file": "character_13_female_attack_000.png",
+      "source": "players_female/character_13_female/holy_orb/keyframes/frame_000.png",
+      "sha256": "e61971fcdb7f0ac260248c047c13119bd0da0b6da6a89c4e23ab8f6cb820a78e",
+      "rgba_sha256": "e0ece222ca3f81ed143aa509535c64052976d67c905d26fa3ddebdd2f56383ef"
+    },
+    {
+      "file": "character_13_female_attack_001.png",
+      "source": "players_female/character_13_female/holy_orb/keyframes/frame_001.png",
+      "sha256": "afb1b005556821be5c9a8351a62d3f7c85b887606b323792a3fee301c42494c3",
+      "rgba_sha256": "fb14b720c65cfd3fceb8991e801f0e05afdebcec04f79437fbc07039caf518f8"
+    },
+    {
+      "file": "character_13_female_attack_002.png",
+      "source": "players_female/character_13_female/holy_orb/keyframes/frame_002.png",
+      "sha256": "b0fae544604a3073e37dc7be2db229ab91ceb8ccdc2769de7faf4706fdc985a4",
+      "rgba_sha256": "b8877332ad7617c2bf98cdb099be649afd837982326790e45ee0c0881896972b"
+    },
+    {
+      "file": "character_13_female_attack_003.png",
+      "source": "players_female/character_13_female/holy_orb/keyframes/frame_003.png",
+      "sha256": "e9924546af09105b6236c6cadad4b04a4d6b6c1803265672f5b2d52b3a43706f",
+      "rgba_sha256": "b8b1e0eaef30e69ef34c7d1a946a9cd62a246c061cce07acc562e56c1db42c8e"
+    },
+    {
+      "file": "character_13_female_attack_004.png",
+      "source": "players_female/character_13_female/holy_orb/keyframes/frame_004.png",
+      "sha256": "1605433595cacdd5a84c87f4f407d544e3d857f11f026de53ebedca917532491",
+      "rgba_sha256": "ba6b3586f363e20bdfdc3edc5abeecd40962dff1d12b0272b738d669edb533d7"
+    },
+    {
+      "file": "character_13_female_attack_005.png",
+      "source": "players_female/character_13_female/holy_orb/keyframes/frame_005.png",
+      "sha256": "eb283de6b78dcaa1ef5c56a9fad01e25285b5b788346a5ad2f118d535b2503bc",
+      "rgba_sha256": "1e26cdc707ae21d0aa69364f8a063704c44c8600660a0fe384362446171b5fc3"
+    },
+    {
+      "file": "character_13_female_attack_006.png",
+      "source": "players_female/character_13_female/holy_orb/keyframes/frame_006.png",
+      "sha256": "2df7e8daef71dd56d059647a32f10fef1f11d1b6bcf0605cadcdf080712e63bb",
+      "rgba_sha256": "55d3a5503b596d42733db5a352e31d31aaf6147d4426566142e59142e8041cd9"
+    },
+    {
+      "file": "character_13_female_attack_007.png",
+      "source": "players_female/character_13_female/holy_orb/keyframes/frame_007.png",
+      "sha256": "6557449b4feb10a2efbe34ae59b3fd681a46a52117ee1b65deb39cd680eec3c9",
+      "rgba_sha256": "9c3b08c0d0dc09b1df14436dc7863bfb7a605bec12e03c0803241ab405ffd42a"
+    },
+    {
+      "file": "character_13_female_skill_000.png",
+      "source": "players_female/character_13_female/holy_swords/keyframes/frame_000.png",
+      "sha256": "86606146c025a037411925ffa25ba39b6b73c6ad8cde971069508809c511e61c",
+      "rgba_sha256": "c6b00223e8d695011241e97272bffa4960941f639b3a8cb93a6cb9378bbf892f"
+    },
+    {
+      "file": "character_13_female_skill_001.png",
+      "source": "players_female/character_13_female/holy_swords/keyframes/frame_001.png",
+      "sha256": "af212eb99df5f17dbbb50dafc3f60a9b4ac7c47d98314b21e1a62545c89fc8e9",
+      "rgba_sha256": "475ed472c6aca905e39e12e77273953377232e4636e00a41a3d6b5d590ef1a0a"
+    },
+    {
+      "file": "character_13_female_skill_002.png",
+      "source": "players_female/character_13_female/holy_swords/keyframes/frame_002.png",
+      "sha256": "bbd23ddff9db7e0e9e4e5266f70bd2fa8f13bcf087737d5744cd430eeb036c71",
+      "rgba_sha256": "5ac0023310910a1b7dafe8a8016f10ae637671116e52a5b38e6065c1056dde19"
+    },
+    {
+      "file": "character_13_female_skill_003.png",
+      "source": "players_female/character_13_female/holy_swords/keyframes/frame_003.png",
+      "sha256": "78f2eeb278ba990677a83af211f27bafb92b3f77f5ca9148e32926e16813050e",
+      "rgba_sha256": "99734fc022a7f3c2687edf13ed16fc045f4d3c4c806e96163d3bc7eec54a9727"
+    },
+    {
+      "file": "character_13_female_skill_004.png",
+      "source": "players_female/character_13_female/holy_swords/keyframes/frame_004.png",
+      "sha256": "97a7dbfd6dc5fb6b25d2063ecdadb810a900c0db22d87dbead2f5f26f803c449",
+      "rgba_sha256": "af9ba3d4244eefaa572832a3443a617baae0c3e4163a479ed3b21d3e90dd3835"
+    },
+    {
+      "file": "character_13_female_skill_005.png",
+      "source": "players_female/character_13_female/holy_swords/keyframes/frame_005.png",
+      "sha256": "c0b25c8f8ee664ba5e65e9195cc303d8ba4d33cb44a40b6d1c6812dbefa393ab",
+      "rgba_sha256": "d8146801b22af682172c8b811b02a7b3791d9da672182b4aa3e8162e5a1cdfb6"
+    },
+    {
+      "file": "character_13_female_skill_006.png",
+      "source": "players_female/character_13_female/holy_swords/keyframes/frame_006.png",
+      "sha256": "191ae8a2ae3935f69c8aa408a33e270c36e951f3d5d11b30512be0c09001ea43",
+      "rgba_sha256": "7c676727086246a2207a2b1cfbb4c9f5c13d535fa6317f95e67948b15bc734fa"
+    },
+    {
+      "file": "character_13_female_skill_007.png",
+      "source": "players_female/character_13_female/holy_swords/keyframes/frame_007.png",
+      "sha256": "edae6d33b2bfa479cca8ecff4a30e2bbe1691cc9410c7392cebbb906d47ccf4a",
+      "rgba_sha256": "8b71841a470820bca555fa857c8b77410125c2681bc205fd49b07730d2afe9fe"
+    },
+    {
+      "file": "character_13_female_skill_008.png",
+      "source": "players_female/character_13_female/holy_swords/keyframes/frame_008.png",
+      "sha256": "6c18f9bedfc1ed037f5b48086be003880bc22ea25acfd9ff40aa390c3285f7dd",
+      "rgba_sha256": "df58fac46d7d5e37cf0ed7489f677022dd2dd36823ce171c05a63941d82b39af"
+    },
+    {
+      "file": "character_13_female_skill_009.png",
+      "source": "players_female/character_13_female/holy_swords/keyframes/frame_009.png",
+      "sha256": "d36542183a4fc56961c28298c75bbba2b7769d28781302688f9cb129a3a71088",
+      "rgba_sha256": "9a00239d122e94ceb89ddb2a2f6415c7239fa4747ca6667719121ae5b5a33c61"
+    },
+    {
+      "file": "character_13_female_skill_010.png",
+      "source": "players_female/character_13_female/holy_swords/keyframes/frame_010.png",
+      "sha256": "f2d6640635775143718d51f8eb6fb1b6699780cc90f8ddfc340a1a90b1d9ee7d",
+      "rgba_sha256": "0692282441f1d35d9884a3cea3156d196a12b87f800a484f79cbf763fa27ef6e"
+    },
+    {
+      "file": "character_13_female_skill_011.png",
+      "source": "players_female/character_13_female/holy_swords/keyframes/frame_011.png",
+      "sha256": "3755fbf1f2b0fbacc4e24bf015cef88220d219eb283efa492fb6f3df15db662c",
+      "rgba_sha256": "f107d0376c83dfdc3260b29f0defe0fd107d5c1ffeaf483c90b94cff579e6332"
+    },
+    {
+      "file": "character_14_female_run_000.png",
+      "source": "players_female/character_14_female/float/keyframes/frame_000.png",
+      "sha256": "7ab40c78964c68079ffd4643dc528bf6e7493c470da49a38a16f36ea91f4fb21",
+      "rgba_sha256": "47bed5f808ccc6ac83c4bdb45a59c271480d18e330fadf749b126f0b1da5783e"
+    },
+    {
+      "file": "character_14_female_run_001.png",
+      "source": "players_female/character_14_female/float/keyframes/frame_001.png",
+      "sha256": "d29a1159ccac7302a83f4139564f8f3df11cac5beaf8d7eb5421159a5cccd7ff",
+      "rgba_sha256": "aeba77a6e82fe4487262749b91aca5c6d725849458fb9d386c7016c266d9119f"
+    },
+    {
+      "file": "character_14_female_run_002.png",
+      "source": "players_female/character_14_female/float/keyframes/frame_002.png",
+      "sha256": "df000c4e7f630f89259a18f42ca1d7f9a61520b5f13769291e01e856fe7239b0",
+      "rgba_sha256": "8279ee0dddf0dc9186618945e730d605c4c88211c4306f58165c82a4180e4c18"
+    },
+    {
+      "file": "character_14_female_run_003.png",
+      "source": "players_female/character_14_female/float/keyframes/frame_003.png",
+      "sha256": "03f3cc4c31cdaa0aca38641dc84c4d26c542f708810ba4140bb8c083780ad1ef",
+      "rgba_sha256": "13b27a6425ab1074ea166bb3d164e8ffcddb0265b27e68a73a9fd752075e8d7f"
+    },
+    {
+      "file": "character_14_female_run_004.png",
+      "source": "players_female/character_14_female/float/keyframes/frame_004.png",
+      "sha256": "81f3b6c91ad1b6ec181ff5a3ea436f3305f8859f46ee93a4703f82e263f6a127",
+      "rgba_sha256": "6a9aa254706f4cc00f7fca4c54709cad8632ea19ea09c2d083efa3ec098ff98b"
+    },
+    {
+      "file": "character_14_female_run_005.png",
+      "source": "players_female/character_14_female/float/keyframes/frame_005.png",
+      "sha256": "222aeb56708c13710b90da4899c06f135bf6656d3956520a46c8414690abbe02",
+      "rgba_sha256": "da9b65a44a77025266f386822d2184b30b8e3f5bbd536762838f95f8fc65c02f"
+    },
+    {
+      "file": "character_14_female_run_006.png",
+      "source": "players_female/character_14_female/float/keyframes/frame_006.png",
+      "sha256": "32d8ce17ef178af130123ec107de85591984d9577e7a1af0f336db03266cc4b6",
+      "rgba_sha256": "0a74d6c41373ce80dd1351c91013095b5eee90e9cba8f14e2ecedef3f94e20d1"
+    },
+    {
+      "file": "character_14_female_run_007.png",
+      "source": "players_female/character_14_female/float/keyframes/frame_007.png",
+      "sha256": "c54eebebb4b8a80cd19b55c8eb2aafc562d362a05c9d7c4ba618701308fe21c0",
+      "rgba_sha256": "6c301e759720f45a204ee6b1e50e8a0aca364709e2301bef10451ab8360f6edc"
+    },
+    {
+      "file": "character_14_female_attack_000.png",
+      "source": "players_female/character_14_female/dark_wave/keyframes/frame_000.png",
+      "sha256": "ec85fa720ff90ab4ce7614cb01af65f0d812d7e0b41d170f42ce11031746c761",
+      "rgba_sha256": "3b0ec1e21bef0e55d2545eee873548c3213c5276f484b422041f5c978f9597a4"
+    },
+    {
+      "file": "character_14_female_attack_001.png",
+      "source": "players_female/character_14_female/dark_wave/keyframes/frame_001.png",
+      "sha256": "594f3d0bdf1826f6d0a8491439ec7633f3eb16ff8ced2ba5866e8f6c7b1b8f82",
+      "rgba_sha256": "8e9b741997eb6eff13134356ffab1368a2a365a2eeb4adc6bd39590e1554a3ee"
+    },
+    {
+      "file": "character_14_female_attack_002.png",
+      "source": "players_female/character_14_female/dark_wave/keyframes/frame_002.png",
+      "sha256": "47a0f36dce7c476d39f5b3f46d9a850a73b0de129ea024197bac7e9a9ab11c5d",
+      "rgba_sha256": "816f3274bfdfea4f08b03f73ea6772b1c0db02f4d916218e835274e24a45ef9e"
+    },
+    {
+      "file": "character_14_female_attack_003.png",
+      "source": "players_female/character_14_female/dark_wave/keyframes/frame_003.png",
+      "sha256": "13a182ee450661e199f14aed907078e7d6743e636a82900198a16cd8469685da",
+      "rgba_sha256": "87f854d8bcf8af0fcc3ca130434eeb2450db9d169a22f3c7b11626d78019f34e"
+    },
+    {
+      "file": "character_14_female_attack_004.png",
+      "source": "players_female/character_14_female/dark_wave/keyframes/frame_004.png",
+      "sha256": "6d1174a852055c01227ced32845334acd1e4e465866b92609475ae49fb828f65",
+      "rgba_sha256": "3a8f9bb692c0001b6e170fa7d33a5de2e3276a08432fadfb59dda04c75a32adc"
+    },
+    {
+      "file": "character_14_female_attack_005.png",
+      "source": "players_female/character_14_female/dark_wave/keyframes/frame_005.png",
+      "sha256": "cb37a7a544beceaddebe951355a9d390e6afc54b65e9bac1cfe4a5c1a4e97d75",
+      "rgba_sha256": "a8149f195a16215cb47b09b38ef806a55d6540f5f7dbfceb19661cfcf990d7c7"
+    },
+    {
+      "file": "character_14_female_attack_006.png",
+      "source": "players_female/character_14_female/dark_wave/keyframes/frame_006.png",
+      "sha256": "d96dcbd8c8a04154502e2b591205094aac7db30c59a338e25084885111eec4de",
+      "rgba_sha256": "a1314197c7b1729a0b18fd4f95e7015681afb72c6a8a3166986eaa394fdf22e1"
+    },
+    {
+      "file": "character_14_female_attack_007.png",
+      "source": "players_female/character_14_female/dark_wave/keyframes/frame_007.png",
+      "sha256": "788fe6c92891285ba8be9b73c8879d3f1014f811f89f1c2b6b82049a2d8c6fdb",
+      "rgba_sha256": "15693e367f34f9bbcb6f793a53054bd28366d2f65788b472476ec6921acca159"
+    },
+    {
+      "file": "character_14_female_skill_000.png",
+      "source": "players_female/character_14_female/curse/keyframes/frame_000.png",
+      "sha256": "f904e18c26af507d2c8e6a1988d957ede65908dab4c0d32f9c702dc22914a9b3",
+      "rgba_sha256": "dad7896c10f1dace93cda08ffdbdfcde324d0880f4e1d2b089c9a9dc5164d3ad"
+    },
+    {
+      "file": "character_14_female_skill_001.png",
+      "source": "players_female/character_14_female/curse/keyframes/frame_001.png",
+      "sha256": "3d44942115e1c81b4d619951788166ead87b07a31041a90e5cef3a58e6632005",
+      "rgba_sha256": "af0f8fdcb36796b12ffacc63190cb3b8224fdd37afeb84cde78236ac39bb8451"
+    },
+    {
+      "file": "character_14_female_skill_002.png",
+      "source": "players_female/character_14_female/curse/keyframes/frame_002.png",
+      "sha256": "8e2ca0c3fbbee63e8da62f40c638975525257612ba3e68ef743d7777a019151e",
+      "rgba_sha256": "f9bcb6baf9a0b586fa0c1bfa80f2e936a8bf17f4c0e8e1b6d0f8402a85865437"
+    },
+    {
+      "file": "character_14_female_skill_003.png",
+      "source": "players_female/character_14_female/curse/keyframes/frame_003.png",
+      "sha256": "38df52bd1cf78ac3a6ed8dcbeae2613bb5849040b48716cd02be54614e92812a",
+      "rgba_sha256": "6ba014c17359dc5efcbcf010384714212cfff1d7fd6143d2bac35975d487dc7c"
+    },
+    {
+      "file": "character_14_female_skill_004.png",
+      "source": "players_female/character_14_female/curse/keyframes/frame_004.png",
+      "sha256": "9da4e12aab4e2f0784d7a0bfe7dc2ebd405f7e14deafdd9872d8c3fc18990131",
+      "rgba_sha256": "667c3765c9c0df49bed1543a8e201ce0a1cb62d4f95b18a22235e99191642db3"
+    },
+    {
+      "file": "character_14_female_skill_005.png",
+      "source": "players_female/character_14_female/curse/keyframes/frame_005.png",
+      "sha256": "be2215678515d4a162d9d56982ebdb89bdec757dfc2358622cb0b4605c850723",
+      "rgba_sha256": "f323cc7715699c021961ec96a00c4d62f1871aebdac4a466f5f2f5a214aefd1c"
+    },
+    {
+      "file": "character_14_female_skill_006.png",
+      "source": "players_female/character_14_female/curse/keyframes/frame_006.png",
+      "sha256": "40125ac7f67cedd0fad66230df0ad6e612360fc91a58374132f417f64c8e9063",
+      "rgba_sha256": "ec478be7c1233c1887a1b2c7229d5e1c9898ff02cd93ec68d7847c642f6d64d6"
+    },
+    {
+      "file": "character_14_female_skill_007.png",
+      "source": "players_female/character_14_female/curse/keyframes/frame_007.png",
+      "sha256": "106bd85d09a1f3ade3c4bf5259907b4ee77f55870b26a98e61797c9dd292883c",
+      "rgba_sha256": "358878a4dbc955e2729cb92e3eb011426bdd35bd8f3865812831dfea83e9ecba"
+    },
+    {
+      "file": "character_14_female_skill_008.png",
+      "source": "players_female/character_14_female/curse/keyframes/frame_008.png",
+      "sha256": "fbdf9164ec8a759f67b3ed23e5fcb0cd6150ab435700da0b0502ff7a84311231",
+      "rgba_sha256": "5da84a16aac4df71c44d1ce75d9faf8b86b96679303975ac063d4beab2e2b79e"
+    },
+    {
+      "file": "character_14_female_skill_009.png",
+      "source": "players_female/character_14_female/curse/keyframes/frame_009.png",
+      "sha256": "cecbeeefb4c5fc33d1a1aed90c1dc26a82a5e6b8ead75ed8537be55588fb7202",
+      "rgba_sha256": "eb742287af9c97fe6e13e0b7b3fa839b95ff03e1c84b2669c553f98ab0b68a32"
+    },
+    {
+      "file": "character_14_female_skill_010.png",
+      "source": "players_female/character_14_female/curse/keyframes/frame_010.png",
+      "sha256": "5e4af5f36216aa18a9cbe1324b085a9b7c24d8395cb179e29cd42f468b999396",
+      "rgba_sha256": "2fb4719c32db5e12967ee41b4f722437643325dd3156170458562e86c9f3f65b"
+    },
+    {
+      "file": "character_14_female_skill_011.png",
+      "source": "players_female/character_14_female/curse/keyframes/frame_011.png",
+      "sha256": "7f9aedf9957e76cd4879d94504e79649d911d5e38df53b97b81dedb17d2516b8",
+      "rgba_sha256": "a9d1eb568ec0a387a6395db445d1b9d831dadb467487964b3e92cf7f51984326"
+    },
+    {
+      "file": "character_15_female_run_000.png",
+      "source": "players_female/character_15_female/run/keyframes/frame_000.png",
+      "sha256": "265db9f9fd633d37afd6bb7b8689333289c427c4d4324005cb8a27ee7394c6e0",
+      "rgba_sha256": "1dfd7b347910453ec5621463834173f7d77c5e8c4a9b3533a3e85eacb4fb1fe2"
+    },
+    {
+      "file": "character_15_female_run_001.png",
+      "source": "players_female/character_15_female/run/keyframes/frame_001.png",
+      "sha256": "9f00a0518b9d94cbfa09a59c644cef6b0f9b97c587f8c9092d56b8ef1dfe4beb",
+      "rgba_sha256": "c512256aafb55299c01815a892c3d927776fd8b0227ad0659a3295eb9c0c1798"
+    },
+    {
+      "file": "character_15_female_run_002.png",
+      "source": "players_female/character_15_female/run/keyframes/frame_002.png",
+      "sha256": "3cfe44e51a6addd7e17059b301fa87fe6e0b105388c8a1764a6c6a1b24c00c06",
+      "rgba_sha256": "d4afd3aaf1a5f420887aee9e924a93ec24aafe385695c4838bcb70d2152bdfdb"
+    },
+    {
+      "file": "character_15_female_run_003.png",
+      "source": "players_female/character_15_female/run/keyframes/frame_003.png",
+      "sha256": "b279f0695e965becdea302dbbfb94e2aa47d218c8fe75c50d9290a2717f92d81",
+      "rgba_sha256": "efae63bcc6e8d9befb55f74491038433b7a5a16dc24598a0d66f02d9af1c53d7"
+    },
+    {
+      "file": "character_15_female_run_004.png",
+      "source": "players_female/character_15_female/run/keyframes/frame_004.png",
+      "sha256": "8c517df2bee42d76adfeae36cbcfcdb47de2e76413b987497af92e0bed06af66",
+      "rgba_sha256": "d4c1e8f98ad56507c51c829eeb2e04e96d48a4ee932ddc23fc2789943db66ff3"
+    },
+    {
+      "file": "character_15_female_run_005.png",
+      "source": "players_female/character_15_female/run/keyframes/frame_005.png",
+      "sha256": "7671a43027477c22d9b3fd9bbe450adb10a34cebf42fc8b4801c288255081ada",
+      "rgba_sha256": "ddb69eb8574cae40254c8990ded3741245cf5483ec597999776850f90f512370"
+    },
+    {
+      "file": "character_15_female_run_006.png",
+      "source": "players_female/character_15_female/run/keyframes/frame_006.png",
+      "sha256": "c649739b1cc9f23f731f8111d646191cf946137e6bca90bf4dc6d8aa8d14317b",
+      "rgba_sha256": "a10c13f46d8b797a3856429212c8c932d6228c6f10b5fb45d017a18075c6ce4c"
+    },
+    {
+      "file": "character_15_female_run_007.png",
+      "source": "players_female/character_15_female/run/keyframes/frame_007.png",
+      "sha256": "ceab6a295dcdea372e14f642249656ad9c0c535ddd5bd49e4b7125a030d24c33",
+      "rgba_sha256": "2a202c4126ecae4abfde3f4bc5d63296e2060b7f8fb576148bf64cb45a3a2483"
+    },
+    {
+      "file": "character_15_female_attack_000.png",
+      "source": "players_female/character_15_female/spear_thrust/keyframes/frame_000.png",
+      "sha256": "8a014ef27fdc077d86958626f4346819636d71545615a073d6bbcd1906cc8903",
+      "rgba_sha256": "3c2ab223d7bb9367dd1fd07ac975ec8caa326aa7fd3d3d8976e417651bca4d69"
+    },
+    {
+      "file": "character_15_female_attack_001.png",
+      "source": "players_female/character_15_female/spear_thrust/keyframes/frame_001.png",
+      "sha256": "7f570594a39bd2d690a78b02a06ccb45c238eecd546427c597cd2d84fd5385bb",
+      "rgba_sha256": "da79fbf06158098129d08a39ce59b2b776d80cb8973ba00daaa3e6239eb7a107"
+    },
+    {
+      "file": "character_15_female_attack_002.png",
+      "source": "players_female/character_15_female/spear_thrust/keyframes/frame_002.png",
+      "sha256": "bcf22141b1bb16bfd6e649361a2d16d427ae63305b89ad5f3d411afc6414861f",
+      "rgba_sha256": "bccc4086bb1b7ca006fdeff8dc07e1a2af26205b179bc9c285602c813c1694f5"
+    },
+    {
+      "file": "character_15_female_attack_003.png",
+      "source": "players_female/character_15_female/spear_thrust/keyframes/frame_003.png",
+      "sha256": "b5e600c35dc9725c2eb7b07fcd4a2f85687e619633bcc470a109b0083e73216e",
+      "rgba_sha256": "ca9781f627a0d09358459b6e0c207ffbae0a711c003025333ee663a7f6c8a5ba"
+    },
+    {
+      "file": "character_15_female_attack_004.png",
+      "source": "players_female/character_15_female/spear_thrust/keyframes/frame_004.png",
+      "sha256": "34ee9b3b3582d3132100f44c4ba516331dbdb990aa88c9e4bb2fea0b038adf6a",
+      "rgba_sha256": "1c9ca338c6c60a97f6ad45c5a15212d9874336756da3d28c3b6f249ef5fe307c"
+    },
+    {
+      "file": "character_15_female_attack_005.png",
+      "source": "players_female/character_15_female/spear_thrust/keyframes/frame_005.png",
+      "sha256": "d44261673190e2a9f29c1ef036ea3d6897694e1c5d2e13aa0915db72b8509564",
+      "rgba_sha256": "4fa110a8cb07d684e68a5668d1ea46fe0058c4886ae069b4c06a83e6c92af63c"
+    },
+    {
+      "file": "character_15_female_attack_006.png",
+      "source": "players_female/character_15_female/spear_thrust/keyframes/frame_006.png",
+      "sha256": "b852f90c37a656acbfc7fc588f363c2337cd4a309c88a783c2f0c82a8a697a11",
+      "rgba_sha256": "7cd1725baec9a04cdbec6d929f85c80d26f8adfef4999bc0367d79d5e9a38fde"
+    },
+    {
+      "file": "character_15_female_attack_007.png",
+      "source": "players_female/character_15_female/spear_thrust/keyframes/frame_007.png",
+      "sha256": "174107215ed749664febd3a7e335d06e3e82f4f54af0cc1d324e446506927947",
+      "rgba_sha256": "c8145bbedbd94c460607995f24d3e874536b003d04cd8f1b94c8808277eacd62"
+    },
+    {
+      "file": "character_15_female_skill_000.png",
+      "source": "players_female/character_15_female/dragon_flurry/keyframes/frame_000.png",
+      "sha256": "0691df5b2cea0fecfd925cd99a2f446efa9d61a8f1dcdd08801fc8c5523e7146",
+      "rgba_sha256": "685f744dcea06f39dda0d5ee8bacc399132d675850483254b33db7cacae22487"
+    },
+    {
+      "file": "character_15_female_skill_001.png",
+      "source": "players_female/character_15_female/dragon_flurry/keyframes/frame_001.png",
+      "sha256": "ac31e14e93d353f2152d2dcc27af4f9ff1e25e605ca617e793086873b6fd1e37",
+      "rgba_sha256": "dffc7bf0aac1462161b394826289b8f47da9046c309ac37a8452de2b67196ebb"
+    },
+    {
+      "file": "character_15_female_skill_002.png",
+      "source": "players_female/character_15_female/dragon_flurry/keyframes/frame_002.png",
+      "sha256": "b79fc1b50ceefa9434d1af5bcb46c6d791f337322cce861402e8e1a31e3d2e84",
+      "rgba_sha256": "fd1fbff1cf4bf58f31f378378886fd262dd4d333c4bcb0d55b67d2919ccb43c7"
+    },
+    {
+      "file": "character_15_female_skill_003.png",
+      "source": "players_female/character_15_female/dragon_flurry/keyframes/frame_003.png",
+      "sha256": "c19ba7d9806cc076788c05836bd3349b129429b721ee5e2843d9dabecf7ee74b",
+      "rgba_sha256": "5afa43eb8c4697281f24c8b096933e29d45b693d72c7419e65400149e565f2a7"
+    },
+    {
+      "file": "character_15_female_skill_004.png",
+      "source": "players_female/character_15_female/dragon_flurry/keyframes/frame_004.png",
+      "sha256": "e268f602e4a3276b231eef4541ae8c7d12ff334f6327efe415ae4561ea5762c0",
+      "rgba_sha256": "940f9cf5eea33f0423fecd9f3ee38a33aade0d6be9a63a508f46c28dd1b11d81"
+    },
+    {
+      "file": "character_15_female_skill_005.png",
+      "source": "players_female/character_15_female/dragon_flurry/keyframes/frame_005.png",
+      "sha256": "e18b20092132ca2dec41613d1dadc8bc1810e5299fd25221c58db14aa7aa1451",
+      "rgba_sha256": "735f1babd00c5fe45715ec9ac562d5e50aaea827704fc3a6ef2e0da1275738b2"
+    },
+    {
+      "file": "character_15_female_skill_006.png",
+      "source": "players_female/character_15_female/dragon_flurry/keyframes/frame_006.png",
+      "sha256": "70e4c9426b6e868b1f7204c1ec6d57f107e10873998f933eda8829433f22ece9",
+      "rgba_sha256": "7bf6166285460449b97b28f3df6a0abd50374bbe11e80b61530d4ddf606d8745"
+    },
+    {
+      "file": "character_15_female_skill_007.png",
+      "source": "players_female/character_15_female/dragon_flurry/keyframes/frame_007.png",
+      "sha256": "e5f3da4c2eb24c7a4228339c70f2235188d69c8e1e937fe1ce65028cdeef767c",
+      "rgba_sha256": "b38661090c213ded89a80e7fc263ff3a0feb7ff1ed313fc29e425c20e10e2f29"
+    },
+    {
+      "file": "character_15_female_skill_008.png",
+      "source": "players_female/character_15_female/dragon_flurry/keyframes/frame_008.png",
+      "sha256": "124e4e94c40e56b314c43ad774dbae0b4be1853a6c793f7a3a8245d9aff2b660",
+      "rgba_sha256": "1b4aac93acc41306539770b8256397742b15300c343be1aa1464be77a04baba0"
+    },
+    {
+      "file": "character_15_female_skill_009.png",
+      "source": "players_female/character_15_female/dragon_flurry/keyframes/frame_009.png",
+      "sha256": "be8ba4f24c4b1f58a63f22bcda7ab5c82833f74108994004949d75ce398eda29",
+      "rgba_sha256": "1e77e470a3fd04dee232d8023864b7fb32db8580a9ab7452a180054c4a5e0184"
+    },
+    {
+      "file": "character_15_female_skill_010.png",
+      "source": "players_female/character_15_female/dragon_flurry/keyframes/frame_010.png",
+      "sha256": "f130509503a723cbb76ed960c2171561797014a79d92107e12302d001ff6ca00",
+      "rgba_sha256": "e465c80c3b5d6634798b89eba5d566c5be79004ca7777fdbcec498cae9061232"
+    },
+    {
+      "file": "character_15_female_skill_011.png",
+      "source": "players_female/character_15_female/dragon_flurry/keyframes/frame_011.png",
+      "sha256": "89619c2084719846551694f63c5d26eccdfe6f302fa921ccba7a42c1f6b74263",
+      "rgba_sha256": "072a73feb5601974d3e2abcfaa15477781144971ad3a63acd97bc02663ad97c2"
+    },
+    {
+      "file": "character_16_female_run_000.png",
+      "source": "players_female/character_16_female/run/keyframes/frame_000.png",
+      "sha256": "4cc10aa42c1a0caa706ce7645d320c8c39633cedae9f6d6ee63c09b211236542",
+      "rgba_sha256": "fdd0c062e0a8b746bba980fef6a29bdae4b2bd10be05cc473b80e454fc89ab5d"
+    },
+    {
+      "file": "character_16_female_run_001.png",
+      "source": "players_female/character_16_female/run/keyframes/frame_001.png",
+      "sha256": "2fb4bc147f3e6360e20a6319049d1321a74a796171e51007feeb3f844902ef96",
+      "rgba_sha256": "e92406fc051d3df93127a7ceb10116e9b99a4ceee60f43e7f880e576c429ac52"
+    },
+    {
+      "file": "character_16_female_run_002.png",
+      "source": "players_female/character_16_female/run/keyframes/frame_002.png",
+      "sha256": "4d4010a87b9747726c7ad96a682807388d3e6bdc59ef755765ce10bda80d3e56",
+      "rgba_sha256": "e93c8a4bc127aa958b58e27c5ea3ac97d008305e0374ad8a8b1564ef6f0b315d"
+    },
+    {
+      "file": "character_16_female_run_003.png",
+      "source": "players_female/character_16_female/run/keyframes/frame_003.png",
+      "sha256": "c4b4cb7f36cb6eda4f1fcc766d5ff5433a18da8b3f937463500da003f04ae356",
+      "rgba_sha256": "00bcf2268539225118312363ca5442da7ac70fc40aee4cf1048e49b28c5798ac"
+    },
+    {
+      "file": "character_16_female_run_004.png",
+      "source": "players_female/character_16_female/run/keyframes/frame_004.png",
+      "sha256": "5eabae9fbbc0259ab3f640eb037af4e080f76c00bfe7583a321dee145deb83e4",
+      "rgba_sha256": "e21f488f0406b59cfc6ce23c3c9879c288704d44ee07fec30f4e8d7bdc8916d7"
+    },
+    {
+      "file": "character_16_female_run_005.png",
+      "source": "players_female/character_16_female/run/keyframes/frame_005.png",
+      "sha256": "aabcb24a846bb101fc5639245eeab7b7e71ecdd2f7938cfdc0fb42bf8714670a",
+      "rgba_sha256": "9d35ce91d738780954e7a197f31b737171904a565113f686b10ae820d32ba107"
+    },
+    {
+      "file": "character_16_female_run_006.png",
+      "source": "players_female/character_16_female/run/keyframes/frame_006.png",
+      "sha256": "a33c0f18f0d82887c0dda6b7c9d4dff60b9a87ecef3f3af40b5a5c082c881b6e",
+      "rgba_sha256": "91c3fcada38df2325ebbe61659025fee1e946354ce9dbafa363d3a08f2431d18"
+    },
+    {
+      "file": "character_16_female_run_007.png",
+      "source": "players_female/character_16_female/run/keyframes/frame_007.png",
+      "sha256": "e476088bd43dad368915e31a1637adcbecfc46f809e35551802ae6a02de9ca4d",
+      "rgba_sha256": "abba1d4bb2a939d6ec41abac3ff93e4d9622e8ba5615d4a86510982b55160150"
+    },
+    {
+      "file": "character_16_female_attack_000.png",
+      "source": "players_female/character_16_female/heavy_punch/keyframes/frame_000.png",
+      "sha256": "e3a9515beec5e49efaa79ef6813c61ac42d298079bcc19319abb611e3898cb50",
+      "rgba_sha256": "249af6be1f19b081fa835283e3671f55ba467588dc37fefb304e580c8417696b"
+    },
+    {
+      "file": "character_16_female_attack_001.png",
+      "source": "players_female/character_16_female/heavy_punch/keyframes/frame_001.png",
+      "sha256": "6dc8074c45251f1922a66247909088133d2c1e3f98335010674c36d038f6abfd",
+      "rgba_sha256": "31f4fbc01f72ab1ceaa4c5841ef5659509c3c2558b21113653a9655f43ca57e7"
+    },
+    {
+      "file": "character_16_female_attack_002.png",
+      "source": "players_female/character_16_female/heavy_punch/keyframes/frame_002.png",
+      "sha256": "b2d6bfea1727b0ce01419908b1d5988c2776a49b66576c5d00331778e9fcaafc",
+      "rgba_sha256": "0c3e7ab79ba8ebcf05db9f0f6c31839303c872d7e54e80843870b4168e097ec1"
+    },
+    {
+      "file": "character_16_female_attack_003.png",
+      "source": "players_female/character_16_female/heavy_punch/keyframes/frame_003.png",
+      "sha256": "89f27090a1e1a3b07683ae04711048b5c62908637aca13fe19d17e4f41497a1f",
+      "rgba_sha256": "2cc8103c0fa6616d37833787078fac6a3bec0d486a9fde427f18fa74a598c9f4"
+    },
+    {
+      "file": "character_16_female_attack_004.png",
+      "source": "players_female/character_16_female/heavy_punch/keyframes/frame_004.png",
+      "sha256": "0969cc5d98a4a6754e95ced112d66c7e69a212d1e1c6d26a2ab076ed0f868a2f",
+      "rgba_sha256": "922a89b820ab69b7c1f35d8127efc6689c94f98ce667c01e049c4bfe8ca00ec9"
+    },
+    {
+      "file": "character_16_female_attack_005.png",
+      "source": "players_female/character_16_female/heavy_punch/keyframes/frame_005.png",
+      "sha256": "8358b812c2f10932c93831c29e94ea7b55d7058f8b9425769906497ff670c1af",
+      "rgba_sha256": "1d884259573e7352c332c4f81e432439bf3b8aa7c8b1f32fb9abec9c26113753"
+    },
+    {
+      "file": "character_16_female_attack_006.png",
+      "source": "players_female/character_16_female/heavy_punch/keyframes/frame_006.png",
+      "sha256": "68adc2be0f1f057089e26e64bef7df8cddad44704cd3246caf44c7f5c3fabd8a",
+      "rgba_sha256": "d7d85397e814c41b9a2f64894c1e242f2cdb044c34cf30e4a33874f1bd8a417c"
+    },
+    {
+      "file": "character_16_female_attack_007.png",
+      "source": "players_female/character_16_female/heavy_punch/keyframes/frame_007.png",
+      "sha256": "2067d3e6f9e0f742eba4550ade3d594b3b88de2290ad22974dba46ef245f853e",
+      "rgba_sha256": "040ce8751101a841ae6bacd9a9d5eb0f4dc4d7f3aadf07ea126543587d7b24c4"
+    },
+    {
+      "file": "character_16_female_skill_000.png",
+      "source": "players_female/character_16_female/floor_throw/keyframes/frame_000.png",
+      "sha256": "dfc2ac58fef52b742974138b14212a5f77042086617b2c1cf2243cbafd9382d2",
+      "rgba_sha256": "a7fb00ffa8e694b2453515bddd2a80dff113fffd8b4c0b7fb2d1ecffc26deeab"
+    },
+    {
+      "file": "character_16_female_skill_001.png",
+      "source": "players_female/character_16_female/floor_throw/keyframes/frame_001.png",
+      "sha256": "4f96f0aa101181ff6c24e47a108a62677c7aee53b096c2f8604365728e0deab8",
+      "rgba_sha256": "17ad7a9ce3858c5e89635cc729910858054974da29a483a42d1efd8966ec93f1"
+    },
+    {
+      "file": "character_16_female_skill_002.png",
+      "source": "players_female/character_16_female/floor_throw/keyframes/frame_002.png",
+      "sha256": "56960a8e0269aa7cfea614bacaf934694b12ea2867aaef1e74847af181b64c57",
+      "rgba_sha256": "218716da6d263cf2a07b0a09b7fe5e6d8c2d4b09a704f39649c7862fbf23612c"
+    },
+    {
+      "file": "character_16_female_skill_003.png",
+      "source": "players_female/character_16_female/floor_throw/keyframes/frame_003.png",
+      "sha256": "da7d197cdcbd9606bf6cbaeaa374d2264a47226d04866d955a8bce5bd1ec82f9",
+      "rgba_sha256": "c628c5e64cf4504a680adee2d06d170ffe7ca97eb072d588498af5d8fad7e4d3"
+    },
+    {
+      "file": "character_16_female_skill_004.png",
+      "source": "players_female/character_16_female/floor_throw/keyframes/frame_004.png",
+      "sha256": "7805413a7592fa766a5648f22ab38239ea169ed86692c27a81b02ca3c0b4da1e",
+      "rgba_sha256": "79a9c33c21f0fb8ee541f866660af8bacf93b58ea0b2abe2e3d196d10939a507"
+    },
+    {
+      "file": "character_16_female_skill_005.png",
+      "source": "players_female/character_16_female/floor_throw/keyframes/frame_005.png",
+      "sha256": "59daa1c8f9cbe0053ed158c61f28714ae1965fe228c038913318b9b3edd2960c",
+      "rgba_sha256": "1feb35cb04aeb90cf8b0cf451b805ea016d36dc23a8680475fba033e1fb56c8a"
+    },
+    {
+      "file": "character_16_female_skill_006.png",
+      "source": "players_female/character_16_female/floor_throw/keyframes/frame_006.png",
+      "sha256": "feec76e591d059f2d732ecaa6ad795761711890640a6dc2d8c7f2c1bc4cf0cd5",
+      "rgba_sha256": "3c46e2133dec5e4f33cd638f3628ea3439c8f639c271d0bc76edcdb74fc88d54"
+    },
+    {
+      "file": "character_16_female_skill_007.png",
+      "source": "players_female/character_16_female/floor_throw/keyframes/frame_007.png",
+      "sha256": "9bd1aadc353f53b49269b40eb3d4a395688a42eed6918e7f3fa636ad0ec1cd48",
+      "rgba_sha256": "4c1ee23b5cace8b8df910870ec60b53de8ee391047f66046e0ee5e2b1ec80afa"
+    },
+    {
+      "file": "character_16_female_skill_008.png",
+      "source": "players_female/character_16_female/floor_throw/keyframes/frame_008.png",
+      "sha256": "c02eb9833dc8afa64c6e0a88cf49fe287bfcf28fa39dddb80675338a9bd125c4",
+      "rgba_sha256": "038e712240617a2822585b9b347fe77cc073c1102b199034b34ecbb6992d6d0d"
+    },
+    {
+      "file": "character_16_female_skill_009.png",
+      "source": "players_female/character_16_female/floor_throw/keyframes/frame_009.png",
+      "sha256": "0caadea0c9bda7d92014fbfa322f65f2ba4b30d88b11b72afdab0a53c3b0cf38",
+      "rgba_sha256": "b19123fe0d675a34c35ad5b320555eeb540a2a3aeb9e0fd2fbbacf38d341f1dd"
+    },
+    {
+      "file": "character_16_female_skill_010.png",
+      "source": "players_female/character_16_female/floor_throw/keyframes/frame_010.png",
+      "sha256": "8d82e347070e8361e661a23cc782ef4c7f8945c2e938ced8bd13f12e0396b22a",
+      "rgba_sha256": "4bd0565b1d54cc88a340b1c571e1d749cd417ae7e7f1cecbddf8a53f4380e3cb"
+    },
+    {
+      "file": "character_16_female_skill_011.png",
+      "source": "players_female/character_16_female/floor_throw/keyframes/frame_011.png",
+      "sha256": "0e4f6ab7602bd76b247b2abf1a05b2fd7132b3e212b66583dd1940af1d44cf27",
+      "rgba_sha256": "9c764a635380954b90884ed8e36fb25dee009c3d3eeb504691088f79bdb0c9de"
     },
     {
       "file": "slime_locomotion_000.png",
@@ -5396,6 +7449,5 @@
     }
   ],
   "fps": 24,
-  "interpolation": "none",
-  "boss_source": "FocusQuest_pixel_keyframes_v014"
+  "interpolation": "none"
 }

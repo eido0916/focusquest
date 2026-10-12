@@ -124,7 +124,14 @@
   "events": [
     {
       "event": "attack_active",
-      "tick": 9
+      "tick": 9,
+      "applies_damage": false
+    },
+    {
+      "event": "ranged_attack_spawn",
+      "tick": 9,
+      "combat_rule_id": "character_05_female/shuriken",
+      "applies_damage": false
     }
   ],
   "timeline": [
@@ -347,5 +354,32 @@
   ],
   "variant": "female",
   "corresponding_male": "character_05",
-  "root_motion_space": "world_px_absolute_offset"
+  "root_motion_space": "world_px_absolute_offset",
+  "combat": {
+    "id": "character_05_female/shuriken",
+    "actor": "character_05_female",
+    "gender": "female",
+    "name": "忍者 女性 / shuriken",
+    "folder": "players_female/character_05_female/shuriken",
+    "mode": "projectile",
+    "range_world_px": 384,
+    "min_distance_world_px": 0,
+    "speed_world_px_per_tick": 12,
+    "fps": 24,
+    "release_ticks": [
+      9
+    ],
+    "projectile": "combat/projectiles/shuriken/frame_000.png",
+    "projectile_count": 1,
+    "direction": [
+      1,
+      0
+    ],
+    "damage_timing": "collision",
+    "damage_on_release": false,
+    "interpolation": "none",
+    "world_motion_only": true,
+    "spell_delay_ticks": 8,
+    "requires_line_of_sight": true
+  }
 }

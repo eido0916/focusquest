@@ -1,0 +1,348 @@
+{
+  "fps": 24,
+  "stage_materials": {
+    "草原": "grass",
+    "幽霊船": "wood",
+    "火山": "basalt",
+    "毒茸の湿地": "mud",
+    "砂漠の迷宮": "sandstone",
+    "氷晶洞窟": "ice",
+    "月影の墓地": "stone",
+    "星界の祭壇": "stone",
+    "魔王城": "stone"
+  },
+  "materials": {
+    "grass": {
+      "folder": "combat/floors/grass",
+      "keyframes": [
+        {
+          "index": 0,
+          "file": "frame_000.png",
+          "rgba_sha256": "3e108e64bbcfd214e3d0acd6585dccce260d993d2ba6d3e8154154f944f6ef08"
+        },
+        {
+          "index": 1,
+          "file": "frame_001.png",
+          "rgba_sha256": "f8eda87ea30b1db2daea4e8b3776fefd7be4f7d353c4b7b0393e0adb584d4b99"
+        },
+        {
+          "index": 2,
+          "file": "frame_002.png",
+          "rgba_sha256": "9129f552ba78c1f465ce83792f55e0d9d7fb0e7ebf8687cf8d0f1d0d61bb774f"
+        },
+        {
+          "index": 3,
+          "file": "frame_003.png",
+          "rgba_sha256": "c66e890fa30bb7a9e7ea7913bdbb21ccc8df89201ccca6f9631753fef65f538a"
+        }
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "anchor_px": [
+        64,
+        64
+      ],
+      "pose_names": [
+        "lift",
+        "overhead",
+        "flight",
+        "impact"
+      ],
+      "interpolation": "none",
+      "part_transforms": false,
+      "motion_space": "world_px"
+    },
+    "wood": {
+      "folder": "combat/floors/wood",
+      "keyframes": [
+        {
+          "index": 0,
+          "file": "frame_000.png",
+          "rgba_sha256": "bf186b6cb195d4d3bebf488cfcded85925c84ffd0e74484bf4bc17a31546908d"
+        },
+        {
+          "index": 1,
+          "file": "frame_001.png",
+          "rgba_sha256": "52ba27d869183cbae6083273bb3256a4012ed0c3fffb9b47b84a21020a25f9b8"
+        },
+        {
+          "index": 2,
+          "file": "frame_002.png",
+          "rgba_sha256": "451bdbf85ef684a60411d4030f6dd8f22daf0fb48f15023ba302307b84d02a04"
+        },
+        {
+          "index": 3,
+          "file": "frame_003.png",
+          "rgba_sha256": "b63b24e60ba802eb19546ca4bc996ec174c53e2535b016fff84e85457fe4cb45"
+        }
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "anchor_px": [
+        64,
+        64
+      ],
+      "pose_names": [
+        "lift",
+        "overhead",
+        "flight",
+        "impact"
+      ],
+      "interpolation": "none",
+      "part_transforms": false,
+      "motion_space": "world_px"
+    },
+    "basalt": {
+      "folder": "combat/floors/basalt",
+      "keyframes": [
+        {
+          "index": 0,
+          "file": "frame_000.png",
+          "rgba_sha256": "f9b94904721e747f1924ce26081a2cee79f56f6bbb5afc5ffa3a49a2c30ac415"
+        },
+        {
+          "index": 1,
+          "file": "frame_001.png",
+          "rgba_sha256": "f573ba7d964742703eb1a60eabc12028cc720fbdf2e47e756e39a3d7f151c73a"
+        },
+        {
+          "index": 2,
+          "file": "frame_002.png",
+          "rgba_sha256": "6fc9faa3051142aa1c8a0f06d3ef29a12d92717828465b4a96b33830e96dd623"
+        },
+        {
+          "index": 3,
+          "file": "frame_003.png",
+          "rgba_sha256": "fffd1b5482268bd2dbb816447a2d89eb9dbcad1d2a989fe3539c21151c39e1aa"
+        }
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "anchor_px": [
+        64,
+        64
+      ],
+      "pose_names": [
+        "lift",
+        "overhead",
+        "flight",
+        "impact"
+      ],
+      "interpolation": "none",
+      "part_transforms": false,
+      "motion_space": "world_px"
+    },
+    "stone": {
+      "folder": "combat/floors/stone",
+      "keyframes": [
+        {
+          "index": 0,
+          "file": "frame_000.png",
+          "rgba_sha256": "7965540151bdcc2227fbf2c0718d707991eef1baefc461121c4c2a1cad9ed7b9"
+        },
+        {
+          "index": 1,
+          "file": "frame_001.png",
+          "rgba_sha256": "dccbb7d458dd24682007be33421257ef0ea7606a9584fa7904d6833f265c479b"
+        },
+        {
+          "index": 2,
+          "file": "frame_002.png",
+          "rgba_sha256": "f0047951cb513062a290c57bf8ee8da0b2c2e5f208b4e2a0ff9d8b18bbb3b58e"
+        },
+        {
+          "index": 3,
+          "file": "frame_003.png",
+          "rgba_sha256": "d7e19495a30387074aba04eba301aa452cc823f0a41dc0bd75b0df6f4b8afe1a"
+        }
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "anchor_px": [
+        64,
+        64
+      ],
+      "pose_names": [
+        "lift",
+        "overhead",
+        "flight",
+        "impact"
+      ],
+      "interpolation": "none",
+      "part_transforms": false,
+      "motion_space": "world_px"
+    },
+    "mud": {
+      "folder": "combat/floors/mud",
+      "keyframes": [
+        {
+          "index": 0,
+          "file": "frame_000.png",
+          "rgba_sha256": "0508d6e763953aa8d74c826eba05da5707362b21423c4f8d062838add1d0da4e"
+        },
+        {
+          "index": 1,
+          "file": "frame_001.png",
+          "rgba_sha256": "09c9d08699685f423cb7d14835a9b82122621db169a843b1b2c5ca7b8ce52ac7"
+        },
+        {
+          "index": 2,
+          "file": "frame_002.png",
+          "rgba_sha256": "ab3f50ed52a03b315d14396df5e0a7944f2c15472b22fed62f8c17b3a7e8a0e6"
+        },
+        {
+          "index": 3,
+          "file": "frame_003.png",
+          "rgba_sha256": "0c9de54266224a66fa748bed710600f4d753a102052d62c79c94e134049cafb1"
+        }
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "anchor_px": [
+        64,
+        64
+      ],
+      "pose_names": [
+        "lift",
+        "overhead",
+        "flight",
+        "impact"
+      ],
+      "interpolation": "none",
+      "part_transforms": false,
+      "motion_space": "world_px"
+    },
+    "sandstone": {
+      "folder": "combat/floors/sandstone",
+      "keyframes": [
+        {
+          "index": 0,
+          "file": "frame_000.png",
+          "rgba_sha256": "da2f8104ec97cf7349b06fa132622b912fdeadd05b0c8672b58482e9b23a5b39"
+        },
+        {
+          "index": 1,
+          "file": "frame_001.png",
+          "rgba_sha256": "a3cffd548f6bf2915e3790d707f017c8bcbffe81b4c1e51c0b2f04dd7966cb53"
+        },
+        {
+          "index": 2,
+          "file": "frame_002.png",
+          "rgba_sha256": "3f46ef996d4b9aa672576a4250aab2505cb64f82c54c24191acf9718c0d896e9"
+        },
+        {
+          "index": 3,
+          "file": "frame_003.png",
+          "rgba_sha256": "831ec1164d5f48a517e22df02b35a64471155cd829674aff751c1ad41c360e76"
+        }
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "anchor_px": [
+        64,
+        64
+      ],
+      "pose_names": [
+        "lift",
+        "overhead",
+        "flight",
+        "impact"
+      ],
+      "interpolation": "none",
+      "part_transforms": false,
+      "motion_space": "world_px"
+    },
+    "ice": {
+      "folder": "combat/floors/ice",
+      "keyframes": [
+        {
+          "index": 0,
+          "file": "frame_000.png",
+          "rgba_sha256": "c0392fc4749ad47fa0f0f402b47f819a50ae90e5f8ac5fd7b5a8662110b0224c"
+        },
+        {
+          "index": 1,
+          "file": "frame_001.png",
+          "rgba_sha256": "37ba141fc0de0c0a18b1113b252dc4fad757dab27234a1e3b255d9bcac3de067"
+        },
+        {
+          "index": 2,
+          "file": "frame_002.png",
+          "rgba_sha256": "d377d80bb197d9d88c45f2d58880a0366e45490a700457bde55b9dbcaa4ba143"
+        },
+        {
+          "index": 3,
+          "file": "frame_003.png",
+          "rgba_sha256": "dac8b8326a93195bf964a1c1002b7d81ddc412a5b8b0cc88bec8b383d6d481d0"
+        }
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "anchor_px": [
+        64,
+        64
+      ],
+      "pose_names": [
+        "lift",
+        "overhead",
+        "flight",
+        "impact"
+      ],
+      "interpolation": "none",
+      "part_transforms": false,
+      "motion_space": "world_px"
+    }
+  },
+  "character_floor_centers_from_feet_px": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      28,
+      -35
+    ],
+    [
+      22,
+      -42
+    ],
+    [
+      27,
+      -64
+    ],
+    [
+      5,
+      -94
+    ],
+    [
+      -5,
+      -88
+    ]
+  ],
+  "throw_release_keyframe": 8,
+  "collision_damage_only": true,
+  "interpolation": "none",
+  "world_motion_only": true
+}

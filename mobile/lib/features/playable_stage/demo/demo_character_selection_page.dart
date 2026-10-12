@@ -99,11 +99,11 @@ class _DemoCharacterSelectionPageState
                                                       PlayableCharacters.all
                                                               .indexOf(
                                                                   _selected) %
-                                                          10;
+                                                          16;
                                                   _selected = PlayableCharacters
                                                           .all[
                                                       roleIndex +
-                                                          (female ? 10 : 0)];
+                                                          (female ? 16 : 0)];
                                                 }))),
                                 ]),
                             Expanded(
