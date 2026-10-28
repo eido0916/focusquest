@@ -104,7 +104,10 @@ class PartyServer {
               return;
             }
             _expire(found);
-            if (!_rooms.containsKey(code)) { error('復帰できる時間を過ぎています。新しいパーティーを作成してください。'); return; }
+            if (!_rooms.containsKey(code)) {
+              error('復帰できる時間を過ぎています。新しいパーティーを作成してください。');
+              return;
+            }
             final token = data['resumeToken'];
             if (token is String && token.isNotEmpty) {
               for (final entry in found.tokens.entries) {
@@ -296,7 +299,9 @@ class PartyServer {
     if (DateTime.now().isBefore(endsAt)) return;
     room.session = null;
     if (room.peers.isEmpty) room.emptySince = now;
-    for (final id in room.disconnectedAt.keys.toList()) { room.disconnectedAt[id] = now; }
+    for (final id in room.disconnectedAt.keys.toList()) {
+      room.disconnectedAt[id] = now;
+    }
 
     for (final member in room.members.values) {
       member['ready'] = false;
@@ -307,18 +312,23 @@ class PartyServer {
   void _broadcast(_Room room) {
     for (final peer in room.peers.entries) {
       if (peer.value.readyState != WebSocket.open) continue;
-      peer.value.add(jsonEncode({
-        'type': 'snapshot',
-        'selfId': peer.key,
-        'resumeToken': room.tokens[peer.key],
-        'focusAreaIndex': room.focusAreaIndex,
-        'hostId': room.hostId,
-        'code': room.code,
-        'minutes': room.minutes,
-        'members': room.members.values.toList(),
-        'session': room.session,
-        'serverTime': DateTime.now().toUtc().toIso8601String()
-      }));
+      try {
+        peer.value.add(jsonEncode({
+          'type': 'snapshot',
+          'selfId': peer.key,
+          'resumeToken': room.tokens[peer.key],
+          'focusAreaIndex': room.focusAreaIndex,
+          'hostId': room.hostId,
+          'code': room.code,
+          'minutes': room.minutes,
+          'members': room.members.values.toList(),
+          'session': room.session,
+          'serverTime': DateTime.now().toUtc().toIso8601String()
+        }));
+      } on StateError {
+        // A locally closed sink can still report OPEN until onDone runs.
+        // The disconnect handler removes the peer and updates the room.
+      }
     }
   }
 
