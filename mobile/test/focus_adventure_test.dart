@@ -99,7 +99,8 @@ void main() {
   });
   test('bosses load original movement, attack and transparent defeat frames',
       () async {
-    final assets = await EnemyMotionAssets.load(FlameGame());
+    final assets = await EnemyMotionAssets.load(FlameGame(),
+        ids: PlayableStageCatalog.bossIds);
     for (final id in PlayableStageCatalog.bossIds) {
       for (final action in ['locomotion', 'attack', 'defeat']) {
         final motion = assets.motions['${id}_$action']!;

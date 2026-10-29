@@ -1,0 +1,103 @@
+{
+  "verified_assets": 19,
+  "apk": "FocusQuest-character-ui-v004-debug.apk",
+  "bytes": 619481198,
+  "assets": [
+    {
+      "asset": "action_row.png",
+      "matches": true,
+      "sha256": "D96F626C6AD6FEA250C812258671B4609CE231363CBDDB508AA1AB5ED37FEC52"
+    },
+    {
+      "asset": "adventurer_panel.png",
+      "matches": true,
+      "sha256": "DC734BC6C311E369330B26BD37128D8AA418066CB3B4E0938B938705E87C5B15"
+    },
+    {
+      "asset": "castle_courtyard.png",
+      "matches": true,
+      "sha256": "96B6C531F743A4A5C010A22B8849474D52AD8C394ABDC3592D9E5BA582977554"
+    },
+    {
+      "asset": "certificate_icon.png",
+      "matches": true,
+      "sha256": "9A85EEA2073F4AD0AA19C31980AB8DAC3D0CA3E2C3404FC2F0BC53A59032B8DF"
+    },
+    {
+      "asset": "chevron_icon.png",
+      "matches": true,
+      "sha256": "8278752B96E3C6A13553A7E655E2845B7435602FA69DACC4F60005239811E5B1"
+    },
+    {
+      "asset": "exp_track.png",
+      "matches": true,
+      "sha256": "771C38CC0973BA5EC4D7A267326B100E2AF81E9DDFEF9706F56A4949C6546381"
+    },
+    {
+      "asset": "header_banner.png",
+      "matches": true,
+      "sha256": "B18D28B8C3065E2DF7EB21E3CDC592E448D5AADE95923D03072321B46D3742B3"
+    },
+    {
+      "asset": "identity_divider.png",
+      "matches": true,
+      "sha256": "40CD1C5A4B45000BC1476A648B494BF7743B49269CDB9304C958A5D4B81BA375"
+    },
+    {
+      "asset": "identity_panel.png",
+      "matches": true,
+      "sha256": "03828DDDE10DFEE4E3265D40DF54FA57D4FAA3FB6113BF23CF2CBD0A910A9B56"
+    },
+    {
+      "asset": "level_icon.png",
+      "matches": true,
+      "sha256": "30EF2E87C3AF378C5787F2A871593484846C30F098D0F2C902C6AEFD8DAD0E5F"
+    },
+    {
+      "asset": "parchment_panel.png",
+      "matches": true,
+      "sha256": "B725A05815FACC3193FB2131A757A6E88C2CD668930F08573E5743130FEACD63"
+    },
+    {
+      "asset": "stat_attack.png",
+      "matches": true,
+      "sha256": "102E90ED085FA09EF11112FA7775A115DF898B2853A70F447D5736E65A9F6FB3"
+    },
+    {
+      "asset": "stat_critical.png",
+      "matches": true,
+      "sha256": "3A38CC8B657B4DFBACD177219C9555269AC7825B9C2084E7562AAF55B4B099B1"
+    },
+    {
+      "asset": "stat_defense.png",
+      "matches": true,
+      "sha256": "BB9AFE77D08055E1C96902EDDD612D090E2B45A9CC0937E0BADBA4199431D45B"
+    },
+    {
+      "asset": "stat_hp.png",
+      "matches": true,
+      "sha256": "C08E198014FEB103B4BE9B928F6DD5648A675BD78D2390A5DD89027996E5B24B"
+    },
+    {
+      "asset": "stat_row.png",
+      "matches": true,
+      "sha256": "5C21C655C1805138586E39DDF698775F7581B097A7A6AA53B1702403D0E34BE7"
+    },
+    {
+      "asset": "stat_speed.png",
+      "matches": true,
+      "sha256": "670004938B457F7DB4AF078420963F6AC44C852FCEB88FA7A7CA3668D8EA845D"
+    },
+    {
+      "asset": "title_icon.png",
+      "matches": true,
+      "sha256": "180B839A535290D9A6199543862680351AB5C3AFAB0B3E09E0EA85A781963E38"
+    },
+    {
+      "asset": "title_list_panel.png",
+      "matches": true,
+      "sha256": "7CC3D9EFE946AC53F4BAC3B01880820B632D90F3A5B6381BD012238E49386AE1"
+    }
+  ],
+  "sha256": "6E8A43B0D59B876D18290CAF22606363A6C81212A47B9A41FE94BDB930C41785"
+}

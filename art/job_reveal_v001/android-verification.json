@@ -1,0 +1,218 @@
+{
+  "apk": "FocusQuest-job-reveal-v001-debug.apk",
+  "bytes": 594710777,
+  "sha256": "6a1064eacfa970e882ad5eb58b225382391e5d38f7ed0744fa34c1ae43fe3618",
+  "verified_assets": 41,
+  "assets": [
+    {
+      "asset": "assets/images/diagnosis/job_reveal_v001/background.png",
+      "sha256": "734add937c4bafdc80ed366eb6b1ef03043e0292a4eb140f0c0fc184a06a31e1",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/diagnosis/job_reveal_v001/book.png",
+      "sha256": "fe05ce969d44726f4b0dd28ef0d88dddf2e2e13d43e0d7a320a3467295c6a45b",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/diagnosis/job_reveal_v001/button.png",
+      "sha256": "8dbf16635c88e55ccda542a5267765ef0f39cc6dfa4352848b70074be5c77edd",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/diagnosis/job_reveal_v001/card.png",
+      "sha256": "24ad2dfecd3514ae03bd29071d166def4a5f952417370526419f07dbbd50315b",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/diagnosis/job_reveal_v001/dialogue.png",
+      "sha256": "ba6f8ac725eaa614bfec7a771f08cc4fce7d11f8dd14956b2c5fad4d2e7fb9b3",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/diagnosis/job_reveal_v001/guide.png",
+      "sha256": "14a99ab75ef0d3c80ef7415184328b00b1644b24e4f489c5805476e493a58097",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/diagnosis/job_reveal_v001/plaque.png",
+      "sha256": "69becaadf3ffa9508192f5d9f2f0561752de14580abe28d52619bbfcfa157fb3",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/diagnosis/job_reveal_v001/traits.png",
+      "sha256": "465f02b4edd1ed3717cd76b8fe00d31306ae1c6d9a713fdd1b1fd6a7b7a3d109",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/angel.png",
+      "sha256": "657da13761168c4468c980d590afd281913b9e519f828656e9dec6af72ba5bab",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/assassin.png",
+      "sha256": "e5f9d10af8ed7165af10908cfb19fbedd155ef9e8fb292ddfa80f51f01f1e91b",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/berserker.png",
+      "sha256": "2bcc84ced5248a9a95968b7fd5c522eabbc06f474092caa6e53b10fbd3d3e3a0",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/boxer.png",
+      "sha256": "b8cd8764f074c0f1b0470893e8462601cb1c4d244c4921cbd216d7ebae9dca1c",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/devil.png",
+      "sha256": "c93dfc76faf4e6e1fcff6025ef3e914aad6c3c588afc2e823c46b919d3a5d3d1",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/dragon_knight.png",
+      "sha256": "8aa51679df496adb963d3c3c88390341fcee79a284767cdf29cf95afc1d0fc8a",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/guardian.png",
+      "sha256": "e42fee5b926ba61aab2a1003256d23940d7b9b5aaeed9509f0da142e2633a0a8",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/gunner.png",
+      "sha256": "0cb769554c6ad8e18664e99851ae8602d30c688e3f54226a557ae657bd3f7ba3",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/mage.png",
+      "sha256": "1302ed455044119065326d488e873149739b37c49cca89676f25559a74936cac",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/ninja.png",
+      "sha256": "f669fd6c07637b5565aa7b5ab8a488747f33b4c8765e2a0f791c60e6edf40670",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/onmyoji.png",
+      "sha256": "96e5f6050dba2684379a3c8f2e5547714b51e20b3aabd1d46d1f86e071251b5f",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/ranger.png",
+      "sha256": "c4426e4d3709fa7c5ce66ae9e033c9b8e1f516e9a97bafc8a760dcbaffb0303a",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/reaper.png",
+      "sha256": "738618fead735d5c40246324f73e8ffeeefbafc8424b13427e1f9d12d4c21b6d",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/samurai.png",
+      "sha256": "2680db70f79b8c3b2c01977c75441f1d954c9721a556f594fd83bb33a24cd48d",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/spellblade.png",
+      "sha256": "328324a85c52ad0346a50a9f634e5b64aae2142e10b2f4e253b2075c22ea5a6d",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/warrior.png",
+      "sha256": "1b7f6975f8aad961cf839b000846a150a1ca0b84e08ce0fddb5cc7051d0213b0",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/angel.png",
+      "sha256": "399759422eb5b83d4bbf23a3d6e88654b952dda00da31dbf0bc9d9dc928c2b1d",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/assassin.png",
+      "sha256": "ddb5d7cba54342542375ee269d9c6ef0e961057cf9049d635753790cd158da9f",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/berserker.png",
+      "sha256": "51816465e1b1b67642c82d0fc562c5104d4fbce7f8848f1d2c3577784336cc0c",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/boxer.png",
+      "sha256": "7de3a8c9210da4a0b57d32080b84472ea1be5e8a5239b835bd01a0b0b8e03665",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/devil.png",
+      "sha256": "64c2b06bcc2bf9a406762e4fe2ca700a9508435ca71528cdc1222fcd4d2df7fe",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/dragon_knight.png",
+      "sha256": "99f4ea753c9c2732a1897ae9bb17283c603148b3512ebdd59531fc01038dea2d",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/guardian.png",
+      "sha256": "b9e85c28e344af3c3238613c283ac912b1c2b8415076b43b29911c755c365fa2",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/gunner_dark_brown_transparent_v002.png",
+      "sha256": "230c3f45a37dd6e0156979f1f6e4b204a0563cf3451f813bfa756118b06f6b01",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/mage.png",
+      "sha256": "9ca9b9fc36f8c6cf8958c63a2e510b236bb2724983398eacf287a863a08e2214",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/ninja.png",
+      "sha256": "d93d15398bfca8df9c3403c5b122cee566483cbea88642f781f8432e76eecbe8",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/onmyoji.png",
+      "sha256": "f4cc10731a11fbe2edcf4ebc27d8c0987e325ef89ee49cecec564f10396b2e3f",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/ranger.png",
+      "sha256": "62b257fd02cc870ec202353a3317d17635f8de919446c11b68eaef3c7815398e",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/reaper.png",
+      "sha256": "72afd5ed7356179725d979659eec1e294da8effcf7f08cf53c2a40df23839cf7",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/samurai.png",
+      "sha256": "2de051636b96883db0235c19b15bbb4fdaebcef56c451dc6fa960d68083ffdec",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/spellblade.png",
+      "sha256": "ae2c358da0d7e57b472dea8a8e87d45a5b1578724c9bb6875d58c8434e21c77a",
+      "matches": true
+    },
+    {
+      "asset": "assets/images/lobby/portraits/female/warrior.png",
+      "sha256": "7b3c18c8254a8d23daad0e93e337ab572be65dc0651bc8bbd9d6393f7baed2f8",
+      "matches": true
+    },
+    {
+      "asset": "assets/fonts/NotoSerifJP.ttf",
+      "sha256": "2fd527ba12b6a44ec30d796d633360da0aeba6c5d4af1304ce12bb4dc15a7dfc",
+      "matches": true
+    }
+  ],
+  "abis": [
+    "arm64-v8a"
+  ],
+  "signatureVerified": true,
+  "debugCertificateSha256": "05d9679f1bb9f37f6e8d3085e15e19b1b617a158f8fc5ea4c51c1a6add009c5a"
+}

@@ -1,0 +1,47 @@
+{
+  "basis": "User-provided 16-role diagnosis table",
+  "axes": [
+    {
+      "a": "D",
+      "aLabel": "突破型",
+      "b": "S",
+      "bLabel": "洞察型"
+    },
+    {
+      "a": "F",
+      "aLabel": "テンポ型",
+      "b": "H",
+      "bLabel": "集中型"
+    },
+    {
+      "a": "I",
+      "aLabel": "自立型",
+      "b": "T",
+      "bLabel": "連携型"
+    },
+    {
+      "a": "R",
+      "aLabel": "実践型",
+      "b": "V",
+      "bLabel": "創造型"
+    }
+  ],
+  "roles": {
+    "warrior": "DFIR",
+    "boxer": "DFTR",
+    "samurai": "SHIR",
+    "guardian": "DHTR",
+    "ninja": "SFIR",
+    "assassin": "SFIV",
+    "ranger": "SHTR",
+    "gunner": "SFTR",
+    "mage": "SHTV",
+    "spellblade": "DFIV",
+    "onmyoji": "SFTV",
+    "reaper": "SHIV",
+    "angel": "DHTV",
+    "devil": "DHIV",
+    "dragon_knight": "DFTV",
+    "berserker": "DHIR"
+  }
+}

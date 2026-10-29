@@ -36,22 +36,28 @@ void main() {
     await tester.tap(find.text('パーティを組む'));
     await tester.pumpAndSettle();
     expect(find.byType(PartyPage), findsOneWidget);
-    expect(find.text('パーティーコード'), findsOneWidget);
     expect(find.text('コードで参加'), findsOneWidget);
+    expect(find.text('集中時間の設定'), findsOneWidget);
+    await tester.tap(find.text('コードで参加'));
+    await tester.pumpAndSettle();
+    expect(find.text('パーティーコード'), findsOneWidget);
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox());
     controller.dispose();
   });
-  for (final (count, skill, added) in [
-    (2, false, false),
-    (4, false, false),
-    (4, true, false),
-    (4, false, true),
-    (4, true, true),
-    (2, true, true),
+  for (final (count, skill, added, chapterStart) in [
+    (2, false, false, 0),
+    (4, false, false, 0),
+    (4, true, false, 0),
+    (4, false, true, 0),
+    (4, true, true, 0),
+    (2, true, true, 0),
+    (2, false, false, 1800),
+    (4, false, false, 1800),
+    (4, true, false, 1800),
   ]) {
     testWidgets(
-        '$count originals on the left and $count enemy lanes (${skill ? 'skill' : 'attack'}, added roles: $added)',
+        '$count originals and $count enemy lanes, chapter start $chapterStart (${skill ? 'skill' : 'attack'}, added roles: $added)',
         (tester) async {
       tester.view.physicalSize = const Size(960, 540);
       tester.view.devicePixelRatio = 1;
@@ -103,6 +109,7 @@ void main() {
       final game = PartyBattleGame(
           session: FocusSession(
               id: 'party',
+              adventureStartSeconds: chapterStart,
               startedAt: now,
               durationMinutes: 30,
               partyMembers: members),
@@ -127,8 +134,8 @@ void main() {
               as RenderRepaintBoundary;
           final image = await render.toImage();
           final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
-          final file =
-              File('../output/party/party-$count${skill ? '-skill' : ''}.png');
+          final file = File(
+              '../output/party/party-$count${skill ? '-skill' : ''}${added ? '-added' : ''}${chapterStart == 1800 ? '-ghost-ship' : ''}.png');
           await file.parent.create(recursive: true);
           await file.writeAsBytes(bytes!.buffer.asUint8List());
           image.dispose();

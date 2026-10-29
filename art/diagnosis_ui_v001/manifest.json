@@ -1,0 +1,110 @@
+[
+  {
+    "file": "compass.png",
+    "width": 1170,
+    "height": 1166,
+    "source": "source/compass.png",
+    "alpha_bounds": [
+      42,
+      45,
+      1212,
+      1211
+    ]
+  },
+  {
+    "file": "confirm-button.png",
+    "width": 2156,
+    "height": 462,
+    "source": "source/confirm-button.png",
+    "alpha_bounds": [
+      8,
+      118,
+      2164,
+      580
+    ]
+  },
+  {
+    "file": "crystal.png",
+    "width": 1015,
+    "height": 1491,
+    "source": "source/crystal.png",
+    "alpha_bounds": [
+      7,
+      5,
+      1022,
+      1496
+    ]
+  },
+  {
+    "file": "orb-blue.png",
+    "width": 1145,
+    "height": 1135,
+    "source": "source/orb-blue.png",
+    "alpha_bounds": [
+      54,
+      49,
+      1199,
+      1184
+    ]
+  },
+  {
+    "file": "orb-purple.png",
+    "width": 1173,
+    "height": 1154,
+    "source": "source/orb-purple.png",
+    "alpha_bounds": [
+      40,
+      35,
+      1213,
+      1189
+    ]
+  },
+  {
+    "file": "parchment-panel.png",
+    "width": 2037,
+    "height": 637,
+    "source": "source/parchment-panel.png",
+    "alpha_bounds": [
+      25,
+      63,
+      2062,
+      700
+    ]
+  },
+  {
+    "file": "sanctuary.png",
+    "width": 941,
+    "height": 1672,
+    "source": "source/sanctuary.png",
+    "alpha_bounds": [
+      0,
+      0,
+      941,
+      1672
+    ]
+  },
+  {
+    "file": "sapphire-panel.png",
+    "width": 1985,
+    "height": 422,
+    "source": "source/sapphire-panel.png",
+    "alpha_bounds": [
+      47,
+      168,
+      2032,
+      590
+    ]
+  },
+  {
+    "file": "title-plaque.png",
+    "width": 2170,
+    "height": 660,
+    "source": "source/title-plaque.png",
+    "alpha_bounds": [
+      1,
+      3,
+      2171,
+      663
+    ]
+  }
+]

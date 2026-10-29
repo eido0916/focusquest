@@ -1,0 +1,13 @@
+{
+  "device": "TB373FU",
+  "serial": "HA2A23ER",
+  "installation": "adb install -r: Success",
+  "launch": "Success",
+  "screenshot": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/art/job_reveal_v001/previews/device-installed.png",
+  "notes": "起動直後に導入画面を確認。後の読み取りではパーティー画面。診断の保存は実行していない。",
+  "package": [
+    "versionCode=1 minSdk=21 targetSdk=34",
+    "versionName=1.0.0",
+    "lastUpdateTime=2026-10-12 23:16:54"
+  ]
+}

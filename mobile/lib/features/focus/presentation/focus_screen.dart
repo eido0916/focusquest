@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../../core/config/game_balance.dart';
 import '../../../core/game_controller.dart';
 import '../../../core/widgets/quest_widgets.dart';
+import 'focus_timer_scene.dart';
 import '../domain/focus_session.dart';
 import '../domain/focus_adventure.dart';
 import 'battle_replay_page.dart';
@@ -15,6 +16,7 @@ import '../../character/presentation/character_screen.dart';
 import '../../settings/settings_screen.dart';
 import '../../adventure/presentation/adventure_screen.dart';
 import 'focus_selection_scene.dart';
+import 'focus_audio.dart';
 
 class FocusScreen extends StatefulWidget {
   const FocusScreen({super.key, required this.controller, this.onNavigate});
@@ -76,10 +78,12 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
       await Navigator.of(context).push(MaterialPageRoute<void>(
           builder: (_) => session.partyMembers.isNotEmpty
               ? PartyBattlePage(
+                  controller: widget.controller,
                   session: session,
                   clock: widget.controller.clock,
                   party: widget.controller.party)
               : BattleReplayPage(
+                  controller: widget.controller,
                   characterName:
                       widget.controller.state?.activeCharacter?.name ?? '冒険者',
                   appearance:
@@ -275,78 +279,35 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
         onBack: () => Navigator.of(context).maybePop(),
       );
     }
-    return Scaffold(
-        body: QuestBackdrop(
-            child: Center(
-                child: SingleChildScrollView(
-                    child: QuestCard(
-                        caption:
-                            '集中中 · ${FocusAdventure.area(0, areaIndex: session.focusAreaIndex)}',
-                        child:
-                            Column(mainAxisSize: MainAxisSize.min, children: [
-                          if (session.task != null)
-                            Text('タスク：${session.task!.title}'),
-                          const Text('集中は続いています。画面を消して、自分の時間に集中しましょう。'),
-                          QuestActionButton(
-                              label: '戦闘画面に戻る',
-                              icon: Icons.play_arrow,
-                              onTap: _openBattle),
-                          const SizedBox(height: 10),
-                          QuestActionButton(
-                              key: const Key('focus-return-home'),
-                              label: 'ホームに戻る',
-                              icon: Icons.home_outlined,
-                              onTap: _settling
-                                  ? null
-                                  : () {
-                                      if (widget.onNavigate != null) {
-                                        widget.onNavigate!(0);
-                                      } else {
-                                        Navigator.of(context)
-                                            .popUntil((route) => route.isFirst);
-                                      }
-                                    }),
-                          if (session.partyMembers.isNotEmpty)
-                            QuestActionButton(
-                                label: 'パーティー・参加コード',
-                                icon: Icons.groups,
-                                onTap: _openParty),
-                          if (_error != null) Text(_error!),
-                          if (_automaticFailed)
-                            TextButton(
-                                onPressed: _settling ? null : () => _finish(),
-                                child: const Text('結果の保存を再試行')),
-                          TextButton(
-                              onPressed: _settling
-                                  ? null
-                                  : () async {
-                                      final cancel = await showDialog<bool>(
-                                          context: context,
-                                          builder: (context) => AlertDialog(
-                                                  title:
-                                                      const Text('集中を中断しますか？'),
-                                                  content: const Text(
-                                                      '途中終了では報酬を獲得できません。'),
-                                                  actions: [
-                                                    TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                context, false),
-                                                        child:
-                                                            const Text('続ける')),
-                                                    TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                context, true),
-                                                        child:
-                                                            const Text('中断する'))
-                                                  ]));
-                                      if (cancel == true && mounted) {
-                                        await _finish(cancel: true);
-                                      }
-                                    },
-                              child: const Text('集中を中断')),
-                        ]))))));
+    final character = controller.state!.activeCharacter!;
+    final seconds = session.remaining(controller.clock()).inSeconds;
+    return FocusTimerScene(
+      taskTitle: session.task?.title,
+      characterName: character.name,
+      characterType: character.characterType,
+      level: character.level,
+      chapter: FocusAdventure.chapter(
+          session.durationMinutes * 60 - seconds.toDouble()),
+      seconds: seconds,
+      progress: (1 - seconds / (session.durationMinutes * 60)).clamp(0, 1),
+      partySize: session.partyMembers.length,
+      message: controller.partyStartError ?? controller.party.error,
+      error: _error,
+      onBattle: controller.busy || _settling ? null : _openBattle,
+      onParty: controller.party.connected && !controller.busy && !_settling
+          ? _openParty
+          : null,
+      onSound: () => showFocusSoundSettings(context, controller),
+      onBack: () {
+        if (widget.onNavigate != null) {
+          widget.onNavigate!(0);
+        } else {
+          Navigator.of(context).popUntil((route) => route.isFirst);
+        }
+      },
+      onRetry: _settling ? null : () => _finish(),
+      onCancel: _settling || controller.busy ? null : _confirmCancel,
+    );
   }
 
   Future<void> _chooseArea() async {
@@ -367,6 +328,25 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                   child: Text('冒険で同じエリアの4ステージをクリアすると、集中エリアが解放されます。')),
             ]));
     if (selected != null) controller.selectFocusArea(selected);
+  }
+
+  Future<void> _confirmCancel() async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('集中を中断しますか？'),
+        content: const Text('途中終了では報酬を獲得できません。'),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: const Text('続ける')),
+          TextButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: const Text('中断する')),
+        ],
+      ),
+    );
+    if (confirmed == true && mounted) await _finish(cancel: true);
   }
 
   Future<void> _chooseCustomTime() async {

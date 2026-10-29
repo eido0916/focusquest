@@ -1,0 +1,273 @@
+{
+  "sha256": "1789149BA4F4239EF68A1221FA131F4EB352B23F4E15B4814B11EFA6F21338B8",
+  "verified_assets": 53,
+  "apk": "FocusQuest-party-focus-v001-debug.apk",
+  "bytes": 609590662,
+  "assets": [
+    {
+      "sha256": "5991841E3E356C29BC14743EE728D3392F686995B83480543BBD77EFE8774078",
+      "asset": "party_focus_v001/compass.png",
+      "matches": true
+    },
+    {
+      "sha256": "99AEF297E726C7E3871C02ED7F225D8D1A9AA2AE98FC055C6F40930B40C3E1A1",
+      "asset": "party_focus_v001/header_frame.png",
+      "matches": true
+    },
+    {
+      "sha256": "9D4153E0F3A562CAC43BAEFE618DFFC34153CBDF0A3B879A56E23343C859C9C6",
+      "asset": "party_focus_v001/member_frame.png",
+      "matches": true
+    },
+    {
+      "sha256": "207C4A03FEC2971849D252CC7A1B1F72AE046424DD399FC6A0A5A7BA815D669C",
+      "asset": "focus_selection_v001/avatars/male/angel.png",
+      "matches": true
+    },
+    {
+      "sha256": "9E2507275DBB3415ABBEC1248F05D5CB1026C7E8A7CFAB0230C469E3A32801B5",
+      "asset": "focus_selection_v001/avatars/male/assassin.png",
+      "matches": true
+    },
+    {
+      "sha256": "AA271FCAB1955641B603F51DFAC8928BA5D5C6AE385DBEC65236A7326DF84276",
+      "asset": "focus_selection_v001/avatars/male/berserker.png",
+      "matches": true
+    },
+    {
+      "sha256": "D1D446E2DA7B846C50089709E1E0DF0AEEA026837E0A2DCF909B23408CC7B81B",
+      "asset": "focus_selection_v001/avatars/male/boxer.png",
+      "matches": true
+    },
+    {
+      "sha256": "A40BF8A31EBE62997C23E7498D2F27F19E103A3D307036DB8DCEE31693BC626E",
+      "asset": "focus_selection_v001/avatars/male/devil.png",
+      "matches": true
+    },
+    {
+      "sha256": "310D2F8F73660FB171A5F6CF5FA5BBEB40906A0BB599A07686DC345914CFDE57",
+      "asset": "focus_selection_v001/avatars/male/dragon_knight.png",
+      "matches": true
+    },
+    {
+      "sha256": "EA088D36EBA2AE7F6068F8BAF9050B4553C2E5575887C4128F60083A81798C50",
+      "asset": "focus_selection_v001/avatars/male/guardian.png",
+      "matches": true
+    },
+    {
+      "sha256": "86C918138FD8527CDFF78830F4EEEB1B15134BB0D4C4544CE511B3ED988BBB3A",
+      "asset": "focus_selection_v001/avatars/male/gunner.png",
+      "matches": true
+    },
+    {
+      "sha256": "A61CB52167F16248F6A32B0FC475E05886B86C9B7560DEF72DD276E70E35035D",
+      "asset": "focus_selection_v001/avatars/male/mage.png",
+      "matches": true
+    },
+    {
+      "sha256": "E150D15CE698E82AFB04CBA8CEE84EDDCBF0B8FAD2C3B9B1A413C87919CCD344",
+      "asset": "focus_selection_v001/avatars/male/ninja.png",
+      "matches": true
+    },
+    {
+      "sha256": "9547BA86B07E1D5E646EBAFD1B84C40E1A7E879979C27E6D0F1DE2776FC446D6",
+      "asset": "focus_selection_v001/avatars/male/onmyoji.png",
+      "matches": true
+    },
+    {
+      "sha256": "6667B33B27DAC8AF69F799E625EF1FD5D68F92D820BE99609487B54EE6ADFF1F",
+      "asset": "focus_selection_v001/avatars/male/ranger.png",
+      "matches": true
+    },
+    {
+      "sha256": "77CA24D565DFC9BA6589A6FB6D3C040BDB48666CFCE0E567E9BDDA473562A115",
+      "asset": "focus_selection_v001/avatars/male/reaper.png",
+      "matches": true
+    },
+    {
+      "sha256": "5C876B1E2AB5C6CDE70BDC0E3E93DC2BE6F2EF6DB7781CAA3F83F38E6E083160",
+      "asset": "focus_selection_v001/avatars/male/samurai.png",
+      "matches": true
+    },
+    {
+      "sha256": "3AF41BEECFCD4D4DF9B7DBF44541AB570B170F202634BA4D027AF69EEC8BF386",
+      "asset": "focus_selection_v001/avatars/male/spellblade.png",
+      "matches": true
+    },
+    {
+      "sha256": "D0A48EADA3321E7B28A86CDEF3DCDBF9A4BF9E376F9617A184A0244383FE2FFB",
+      "asset": "focus_selection_v001/avatars/male/warrior.png",
+      "matches": true
+    },
+    {
+      "sha256": "B1D29E598A3D8E06AB2CF3724849A798C87D1A0066A81332B257F13D6CE313EA",
+      "asset": "focus_selection_v001/avatars/female/angel.png",
+      "matches": true
+    },
+    {
+      "sha256": "549A9C179FB23ABEC8EC2A14140CCD87F89426153C86FB9438EE11EE72BA504A",
+      "asset": "focus_selection_v001/avatars/female/assassin.png",
+      "matches": true
+    },
+    {
+      "sha256": "5BFDBDDA71F44BDC082E7E6ABA67FF6BBD2D341EC94F19B4016F43EB25A6A24D",
+      "asset": "focus_selection_v001/avatars/female/berserker.png",
+      "matches": true
+    },
+    {
+      "sha256": "5A69B1EB4968E311B37A2145C7995C4773AC968EC2895F1EF04F8132659280B6",
+      "asset": "focus_selection_v001/avatars/female/boxer.png",
+      "matches": true
+    },
+    {
+      "sha256": "F9A0BD64E6376CA4D2733B89DCF0F29893785A65C8133C42FAB4A0C680703A46",
+      "asset": "focus_selection_v001/avatars/female/devil.png",
+      "matches": true
+    },
+    {
+      "sha256": "DB87514093821A6730ACE00FF338B37E0AE85282B024185EEEB6E01B58D42BFE",
+      "asset": "focus_selection_v001/avatars/female/dragon_knight.png",
+      "matches": true
+    },
+    {
+      "sha256": "65B525CF37454CBC2524096FED302339287826B07A4D85741F075D0F607B1286",
+      "asset": "focus_selection_v001/avatars/female/guardian.png",
+      "matches": true
+    },
+    {
+      "sha256": "38E7A7A2D8A2E90E475257F2FC0398AB7D3F5F36244284EEA47D4EC6ADC5BC6F",
+      "asset": "focus_selection_v001/avatars/female/gunner.png",
+      "matches": true
+    },
+    {
+      "sha256": "D688EFDEA06DA14ED0F9BD93D047BD266CAD39E59F1F2C11E5419786F72E17C7",
+      "asset": "focus_selection_v001/avatars/female/mage.png",
+      "matches": true
+    },
+    {
+      "sha256": "932E1B520338E8490AE60BFAFF67D6ABBDC5A8965A3EECA8D7E61D6FACDC0B7E",
+      "asset": "focus_selection_v001/avatars/female/ninja.png",
+      "matches": true
+    },
+    {
+      "sha256": "CA200E024B29A8B57EE8107BB7806BB9C36144EEDBB323BA7E739BC7EC1C3770",
+      "asset": "focus_selection_v001/avatars/female/onmyoji.png",
+      "matches": true
+    },
+    {
+      "sha256": "BB77CE205502D187BA7A202B207BCBEA8FBE6CA8841FBA3119345DEEA6455F30",
+      "asset": "focus_selection_v001/avatars/female/ranger.png",
+      "matches": true
+    },
+    {
+      "sha256": "14533DFEBB18BF0C96FB9C27151012F1D13D75BD32851278292409711BBDB265",
+      "asset": "focus_selection_v001/avatars/female/reaper.png",
+      "matches": true
+    },
+    {
+      "sha256": "C2D240CEBF5E439769EE0D60BC512A226F5FAA8BA0FFE4641252B4CE06E91D6E",
+      "asset": "focus_selection_v001/avatars/female/samurai.png",
+      "matches": true
+    },
+    {
+      "sha256": "DECFCD7806261DA5CE178D43EFB4553F9143213492539FEFF5E19AFDB5B3EBAD",
+      "asset": "focus_selection_v001/avatars/female/spellblade.png",
+      "matches": true
+    },
+    {
+      "sha256": "F231EE2157A44B21CBD40B0B0A18A3B25C14E0A58AB7F3477538E739412300D1",
+      "asset": "focus_selection_v001/avatars/female/warrior.png",
+      "matches": true
+    },
+    {
+      "sha256": "04AD204F9B13CDC4A3394E83AF9E24F49303654B37BC7DA3E7D91CC5BD9B6FC5",
+      "asset": "role_logos/angel.png",
+      "matches": true
+    },
+    {
+      "sha256": "A3CA97037F55A0590DE41E0043D37C8A3AC5AFB4D15D7A4A9EE07084EFCDF1C6",
+      "asset": "role_logos/assassin.png",
+      "matches": true
+    },
+    {
+      "sha256": "71EAD2A21F02ECB9B4B78B10F9A32098D99529B08F3B6E3CF41D3F741E28EEFB",
+      "asset": "role_logos/berserker.png",
+      "matches": true
+    },
+    {
+      "sha256": "41F8F9033594D57D1C39B5BFBFB747DB771388DE86BF4366E6F171586CB59A75",
+      "asset": "role_logos/boxer.png",
+      "matches": true
+    },
+    {
+      "sha256": "CEADFB98F19FB58A9EA77F5D502444397D57B5FE9229BBF373DD56126F82887E",
+      "asset": "role_logos/devil.png",
+      "matches": true
+    },
+    {
+      "sha256": "EC0CB2B612AE61450FB84735DEB079FFCA96F395177E701E45F0F24084382E4A",
+      "asset": "role_logos/dragon_knight.png",
+      "matches": true
+    },
+    {
+      "sha256": "E1F0C663C946AEAA0E281A0AEA2C56B904F37F86EFCF7F3E38F2B4F69FD6F51F",
+      "asset": "role_logos/guardian.png",
+      "matches": true
+    },
+    {
+      "sha256": "82BC56B4F891D1D920920A95068B6FC6A04471F2D8E0BA246256CDC709F8E0FC",
+      "asset": "role_logos/gunner.png",
+      "matches": true
+    },
+    {
+      "sha256": "1A29D8203813C38A998530AA8DD635E7799F2D6FF971AACB9C1235D11EB9A0F1",
+      "asset": "role_logos/mage.png",
+      "matches": true
+    },
+    {
+      "sha256": "6B01216127A5A634C6DC39F4E9532286D11C8B271D9A883BB600DBA70428E0AF",
+      "asset": "role_logos/ninja.png",
+      "matches": true
+    },
+    {
+      "sha256": "C57F817853C9DA9CD7D14F39BA691AC387FEE12833F435F8FF7CD510A146A4EC",
+      "asset": "role_logos/onmyoji.png",
+      "matches": true
+    },
+    {
+      "sha256": "47B251DE9868CA37D82080A6167B4B46F30C628AD2291D84DD82B63EC616536A",
+      "asset": "role_logos/ranger.png",
+      "matches": true
+    },
+    {
+      "sha256": "4DB1CDBA37A3D26652865A52CE46984D50874D2A1027029E5E91E7DF343CA8D8",
+      "asset": "role_logos/reaper.png",
+      "matches": true
+    },
+    {
+      "sha256": "02F8BF6C2A1189188287349AF22260F270D241F88A3DDF8333323E92A6DE1008",
+      "asset": "role_logos/samurai.png",
+      "matches": true
+    },
+    {
+      "sha256": "CF494CC7250D8F2E38135F5D3C054D4092DE90AEB185D14CF008A4ECDF82DFE1",
+      "asset": "role_logos/spellblade.png",
+      "matches": true
+    },
+    {
+      "sha256": "B7E61FFC6248E0A055D4597B4BD9DE2B9E4608B6C508A2A02B931061A8D296AE",
+      "asset": "role_logos/warrior.png",
+      "matches": true
+    },
+    {
+      "sha256": "368EFBBE0E70B0C2520F9709858E88974AF3A7D6DD6372130E93730178043686",
+      "asset": "stage_backgrounds/ghost_ship_focus_v002.png",
+      "matches": true
+    },
+    {
+      "sha256": "A0737BB2F4B39D449D7EA82B10211B7A1E946DA4122D08292A5278E6B1835E92",
+      "asset": "ui/forest_meadow_pixel_v001.png",
+      "matches": true
+    }
+  ]
+}

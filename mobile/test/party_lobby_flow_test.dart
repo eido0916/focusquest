@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:focusquest/core/game_controller.dart';
 import 'package:focusquest/core/theme/app_theme.dart';
-import 'package:focusquest/core/widgets/quest_widgets.dart';
+import 'package:focusquest/features/party/presentation/party_lobby_art.dart';
 import 'package:focusquest/data/game_catalog.dart';
 import 'package:focusquest/features/party/data/party_connection.dart';
 import 'package:focusquest/features/party/domain/party_member.dart';
@@ -84,8 +84,12 @@ void main() {
               home: PartyPage(controller: controller))));
       expect(
           tester
-              .widget<QuestActionButton>(find.byKey(const Key('party-join')))
+              .widget<LobbyAction>(find.byKey(const Key('party-join')))
               .onTap,
+          isNotNull);
+      await tester.tap(find.byKey(const Key('party-join')));
+      await tester.pumpAndSettle();
+      expect(tester.widget<TextButton>(find.byKey(const Key('party-join-submit'))).onPressed,
           isNull);
       await tester.enterText(
           find.byKey(const Key('party-code-input')), 'ab2cd3');
@@ -98,11 +102,13 @@ void main() {
           'AB2CD3');
       expect(
           tester
-              .widget<QuestActionButton>(find.byKey(const Key('party-join')))
-              .onTap,
+              .widget<TextButton>(find.byKey(const Key('party-join-submit')))
+              .onPressed,
           isNotNull);
       expect(find.text('オンライン接続の設定'), findsNothing);
       expect(tester.takeException(), isNull);
+      await tester.tap(find.text('キャンセル'));
+      await tester.pumpAndSettle();
       await capture(tester, key, 'entry-${size.width.toInt()}');
       await tester.pumpWidget(const SizedBox.shrink());
       controller.dispose();
@@ -134,6 +140,7 @@ void main() {
         tester.pumpWidget(RepaintBoundary(
             key: key,
             child: MaterialApp(
+                key: ValueKey(controller),
                 theme: AppTheme.dark,
                 debugShowCheckedModeBanner: false,
                 home: PartyPage(
@@ -145,6 +152,7 @@ void main() {
           .runAsync(() => tester.tap(find.byKey(const Key('party-create'))));
       await networkUntil(
           tester, () => host.party.connected && !host.party.connecting);
+      await tester.pumpAndSettle();
       final code = host.party.code!;
       expect(code, matches(RegExp(r'^[A-Z2-9]{6}$')));
       expect(find.text('1 / 4人'), findsOneWidget);
@@ -152,34 +160,41 @@ void main() {
       await tester.ensureVisible(find.byKey(const Key('party-start')));
       expect(
           tester
-              .widget<QuestActionButton>(find.byKey(const Key('party-start')))
+              .widget<LobbyAction>(find.byKey(const Key('party-start')))
               .onTap,
           isNull);
+      await tester.drag(find.byKey(const Key('party-lobby-list')), const Offset(0, 1500));
+      await tester.pumpAndSettle();
       for (var i = 1; i < 4; i++) {
         await show(controllers[i]);
+        await tester.tap(find.byKey(const Key('party-join')));
+        await tester.pumpAndSettle();
         await tester.enterText(
             find.byKey(const Key('party-code-input')), code.toLowerCase());
         await tester.pump();
         await tester
-            .runAsync(() => tester.tap(find.byKey(const Key('party-join'))));
+            .runAsync(() => tester.tap(find.byKey(const Key('party-join-submit'))));
         await networkUntil(
             tester,
             () =>
                 controllers[i].party.connected &&
                 !controllers[i].party.connecting);
+        await tester.pumpAndSettle();
       }
       await networkUntil(tester, () => host.party.members.length == 4);
       await show(host);
       await tester.pump();
       expect(find.text('4 / 4人'), findsOneWidget);
-      expect(find.text('リーダー（あなた）'), findsOneWidget);
+      expect(find.text('あなた'), findsOneWidget);
       await capture(tester, key, 'four-members');
       final fifth = controllers.last;
       await show(fifth);
+      await tester.tap(find.byKey(const Key('party-join')));
+      await tester.pumpAndSettle();
       await tester.enterText(find.byKey(const Key('party-code-input')), code);
       await tester.pump();
       await tester
-          .runAsync(() => tester.tap(find.byKey(const Key('party-join'))));
+          .runAsync(() => tester.tap(find.byKey(const Key('party-join-submit'))));
       await networkUntil(
           tester,
           () =>

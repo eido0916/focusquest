@@ -1,0 +1,35 @@
+{
+  "version": "v002",
+  "reference": "冒険のはじまり：王と輝く魔石.png",
+  "method": "built-in image_gen",
+  "layers": [
+    {
+      "name": "cathedral",
+      "file": "../../mobile/assets/images/diagnosis/king_intro_v002/cathedral.png",
+      "width": 941,
+      "height": 1672,
+      "rgba": false
+    },
+    {
+      "name": "old_king",
+      "file": "../../mobile/assets/images/diagnosis/king_intro_v002/old_king.png",
+      "width": 941,
+      "height": 1672,
+      "rgba": true
+    },
+    {
+      "name": "magic_crystal",
+      "file": "../../mobile/assets/images/diagnosis/king_intro_v002/magic_crystal.png",
+      "width": 941,
+      "height": 1672,
+      "rgba": true
+    },
+    {
+      "name": "touch_hand",
+      "file": "../../mobile/assets/images/diagnosis/king_intro_v002/touch_hand.png",
+      "width": 941,
+      "height": 1672,
+      "rgba": true
+    }
+  ]
+}

@@ -23,14 +23,18 @@ void main() {
       expect(controller.state!.activeCharacter!.selectedTitle, isNull);
       final hero = controller.state!.activeCharacter!;
       repo.state =
-          repo.state.copyWith(characters: {hero.id: hero.copyWith(level: 30)});
+          repo.state.copyWith(characters: {hero.id: hero.copyWith(level: 9)});
+      await controller.load();
+      await expectLater(controller.selectTitle(titles[1]), throwsStateError);
+      repo.state =
+          repo.state.copyWith(characters: {hero.id: hero.copyWith(level: 10)});
       await controller.load();
       await controller.selectTitle(titles[1]);
       await controller.load();
       final restored =
           Character.fromJson(controller.state!.activeCharacter!.toJson());
       expect(restored.selectedTitle, titles[1]);
-      expect(restored.copyWith(level: 40).selectedTitle, titles[1]);
+      expect(restored.copyWith(level: 20).selectedTitle, titles[1]);
       expect(
           CertificateData.fromState(controller.state!, DateTime(2026, 10, 12))
               .title,
@@ -50,7 +54,7 @@ void main() {
         name: 'たろう');
     final hero = controller.state!.activeCharacter!;
     repo.state =
-        repo.state.copyWith(characters: {hero.id: hero.copyWith(level: 30)});
+        repo.state.copyWith(characters: {hero.id: hero.copyWith(level: 20)});
     await controller.load();
     await tester.pumpWidget(MaterialApp(
         home: AnimatedBuilder(

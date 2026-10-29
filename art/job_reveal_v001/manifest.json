@@ -1,0 +1,50 @@
+[
+  {
+    "file": "background.png",
+    "width": 941,
+    "height": 1672,
+    "sha256": "734add937c4bafdc80ed366eb6b1ef03043e0292a4eb140f0c0fc184a06a31e1"
+  },
+  {
+    "file": "book.png",
+    "width": 1222,
+    "height": 953,
+    "sha256": "fe05ce969d44726f4b0dd28ef0d88dddf2e2e13d43e0d7a320a3467295c6a45b"
+  },
+  {
+    "file": "button.png",
+    "width": 2124,
+    "height": 465,
+    "sha256": "8dbf16635c88e55ccda542a5267765ef0f39cc6dfa4352848b70074be5c77edd"
+  },
+  {
+    "file": "card.png",
+    "width": 1121,
+    "height": 1402,
+    "sha256": "24ad2dfecd3514ae03bd29071d166def4a5f952417370526419f07dbbd50315b"
+  },
+  {
+    "file": "dialogue.png",
+    "width": 2169,
+    "height": 496,
+    "sha256": "ba6f8ac725eaa614bfec7a771f08cc4fce7d11f8dd14956b2c5fad4d2e7fb9b3"
+  },
+  {
+    "file": "guide.png",
+    "width": 1965,
+    "height": 373,
+    "sha256": "14a99ab75ef0d3c80ef7415184328b00b1644b24e4f489c5805476e493a58097"
+  },
+  {
+    "file": "plaque.png",
+    "width": 1926,
+    "height": 366,
+    "sha256": "69becaadf3ffa9508192f5d9f2f0561752de14580abe28d52619bbfcfa157fb3"
+  },
+  {
+    "file": "traits.png",
+    "width": 2022,
+    "height": 262,
+    "sha256": "465f02b4edd1ed3717cd76b8fe00d31306ae1c6d9a713fdd1b1fd6a7b7a3d109"
+  }
+]

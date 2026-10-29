@@ -1,0 +1,12 @@
+{
+  "installed_apk_sha256": "1789149BA4F4239EF68A1221FA131F4EB352B23F4E15B4814B11EFA6F21338B8",
+  "launch": "dev.focusquest.focusquest/.MainActivity: Status ok",
+  "party_battle_on_device": "Not tested; concurrent diagnosis screen interaction observed",
+  "install": "adb install -r --streaming: Success",
+  "date": "2026-10-12",
+  "observed_screen": "Focus selection, chapter 2",
+  "automated_tests": 18,
+  "model": "TB373FU",
+  "data_handling": "Updated existing installation without uninstalling or clearing app data",
+  "matches_delivered_apk": true
+}

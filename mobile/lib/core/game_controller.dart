@@ -141,6 +141,9 @@ class GameController extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> setSoundSettings({bool? bgm, bool? se}) =>
+      _action(() => _save((s) => s.copyWith(bgmEnabled: bgm, seEnabled: se)));
+
   Future<void> recordPlayableClear(int stage) => _action(() => _save((s) {
         if (stage < 1 || stage > 36) throw ArgumentError.value(stage, 'stage');
         return s.copyWith(
@@ -395,6 +398,9 @@ class GameController extends ChangeNotifier {
         return s.copyWith(characters: {...s.characters, hero.id: changed});
       }));
 
+  Future<void> equip(String itemId) => _action(() async {
+        throw StateError('装備機能は廃止されました。');
+      });
   Future<void> selectTitle(String title) => _action(() => _save((s) {
         final hero = s.activeCharacter!;
         final titles = CertificateCatalog.titles[hero.characterType]!;

@@ -1,0 +1,8 @@
+{
+  "gradleProducedValidApk": true,
+  "flutterToolFailure": "Out of Memory while hashing completed APK",
+  "validatedAssets": 41,
+  "signatureVerified": true,
+  "sourceFilesMatched": 4,
+  "sha256": "6a1064eacfa970e882ad5eb58b225382391e5d38f7ed0744fa34c1ae43fe3618"
+}

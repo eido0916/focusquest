@@ -1,0 +1,22 @@
+[
+  {
+    "file": "lib/features/diagnosis/presentation/job_reveal_screen.dart",
+    "sha256": "e62128d49e4ea37659e15ae8352520707d2f381b30484fb1e5278efc54d51ec3",
+    "matches": true
+  },
+  {
+    "file": "lib/features/diagnosis/presentation/diagnosis_screen.dart",
+    "sha256": "cafeb0a4b891a223f5ca6d1ad5355cba720d916d7c9d037884d84d0d0787e91e",
+    "matches": true
+  },
+  {
+    "file": "lib/features/diagnosis/presentation/job_portrait.dart",
+    "sha256": "8fe6f6e317055b5e9fd2e1593d69f6f85b2037102e10edba048f813612d56663",
+    "matches": true
+  },
+  {
+    "file": "lib/features/diagnosis/domain/diagnosis_service.dart",
+    "sha256": "a6073fe1a0349d176664d174beae3265bc5d54b7dbd91b03a64a8ded55740f42",
+    "matches": true
+  }
+]

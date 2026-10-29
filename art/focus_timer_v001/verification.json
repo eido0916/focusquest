@@ -1,0 +1,88 @@
+{
+  "asset_count": 9,
+  "generator": "built-in image_gen; one request per asset",
+  "runtime_copies_identical": true,
+  "assets": [
+    {
+      "file": "background.png",
+      "size": [
+        993,
+        1584
+      ],
+      "mode": "RGB",
+      "sha256": "d4dbbf17ac1a46295440c8116e93ae833b0c5581a63bfec9417c82b2a26916c0"
+    },
+    {
+      "file": "panel_frame.png",
+      "size": [
+        1447,
+        1087
+      ],
+      "mode": "RGBA",
+      "sha256": "b676b69c942477f7af4b4d9b7eddcfb912cded8a24309b14c4f715c0b7d4ef4e"
+    },
+    {
+      "file": "name_banner.png",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "sha256": "12973a6b1805613551fd3477d4b4b66dc589abfced08e237fb010f3c189afc4a"
+    },
+    {
+      "file": "chapter_crest.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "fc43cbe079f5456a9eaa3da5582562d221e1933748f80b625fd914d3105b5552"
+    },
+    {
+      "file": "gold_divider.png",
+      "size": [
+        1373,
+        1145
+      ],
+      "mode": "RGBA",
+      "sha256": "304838164840f8613085b1496db9c4e2c38e045fd135acfdbfda0d3f4768965c"
+    },
+    {
+      "file": "crossed_swords.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "b0fde46965f4b7b4bfbe29cd86e7b481c602316dd2b32daed6688d521a11cb21"
+    },
+    {
+      "file": "timer_circle.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "ad38ab39783a54745dc2d16555d8d07672f1dcbec9d10d5edc865b9db542bba7"
+    },
+    {
+      "file": "gauge_frame.png",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "sha256": "2a2bb68cdcea74bbc007412671b11a66e5b7c5e1273d397dc2c60b35d5d12cbd"
+    },
+    {
+      "file": "gauge_fill.png",
+      "size": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "23193a98db6cdeb74e1e63e147c59dfc0aa832b10882f622128e873344d475b4"
+    }
+  ]
+}

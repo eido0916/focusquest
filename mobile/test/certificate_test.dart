@@ -12,13 +12,24 @@ import 'package:focusquest/features/focus/domain/focus_session.dart';
 import 'support/memory_repository.dart';
 
 void main() {
-  test('all 16 roles unlock exact titles at levels 1..8 and cap above 8', () {
+  test('all 16 roles unlock titles every ten levels and cap at level 70', () {
     expect(CertificateCatalog.titles.length, 16);
     for (final role in CertificateCatalog.titles.keys) {
       final list = CertificateCatalog.titles[role]!;
       expect(list.length, 8);
-      for (var level = 1; level <= 8; level++) {
-        expect(CertificateCatalog.title(role, CertificateCatalog.unlockLevel(level - 1)), list[level - 1]);
+      expect(CertificateCatalog.unlockLevel(0), 1);
+      expect(CertificateCatalog.title(role, 1), list[0]);
+      for (var index = 1; index < list.length; index++) {
+        final level = index * 10;
+        expect(CertificateCatalog.unlockLevel(index), level);
+        expect(CertificateCatalog.title(role, level - 1), list[index - 1]);
+        expect(CertificateCatalog.title(role, level), list[index]);
+        expect(CertificateCatalog.displayedTitle(role, level - 1, list[index]),
+            list[index - 1]);
+        expect(CertificateCatalog.displayedTitle(role, level, list[index]),
+            list[index]);
+        expect(
+            CertificateCatalog.displayedTitle(role, level, list[0]), list[0]);
       }
       expect(CertificateCatalog.title(role, 99), list[7]);
     }

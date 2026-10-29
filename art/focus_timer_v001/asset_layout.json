@@ -1,0 +1,114 @@
+{
+  "background": {
+    "size": [
+      993,
+      1584
+    ],
+    "bbox": null,
+    "mode": "RGB"
+  },
+  "chapter_crest": {
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      85,
+      70,
+      1169,
+      1169
+    ],
+    "mode": "RGBA"
+  },
+  "crossed_swords": {
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      66,
+      82,
+      1188,
+      1178
+    ],
+    "mode": "RGBA"
+  },
+  "gauge_fill": {
+    "size": [
+      2172,
+      724
+    ],
+    "bbox": [
+      83,
+      296,
+      2089,
+      426
+    ],
+    "mode": "RGBA"
+  },
+  "gauge_frame": {
+    "size": [
+      1774,
+      887
+    ],
+    "bbox": [
+      9,
+      379,
+      1766,
+      511
+    ],
+    "mode": "RGBA"
+  },
+  "gold_divider": {
+    "size": [
+      1373,
+      1145
+    ],
+    "bbox": [
+      28,
+      546,
+      1345,
+      601
+    ],
+    "mode": "RGBA"
+  },
+  "name_banner": {
+    "size": [
+      1774,
+      887
+    ],
+    "bbox": [
+      117,
+      311,
+      1759,
+      565
+    ],
+    "mode": "RGBA"
+  },
+  "panel_frame": {
+    "size": [
+      1447,
+      1087
+    ],
+    "bbox": [
+      15,
+      22,
+      1432,
+      1066
+    ],
+    "mode": "RGBA"
+  },
+  "timer_circle": {
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      10,
+      84,
+      1245,
+      1185
+    ],
+    "mode": "RGBA"
+  }
+}
