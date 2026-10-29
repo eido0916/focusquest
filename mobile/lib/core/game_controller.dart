@@ -1,5 +1,8 @@
+import '../features/focus/domain/focus_task.dart';
+import '../features/character/domain/job_progression.dart';
 import 'dart:async';
 import 'dart:math';
+import 'package:characters/characters.dart';
 import 'package:flutter/foundation.dart';
 import '../data/game_catalog.dart';
 import '../data/player_repository.dart';
@@ -112,6 +115,7 @@ class GameController extends ChangeNotifier {
   final DateTime Function() clock;
   final Random random;
   PlayerState? state;
+  FocusTask? selectedFocusTask;
   int selectedFocusArea = -1;
   List<int> get unlockedFocusAreas =>
       FocusAdventure.unlockedAreas(state?.clearedPlayableStages ?? {});
@@ -214,9 +218,24 @@ class GameController extends ChangeNotifier {
                 appliedOperations: {...s.appliedOperations, operation});
           }));
 
+  Future<void> changeUserName(String value) => _action(() => _save((s) {
+        final name = value.trim();
+        if (name.isEmpty || name.characters.length > 16) {
+          throw ArgumentError('ユーザー名は1〜16文字で入力してください。');
+        }
+        final hero = s.activeCharacter;
+        if (hero == null) throw StateError('キャラクターが見つかりません。');
+        if (hero.name == name) return s;
+        return s.copyWith(characters: {
+          ...s.characters,
+          hero.id: hero.copyWith(name: name),
+        });
+      }));
+
   // Temporary developer tool; remove together with the settings reset section.
   Future<void> resetForDevelopment() => _action(() async {
         await _save((s) => PlayerState(uid: s.uid));
+        selectedFocusTask = null;
         await monitor.stopGuard();
       });
 
@@ -243,6 +262,12 @@ class GameController extends ChangeNotifier {
                 rarity: hero.rarity,
                 level: hero.level,
                 currentExp: hero.currentExp,
+                trainingPoints: hero.trainingPoints,
+                unlockedJobs: {
+                  ...hero.unlockedJobs,
+                  hero.characterType,
+                  typeId
+                },
                 equippedItems: hero.equippedItems);
             return s.copyWith(characters: {...s.characters, hero.id: changed});
           }));
@@ -267,6 +292,7 @@ class GameController extends ChangeNotifier {
           }));
   Future<void> startFocus(int minutes,
           {String? partySessionId,
+          FocusTask? task,
           DateTime? startedAt,
           int? focusAreaIndex,
           List<PartyMember> members = const []}) =>
@@ -288,6 +314,7 @@ class GameController extends ChangeNotifier {
             now: startedAt ?? clock(),
             minutes: minutes);
         final session = FocusSession(
+            task: task ?? selectedFocusTask,
             id: basic.id,
             startedAt: basic.startedAt,
             durationMinutes: basic.durationMinutes,
@@ -342,6 +369,32 @@ class GameController extends ChangeNotifier {
         if (session.partyMembers.isNotEmpty) party.report(result.name);
         return finished;
       });
+  Future<void> changeJob(String typeId) => _action(() => _save((s) {
+        if (activeFocus != null || playableAdventureActive || party.connected) {
+          throw StateError('集中・冒険・パーティーを終了してから転職してください。');
+        }
+        final hero = s.activeCharacter!;
+        if (!JobProgression.canChange(hero, typeId)) {
+          throw StateError('転職に必要なパラメータが不足しています。');
+        }
+        if (hero.characterType == typeId) return s;
+        final type =
+            GameCatalog.types.values.firstWhere((t) => t.typeId == typeId);
+        final changed = Character(
+            id: hero.id,
+            name: hero.name,
+            characterType: typeId,
+            appearance: hero.appearance,
+            baseStats: type.stats,
+            rarity: hero.rarity,
+            level: hero.level,
+            currentExp: hero.currentExp,
+            trainingPoints: hero.trainingPoints,
+            unlockedJobs: {...hero.unlockedJobs, hero.characterType, typeId},
+            equippedItems: hero.equippedItems);
+        return s.copyWith(characters: {...s.characters, hero.id: changed});
+      }));
+
   Future<void> selectTitle(String title) => _action(() => _save((s) {
         final hero = s.activeCharacter!;
         final titles = CertificateCatalog.titles[hero.characterType]!;

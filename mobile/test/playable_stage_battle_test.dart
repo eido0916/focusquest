@@ -9,6 +9,30 @@ void advance(PlayableStageBattle battle, double seconds) {
 }
 
 void main() {
+  test('phase transitions carry damaged HP through all waves', () {
+    final battle = PlayableStageBattle(stage: mechanicsStage(), roll: () => .5);
+    addTearDown(battle.dispose);
+    battle.start();
+    advance(battle, 3);
+    battle.hp = 37;
+    for (var phase = 0; phase < 3; phase++) {
+      for (final enemy in battle.enemies) {
+        enemy.hp = 0;
+        enemy.deathTime = enemy.defeatDuration;
+      }
+      battle.mode = StageMode.defeat;
+      battle.update(1 / 120);
+      expect(battle.hp, 37, reason: 'after phase $phase');
+      if (phase < 2) {
+        expect(battle.phase, phase + 1);
+        advance(battle, 3);
+        expect(battle.hp, 37, reason: 'entering phase ${phase + 1}');
+      }
+    }
+    expect(battle.mode, StageMode.won);
+    battle.restart();
+    expect(battle.hp, battle.character.health);
+  });
   test('3 hits unlock one skill and repeated taps cannot double damage', () {
     final battle = PlayableStageBattle(stage: mechanicsStage(), roll: () => .5);
     addTearDown(battle.dispose);

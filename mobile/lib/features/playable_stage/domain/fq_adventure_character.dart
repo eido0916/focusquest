@@ -4,7 +4,7 @@ import '../../../game/runner/pixel_battle_assets.dart';
 import 'playable_character.dart';
 import '../../../game/runner/role_skill_effects.dart';
 
-/// Keep the original combat events/animation identity, adding FQ level growth.
+/// Use the same grown stats as the character screen, retaining motion identity.
 PlayableCharacter fqAdventureCharacter(Character hero) {
   final base =
       PixelBattleAssets.characterFor(hero.characterType, hero.appearance);
@@ -13,13 +13,16 @@ PlayableCharacter fqAdventureCharacter(Character hero) {
       base.id,
       base.role,
       base.female,
-      base.health + stats.hp - hero.baseStats.hp,
-      base.power + stats.attack - hero.baseStats.attack,
-      base.speed + (stats.speed - hero.baseStats.speed) * 5,
+      stats.hp,
+      stats.attack,
+      stats.speed,
       base.attackEvent,
       base.skillEvent,
       RoleSkillEffects.names[hero.characterType] ?? base.skillName,
       ranged: base.ranged,
+      defense: stats.defense,
+      criticalRate: stats.criticalRate,
+      attackTimeScale: 10,
       level: hero.level,
       effectType: hero.characterType);
 }

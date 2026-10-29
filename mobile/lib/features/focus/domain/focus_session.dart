@@ -1,3 +1,4 @@
+import 'focus_task.dart';
 import '../../party/domain/party_member.dart';
 
 enum FocusStatus { active, succeeded, cancelled, failed }
@@ -10,6 +11,7 @@ class FocusSession {
       required this.startedAt,
       required this.durationMinutes,
       this.status = FocusStatus.active,
+      this.task,
       this.verification = FocusVerification.timerOnly,
       this.targetPackages = const [],
       this.partyMembers = const [],
@@ -22,6 +24,7 @@ class FocusSession {
   final int adventureStartSeconds;
   DateTime focusNow(DateTime now) =>
       now.add(Duration(milliseconds: partyClockOffsetMs));
+  final FocusTask? task;
   final String id;
   final DateTime startedAt;
   final int durationMinutes;
@@ -33,6 +36,7 @@ class FocusSession {
   FocusSession get deviceClockSession => partyClockOffsetMs == 0
       ? this
       : FocusSession(
+          task: task,
           id: id,
           startedAt:
               startedAt.subtract(Duration(milliseconds: partyClockOffsetMs)),
@@ -52,6 +56,7 @@ class FocusSession {
   }
 
   FocusSession finish(FocusStatus value) => FocusSession(
+      task: task,
       id: id,
       startedAt: startedAt,
       durationMinutes: durationMinutes,
@@ -63,6 +68,7 @@ class FocusSession {
       focusAreaIndex: focusAreaIndex,
       adventureStartSeconds: adventureStartSeconds);
   Map<String, dynamic> toJson() => {
+        'task': task?.toJson(),
         'id': id,
         'startedAt': startedAt.toUtc().toIso8601String(),
         'durationMinutes': durationMinutes,
@@ -75,6 +81,9 @@ class FocusSession {
         'partyClockOffsetMs': partyClockOffsetMs
       };
   factory FocusSession.fromJson(Map<String, dynamic> json) => FocusSession(
+      task: json['task'] == null
+          ? null
+          : FocusTask.fromJson(Map<String, dynamic>.from(json['task'] as Map)),
       id: json['id'] as String,
       startedAt: DateTime.parse(json['startedAt'] as String),
       durationMinutes: json['durationMinutes'] as int,

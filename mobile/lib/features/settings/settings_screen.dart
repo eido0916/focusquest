@@ -5,6 +5,7 @@ import '../../core/game_controller.dart';
 import '../../core/widgets/quest_widgets.dart';
 import 'developer_character_screen.dart';
 import 'settings_art.dart';
+import 'user_name_dialog.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key, required this.controller});
@@ -173,6 +174,26 @@ class _SettingsScreenState extends State<SettingsScreen>
                                 icon: Icons.cloud_outlined,
                                 unit: unit,
                                 child: Column(children: [
+                                  InkWell(
+                                      key: const Key('change-user-name'),
+                                      onTap: controller.busy ||
+                                              controller
+                                                      .state?.activeCharacter ==
+                                                  null
+                                          ? null
+                                          : () => showDialog<void>(
+                                              context: context,
+                                              barrierDismissible: false,
+                                              builder: (_) => UserNameDialog(
+                                                  controller: controller)),
+                                      child: SettingsValueRow(
+                                          icon: Icons.person_outline_rounded,
+                                          label: 'ユーザー名を変更',
+                                          value: controller.state
+                                                  ?.activeCharacter?.name ??
+                                              '',
+                                          unit: unit)),
+                                  SettingsRule(unit: unit),
                                   SettingsValueRow(
                                       icon: Icons.smartphone_rounded,
                                       label: '保存先',

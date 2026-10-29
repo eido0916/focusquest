@@ -5,6 +5,7 @@ import 'package:focusquest/core/game_controller.dart';
 import 'package:focusquest/core/widgets/quest_widgets.dart';
 import 'package:focusquest/data/game_catalog.dart';
 import 'package:focusquest/data/player_state.dart';
+import 'package:focusquest/features/character/domain/progression_service.dart';
 import 'package:focusquest/features/playable_stage/domain/fq_adventure_character.dart';
 import 'package:focusquest/features/playable_stage/domain/playable_stage_battle.dart';
 import 'package:focusquest/features/playable_stage/domain/playable_stage_catalog.dart';
@@ -34,11 +35,53 @@ void main() {
         expect(combat.female, appearance == 'female', reason: type.typeId);
         expect(combat.role, JobPortrait.roleNames[type.typeId],
             reason: type.typeId);
-        expect(combat.health, greaterThan(0));
+        for (final level in [1, 8, 30]) {
+          final hero =
+              controller.state!.activeCharacter!.copyWith(level: level);
+          final stats = ProgressionService().stats(hero, const {});
+          final grown = fqAdventureCharacter(hero);
+          expect(grown.health, stats.hp, reason: '${type.typeId} Lv.$level');
+          expect(grown.power, stats.attack);
+          expect(grown.speed, stats.speed);
+          expect(grown.defense, stats.defense);
+          expect(grown.criticalRate, stats.criticalRate);
+        }
       }
     }
     controller.dispose();
   });
+  test('adventure uses character defense and critical rate in combat',
+      () async {
+    final controller = GameController(MemoryRepository());
+    addTearDown(controller.dispose);
+    await controller.load();
+    await controller.onboard(GameCatalog.types[15]!);
+    final character = fqAdventureCharacter(controller.state!.activeCharacter!);
+    final battle = PlayableStageBattle(character: character, roll: () => .1);
+    addTearDown(battle.dispose);
+    battle.start();
+    for (var tick = 0; tick < 1200 && battle.damageNumbers.isEmpty; tick++) {
+      battle.update(1 / 120);
+    }
+    final incoming = battle.damageNumbers.firstWhere((hit) => hit.toHero);
+    expect(incoming.critical, false);
+    expect(
+        incoming.amount,
+        (battle.enemies.first.definition.damage - character.defense)
+            .clamp(1, 99999));
+    for (final enemy in battle.enemies) {
+      enemy.attacking = false;
+      enemy.wait = 100;
+    }
+    expect(battle.attack(), true);
+    for (var tick = 0; tick < 180; tick++) {
+      battle.update(1 / 120);
+    }
+    final outgoing = battle.damageNumbers.firstWhere((hit) => !hit.toHero);
+    expect(outgoing.critical, false); // 10% roll exceeds the warrior's 5% rate.
+    expect(outgoing.amount, character.power);
+  });
+
   test(
       'legacy save compatibility, permanent clear records, retry and battle locks',
       () async {
@@ -67,8 +110,7 @@ void main() {
     controller.dispose();
   });
 
-  test('FQ growth retains female ranged animation identity',
-      () async {
+  test('FQ growth retains female ranged animation identity', () async {
     final repo = MemoryRepository();
     final controller = GameController(repo);
     await controller.load();
@@ -81,7 +123,7 @@ void main() {
     expect(leveled.ranged, true);
     expect(leveled.health, level1.health + 84);
     expect(leveled.power, level1.power + 21);
-    expect(leveled.speed, level1.speed + 35);
+    expect(leveled.speed, level1.speed + 7);
     controller.dispose();
   });
 
