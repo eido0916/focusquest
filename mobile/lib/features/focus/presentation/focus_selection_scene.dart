@@ -23,6 +23,8 @@ class FocusSelectionScene extends StatelessWidget {
     required this.onStart,
     required this.onNavigate,
     required this.onBack,
+    this.taskLabel,
+    this.onTask,
     this.areaName,
     this.backgroundPath,
     this.onArea,
@@ -31,6 +33,8 @@ class FocusSelectionScene extends StatelessWidget {
     this.characterName = '冒険者',
     this.level = 1,
   });
+  final String? taskLabel;
+  final VoidCallback? onTask;
   final String typeId, appearance;
   final int minutes, stage;
   final ValueChanged<int> onMinutes;
@@ -108,7 +112,21 @@ class FocusSelectionScene extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
       backgroundColor: const Color(0xff092036),
-      bottomNavigationBar: QuestNavigation(selected: -1, onSelect: onNavigate),
+      bottomNavigationBar: Column(mainAxisSize: MainAxisSize.min, children: [
+        if (onTask != null)
+          Material(
+              color: const Color(0xff092036),
+              child: ListTile(
+                  key: const ValueKey('focus-task'),
+                  leading: const Icon(Icons.assignment_outlined, color: _gold),
+                  title: Text(taskLabel ?? 'タスクを入力してAIで成長配分を決める',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(color: Colors.white)),
+                  trailing: const Icon(Icons.edit, color: _gold),
+                  onTap: onTask)),
+        QuestNavigation(selected: -1, onSelect: onNavigate),
+      ]),
       body: Stack(fit: StackFit.expand, children: [
         Positioned.fill(
             child: Image.asset(

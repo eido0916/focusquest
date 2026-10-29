@@ -31,25 +31,36 @@ class PlayableStageDefinition {
   bool get hasBoss => opponents.last.isBoss;
   String get title => 'STAGE $number · $area';
 
-  /// Guidance from seeded combat; changing it never changes enemy strength.
+  /// Also sets the attack budget against FQ's level-based defense and HP.
   final int recommendedLevel;
+
   /// Fixed stage difficulty independent of the player level.
   final int difficultyLevel;
 
   StageOpponent _leveledOpponent(StageOpponent enemy) {
-    if (difficultyLevel == 1) return enemy;
+    if (difficultyLevel == 1 && recommendedLevel == 1) return enemy;
     final growth = difficultyLevel - 1;
-    // Match FQ's +3 power, +5 combat speed and +12 HP per level.
-    // HP follows damage per second; enemy damage follows player durability.
+    // Retain existing enemy HP scaling independently of the attack budget.
     final hpScale = (28 + growth * 3) /
         28 *
         (100 + growth * 5) /
         100 *
         (enemy.isBoss ? (number == 4 ? 1.0 : .8) : 1.7);
-    final damageScale = (160 + growth * 12) / 160 * (enemy.isBoss ? 1.0 : 1.35);
-    return StageOpponent(enemy.id, enemy.name, (enemy.hp * hpScale).ceil(),
-        (enemy.damage * damageScale).ceil(), enemy.interval, enemy.subtitle,
-        isBoss: enemy.isBoss, count: enemy.count);
+    final attackGrowth = recommendedLevel - 1;
+    // Add the expected defense before scaling post-defense damage by durability.
+    // This is fixed per stage, never relative to the current player's level.
+    final expectedDefense = 10 + attackGrowth * 2;
+    final damageScale =
+        (160 + attackGrowth * 12) / 160 * (enemy.isBoss ? .8 : .55);
+    return StageOpponent(
+        enemy.id,
+        enemy.name,
+        difficultyLevel == 1 ? enemy.hp : (enemy.hp * hpScale).ceil(),
+        expectedDefense + (enemy.damage * damageScale).ceil(),
+        enemy.interval,
+        enemy.subtitle,
+        isBoss: enemy.isBoss,
+        count: enemy.count);
   }
 
   List<StageOpponent> wave(int phase) {

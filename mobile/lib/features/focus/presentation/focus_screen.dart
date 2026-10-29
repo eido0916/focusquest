@@ -1,3 +1,5 @@
+import 'focus_task_dialog.dart';
+import '../domain/focus_task.dart';
 import '../../character/presentation/growth_celebration.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
@@ -103,6 +105,11 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
   }
 
   Future<void> _openParty() async {
+    if (widget.controller.selectedFocusTask?.isAiAssessed != true &&
+        !await _chooseTask()) {
+      return;
+    }
+    if (!mounted) return;
     final previous = widget.controller.activeFocus?.id;
     await Navigator.of(context).push(MaterialPageRoute<void>(
         builder: (_) => PartyPage(controller: widget.controller)));
@@ -112,6 +119,23 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
       _automaticFailed = false;
       await _openBattle();
     }
+  }
+
+  Future<bool> _chooseTask() async {
+    final controller = widget.controller;
+    final recent = <String, FocusTask>{};
+    for (final session in controller.state!.sessions.values.toList().reversed) {
+      if (session.task != null) {
+        recent.putIfAbsent(session.task!.title, () => session.task!);
+      }
+    }
+    final task = await chooseFocusTask(context,
+        initial: controller.selectedFocusTask,
+        minutes: _minutes,
+        recent: recent.values.toList());
+    if (task == null || !mounted) return false;
+    setState(() => controller.selectedFocusTask = task);
+    return true;
   }
 
   Future<void> _startFocus() async {
@@ -145,6 +169,10 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
       }
       return;
     }
+    if (controller.selectedFocusTask?.isAiAssessed != true &&
+        !await _chooseTask()) {
+      return;
+    }
     await controller.startFocus(_minutes);
     if (mounted) {
       setState(() => _automaticFailed = false);
@@ -172,7 +200,7 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                             ? '集中を中断しました'
                             : '集中クエスト未達成'),
                     content: Text(succeeded
-                        ? '${result.durationMinutes}分の集中を達成しました。\nEXP +${result.durationMinutes * GameBalance.expPerMinute}\n育てた力で、冒険に挑戦しましょう。'
+                        ? '${result.durationMinutes}分の集中を達成しました。\nEXP +${result.durationMinutes * GameBalance.expPerMinute}\n${result.task == null ? '' : '${result.task!.title}\n${result.task!.gains(result.durationMinutes).entries.map((e) => '${FocusTask.parameters[e.key]} +${e.value}pt').join('・')}\n'}成長・ジョブチェンジ画面で解放条件を確認できます。'
                         : cancel
                             ? '報酬はありません。また次の集中で挑戦しましょう。'
                             : '対象アプリの使用、または使用状況を確認できなかったため、報酬はありません。'),
@@ -205,6 +233,8 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
     if (session == null) {
       final character = controller.state!.activeCharacter!;
       return FocusSelectionScene(
+        taskLabel: controller.selectedFocusTask?.title,
+        onTask: controller.busy ? null : () => _chooseTask(),
         typeId: character.characterType,
         characterName: character.name,
         level: character.level,
@@ -252,6 +282,7 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
     final character = controller.state!.activeCharacter!;
     final seconds = session.remaining(controller.clock()).inSeconds;
     return FocusTimerScene(
+      taskTitle: session.task?.title,
       characterName: character.name,
       characterType: character.characterType,
       level: character.level,

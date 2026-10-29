@@ -21,6 +21,7 @@ class FocusTimerScene extends StatelessWidget {
     required this.onBack,
     this.onParty,
     this.partySize = 0,
+    this.taskTitle,
     this.message,
     this.error,
     this.onRetry,
@@ -30,7 +31,7 @@ class FocusTimerScene extends StatelessWidget {
   final double progress;
   final VoidCallback? onBattle, onCancel, onParty, onRetry;
   final VoidCallback onSound, onBack;
-  final String? message, error;
+  final String? message, error, taskTitle;
 
   Widget _asset(String name, {BoxFit fit = BoxFit.fill}) =>
       FocusTimerAsset(name, fit: fit);
@@ -218,6 +219,12 @@ class FocusTimerScene extends StatelessWidget {
                         right: 24 * scale,
                         top: panelTop + panelHeight + 22 * scale,
                         child: Column(children: [
+                          if (taskTitle != null)
+                            Padding(
+                                padding: const EdgeInsets.only(bottom: 8),
+                                child: Text('タスク：$taskTitle',
+                                    textAlign: TextAlign.center,
+                                    style: _text(14))),
                           if (message != null || error != null)
                             Container(
                                 padding: const EdgeInsets.all(12),
@@ -273,6 +280,7 @@ class FocusTimerScene extends StatelessWidget {
                         left: 6,
                         top: 0,
                         child: IconButton(
+                            key: const Key('focus-return-home'),
                             tooltip: '戻る',
                             onPressed: onBack,
                             color: Colors.white,

@@ -1,4 +1,4 @@
-param([switch]$BuildOnly)
+param([switch]$BuildOnly, [switch]$Offline)
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path $PSScriptRoot -Parent
 $source = Join-Path $repo 'mobile'
@@ -11,7 +11,10 @@ if ($LASTEXITCODE -gt 7) { throw 'Failed to copy the project.' }
 Push-Location $stageDirectory
 try {
     # NTFS junctions support plugin directories without requiring Developer Mode.
-    & $flutter pub get
+    $pubArgs = @('pub', 'get')
+    if ($Offline) { $pubArgs += '--offline' }
+    & $flutter @pubArgs
+    if ($LASTEXITCODE -ne 0) { throw 'Failed to resolve dependencies.' }
     if (-not (Test-Path .flutter-plugins-dependencies)) { throw 'Failed to resolve dependencies.' }
     $dependencies = Get-Content .flutter-plugins-dependencies -Raw | ConvertFrom-Json
     $links = 'windows\flutter\ephemeral\.plugin_symlinks'
@@ -22,7 +25,7 @@ try {
             New-Item -ItemType Junction -Path $link -Target $plugin.path | Out-Null
         }
     }
-    & $flutter pub get
+    & $flutter @pubArgs
     if ($LASTEXITCODE -ne 0) { throw 'Failed to configure dependencies.' }
     & $flutter build windows --release --no-pub -t lib/main.dart
     if ($LASTEXITCODE -ne 0) { throw 'Windows build failed.' }

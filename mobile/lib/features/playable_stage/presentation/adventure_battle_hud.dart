@@ -185,9 +185,13 @@ class AdventureBattleHud extends StatelessWidget {
                         children: [
                           Expanded(
                               child: Text('PHASE ${battle.phase + 1} / 3',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   style: _text(font))),
                           Expanded(
                               child: Text('残り ${battle.remainingEnemies} 体',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.right,
                                   style: _text(font))),
                         ]),

@@ -303,7 +303,7 @@ class PlayableStageBattle extends ChangeNotifier {
       _sound(BattleSound.miss);
       return false;
     }
-    final critical = _roll() < criticalChance;
+    final critical = _roll() < character.criticalRate;
     if (critical) criticals++;
     final damage =
         (basePower ?? (skill ? character.skillPower : character.power)) *
@@ -465,9 +465,12 @@ class PlayableStageBattle extends ChangeNotifier {
               final critical = !missed && _roll() < enemyCriticalChance;
               final damage = missed
                   ? 0
-                  : (enemy.definition.damage *
-                          (critical ? enemyCriticalMultiplier : 1))
-                      .round();
+                  : math.max(
+                      1,
+                      (enemy.definition.damage *
+                                  (critical ? enemyCriticalMultiplier : 1))
+                              .round() -
+                          character.defense);
               hp = math.max(0, hp - damage);
               damageNumbers.add(StageDamage(
                   damage, heroX + heroPoseOffset, clock,
@@ -503,7 +506,6 @@ class PlayableStageBattle extends ChangeNotifier {
             _sound(BattleSound.victory);
           } else {
             phase++;
-            hp = math.min(character.health, hp + 24);
             _travel();
           }
         }

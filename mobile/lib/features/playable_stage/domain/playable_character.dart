@@ -19,14 +19,23 @@ enum ProjectileKind {
 class PlayableCharacter {
   const PlayableCharacter(this.id, this.role, this.female, this.health,
       this.power, this.speed, this.attackEvent, this.skillEvent, this.skillName,
-      {this.ranged = false, this.effectType, this.level = 1});
+      {this.ranged = false,
+      this.effectType,
+      this.level = 1,
+      this.defense = 0,
+      this.criticalRate = .2,
+      this.attackTimeScale = 100});
   final String id, role, attackEvent, skillEvent, skillName;
   final bool female, ranged;
   final String? effectType;
   final int health, power, speed;
   final int level;
+  final int defense;
+  final double criticalRate;
+  // FQ uses the character screen's speed units; standalone demos use 100-based units.
+  final double attackTimeScale;
   String get name => '$role · ${female ? '女性' : '男性'}';
-  double get attackSeconds => 100 / speed;
+  double get attackSeconds => attackTimeScale / speed;
   double get skillSeconds => attackSeconds * 1.75;
   int get skillPower => power * 4;
   ProjectileKind? projectileFor(bool skill) => switch (role) {

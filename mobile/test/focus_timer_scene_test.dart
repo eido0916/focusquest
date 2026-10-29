@@ -28,12 +28,14 @@ void main() {
       final boundary = GlobalKey();
       var battles = 0;
       var cancels = 0;
+      var returns = 0;
       await tester.pumpWidget(RepaintBoundary(
           key: boundary,
           child: MaterialApp(
               theme: AppTheme.dark,
               debugShowCheckedModeBanner: false,
               home: FocusTimerScene(
+                  taskTitle: '英語の勉強',
                   characterName: 'まさし',
                   characterType: 'warrior',
                   level: 3,
@@ -43,7 +45,7 @@ void main() {
                   onBattle: () => battles++,
                   onCancel: () => cancels++,
                   onSound: () {},
-                  onBack: () {}))));
+                  onBack: () => returns++))));
       await tester.pumpAndSettle();
       for (final element in find.byType(Image).evaluate()) {
         await tester.runAsync(
@@ -52,6 +54,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
       expect(find.text('29:51'), findsOneWidget);
+      expect(find.text('タスク：英語の勉強'), findsOneWidget);
       expect(find.text('第2章 · 集中クエスト進行中'), findsOneWidget);
       if (size.width == 390) {
         await tester.runAsync(() async {
@@ -73,6 +76,10 @@ void main() {
       await tester.tap(find.text('集中を中断'));
       await tester.pump();
       expect(cancels, 1);
+      await tester.ensureVisible(find.byKey(const Key('focus-return-home')));
+      await tester.tap(find.byKey(const Key('focus-return-home')));
+      await tester.pump();
+      expect(returns, 1);
       expect(tester.takeException(), isNull);
     });
   }

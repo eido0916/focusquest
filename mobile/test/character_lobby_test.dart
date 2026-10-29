@@ -9,6 +9,7 @@ import 'package:focusquest/core/theme/app_theme.dart';
 import 'package:focusquest/core/widgets/quest_widgets.dart';
 import 'package:focusquest/data/game_catalog.dart';
 import 'package:focusquest/features/character/presentation/character_screen.dart';
+import 'package:focusquest/features/character/presentation/job_change_page.dart';
 import 'package:focusquest/features/certificate/certificate_screen.dart';
 import 'support/memory_repository.dart';
 
@@ -77,6 +78,13 @@ void main() {
         expect(find.text('称号変更'), findsOneWidget);
         expect(find.byKey(const ValueKey('character-stats')), findsOneWidget);
         expect(find.byKey(const ValueKey('character-equipment')), findsNothing);
+        await tester.ensureVisible(find.byKey(const ValueKey('change-job')));
+        await tester.tap(find.byKey(const ValueKey('change-job')));
+        await tester.pumpAndSettle();
+        expect(find.byType(JobChangePage), findsOneWidget);
+        expect(tester.takeException(), isNull);
+        await tester.pageBack();
+        await tester.pumpAndSettle();
         await tester.ensureVisible(find.text('冒険者証を見る'));
         await tester.pumpAndSettle();
         expect(find.text('冒険者証を見る').hitTestable(), findsOneWidget);

@@ -12,8 +12,14 @@ class Character {
       this.currentExp = 0,
       this.selectedTitle,
       this.rarity = 'N',
+      Map<String, int> trainingPoints = const {},
+      Set<String> unlockedJobs = const {},
       Map<String, String> equippedItems = const {}})
-      : equippedItems = Map.unmodifiable(equippedItems);
+      : trainingPoints = Map.unmodifiable(trainingPoints),
+        unlockedJobs = Set.unmodifiable(unlockedJobs),
+        equippedItems = Map.unmodifiable(equippedItems);
+  final Map<String, int> trainingPoints;
+  final Set<String> unlockedJobs;
   final String id;
   final String name;
   final String characterType;
@@ -28,13 +34,17 @@ class Character {
   final Map<String, String> equippedItems;
   int get requiredExp => GameBalance.requiredExp(level);
   Character copyWith(
-          {int? level,
+          {String? name,
+          Map<String, int>? trainingPoints,
+          int? level,
           int? currentExp,
           String? selectedTitle,
           Map<String, String>? equippedItems}) =>
       Character(
           id: id,
-          name: name,
+          name: name ?? this.name,
+          trainingPoints: trainingPoints ?? this.trainingPoints,
+          unlockedJobs: unlockedJobs,
           characterType: characterType,
           appearance: appearance,
           baseStats: baseStats,
@@ -44,6 +54,8 @@ class Character {
           selectedTitle: selectedTitle ?? this.selectedTitle,
           equippedItems: equippedItems ?? this.equippedItems);
   Map<String, dynamic> toJson() => {
+        'trainingPoints': trainingPoints,
+        'unlockedJobs': unlockedJobs.toList(),
         'id': id,
         'name': name,
         'characterType': characterType,
@@ -56,6 +68,9 @@ class Character {
         'equippedItems': equippedItems
       };
   factory Character.fromJson(Map<String, dynamic> json) => Character(
+      trainingPoints:
+          Map<String, int>.from(json['trainingPoints'] as Map? ?? {}),
+      unlockedJobs: Set<String>.from(json['unlockedJobs'] as List? ?? []),
       id: json['id'] as String,
       name: json['name'] as String,
       characterType: json['characterType'] as String,

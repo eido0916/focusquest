@@ -33,7 +33,15 @@ class FocusLedger {
       if (hero == null) throw StateError('キャラクターがありません。');
       characters = {
         ...characters,
-        hero.id: ProgressionService().addExp(hero, reward.exp)
+        hero.id: ProgressionService()
+            .addExp(hero, reward.exp)
+            .copyWith(trainingPoints: {
+          ...hero.trainingPoints,
+          for (final e in (session.task?.gains(session.durationMinutes) ??
+                  <String, int>{})
+              .entries)
+            e.key: (hero.trainingPoints[e.key] ?? 0) + e.value,
+        })
       };
     }
     return state.copyWith(

@@ -1,3 +1,4 @@
+import 'job_change_page.dart';
 import 'package:flutter/material.dart';
 import '../../../core/game_controller.dart';
 import '../../../core/widgets/quest_widgets.dart';
@@ -264,6 +265,13 @@ class CharacterScreen extends StatelessWidget {
               style:
                   TextStyle(color: _gold, fontSize: width * .037, height: 1)),
           const SizedBox(height: 6),
+          action(
+              '成長・ジョブチェンジ',
+              'level_icon',
+              const ValueKey('change-job'),
+              () => Navigator.of(context).push(MaterialPageRoute<void>(
+                  builder: (_) => JobChangePage(controller: controller)))),
+          const SizedBox(height: 3),
           action('称号変更', 'title_icon', const ValueKey('change-title'),
               () => openTitles(context)),
           const SizedBox(height: 3),
