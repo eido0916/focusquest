@@ -30,6 +30,8 @@ class StageProjectile {
   final int power;
   double age = 0, endX = 0;
   bool resolved = false, missed = false;
+  static const skillImpactSeconds = .35;
+  double get impactSeconds => skill && !missed ? skillImpactSeconds : .14;
   double get progress => (age / flightSeconds).clamp(0.0, 1.0);
   double get x => missed && resolved
       ? endX + (age - flightSeconds) * 1600
@@ -161,6 +163,29 @@ class PlayableStageBattle extends ChangeNotifier {
   double spriteWorldSide = 200;
   double contactGap(StageEnemy enemy) =>
       spriteWorldSide * (enemy.definition.isBoss ? 1.2 : .45);
+
+  /// These v002 originals depict a finite slash/ground impact, not a shot
+  /// travelling across the arena. Keep this adventure-only delivery separate
+  /// from the character's older projectile identity used by other battle modes.
+  bool get skillNeedsApproach =>
+      ['剣士', '鎌使い', 'バーサーカー'].contains(character.role);
+
+  ProjectileKind? projectileForAction(bool skill) =>
+      skill && skillNeedsApproach ? null : character.projectileFor(skill);
+
+  /// Position the enemy's near edge inside the authored impact, measured in
+  /// 128px actor units. The crescent's solid blade occupies source x~350/128.
+  double actionContactGap(StageEnemy enemy, bool skill) {
+    if (!skill || !skillNeedsApproach) return contactGap(enemy);
+    final reach = character.role == '剣士' ? 2.75 : 2.5;
+    return spriteWorldSide * (reach + (enemy.definition.isBoss ? .6 : .08));
+  }
+
+  bool _inActionRange(StageEnemy enemy, bool skill) {
+    final gap = enemy.x - heroX - heroPoseOffset;
+    return gap >= 0 && gap <= actionContactGap(enemy, skill) + 1;
+  }
+
   double Function(bool skill, double progress)? actionOffsetPx;
   StageEnemy? _actionTarget;
   StageEnemy? get actionTarget => _actionTarget;
@@ -272,6 +297,7 @@ class PlayableStageBattle extends ChangeNotifier {
     _heroHit = false;
     _releasedShots = 0;
     attempts++;
+    charge = math.min(chargeNeeded, charge + 1);
     _sound(BattleSound.swing);
     notifyListeners();
     return true;
@@ -311,7 +337,6 @@ class PlayableStageBattle extends ChangeNotifier {
     enemy.hp = math.max(0, enemy.hp - damage);
     if (!skill) {
       hits++;
-      charge = math.min(chargeNeeded, charge + 1);
     }
     damageNumbers.add(StageDamage(damage, enemy.x, clock,
         skill: skill,
@@ -365,7 +390,7 @@ class PlayableStageBattle extends ChangeNotifier {
           : attackHitFraction * attackDuration);
       final duration = skill ? skillDuration : attackDuration;
       final progress = actionTime / duration;
-      final projectile = character.projectileFor(skill);
+      final projectile = projectileForAction(skill);
       if (projectile != null) {
         heroX = heroHomeX;
         heroPoseOffset = 0;
@@ -397,7 +422,7 @@ class PlayableStageBattle extends ChangeNotifier {
             spriteWorldSide /
             128;
         final destination =
-            math.max(heroHomeX, enemyPosition - contactGap(enemy));
+            math.max(heroHomeX, enemyPosition - actionContactGap(enemy, skill));
         heroX =
             (heroHomeX + (destination - heroHomeX) * excursion - heroPoseOffset)
                 .roundToDouble();
@@ -407,14 +432,16 @@ class PlayableStageBattle extends ChangeNotifier {
           while (_releasedShots < skillReleaseFractions.length &&
               progress >= skillReleaseFractions[_releasedShots]) {
             final count = skillReleaseFractions.length;
-            _damageEnemy(true,
-                basePower: character.skillPower ~/ count +
-                    (_releasedShots < character.skillPower % count ? 1 : 0));
+            if (_inActionRange(enemy, true)) {
+              _damageEnemy(true,
+                  basePower: character.skillPower ~/ count +
+                      (_releasedShots < character.skillPower % count ? 1 : 0));
+            }
             _releasedShots++;
           }
         } else if (!_heroHit && actionTime >= hitTime) {
           _heroHit = true;
-          _damageEnemy(skill);
+          if (_inActionRange(enemy, skill)) _damageEnemy(skill);
         }
       }
       if (actionTime >= duration) {
@@ -526,8 +553,8 @@ class PlayableStageBattle extends ChangeNotifier {
         }
       }
     }
-    projectiles.removeWhere(
-        (projectile) => projectile.age > projectile.flightSeconds + .14);
+    projectiles.removeWhere((projectile) =>
+        projectile.age > projectile.flightSeconds + projectile.impactSeconds);
     notifyListeners();
   }
 

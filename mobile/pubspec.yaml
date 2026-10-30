@@ -1,5 +1,5 @@
 name: focusquest
-description: "A new Flutter project."
+description: "FocusQuest: a focus timer and pixel-art RPG for Android."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -64,8 +64,16 @@ flutter:
       fonts:
         - asset: assets/fonts/NotoSerifJP.ttf
   assets:
+    - assets/images/home_focus_ui_v002/
+    - assets/images/character_ui_v008/
+    - assets/images/character_ui_v008/standing/male/
+    - assets/images/character_ui_v008/standing/female/
+    - assets/images/character_pixel_v007/
+    - assets/images/character_pixel_v007/standing/male/
+    - assets/images/character_pixel_v007/standing/female/
     - assets/images/diagnosis/job_reveal_v001/
     - assets/images/character_ui_v004/
+    - assets/images/character_ui_v006/
     - assets/images/character_ui_v002/
     - assets/images/role_logos/
     - assets/images/focus_timer_v001/
@@ -73,9 +81,14 @@ flutter:
     - assets/images/focus_selection_v001/avatars/male/
     - assets/images/focus_selection_v001/avatars/female/
     - assets/images/settings_ui_v001/
+    - assets/images/settings_ui_v002/
     - assets/images/role_skill_effects_v002/
     - assets/images/certificates_landscape_v002/
     - assets/images/party_lobby_v001/
+    - assets/images/party_entry_v002/
+    - assets/images/adventure_map_v001/
+    - assets/images/adventure_map_v002/
+    - assets/images/adventure_map_v003/
     - assets/images/party_focus_v001/
     - assets/images/party/catalog.json
     - assets/images/party/enemies/dracula/attack/keyframes/

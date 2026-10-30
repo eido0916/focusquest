@@ -1,0 +1,46 @@
+[
+  {
+    "name": "landscape",
+    "match": true
+  },
+  {
+    "name": "ghost_ship",
+    "match": true
+  },
+  {
+    "name": "node_boss",
+    "match": true
+  },
+  {
+    "name": "meadow_thumbnail",
+    "match": true
+  },
+  {
+    "name": "route",
+    "match": true
+  },
+  {
+    "name": "fog_3",
+    "match": true
+  },
+  {
+    "name": "fog_4",
+    "match": true
+  },
+  {
+    "name": "frontier_glow",
+    "match": true
+  },
+  {
+    "name": "icon_compass",
+    "match": true
+  },
+  {
+    "name": "icon_flag",
+    "match": true
+  },
+  {
+    "name": "icon_crown",
+    "match": true
+  }
+]

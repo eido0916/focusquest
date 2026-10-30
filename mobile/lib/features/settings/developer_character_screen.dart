@@ -5,7 +5,7 @@ import '../../core/widgets/quest_widgets.dart';
 import '../../data/game_catalog.dart';
 import '../diagnosis/presentation/job_portrait.dart';
 
-/// Temporary developer screen, linked only from debug settings.
+/// Temporary developer screen, linked only from the developer settings panel.
 class DeveloperCharacterScreen extends StatefulWidget {
   const DeveloperCharacterScreen({super.key, required this.controller});
   final GameController controller;

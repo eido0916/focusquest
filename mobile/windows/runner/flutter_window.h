@@ -3,6 +3,7 @@
 
 #include <flutter/dart_project.h>
 #include <flutter/flutter_view_controller.h>
+#include <flutter/method_channel.h>
 
 #include <memory>
 
@@ -23,6 +24,8 @@ class FlutterWindow : public Win32Window {
                          LPARAM const lparam) noexcept override;
 
  private:
+  void ApplyDisplayOrientation(bool landscape);
+  std::unique_ptr<flutter::MethodChannel<flutter::EncodableValue>> display_channel_;
   // The project to run.
   flutter::DartProject project_;
 

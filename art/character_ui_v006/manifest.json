@@ -1,0 +1,146 @@
+[
+  {
+    "sha256": "C371F907F7D924070B953703D73A3167DBF22DDE8657148DA87F27C5187D221F",
+    "height": 120,
+    "width": 1200,
+    "asset": "action_row.png"
+  },
+  {
+    "sha256": "DC734BC6C311E369330B26BD37128D8AA418066CB3B4E0938B938705E87C5B15",
+    "height": 604,
+    "width": 2197,
+    "asset": "adventurer_panel.png"
+  },
+  {
+    "sha256": "96B6C531F743A4A5C010A22B8849474D52AD8C394ABDC3592D9E5BA582977554",
+    "height": 1536,
+    "width": 1024,
+    "asset": "castle_courtyard.png"
+  },
+  {
+    "sha256": "9A85EEA2073F4AD0AA19C31980AB8DAC3D0CA3E2C3404FC2F0BC53A59032B8DF",
+    "height": 128,
+    "width": 128,
+    "asset": "certificate_icon.png"
+  },
+  {
+    "sha256": "8278752B96E3C6A13553A7E655E2845B7435602FA69DACC4F60005239811E5B1",
+    "height": 128,
+    "width": 128,
+    "asset": "chevron_icon.png"
+  },
+  {
+    "sha256": "497789598DDA1EC0977739EDEC215A3DD573963F83A1CF16CCE906AF11CEDE88",
+    "height": 30,
+    "width": 600,
+    "asset": "exp_fill.png"
+  },
+  {
+    "sha256": "67A96B0D4782BC3FF26CF130ABEA210F51EF6DDFC8A6B07DE18AC8D62FDA9D27",
+    "height": 30,
+    "width": 600,
+    "asset": "exp_track.png"
+  },
+  {
+    "sha256": "B18D28B8C3065E2DF7EB21E3CDC592E448D5AADE95923D03072321B46D3742B3",
+    "height": 261,
+    "width": 1280,
+    "asset": "header_banner.png"
+  },
+  {
+    "sha256": "40CD1C5A4B45000BC1476A648B494BF7743B49269CDB9304C958A5D4B81BA375",
+    "height": 384,
+    "width": 64,
+    "asset": "identity_divider.png"
+  },
+  {
+    "sha256": "9D78A7BB34D1CD779DA3B3A51985E0AE363D6A514ED6150916E785427A83FB63",
+    "height": 210,
+    "width": 1200,
+    "asset": "identity_panel.png"
+  },
+  {
+    "sha256": "EEFA1CDD5C26AE205D4328837C7D289E6A5A321C7348197920501A2D282724AC",
+    "height": 339,
+    "width": 1200,
+    "asset": "info_parchment.png"
+  },
+  {
+    "sha256": "30EF2E87C3AF378C5787F2A871593484846C30F098D0F2C902C6AEFD8DAD0E5F",
+    "height": 64,
+    "width": 192,
+    "asset": "level_icon.png"
+  },
+  {
+    "sha256": "B725A05815FACC3193FB2131A757A6E88C2CD668930F08573E5743130FEACD63",
+    "height": 625,
+    "width": 2125,
+    "asset": "parchment_panel.png"
+  },
+  {
+    "sha256": "DF17E00F92BD778E7D2724FC86D6D58AFF434E833B9A635E02B8EC68A31402A8",
+    "height": 24,
+    "width": 360,
+    "asset": "section_rule.png"
+  },
+  {
+    "sha256": "102E90ED085FA09EF11112FA7775A115DF898B2853A70F447D5736E65A9F6FB3",
+    "height": 128,
+    "width": 128,
+    "asset": "stat_attack.png"
+  },
+  {
+    "sha256": "3A38CC8B657B4DFBACD177219C9555269AC7825B9C2084E7562AAF55B4B099B1",
+    "height": 128,
+    "width": 128,
+    "asset": "stat_critical.png"
+  },
+  {
+    "sha256": "BB9AFE77D08055E1C96902EDDD612D090E2B45A9CC0937E0BADBA4199431D45B",
+    "height": 128,
+    "width": 128,
+    "asset": "stat_defense.png"
+  },
+  {
+    "sha256": "C08E198014FEB103B4BE9B928F6DD5648A675BD78D2390A5DD89027996E5B24B",
+    "height": 128,
+    "width": 128,
+    "asset": "stat_hp.png"
+  },
+  {
+    "sha256": "9ECADDBC46786B4D4FDDE4EF3DA5886CEB0CD95DE51CFC9F5C4CABC7046C5521",
+    "height": 120,
+    "width": 600,
+    "asset": "stat_row.png"
+  },
+  {
+    "sha256": "670004938B457F7DB4AF078420963F6AC44C852FCEB88FA7A7CA3668D8EA845D",
+    "height": 128,
+    "width": 128,
+    "asset": "stat_speed.png"
+  },
+  {
+    "sha256": "D4AF7703D0F4D237EF416C838BF1E23D515CBBABD112DA8B73B4D4FAA949978E",
+    "height": 540,
+    "width": 1200,
+    "asset": "stats_parchment.png"
+  },
+  {
+    "sha256": "180B839A535290D9A6199543862680351AB5C3AFAB0B3E09E0EA85A781963E38",
+    "height": 128,
+    "width": 128,
+    "asset": "title_icon.png"
+  },
+  {
+    "sha256": "7CC3D9EFE946AC53F4BAC3B01880820B632D90F3A5B6381BD012238E49386AE1",
+    "height": 512,
+    "width": 1024,
+    "asset": "title_list_panel.png"
+  },
+  {
+    "sha256": "E38E1D2348AD271AB8F3CA19E2C176A71A5A939039A1C198CDB437C810D6F307",
+    "height": 90,
+    "width": 3,
+    "asset": "value_divider.png"
+  }
+]

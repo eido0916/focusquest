@@ -1,0 +1,25 @@
+{
+  "runtime": "C:/Users/eido0/FocusQuestTools/character-ui-v008/Release/focusquest.exe",
+  "processId": 1872,
+  "compiledSha256": "741d2a34b74768fd8a2ce38f112f62ad0046c4647683e6f6ce251e82e8bf188c",
+  "installedSha256": "741d2a34b74768fd8a2ce38f112f62ad0046c4647683e6f6ce251e82e8bf188c",
+  "source": [
+    {
+      "file": "features/playable_stage/domain/playable_stage_battle.dart",
+      "workspace": "86dcea8614bf6dd3fd914936208201b234179c24e63c5ca97311dfc83c973f28",
+      "compiledSource": "86dcea8614bf6dd3fd914936208201b234179c24e63c5ca97311dfc83c973f28"
+    },
+    {
+      "file": "features/playable_stage/presentation/playable_stage_painter.dart",
+      "workspace": "8e72bf1b4998d11dd76c0f189850e3bead98c73349d2df06b274f8ed47a93595",
+      "compiledSource": "8e72bf1b4998d11dd76c0f189850e3bead98c73349d2df06b274f8ed47a93595"
+    }
+  ],
+  "tests": {
+    "baseline": 30,
+    "finalImpact": 12,
+    "unique": 32
+  },
+  "pairedPreviews": 12,
+  "staticAnalysis": "No issues found"
+}

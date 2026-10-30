@@ -15,6 +15,19 @@ const identity = PartyMember(
     characterType: 'warrior',
     appearance: 'male',
     level: 3);
+
+class FailingPartyConnection extends PartyConnection {
+  bool rejectLeave = false;
+  bool legacyDisband = false;
+  @override
+  void send(String type, [Map<String, dynamic> data = const {}]) {
+    if (type == 'leave' && rejectLeave) throw StateError('transport closed');
+    super.send(
+        type == 'disband' && legacyDisband ? 'unsupported-disband' : type,
+        data);
+  }
+}
+
 Future<void> until(bool Function() check) async {
   for (var i = 0; i < 200 && !check(); i++) {
     await Future<void>.delayed(const Duration(milliseconds: 10));
@@ -46,6 +59,33 @@ void main() {
     await connection.connectForTest(uri, identity, code: code);
     return connection;
   }
+
+  test('leave clears membership even when transport rejects the send',
+      () async {
+    final host = FailingPartyConnection();
+    clients.add(host);
+    await host.connectForTest(uri, identity);
+    host.rejectLeave = true;
+    await host.leave();
+    expect(host.connected, isFalse);
+    expect(host.code, isNull);
+    expect(host.members, isEmpty);
+    expect(host.error, isNull);
+    await host.connectForTest(uri, identity);
+    expect(host.connected, isTrue);
+  });
+
+  test('legacy disband rejection explains the failure and still allows exit',
+      () async {
+    final host = FailingPartyConnection()..legacyDisband = true;
+    clients.add(host);
+    await host.connectForTest(uri, identity);
+    await expectLater(host.disband(), throwsStateError);
+    expect(host.error, contains('サーバーが解散操作に対応していません'));
+    expect(host.connected, isTrue);
+    await host.leave();
+    expect(host.connected, isFalse);
+  });
 
   test(
       'code joins four real clients, rejects a fifth, synchronizes and locks a session',
@@ -137,6 +177,32 @@ void main() {
     await until(() => guest.members.length == 2);
     expect(replacement.isHost, isFalse);
   });
+  test('only leader can disband; all members leave and old code is invalid',
+      () async {
+    final host = await client();
+    final code = host.code!;
+    final guest = await client(code: code);
+    await expectLater(guest.disband(), throwsStateError);
+    guest.send('disband');
+    await until(() => guest.error != null);
+    expect(host.connected, isTrue);
+    expect(guest.connected, isTrue);
+    await host.disband();
+    await until(() => !host.connected && !guest.connected);
+    for (final connection in [host, guest]) {
+      expect(connection.code, isNull);
+      expect(connection.members, isEmpty);
+      expect(connection.session, isNull);
+      expect(connection.error, isNull);
+    }
+    final stranger = PartyConnection();
+    clients.add(stranger);
+    await expectLater(
+        stranger.connectForTest(uri, identity, code: code), throwsStateError);
+    await host.connectForTest(uri, identity);
+    expect(host.isHost, isTrue);
+    expect(host.members, hasLength(1));
+  });
   test('server rejects malformed identity and unknown code', () async {
     final socket = await WebSocket.connect(uri.toString());
     final response = socket.first;
@@ -180,8 +246,10 @@ void main() {
               as Map<String, dynamic>);
       expect(restored.partyMembers.map((m) => m.name),
           a.activeFocus!.partyMembers.map((m) => m.name));
-      await a.party.leave();
+      await a.party.disband();
+      await until(() => !b.party.connected);
       expect(a.activeFocus!.status, FocusStatus.active);
+      expect(b.activeFocus!.status, FocusStatus.active);
       expect(await a.finishFocus(), isNull);
       await a.finishFocus(cancel: true);
       expect(a.state!.activeCharacter!.currentExp, 0);

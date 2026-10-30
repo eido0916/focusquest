@@ -67,8 +67,7 @@ void main() {
     return battle;
   }
 
-  test(
-      'all eight ranged heroes fire in place; damage and charge wait for arrival',
+  test('all eight ranged heroes charge on attack; damage waits for arrival',
       () async {
     for (final hero in heroes) {
       final battle = ready(hero);
@@ -79,7 +78,7 @@ void main() {
       }
       final shot = battle.projectiles.single;
       expect(victim.hp, 1000, reason: hero.name);
-      expect(battle.charge, 0);
+      expect(battle.charge, 1);
       expect(shot.x, greaterThan(shot.startX));
       expect(shot.x, lessThan(shot.endX));
       while (!shot.resolved) {
@@ -173,7 +172,7 @@ void main() {
         battle.update(1 / 240);
       }
       expect(battle.target.hp, critical ? 960 : 1000);
-      expect(battle.charge, critical ? 1 : 0);
+      expect(battle.charge, 1);
       expect(shot.missed, !critical);
       if (!critical) {
         advance(battle, .05);
@@ -224,14 +223,16 @@ void main() {
       addTearDown(tester.view.resetDevicePixelRatio);
       final hero = heroes.firstWhere((hero) => hero.role == role);
       final battle = ready(hero);
-      for (final enemy in battle.enemies) { enemy.hp = enemy.definition.hp; }
+      for (final enemy in battle.enemies) {
+        enemy.hp = enemy.definition.hp;
+      }
       final before = battle.target.hp;
       final boundary = GlobalKey();
       await tester.pumpWidget(RepaintBoundary(
           key: boundary,
           child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: AppTheme.dark,
+              debugShowCheckedModeBanner: false,
+              theme: AppTheme.dark,
               home: PlayableStagePage(
                   battle: battle,
                   assets: assets[hero.id]!,

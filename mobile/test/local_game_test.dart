@@ -50,7 +50,7 @@ void main() {
     now = now.add(const Duration(minutes: 30));
     final result = await controller.finishFocus();
     expect(result!.status, FocusStatus.succeeded);
-    expect(controller.state!.activeCharacter!.level, 3);
+    expect(controller.state!.activeCharacter!.level, 4);
     expect(controller.state!.coins, 0);
     await controller.recordPlayableClear(1);
     await controller.repository.transact(GameController.uid,
@@ -147,7 +147,7 @@ void main() {
     repo.fail = false;
     await controller.finishFocus();
     expect(controller.state!.coins, 0);
-    expect(controller.state!.activeCharacter!.level, 3);
+    expect(controller.state!.activeCharacter!.level, 4);
     expect(controller.state!.sessions.length, 1);
   });
   test('interrupted focus and current adventure clears restore', () async {

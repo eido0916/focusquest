@@ -1,0 +1,10 @@
+{
+  "runtime": "C:/Users/eido0/FocusQuestTools/character-ui-v008/Release",
+  "entry": "lib/main.dart",
+  "processId": 19160,
+  "appSoSha256": "95EB5C70EB590159107F4FA85E1C1475C24EBBEB906CAD91D98FD8BA85306128",
+  "engineHashMatches": true,
+  "responsive": true,
+  "layoutAndTitleTests": 22,
+  "staticAnalysis": "no issues"
+}

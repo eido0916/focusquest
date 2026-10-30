@@ -1,0 +1,20 @@
+const fs=require('fs'),path=require('path'),crypto=require('crypto');
+const sharp=require('C:/Users/eido0/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
+const root=path.resolve(__dirname,'..'),art=path.join(root,'art/adventure_map_v003'),stage='C:/Users/eido0/FocusQuestTools/integrated-build';
+(async()=>{
+ const previews=path.join(art,'previews');fs.mkdirSync(previews,{recursive:true});
+ for(const f of fs.readdirSync(path.join(stage,'build/adventure-map-review')).filter(f=>f.endsWith('.png')))fs.copyFileSync(path.join(stage,'build/adventure-map-review',f),path.join(previews,f));
+ const source=path.join(previews,'map-1-470-1.0.png');
+ await sharp(source).resize(941,1672,{kernel:'nearest'}).png().toFile(path.join(previews,'implemented.png'));
+ const target=await sharp(path.join(art,'reference-design.png')).resize(941,1672).png().toBuffer();
+ await sharp({create:{width:1882,height:1672,channels:4,background:'#00182d'}}).composite([{input:target,left:0,top:0},{input:path.join(previews,'implemented.png'),left:941,top:0}]).png().toFile(path.join(previews,'reference-and-implementation.png'));
+ const manifest=JSON.parse(fs.readFileSync(path.join(art,'manifest.json')));
+ const hash=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
+ const checks=manifest.assets.map(a=>({name:a.name,match:[path.join(art,'materials',a.name+'.png'),path.join(root,'mobile/assets/images/adventure_map_v003',a.name+'.png'),path.join(stage,'build/windows/x64/runner/Release/data/flutter_assets/assets/images/adventure_map_v003',a.name+'.png')].every(f=>hash(f)===a.sha256)}));
+ fs.writeFileSync(path.join(art,'asset-verification.json'),JSON.stringify(checks,null,2));
+ if(checks.some(c=>!c.match))throw Error('Asset hash mismatch');
+ const tiles=await Promise.all(manifest.assets.map(async(e,i)=>({input:await sharp(path.join(art,'materials',e.name+'.png')).resize(240,150,{fit:'contain',background:'#183247'}).extend({top:25,bottom:5,left:5,right:5,background:'#183247'}).composite([{input:Buffer.from(`<svg width="240" height="24"><text x="5" y="18" fill="#ffe8a8" font-size="16">${e.name}</text></svg>`),left:5,top:0}]).png().toBuffer(),left:(i%3)*250,top:Math.floor(i/3)*180})));
+ await sharp({create:{width:750,height:Math.ceil(tiles.length/3)*180,channels:4,background:'#183247'}}).composite(tiles).png().toFile(path.join(art,'material_catalog.png'));
+ for(const f of ['adventure-map-v003-final-tests.log','adventure-map-v003-analyze.log','adventure-map-v003-release.log'])fs.copyFileSync(path.join(stage,'build',f),path.join(art,f));
+ console.log(`Verified ${checks.length} assets; saved actual rendered previews and comparison.`);
+})();

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72"><defs>
+ <linearGradient id="gold" x2=".25" y2="1"><stop stop-color="#fff0ab"/><stop offset=".32" stop-color="#eab74e"/><stop offset=".55" stop-color="#9c601b"/><stop offset=".75" stop-color="#ffe4a0"/><stop offset="1" stop-color="#c88d2c"/></linearGradient>
+ <linearGradient id="blue" x2=".2" y2="1"><stop stop-color="#063c80"/><stop offset=".45" stop-color="#00295d"/><stop offset="1" stop-color="#001938"/></linearGradient>
+ <linearGradient id="dark" x2="1" y2=".5"><stop stop-color="#102432"/><stop offset=".55" stop-color="#071b29"/><stop offset="1" stop-color="#122735"/></linearGradient>
+ <linearGradient id="coin" x2="1" y2=".4"><stop stop-color="#ffdf87"/><stop offset=".5" stop-color="#f8cd68"/><stop offset="1" stop-color="#dca849"/></linearGradient>
+ <linearGradient id="switch" x2="1" y2="1"><stop stop-color="#ad7c25"/><stop offset=".55" stop-color="#d5a338"/><stop offset="1" stop-color="#f8d77e"/></linearGradient>
+ </defs><g fill="#f5ce76" color="#f5ce76"><path d="M43 17L24 36L43 55M25 36H60" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="miter"/></g></svg>

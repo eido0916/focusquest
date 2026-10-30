@@ -1,0 +1,31 @@
+name: 不具合報告
+description: 再現手順と環境を添えて不具合を報告する
+body:
+  - type: markdown
+    attributes:
+      value: 個人情報・パーティーコード・トークンは記載しないでください。脆弱性の詳細はSECURITY.mdの方法で非公開に報告してください。
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 再現手順
+      description: どの画面で何をすると発生しますか？
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待する動作と実際の動作
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 実行環境
+      description: 端末・OS・画面サイズ・文字拡大率・コミット番号など
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 画像・ログ
+      description: 個人情報や秘密情報を削除したうえで添付してください。

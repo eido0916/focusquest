@@ -4,6 +4,7 @@ import 'package:focusquest/features/character/domain/stats.dart';
 import 'package:focusquest/features/focus/domain/focus_session.dart';
 import 'package:focusquest/features/party/domain/party_member.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:focusquest/core/config/game_balance.dart';
 import 'package:focusquest/features/focus/domain/focus_adventure.dart';
 import 'package:focusquest/game/runner/battle_state_controller.dart';
 
@@ -32,8 +33,16 @@ void main() {
     expect(battle.isBossBattle, true);
     expect(battle.bossRemainingSeconds, 300);
     expect(battle.enemies.single.data.isBoss, true);
+    final beforeBoss = battle.gainedExp;
+    battle.advanceTo(1799.95);
+    expect(battle.enemies.single.hp, 1);
+    expect(battle.bossDefeatedCount, 0);
+    expect(battle.gainedExp, beforeBoss);
     battle.advanceTo(1800);
     expect(battle.bossDefeatedCount, 1);
+    expect(battle.gainedExp, beforeBoss + GameBalance.focusBossExp);
+    battle.advanceTo(1800);
+    expect(battle.gainedExp, beforeBoss + GameBalance.focusBossExp);
     expect(battle.isBossBattle, false);
   });
   test(

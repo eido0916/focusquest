@@ -20,7 +20,9 @@ class PlayableStagePainter extends CustomPainter {
   String get heroMotion {
     if (battle.mode == StageMode.lost &&
         assets.motions.containsKey('hero_defeat')) return 'hero_defeat';
-    if (battle.heroHurt && assets.motions.containsKey('hero_hurt')) {
+    if (battle.action == null &&
+        battle.heroHurt &&
+        assets.motions.containsKey('hero_hurt')) {
       return 'hero_hurt';
     }
     if (battle.action == null) {
@@ -166,26 +168,52 @@ class PlayableStagePainter extends CustomPainter {
       final motion = assets.motions['hero_skill']!;
       final age = battle.actionTime * motion.duration / battle.skillDuration;
       final offset = motion.frame(age).offset;
-      assets.effect.paint(canvas,
-          origin: Offset(
-              battle.heroX / 1280 * size.width + offset.dx * side / 128,
-              size.height * battle.stage.groundLine + offset.dy * side / 128),
-          viewport: Offset.zero & size,
-          age: age,
-          duration: motion.duration,
-          releases: motion
-              .eventTicks(battle.character.skillEvent)
-              .map((t) => t / 24)
-              .toList(),
-          // Keep the charge arc in front of the torso on the smaller
-          // adventure sprite. Impact frames retain their ground anchors.
-          chargeHeight: 16,
-          logicalPixel: side / 64,
-          devicePixelRatio: pixelRatio);
+      final releases = motion
+          .eventTicks(battle.character.skillEvent)
+          .map((t) => t / 24)
+          .toList();
+      final release = releases.isEmpty
+          ? motion.duration * battle.skillHitFraction
+          : releases.first;
+      // Ranged charge stays with the caster. Its attack/impact art belongs
+      // at the actual collision, not in front of the caster before arrival.
+      if (battle.projectileForAction(true) == null || age + 1e-7 < release) {
+        _skillEffect(canvas, size,
+            origin: Offset(
+                battle.heroX / 1280 * size.width + offset.dx * side / 128,
+                size.height * battle.stage.groundLine + offset.dy * side / 128),
+            age: age,
+            duration: motion.duration,
+            releases: releases);
+      }
     }
-    // Skill visuals come exclusively from the shared GitHub v002 originals.
-    // Keep skill projectiles in the battle model for travel and hit resolution.
-    for (final projectile in battle.projectiles.where((shot) => !shot.skill)) {
+    // Finite slashes use the authored v002 originals at their contact distance.
+    // Actual ranged skills must show their flight and impact, including after
+    // the casting animation ends, rather than damaging through invisible shots.
+    for (final projectile in battle.projectiles
+        .where((shot) => !shot.skill || !battle.skillNeedsApproach)) {
+      if (projectile.skill &&
+          projectile.resolved &&
+          !projectile.missed &&
+          !['弓使い', 'ガンナー'].contains(battle.character.role)) {
+        final motion = assets.motions['hero_skill']!;
+        final ticks = motion.eventTicks(battle.character.skillEvent);
+        final release = ticks.isEmpty
+            ? motion.duration * battle.skillHitFraction
+            : ticks.first / 24;
+        final progress = ((projectile.age - projectile.flightSeconds) /
+                StageProjectile.skillImpactSeconds)
+            .clamp(0.0, 1.0);
+        // The focal body of the authored 1536x256 effect is at source x=256.
+        // Shift the complete original to the hit point, preserving its pixels.
+        _skillEffect(canvas, size,
+            origin: Offset(projectile.endX / 1280 * size.width - 2 * side,
+                size.height * battle.stage.groundLine),
+            age: release + (motion.duration - release) * progress,
+            duration: motion.duration,
+            releases: [release]);
+        continue;
+      }
       paintStageProjectile(
           canvas,
           projectile,
@@ -248,6 +276,22 @@ class PlayableStagePainter extends CustomPainter {
                   age * 35));
     }
     canvas.restore();
+  }
+
+  void _skillEffect(Canvas canvas, Size size,
+      {required Offset origin,
+      required double age,
+      required double duration,
+      required List<double> releases}) {
+    assets.effect.paint(canvas,
+        origin: origin,
+        viewport: Offset.zero & size,
+        age: age,
+        duration: duration,
+        releases: releases,
+        chargeHeight: 16,
+        logicalPixel: baseSpriteSide(size, pixelRatio) / 64,
+        devicePixelRatio: pixelRatio);
   }
 
   void _sprite(Canvas canvas, Size size, String name, double time, double x,

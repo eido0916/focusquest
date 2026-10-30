@@ -57,11 +57,13 @@ void main() {
   });
   for (final size in [
     const Size(390, 844),
+    const Size(470, 836),
     const Size(320, 568),
     const Size(844, 390)
   ]) {
     for (final scale in [1.0, 1.6]) {
-      testWidgets('entry duration and join dialog at $size scale $scale',
+      testWidgets(
+          'entry has no duration settings; join dialog at $size scale $scale',
           (tester) async {
         tester.view.physicalSize = size;
         tester.view.devicePixelRatio = 1;
@@ -83,14 +85,12 @@ void main() {
         if (size.width == 390 && scale == 1) {
           await capture(tester, key, 'entry');
         }
-        await tester.ensureVisible(find.widgetWithText(ChoiceChip, '45分'));
-        await tester.tap(find.widgetWithText(ChoiceChip, '45分'));
-        await tester.pumpAndSettle();
-        expect(
-            tester
-                .widget<ChoiceChip>(find.widgetWithText(ChoiceChip, '45分'))
-                .selected,
-            isTrue);
+        if (size.width == 470 && scale == 1) {
+          await capture(tester, key, 'entry-reference');
+        }
+        expect(find.text('集中時間の設定'), findsNothing);
+        expect(find.byType(ChoiceChip), findsNothing);
+        expect(find.byKey(const Key('party-create')), findsOneWidget);
         await tester.ensureVisible(find.text('コードで参加'));
         await tester.tap(find.text('コードで参加'));
         await tester.pumpAndSettle();
@@ -117,6 +117,7 @@ void main() {
     }
   }
   for (final (count, size, scale, guest) in [
+    (1, const Size(390, 844), 1.0, false),
     (2, const Size(390, 1100), 1.0, false),
     (4, const Size(390, 1100), 1.0, false),
     (4, const Size(320, 568), 1.6, false),
@@ -165,6 +166,29 @@ void main() {
               key: key, child: PartyPage(controller: controller))));
       await images(tester);
       expect(find.byType(LobbyMemberCard), findsNWidgets(4));
+      for (final waiting in find.text('参加待ち').evaluate()) {
+        final label = find.byWidget(waiting.widget);
+        final card = find.ancestor(of: label, matching: find.byType(LobbyMemberCard));
+        expect(tester.getCenter(label).dx, closeTo(tester.getCenter(card).dx, 1),
+            reason: 'Empty-slot labels stay centered in the decorated card');
+      }
+      final readyLabel = find.text(controller.party.ready ? '準備を解除する' : '準備OK');
+      expect(tester.getCenter(readyLabel).dx,
+          closeTo(tester.getCenter(find.byKey(const Key('party-ready'))).dx, 1));
+      for (final scrollable
+          in tester.stateList<ScrollableState>(find.byType(Scrollable))) {
+        expect(scrollable.position.maxScrollExtent, 0);
+      }
+      expect(
+          find.byKey(const Key('party-leave')).hitTestable(), findsOneWidget);
+      if (!guest) {
+        expect(find.byKey(const Key('party-disband')).hitTestable(),
+            findsOneWidget);
+      }
+      if (size == const Size(390, 844) && scale == 1) {
+        expect(tester.getSize(find.byKey(const Key('party-slot-0'))).width,
+            greaterThanOrEqualTo(75));
+      }
       if (size.width == 390 && !guest) {
         await capture(tester, key, 'lobby-$count');
       }

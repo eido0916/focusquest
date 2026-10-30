@@ -9,15 +9,9 @@ const adventureFramePath = 'assets/images/adventure_ui_v001/';
 /// Independent PNG frames; game values and interactions stay live widgets.
 class AdventureBattleHud extends StatelessWidget {
   const AdventureBattleHud(
-      {super.key,
-      required this.battle,
-      required this.utilities,
-      required this.auto,
-      required this.onAuto});
+      {super.key, required this.battle, required this.utilities});
   final PlayableStageBattle battle;
   final Widget utilities;
-  final bool auto;
-  final VoidCallback onAuto;
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(builder: (_, box) {
@@ -67,34 +61,6 @@ class AdventureBattleHud extends StatelessWidget {
                     _command(false, commandSide),
                     const SizedBox(width: 6),
                     _command(true, commandSide),
-                    const SizedBox(width: 6),
-                    SizedBox(
-                        width: commandSide * .70,
-                        height: commandSide * .70,
-                        child: Stack(fit: StackFit.expand, children: [
-                          const AdventureFrame('auto_button'),
-                          FilledButton(
-                              key: const Key('stage-auto'),
-                              onPressed: onAuto,
-                              style: _buttonStyle(),
-                              child: FittedBox(
-                                  child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                    Icon(
-                                        auto ? Icons.pause : Icons.fast_forward,
-                                        color: const Color(0xffffecc0),
-                                        size: 27),
-                                    Text(
-                                        commandSide < 110
-                                            ? 'オート'
-                                            : auto
-                                                ? 'オート ON'
-                                                : 'オート',
-                                        style:
-                                            _text(commandSide < 110 ? 14 : 16)),
-                                  ]))),
-                        ])),
                   ])),
         ]);
       });
@@ -126,43 +92,51 @@ class AdventureBattleHud extends StatelessWidget {
         const AdventureFrame('status_panel'),
         Padding(
             padding: const EdgeInsets.fromLTRB(28, 12, 28, 18),
-            child: Row(children: [
-              if (bounds.maxWidth >= 340) ...[
-                SizedBox(
-                    width: 64,
-                    child: JobPortrait(
-                        typeId: role,
-                        appearance: battle.character.female ? 'female' : 'male',
-                        lobby: true)),
-                const SizedBox(width: 12),
-              ],
-              Expanded(
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                    Row(children: [
+            child: FittedBox(
+                fit: BoxFit.scaleDown,
+                alignment: Alignment.centerLeft,
+                child: SizedBox(
+                    width: bounds.maxWidth - 56,
+                    child: Row(children: [
+                      if (bounds.maxWidth >= 340) ...[
+                        SizedBox(
+                            width: 64,
+                            child: JobPortrait(
+                                typeId: role,
+                                appearance:
+                                    battle.character.female ? 'female' : 'male',
+                                lobby: true)),
+                        const SizedBox(width: 12),
+                      ],
                       Expanded(
-                          child: Text(battle.character.role,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: _text(font))),
-                      const SizedBox(width: 6),
-                      Text('Lv. ${battle.character.level}',
-                          style: _text(font, gold: true)),
-                    ]),
-                    const SizedBox(height: 4),
-                    Text('HP  ${battle.hp} / ${battle.character.health}',
-                        style: _text(font)),
-                    const SizedBox(height: 5),
-                    LinearProgressIndicator(
-                        minHeight: small ? 4 : 8,
-                        value: (battle.hp / battle.character.health)
-                            .clamp(0.0, 1.0),
-                        color: const Color(0xff85f42e),
-                        backgroundColor: const Color(0xff23391e)),
-                  ])),
-            ])),
+                          child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                            Row(children: [
+                              Expanded(
+                                  child: Text(battle.character.role,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: _text(font))),
+                              const SizedBox(width: 6),
+                              Text('Lv. ${battle.character.level}',
+                                  style: _text(font, gold: true)),
+                            ]),
+                            const SizedBox(height: 4),
+                            Text(
+                                'HP  ${battle.hp} / ${battle.character.health}',
+                                style: _text(font)),
+                            const SizedBox(height: 5),
+                            LinearProgressIndicator(
+                                minHeight: small ? 4 : 8,
+                                value: (battle.hp / battle.character.health)
+                                    .clamp(0.0, 1.0),
+                                color: const Color(0xff85f42e),
+                                backgroundColor: const Color(0xff23391e)),
+                          ])),
+                    ])))),
       ]);
     });
   }
@@ -185,9 +159,13 @@ class AdventureBattleHud extends StatelessWidget {
                         children: [
                           Expanded(
                               child: Text('PHASE ${battle.phase + 1} / 3',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   style: _text(font))),
                           Expanded(
                               child: Text('残り ${battle.remainingEnemies} 体',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.right,
                                   style: _text(font))),
                         ]),
@@ -205,47 +183,47 @@ class AdventureBattleHud extends StatelessWidget {
     final onTap = skill
         ? (battle.canSkill ? battle.skill : null)
         : (battle.canAttack ? battle.attack : null);
-    final caption = skill
-        ? '命中 ${battle.charge} / 3'
-        : '${battle.attackDuration.toStringAsFixed(2)}秒';
     return SizedBox(
         width: side,
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          SizedBox(
-              height: side,
-              child: Stack(fit: StackFit.expand, children: [
-                AdventureFrame(skill ? 'skill_button' : 'attack_button'),
-                FilledButton(
-                    key: Key(skill ? 'stage-skill' : 'stage-attack'),
-                    onPressed: onTap,
-                    style: _buttonStyle(),
-                    child: FittedBox(
-                        child:
-                            Column(mainAxisSize: MainAxisSize.min, children: [
-                      skill
-                          ? Icon(Icons.cyclone,
-                              size: side * .30, color: const Color(0xff86f5ff))
-                          : CustomPaint(
-                              size: Size.square(side * .30),
-                              painter: const _SwordIcon()),
-                      Text(skill ? 'スキル' : '攻撃', style: _text(side * .18)),
-                    ]))),
-              ])),
-          SizedBox(
-              height: 34,
-              child: Stack(fit: StackFit.expand, children: [
-                DecoratedBox(
-                    decoration: BoxDecoration(
-                        color: gameInk,
-                        border: Border.all(color: gameGold),
-                        borderRadius: BorderRadius.circular(8))),
-                Center(
-                    child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 9),
-                        child: Text(caption,
-                            textAlign: TextAlign.center,
-                            style: _text(side < 110 ? 13 : 15)))),
-              ])),
+        height: side,
+        child: Stack(fit: StackFit.expand, children: [
+          Padding(
+              padding: EdgeInsets.all(skill ? 9 : 0),
+              child: AdventureFrame(skill ? 'skill_button' : 'attack_button')),
+          if (skill)
+            Positioned.fill(
+              child: IgnorePointer(
+                child: Padding(
+                  padding: const EdgeInsets.all(3),
+                  child: CircularProgressIndicator(
+                    key: const Key('stage-skill-charge'),
+                    value: battle.charge / PlayableStageBattle.chargeNeeded,
+                    strokeWidth: 5,
+                    color: battle.charge >= PlayableStageBattle.chargeNeeded
+                        ? const Color(0xffffd477)
+                        : const Color(0xff86f5ff),
+                    backgroundColor: const Color(0xff233b51),
+                    semanticsLabel: 'スキル発動ゲージ',
+                    semanticsValue:
+                        '${battle.charge} / ${PlayableStageBattle.chargeNeeded}',
+                  ),
+                ),
+              ),
+            ),
+          FilledButton(
+              key: Key(skill ? 'stage-skill' : 'stage-attack'),
+              onPressed: onTap,
+              style: _buttonStyle(),
+              child: FittedBox(
+                  child: Column(mainAxisSize: MainAxisSize.min, children: [
+                skill
+                    ? Icon(Icons.cyclone,
+                        size: side * .30, color: const Color(0xff86f5ff))
+                    : CustomPaint(
+                        size: Size.square(side * .30),
+                        painter: const _SwordIcon()),
+                Text(skill ? 'スキル' : '攻撃', style: _text(side * .18)),
+              ]))),
         ]));
   }
 
@@ -278,9 +256,7 @@ class AdventureFrame extends StatelessWidget {
         'caption_frame' =>
           const GameArtwork('header_banner'),
         'status_panel' => const GameArtwork('identity_panel'),
-        'auto_button' ||
-        'utility_button' =>
-          const GameArtwork('equipment_row', minimumScale: 8),
+        'utility_button' => const GameArtwork('equipment_row', minimumScale: 8),
         _ => Image.asset('$adventureFramePath$name.png',
             fit: BoxFit.fill, excludeFromSemantics: true),
       });

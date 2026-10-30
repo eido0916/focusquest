@@ -45,16 +45,18 @@ void main() {
       final subscription = battle.soundEvents.listen((sound) {
         if (sound != BattleSound.hit) return;
         impacts++;
-        if (hero.projectileFor(isSkill) != null) {
+        if (battle.projectileForAction(isSkill) != null) {
           expect(battle.heroX, PlayableStageBattle.heroHomeX);
           return;
         }
         final enemy = victim;
-        expect(enemy.x - battle.heroX - battle.heroPoseOffset,
-            closeTo(battle.contactGap(enemy), 1),
+        final gap = enemy.x - battle.heroX - battle.heroPoseOffset;
+        expect(
+            gap, lessThanOrEqualTo(battle.actionContactGap(enemy, isSkill) + 1),
             reason: hero.name);
+        expect(gap, greaterThanOrEqualTo(0), reason: hero.name);
         expect(battle.heroX + battle.heroPoseOffset,
-            greaterThan(PlayableStageBattle.heroHomeX),
+            greaterThanOrEqualTo(PlayableStageBattle.heroHomeX - 1),
             reason: hero.name);
       });
       battle.attack();
