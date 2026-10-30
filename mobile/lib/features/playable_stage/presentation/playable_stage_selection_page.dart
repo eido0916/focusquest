@@ -344,7 +344,7 @@ class _PlayableStageSelectionPageState
             Text('戦闘では$battleRoleの原画アニメーションを使用します。',
                 style: const TextStyle(color: Color(0xff555044), fontSize: 11)),
           const SizedBox(height: 7),
-          const Text('攻撃をタップ。3回命中でスキル解放。各ステージは3つの戦い。',
+          const Text('攻撃をタップ。3回攻撃でスキル解放。各ステージは3つの戦い。',
               style: TextStyle(
                   color: Color(0xff555044), height: 1.6, fontSize: 11)),
           if (widget.onChooseCharacter != null)

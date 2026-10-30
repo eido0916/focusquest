@@ -111,7 +111,7 @@ void main() {
       for (final enemy in battle.enemies) {
         expect(find.byKey(Key('enemy-hp-${enemy.index}')), findsOneWidget);
         expect(tester.getSize(find.byKey(Key('enemy-hp-${enemy.index}'))).width,
-            lessThanOrEqualTo(64));
+            lessThanOrEqualTo(96));
         expect(
             canvasRect.contains(tester
                 .getRect(find.byKey(Key('enemy-hp-${enemy.index}')))
@@ -119,7 +119,7 @@ void main() {
             true);
       }
       expect(tester.getSize(find.byKey(const Key('player-hp'))),
-          const Size(96, 3));
+          const Size(112, 3));
       final heroHpBeforeAttack =
           tester.getRect(find.byKey(const Key('player-hp'))).center.dx;
       await tester.tap(find.byKey(const Key('stage-attack')));

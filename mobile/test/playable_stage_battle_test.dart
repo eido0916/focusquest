@@ -9,7 +9,7 @@ void advance(PlayableStageBattle battle, double seconds) {
 }
 
 void main() {
-  test('3 hits unlock one skill and repeated taps cannot double damage', () {
+  test('3 attacks unlock one skill and repeated taps cannot double charge', () {
     final battle = PlayableStageBattle(stage: mechanicsStage(), roll: () => .5);
     addTearDown(battle.dispose);
     battle.start();
@@ -18,6 +18,7 @@ void main() {
     for (var i = 0; i < 3; i++) {
       expect(battle.attack(), true);
       expect(battle.attack(), false);
+      expect(battle.charge, i + 1);
       advance(battle, 1.1);
     }
     expect(battle.charge, 3);
@@ -28,6 +29,22 @@ void main() {
     advance(battle, 1.9);
     expect(battle.cleared, 2);
     expect(battle.skills, 1);
+  });
+  test('missed attacks fill charge, capped at three, and skill resets it', () {
+    final battle =
+        PlayableStageBattle(stage: mechanicsStage(), roll: () => .99);
+    addTearDown(battle.dispose);
+    battle.start();
+    advance(battle, 3);
+    for (var i = 0; i < 4; i++) {
+      expect(battle.attack(), true);
+      advance(battle, 1.1);
+      expect(battle.charge, (i + 1).clamp(0, 3));
+    }
+    expect(battle.hits, 0);
+    expect(battle.misses, 4);
+    expect(battle.skill(), true);
+    expect(battle.charge, 0);
   });
   test('three phases have running transitions and finish in boss victory', () {
     final battle = PlayableStageBattle(stage: mechanicsStage(), roll: () => .5);

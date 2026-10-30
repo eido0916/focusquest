@@ -297,6 +297,7 @@ class PlayableStageBattle extends ChangeNotifier {
     _heroHit = false;
     _releasedShots = 0;
     attempts++;
+    charge = math.min(chargeNeeded, charge + 1);
     _sound(BattleSound.swing);
     notifyListeners();
     return true;
@@ -336,7 +337,6 @@ class PlayableStageBattle extends ChangeNotifier {
     enemy.hp = math.max(0, enemy.hp - damage);
     if (!skill) {
       hits++;
-      charge = math.min(chargeNeeded, charge + 1);
     }
     damageNumbers.add(StageDamage(damage, enemy.x, clock,
         skill: skill,

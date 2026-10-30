@@ -395,7 +395,7 @@ class _PlayableStagePageState extends State<PlayableStagePage>
                               ? '${_battle.phase + 1}フェーズ目で力尽きた。\n集中でレベルを上げて再挑戦しよう。\n推奨 Lv.${_battle.stage.recommendedLevel}'
                               : _battle.paused
                                   ? '準備ができたら、冒険を続けよう。'
-                                  : '通常攻撃：命中90%\nクリティカル：20%・ダメージ2倍\n通常攻撃を3回当てると必中スキルが使える。'),
+                                  : '通常攻撃：命中90%\nクリティカル：20%・ダメージ2倍\n通常攻撃3回で外周ゲージが満タンになり、必中スキルが使える。'),
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 12, height: 1.8)),
               const SizedBox(height: 16),

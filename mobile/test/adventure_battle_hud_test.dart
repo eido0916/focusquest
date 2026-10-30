@@ -51,6 +51,8 @@ void main() {
   for (final size in [
     const Size(740, 360),
     const Size(844, 390),
+    const Size(568, 320),
+    const Size(1180, 820),
     const Size(320, 568)
   ]) {
     testWidgets('readable HUD fits $size with buttons below actors',
@@ -64,14 +66,35 @@ void main() {
       await tester.pumpWidget(MaterialApp(
           theme: AppTheme.dark,
           home: Scaffold(
-              body: AdventureBattleHud(
-                  battle: battle,
-                  utilities: const SizedBox(width: 150, height: 44)))));
+              body: MediaQuery(
+                  data: MediaQueryData(
+                      size: size, textScaler: const TextScaler.linear(1.5)),
+                  child: AdventureBattleHud(
+                      battle: battle,
+                      utilities: const SizedBox(width: 150, height: 44))))));
       await tester.pump();
       final buttons =
           tester.getRect(find.byKey(const Key('stage-floating-controls')));
       expect(buttons.top, greaterThan(AdventureStageLayout(size).groundY));
       expect(buttons.right, lessThanOrEqualTo(size.width));
+      expect(buttons.height,
+          closeTo(AdventureStageLayout(size).commandSide, .001));
+      expect(find.textContaining('秒'), findsNothing);
+      expect(find.textContaining('命中'), findsNothing);
+      for (var charge = 0; charge <= 3; charge++) {
+        battle.charge = charge;
+        await tester.pumpWidget(MaterialApp(
+            theme: AppTheme.dark,
+            home: Scaffold(
+                body: AdventureBattleHud(
+                    battle: battle, utilities: const SizedBox()))));
+        expect(
+            tester
+                .widget<CircularProgressIndicator>(
+                    find.byKey(const Key('stage-skill-charge')))
+                .value,
+            charge / 3);
+      }
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox());
       battle.dispose();
@@ -220,7 +243,8 @@ void main() {
             as RenderRepaintBoundary;
         final image = await render.toImage();
         final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
-        final file = File('../art/adventure_ui_v001/adventure_preview.png');
+        final file = File('build/adventure-layout/adventure-preview.png');
+        await file.parent.create(recursive: true);
         await file.writeAsBytes(bytes!.buffer.asUint8List());
         image.dispose();
       });
