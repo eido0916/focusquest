@@ -8,3 +8,33 @@ Thumbs.db
 __pycache__/
 *.pyc
 *.log
+
+# Local secrets and signing credentials
+.env
+.env.*
+!.env.example
+!.env.sample
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.key
+key.properties
+local.properties
+service-account*.json
+service_account*.json
+*-firebase-adminsdk-*.json
+
+# Editor state and personal workspace settings
+.idea/
+*.swp
+*.swo
+
+# Local build and preview output
+*.apk
+*.aab
+/artifacts/
+
+# Unrelated presentation drafts at the repository root
+/*.pptx
+/ヒーローズリーグ_*/

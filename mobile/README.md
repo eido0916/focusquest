@@ -5,7 +5,7 @@
 
 Android向けの集中支援機能と、Windowsでの動作確認に対応しています。[2026年10月30日の更新内容](../docs/UPDATE_2026-10-30.md)に、最新の画面・操作・検証結果を記載しています。
 
-[環境構築・実機起動・Firebase後続工程・Git運用・素材差替え](../README.md)
+[環境構築・実機起動・Firebase後続工程・Git運用・素材差替え](../docs/DEVELOPMENT.md)
 および[実装・検証計画](../docs/IMPLEMENTATION.md)を参照してください。
 
 ```
