@@ -124,8 +124,9 @@ class _QuestOrientationScopeState extends State<QuestOrientationScope> {
   Widget build(BuildContext context) => widget.child;
 }
 
-/// Use phone-sized layout units on portrait pages, including on tall desktops.
-/// Text, controls and background then share the same display scale.
+/// Scale portrait pages against both dimensions of the reference phone.
+/// Wider devices get more layout space instead of enlarging a narrow phone
+/// canvas until the page has to shrink again to fit its height.
 class QuestAppViewport extends StatelessWidget {
   const QuestAppViewport({super.key, required this.child});
   final Widget child;
@@ -145,7 +146,8 @@ class QuestAppViewport extends StatelessWidget {
                     ? math.min(availableWidth, availableHeight * 390 / 844)
                     : availableWidth)
                 : availableWidth;
-            final scale = portrait ? width / 390 : 1.0;
+            final scale =
+                portrait ? math.min(width / 390, availableHeight / 844) : 1.0;
             final size = Size(width / scale, availableHeight / scale);
             final media = MediaQuery.of(context);
             return SizedBox.expand(

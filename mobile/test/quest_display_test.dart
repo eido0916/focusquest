@@ -1,5 +1,6 @@
 import 'package:focusquest/core/widgets/quest_screen_fit.dart';
 import 'dart:io';
+import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -39,8 +40,13 @@ void main() {
   for (final size in [
     const Size(280, 653),
     const Size(320, 568),
+    const Size(360, 640),
     const Size(430, 932),
+    const Size(412, 915),
+    const Size(600, 960),
     const Size(768, 1024),
+    const Size(800, 1280),
+    const Size(1024, 1366),
     const Size(1031, 1792),
     const Size(1280, 720),
     const Size(390, 844)
@@ -48,8 +54,14 @@ void main() {
     testWidgets('four menu pages use portrait units at $size', (tester) async {
       tester.view.physicalSize = size;
       tester.view.devicePixelRatio = 1;
+      tester.platformDispatcher.textScaleFactorTestValue = double.parse(
+          const String.fromEnvironment('DISPLAY_TEXT_SCALE',
+              defaultValue: '1'));
+      tester.view.padding = const FakeViewPadding(top: 24, bottom: 20);
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
+      addTearDown(tester.view.resetPadding);
+      addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
       final controller = GameController(MemoryRepository());
       await controller.load();
       await controller.onboard(
@@ -95,7 +107,11 @@ void main() {
               findsOneWidget);
         }
         final media = MediaQuery.of(tester.element(page));
-        expect(media.size.width, closeTo(390, .01));
+        final availableWidth =
+            size.width > size.height ? size.height * 390 / 844 : size.width;
+        final displayScale = math.min(availableWidth / 390, size.height / 844);
+        expect(media.size.width, closeTo(availableWidth / displayScale, .01));
+        expect(media.size.height, greaterThanOrEqualTo(844 - .01));
         expect(media.size.height, greaterThan(media.size.width));
         final canvas =
             tester.getRect(find.byKey(const Key('quest-display-canvas')));
