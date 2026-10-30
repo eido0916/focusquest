@@ -18,6 +18,8 @@ void main() {
   for (final size in [
     const Size(390, 844),
     const Size(320, 568),
+    const Size(568, 320),
+    const Size(1024, 768),
     const Size(844, 390)
   ]) {
     testWidgets('timer fits $size and retains live controls', (tester) async {
@@ -52,14 +54,17 @@ void main() {
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
       expect(find.text('29:51'), findsOneWidget);
+      expect(find.byType(Scrollable), findsNothing);
+      expect(find.byKey(const Key('focus-timer-scroll')), findsOneWidget);
+      expect(find.byKey(const Key('focus-landscape-layout')), findsNothing);
       expect(find.text('第2章 · 集中クエスト進行中'), findsOneWidget);
-      if (size.width == 390) {
+      if (const bool.fromEnvironment('CAPTURE_FOCUS_PORTRAIT')) {
         await tester.runAsync(() async {
           final image = await (boundary.currentContext!.findRenderObject()!
                   as RenderRepaintBoundary)
               .toImage(pixelRatio: 2);
           final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
-          final file = File('../art/focus_timer_v001/preview.png');
+          final file = File('build/focus-portrait/timer-$size.png');
           await file.parent.create(recursive: true);
           await file.writeAsBytes(bytes!.buffer.asUint8List());
           image.dispose();

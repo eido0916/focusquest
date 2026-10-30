@@ -1,4 +1,5 @@
 import 'dart:convert';
+import '../../core/config/game_balance.dart';
 import 'package:flutter/services.dart';
 import '../../game/runner/battle_state_controller.dart';
 import '../../game/runner/pixel_battle_assets.dart';
@@ -9,6 +10,10 @@ import '../focus/domain/focus_adventure.dart';
 /// Recreates the same deterministic battle, including when its view was closed.
 class FocusDefeatCounter {
   static Future<int> count(
+          FocusSession session, Character hero, DateTime now) async =>
+      (await result(session, hero, now)).defeatedCount;
+
+  static Future<BattleResultData> result(
       FocusSession session, Character hero, DateTime now) async {
     final elapsed =
         session.focusNow(now).difference(session.startedAt).inMilliseconds /
@@ -16,7 +21,6 @@ class FocusDefeatCounter {
     final duration = session.durationMinutes * 60.0;
     final time = elapsed.clamp(0.0, duration);
     if (session.partyMembers.isNotEmpty) {
-      var defeats = 0;
       final durations = <String, List<double>>{};
       for (final member in session.partyMembers) {
         final character = PixelBattleAssets.characterFor(
@@ -33,19 +37,19 @@ class FocusDefeatCounter {
           durations[character.id] = lengths;
         }
       }
-      for (var wave = 0; wave * 6 < time; wave++) {
-        for (final member in session.partyMembers) {
-          final character = PixelBattleAssets.characterFor(
-              member.characterType, member.appearance);
-          final hitAt = 2 + durations[character.id]![wave % 4 == 3 ? 1 : 0];
-          if (time >= wave * 6 + hitAt &&
-              !FocusAdventure.bossActive(wave * 6 + hitAt,
-                  durationSeconds: duration)) defeats++;
-        }
-      }
-      return defeats +
-          FocusAdventure.completedBossCycles(time.toDouble(),
-              durationSeconds: duration);
+      final defeats = FocusAdventure.partyDefeats(time.toDouble(), duration, [
+        for (final member in session.partyMembers)
+          durations[PixelBattleAssets.characterFor(
+                  member.characterType, member.appearance)
+              .id]!
+      ]);
+      final bosses = FocusAdventure.completedBossCycles(time.toDouble(),
+          durationSeconds: duration);
+      return BattleResultData(
+          elapsedTime: Duration(milliseconds: (time * 1000).round()),
+          defeatedCount: defeats,
+          bossDefeatedCount: bosses,
+          gainedExp: GameBalance.focusExpForDefeats(defeats, bosses));
     }
     final battle = BattleStateController(
         adventureStartSeconds: session.adventureStartSeconds,
@@ -54,6 +58,6 @@ class FocusDefeatCounter {
             PixelBattleAssets.runnerConfig(hero.characterType, hero.appearance),
         durationSeconds: duration);
     battle.advanceTo(time.toDouble());
-    return battle.defeatedCount;
+    return battle.result;
   }
 }

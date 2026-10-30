@@ -47,10 +47,9 @@ void main() {
     await tester.ensureVisible(find.byKey(const Key('select-stage-1')));
     await tester.pump();
     final card = find.byKey(const Key('select-stage-1'));
-    expect(
-        find.descendant(of: card, matching: find.byType(Text)), findsOneWidget);
-    expect(find.descendant(of: card, matching: find.text('Stage 1')),
-        findsOneWidget);
+    expect(find.descendant(of: card, matching: find.byType(Text)),
+        findsNWidgets(2));
+    expect(find.descendant(of: card, matching: find.text('1')), findsOneWidget);
     await tester.tap(card);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));

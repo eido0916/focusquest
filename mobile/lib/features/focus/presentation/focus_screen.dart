@@ -1,7 +1,6 @@
 import '../../character/presentation/growth_celebration.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../../../core/config/game_balance.dart';
 import '../../../core/game_controller.dart';
 import '../../../core/widgets/quest_widgets.dart';
 import 'focus_timer_scene.dart';
@@ -172,7 +171,7 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
                             ? '集中を中断しました'
                             : '集中クエスト未達成'),
                     content: Text(succeeded
-                        ? '${result.durationMinutes}分の集中を達成しました。\nEXP +${result.durationMinutes * GameBalance.expPerMinute}\n育てた力で、冒険に挑戦しましょう。'
+                        ? '${result.durationMinutes}分の集中を達成しました。\n撃破EXP +${result.earnedExp}\n育てた力で、冒険に挑戦しましょう。'
                         : cancel
                             ? '報酬はありません。また次の集中で挑戦しましょう。'
                             : '対象アプリの使用、または使用状況を確認できなかったため、報酬はありません。'),
@@ -258,6 +257,7 @@ class _FocusScreenState extends State<FocusScreen> with WidgetsBindingObserver {
       chapter: FocusAdventure.chapter(
           session.durationMinutes * 60 - seconds.toDouble()),
       seconds: seconds,
+      durationSeconds: session.durationMinutes * 60,
       progress: (1 - seconds / (session.durationMinutes * 60)).clamp(0, 1),
       partySize: session.partyMembers.length,
       message: controller.partyStartError ?? controller.party.error,

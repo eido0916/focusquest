@@ -1,7 +1,9 @@
+import 'package:focusquest/core/widgets/quest_screen_fit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../core/game_controller.dart';
 import 'party_lobby_art.dart';
+import 'party_entry_scene.dart';
 import '../../focus/domain/focus_adventure.dart';
 
 class PartyPage extends StatefulWidget {
@@ -15,11 +17,9 @@ class _PartyPageState extends State<PartyPage> {
   final _code = TextEditingController();
   String? _error, _initialSessionId;
   bool _working = false, _returning = false;
-  int _minutes = 30;
   @override
   void initState() {
     super.initState();
-    _minutes = widget.controller.party.minutes;
     _initialSessionId = widget.controller.activeFocus?.id;
     widget.controller.addListener(_changed);
   }
@@ -91,9 +91,11 @@ class _PartyPageState extends State<PartyPage> {
                       textCapitalization: TextCapitalization.characters,
                       autocorrect: false,
                       inputFormatters: [
-                        FilteringTextInputFormatter.allow(RegExp('[a-zA-Z2-9]')),
+                        FilteringTextInputFormatter.allow(
+                            RegExp('[a-zA-Z2-9]')),
                         TextInputFormatter.withFunction((oldValue, newValue) =>
-                            newValue.copyWith(text: newValue.text.toUpperCase()))
+                            newValue.copyWith(
+                                text: newValue.text.toUpperCase()))
                       ],
                       onChanged: (_) => update(() {}),
                       onSubmitted: (_) {
@@ -128,7 +130,21 @@ class _PartyPageState extends State<PartyPage> {
     final enabled = !_working && !party.connecting && !controller.busy;
     final canConnect = enabled;
     final canCreate = enabled && controller.activeFocus == null;
-    final minutes = party.connected ? party.minutes : _minutes;
+    final minutes = party.minutes;
+    if (!party.connected) {
+      return Scaffold(
+          backgroundColor: const Color(0xff1699ff),
+          body: PartyEntryScene(
+              onBack: () => Navigator.maybePop(context),
+              onCreate: canCreate
+                  ? () => _act(() => party.connect(
+                      url: party.serverUrl, member: controller.partyIdentity))
+                  : null,
+              onJoin: canConnect ? _join : null,
+              connecting: _working || party.connecting,
+              reconnecting: controller.activeFocus != null,
+              error: _error ?? party.error ?? controller.partyStartError));
+    }
     return Scaffold(
         backgroundColor: const Color(0xff0b2340),
         body: Stack(fit: StackFit.expand, children: [
@@ -161,7 +177,7 @@ class _PartyPageState extends State<PartyPage> {
                 ])),
             Expanded(child: LayoutBuilder(builder: (context, constraints) {
               final width = constraints.maxWidth.clamp(0.0, 620.0);
-              return SingleChildScrollView(
+              return QuestScreenFit(
                   key: const Key('party-lobby-list'),
                   padding: EdgeInsets.fromLTRB(
                       (constraints.maxWidth - width) / 2 + 16,
@@ -171,36 +187,7 @@ class _PartyPageState extends State<PartyPage> {
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        if (!party.connected) ...[
-                          SizedBox(
-                              height: (constraints.maxHeight * .22)
-                                  .clamp(36.0, 170.0)),
-                          LobbyAction(
-                              key: const Key('party-create'),
-                              label: 'パーティーを作成',
-                              icon: Icons.group_add_outlined,
-                              onTap: canCreate
-                                  ? () => _act(() async {
-                                        await party.connect(
-                                            url: party.serverUrl,
-                                            member: controller.partyIdentity);
-                                        if (_minutes != party.minutes) {
-                                          party.setMinutes(_minutes);
-                                        }
-                                      })
-                                  : null),
-                          const SizedBox(height: 24),
-                          LobbyAction(
-                              key: const Key('party-join'),
-                              label: 'コードで参加',
-                              icon: Icons.login,
-                              onTap: canConnect ? _join : null),
-                          const SizedBox(height: 20),
-                          LobbyPanel(
-                              child: Text('最大4人で、同じ時間に集中。\nコードを共有して仲間を招待しましょう。',
-                                  textAlign: TextAlign.center,
-                                  style: lobbyBody.copyWith(height: 1.8))),
-                        ] else ...[
+                        ...[
                           LobbyPanel(
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -311,29 +298,21 @@ class _PartyPageState extends State<PartyPage> {
                                       backgroundColor: const Color(0xff112e50),
                                       selectedColor: lobbyGold,
                                       side: const BorderSide(color: lobbyGold),
-                                      onSelected: enabled &&
-                                              !started &&
-                                              (!party.connected || party.isHost)
-                                          ? (_) {
-                                              if (value == minutes) return;
-                                              if (party.connected) {
-                                                party.setMinutes(value);
-                                              } else {
-                                                setState(
-                                                    () => _minutes = value);
-                                              }
-                                            }
-                                          : null)
+                                      onSelected:
+                                          enabled && !started && party.isHost
+                                              ? (_) {
+                                                  if (value == minutes) return;
+                                                  party.setMinutes(value);
+                                                }
+                                              : null)
                               ]),
                               const SizedBox(height: 10),
                               Text(
                                   started
                                       ? 'この時間で集中中です。'
-                                      : !party.connected
-                                          ? '作成するパーティーの集中時間を選びます。'
-                                          : party.isHost
-                                              ? '時間を変更すると、全員の準備が解除されます。'
-                                              : 'リーダーが集中時間を設定します。',
+                                      : party.isHost
+                                          ? '時間を変更すると、全員の準備が解除されます。'
+                                          : 'リーダーが集中時間を設定します。',
                                   style: lobbyBody.copyWith(
                                       fontSize: 11,
                                       color: const Color(0xffd1dce8))),

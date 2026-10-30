@@ -1,0 +1,250 @@
+{
+  "version": "v001",
+  "assets": [
+    {
+      "name": "map_01",
+      "width": 941,
+      "height": 750,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "de46fdb2fd9db9ba1b61e96752eb3d26f93100fe147c2d1a763ac4a2492b805b"
+    },
+    {
+      "name": "map_02",
+      "width": 941,
+      "height": 750,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "26eb47872a1ec97f4b5b025540b3c0c8c9b8749b696f782a9b422723e6758aa5"
+    },
+    {
+      "name": "map_03",
+      "width": 941,
+      "height": 750,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "b84c936d80320a6403eb19cd72dcd347a8fb85efd1eddbb4fb4bb96e1229b466"
+    },
+    {
+      "name": "map_04",
+      "width": 941,
+      "height": 750,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "d7ab0d6936428b36cab121dd7cde9929170b47df8834d1a2c68f3fb4afd938e2"
+    },
+    {
+      "name": "map_05",
+      "width": 941,
+      "height": 750,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "99b662331d4916820ac9c9291a0be86000dc5476a70733b123159fc711cd29dc"
+    },
+    {
+      "name": "map_06",
+      "width": 941,
+      "height": 750,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "6b1bb72259dc53475d0608ddca9dd10323cf27c616d21ad280a4db79a4db1ee2"
+    },
+    {
+      "name": "map_07",
+      "width": 941,
+      "height": 750,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "c92fa13e07a9c93896025b209e33f9ffafc623bdc8176f6ca276efb07c794bd2"
+    },
+    {
+      "name": "map_08",
+      "width": 941,
+      "height": 750,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "746fe3cc7da73988613179cff30572ff4c0639a03f1e1e840db50fc7cf5a59b3"
+    },
+    {
+      "name": "map_09",
+      "width": 941,
+      "height": 750,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "8f54b6a2197c8747fc934aca24d761d262c909b78702ef2366c3c02cfea4c701"
+    },
+    {
+      "name": "node_available",
+      "width": 220,
+      "height": 220,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "e0b6f2b04c40dcb88fcc79586e027625e6b68c5841aaef87df6b9e14e709dbb8"
+    },
+    {
+      "name": "node_cleared",
+      "width": 220,
+      "height": 220,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "83ec6d9b215a018d2dd38d4ddd609c124123b75bc5e6ae78a1446ec6ee26d19f"
+    },
+    {
+      "name": "node_locked",
+      "width": 220,
+      "height": 220,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "1a7b9e88a9135492364bf1dc46088ed991531a4e38bde532bed13266115f337b"
+    },
+    {
+      "name": "header",
+      "width": 900,
+      "height": 140,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "2e2649bf1c29afae9812490b0a0959c0ff72f5f70f9d659765ec8ce2d9dfd4f3"
+    },
+    {
+      "name": "details",
+      "width": 900,
+      "height": 260,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "be722ddc98150cb45204b2f4966704da3eb0678463b033be5f3a0e33d383a45b"
+    },
+    {
+      "name": "button_gold",
+      "width": 500,
+      "height": 100,
+      "method": "Built-in ImageGen; alpha trim and production sizing",
+      "sha256": "af843c60cc5679f4b277d88dc94a31056366a2e3f6cf75ce8861b8f2ca12eb9a"
+    },
+    {
+      "name": "chapter",
+      "width": 900,
+      "height": 100,
+      "method": "Independent frame variant from new header artwork",
+      "sha256": "dc6f01e8b371fa24273d31e31ede29647c22fc50b1cff7d9b57cd528183df3f2"
+    },
+    {
+      "name": "teaser",
+      "width": 900,
+      "height": 190,
+      "method": "Independent frame variant from new details artwork",
+      "sha256": "9cf797f7f74172236501fa0f54fca573b6c98d9aed1e60e283d20e8cea05039a"
+    },
+    {
+      "name": "button_navy",
+      "width": 500,
+      "height": 100,
+      "method": "Independent frame variant from new header artwork",
+      "sha256": "c518af66fdfc9bf5e4fe28b088487ca189ed57c38b8eb67aa6d486e656169ef8"
+    },
+    {
+      "name": "node_label",
+      "width": 220,
+      "height": 70,
+      "method": "Editable individual SVG",
+      "sha256": "68f828ac82000364986124c3058670e4a070307963f9afb42c93e9b7e6cfce27"
+    },
+    {
+      "name": "selection_ring",
+      "width": 220,
+      "height": 220,
+      "method": "Editable individual SVG",
+      "sha256": "6a278c10a7f219f0237f2b70c1ad6ad4a1c5e6a929ec1c0ba53dfba451599910"
+    },
+    {
+      "name": "icon_lock",
+      "width": 72,
+      "height": 72,
+      "method": "Editable individual SVG",
+      "sha256": "95c4a835724bd45a2413bf87024e73a4b34eeb02f5c1ea70eab7422a06935dae"
+    },
+    {
+      "name": "icon_flag",
+      "width": 72,
+      "height": 72,
+      "method": "Editable individual SVG",
+      "sha256": "e0db8c951ad38f67c09f4d3ffb0887098b6b8e78828fdb7699e1ddfd1b42406a"
+    },
+    {
+      "name": "icon_crown",
+      "width": 72,
+      "height": 72,
+      "method": "Editable individual SVG",
+      "sha256": "f3a7b77063563cebbd731e419c94f237c10267441eb440e434d75c9d5fa03e7f"
+    },
+    {
+      "name": "icon_check",
+      "width": 72,
+      "height": 72,
+      "method": "Editable individual SVG",
+      "sha256": "0da81d792e73370f909de149a1d226f6dc826643b38be0db9a8e92f789345bad"
+    },
+    {
+      "name": "icon_replay",
+      "width": 72,
+      "height": 72,
+      "method": "Editable individual SVG",
+      "sha256": "25105873baf2d11729e765be7ced72f0cf41ce11f85de9a1cfb555699909fdf7"
+    },
+    {
+      "name": "icon_chevron",
+      "width": 72,
+      "height": 72,
+      "method": "Editable individual SVG",
+      "sha256": "da928a4771ad6525e333459b7298e5e9c7f1b870998a3f7e3d0cb0b7a7c067e2"
+    },
+    {
+      "name": "icon_chevron_dark",
+      "width": 72,
+      "height": 72,
+      "method": "Editable individual SVG",
+      "sha256": "40f6996d1c84001aae7217e0e2d0d157409d6288a191d1651bdd3f9941ce2778"
+    },
+    {
+      "name": "icon_book",
+      "width": 72,
+      "height": 72,
+      "method": "Editable individual SVG",
+      "sha256": "296bbd54e9d7791c4dd620211af632d66c70bfdd73f749c24a6bd4dc9080f6ab"
+    },
+    {
+      "name": "icon_compass",
+      "width": 72,
+      "height": 72,
+      "method": "Editable individual SVG",
+      "sha256": "5ba23f0e3c2b092ac1179e6649da806d096b1126666d59dce70dc8614d4b67d6"
+    },
+    {
+      "name": "route_1",
+      "width": 941,
+      "height": 750,
+      "method": "Editable individual SVG",
+      "sha256": "5b4b3602ae913172d4c853d62bc2e63a4a0e1d7a537ded0813951d1dc0ffc360"
+    },
+    {
+      "name": "route_2",
+      "width": 941,
+      "height": 750,
+      "method": "Editable individual SVG",
+      "sha256": "a08fbffddb402d710c68173c1606e3854527a4386b1afce753fd7b7ff75bd05d"
+    },
+    {
+      "name": "route_3",
+      "width": 941,
+      "height": 750,
+      "method": "Editable individual SVG",
+      "sha256": "ee5931f8da2feb81c2cb0309792df4909c4db27d28097abd00eb735aa6eb10de"
+    },
+    {
+      "name": "route",
+      "width": 941,
+      "height": 750,
+      "method": "Editable individual SVG",
+      "sha256": "776451ec07c19cf7064cd521e612dd7adeac2700872159ee9ce09e5964ffa762"
+    },
+    {
+      "name": "fog_3",
+      "width": 941,
+      "height": 750,
+      "method": "Editable individual SVG",
+      "sha256": "10603c7fc33f51e33215aad334689873b592add01dc72b6c0b5cdbc246d05476"
+    },
+    {
+      "name": "fog_4",
+      "width": 941,
+      "height": 750,
+      "method": "Editable individual SVG",
+      "sha256": "ba04fdd6af22443e07123801a1a49ed5efe65f0218e7f286d12c3adff94c492a"
+    }
+  ]
+}

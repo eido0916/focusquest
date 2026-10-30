@@ -3,7 +3,7 @@ import '../../../core/game_controller.dart';
 import 'focus_audio.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import '../../../core/widgets/quest_display.dart';
 import '../../../game/runner/battle_state_controller.dart';
 import '../../../game/runner/background_component.dart';
 import '../../../game/runner/focus_quest_battle_game.dart';
@@ -35,15 +35,14 @@ class BattleReplayPage extends StatefulWidget {
   State<BattleReplayPage> createState() => _BattleReplayPageState();
 }
 
-class _BattleReplayPageState extends State<BattleReplayPage> {
+class _BattleReplayPageState extends State<BattleReplayPage>
+    with QuestLandscapeState<BattleReplayPage> {
   late final FocusQuestBattleGame _game;
   late final FocusAudio _audio;
   bool _returned = false;
   @override
   void initState() {
     super.initState();
-    SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
     _audio = FocusAudio(controller: widget.controller);
     _game = FocusQuestBattleGame(
         onAudioFrame: _audio.update,
@@ -52,8 +51,7 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
         heroLevel: widget.heroLevel,
         heroName: widget.characterName,
         jobName: JobPortrait.roleNames[widget.characterType] ?? '戦士',
-        levelLogoAsset:
-            widget.levelLogoAsset ?? 'role_logos/${widget.characterType}.png',
+        levelLogoAsset: widget.levelLogoAsset,
         state: BattleStateController(
             adventureStartSeconds: widget.session.adventureStartSeconds,
             focusAreaIndex: widget.session.focusAreaIndex,
@@ -80,7 +78,6 @@ class _BattleReplayPageState extends State<BattleReplayPage> {
   void dispose() {
     _game.pauseEngine();
     unawaited(_audio.close());
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     super.dispose();
   }
 

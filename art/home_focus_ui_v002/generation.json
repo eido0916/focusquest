@@ -1,0 +1,60 @@
+{
+  "tool": "built-in image_gen",
+  "reference": "C:/Users/eido0/AppData/Local/Temp/codex-clipboard-70dd0b00-8632-422e-aeff-203e3805af41.png",
+  "entries": [
+    {
+      "name": "home_background",
+      "alpha": false,
+      "prompt": "Create the BACKGROUND ONLY of the LEFT home screen in the reference: portrait 2:3 pixel-art sunlit castle courtyard, ivory castle on the RIGHT in middle distance, blue sky and clouds, stone ivy-covered column with royal blue/gold flag on LEFT, flowers and greenery, warm pale stone floor across lower third. Open center for a separate existing illustrated standing hero. Faithfully preserve the reference scenery composition and rich crisp square-pixel textures. NO hero, NO UI, NO borders, NO text.",
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a182e4-5cfc-7772-93cf-c1d428cf0286\\exec-523c52f5-9bf2-47d9-aa5a-bf953154374e.png"
+    },
+    {
+      "name": "timer_background",
+      "alpha": false,
+      "prompt": "Create the BACKGROUND ONLY of the RIGHT focus screen in the reference: portrait 2:3 pixel-art castle balcony, left ivy column and blue/gold banner, warm stone balustrade at about 55 percent height, distant ivory castle upper right, blue lake and waterfalls across upper half, flowers at edges, pale stone terrace at bottom. Same sunny blue/ivory/green world as left, spacious calm center. Faithfully preserve the reference scenery composition, crisp square-pixel textures. NO UI, NO characters, NO clock, NO borders, NO text.",
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a182e4-5cfc-7772-93cf-c1d428cf0286\\exec-df737edf-2e1a-42c7-98c8-b286c2ed39cb.png"
+    },
+    {
+      "name": "wide_blue_frame",
+      "alpha": true,
+      "prompt": "Production standalone game UI asset for FocusQuest. The supplied image is a TWO-SCREEN UI DESIGN REFERENCE, NOT an output to copy wholesale. Match its elegant royal deep navy blue, warm antique GOLD, subtle blue woven floral texture, thin double gold outlines and delicate pointed leaf corner ornaments. Lightly pixel-art styled decorations consistent with the reference. No chunky simplified vector substitute. Absolutely NO letters, numbers, labels, characters, logos, UI screenshots or other panels. Only the requested SINGLE asset. Keep symmetrical centered blank areas suitable for dynamic text rendered separately in an app. ONE wide shallow rectangular empty navy panel FRAME, aspect ratio about 5:1, as used for the reference's home upper status card, time metrics strip and primary action button. Delicate gold edge ornaments and small centered diamond at top and bottom. OPAQUE deep navy texture inside, TRANSPARENT alpha outside, small even external padding. Blank navy center with NO icon or text. The border must be thin, not thick sculpted metal. Corners and edges clean for nine-slice scaling.",
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a182e4-5cfc-7772-93cf-c1d428cf0286\\exec-e77de143-1b76-4efd-9697-de7ffd4e8380.png"
+    },
+    {
+      "name": "wide_cream_frame",
+      "alpha": true,
+      "prompt": "Production standalone game UI asset for FocusQuest. The supplied image is a TWO-SCREEN UI DESIGN REFERENCE, NOT an output to copy wholesale. Match its elegant royal deep navy blue, warm antique GOLD, subtle blue woven floral texture, thin double gold outlines and delicate pointed leaf corner ornaments. Lightly pixel-art styled decorations consistent with the reference. No chunky simplified vector substitute. Absolutely NO letters, numbers, labels, characters, logos, UI screenshots or other panels. Only the requested SINGLE asset. Keep symmetrical centered blank areas suitable for dynamic text rendered separately in an app. ONE wide shallow rectangular empty IVORY PARCHMENT button frame, aspect ratio about 5.5:1, exactly like 'adventure' button in the bottom LEFT reference. Delicate double gold outline and small leaf ornaments at corners, ivory blank paper center. OPAQUE cream center, TRANSPARENT outside. No text, no map icon. Thin ornate gold border, not chunky.",
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a182e4-5cfc-7772-93cf-c1d428cf0286\\exec-151846a8-247e-498d-bf7b-344668e7a44d.png"
+    },
+    {
+      "name": "timer_panel",
+      "alpha": true,
+      "prompt": "Production standalone game UI asset for FocusQuest. The supplied image is a TWO-SCREEN UI DESIGN REFERENCE, NOT an output to copy wholesale. Match its elegant royal deep navy blue, warm antique GOLD, subtle blue woven floral texture, thin double gold outlines and delicate pointed leaf corner ornaments. Lightly pixel-art styled decorations consistent with the reference. No chunky simplified vector substitute. Absolutely NO letters, numbers, labels, characters, logos, UI screenshots or other panels. Only the requested SINGLE asset. Keep symmetrical centered blank areas suitable for dynamic text rendered separately in an app. ONE large EMPTY rectangular dark navy TIMER PANEL, aspect ratio about 1.35:1, matching the big remaining-time card in the RIGHT reference. Very thin double gold edges, subtle carved leaf corner flourishes and little gold diamond centered top and bottom. Deep opaque navy blue with subtle fabric/floral texture, TRANSPARENT alpha outside. Large uninterrupted blank center. Do NOT include magic circle, numbers, labels, dividers, progress bar or any icon.",
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a182e4-5cfc-7772-93cf-c1d428cf0286\\exec-6d7d3875-f7f9-452b-b734-3cc2d9a957fa.png"
+    },
+    {
+      "name": "record_plaque",
+      "alpha": true,
+      "prompt": "Production standalone game UI asset for FocusQuest. The supplied image is a TWO-SCREEN UI DESIGN REFERENCE, NOT an output to copy wholesale. Match its elegant royal deep navy blue, warm antique GOLD, subtle blue woven floral texture, thin double gold outlines and delicate pointed leaf corner ornaments. Lightly pixel-art styled decorations consistent with the reference. No chunky simplified vector substitute. Absolutely NO letters, numbers, labels, characters, logos, UI screenshots or other panels. Only the requested SINGLE asset. Keep symmetrical centered blank areas suitable for dynamic text rendered separately in an app. ONE small empty rectangular navy nameplate, aspect ratio 2.3:1, matching the little journey-record plaque beside the hero in the LEFT reference. Very thin ornate gold double frame, leaf corners, deep opaque navy center, transparent outside. No compass, no labels, no letters.",
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a182e4-5cfc-7772-93cf-c1d428cf0286\\exec-9727183c-6c48-4221-a2a3-31b2f31292b5.png"
+    },
+    {
+      "name": "portrait_frame",
+      "alpha": true,
+      "prompt": "Production standalone game UI asset for FocusQuest. The supplied image is a TWO-SCREEN UI DESIGN REFERENCE, NOT an output to copy wholesale. Match its elegant royal deep navy blue, warm antique GOLD, subtle blue woven floral texture, thin double gold outlines and delicate pointed leaf corner ornaments. Lightly pixel-art styled decorations consistent with the reference. No chunky simplified vector substitute. Absolutely NO letters, numbers, labels, characters, logos, UI screenshots or other panels. Only the requested SINGLE asset. Keep symmetrical centered blank areas suitable for dynamic text rendered separately in an app. ONE square thin gold portrait FRAME, like the small square around the blond face in upper LEFT reference status panel. Square navy/gold border with tiny delicate angular corner details. ENTIRE central opening genuinely TRANSPARENT (not navy fill), also transparent outside. No face, no letters, no portrait. Plain thin gold lines, not a huge ornate picture frame.",
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a182e4-5cfc-7772-93cf-c1d428cf0286\\exec-c1d8c88a-d80a-49b1-b464-579e98ce7f00.png"
+    },
+    {
+      "name": "timer_compass",
+      "alpha": true,
+      "prompt": "ONE standalone subdued cyan-blue MAGIC COMPASS CIRCLE from the RIGHT reference's timer card. Exact sort of fine circular compass rose with delicate ticks and a four-point vertical/horizontal star. Subtle dark blue and cyan lines, low contrast, transparent alpha background. Center remains mostly empty, enough space for large separately rendered timer digits. No text, no runes that resemble letters, no numbers, no panels or background, no gold, no bright flare. This is a decorative underlay, not an actual clock.",
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a182e4-5cfc-7772-93cf-c1d428cf0286\\exec-4b0c2927-b6a4-4f10-aef0-724587966bb2.png"
+    },
+    {
+      "name": "home_stage",
+      "alpha": false,
+      "prompt": "Production BACKGROUND ONLY for FocusQuest HOME top character showcase. Faithfully recreate the scene in the LEFT reference around the standing hero, but NO character, NO UI, NO text. WIDE landscape 4:3 composition: blue sky and clouds, ornate ivory castle on RIGHT middle distance, blue/gold hanging flag and ivy stone column at LEFT, small white flowers and shrubs at edges. Warm pale stone courtyard FLOOR across bottom 18 percent, standing area at bottom CENTER LEFT open for separate existing illustration. Pixel-art background with crisp tiny square color clusters. The floor horizon must be at 80 percent image height so a hero composited over this landscape will visibly stand on the floor. Premium sunlit navy/gold/ivory castle world, not a flat cartoon. Single scenery image, no frames, no watermarks.",
+      "source": "C:\\Users\\eido0\\.codex\\generated_images\\01a182e4-5cfc-7772-93cf-c1d428cf0286\\exec-b63fb8c9-dc82-498a-bacb-981c078ff3a2.png"
+    }
+  ]
+}

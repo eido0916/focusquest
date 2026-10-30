@@ -11,6 +11,8 @@ import 'playable_stage_page.dart';
 import 'playable_stage_assets.dart';
 import 'playable_stage_audio.dart';
 import 'playable_stage_details_dialog.dart';
+import '../domain/stage_progress.dart';
+import 'adventure_map_scene.dart';
 
 class PlayableStageSelectionPage extends StatefulWidget {
   const PlayableStageSelectionPage(
@@ -40,6 +42,9 @@ class _PlayableStageSelectionPageState
   late final Set<int> _cleared = {
     ...?widget.controller?.state?.clearedPlayableStages
   };
+  StageProgress get _progress => StageProgress(_cleared);
+  late int _areaIndex = _progress.currentArea;
+  late int _selected = _progress.nextStage;
   bool _opening = false;
   final Set<String> _encountered = {};
   Set<String> _pendingEncounters = {};
@@ -97,6 +102,9 @@ class _PlayableStageSelectionPageState
       if (mounted) {
         setState(() {
           _cleared.add(number);
+          if (_selected == number && number % 4 != 0 && number < 36) {
+            _selected = number + 1;
+          }
           _pendingClear = null;
           _error = null;
         });
@@ -131,7 +139,7 @@ class _PlayableStageSelectionPageState
   }
 
   Future<void> _open(PlayableStageDefinition stage) async {
-    if (_blocked) return;
+    if (_blocked || !_progress.canChallenge(stage.number)) return;
     setState(() {
       _opening = true;
       _error = null;
@@ -199,59 +207,47 @@ class _PlayableStageSelectionPageState
 
   @override
   Widget build(BuildContext context) {
-    final content = Stack(children: [
-      Positioned.fill(
-          child: Image.asset(gameBackground,
-              fit: BoxFit.cover, alignment: Alignment.topCenter)),
-      const Positioned.fill(
-          child: DecoratedBox(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xc5081832), Color(0xee081829)])))),
-      Center(
-          child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1060),
-              child: ListView(
-                  key: const Key('stage-selection-list'),
-                  padding: const EdgeInsets.fromLTRB(16, 20, 16, 28),
-                  children: [
-                    _heading(),
-                    const SizedBox(height: 14),
-                    _traveler(),
-                    if (widget.controller?.activeFocus != null)
-                      _notice('いまは集中の時間。終了後に冒険へ出発できます。'),
-                    if (_pendingDefeats != null)
-                      TextButton.icon(
-                          onPressed: () => _saveDefeats(
-                              _pendingDefeats!.$1, _pendingDefeats!.$2),
-                          icon: const Icon(Icons.save_outlined),
-                          label: const Text('討伐記録を再保存')),
-                    if (_pendingEncounters.isNotEmpty)
-                      TextButton.icon(
-                          onPressed: () => _saveEncounters(_pendingEncounters),
-                          icon: const Icon(Icons.save_outlined),
-                          label: const Text('遭遇記録を再保存')),
-                    if (_error != null) ...[
-                      _notice(_error!),
-                      if (_pendingClear != null)
-                        TextButton.icon(
-                            key: const Key('retry-stage-clear'),
-                            onPressed:
-                                _opening || widget.controller?.busy == true
-                                    ? null
-                                    : () => _saveClear(_pendingClear!),
-                            icon: const Icon(Icons.save_outlined),
-                            label: const Text('クリア記録の保存を再試行')),
-                    ],
-                    const SizedBox(height: 20),
-                    for (var area = 0;
-                        area < PlayableStageCatalog.areas.length;
-                        area++)
-                      _area(area),
-                  ]))),
-    ]);
+    final content = AdventureMapScene(
+        progress: _progress,
+        area: _areaIndex,
+        selected: _selected,
+        blocked: _blocked,
+        onSelect: (number) {
+          if (_blocked) return;
+          setState(() => _selected = number);
+          if (_progress.canChallenge(number)) {
+            _showDetails(PlayableStageCatalog.stages[number - 1]);
+          }
+        },
+        onChallenge: () =>
+            _showDetails(PlayableStageCatalog.stages[_selected - 1]),
+        onHistory: _history,
+        onNext: () => _chooseArea(_areaIndex + 1),
+        traveler: widget.onChooseCharacter == null ? null : _traveler(),
+        notices: [
+          if (widget.controller?.activeFocus != null)
+            _notice('いまは集中の時間。終了後に冒険へ出発できます。'),
+          if (_pendingDefeats != null)
+            TextButton.icon(
+                onPressed: () =>
+                    _saveDefeats(_pendingDefeats!.$1, _pendingDefeats!.$2),
+                icon: const Icon(Icons.save_outlined),
+                label: const Text('討伐記録を再保存')),
+          if (_pendingEncounters.isNotEmpty)
+            TextButton.icon(
+                onPressed: () => _saveEncounters(_pendingEncounters),
+                icon: const Icon(Icons.save_outlined),
+                label: const Text('遭遇記録を再保存')),
+          if (_error != null) _notice(_error!),
+          if (_pendingClear != null)
+            TextButton.icon(
+                key: const Key('retry-stage-clear'),
+                onPressed: _opening || widget.controller?.busy == true
+                    ? null
+                    : () => _saveClear(_pendingClear!),
+                icon: const Icon(Icons.save_outlined),
+                label: const Text('クリア記録の保存を再試行')),
+        ]);
     if (widget.embedded) return content;
     return Scaffold(
         backgroundColor: sunlitInk,
@@ -262,40 +258,59 @@ class _PlayableStageSelectionPageState
         body: SafeArea(child: content));
   }
 
-  Widget _heading() => SunlitFrame(
-      scenery: true,
-      padding: const EdgeInsets.all(22),
-      child: Column(children: [
-        const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Icon(Icons.auto_awesome, color: sunlitGold, size: 17),
-          SizedBox(width: 8),
-          Flexible(
-              child: Text('FOCUS QUEST',
-                  style: TextStyle(
-                      color: sunlitGold, letterSpacing: 3, fontSize: 11))),
-        ]),
-        const SizedBox(height: 8),
-        const Text('冒険の書',
-            style: TextStyle(
-                fontFamily: 'SunlitSerif',
-                color: Color(0xfffff1cf),
-                fontSize: 32)),
-        const SizedBox(height: 5),
-        const Text('九つの世界を巡る旅',
-            style: TextStyle(
-                fontFamily: 'SunlitSerif',
-                color: Color(0xffd1dfee),
-                fontSize: 14)),
-        const SizedBox(height: 14),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          const Icon(Icons.map_outlined, color: sunlitGold, size: 17),
-          const SizedBox(width: 7),
-          Flexible(
-              child: Text('全36ステージ   ·   踏破 ${_cleared.length} / 36',
-                  style:
-                      const TextStyle(color: Color(0xffffe5b1), fontSize: 12))),
-        ]),
-      ]));
+  void _chooseArea(int area) {
+    if (!_progress.areaVisible(area) && _progress.countInArea(area) == 0) {
+      return;
+    }
+    final candidates = List.generate(4, (i) => area * 4 + i + 1);
+    setState(() {
+      _areaIndex = area;
+      _selected = candidates.contains(_progress.nextStage)
+          ? _progress.nextStage
+          : candidates.firstWhere(_progress.canChallenge,
+              orElse: () => candidates.first);
+    });
+  }
+
+  Future<void> _history() async {
+    final picked = await showModalBottomSheet<int>(
+        context: context,
+        backgroundColor: const Color(0xff062141),
+        isScrollControlled: true,
+        builder: (context) => SafeArea(
+            child: ConstrainedBox(
+                constraints: BoxConstraints(
+                    maxHeight: MediaQuery.sizeOf(context).height * .75),
+                child: SingleChildScrollView(
+                    child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child:
+                            Column(mainAxisSize: MainAxisSize.min, children: [
+                          Text('旅の記録', style: mapText(24)),
+                          Text('全36ステージ ・ 踏破 ${_cleared.length} / 36',
+                              style: mapText(14)),
+                          const SizedBox(height: 16),
+                          for (var area = 0; area < 9; area++)
+                            if (_progress.areaVisible(area) ||
+                                _progress.countInArea(area) > 0)
+                              ListTile(
+                                  key: Key('history-area-$area'),
+                                  leading: MapIcon(_progress.areaComplete(area)
+                                      ? 'check'
+                                      : 'flag'),
+                                  title: Text(
+                                      '第${area + 1}章  ${PlayableStageCatalog.areas[area]}',
+                                      style: mapText(17)),
+                                  subtitle: Text(
+                                      '${_progress.countInArea(area)} / 4 CLEAR',
+                                      style: mapText(12)),
+                                  trailing: const MapIcon('chevron', size: 18),
+                                  onTap: () => Navigator.pop(context, area)),
+                          if (_cleared.isEmpty)
+                            Text('これから始まる、あなたの冒険。', style: mapText(13)),
+                        ]))))));
+    if (mounted && picked != null) _chooseArea(picked);
+  }
 
   Widget _traveler() {
     final hero = widget.controller?.state?.activeCharacter;
@@ -356,93 +371,6 @@ class _PlayableStageSelectionPageState
           child: Text(message,
               style: const TextStyle(color: Color(0xffffdba0), height: 1.6))));
 
-  Widget _area(int area) {
-    final complete =
-        _cleared.where((n) => n > area * 4 && n <= area * 4 + 4).length;
-    return Padding(
-        padding: const EdgeInsets.only(bottom: 25),
-        child:
-            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          Padding(
-              padding: const EdgeInsets.only(bottom: 9, left: 3),
-              child: Row(children: [
-                const Icon(Icons.explore_outlined, color: sunlitGold, size: 19),
-                const SizedBox(width: 8),
-                Text('第${area + 1}章',
-                    style: const TextStyle(
-                        color: sunlitGold,
-                        fontFamily: 'SunlitSerif',
-                        fontSize: 14)),
-                const SizedBox(width: 12),
-                const Expanded(child: Divider(color: Color(0xff907649))),
-                const SizedBox(width: 12),
-                Text('$complete / 4',
-                    style: const TextStyle(
-                        color: Color(0xffd9c595), fontSize: 12)),
-              ])),
-          CustomPaint(
-              foregroundPainter: const SunlitFramePainter(compact: true),
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(9),
-                  child: SizedBox(
-                      height: 160,
-                      child: Stack(fit: StackFit.expand, children: [
-                        Image.asset(PlayableStageCatalog.backgrounds[area],
-                            fit: BoxFit.cover,
-                            filterQuality: FilterQuality.none),
-                        const DecoratedBox(
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: [
-                              Color(0x11041730),
-                              Color(0xee04172d)
-                            ]))),
-                        Positioned(
-                            left: 19,
-                            right: 19,
-                            bottom: 18,
-                            child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Expanded(
-                                      child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                        Text(PlayableStageCatalog.areas[area],
-                                            style: const TextStyle(
-                                                color: Color(0xffffedc8),
-                                                fontFamily: 'SunlitSerif',
-                                                fontSize: 24,
-                                                fontWeight: FontWeight.bold)),
-                                        const SizedBox(height: 5),
-                                        Text(
-                                            'STAGE ${area * 4 + 1} — ${area * 4 + 4}',
-                                            style: const TextStyle(
-                                                color: Color(0xffd0e4f5),
-                                                fontSize: 11,
-                                                letterSpacing: 1.5)),
-                                      ])),
-                                  const Icon(Icons.flag_outlined,
-                                      color: sunlitGold, size: 25),
-                                ])),
-                      ])))),
-          const SizedBox(height: 10),
-          LayoutBuilder(builder: (context, bounds) {
-            final columns = bounds.maxWidth >= 650 ? 4 : 2;
-            final width = (bounds.maxWidth - (columns - 1) * 10) / columns;
-            return Wrap(spacing: 10, runSpacing: 10, children: [
-              for (final stage
-                  in PlayableStageCatalog.stages.skip(area * 4).take(4))
-                SizedBox(width: width, child: _stageCard(stage)),
-            ]);
-          }),
-        ]));
-  }
-
   Future<void> _saveEncounters(Set<String> ids) async {
     final pending = {..._pendingEncounters, ...ids};
     try {
@@ -481,41 +409,7 @@ class _PlayableStageSelectionPageState
             stage: stage,
             encounteredEnemyIds: known,
             cleared: _cleared.contains(stage.number),
-            canChallenge: !_blocked));
+            canChallenge: !_blocked && _progress.canChallenge(stage.number)));
     if (mounted && challenge == true) await _open(stage);
   }
-
-  Widget _stageCard(PlayableStageDefinition stage) => Semantics(
-      button: true,
-      enabled: !_blocked,
-      label:
-          '${stage.area} ステージ${stage.number}${_cleared.contains(stage.number) ? ' クリア済み' : ''}',
-      child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-              key: Key('select-stage-${stage.number}'),
-              onTap: _blocked ? null : () => _showDetails(stage),
-              borderRadius: BorderRadius.circular(8),
-              child: SunlitFrame(
-                  compact: true,
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 22, horizontal: 12),
-                  child: Column(mainAxisSize: MainAxisSize.min, children: [
-                    Text('Stage ${stage.number}',
-                        style: TextStyle(
-                            color: _blocked
-                                ? Colors.white38
-                                : const Color(0xffffe5b2),
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'SunlitSerif')),
-                    if (_cleared.contains(stage.number))
-                      const Padding(
-                          padding: EdgeInsets.only(top: 4),
-                          child: Text('✓ CLEAR',
-                              style: TextStyle(
-                                  color: Color(0xff80ed9c),
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold))),
-                  ])))));
 }

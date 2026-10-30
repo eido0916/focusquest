@@ -37,34 +37,35 @@ void main() {
           .load();
     }
   });
-  test(
-      'time-based displayed EXP equals successful rewards and clamps at both ends',
-      () {
+  test('displayed EXP changes on defeats and equals successful rewards', () {
     final now = DateTime(2026, 10, 12);
     for (final minutes in [5, 15, 30, 180]) {
       final session = FocusSession(
           id: '$minutes', startedAt: now, durationMinutes: minutes);
       final state = BattleStateController(durationSeconds: minutes * 60.0);
-      state.elapsedSeconds = minutes * 60.0;
+      state.advanceTo(1);
+      expect(state.focusRewardExp, 0);
+      state.advanceTo(minutes * 60.0);
       expect(
           state.focusRewardExp,
           RewardService(Random(1))
-              .focus(session.finish(FocusStatus.succeeded))
+              .focus(session.finish(FocusStatus.succeeded),
+                  defeatedEnemies: state.defeatedCount,
+                  defeatedBosses: state.bossDefeatedCount)
               .exp);
       expect(state.focusRemainingSeconds, 0);
-      state.elapsedSeconds += 10;
-      expect(state.focusRewardExp, minutes * GameBalance.expPerMinute);
-      state.elapsedSeconds = -3;
-      expect(state.focusRewardExp, 0);
-      expect(state.focusRemainingSeconds, minutes * 60);
+      expect(state.focusRewardExp,
+          state.defeatedCount * GameBalance.focusEnemyExp);
       expect(
           RewardService(Random(1))
-              .focus(session.finish(FocusStatus.cancelled))
+              .focus(session.finish(FocusStatus.cancelled),
+                  defeatedEnemies: state.defeatedCount, defeatedBosses: 0)
               .exp,
           0);
     }
-    expect(GameBalance.focusExpForSeconds(13, durationSeconds: 300), 2);
-    expect(GameBalance.focusExpForSeconds(300, durationSeconds: 300), 50);
+    expect(GameBalance.focusExpForDefeats(0, 0), 0);
+    expect(GameBalance.focusExpForDefeats(3, 1), 102);
+    expect(() => GameBalance.focusExpForDefeats(0, 1), throwsArgumentError);
   });
   test(
       'HUD has remaining time, a white EXP label, and independent menu/status/boss frames',
@@ -81,8 +82,7 @@ void main() {
     expect(hud.labels['04:47'], FantasyBattleHud.cyan);
     expect(hud.labels['00:13'], FantasyBattleHud.cyan);
     expect(hud.labels['EXP'], Colors.white);
-    expect(hud.labels, contains('2 / 50'));
-    expect(hud.labels, isNot(contains('999')));
+    expect(hud.labels, contains('+999'));
     expect(FantasyBattleHud.menuRect.bottom + 8,
         lessThanOrEqualTo(FantasyBattleHud.statusRect.top));
     expect(
@@ -135,7 +135,9 @@ void main() {
       game.update(0);
       await tester.pump();
     }
-    expect(game.state.focusRewardExp, 2);
+    expect(game.state.focusRewardExp,
+        game.state.defeatedCount * GameBalance.focusEnemyExp);
+    expect(game.state.focusRewardExp, greaterThan(0));
     final menu = tester.getRect(find.byKey(const Key('focus-battle-menu')));
     expect(menu.bottom, lessThan(FantasyBattleHud.statusRect.top * 1280 / 960));
     if (const bool.fromEnvironment('CAPTURE_FOCUS_HUD')) {

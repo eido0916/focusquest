@@ -1,3 +1,4 @@
+import 'package:focusquest/core/widgets/quest_screen_fit.dart';
 import '../../../core/widgets/game_ui.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class FocusSelectionScene extends StatelessWidget {
     return '${_base}avatars/$sex/$role.png';
   }
 
-  Widget _image(String asset) => asset == 'custom_strip'
+  Widget _image(String asset, double scale) => asset == 'custom_strip'
       ? const DecoratedBox(
           decoration: BoxDecoration(
               color: Color(0xfffff8e9),
@@ -59,15 +60,32 @@ class FocusSelectionScene extends StatelessWidget {
       : asset == 'avatar_frame'
           ? Image.asset('${_base}avatar_frame.png',
               fit: BoxFit.fill, excludeFromSemantics: true)
-          : GameArtwork(switch (asset) {
-              'stage_banner' => 'header_banner',
-              'party_panel' || 'avatar_frame' => 'identity_panel',
-              'parchment_panel' ||
-              'time_button' ||
-              'custom_strip' =>
-                'parchment_panel',
-              _ => 'equipment_row',
-            });
+          : GameArtwork(
+              switch (asset) {
+                'stage_banner' => 'header_banner',
+                'party_panel' || 'avatar_frame' => 'identity_panel',
+                'parchment_panel' ||
+                'time_button' ||
+                'custom_strip' =>
+                  'parchment_panel',
+                _ => 'equipment_row',
+              },
+              minimumScale: math.max(4, 2 / scale));
+  // Illustrated controls have fixed bounds; fit their contents inside the gold
+  // ornaments, including when the system text size is enlarged.
+  Widget _fit(double scale, {required Widget child, bool parchment = false}) {
+    final artworkScale = math
+        .pow(2, (math.log(math.max(4.0, 2 / scale)) / math.ln2).ceil())
+        .toDouble();
+    return Padding(
+        padding: EdgeInsets.fromLTRB(
+            112 / artworkScale,
+            (parchment ? 80 : 56) / artworkScale,
+            112 / artworkScale,
+            (parchment ? 112 : 64) / artworkScale),
+        child: Center(child: FittedBox(fit: BoxFit.scaleDown, child: child)));
+  }
+
   Widget _icon(String icon, double size, {Color? color}) =>
       Image.asset('${_base}icon_$icon.png',
           width: size, height: size, color: color, excludeFromSemantics: true);
@@ -121,7 +139,7 @@ class FocusSelectionScene extends StatelessWidget {
         SafeArea(child: LayoutBuilder(builder: (context, constraints) {
           final portrait =
               MediaQuery.orientationOf(context) == Orientation.portrait;
-          final contentUnits = message == null ? 952.0 : 1012.0;
+          final contentUnits = message == null ? 1110.0 : 1170.0;
           final width = portrait
               ? math.min(constraints.maxWidth, 1024.0)
               : math.min(
@@ -130,11 +148,11 @@ class FocusSelectionScene extends StatelessWidget {
                       1024.0, constraints.maxHeight * 1024 / contentUnits));
           final scale = width / 1024;
           final height = portrait
-              ? math.max(constraints.maxHeight, width * 1.5)
+              ? math.max(constraints.maxHeight, contentUnits * scale)
               : contentUnits * scale;
-          final startY = portrait ? height - 212 * scale : 768 * scale;
-          final panelY = portrait ? startY - 358 * scale : 410 * scale;
-          final partyY = portrait ? panelY - 190 * scale : 220 * scale;
+          final startY = portrait ? height - 212 * scale : 910 * scale;
+          final panelY = portrait ? startY - 406 * scale : 504 * scale;
+          final partyY = portrait ? panelY - 264 * scale : 220 * scale;
           Widget place(double x, double y, double w, double h, Widget child) =>
               Positioned(
                   left: x * scale,
@@ -142,7 +160,7 @@ class FocusSelectionScene extends StatelessWidget {
                   width: w * scale,
                   height: h * scale,
                   child: child);
-          return SingleChildScrollView(
+          return QuestScreenFit(
               child: Align(
                   alignment: Alignment.topCenter,
                   child: SizedBox(
@@ -158,7 +176,8 @@ class FocusSelectionScene extends StatelessWidget {
                                 label: '戻る',
                                 onTap: onBack,
                                 child: Stack(children: [
-                                  Positioned.fill(child: _image('back_button')),
+                                  Positioned.fill(
+                                      child: _image('back_button', scale)),
                                   Center(child: _icon('back', 52 * scale))
                                 ]))),
                         place(
@@ -171,32 +190,33 @@ class FocusSelectionScene extends StatelessWidget {
                                 behavior: HitTestBehavior.opaque,
                                 child: Stack(children: [
                                   Positioned.fill(
-                                      child: _image('stage_banner')),
-                                  Center(
+                                      child: _image('stage_banner', scale)),
+                                  _fit(scale,
                                       child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                        Text(
-                                            onArea == null
-                                                ? 'STAGE $stage'
-                                                : '集中エリア ▾',
-                                            style: _text(24 * scale)),
-                                        Text(
-                                            areaName ??
-                                                (stage == 1 ? '草原' : '幽霊船'),
-                                            style: _text(48 * scale)),
-                                      ]))
+                                            Text(
+                                                onArea == null
+                                                    ? 'STAGE $stage'
+                                                    : '集中エリア ▾',
+                                                style: _text(24 * scale)),
+                                            Text(
+                                                areaName ??
+                                                    (stage == 1 ? '草原' : '幽霊船'),
+                                                style: _text(48 * scale)),
+                                          ]))
                                 ]))),
                         place(
                             28,
                             partyY,
                             968,
-                            170,
+                            244,
                             Stack(children: [
-                              Positioned.fill(child: _image('party_panel')),
+                              Positioned.fill(
+                                  child: _image('party_panel', scale)),
                               Positioned(
                                   left: 48 * scale,
-                                  top: 12 * scale,
+                                  top: 50 * scale,
                                   width: 144 * scale,
                                   height: 144 * scale,
                                   child: Stack(children: [
@@ -211,27 +231,38 @@ class FocusSelectionScene extends StatelessWidget {
                                                 semanticLabel:
                                                     '${JobPortrait.roleNames[typeId]}の顔アバター'))),
                                     Positioned.fill(
-                                        child: _image('avatar_frame')),
+                                        child: _image('avatar_frame', scale)),
                                   ])),
                               Positioned(
                                   left: 208 * scale,
-                                  top: 12 * scale,
-                                  right: 24 * scale,
-                                  bottom: 12 * scale,
+                                  top: 52 * scale,
+                                  right: 40 * scale,
+                                  bottom: 40 * scale,
                                   child: Column(children: [
-                                    Row(children: [
-                                      RoleLogo(role: typeId, size: 52 * scale),
-                                      SizedBox(width: 12 * scale),
-                                      Expanded(
-                                          child: Text(characterName,
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: _text(34 * scale,
-                                                  color: _ink))),
-                                      Text('Lv. $level',
-                                          style:
-                                              _text(30 * scale, color: _ink)),
-                                    ]),
+                                    SizedBox(
+                                        height: 52 * scale,
+                                        child: Row(children: [
+                                          RoleLogo(
+                                              role: typeId, size: 52 * scale),
+                                          SizedBox(width: 12 * scale),
+                                          Expanded(
+                                              child: FittedBox(
+                                                  fit: BoxFit.scaleDown,
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  child: Text(characterName,
+                                                      maxLines: 1,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: _text(34 * scale,
+                                                          color: _gold)))),
+                                          Flexible(
+                                              child: FittedBox(
+                                                  fit: BoxFit.scaleDown,
+                                                  child: Text('Lv. $level',
+                                                      style: _text(30 * scale,
+                                                          color: _gold)))),
+                                        ])),
                                     Expanded(
                                         child: _tap(
                                             label: partyConnected
@@ -240,24 +271,30 @@ class FocusSelectionScene extends StatelessWidget {
                                             onTap: onParty,
                                             child: Stack(children: [
                                               Positioned.fill(
-                                                  child: _image('blue_button')),
-                                              Center(
+                                                  child: _image(
+                                                      'blue_button', scale)),
+                                              _fit(scale,
                                                   child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.min,
                                                       children: [
-                                                    _icon('party', 44 * scale),
-                                                    SizedBox(width: 36 * scale),
-                                                    Text(
-                                                        partyConnected
-                                                            ? 'パーティーを見る'
-                                                            : 'パーティを組む',
-                                                        style:
-                                                            _text(33 * scale)),
-                                                    SizedBox(width: 28 * scale),
-                                                    _icon('chevron', 40 * scale,
-                                                        color: Colors.white),
-                                                  ])),
+                                                        _icon('party',
+                                                            44 * scale),
+                                                        SizedBox(
+                                                            width: 36 * scale),
+                                                        Text(
+                                                            partyConnected
+                                                                ? 'パーティーを見る'
+                                                                : 'パーティを組む',
+                                                            style: _text(
+                                                                33 * scale)),
+                                                        SizedBox(
+                                                            width: 28 * scale),
+                                                        _icon('chevron',
+                                                            40 * scale,
+                                                            color:
+                                                                Colors.white),
+                                                      ])),
                                             ]))),
                                   ])),
                             ])),
@@ -265,33 +302,48 @@ class FocusSelectionScene extends StatelessWidget {
                             24,
                             panelY,
                             976,
-                            342,
+                            390,
                             Stack(children: [
-                              Positioned.fill(child: _image('parchment_panel')),
+                              Positioned.fill(
+                                  child: _image('parchment_panel', scale)),
                               Positioned(
                                   left: 40 * scale,
                                   right: 40 * scale,
-                                  top: 26 * scale,
+                                  top: 40 * scale,
                                   height: 64 * scale,
-                                  child: Row(children: [
-                                    Expanded(
-                                        child: _icon('divider', 130 * scale,
-                                            color: const Color(0xffb69662))),
-                                    SizedBox(width: 20 * scale),
-                                    _icon('hourglass', 54 * scale, color: _ink),
-                                    SizedBox(width: 20 * scale),
-                                    Text('集中時間を選ぶ',
-                                        style: _text(42 * scale, color: _ink)),
-                                    SizedBox(width: 20 * scale),
-                                    Expanded(
-                                        child: _icon('divider', 130 * scale,
-                                            color: const Color(0xffb69662))),
-                                  ])),
+                                  child: FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            SizedBox(
+                                                width: 100 * scale,
+                                                height: 24 * scale,
+                                                child: _icon(
+                                                    'divider', 130 * scale,
+                                                    color: const Color(
+                                                        0xffb69662))),
+                                            SizedBox(width: 20 * scale),
+                                            _icon('hourglass', 54 * scale,
+                                                color: _ink),
+                                            SizedBox(width: 20 * scale),
+                                            Text('集中時間を選ぶ',
+                                                style: _text(42 * scale,
+                                                    color: _ink)),
+                                            SizedBox(width: 20 * scale),
+                                            SizedBox(
+                                                width: 100 * scale,
+                                                height: 24 * scale,
+                                                child: _icon(
+                                                    'divider', 130 * scale,
+                                                    color: const Color(
+                                                        0xffb69662))),
+                                          ]))),
                               Positioned(
                                   left: 44 * scale,
                                   right: 44 * scale,
-                                  top: 111 * scale,
-                                  height: 114 * scale,
+                                  top: 126 * scale,
+                                  height: 128 * scale,
                                   child: Row(children: [
                                     for (final m in [15, 30, 45, 60]) ...[
                                       if (m != 15) SizedBox(width: 12 * scale),
@@ -302,37 +354,43 @@ class FocusSelectionScene extends StatelessWidget {
                                               onTap: () => onMinutes(m),
                                               child: Stack(children: [
                                                 Positioned.fill(
-                                                    child: _image(minutes == m
-                                                        ? 'time_selected'
-                                                        : 'time_button')),
-                                                Center(
+                                                    child: _image(
+                                                        minutes == m
+                                                            ? 'time_selected'
+                                                            : 'time_button',
+                                                        scale)),
+                                                _fit(scale,
+                                                    parchment: true,
                                                     child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.min,
                                                         children: [
-                                                      _icon('hourglass',
-                                                          51 * scale,
-                                                          color: minutes == m
-                                                              ? const Color(
-                                                                  0xffffe1a2)
-                                                              : _ink),
-                                                      SizedBox(
-                                                          width: 13 * scale),
-                                                      Text('$m分',
-                                                          style: _text(
-                                                              30 * scale,
+                                                          _icon('hourglass',
+                                                              51 * scale,
                                                               color: minutes ==
                                                                       m
-                                                                  ? Colors.white
-                                                                  : _ink)),
-                                                    ])),
+                                                                  ? const Color(
+                                                                      0xffffe1a2)
+                                                                  : _ink),
+                                                          SizedBox(
+                                                              width:
+                                                                  13 * scale),
+                                                          Text('$m分',
+                                                              style: _text(
+                                                                  30 * scale,
+                                                                  color: minutes ==
+                                                                          m
+                                                                      ? Colors
+                                                                          .white
+                                                                      : _ink)),
+                                                        ])),
                                               ]))),
                                     ],
                                   ])),
                               Positioned(
                                   left: 44 * scale,
                                   right: 44 * scale,
-                                  top: 244 * scale,
+                                  top: 280 * scale,
                                   height: 74 * scale,
                                   child: _tap(
                                       label: 'カスタム（1〜180分）',
@@ -341,7 +399,8 @@ class FocusSelectionScene extends StatelessWidget {
                                           ![15, 30, 45, 60].contains(minutes),
                                       child: Stack(children: [
                                         Positioned.fill(
-                                            child: _image('custom_strip')),
+                                            child:
+                                                _image('custom_strip', scale)),
                                         Positioned.fill(
                                             child: Padding(
                                                 padding: EdgeInsets.symmetric(
@@ -351,18 +410,24 @@ class FocusSelectionScene extends StatelessWidget {
                                                       color: _ink),
                                                   SizedBox(width: 24 * scale),
                                                   Expanded(
-                                                      child: Text(
-                                                          ![
-                                                            15,
-                                                            30,
-                                                            45,
-                                                            60
-                                                          ].contains(minutes)
-                                                              ? 'カスタム · $minutes分'
-                                                              : 'カスタム（1〜180分）',
-                                                          style: _text(
-                                                              28 * scale,
-                                                              color: _ink))),
+                                                      child: FittedBox(
+                                                          fit: BoxFit.scaleDown,
+                                                          alignment: Alignment
+                                                              .centerLeft,
+                                                          child: Text(
+                                                              ![
+                                                                15,
+                                                                30,
+                                                                45,
+                                                                60
+                                                              ].contains(
+                                                                      minutes)
+                                                                  ? 'カスタム · $minutes分'
+                                                                  : 'カスタム（1〜180分）',
+                                                              style: _text(
+                                                                  28 * scale,
+                                                                  color:
+                                                                      _ink)))),
                                                   _icon('chevron', 35 * scale,
                                                       color: _ink),
                                                 ]))),
@@ -377,18 +442,20 @@ class FocusSelectionScene extends StatelessWidget {
                                 label: '集中を開始',
                                 onTap: onStart,
                                 child: Stack(children: [
-                                  Positioned.fill(child: _image('blue_button')),
-                                  Center(
+                                  Positioned.fill(
+                                      child: _image('blue_button', scale)),
+                                  _fit(scale,
                                       child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                        _icon('compass', 92 * scale),
-                                        SizedBox(width: 30 * scale),
-                                        Text('集中を開始', style: _text(49 * scale)),
-                                        SizedBox(width: 14 * scale),
-                                        _icon('chevron', 43 * scale,
-                                            color: Colors.white),
-                                      ]))
+                                            _icon('compass', 92 * scale),
+                                            SizedBox(width: 30 * scale),
+                                            Text('集中を開始',
+                                                style: _text(49 * scale)),
+                                            SizedBox(width: 14 * scale),
+                                            _icon('chevron', 43 * scale,
+                                                color: Colors.white),
+                                          ]))
                                 ]))),
                         if (message != null)
                           place(

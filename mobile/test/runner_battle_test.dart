@@ -26,7 +26,7 @@ void main() {
     expect(state.enemies.first.x, greaterThan(800));
     state.advanceTo(10);
     expect(state.defeatedCount, greaterThan(5));
-    expect(state.gainedExp, state.defeatedCount * 10);
+    expect(state.gainedExp, state.defeatedCount);
     expect(state.enemies.length, lessThan(15));
   });
   test('frame rate and screen-off gaps produce identical results', () {

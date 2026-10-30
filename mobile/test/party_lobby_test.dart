@@ -57,11 +57,13 @@ void main() {
   });
   for (final size in [
     const Size(390, 844),
+    const Size(470, 836),
     const Size(320, 568),
     const Size(844, 390)
   ]) {
     for (final scale in [1.0, 1.6]) {
-      testWidgets('entry duration and join dialog at $size scale $scale',
+      testWidgets(
+          'entry has no duration settings; join dialog at $size scale $scale',
           (tester) async {
         tester.view.physicalSize = size;
         tester.view.devicePixelRatio = 1;
@@ -83,14 +85,12 @@ void main() {
         if (size.width == 390 && scale == 1) {
           await capture(tester, key, 'entry');
         }
-        await tester.ensureVisible(find.widgetWithText(ChoiceChip, '45分'));
-        await tester.tap(find.widgetWithText(ChoiceChip, '45分'));
-        await tester.pumpAndSettle();
-        expect(
-            tester
-                .widget<ChoiceChip>(find.widgetWithText(ChoiceChip, '45分'))
-                .selected,
-            isTrue);
+        if (size.width == 470 && scale == 1) {
+          await capture(tester, key, 'entry-reference');
+        }
+        expect(find.text('集中時間の設定'), findsNothing);
+        expect(find.byType(ChoiceChip), findsNothing);
+        expect(find.byKey(const Key('party-create')), findsOneWidget);
         await tester.ensureVisible(find.text('コードで参加'));
         await tester.tap(find.text('コードで参加'));
         await tester.pumpAndSettle();

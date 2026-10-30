@@ -1,0 +1,10 @@
+{
+  "source_sha256": "A8D733A544F05B9D0DB44C4F3CF12596564EC97B036471DECB454C7C56AD5DBA",
+  "installed_sha256": "A8D733A544F05B9D0DB44C4F3CF12596564EC97B036471DECB454C7C56AD5DBA",
+  "match": true,
+  "runtime": "C:/Users/eido0/FocusQuestTools/character-ui-v008/Release/focusquest.exe",
+  "process_id": 11716,
+  "distance_scenarios": 12,
+  "final_regression_tests": 15,
+  "static_analysis": "No issues found"
+}

@@ -40,6 +40,8 @@ class FocusQuestBattleGame extends FlameGame {
   final String jobName;
   final String? heroName;
   final String? levelLogoAsset;
+  String get heroAvatarAsset =>
+      levelLogoAsset ?? BattleUiAssets.avatar(characterType, appearance);
   FantasyBattleHud? hud;
   final double Function() elapsed;
   final ValueChanged<BattleResultData> onFinished;
@@ -56,8 +58,8 @@ class FocusQuestBattleGame extends FlameGame {
     hud = FantasyBattleHud(
         window: await images.load(BattleUiAssets.window),
         orb: await images.load(BattleUiAssets.skillOrb),
-        logo:
-            levelLogoAsset == null ? null : await images.load(levelLogoAsset!));
+        logo: await images.load(heroAvatarAsset),
+        avatarFrame: await images.load(BattleUiAssets.avatarFrame));
     final ghostShip =
         await images.load('stage_backgrounds/ghost_ship_focus_v002.png');
     final enemyAssets = await EnemyMotionAssets.load(this,

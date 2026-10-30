@@ -1,3 +1,4 @@
+import 'package:focusquest/core/widgets/quest_screen_fit.dart';
 import 'package:flutter/material.dart';
 
 const sanctuaryAssets = 'assets/images/diagnosis/sanctuary_v001';
@@ -80,8 +81,7 @@ class SanctuaryShell extends StatelessWidget {
                       textScaler: _SanctuaryTextScaler(
                           MediaQuery.textScalerOf(context),
                           sanctuaryScale(context))),
-                  child: SingleChildScrollView(
-                      controller: scroll,
+                  child: QuestScreenFit(
                       padding: const EdgeInsets.fromLTRB(22, 0, 22, 28),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,

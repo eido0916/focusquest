@@ -9,15 +9,9 @@ const adventureFramePath = 'assets/images/adventure_ui_v001/';
 /// Independent PNG frames; game values and interactions stay live widgets.
 class AdventureBattleHud extends StatelessWidget {
   const AdventureBattleHud(
-      {super.key,
-      required this.battle,
-      required this.utilities,
-      required this.auto,
-      required this.onAuto});
+      {super.key, required this.battle, required this.utilities});
   final PlayableStageBattle battle;
   final Widget utilities;
-  final bool auto;
-  final VoidCallback onAuto;
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(builder: (_, box) {
@@ -67,34 +61,6 @@ class AdventureBattleHud extends StatelessWidget {
                     _command(false, commandSide),
                     const SizedBox(width: 6),
                     _command(true, commandSide),
-                    const SizedBox(width: 6),
-                    SizedBox(
-                        width: commandSide * .70,
-                        height: commandSide * .70,
-                        child: Stack(fit: StackFit.expand, children: [
-                          const AdventureFrame('auto_button'),
-                          FilledButton(
-                              key: const Key('stage-auto'),
-                              onPressed: onAuto,
-                              style: _buttonStyle(),
-                              child: FittedBox(
-                                  child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                    Icon(
-                                        auto ? Icons.pause : Icons.fast_forward,
-                                        color: const Color(0xffffecc0),
-                                        size: 27),
-                                    Text(
-                                        commandSide < 110
-                                            ? 'オート'
-                                            : auto
-                                                ? 'オート ON'
-                                                : 'オート',
-                                        style:
-                                            _text(commandSide < 110 ? 14 : 16)),
-                                  ]))),
-                        ])),
                   ])),
         ]);
       });
@@ -185,9 +151,13 @@ class AdventureBattleHud extends StatelessWidget {
                         children: [
                           Expanded(
                               child: Text('PHASE ${battle.phase + 1} / 3',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   style: _text(font))),
                           Expanded(
                               child: Text('残り ${battle.remainingEnemies} 体',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.right,
                                   style: _text(font))),
                         ]),
@@ -278,9 +248,7 @@ class AdventureFrame extends StatelessWidget {
         'caption_frame' =>
           const GameArtwork('header_banner'),
         'status_panel' => const GameArtwork('identity_panel'),
-        'auto_button' ||
-        'utility_button' =>
-          const GameArtwork('equipment_row', minimumScale: 8),
+        'utility_button' => const GameArtwork('equipment_row', minimumScale: 8),
         _ => Image.asset('$adventureFramePath$name.png',
             fit: BoxFit.fill, excludeFromSemantics: true),
       });

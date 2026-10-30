@@ -68,8 +68,8 @@ void main() {
         await tester.tap(find.text('冒険に出発する'));
         await tester.pumpAndSettle();
         expect(find.text('冒険の書'), findsOneWidget);
-        await tester.scrollUntilVisible(
-            find.byKey(const Key('select-stage-1')), 150);
+        expect(find.byKey(const Key('select-stage-1')).hitTestable(),
+            findsOneWidget);
         await tester.pumpAndSettle();
         expect(find.byKey(const Key('select-stage-1')), findsOneWidget);
         expect(tester.takeException(), isNull);

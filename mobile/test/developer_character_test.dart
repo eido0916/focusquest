@@ -93,7 +93,6 @@ void main() {
     await tester.tap(find.descendant(
         of: find.byType(QuestNavigation), matching: find.text('設定')));
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(find.text('職業・性別を選択'), 250);
     await tester.ensureVisible(find.text('職業・性別を選択'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('職業・性別を選択'));

@@ -17,6 +17,12 @@ import 'package:focusquest/features/playable_stage/presentation/playable_stage_a
 import 'package:focusquest/features/playable_stage/presentation/playable_stage_audio.dart';
 import 'package:focusquest/features/playable_stage/presentation/playable_stage_page.dart';
 
+void advance(PlayableStageBattle battle, double seconds) {
+  for (var i = 0; i < (seconds * 120).ceil(); i++) {
+    battle.update(1 / 120);
+  }
+}
+
 void main() {
   setUpAll(() async {
     final font = await rootBundle.load('assets/fonts/NotoSerifJP.ttf');
@@ -60,9 +66,7 @@ void main() {
           home: Scaffold(
               body: AdventureBattleHud(
                   battle: battle,
-                  utilities: const SizedBox(width: 150, height: 44),
-                  auto: false,
-                  onAuto: () {}))));
+                  utilities: const SizedBox(width: 150, height: 44)))));
       await tester.pump();
       final buttons =
           tester.getRect(find.byKey(const Key('stage-floating-controls')));
@@ -140,7 +144,7 @@ void main() {
       assets.dispose();
     });
   }
-  testWidgets('reference layout and auto combat use live battle values',
+  testWidgets('reference layout keeps attacks and skills manual',
       (tester) async {
     tester.view.physicalSize = const Size(1672, 941);
     tester.view.devicePixelRatio = 1;
@@ -174,7 +178,6 @@ void main() {
         'phase_panel',
         'attack_button',
         'skill_button',
-        'auto_button',
         'utility_button',
         'caption_frame',
         'portrait_frame',
@@ -222,12 +225,29 @@ void main() {
         image.dispose();
       });
     }
-    await tester.tap(find.byKey(const Key('stage-auto')));
+    expect(find.byKey(const Key('stage-auto')), findsNothing);
+    expect(find.textContaining('オート'), findsNothing);
+    advance(battle, 3);
+    for (final enemy in battle.enemies) {
+      enemy.wait = 100;
+    }
+    battle.charge = PlayableStageBattle.chargeNeeded;
+    await tester.pump();
     for (var i = 0; i < 800; i++) {
       await tester.pump(const Duration(milliseconds: 16));
     }
-    expect(battle.attempts, greaterThan(0));
-    expect(battle.skills, greaterThan(0));
+    expect(battle.attempts, 0);
+    expect(battle.skills, 0);
+    expect(battle.charge, PlayableStageBattle.chargeNeeded);
+    await tester.tap(find.byKey(const Key('stage-skill')));
+    await tester.pump();
+    expect(battle.skills, 1);
+    expect(battle.charge, 0);
+    advance(battle, battle.skillDuration + .5);
+    await tester.pump();
+    await tester.tap(find.byKey(const Key('stage-attack')));
+    await tester.pump();
+    expect(battle.attempts, 1);
     battle.pause();
     final attempts = battle.attempts, clock = battle.clock;
     await tester.pump(const Duration(seconds: 2));

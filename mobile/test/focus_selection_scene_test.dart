@@ -37,6 +37,7 @@ void main() {
       await tester.tap(find.descendant(
           of: find.byType(QuestNavigation), matching: find.text('ホーム')));
       await tester.pumpAndSettle();
+      final homeBar = tester.getRect(find.byType(QuestNavigation));
       await tester.ensureVisible(find.text('集中をはじめる'));
       await tester.tap(find.text('集中をはじめる'));
       await tester.pumpAndSettle();
@@ -44,13 +45,15 @@ void main() {
           of: find.byType(FocusSelectionScene),
           matching: find.byType(QuestNavigation));
       expect(navigation, findsOneWidget);
+      expect(tester.getRect(navigation), homeBar);
       final positions = labels
           .map((label) => tester
               .getCenter(
                   find.descendant(of: navigation, matching: find.text(label)))
               .dx)
           .toList();
-      expect(positions, orderedEquals([...positions]..sort()));
+      expect([positions[0], positions[1], positions[3], positions[2]],
+          orderedEquals([...positions]..sort()));
       await tester.tap(
           find.descendant(of: navigation, matching: find.text(labels[tab])));
       await tester.pumpAndSettle();
@@ -112,82 +115,104 @@ void main() {
   });
 
   for (final size in [
+    const Size(280, 653),
+    const Size(360, 640),
+    const Size(430, 932),
     const Size(390, 844),
     const Size(320, 568),
     const Size(844, 390),
     const Size(1920, 1080),
     const Size(1024, 1536)
   ]) {
-    testWidgets('illustrated scene fits $size', (tester) async {
-      tester.view.physicalSize = size;
-      tester.view.devicePixelRatio = 1;
-      addTearDown(tester.view.resetPhysicalSize);
-      addTearDown(tester.view.resetDevicePixelRatio);
-      final key = GlobalKey();
-      final role = size.width == 1024 ? 'ninja' : 'warrior';
-      await tester.pumpWidget(MaterialApp(
-          home: RepaintBoundary(
-              key: key,
-              child: FocusSelectionScene(
-                  typeId: role,
-                  appearance: 'male',
-                  minutes: 30,
-                  stage: 1,
-                  onMinutes: (_) {},
-                  onCustom: () {},
-                  onParty: () {},
-                  onStart: () {},
-                  onNavigate: (_) {},
-                  onBack: () {}))));
-      await tester.pumpAndSettle();
-      await tester.runAsync(() async {
-        final context = key.currentContext!;
-        for (final asset in [
-          'background',
-          'stage_banner',
-          'parchment_panel',
-          'party_panel',
-          'custom_strip',
-          'blue_button',
-          'avatar_frame',
-          'time_button',
-          'time_selected',
-          'navigation_panel',
-          'back_button',
-          'icon_hourglass',
-          'icon_party',
-          'icon_compass',
-          'icon_bag',
-          'icon_book',
-          'icon_gear',
-          'icon_chevron',
-          'icon_divider',
-          'icon_back',
-          'icon_list',
-          'avatars/male/$role',
-        ]) {
-          await precacheImage(
-              AssetImage('assets/images/focus_selection_v001/$asset.png'),
-              context);
-        }
-      });
-      await tester.pumpAndSettle();
-      expect(tester.takeException(), isNull);
-      expect(find.text('集中を開始'), findsOneWidget);
-      if (size.width == 390 || size.width == 1024) {
-        final boundary =
-            key.currentContext!.findRenderObject()! as RenderRepaintBoundary;
+    for (final textScale in [1.0, 1.6, 2.0]) {
+      testWidgets('illustrated scene fits $size text $textScale',
+          (tester) async {
+        tester.platformDispatcher.textScaleFactorTestValue = textScale;
+        addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+        tester.view.physicalSize = size;
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        final key = GlobalKey();
+        int? chosenMinutes;
+        final role = size.width == 1024 ? 'ninja' : 'warrior';
+        await tester.pumpWidget(MaterialApp(
+            home: RepaintBoundary(
+                key: key,
+                child: FocusSelectionScene(
+                    typeId: role,
+                    appearance: 'male',
+                    minutes: 30,
+                    stage: 1,
+                    characterName: textScale > 1 ? '長い名前の冒険者でも枠に収まる' : '冒険者',
+                    onMinutes: (value) => chosenMinutes = value,
+                    onCustom: () {},
+                    onParty: () {},
+                    onStart: () {},
+                    onNavigate: (_) {},
+                    onBack: () {}))));
+        await tester.pumpAndSettle();
         await tester.runAsync(() async {
-          final image = await boundary.toImage();
-          final data = await image.toByteData(format: ui.ImageByteFormat.png);
-          final file = File(
-              'build/unified-ui/focus-${size.width.toInt()}.png');
-          file.parent.createSync(recursive: true);
-          file.writeAsBytesSync(data!.buffer.asUint8List());
-          image.dispose();
+          final context = key.currentContext!;
+          for (final asset in [
+            'background',
+            'stage_banner',
+            'parchment_panel',
+            'party_panel',
+            'custom_strip',
+            'blue_button',
+            'avatar_frame',
+            'time_button',
+            'time_selected',
+            'navigation_panel',
+            'back_button',
+            'icon_hourglass',
+            'icon_party',
+            'icon_compass',
+            'icon_bag',
+            'icon_book',
+            'icon_gear',
+            'icon_chevron',
+            'icon_divider',
+            'icon_back',
+            'icon_list',
+            'avatars/male/$role',
+          ]) {
+            await precacheImage(
+                AssetImage('assets/images/focus_selection_v001/$asset.png'),
+                context);
+          }
         });
-      }
-      await tester.pumpWidget(const SizedBox());
-    });
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        expect(find.text('集中を開始'), findsOneWidget);
+        for (final minutes in [15, 30, 45, 60]) {
+          final label = find.text('$minutes分');
+          final button = find.byWidgetPredicate((widget) =>
+              widget is Semantics && widget.properties.label == '$minutes分');
+          final textBounds = tester.getRect(label);
+          final buttonBounds = tester.getRect(button);
+          expect(buttonBounds.contains(textBounds.topLeft), isTrue);
+          expect(buttonBounds.contains(textBounds.bottomRight), isTrue);
+          await tester.ensureVisible(button);
+          await tester.tap(button);
+          expect(chosenMinutes, minutes);
+        }
+        if (textScale == 1 && (size.width == 390 || size.width == 1024)) {
+          final boundary =
+              key.currentContext!.findRenderObject()! as RenderRepaintBoundary;
+          await tester.runAsync(() async {
+            final image = await boundary.toImage();
+            final data = await image.toByteData(format: ui.ImageByteFormat.png);
+            final file =
+                File('build/unified-ui/focus-${size.width.toInt()}.png');
+            file.parent.createSync(recursive: true);
+            file.writeAsBytesSync(data!.buffer.asUint8List());
+            image.dispose();
+          });
+        }
+        await tester.pumpWidget(const SizedBox());
+      });
+    }
   }
 }

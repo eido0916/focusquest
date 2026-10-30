@@ -7,3 +7,4 @@ Thumbs.db
 *.inspect.ndjson
 __pycache__/
 *.pyc
+*.log

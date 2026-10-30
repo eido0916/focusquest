@@ -1,0 +1,90 @@
+{
+  "version": "v003",
+  "backgroundInstances": 1,
+  "routeAnchors": [
+    [
+      184,
+      563
+    ],
+    [
+      466,
+      480
+    ],
+    [
+      767,
+      315
+    ],
+    [
+      663,
+      135
+    ]
+  ],
+  "assets": [
+    {
+      "name": "landscape",
+      "width": 941,
+      "height": 1550,
+      "sha256": "1454156399ded431b4d3bf2bbf524263cae932c48a10c3b98103b801a62b4fff"
+    },
+    {
+      "name": "ghost_ship",
+      "width": 880,
+      "height": 180,
+      "sha256": "3075985d037dcb8d686cc42948cf605530fc8f8484897b8884c7e88beacb8f07"
+    },
+    {
+      "name": "node_boss",
+      "width": 220,
+      "height": 220,
+      "sha256": "4025c17f403d521dffed0426fc1e464b02c170025794ac1da757a9a41168defe"
+    },
+    {
+      "name": "meadow_thumbnail",
+      "width": 540,
+      "height": 340,
+      "sha256": "130416d8bb52a39a3063e704907b3e8fec6620e7637a0e9142c00b08bff6f1be"
+    },
+    {
+      "name": "route",
+      "width": 941,
+      "height": 750,
+      "sha256": "c060665fb9b12a375099556d8d7f3cf1b5fcd063641705602544862f510a9a07"
+    },
+    {
+      "name": "fog_3",
+      "width": 941,
+      "height": 750,
+      "sha256": "a2ddf70f4ed349dae0a2f58f170df817f89c87c1df8ad0ef25d2a31a63f26bdc"
+    },
+    {
+      "name": "fog_4",
+      "width": 941,
+      "height": 750,
+      "sha256": "3a462488c8947c6e9736fe2851f0c45b733f027222acffb71b003bc3153076ba"
+    },
+    {
+      "name": "frontier_glow",
+      "width": 220,
+      "height": 220,
+      "sha256": "15145eb59fbfb0ce1cb6edb08a3781d4b8b0067e600dcda9bfe4e6197ce67d0c"
+    },
+    {
+      "name": "icon_compass",
+      "width": 72,
+      "height": 72,
+      "sha256": "0c44a352f1b04380440f5cfb0a8e19d432f4f8707223fb5f243d53ac9818d146"
+    },
+    {
+      "name": "icon_flag",
+      "width": 72,
+      "height": 90,
+      "sha256": "9e8cd35398d351d1f1e2c20c1264f4dc3999fb0e7fb205574712979dbb4703fc"
+    },
+    {
+      "name": "icon_crown",
+      "width": 90,
+      "height": 72,
+      "sha256": "26ddecf01c3e7ad3ea5b7f11de536bbac58a19be743aae002988f2afba747666"
+    }
+  ]
+}

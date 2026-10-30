@@ -137,8 +137,11 @@ class QuestNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const labels = ['ホーム', 'キャラクター', '冒険', '設定'];
-    final navigationHeight =
-        math.max(48.0, 29 + MediaQuery.textScalerOf(context).scale(12) * 1.5);
+    // The shell reserves the same space for every destination. Only the
+    // selected highlight changes when switching pages.
+    final navigationHeight = math.max(
+            76.0, 41 + MediaQuery.textScalerOf(context).scale(13) * 2 * 1.3) +
+        3;
     const icons = [
       Icons.home_rounded,
       Icons.people_alt_rounded,
@@ -146,6 +149,7 @@ class QuestNavigation extends StatelessWidget {
       Icons.settings_rounded
     ];
     return Container(
+        key: const Key('quest-navigation-bar'),
         decoration: const BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
@@ -179,13 +183,15 @@ class QuestNavigation extends StatelessWidget {
                                       ]
                                     : null),
                             const SizedBox(height: 4),
-                            FittedBox(
-                                fit: BoxFit.scaleDown,
+                            Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 4),
                                 child: Text(labels[i],
-                                    maxLines: 1,
+                                    maxLines: 2,
+                                    textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontFamily: 'SunlitSerif',
-                                        fontSize: 12,
+                                        fontSize: 13,
                                         fontWeight: active
                                             ? FontWeight.bold
                                             : FontWeight.normal,
@@ -195,27 +201,42 @@ class QuestNavigation extends StatelessWidget {
                           ]));
                   return Expanded(
                       child: Semantics(
+                          key: ValueKey('quest-tab-$i'),
                           selected: active,
                           button: true,
                           child: Material(
                               color: Colors.transparent,
                               child: InkWell(
                                   onTap: () => onSelect(i),
-                                  child: active
-                                      ? GamePanel(
-                                          asset: 'equipment_row',
-                                          protectContent: false,
-                                          padding: EdgeInsets.zero,
-                                          child: content)
-                                      : Container(
-                                          decoration: BoxDecoration(
-                                              border: position > 0
-                                                  ? const Border(
-                                                      left: BorderSide(
-                                                          color: Color(
-                                                              0x335f6e77)))
-                                                  : null),
-                                          child: content)))));
+                                  child: Stack(
+                                      fit: StackFit.passthrough,
+                                      children: [
+                                        Positioned.fill(
+                                            child: DecoratedBox(
+                                                key: active
+                                                    ? ValueKey('navigation-$i')
+                                                    : null,
+                                                decoration: active
+                                                    ? BoxDecoration(
+                                                        color: const Color(
+                                                            0xff183b5a),
+                                                        borderRadius:
+                                                            BorderRadius.circular(
+                                                                6),
+                                                        border: const Border(
+                                                            top: BorderSide(
+                                                                color:
+                                                                    sunlitGold,
+                                                                width: 3)))
+                                                    : BoxDecoration(
+                                                        border: position > 0
+                                                            ? const Border(
+                                                                left: BorderSide(
+                                                                    color: Color(
+                                                                        0x335f6e77)))
+                                                            : null))),
+                                        content,
+                                      ])))));
                 })))));
   }
 }

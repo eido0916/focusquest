@@ -1,0 +1,18 @@
+{
+  "version": "v002",
+  "method": "Editable SVG mist; v001 illustration and frame artwork retained",
+  "assets": [
+    {
+      "name": "fog_3",
+      "width": 941,
+      "height": 750,
+      "sha256": "567238cf1a548c29564800a9e1e5faf9c768514ce1b9ae8dd921360f92662a6e"
+    },
+    {
+      "name": "fog_4",
+      "width": 941,
+      "height": 750,
+      "sha256": "799fd0dc93162090f3b96893719f9f0c312802890d62ecf8977d710f3e557dda"
+    }
+  ]
+}

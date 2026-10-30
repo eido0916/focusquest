@@ -1,3 +1,4 @@
+import 'package:focusquest/core/widgets/quest_screen_fit.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../domain/diagnosis_service.dart';
@@ -49,8 +50,7 @@ class JobRevealScreen extends StatelessWidget {
                 return Center(
                     child: SizedBox(
                         width: w,
-                        child: SingleChildScrollView(
-                            controller: scroll,
+                        child: QuestScreenFit(
                             padding: EdgeInsets.fromLTRB(
                                 34 * scale, 57 * scale, 34 * scale, 20 * scale),
                             child: Column(

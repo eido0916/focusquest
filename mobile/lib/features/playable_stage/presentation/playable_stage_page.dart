@@ -4,7 +4,7 @@ import 'dart:async';
 import '../../../core/widgets/sunlit_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
+import '../../../core/widgets/quest_display.dart';
 import '../domain/playable_stage_battle.dart';
 import '../domain/playable_stage_catalog.dart';
 import 'playable_stage_assets.dart';
@@ -30,7 +30,10 @@ class PlayableStagePage extends StatefulWidget {
 }
 
 class _PlayableStagePageState extends State<PlayableStagePage>
-    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
+    with
+        SingleTickerProviderStateMixin,
+        WidgetsBindingObserver,
+        QuestLandscapeState<PlayableStagePage> {
   late final PlayableStageBattle _battle;
   late final Ticker _ticker;
   late final PlayableStageAudio _audio;
@@ -39,14 +42,9 @@ class _PlayableStagePageState extends State<PlayableStagePage>
   String? _error;
   Timer? _returnTimer;
   bool _returned = false;
-  bool _auto = false;
   @override
   void initState() {
     super.initState();
-    unawaited(SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]));
     WidgetsBinding.instance.addObserver(this);
     _battle = widget.battle ?? PlayableStageBattle(stage: widget.stage);
     _audio = PlayableStageAudio(_battle, output: widget.audioOutput);
@@ -69,13 +67,6 @@ class _PlayableStagePageState extends State<PlayableStagePage>
               _assets!.motions['${enemy.definition.id}_defeat']!.duration;
         }
         _battle.update((elapsed - previous).inMicroseconds / 1000000);
-        if (_auto && !_battle.paused) {
-          if (_battle.canSkill) {
-            _battle.skill();
-          } else if (_battle.canAttack) {
-            _battle.attack();
-          }
-        }
       }
     })
       ..start();
@@ -148,9 +139,6 @@ class _PlayableStagePageState extends State<PlayableStagePage>
     unawaited(_audio.close());
     if (widget.battle == null) _battle.dispose();
     if (widget.assets == null) _assets?.dispose();
-    unawaited(SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]));
     super.dispose();
   }
 
@@ -164,8 +152,6 @@ class _PlayableStagePageState extends State<PlayableStagePage>
             _scene(),
             AdventureBattleHud(
               battle: _battle,
-              auto: _auto,
-              onAuto: () => setState(() => _auto = !_auto),
               utilities: _utilities(),
             ),
             if (_assets == null ||

@@ -3,12 +3,14 @@ import '../../playable_stage/domain/playable_stage_catalog.dart';
 import 'dart:convert';
 import 'dart:async';
 import '../../../core/game_controller.dart';
+import '../../../core/config/game_balance.dart';
 import '../../focus/presentation/focus_audio.dart';
 import 'dart:ui' as ui;
 import 'package:flame/cache.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../../../core/widgets/quest_display.dart';
 import '../../focus/domain/focus_session.dart';
 import '../data/party_connection.dart';
 import '../domain/party_member.dart';
@@ -33,15 +35,14 @@ class PartyBattlePage extends StatefulWidget {
   State<PartyBattlePage> createState() => _PartyBattlePageState();
 }
 
-class _PartyBattlePageState extends State<PartyBattlePage> {
+class _PartyBattlePageState extends State<PartyBattlePage>
+    with QuestLandscapeState<PartyBattlePage> {
   late final PartyBattleGame _game;
   late final FocusAudio _audio;
   bool _returned = false;
   @override
   void initState() {
     super.initState();
-    SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
     _audio = FocusAudio(controller: widget.controller);
     _game = PartyBattleGame(
         onAudioFrame: _audio.update,
@@ -63,7 +64,6 @@ class _PartyBattlePageState extends State<PartyBattlePage> {
   void dispose() {
     _game.pauseEngine();
     unawaited(_audio.close());
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     super.dispose();
   }
 
@@ -246,7 +246,8 @@ class PartyBattleGame extends FlameGame {
           FocusSoundPose('$i', member.characterType, wave, skill, age, events));
     }
     onAudioFrame?.call(time,
-        boss: FocusAdventure.fightingBoss(session.adventureStartSeconds + time),
+        boss: FocusAdventure.bossActive(time,
+            durationSeconds: session.durationMinutes * 60.0),
         active: elapsed >= 0 && elapsed < session.durationMinutes * 60,
         poses: poses);
     if (elapsed >= session.durationMinutes * 60) _finishAge += dt;
@@ -319,6 +320,21 @@ class PartyBattleGame extends FlameGame {
         46,
         width: 600,
         size: 17);
+    final defeats =
+        FocusAdventure.partyDefeats(time, session.durationMinutes * 60.0, [
+      for (final member in session.partyMembers)
+        if (_actors[actorKey(member)]?['attack'] != null &&
+            _actors[actorKey(member)]?['skill'] != null)
+          [
+            _actors[actorKey(member)]!['attack']!.duration,
+            _actors[actorKey(member)]!['skill']!.duration
+          ]
+    ]);
+    final bosses = FocusAdventure.completedBossCycles(time,
+        durationSeconds: session.durationMinutes * 60.0);
+    _text(canvas, 'EXP +${GameBalance.focusExpForDefeats(defeats, bosses)}',
+        730, 12,
+        width: 210, size: 20);
     if (bossBattle && (party == null || party!.connected)) {
       _text(
           canvas,

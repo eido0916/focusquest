@@ -1,0 +1,258 @@
+[
+  {
+    "role": "warrior",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\warrior.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_01_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\warrior.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-warrior.png"
+  },
+  {
+    "role": "boxer",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\boxer.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_02_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\boxer.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-boxer.png"
+  },
+  {
+    "role": "samurai",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\samurai.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_03_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\samurai.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-samurai.png"
+  },
+  {
+    "role": "guardian",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\guardian.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_04_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\guardian.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-guardian.png"
+  },
+  {
+    "role": "ninja",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\ninja.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_05_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\ninja.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-ninja.png"
+  },
+  {
+    "role": "assassin",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\assassin.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_06_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\assassin.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-assassin.png"
+  },
+  {
+    "role": "ranger",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\ranger.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_07_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\ranger.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-ranger.png"
+  },
+  {
+    "role": "mage",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\mage.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_08_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\mage.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-mage.png"
+  },
+  {
+    "role": "gunner",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\gunner.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_09_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\gunner.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-gunner.png"
+  },
+  {
+    "role": "spellblade",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\spellblade.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_10_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\spellblade.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-spellblade.png"
+  },
+  {
+    "role": "onmyoji",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\onmyoji.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_11_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\onmyoji.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-onmyoji.png"
+  },
+  {
+    "role": "reaper",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\reaper.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_12_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\reaper.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-reaper.png"
+  },
+  {
+    "role": "angel",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\angel.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_13_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\angel.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-angel.png"
+  },
+  {
+    "role": "devil",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\devil.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_14_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\devil.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-devil.png"
+  },
+  {
+    "role": "dragon_knight",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\dragon_knight.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_15_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\dragon_knight.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-dragon_knight.png"
+  },
+  {
+    "role": "berserker",
+    "sex": "male",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\berserker.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_16_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\male\\berserker.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\male-berserker.png"
+  },
+  {
+    "role": "warrior",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\warrior.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_01_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\warrior.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-warrior.png"
+  },
+  {
+    "role": "boxer",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\boxer.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_02_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\boxer.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-boxer.png"
+  },
+  {
+    "role": "samurai",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\samurai.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_03_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\samurai.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-samurai.png"
+  },
+  {
+    "role": "guardian",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\guardian.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_04_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\guardian.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-guardian.png"
+  },
+  {
+    "role": "ninja",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\ninja.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_05_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\ninja.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-ninja.png"
+  },
+  {
+    "role": "assassin",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\assassin.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_06_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\assassin.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-assassin.png"
+  },
+  {
+    "role": "ranger",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\ranger.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_07_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\ranger.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-ranger.png"
+  },
+  {
+    "role": "mage",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\mage.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_08_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\mage.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-mage.png"
+  },
+  {
+    "role": "gunner",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\gunner_dark_brown_transparent_v002.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_09_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\gunner.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-gunner.png"
+  },
+  {
+    "role": "spellblade",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\spellblade.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_10_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\spellblade.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-spellblade.png"
+  },
+  {
+    "role": "onmyoji",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\onmyoji.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_11_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\onmyoji.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-onmyoji.png"
+  },
+  {
+    "role": "reaper",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\reaper.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_12_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\reaper.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-reaper.png"
+  },
+  {
+    "role": "angel",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\angel.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_13_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\angel.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-angel.png"
+  },
+  {
+    "role": "devil",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\devil.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_14_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\devil.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-devil.png"
+  },
+  {
+    "role": "dragon_knight",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\dragon_knight.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_15_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\dragon_knight.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-dragon_knight.png"
+  },
+  {
+    "role": "berserker",
+    "sex": "female",
+    "portrait": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\lobby\\portraits\\female\\berserker.png",
+    "pixel": "C:/Users/eido0/OneDrive/ドキュメント/ChatGPT/Focus Quest/mobile/assets/images/playable_stage/character_16_female_run_000.png",
+    "avatar": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\mobile\\assets\\images\\focus_selection_v001\\avatars\\female\\berserker.png",
+    "reference": "C:\\Users\\eido0\\OneDrive\\ドキュメント\\ChatGPT\\Focus Quest\\art\\character_pixel_v007\\references\\female-berserker.png"
+  }
+]

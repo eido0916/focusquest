@@ -43,6 +43,24 @@ Future<void> _save(GlobalKey key, String path) async {
 }
 
 void main() {
+  testWidgets('developer controls can be removed together', (tester) async {
+    final controller = GameController(MemoryRepository(), monitor: _Monitor());
+    addTearDown(controller.dispose);
+    await controller.load();
+    await controller.onboard(GameCatalog.types[0]!);
+    await tester.pumpWidget(MaterialApp(
+        theme: AppTheme.dark,
+        home: Scaffold(
+            body: SettingsScreen(
+                controller: controller, showDeveloperTools: false))));
+    await tester.pumpAndSettle();
+    expect(find.text('開発者用（仮設）'), findsNothing);
+    expect(find.text('職業・性別を選択'), findsNothing);
+    expect(find.text('アプリをリセット'), findsNothing);
+    expect(find.text('サウンド設定'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
   setUpAll(() async {
     final font = await rootBundle.load('assets/fonts/NotoSerifJP.ttf');
     for (final family in ['SunlitSerif', 'Roboto']) {
@@ -69,6 +87,7 @@ void main() {
         final controller = GameController(MemoryRepository(), monitor: monitor);
         await controller.load();
         await controller.onboard(GameCatalog.types[3]!, name: '守護者');
+        var backRequests = 0;
         final boundary = GlobalKey();
         await tester.pumpWidget(RepaintBoundary(
             key: boundary,
@@ -76,7 +95,8 @@ void main() {
                 theme: AppTheme.dark,
                 debugShowCheckedModeBanner: false,
                 home: Scaffold(
-                    body: SettingsScreen(controller: controller),
+                    body: SettingsScreen(
+                        controller: controller, onBack: () => backRequests++),
                     bottomNavigationBar:
                         SettingsNavigation(onSelect: (_) {})))));
         await tester.pumpAndSettle();
@@ -88,9 +108,11 @@ void main() {
         expect(tester.takeException(), isNull);
         expect(find.text('集中履歴'), findsNothing);
         expect(find.text('許可済み'), findsNWidgets(2));
+        await tester.tap(find.bySemanticsLabel('ホームに戻る'));
+        expect(backRequests, 1);
         if (const bool.fromEnvironment('CAPTURE_SETTINGS') && scale == 1) {
-          await tester.runAsync(() => _save(boundary,
-              'build/unified-ui/settings-${size.width.toInt()}.png'));
+          await tester.runAsync(() => _save(
+              boundary, 'build/unified-ui/settings-${size.width.toInt()}.png'));
         }
         final access = find.widgetWithText(SettingsArtButton, '設定を開く');
         await tester.ensureVisible(access.first);
@@ -101,6 +123,16 @@ void main() {
         await tester.tap(access.last);
         await tester.pumpAndSettle();
         expect(monitor.overlayRequests, 1);
+        final bgm = find.widgetWithText(SettingsSoundRow, 'BGM');
+        await tester.ensureVisible(bgm);
+        await tester.tap(bgm);
+        await tester.pumpAndSettle();
+        expect(controller.state!.bgmEnabled, isFalse);
+        final se = find.widgetWithText(SettingsSoundRow, 'SE（効果音）');
+        await tester.ensureVisible(se);
+        await tester.tap(se);
+        await tester.pumpAndSettle();
+        expect(controller.state!.seEnabled, isFalse);
         final reset = find.widgetWithText(SettingsArtButton, 'アプリをリセット');
         await tester.ensureVisible(reset);
         await tester.pumpAndSettle();
@@ -116,6 +148,38 @@ void main() {
       });
     }
   }
+  testWidgets('capture reference proportions without developer controls',
+      (tester) async {
+    if (!const bool.fromEnvironment('CAPTURE_SETTINGS')) return;
+    tester.view.physicalSize = const Size(458, 859);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final controller = GameController(MemoryRepository(), monitor: _Monitor());
+    await controller.load();
+    await controller.onboard(GameCatalog.types[3]!, name: '守護者');
+    final boundary = GlobalKey();
+    await tester.pumpWidget(RepaintBoundary(
+        key: boundary,
+        child: MaterialApp(
+            theme: AppTheme.dark,
+            debugShowCheckedModeBanner: false,
+            home: Scaffold(
+                body: SettingsScreen(
+                    controller: controller, showDeveloperTools: false),
+                bottomNavigationBar: SettingsNavigation(onSelect: (_) {})))));
+    await tester.pumpAndSettle();
+    for (final element in find.byType(Image).evaluate()) {
+      await tester.runAsync(
+          () => precacheImage((element.widget as Image).image, element));
+    }
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+    await tester.runAsync(
+        () => _save(boundary, '../art/settings_ui_v002/preview-458.png'));
+    await tester.pumpWidget(const SizedBox.shrink());
+    controller.dispose();
+  });
   testWidgets('export each settings icon independently', (tester) async {
     if (!const bool.fromEnvironment('CAPTURE_SETTINGS')) return;
     const icons = <String, IconData>{
@@ -151,8 +215,8 @@ void main() {
                       child: Icon(entry.value,
                           size: 48, color: settingsBrown))))));
       await tester.pumpAndSettle();
-      await tester.runAsync(() => _save(
-          key, 'build/unified-ui/materials/icon-${entry.key}.png'));
+      await tester.runAsync(
+          () => _save(key, 'build/unified-ui/materials/icon-${entry.key}.png'));
     }
     final key = GlobalKey();
     await tester.pumpWidget(MaterialApp(
@@ -162,7 +226,7 @@ void main() {
                 child: const SettingsMedallion(
                     icon: Icons.smartphone_rounded, unit: 2, blue: true)))));
     await tester.pumpAndSettle();
-    await tester.runAsync(() =>
-        _save(key, 'build/unified-ui/materials/phone-medallion.png'));
+    await tester.runAsync(
+        () => _save(key, 'build/unified-ui/materials/phone-medallion.png'));
   });
 }
