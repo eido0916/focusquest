@@ -9,16 +9,22 @@ import 'package:flutter/services.dart';
 class QuestDisplay {
   static final orientation = ValueNotifier(Orientation.portrait);
   static final _claims = <Object, Orientation>{};
+  static final _claimRoutes = <Object, Route<dynamic>?>{};
+  static final _pages = <PageRoute<dynamic>>[];
   static bool _queued = false;
   static const _channel = MethodChannel('dev.focusquest/display');
 
-  static void claim(Object owner, Orientation mode) {
+  static void claim(Object owner, Orientation mode, {Route<dynamic>? route}) {
+    if (owner is PageRoute && !_pages.contains(owner)) _pages.add(owner);
     _claims[owner] = mode;
+    _claimRoutes[owner] = owner is PageRoute ? owner : route;
     _schedule();
   }
 
   static void release(Object owner) {
     _claims.remove(owner);
+    _claimRoutes.remove(owner);
+    _pages.remove(owner);
     _schedule();
   }
 
@@ -27,7 +33,12 @@ class QuestDisplay {
     _queued = true;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _queued = false;
-      final next = _claims.values.lastOrNull ?? Orientation.portrait;
+      final page = _pages.lastOrNull;
+      // A covered timer may mount or rebuild after the battle has opened.
+      // Only claims belonging to the visible page can set its orientation.
+      final visible = _claims.entries
+          .where((entry) => page == null || _claimRoutes[entry.key] == page);
+      final next = visible.lastOrNull?.value ?? Orientation.portrait;
       if (orientation.value == next) return;
       orientation.value = next;
       unawaited(_apply(next));
@@ -82,6 +93,13 @@ mixin QuestLandscapeState<T extends StatefulWidget> on State<T> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    QuestDisplay.claim(this, Orientation.landscape,
+        route: ModalRoute.of(context));
+  }
+
+  @override
   void dispose() {
     QuestDisplay.release(this);
     super.dispose();
@@ -107,10 +125,17 @@ class _QuestOrientationScopeState extends State<QuestOrientationScope> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    QuestDisplay.claim(this, widget.orientation, route: ModalRoute.of(context));
+  }
+
+  @override
   void didUpdateWidget(covariant QuestOrientationScope oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.orientation != widget.orientation) {
-      QuestDisplay.claim(this, widget.orientation);
+      QuestDisplay.claim(this, widget.orientation,
+          route: ModalRoute.of(context));
     }
   }
 

@@ -1,11 +1,15 @@
 import '../../core/widgets/quest_widgets.dart' show QuestNavigation;
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 import '../../core/widgets/quest_page_header.dart';
 
 const settingsAssetPath = 'assets/images/settings_ui_v002/';
 const settingsInk = Color(0xfffffbf0);
 const settingsBrown = Color(0xfff5ce76);
 const settingsCream = Color(0xffffedb9);
+
+double settingsFont(double size, double unit) =>
+    math.max(14, size) * math.max(1, unit);
 
 String _iconName(IconData icon) {
   if (icon == Icons.smartphone_rounded) return 'phone';
@@ -127,7 +131,7 @@ class SettingsPanel extends StatelessWidget {
             const Positioned.fill(child: SettingsArt('section')),
             Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: 23 * unit, vertical: 10 * unit),
+                    horizontal: 23 * unit, vertical: 6 * unit),
                 child: Row(children: [
                   SettingsIcon(icon, size: 24 * unit),
                   SizedBox(width: 13 * unit),
@@ -135,14 +139,14 @@ class SettingsPanel extends StatelessWidget {
                       child: Text(title,
                           style: TextStyle(
                               color: settingsInk,
-                              fontSize: 14 * unit,
+                              fontSize: settingsFont(16, unit),
                               height: 1.3,
                               fontWeight: FontWeight.w600))),
                 ])),
           ]),
           Padding(
-              padding: EdgeInsets.fromLTRB(
-                  17 * unit, 8 * unit, 17 * unit, 12 * unit),
+              padding:
+                  EdgeInsets.fromLTRB(17 * unit, 8 * unit, 17 * unit, 8 * unit),
               child: child),
         ]),
       ]);
@@ -197,11 +201,13 @@ class SettingsValueRow extends StatelessWidget {
       child: Row(children: [
         SettingsMedallion(icon: icon, unit: unit),
         SizedBox(width: 14 * unit),
-        Expanded(child: Text(label, style: TextStyle(fontSize: 14 * unit))),
+        Expanded(
+            child: Text(label,
+                style: TextStyle(fontSize: settingsFont(14, unit)))),
         Flexible(
             child: Text(value,
                 textAlign: TextAlign.end,
-                style: TextStyle(fontSize: 11 * unit))),
+                style: TextStyle(fontSize: settingsFont(11, unit)))),
         SizedBox(width: 10 * unit),
         SettingsIcon(Icons.chevron_right_rounded, size: 20 * unit),
       ]));
@@ -235,7 +241,8 @@ class SettingsSoundRow extends StatelessWidget {
                     child: Center(child: SettingsIcon(icon, size: 24 * unit))),
                 SizedBox(width: 8 * unit),
                 Expanded(
-                    child: Text(label, style: TextStyle(fontSize: 15 * unit))),
+                    child: Text(label,
+                        style: TextStyle(fontSize: settingsFont(15, unit)))),
                 SizedBox(width: 8 * unit),
                 Opacity(
                     opacity: onChanged == null ? .5 : 1,
@@ -286,7 +293,7 @@ class SettingsArtButton extends StatelessWidget {
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: settingsInk,
-                                          fontSize: 13 * unit,
+                                          fontSize: settingsFont(13, unit),
                                           height: 1.2,
                                           fontWeight: FontWeight.w600))),
                               if (!red)

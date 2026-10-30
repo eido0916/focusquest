@@ -117,6 +117,7 @@ void main() {
     }
   }
   for (final (count, size, scale, guest) in [
+    (1, const Size(390, 844), 1.0, false),
     (2, const Size(390, 1100), 1.0, false),
     (4, const Size(390, 1100), 1.0, false),
     (4, const Size(320, 568), 1.6, false),
@@ -165,6 +166,29 @@ void main() {
               key: key, child: PartyPage(controller: controller))));
       await images(tester);
       expect(find.byType(LobbyMemberCard), findsNWidgets(4));
+      for (final waiting in find.text('参加待ち').evaluate()) {
+        final label = find.byWidget(waiting.widget);
+        final card = find.ancestor(of: label, matching: find.byType(LobbyMemberCard));
+        expect(tester.getCenter(label).dx, closeTo(tester.getCenter(card).dx, 1),
+            reason: 'Empty-slot labels stay centered in the decorated card');
+      }
+      final readyLabel = find.text(controller.party.ready ? '準備を解除する' : '準備OK');
+      expect(tester.getCenter(readyLabel).dx,
+          closeTo(tester.getCenter(find.byKey(const Key('party-ready'))).dx, 1));
+      for (final scrollable
+          in tester.stateList<ScrollableState>(find.byType(Scrollable))) {
+        expect(scrollable.position.maxScrollExtent, 0);
+      }
+      expect(
+          find.byKey(const Key('party-leave')).hitTestable(), findsOneWidget);
+      if (!guest) {
+        expect(find.byKey(const Key('party-disband')).hitTestable(),
+            findsOneWidget);
+      }
+      if (size == const Size(390, 844) && scale == 1) {
+        expect(tester.getSize(find.byKey(const Key('party-slot-0'))).width,
+            greaterThanOrEqualTo(75));
+      }
       if (size.width == 390 && !guest) {
         await capture(tester, key, 'lobby-$count');
       }

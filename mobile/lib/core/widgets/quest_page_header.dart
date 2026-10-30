@@ -65,7 +65,7 @@ class QuestPageHeader extends StatelessWidget {
                 Text(subtitle!,
                     textAlign: TextAlign.center,
                     textScaler: textScaler,
-                    style: style(11)),
+                    style: style(14)),
             ])),
             SizedBox(
                 width: 48 * unit,

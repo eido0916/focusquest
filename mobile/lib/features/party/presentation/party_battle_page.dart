@@ -82,8 +82,8 @@ class _PartyBattlePageState extends State<PartyBattlePage>
                 GameWidget(game: _game),
                 if (widget.controller != null)
                   Positioned(
-                      top: 7 * unit,
-                      right: 173 * unit,
+                      top: 0,
+                      right: 185 * unit,
                       width: 42 * unit,
                       height: 48 * unit,
                       child: IconButton(
@@ -95,24 +95,27 @@ class _PartyBattlePageState extends State<PartyBattlePage>
                             showFocusSoundSettings(context, widget.controller!),
                       )),
                 Positioned(
-                    top: 7 * unit,
-                    right: 16 * unit,
-                    width: 156 * unit,
-                    height: 48 * unit,
+                    top: FantasyBattleHud.menuRect.top * unit,
+                    left: FantasyBattleHud.menuRect.left * unit,
+                    width: FantasyBattleHud.menuRect.width * unit,
+                    height: FantasyBattleHud.menuRect.height * unit,
                     child: TextButton(
                       onPressed: _return,
                       style: TextButton.styleFrom(
                           foregroundColor: Colors.white,
-                          padding: EdgeInsets.symmetric(horizontal: 5 * unit),
+                          padding: EdgeInsets.symmetric(horizontal: 16 * unit),
                           minimumSize: Size.zero,
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap),
                       child: const FittedBox(
                           child: Row(children: [
-                        Icon(Icons.undo_rounded, size: 25),
+                        Icon(Icons.undo_rounded,
+                            color: FantasyBattleHud.gold, size: 25),
                         SizedBox(width: 7),
                         Text('タイマーに戻る',
                             style: TextStyle(
-                                fontFamily: 'SunlitSerif', fontSize: 18)),
+                                fontFamily: 'SunlitSerif',
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold)),
                       ])),
                     )),
               ]);
@@ -151,7 +154,8 @@ class PartyBattleGame extends FlameGame {
   String? loadError;
   final Map<String, ui.Image> _roleLogos = {};
   final Map<String, ui.Image> _portraits = {};
-  ui.Image? _headerFrame, _memberFrame, _compass;
+  ui.Image? _memberFrame;
+  FantasyBattleHud? hud;
   String portraitKey(PartyMember member) =>
       '${member.appearance}/${member.characterType}';
   String actorKey(PartyMember member) {
@@ -159,6 +163,14 @@ class PartyBattleGame extends FlameGame {
         PixelBattleAssets.characterFor(member.characterType, member.appearance);
     return '${hero.female ? 'players_female' : 'players'}/${hero.id}';
   }
+
+  /// Front, upper flank, lower flank, rear of the party diamond.
+  static Offset formationPosition(int index) => const [
+        Offset(354, 380),
+        Offset(282, 332),
+        Offset(282, 428),
+        Offset(210, 380),
+      ][index];
 
   @override
   Color backgroundColor() => const Color(0xff142b23);
@@ -170,9 +182,9 @@ class PartyBattleGame extends FlameGame {
 
       _bossAssets = await EnemyMotionAssets.load(this,
           ids: EnemyMotionAssets.idsForArea(session.focusAreaIndex));
-      _headerFrame = await images.load('party_focus_v001/header_frame.png');
+      final window = await images.load(BattleUiAssets.window);
+      hud = FantasyBattleHud(window: window, orb: window);
       _memberFrame = await images.load('party_focus_v001/member_frame.png');
-      _compass = await images.load('party_focus_v001/compass.png');
       for (final member in session.partyMembers) {
         final key = portraitKey(member);
         _portraits[key] ??=
@@ -298,28 +310,6 @@ class PartyBattleGame extends FlameGame {
     if (background != null) {
       BackgroundComponent.paintScenery(canvas, background);
     }
-    _frame(canvas, _headerFrame, const Rect.fromLTWH(3, 2, 954, 72));
-    if (_compass != null) {
-      canvas.drawImage(_compass!, const Offset(13, 10), Paint());
-    }
-    final remaining = session.remaining(clock()).inSeconds;
-    _text(
-        canvas,
-        '第${FocusAdventure.chapter(adventureTime)}章 · ${FocusAdventure.area(adventureTime, areaIndex: session.focusAreaIndex)} · ${session.partyMembers.length}人パーティー',
-        64,
-        10,
-        width: 655,
-        size: 23,
-        color: const Color(0xffffdd98));
-    _text(
-        canvas,
-        bossBattle
-            ? 'BOSS · ${FocusAdventure.bossName(adventureTime, areaIndex: session.focusAreaIndex)} · 撃破まで ${bossLeft ~/ 60}:${(bossLeft % 60).toString().padLeft(2, '0')}'
-            : '残り ${remaining ~/ 60}:${(remaining % 60).toString().padLeft(2, '0')}  ·  敵 ${session.partyMembers.length}体 / wave ${time ~/ 6 + 1}',
-        64,
-        46,
-        width: 600,
-        size: 17);
     final defeats =
         FocusAdventure.partyDefeats(time, session.durationMinutes * 60.0, [
       for (final member in session.partyMembers)
@@ -332,9 +322,14 @@ class PartyBattleGame extends FlameGame {
     ]);
     final bosses = FocusAdventure.completedBossCycles(time,
         durationSeconds: session.durationMinutes * 60.0);
-    _text(canvas, 'EXP +${GameBalance.focusExpForDefeats(defeats, bosses)}',
-        730, 12,
-        width: 210, size: 20);
+    hud?.paintStatus(canvas,
+        areaName: FocusAdventure.area(adventureTime,
+            areaIndex: session.focusAreaIndex),
+        elapsedSeconds: time.floor(),
+        remainingSeconds: session.remaining(clock()).inSeconds,
+        defeatedCount: defeats,
+        rewardExp: GameBalance.focusExpForDefeats(defeats, bosses));
+    hud?.frame(canvas, FantasyBattleHud.menuRect);
     if (bossBattle && (party == null || party!.connected)) {
       _text(
           canvas,
@@ -358,7 +353,7 @@ class PartyBattleGame extends FlameGame {
     final skillWave = wave % 4 == 3;
     for (var i = 0; i < session.partyMembers.length; i++) {
       final member = session.partyMembers[i];
-      final cardTop = 84.0 + i * 76;
+      final cardTop = 180.0 + i * 76;
       _frame(canvas, _memberFrame, Rect.fromLTWH(5, cardTop, 175, 72));
       final portrait = _portraits[portraitKey(member)];
       if (portrait != null) {
@@ -390,12 +385,15 @@ class PartyBattleGame extends FlameGame {
             canvas, status == 'disconnected' ? '接続切れ' : '離脱', 101, cardTop + 56,
             width: 70, size: 10, color: Colors.orangeAccent);
       }
-      // Two rows on the battlefield, independent of the portrait sidebar.
-      // Positions are world coordinates; completed original frames never deform.
+      // Diamond vertices are world coordinates; originals never deform.
+      final position = formationPosition(i);
+      final heroX = position.dx;
+      final y = position.dy;
+      // Preserve the existing enemy formation.
       final column = i % 2;
       final row = i ~/ 2;
-      final y = (session.partyMembers.length <= 2 ? 380.0 : 332.0) + row * 100;
-      final heroX = 210.0 + column * 144;
+      final enemyY =
+          (session.partyMembers.length <= 2 ? 380.0 : 332.0) + row * 100;
       final enemyX = 638.0 + column * 136;
       final actor = _actors[actorKey(member)];
       final attack = actor?[skillWave ? 'skill' : 'attack'];
@@ -423,7 +421,7 @@ class PartyBattleGame extends FlameGame {
         final motion = enemy[defeated ? 'defeat' : 'locomotion']!;
         if (!defeated || age - hitAt < motion.duration) {
           final x = age < 2 ? enemyX + (2 - age) * 55 : enemyX;
-          motion.paint(canvas, Offset(x, y - 114),
+          motion.paint(canvas, Offset(x, enemyY - 114),
               defeated ? age - hitAt : age % motion.duration);
         }
       }
@@ -435,7 +433,7 @@ class PartyBattleGame extends FlameGame {
         final x = age < 2 ? 800 - age * 135 : 530.0;
         canvas.drawImage(
             frame.image,
-            Offset(x + frame.offset.dx, y - 114 + frame.offset.dy),
+            Offset(x + frame.offset.dx, enemyY - 114 + frame.offset.dy),
             Paint()..filterQuality = FilterQuality.none);
       }
       if (skillWave && age >= 2 && age < hitAt && attack != null) {

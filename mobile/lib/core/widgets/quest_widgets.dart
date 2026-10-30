@@ -24,7 +24,7 @@ class QuestCard extends StatelessWidget {
                   Text(caption!,
                       style: TextStyle(
                           color: parchment ? gamePaperInk : gameGold,
-                          fontSize: 13,
+                          fontSize: 14,
                           fontWeight: FontWeight.bold)),
                   const SizedBox(height: 10),
                 ],
@@ -140,7 +140,7 @@ class QuestNavigation extends StatelessWidget {
     // The shell reserves the same space for every destination. Only the
     // selected highlight changes when switching pages.
     final navigationHeight = math.max(
-            76.0, 41 + MediaQuery.textScalerOf(context).scale(13) * 2 * 1.3) +
+            76.0, 41 + MediaQuery.textScalerOf(context).scale(14) * 2 * 1.3) +
         3;
     const icons = [
       Icons.home_rounded,
@@ -191,7 +191,7 @@ class QuestNavigation extends StatelessWidget {
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontFamily: 'SunlitSerif',
-                                        fontSize: 13,
+                                        fontSize: 14,
                                         fontWeight: active
                                             ? FontWeight.bold
                                             : FontWeight.normal,

@@ -8,7 +8,7 @@ TextStyle referenceText(double size,
         {Color color = referenceWhite, FontWeight weight = FontWeight.w600}) =>
     TextStyle(
         fontFamily: 'SunlitSerif',
-        fontSize: size,
+        fontSize: math.max(14, size),
         height: 1.35,
         fontWeight: weight,
         color: color);
@@ -162,7 +162,7 @@ class ReferenceAction extends StatelessWidget {
                             Expanded(
                                 child: Text(label,
                                     textAlign: TextAlign.center,
-                                    style: referenceText(compact ? 14 : 22,
+                                    style: referenceText(compact ? 16 : 22,
                                         color: light
                                             ? const Color(0xff082044)
                                             : compact

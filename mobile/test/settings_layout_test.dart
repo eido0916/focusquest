@@ -108,6 +108,17 @@ void main() {
         expect(tester.takeException(), isNull);
         expect(find.text('集中履歴'), findsNothing);
         expect(find.text('許可済み'), findsNWidgets(2));
+        if (size == const Size(390, 844) && scale == 1) {
+          final label = tester.renderObject<RenderParagraph>(find.descendant(
+              of: find.text('集中中に他のアプリを開くと警告します。'),
+              matching: find.byType(RichText)));
+          final font = (label.text as TextSpan).style!.fontSize!;
+          final displayedSize = label.textScaler.scale(font) *
+              label.getTransformTo(null).getMaxScaleOnAxis();
+          expect(displayedSize, greaterThanOrEqualTo(13.5),
+              reason:
+                  'Settings explanations must remain readable after fitting');
+        }
         await tester.tap(find.bySemanticsLabel('ホームに戻る'));
         expect(backRequests, 1);
         if (const bool.fromEnvironment('CAPTURE_SETTINGS') && scale == 1) {

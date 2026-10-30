@@ -82,7 +82,7 @@ class _SettingsScreenState extends State<SettingsScreen>
                     child: DefaultTextStyle(
                       style: TextStyle(
                           color: settingsInk,
-                          fontSize: 11.3 * unit,
+                          fontSize: settingsFont(14, unit),
                           height: 1.35,
                           fontFamily: 'SunlitSerif',
                           fontWeight: FontWeight.w500),
@@ -99,11 +99,11 @@ class _SettingsScreenState extends State<SettingsScreen>
                                     crossAxisAlignment:
                                         CrossAxisAlignment.stretch,
                                     children: [
-                                      const Text(
-                                          '集中開始後、Focus Quest以外のアプリを開くと警告します。\nホーム画面・ロック画面は対象外です。'),
-                                      SizedBox(height: 5 * unit),
-                                      const Text(
-                                          '警告には「Focus Questに戻る」と「1分だけ使用する」を表示します。\n1分の許可はそのアプリだけに適用され、時間が切れると再び警告します。\n集中タイマーは止まりません。'),
+                                      Row(children: [
+                                        const Expanded(child: Text('集中中に他のアプリを開くと警告します。')),
+                                        IconButton(tooltip: '警告のしくみ', onPressed: _showGuardHelp,
+                                            icon: const Icon(Icons.info_outline, color: settingsBrown)),
+                                      ]),
                                       if (_error != null)
                                         Text(_error!,
                                             style: const TextStyle(
@@ -127,21 +127,7 @@ class _SettingsScreenState extends State<SettingsScreen>
                                                   .monitor.requestOverlay),
                                           unit),
                                       SizedBox(height: 6 * unit),
-                                      SettingsRow(
-                                          unit: unit,
-                                          notice: true,
-                                          child: Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                SettingsIcon(
-                                                    Icons.error_rounded,
-                                                    size: 26 * unit),
-                                                SizedBox(width: 6 * unit),
-                                                const Expanded(
-                                                    child: Text(
-                                                        '使用状況は端末内だけで確認します。警告や1分の使用だけで\n集中が未達成になることはありません。')),
-                                              ])),
+                                      const Text('警告や1分の使用で未達成にはなりません。'),
                                     ])),
                             SizedBox(height: 10 * unit),
                             SettingsPanel(
@@ -204,6 +190,13 @@ class _SettingsScreenState extends State<SettingsScreen>
     ]);
   }
 
+  void _showGuardHelp() => showDialog<void>(context: context,
+      builder: (context) => AlertDialog(
+          title: const Text('警告のしくみ'),
+          scrollable: true,
+          content: const Text('集中開始後、Focus Quest以外のアプリを開くと警告します。ホーム画面・ロック画面は対象外です。\n\n警告から「Focus Questに戻る」「1分だけ使用する」を選べます。1分の許可はそのアプリだけに適用され、時間が切れると再び警告します。集中タイマーは止まりません。\n\n使用状況は端末内だけで確認します。警告や1分の使用だけで集中が未達成になることはありません。'),
+          actions: [TextButton(onPressed: () => Navigator.pop(context), child: const Text('閉じる'))]));
+
   Widget _permissionRow(String label, IconData icon, bool allowed,
           VoidCallback onTap, double unit) =>
       SettingsRow(
@@ -216,15 +209,15 @@ class _SettingsScreenState extends State<SettingsScreen>
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                    Text(label,
+                    Text(label.replaceAll('への', 'への\n').replaceAll('の上に', 'の\n上に'),
                         style: TextStyle(
-                            fontSize: 13 * unit, fontWeight: FontWeight.w600)),
+                            fontSize: settingsFont(13, unit), fontWeight: FontWeight.w600)),
                     Text(allowed ? '許可済み' : '未許可',
-                        style: TextStyle(fontSize: 10 * unit)),
+                        style: TextStyle(fontSize: settingsFont(10, unit))),
                   ])),
             ]);
             final action = SizedBox(
-                width: 122 * unit,
+                width: (MediaQuery.textScalerOf(context).scale(1) > 1.3 ? 180 : 150) * unit,
                 child: SettingsArtButton(
                     label: '設定を開く', unit: unit, onTap: onTap));
             if (MediaQuery.textScalerOf(context).scale(1) > 1.3 ||

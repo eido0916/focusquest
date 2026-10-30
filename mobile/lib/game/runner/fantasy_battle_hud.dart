@@ -48,14 +48,15 @@ class FantasyBattleHud {
     canvas.restore();
   }
 
-  void paint(Canvas canvas, BattleStateController state, int level, String job,
-      {String? name}) {
+  /// Shared status bar for solo and party focus battles.
+  void paintStatus(Canvas canvas,
+      {required String areaName,
+      required int elapsedSeconds,
+      required int remainingSeconds,
+      required int defeatedCount,
+      required int rewardExp}) {
     frame(canvas, statusRect);
-    frame(canvas, const Rect.fromLTWH(5, 408, 375, 140));
-    frame(canvas, const Rect.fromLTWH(595, 408, 360, 140));
-    frame(canvas, menuRect);
-    text(canvas, state.areaName, const Rect.fromLTWH(76, 100, 232, 38), 26,
-        gold);
+    text(canvas, areaName, const Rect.fromLTWH(76, 100, 232, 38), 26, gold);
     for (final x in [323.0, 535.0, 728.0]) {
       canvas.drawLine(
           Offset(x, 91),
@@ -67,24 +68,37 @@ class FantasyBattleHud {
     icon(canvas, Icons.hourglass_bottom_outlined, const Offset(346, 94), 28);
     text(
         canvas, '経過時間', const Rect.fromLTWH(380, 92, 78, 25), 15, Colors.white);
-    text(canvas, clockText(state.elapsedSeconds.floor()),
+    text(canvas, clockText(elapsedSeconds),
         const Rect.fromLTWH(458, 89, 69, 29), 22, cyan);
     text(canvas, '残り時間', const Rect.fromLTWH(380, 124, 78, 25), 15,
         Colors.white);
-    text(canvas, clockText(state.focusRemainingSeconds),
+    text(canvas, clockText(remainingSeconds),
         const Rect.fromLTWH(458, 121, 69, 29), 22, cyan);
     icon(canvas, Icons.sports_martial_arts, const Offset(556, 107), 27);
     text(
         canvas, '討伐数', const Rect.fromLTWH(590, 109, 62, 26), 15, Colors.white);
-    text(canvas, '${state.defeatedCount}',
-        const Rect.fromLTWH(662, 106, 58, 31), 23, cyan);
+    text(canvas, '$defeatedCount', const Rect.fromLTWH(662, 106, 58, 31), 23,
+        cyan);
     icon(canvas, Icons.auto_awesome, const Offset(749, 107), 27);
     text(
         canvas, 'EXP', const Rect.fromLTWH(784, 109, 43, 26), 17, Colors.white);
-    text(canvas, '+${state.focusRewardExp}',
-        const Rect.fromLTWH(834, 106, 87, 31), 23, cyan);
+    text(canvas, '+$rewardExp', const Rect.fromLTWH(834, 106, 87, 31), 23,
+        cyan);
     jewel(canvas, const Offset(480, 83), 6);
     jewel(canvas, const Offset(480, 157), 6);
+  }
+
+  void paint(Canvas canvas, BattleStateController state, int level, String job,
+      {String? name}) {
+    paintStatus(canvas,
+        areaName: state.areaName,
+        elapsedSeconds: state.elapsedSeconds.floor(),
+        remainingSeconds: state.focusRemainingSeconds,
+        defeatedCount: state.defeatedCount,
+        rewardExp: state.focusRewardExp);
+    frame(canvas, const Rect.fromLTWH(5, 408, 375, 140));
+    frame(canvas, const Rect.fromLTWH(595, 408, 360, 140));
+    frame(canvas, menuRect);
 
     if (state.isBossBattle) {
       canvas.drawRRect(

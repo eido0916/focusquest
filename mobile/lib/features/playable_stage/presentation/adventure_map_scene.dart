@@ -17,7 +17,7 @@ const _gold = Color(0xfff5ce78);
 TextStyle mapText(double size, {Color color = _ivory}) => TextStyle(
         fontFamily: 'SunlitSerif',
         color: color,
-        fontSize: size,
+        fontSize: math.max(14, size),
         height: 1.3,
         shadows: const [
           Shadow(color: Color(0xcc00152c), blurRadius: 2, offset: Offset(0, 1))

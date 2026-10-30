@@ -28,6 +28,42 @@ Future<void> loadImages(WidgetTester tester) async {
 }
 
 void main() {
+  testWidgets('covered timer cannot override the visible battle orientation',
+      (tester) async {
+    final navigator = GlobalKey<NavigatorState>();
+    var showTimer = false;
+    late StateSetter updateTimer;
+    await tester.pumpWidget(MaterialApp(
+        navigatorKey: navigator,
+        navigatorObservers: [QuestDisplayObserver()],
+        home: const Scaffold(body: Text('home'))));
+    navigator.currentState!.push(MaterialPageRoute<void>(
+        builder: (_) => StatefulBuilder(builder: (context, update) {
+              updateTimer = update;
+              return showTimer
+                  ? const QuestOrientationScope(
+                      orientation: Orientation.portrait,
+                      child: Scaffold(body: Text('timer')))
+                  : const Scaffold(body: Text('starting'));
+            })));
+    await tester.pumpAndSettle();
+    navigator.currentState!.push(MaterialPageRoute<void>(
+        builder: (_) => const QuestOrientationScope(
+            child: Scaffold(body: Text('battle')))));
+    await tester.pumpAndSettle();
+    expect(QuestDisplay.orientation.value, Orientation.landscape);
+    updateTimer(() => showTimer = true);
+    await tester.pumpAndSettle();
+    expect(QuestDisplay.orientation.value, Orientation.landscape);
+    navigator.currentState!.pop();
+    await tester.pumpAndSettle();
+    expect(find.text('timer'), findsOneWidget);
+    expect(QuestDisplay.orientation.value, Orientation.portrait);
+    navigator.currentState!.pop();
+    await tester.pumpAndSettle();
+    expect(QuestDisplay.orientation.value, Orientation.portrait);
+    await tester.pumpWidget(const SizedBox());
+  });
   setUpAll(() async {
     await (FontLoader('SunlitSerif')
           ..addFont(rootBundle.load('assets/fonts/NotoSerifJP.ttf')))

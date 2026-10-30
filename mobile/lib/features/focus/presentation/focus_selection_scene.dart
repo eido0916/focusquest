@@ -93,7 +93,7 @@ class FocusSelectionScene extends StatelessWidget {
   TextStyle _text(double size, {Color color = Colors.white}) => TextStyle(
       fontFamily: 'SunlitSerif',
       height: 1.15,
-      fontSize: size,
+      fontSize: math.max(14, size),
       fontWeight: FontWeight.w700,
       color: color,
       shadows: color == Colors.white

@@ -285,7 +285,7 @@ class CharacterScreen extends StatelessWidget {
                           const SizedBox(width: 6),
                           Expanded(
                               child: Text(label,
-                                  style: const TextStyle(fontSize: 13))),
+                                  style: const TextStyle(fontSize: 14))),
                           const SizedBox(width: 4),
                           const CharacterIcon('chevron_icon', size: 10),
                         ])))));

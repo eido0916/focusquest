@@ -6,8 +6,8 @@ import 'settings_art.dart';
 
 /// Disable the entire temporary section with
 /// --dart-define=FOCUSQUEST_DEVELOPER_TOOLS=false.
-const developerToolsEnabled = bool.fromEnvironment('FOCUSQUEST_DEVELOPER_TOOLS',
-    defaultValue: true);
+const developerToolsEnabled =
+    bool.fromEnvironment('FOCUSQUEST_DEVELOPER_TOOLS', defaultValue: true);
 
 /// Temporary tools live here so the settings integration can be removed at once.
 class DeveloperSettingsPanel extends StatelessWidget {
@@ -56,7 +56,7 @@ class DeveloperSettingsPanel extends StatelessWidget {
                     textStyle: TextStyle(
                         fontFamily: 'SunlitSerif',
                         fontWeight: FontWeight.bold,
-                        fontSize: 11 * unit)),
+                        fontSize: settingsFont(11, unit))),
                 onPressed: controller.busy
                     ? null
                     : () => Navigator.of(context).push(MaterialPageRoute<void>(
@@ -64,19 +64,14 @@ class DeveloperSettingsPanel extends StatelessWidget {
                             DeveloperCharacterScreen(controller: controller))),
                 icon: Icon(Icons.person_rounded, size: 18 * unit),
                 label: const Text('職業・性別を選択')),
-            SizedBox(height: 5 * unit),
-            const Text('保存データを初期化して、最初の役職決めからやり直します。'),
-            SizedBox(height: 8 * unit),
-            Center(
-                child: SizedBox(
-                    width: width * .60,
-                    child: SettingsArtButton(
-                        label: 'アプリをリセット',
-                        icon: Icons.restart_alt_rounded,
-                        red: true,
-                        unit: unit,
-                        onTap: controller.busy
-                            ? null
-                            : () => _resetForDevelopment(context)))),
+            SizedBox(height: 6 * unit),
+            SettingsArtButton(
+                label: 'アプリをリセット',
+                icon: Icons.restart_alt_rounded,
+                red: true,
+                unit: unit,
+                onTap: controller.busy
+                    ? null
+                    : () => _resetForDevelopment(context)),
           ])));
 }

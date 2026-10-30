@@ -228,6 +228,25 @@ void main() {
           tester, () => !host.party.connected && controllers[1].party.isHost);
       expect(controllers[1].party.members.length, 3);
       expect(find.byKey(const Key('party-create')), findsOneWidget);
+      await show(controllers[2]);
+      await tester.pumpAndSettle();
+      expect(find.byKey(const Key('party-disband')), findsNothing);
+      await show(controllers[1]);
+      await tester.pumpAndSettle();
+      expect(find.byKey(const Key('party-disband')).hitTestable(), findsOneWidget);
+      await tester.tap(find.byKey(const Key('party-disband')));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('キャンセル'));
+      await tester.pumpAndSettle();
+      expect(controllers[1].party.connected, isTrue);
+      await tester.tap(find.byKey(const Key('party-disband')));
+      await tester.pumpAndSettle();
+      await tester.runAsync(
+          () => tester.tap(find.byKey(const Key('party-disband-confirm'))));
+      await networkUntil(tester,
+          () => controllers.skip(1).every((c) => !c.party.connected));
+      await tester.pumpAndSettle();
+      expect(find.byKey(const Key('party-create')), findsOneWidget);
       expect(tester.takeException(), isNull);
     } finally {
       await tester.pumpWidget(const SizedBox.shrink());
