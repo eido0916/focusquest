@@ -1,0 +1,11 @@
+{
+  "normalEnemyExp": 1,
+  "bossExp": 100,
+  "requiredExpBase": 300,
+  "requiredExpIncreasePerLevel": 150,
+  "bossStartsAtMinutes": 25,
+  "bossDurationMinutes": 5,
+  "simulationStartingLevel": 1,
+  "soloThirtyMinuteCases": 32,
+  "soloThirtyMinuteLevelRange": [4, 4]
+}

@@ -12,6 +12,9 @@ import 'package:focusquest/features/character/presentation/character_screen.dart
 import 'package:focusquest/features/certificate/certificate_screen.dart';
 import 'support/memory_repository.dart';
 
+const captureDirectory = String.fromEnvironment('LOBBY_CAPTURE_DIRECTORY',
+    defaultValue: '../art/character_ui_v006/previews');
+
 void main() {
   setUpAll(() async {
     final font = await rootBundle.load('assets/fonts/NotoSerifJP.ttf');
@@ -20,13 +23,16 @@ void main() {
     await (FontLoader('MaterialIcons')..addFont(Future.value(icons))).load();
   });
   for (final size in [
+    const Size(375, 662),
     const Size(390, 844),
     const Size(390, 690),
     const Size(390, 1150),
     const Size(320, 568),
     const Size(800, 1280),
     const Size(866, 1280),
-    const Size(844, 390)
+    const Size(844, 390),
+    const Size(1280, 800),
+    const Size(1086, 1448)
   ]) {
     for (final scale in [1.0, 1.6]) {
       testWidgets('equipment-free character lobby at $size scale $scale',
@@ -40,14 +46,14 @@ void main() {
         final repo = MemoryRepository();
         final controller = GameController(repo);
         await controller.load();
+        final reference = size == const Size(1086, 1448);
         await controller.onboard(
-            GameCatalog.types[16] ??
-                GameCatalog.types.values
-                    .firstWhere((t) => t.typeId == 'berserker'),
-            name: 'まさし');
+            GameCatalog.types.values.firstWhere((t) => t.typeId == 'warrior'),
+            name: reference ? 'a' : 'まさし');
         final hero = repo.state.activeCharacter!;
         repo.state = repo.state.copyWith(characters: {
-          hero.id: hero.copyWith(level: 3, currentExp: 50)
+          hero.id: hero.copyWith(
+              level: reference ? 1 : 3, currentExp: reference ? 0 : 50)
         }, inventory: {
           'wooden_sword': 11,
           'silver_ring': 3,
@@ -73,9 +79,50 @@ void main() {
         }
         await tester.pumpAndSettle();
         expect(tester.takeException(), isNull);
-        expect(find.text('Lv. 3'), findsOneWidget);
+        expect(find.byKey(const ValueKey('character-continuous-background')),
+            findsOneWidget);
+        expect(
+            tester.widgetList<Image>(find.byType(Image)).where((image) =>
+                image.image is AssetImage &&
+                (image.image as AssetImage)
+                    .assetName
+                    .endsWith('hero_courtyard.png')),
+            isEmpty);
+        if (size == const Size(375, 662) && scale == 1) {
+          expect(
+              tester
+                  .getBottomRight(
+                      find.byKey(const ValueKey('view-certificate')))
+                  .dy,
+              lessThanOrEqualTo(
+                  tester.getTopLeft(find.byType(QuestNavigation)).dy));
+        }
+        expect(find.text(reference ? 'Lv. 1' : 'Lv. 3'), findsOneWidget);
+        final expFill =
+            tester.getSize(find.byKey(const ValueKey('character-exp-fill')));
+        expect(expFill.height, greaterThan(0));
+        expect(expFill.width, reference ? 0 : greaterThan(0));
         expect(find.text('称号変更'), findsOneWidget);
         expect(find.byKey(const ValueKey('character-stats')), findsOneWidget);
+        for (final heading in [
+          ('能力値', 'character-stats'),
+          ('冒険者情報', 'adventurer-information')
+        ]) {
+          expect(
+              tester.getCenter(find.text(heading.$1)).dx,
+              closeTo(
+                  tester.getCenter(find.byKey(ValueKey(heading.$2))).dx, .5));
+        }
+        // Narrow screens must reflow, keeping live labels readable.
+        for (final text in tester.widgetList<Text>(find.descendant(
+            of: find.byType(CharacterScreen), matching: find.byType(Text)))) {
+          expect(text.style?.fontSize ?? 16, greaterThanOrEqualTo(13));
+        }
+        expect(
+            find.descendant(
+                of: find.byType(CharacterScreen),
+                matching: find.byType(Scrollable)),
+            findsNothing);
         expect(find.byKey(const ValueKey('character-equipment')), findsNothing);
         await tester.ensureVisible(find.text('冒険者証を見る'));
         await tester.pumpAndSettle();
@@ -89,11 +136,12 @@ void main() {
           await tester.runAsync(() async {
             final render = boundary.currentContext!.findRenderObject()!
                 as RenderRepaintBoundary;
-            final image = await render.toImage(pixelRatio: 2);
+            final image =
+                await render.toImage(pixelRatio: size.width >= 1000 ? 1 : 2);
             final bytes =
                 await image.toByteData(format: ui.ImageByteFormat.png);
             final file = File(
-                '../art/character_ui_v004/previews/character-${size.width.toInt()}x${size.height.toInt()}.png');
+                '$captureDirectory/character-${size.width.toInt()}x${size.height.toInt()}.png');
             await file.parent.create(recursive: true);
             await file.writeAsBytes(bytes!.buffer.asUint8List());
             image.dispose();
@@ -119,8 +167,8 @@ void main() {
             final image = await render.toImage(pixelRatio: 2);
             final bytes =
                 await image.toByteData(format: ui.ImageByteFormat.png);
-            final file = File(
-                '../art/character_ui_v004/previews/titles-${size.height.toInt()}.png');
+            final file =
+                File('$captureDirectory/titles-${size.height.toInt()}.png');
             await file.writeAsBytes(bytes!.buffer.asUint8List());
             image.dispose();
           });

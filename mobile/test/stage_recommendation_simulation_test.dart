@@ -1,3 +1,6 @@
+// 推奨レベルのシミュレーション結果をJSONとして出力する検証用テスト。
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';

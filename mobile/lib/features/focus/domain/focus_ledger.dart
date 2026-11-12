@@ -41,7 +41,14 @@ class FocusLedger {
         focusAdventureSeconds: status == FocusStatus.succeeded
             ? session.adventureStartSeconds + session.durationMinutes * 60
             : state.focusAdventureSeconds,
-        sessions: {...state.sessions, sessionId: session.finish(status)},
-        appliedOperations: {...state.appliedOperations, operation});
+        sessions: {
+          ...state.sessions,
+          sessionId: session.finish(status,
+              earnedExp: status == FocusStatus.succeeded ? reward.exp : 0)
+        },
+        appliedOperations: {
+          ...state.appliedOperations,
+          operation
+        });
   }
 }

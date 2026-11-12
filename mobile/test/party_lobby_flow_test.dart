@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:async';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -22,7 +23,15 @@ class LoopbackPartyConnection extends PartyConnection {
           {required String url,
           required PartyMember member,
           String? joinCode}) =>
-      connectForTest(uri, member, code: joinCode);
+      // Real sockets need real heartbeat timers, including after a fake-time
+      // dialog animation completes and invokes this method.
+      runZoned(() => connectForTest(uri, member, code: joinCode),
+          zoneSpecification: ZoneSpecification(
+              createTimer: (self, parent, zone, duration, callback) => Zone.root
+                  .createTimer(duration, () => zone.runGuarded(callback)),
+              createPeriodicTimer: (self, parent, zone, duration, callback) =>
+                  Zone.root.createPeriodicTimer(duration,
+                      (timer) => zone.runUnaryGuarded(callback, timer))));
 }
 
 Future<void> networkUntil(WidgetTester tester, bool Function() check) async {
@@ -84,12 +93,17 @@ void main() {
               home: PartyPage(controller: controller))));
       expect(
           tester
-              .widget<LobbyAction>(find.byKey(const Key('party-join')))
+              .widget<InkWell>(find.descendant(
+                  of: find.byKey(const Key('party-join')),
+                  matching: find.byType(InkWell)))
               .onTap,
           isNotNull);
       await tester.tap(find.byKey(const Key('party-join')));
       await tester.pumpAndSettle();
-      expect(tester.widget<TextButton>(find.byKey(const Key('party-join-submit'))).onPressed,
+      expect(
+          tester
+              .widget<TextButton>(find.byKey(const Key('party-join-submit')))
+              .onPressed,
           isNull);
       await tester.enterText(
           find.byKey(const Key('party-code-input')), 'ab2cd3');
@@ -163,7 +177,8 @@ void main() {
               .widget<LobbyAction>(find.byKey(const Key('party-start')))
               .onTap,
           isNull);
-      await tester.drag(find.byKey(const Key('party-lobby-list')), const Offset(0, 1500));
+      await tester.drag(
+          find.byKey(const Key('party-lobby-list')), const Offset(0, 1500));
       await tester.pumpAndSettle();
       for (var i = 1; i < 4; i++) {
         await show(controllers[i]);
@@ -172,8 +187,8 @@ void main() {
         await tester.enterText(
             find.byKey(const Key('party-code-input')), code.toLowerCase());
         await tester.pump();
-        await tester
-            .runAsync(() => tester.tap(find.byKey(const Key('party-join-submit'))));
+        await tester.runAsync(
+            () => tester.tap(find.byKey(const Key('party-join-submit'))));
         await networkUntil(
             tester,
             () =>
@@ -193,19 +208,19 @@ void main() {
       await tester.pumpAndSettle();
       await tester.enterText(find.byKey(const Key('party-code-input')), code);
       await tester.pump();
-      await tester
-          .runAsync(() => tester.tap(find.byKey(const Key('party-join-submit'))));
+      await tester.runAsync(
+          () => tester.tap(find.byKey(const Key('party-join-submit'))));
       await networkUntil(
           tester,
           () =>
               !fifth.party.connecting &&
               find.byKey(const Key('party-error')).evaluate().isNotEmpty);
       expect(fifth.party.connected, false);
-      expect(find.text('パーティーは満員です（最大4人）。'), findsOneWidget);
+      expect(find.textContaining('パーティーは満員です（最大4人）。'), findsOneWidget);
       expect(host.party.members.length, 4);
       await show(host);
-      await tester.scrollUntilVisible(find.byKey(const Key('party-leave')), 150,
-          scrollable: find.descendant(of: find.byKey(const Key('party-lobby-list')), matching: find.byType(Scrollable)).first);
+      expect(
+          find.byKey(const Key('party-leave')).hitTestable(), findsOneWidget);
       await tester.pump();
       await tester
           .runAsync(() => tester.tap(find.byKey(const Key('party-leave'))));
@@ -213,12 +228,32 @@ void main() {
           tester, () => !host.party.connected && controllers[1].party.isHost);
       expect(controllers[1].party.members.length, 3);
       expect(find.byKey(const Key('party-create')), findsOneWidget);
+      await show(controllers[2]);
+      await tester.pumpAndSettle();
+      expect(find.byKey(const Key('party-disband')), findsNothing);
+      await show(controllers[1]);
+      await tester.pumpAndSettle();
+      expect(find.byKey(const Key('party-disband')).hitTestable(), findsOneWidget);
+      await tester.tap(find.byKey(const Key('party-disband')));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('キャンセル'));
+      await tester.pumpAndSettle();
+      expect(controllers[1].party.connected, isTrue);
+      await tester.tap(find.byKey(const Key('party-disband')));
+      await tester.pumpAndSettle();
+      await tester.runAsync(
+          () => tester.tap(find.byKey(const Key('party-disband-confirm'))));
+      await networkUntil(tester,
+          () => controllers.skip(1).every((c) => !c.party.connected));
+      await tester.pumpAndSettle();
+      expect(find.byKey(const Key('party-create')), findsOneWidget);
       expect(tester.takeException(), isNull);
     } finally {
       await tester.pumpWidget(const SizedBox.shrink());
       await tester.runAsync(() async {
+        // Close all clients together so a rejected client's close handshake
+        // cannot hold up cleanup while the server is still awaiting its peers.
         for (final controller in controllers) {
-          await controller.party.leave();
           controller.dispose();
         }
         await server.close();

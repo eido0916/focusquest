@@ -1,0 +1,19 @@
+{
+  "source": [
+    {
+      "file": "playable_stage_page.dart",
+      "workspace": "0a5967e225841bc5ccabc9ff12c83d5ade2f607901cb34bea9aa0804338e006d",
+      "compiled": "0a5967e225841bc5ccabc9ff12c83d5ade2f607901cb34bea9aa0804338e006d"
+    },
+    {
+      "file": "adventure_battle_hud.dart",
+      "workspace": "0eb9a59644e0a61d9ff14d31891370d5f0b6f78b6f5463dc908c8dc5ac66401e",
+      "compiled": "0eb9a59644e0a61d9ff14d31891370d5f0b6f78b6f5463dc908c8dc5ac66401e"
+    }
+  ],
+  "compiledCode": "c86be6ac596db73e3b313eae074060d10ae800017159da7f5902a03a2e72457c",
+  "installedCode": "c86be6ac596db73e3b313eae074060d10ae800017159da7f5902a03a2e72457c",
+  "testsPassed": 7,
+  "staticAnalysis": "No issues found",
+  "runtime": "C:/Users/eido0/FocusQuestTools/character-ui-v008/Release/focusquest.exe"
+}

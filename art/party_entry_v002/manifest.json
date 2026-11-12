@@ -1,0 +1,82 @@
+{
+  "version": "v002",
+  "assets": [
+    {
+      "name": "background",
+      "width": 941,
+      "height": 1672,
+      "method": "Built-in ImageGen; alpha-trimmed and sized for Flutter",
+      "sha256": "8d05127d8ee8916888afdd4ce19b4901879a13a92fb82e38c158e4909005095a"
+    },
+    {
+      "name": "action",
+      "width": 800,
+      "height": 145,
+      "method": "Built-in ImageGen; alpha-trimmed and sized for Flutter",
+      "sha256": "92e5d05b0f833c5d68dac30da3217e59fea9d5225bc2ef31ad067f88ac37c95d"
+    },
+    {
+      "name": "title",
+      "width": 820,
+      "height": 104,
+      "method": "Built-in ImageGen; alpha-trimmed and sized for Flutter",
+      "sha256": "3d9fc75a8f49ff50c5bb872b3ad0bab66139f53fa8b207e8bcf267ae3b71a823"
+    },
+    {
+      "name": "information",
+      "width": 800,
+      "height": 150,
+      "method": "Built-in ImageGen; alpha-trimmed and sized for Flutter",
+      "sha256": "d04a71fa9791547c59fe32c90823b5b7cc05b2e276135cc45613805daa789003"
+    },
+    {
+      "name": "back",
+      "width": 104,
+      "height": 104,
+      "method": "Built-in ImageGen; alpha-trimmed and sized for Flutter",
+      "sha256": "cf95c76e731bcebb3204a91a467c8e4c9e964ae43be0f488b458d0e76dc8c886"
+    },
+    {
+      "name": "icon-back",
+      "width": 72,
+      "height": 72,
+      "method": "Individual editable SVG, matching existing project ornaments",
+      "sha256": "ae17d6094793011b1cc62ba5ed89ebf82b4ddfc7d0340b324404b241a2c54e8d"
+    },
+    {
+      "name": "compass",
+      "width": 80,
+      "height": 80,
+      "method": "Individual editable SVG, matching existing project ornaments",
+      "sha256": "009be7737b5c26b6365da6be4cebd46f626277ed9b0394e922e5d23d7bdf6b1c"
+    },
+    {
+      "name": "icon-create",
+      "width": 64,
+      "height": 64,
+      "method": "Individual editable SVG, matching existing project ornaments",
+      "sha256": "1a6e0b4cf3905cab007e6b447bf41d380b619475a2b573a6f12f68c5660c7523"
+    },
+    {
+      "name": "icon-join",
+      "width": 64,
+      "height": 64,
+      "method": "Individual editable SVG, matching existing project ornaments",
+      "sha256": "2acdaef7909ab874b9b1cdce57e55747ef677009bd8078a674f93ae7a6be389f"
+    },
+    {
+      "name": "icon-chevron",
+      "width": 48,
+      "height": 64,
+      "method": "Individual editable SVG, matching existing project ornaments",
+      "sha256": "2f6abadad22036b5363e54a2da306a40250c17c287cce82cfcba47d5d3f0525b"
+    },
+    {
+      "name": "separator",
+      "width": 4,
+      "height": 64,
+      "method": "Individual editable SVG, matching existing project ornaments",
+      "sha256": "d1d001b114790b2ca8c664aacac82463e00f96eb39ccec573052a03d93dc9d69"
+    }
+  ]
+}

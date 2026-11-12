@@ -37,7 +37,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(PartyPage), findsOneWidget);
     expect(find.text('コードで参加'), findsOneWidget);
-    expect(find.text('集中時間の設定'), findsOneWidget);
+    expect(find.text('集中時間の設定'), findsNothing);
     await tester.tap(find.text('コードで参加'));
     await tester.pumpAndSettle();
     expect(find.text('パーティーコード'), findsOneWidget);

@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:focusquest/core/config/game_balance.dart';
 import 'package:focusquest/game/runner/battle_state_controller.dart';
 
 void main() {
@@ -36,7 +37,7 @@ void main() {
     expect(s.enemies.singleWhere((e) => e.id == 3).hp, 1);
     s.advanceTo(3);
     expect(s.defeatedCount, 2);
-    expect(s.gainedExp, 20);
+    expect(s.gainedExp, 2 * GameBalance.focusEnemyExp);
   });
   test('wind startup shows before impact; far target dies after near target',
       () {
@@ -50,7 +51,7 @@ void main() {
     expect(s.enemies.singleWhere((e) => e.id == 2).hp, 1);
     s.advanceTo(3.05);
     expect(s.defeatedCount, 2);
-    expect(s.gainedExp, 20);
+    expect(s.gainedExp, 2 * GameBalance.focusEnemyExp);
     expect(s.damageSerial, 2);
   });
   test('flight hits survive skill completion and agree across clock jumps', () {
@@ -69,6 +70,6 @@ void main() {
     }
 
     expect(simulate(true), simulate(false));
-    expect(simulate(true), [2, 20, 2]);
+    expect(simulate(true), [2, 2 * GameBalance.focusEnemyExp, 2]);
   });
 }

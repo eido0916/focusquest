@@ -34,12 +34,12 @@ void main() {
   group('EXP / equipment', () {
     test('EXP boundaries and multiple levels retain remainder', () {
       final service = ProgressionService();
-      expect(service.addExp(hero, 99).level, 1);
-      expect(service.addExp(hero, 100).currentExp, 0);
-      final grown = service.addExp(hero, 300);
+      expect(service.addExp(hero, 299).level, 1);
+      expect(service.addExp(hero, 300).currentExp, 0);
+      final grown = service.addExp(hero, 900);
       expect(grown.level, 3);
-      expect(grown.currentExp, 50);
-      expect(grown.requiredExp, 200);
+      expect(grown.currentExp, 150);
+      expect(grown.requiredExp, 600);
       expect(GameBalance.requiredExp(4), greaterThan(grown.requiredExp));
       expect(() => service.addExp(hero, -1), throwsArgumentError);
     });
@@ -83,7 +83,11 @@ void main() {
           .start(id: 's', now: start, minutes: 30)
           .finish(FocusStatus.cancelled);
       expect(focus.evaluate(session, session.endsAt), FocusStatus.cancelled);
-      expect(RewardService(Random(1)).focus(session).exp, 0);
+      expect(
+          RewardService(Random(1))
+              .focus(session, defeatedEnemies: 5, defeatedBosses: 0)
+              .exp,
+          0);
     });
     test('monitored focus needs evidence and fails for target use', () {
       final session = focus.start(
@@ -112,12 +116,13 @@ void main() {
           () => focus.start(id: 's', now: start, minutes: 30, monitored: true),
           throwsArgumentError);
     });
-    test('30 minutes awards only 300 EXP', () {
+    test('focus awards enemy EXP and a larger boss reward', () {
       final session = focus
           .start(id: 's', now: start, minutes: 30)
           .finish(FocusStatus.succeeded);
-      final reward = RewardService(FixedRandom(0, 0)).focus(session);
-      expect([reward.exp, reward.coins], [300, 0]);
+      final reward = RewardService(FixedRandom(0, 0))
+          .focus(session, defeatedEnemies: 21, defeatedBosses: 1);
+      expect([reward.exp, reward.coins], [120, 0]);
       expect(reward.items, isEmpty);
     });
   });

@@ -1,0 +1,26 @@
+{
+  "mode": "built-in image_gen",
+  "reference": "reference.png",
+  "assets": [
+    {
+      "name": "identity_panel",
+      "prompt": "Recreate ONLY the long dark royal-blue identity/name panel from the reference character UI. One independent game UI graphic, no whole-screen mockup. Very wide horizontal ornate panel, aspect ratio 6:1, roughly 1536 by 256. Rich navy damask acanthus pattern, fine double polished gold horizontal rules, baroque gilded corner flourishes and small symmetric center fleur ornaments on upper and lower edge, tiny side diamond points. Match the reference premium Japanese fantasy RPG aesthetic precisely, delicate 2D hand-painted gold, not chunky 3D. Empty flat dark-blue interior for later live content, NO name, NO level, NO emblem, NO words, NO icons, NO vertical partitions. Frame all four sides complete and continuous. Keep decorations confined to outer 10% edge, large safe empty center. Isolated tightly on genuine transparent background outside panel, absolutely no scenery, no shadow rectangle."
+    },
+    {
+      "name": "stats_parchment",
+      "prompt": "Recreate ONLY the large parchment ability-stats background panel from the reference character UI, as one separate production UI asset. Wide landscape rectangle aspect 2.25:1, roughly 1536x688. Warm ivory pale textured vellum interior, very subtle mottling, intricate fine golden double-line rectangular frame, small gilded acanthus scrolls at all four corners, tiny ornamental diamond/fleur centerpiece on top and bottom middle. Match reference delicacy and geometry, not a modern card, not thick rounded plastic. Completely EMPTY interior: no title, no lettering, no icons, no stat bars, no divider, no stripes. Central 85% clean ivory readable surface. Every border intact, frame ornaments limited to outer 5%, isolated on genuine transparent background beyond irregular ornate outer silhouette. No scene."
+    },
+    {
+      "name": "info_parchment",
+      "prompt": "Recreate ONLY the lower adventurer-information parchment background panel from reference UI, one independent graphic. Wide rectangle aspect 3.5:1, roughly1536x448. Warm ivory pale parchment with delicate paper grain and very fine gold double-line border, beautiful small symmetrical gilded floral flourishes at four corners, tiny gold fleur-diamond top and bottom center accent. Same family as reference stats parchment frame. Empty clean ivory center for dynamic heading and two separate buttons, no heading, NO text, NO buttons or placeholders, NO icons, NO lines in center. Center occupies85% and remains plain. Keep all4 edges, near-square rectangular corners except small decorative scrolls, no modern rounded-card look. Transparent outside panel silhouette, no scene."
+    },
+    {
+      "name": "stat_row",
+      "prompt": "Recreate ONLY ONE small blue rectangular stat-row frame from reference character UI as a separate reusable asset. Horizontal aspect 5:1, roughly1280x256. Rich midnight royal blue damask floral interior with delicate lighter-blue filigree, thin finely detailed double polished gold border, clipped/notched near-square corners with small golden corner scroll flourishes. Empty blue interior safe text zone with consistent dark contrast. NO heart, NO sword, NO icon, NO label, NO number, NO text, NO vertical separator. Match exact decorative reference style, refined handpainted 2D Japanese fantasy RPG inventory interface. All sides complete and straight, decorations confined to outer8%. True transparent background outside ornate frame, no other object or scene."
+    },
+    {
+      "name": "action_row",
+      "prompt": "Recreate ONLY ONE lower blue menu/action button from reference character UI as a separate asset. Extremely wide horizontal rectangle aspect10:1 roughly2048x208. Rich cobalt to navy blue with subtle damask acanthus pattern, thin intricate DOUBLE golden border, beveled/chamfered corners with tiny leaf scroll flourishes. Refined painted metal gold. Empty center for live UI text. NO text, NO icon, NO arrow, NO badges, NO gems, NO center ornament, NO divisions. Match lower action buttons in screenshot very closely. Straight full-length top/bottom borders, corner decorations restricted to outer4%, full panel tightly framed against genuine transparency outside silhouette. No scenery."
+    }
+  ]
+}

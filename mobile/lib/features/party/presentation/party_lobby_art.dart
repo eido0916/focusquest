@@ -11,7 +11,7 @@ const lobbyTitle = TextStyle(
     fontWeight: FontWeight.w600,
     letterSpacing: 1.5);
 const lobbyBody = TextStyle(
-    fontFamily: 'SunlitSerif', color: lobbyWhite, fontSize: 14, height: 1.5);
+    fontFamily: 'SunlitSerif', color: lobbyWhite, fontSize: 16, height: 1.35);
 
 class LobbyPanel extends StatelessWidget {
   const LobbyPanel(
@@ -42,13 +42,18 @@ class LobbyCompass extends StatelessWidget {
 
 class LobbyAction extends StatelessWidget {
   const LobbyAction(
-      {super.key, required this.label, required this.icon, this.onTap});
+      {super.key,
+      required this.label,
+      required this.icon,
+      this.onTap,
+      this.compact = false});
   final String label;
   final IconData icon;
   final VoidCallback? onTap;
+  final bool compact;
   @override
   Widget build(BuildContext context) => Opacity(
-      opacity: onTap == null ? .55 : 1,
+      opacity: onTap == null ? .82 : 1,
       child: LobbyPanel(
           asset: 'action',
           padding: EdgeInsets.zero,
@@ -58,17 +63,20 @@ class LobbyAction extends StatelessWidget {
                   onTap: onTap,
                   borderRadius: BorderRadius.circular(24),
                   child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 22, vertical: 22),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: compact ? 16 : 22,
+                          vertical: compact ? 12 : 22),
                       child: Row(children: [
-                        const LobbyCompass(size: 34),
-                        const SizedBox(width: 12),
-                        Icon(icon, color: lobbyWhite, size: 26),
-                        const SizedBox(width: 12),
+                        if (!compact) const LobbyCompass(size: 34),
+                        if (!compact) const SizedBox(width: 12),
+                        SizedBox(width: 26, child: Icon(icon, color: lobbyWhite, size: compact ? 22 : 26)),
+                        const SizedBox(width: 10),
                         Expanded(
                             child: Text(label,
                                 textAlign: TextAlign.center,
-                                style: lobbyTitle.copyWith(fontSize: 20))),
+                                style: lobbyTitle.copyWith(
+                                    fontSize: compact ? 16 : 20))),
+                        const SizedBox(width: 10),
                         const Icon(Icons.chevron_right,
                             color: lobbyWhite, size: 26),
                       ]))))));
@@ -80,10 +88,12 @@ class LobbyMemberCard extends StatelessWidget {
       this.member,
       this.selfId,
       this.hostId,
+      this.compact = false,
       required this.started});
   final PartyMember? member;
   final String? selfId, hostId;
   final bool started;
+  final bool compact;
   static const statuses = {
     'waiting': '待機中',
     'starting': '開始準備中',
@@ -97,6 +107,60 @@ class LobbyMemberCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final actor = member;
+    if (compact) {
+      return LobbyPanel(
+          asset: 'member',
+          padding: const EdgeInsets.fromLTRB(5, 8, 5, 8),
+          child: SizedBox(
+              width: double.infinity,
+              height: 156,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (actor == null) ...[
+                      const Icon(Icons.add_circle_outline,
+                          color: lobbyGold, size: 30),
+                      const SizedBox(height: 8),
+                      Text('参加待ち', style: lobbyBody.copyWith(fontSize: 14)),
+                    ] else ...[
+                      FittedBox(
+                          child: Row(mainAxisSize: MainAxisSize.min, children: [
+                        if (actor.id == hostId)
+                          const Icon(Icons.workspace_premium,
+                              size: 14, color: lobbyGold),
+                        Text(actor.id == selfId ? 'あなた' : '仲間',
+                            style: lobbyBody.copyWith(
+                                fontSize: 14, color: lobbyGold)),
+                      ])),
+                      Expanded(
+                          child: JobPortrait(
+                              typeId: actor.characterType,
+                              appearance: actor.appearance,
+                              lobby: true,
+                              height: 66)),
+                      Text(actor.name,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: lobbyBody.copyWith(
+                              fontSize: 14, fontWeight: FontWeight.bold)),
+                      Text('Lv.${actor.level}',
+                          style: lobbyBody.copyWith(fontSize: 14)),
+                      Text(
+                          started
+                              ? statuses[actor.status] ?? '待機中'
+                              : actor.ready
+                                  ? '準備OK'
+                                  : '待機中',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: lobbyBody.copyWith(
+                              fontSize: 14,
+                              color: actor.ready
+                                  ? const Color(0xffa9f0c6)
+                                  : lobbyGold)),
+                    ],
+                  ])));
+    }
     return LobbyPanel(
         asset: 'member',
         padding: const EdgeInsets.all(5),
@@ -118,7 +182,7 @@ class LobbyMemberCard extends StatelessWidget {
                       const SizedBox(height: 16),
                       Text('仲間の参加を\n待っています',
                           textAlign: TextAlign.center,
-                          style: lobbyBody.copyWith(fontSize: 11)),
+                          style: lobbyBody.copyWith(fontSize: 14)),
                     ]))
             : Column(children: [
                 SizedBox(
@@ -140,20 +204,20 @@ class LobbyMemberCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: lobbyBody.copyWith(
-                        fontSize: 13, fontWeight: FontWeight.bold)),
+                        fontSize: 14, fontWeight: FontWeight.bold)),
                 Text(
                     actor.id == selfId
                         ? 'あなた'
                         : actor.id == hostId
                             ? 'リーダー'
                             : '仲間',
-                    style: lobbyBody.copyWith(fontSize: 10, color: lobbyGold)),
+                    style: lobbyBody.copyWith(fontSize: 14, color: lobbyGold)),
                 Text(JobPortrait.roleNames[actor.characterType] ?? '冒険者',
                     maxLines: 2,
                     textAlign: TextAlign.center,
-                    style: lobbyBody.copyWith(fontSize: 11)),
+                    style: lobbyBody.copyWith(fontSize: 14)),
                 Text('Lv.${actor.level}',
-                    style: lobbyBody.copyWith(fontSize: 12)),
+                    style: lobbyBody.copyWith(fontSize: 14)),
                 const SizedBox(height: 4),
                 Text(
                     started
@@ -163,7 +227,7 @@ class LobbyMemberCard extends StatelessWidget {
                             : '待機中',
                     textAlign: TextAlign.center,
                     style: lobbyBody.copyWith(
-                        fontSize: 10,
+                        fontSize: 14,
                         color:
                             actor.ready ? const Color(0xffa9f0c6) : lobbyGold)),
                 const SizedBox(height: 7),

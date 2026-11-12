@@ -1,12 +1,14 @@
+import 'package:focusquest/core/widgets/quest_screen_fit.dart';
 import 'package:flutter/material.dart';
 import '../../../core/game_controller.dart';
 import '../../../core/widgets/quest_widgets.dart';
+import '../../../core/widgets/quest_page_header.dart';
 import '../domain/progression_service.dart';
 import '../../diagnosis/presentation/job_portrait.dart';
 import '../../certificate/certificate_screen.dart';
 import '../../certificate/certificate_catalog.dart';
-import '../../../core/widgets/role_logo.dart';
-import 'character_art.dart';
+import 'character_pixel_art.dart';
+import 'character_pixel_portrait.dart';
 
 const _gold = Color(0xffffd58b);
 const _white = Color(0xfffff8e9);
@@ -27,10 +29,7 @@ class CharacterScreen extends StatelessWidget {
               constraints: BoxConstraints(
                   maxWidth: 480,
                   maxHeight: MediaQuery.sizeOf(dialogContext).height * .82),
-              child: CharacterPanel(
-                  asset: 'title_list_panel',
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 26, vertical: 24),
+              child: _ReadablePanel(
                   child: AnimatedBuilder(
                       animation: controller,
                       builder: (context, _) {
@@ -57,7 +56,7 @@ class CharacterScreen extends StatelessWidget {
                               Text(
                                   '${JobPortrait.roleNames[hero.characterType]}  ·  現在 Lv. ${hero.level}',
                                   style: const TextStyle(color: _gold)),
-                              const SizedBox(height: 12),
+                              const SizedBox(height: 6),
                               Expanded(
                                   child: ListView.builder(
                                       itemCount: titles.length,
@@ -74,6 +73,8 @@ class CharacterScreen extends StatelessWidget {
                                                 bottom: 8),
                                             child: CharacterPanel(
                                                 asset: 'action_row',
+                                                slice: const Rect.fromLTRB(
+                                                    16, 9, 384, 31),
                                                 padding: EdgeInsets.zero,
                                                 child: ListTile(
                                                   key: ValueKey('title-$index'),
@@ -105,7 +106,7 @@ class CharacterScreen extends StatelessWidget {
                                                                   0xffb4b5bd),
                                                           fontFamily:
                                                               'SunlitSerif',
-                                                          fontSize: 15)),
+                                                          fontSize: 16)),
                                                   subtitle: Text(
                                                       'Lv. $unlockLevelで解放${active ? ' · 選択中' : unlocked ? ' · 解放済み' : ' · 未解放'}',
                                                       style: TextStyle(
@@ -115,7 +116,7 @@ class CharacterScreen extends StatelessWidget {
                                                               ? _gold
                                                               : const Color(
                                                                   0xffb4b5bd),
-                                                          fontSize: 12)),
+                                                          fontSize: 14)),
                                                   onTap: unlocked &&
                                                           !controller.busy
                                                       ? () async {
@@ -134,39 +135,48 @@ class CharacterScreen extends StatelessWidget {
             )));
   }
 
-  Widget _identity(double width) {
+  Widget _identity(double materialScale) {
     final hero = controller.state!.activeCharacter!;
     final title = CertificateCatalog.displayedTitle(
         hero.characterType, hero.level, hero.selectedTitle);
     return CharacterPanel(
-      asset: 'identity_panel',
-      padding: EdgeInsets.symmetric(horizontal: width * .06, vertical: 8),
-      child: Row(children: [
-        RoleLogo(role: hero.characterType, size: width * .18),
-        SizedBox(width: width * .025),
-        Expanded(
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(hero.name,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: width * .066, height: 1.2)),
-          const SizedBox(height: 5),
-          Text(title, style: TextStyle(color: _gold, fontSize: width * .034)),
-        ])),
-        CharacterIcon('identity_divider',
-            width: width * .020, height: width * .12),
-        SizedBox(width: width * .035),
-        Column(children: [
-          CharacterIcon('level_icon', width: width * .13, height: width * .043),
+        asset: 'identity_panel',
+        slice: const Rect.fromLTRB(28, 16, 372, 54),
+        padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+        child: Row(children: [
+          CharacterFaceIcon(
+              role: hero.characterType,
+              appearance: hero.appearance,
+              size: 52 * materialScale),
+          const SizedBox(width: 10),
+          const CharacterIcon('identity_divider', width: 3, height: 50),
+          const SizedBox(width: 12),
+          Expanded(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                Text(hero.name,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                        fontSize: 23,
+                        fontWeight: FontWeight.w600,
+                        height: 1.2)),
+                const SizedBox(height: 2),
+                Text(title,
+                    style: const TextStyle(
+                        color: _gold, fontSize: 14, height: 1.3)),
+              ])),
+          const SizedBox(width: 8),
+          const CharacterIcon('identity_divider', width: 3, height: 42),
+          const SizedBox(width: 10),
           Text('Lv. ${hero.level}',
-              style: TextStyle(color: _gold, fontSize: width * .058)),
-        ]),
-      ]),
-    );
+              style: const TextStyle(
+                  color: _gold, fontSize: 22, fontWeight: FontWeight.w600)),
+        ]));
   }
 
-  Widget _stats(double width) {
+  Widget _stats(BuildContext context) {
     final hero = controller.state!.activeCharacter!;
     final stats = ProgressionService().stats(hero, const {});
     final rows = [
@@ -178,153 +188,239 @@ class CharacterScreen extends StatelessWidget {
     ];
     Widget stat((String, String, String) row) => CharacterPanel(
         asset: 'stat_row',
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+        slice: const Rect.fromLTRB(16, 9, 184, 31),
+        padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
         child: Row(children: [
-          CharacterIcon(row.$1, size: width * .037),
+          CharacterIcon(row.$1, size: 18),
+          const SizedBox(width: 8),
+          Expanded(child: Text(row.$2, style: const TextStyle(fontSize: 14))),
           const SizedBox(width: 5),
-          Expanded(
-              flex: 3,
-              child: Text(row.$2, style: TextStyle(fontSize: width * .034))),
-          Expanded(
-              child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  alignment: Alignment.centerRight,
-                  child:
-                      Text(row.$3, style: TextStyle(fontSize: width * .033)))),
+          const CharacterIcon('value_divider', width: 1, height: 18),
+          const SizedBox(width: 8),
+          Text(row.$3,
+              style: const TextStyle(
+                  color: _gold, fontSize: 16, fontWeight: FontWeight.w600)),
         ]));
-    return Column(key: const ValueKey('character-stats'), children: [
-      CharacterPanel(
-          asset: 'exp_track',
-          padding: const EdgeInsets.symmetric(horizontal: 23, vertical: 6),
-          child: Row(children: [
-            Text('EXP  ${hero.currentExp} / ${hero.requiredExp}',
-                style: TextStyle(fontSize: width * .03)),
+    return CharacterPanel(
+        key: const ValueKey('character-stats'),
+        asset: 'stats_parchment',
+        slice: const Rect.fromLTRB(24, 24, 376, 156),
+        padding: const EdgeInsets.fromLTRB(16, 10, 16, 13),
+        child:
+            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          const CharacterSectionHeading('能力値'),
+          const SizedBox(height: 6),
+          Row(children: [
+            const Text('EXP',
+                style: TextStyle(
+                    fontSize: 15,
+                    color: Color(0xff241b12),
+                    fontWeight: FontWeight.w600)),
             const SizedBox(width: 10),
             Expanded(
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(6),
-                    child: LinearProgressIndicator(
-                        value: (hero.currentExp / hero.requiredExp)
-                            .clamp(0.0, 1.0),
-                        minHeight: width * .014,
-                        color: const Color(0xff55f4ff),
-                        backgroundColor: const Color(0xff183d59)))),
-          ])),
-      CharacterPanel(
-          asset: 'parchment_panel',
-          padding: EdgeInsets.fromLTRB(width * .055, 7, width * .055, 11),
-          child: Column(children: [
-            for (var i = 0; i < rows.length; i += 2)
-              Padding(
-                  padding: const EdgeInsets.only(bottom: 3),
-                  child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(child: stat(rows[i])),
-                        SizedBox(width: width * .025),
-                        Expanded(
-                            child: i + 1 < rows.length
-                                ? stat(rows[i + 1])
-                                : const SizedBox()),
-                      ])),
-          ])),
-    ]);
+                child: Semantics(
+                    label: '次のレベルまでの経験値',
+                    value: '${hero.currentExp} / ${hero.requiredExp}',
+                    child: SizedBox(
+                        height: 12 * CharacterMaterialScale.of(context),
+                        child: Stack(fit: StackFit.expand, children: [
+                          Image.asset('$characterMaterialPath/exp_track.png',
+                              fit: BoxFit.fill,
+                              filterQuality: FilterQuality.none,
+                              excludeFromSemantics: true),
+                          Padding(
+                              padding: const EdgeInsets.all(2),
+                              child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: FractionallySizedBox(
+                                      heightFactor: 1,
+                                      widthFactor:
+                                          (hero.currentExp / hero.requiredExp)
+                                              .clamp(0.0, 1.0),
+                                      child: Image.asset(
+                                          '$characterMaterialPath/exp_fill.png',
+                                          key: const ValueKey(
+                                              'character-exp-fill'),
+                                          fit: BoxFit.fill,
+                                          filterQuality: FilterQuality.none,
+                                          excludeFromSemantics: true)))),
+                        ])))),
+            const SizedBox(width: 10),
+            Text('${hero.currentExp} / ${hero.requiredExp}',
+                style: const TextStyle(fontSize: 14, color: Color(0xff241b12))),
+          ]),
+          const SizedBox(height: 6),
+          LayoutBuilder(builder: (context, bounds) {
+            final materialScale = CharacterMaterialScale.of(context);
+            final single = bounds.maxWidth < 265 * materialScale ||
+                MediaQuery.textScalerOf(context).scale(16) > 20 * materialScale;
+            final cellWidth =
+                single ? bounds.maxWidth : (bounds.maxWidth - 8) / 2;
+            return Wrap(spacing: 8, runSpacing: 5, children: [
+              for (final row in rows)
+                SizedBox(width: cellWidth, child: stat(row)),
+            ]);
+          }),
+          const SizedBox(height: 8),
+          _adventurerInfo(context),
+        ]));
   }
 
-  Widget _adventurerInfo(BuildContext context, double width) {
+  Widget _adventurerInfo(BuildContext context) {
     Widget action(String label, String icon, Key key, VoidCallback onPressed) =>
-        CharacterPanel(
-            asset: 'action_row',
-            padding: EdgeInsets.zero,
-            child: TextButton(
-                key: key,
-                onPressed: onPressed,
-                style: TextButton.styleFrom(
-                    foregroundColor: _white,
-                    minimumSize: const Size(48, 36),
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    padding: EdgeInsets.symmetric(
-                        horizontal: width * .035, vertical: 7)),
-                child: Row(children: [
-                  CharacterIcon(icon, size: width * .046),
-                  SizedBox(width: width * .025),
-                  Expanded(
-                      child: Text(label,
-                          style: TextStyle(
-                              fontFamily: 'SunlitSerif',
-                              fontSize: width * .038))),
-                  const CharacterIcon('chevron_icon', size: 19),
-                ])));
-    return CharacterPanel(
+        Semantics(
+            button: true,
+            child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                    key: key,
+                    onTap: onPressed,
+                    child: CharacterPanel(
+                        asset: 'action_row',
+                        slice: const Rect.fromLTRB(16, 9, 384, 31),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 10),
+                        child: Row(children: [
+                          CharacterIcon(icon, size: 18),
+                          const SizedBox(width: 6),
+                          Expanded(
+                              child: Text(label,
+                                  style: const TextStyle(fontSize: 14))),
+                          const SizedBox(width: 4),
+                          const CharacterIcon('chevron_icon', size: 10),
+                        ])))));
+    return Column(
         key: const ValueKey('adventurer-information'),
-        asset: 'adventurer_panel',
-        padding: EdgeInsets.fromLTRB(width * .10, 7, width * .10, 12),
-        child: Column(children: [
-          Text('冒険者情報',
-              style:
-                  TextStyle(color: _gold, fontSize: width * .037, height: 1)),
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const CharacterSectionHeading('冒険者情報'),
           const SizedBox(height: 6),
-          action('称号変更', 'title_icon', const ValueKey('change-title'),
-              () => openTitles(context)),
-          const SizedBox(height: 3),
-          action(
-              '冒険者証を見る',
-              'certificate_icon',
-              const ValueKey('view-certificate'),
-              () => Navigator.of(context).push(MaterialPageRoute<void>(
-                  builder: (_) => CertificateScreen(controller: controller)))),
-        ]));
+          LayoutBuilder(builder: (context, bounds) {
+            final titleButton = action('称号変更', 'title_icon',
+                    const ValueKey('change-title'), () => openTitles(context)),
+                certificateButton = action(
+                    '冒険者証を見る',
+                    'certificate_icon',
+                    const ValueKey('view-certificate'),
+                    () => Navigator.of(context).push(MaterialPageRoute<void>(
+                        builder: (_) =>
+                            CertificateScreen(controller: controller))));
+            final factor = CharacterMaterialScale.of(context);
+            if (bounds.maxWidth >= 265 * factor &&
+                MediaQuery.textScalerOf(context).scale(14) <= 18 * factor) {
+              return IntrinsicHeight(
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                    Expanded(child: titleButton),
+                    const SizedBox(width: 8),
+                    Expanded(child: certificateButton)
+                  ]));
+            }
+            return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  titleButton,
+                  const SizedBox(height: 8),
+                  certificateButton
+                ]);
+          }),
+        ]);
   }
 
   @override
-  Widget build(BuildContext context) => DefaultTextStyle.merge(
-      style: const TextStyle(fontFamily: 'SunlitSerif', color: _white),
-      child: Stack(fit: StackFit.expand, children: [
-        Image.asset('assets/images/character_ui_v004/castle_courtyard.png',
-            fit: BoxFit.cover,
-            alignment: Alignment.topCenter,
-            excludeFromSemantics: true),
-        SafeArea(
-            child: Center(
-                child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 640),
-                    child: LayoutBuilder(builder: (context, bounds) {
-                      final width = bounds.maxWidth - 48;
-                      final hero = controller.state!.activeCharacter!;
-                      final portraitHeight =
-                          (bounds.maxHeight - width * 1.03 - 28)
-                              .clamp(width * .63, width * 1.04)
-                              .toDouble();
-                      return SingleChildScrollView(
-                          key: const ValueKey('character-scroll'),
-                          padding: const EdgeInsets.fromLTRB(24, 6, 24, 18),
-                          child: Column(children: [
-                            SizedBox(
-                                width: width * .72,
-                                child: CharacterPanel(
-                                    asset: 'header_banner',
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 6, horizontal: 18),
-                                    child: Center(
-                                        child: Text('キャラクター',
-                                            style: TextStyle(
-                                                fontSize: width * .047,
-                                                letterSpacing: 3))))),
-                            SizedBox(
-                                height: portraitHeight,
-                                child: JobPortrait(
-                                    typeId: hero.characterType,
-                                    appearance: hero.appearance,
-                                    lobby: true,
-                                    height: portraitHeight,
-                                    fit: BoxFit.contain,
-                                    alignment: Alignment.bottomCenter)),
-                            _identity(width),
-                            const SizedBox(height: 3),
-                            _stats(width),
-                            const SizedBox(height: 3),
-                            _adventurerInfo(context, width),
-                          ]));
-                    })))),
-      ]));
+  Widget build(BuildContext context) =>
+      LayoutBuilder(builder: (context, bounds) {
+        // Reference composition is 375px wide; grow spacing and type together.
+        final scale = (bounds.maxWidth / 375).clamp(.85, 2.4).toDouble();
+        final width =
+            (bounds.maxWidth - 16 * scale).clamp(0.0, 862.0).toDouble();
+        final hero = controller.state!.activeCharacter!;
+        final textScale = MediaQuery.textScalerOf(context).scale(1);
+        final stageHeight = (bounds.maxHeight - 344 * scale)
+            .clamp(246 * scale, 310 * scale)
+            .toDouble();
+        return DefaultTextStyle.merge(
+            style: const TextStyle(
+                fontFamily: 'SunlitSerif',
+                color: _white,
+                fontSize: 16,
+                height: 1.2),
+            child: Stack(fit: StackFit.expand, children: [
+              Image.asset('$characterMaterialPath/castle_courtyard.png',
+                  key: const ValueKey('character-continuous-background'),
+                  fit: BoxFit.fill,
+                  filterQuality: FilterQuality.none,
+                  excludeFromSemantics: true),
+              QuestScreenFit(
+                  key: const ValueKey('character-scroll'),
+                  padding: EdgeInsets.fromLTRB(
+                      8 * scale, 6 * scale, 8 * scale, 4 * scale),
+                  child: Center(
+                      child: MediaQuery(
+                          data: MediaQuery.of(context).copyWith(
+                              textScaler: TextScaler.linear(textScale * scale)),
+                          child: CharacterMaterialScale(
+                              factor: scale,
+                              child: SizedBox(
+                                width: width,
+                                child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: [
+                                      SizedBox(
+                                          height: stageHeight,
+                                          child: Stack(children: [
+                                            Positioned(
+                                                top: 0,
+                                                left: 0,
+                                                right: 0,
+                                                child: Center(
+                                                    child: SizedBox(
+                                                        width: textScale > 1.2
+                                                            ? width
+                                                            : width * .85,
+                                                        child: QuestPageHeader(
+                                                            key: const Key(
+                                                                'character-page-header'),
+                                                            title: 'キャラクター',
+                                                            unit: scale,
+                                                            textScaler:
+                                                                TextScaler.linear(
+                                                                    textScale),
+                                                            trailing: Icon(
+                                                                Icons
+                                                                    .people_alt_rounded,
+                                                                size:
+                                                                    30 * scale,
+                                                                color: const Color(
+                                                                    0xfff5ce78)))))),
+                                            Positioned(
+                                                top: 68 * scale,
+                                                bottom: 0,
+                                                left: 0,
+                                                right: 0,
+                                                child: CharacterPixelPortrait(
+                                                    role: hero.characterType,
+                                                    appearance:
+                                                        hero.appearance)),
+                                          ])),
+                                      _identity(scale),
+                                      SizedBox(height: 4 * scale),
+                                      _stats(context),
+                                    ]),
+                              ))))),
+            ]));
+      });
+}
+
+class _ReadablePanel extends StatelessWidget {
+  const _ReadablePanel({required this.child});
+  final Widget child;
+  @override
+  Widget build(BuildContext context) => CharacterPanel(
+      asset: 'identity_panel',
+      slice: const Rect.fromLTRB(28, 16, 372, 54),
+      padding: const EdgeInsets.all(20),
+      child: child);
 }

@@ -73,7 +73,6 @@ void main() {
     await tester.tap(find.descendant(
         of: find.byType(QuestNavigation), matching: find.text('設定')));
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(find.text('アプリをリセット'), 300);
     await tester.ensureVisible(find.text('アプリをリセット'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('アプリをリセット'));

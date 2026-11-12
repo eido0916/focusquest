@@ -1,3 +1,4 @@
+import 'package:focusquest/core/widgets/quest_screen_fit.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
@@ -204,7 +205,7 @@ class _KingIntroSceneState extends State<KingIntroScene> {
                   top: 12,
                   bottom: 12,
                   child: Center(
-                      child: SingleChildScrollView(
+                      child: QuestScreenFit(
                           child: _dialogue(panelWidth, reducedMotion))))
             else
               Positioned(
@@ -214,7 +215,7 @@ class _KingIntroSceneState extends State<KingIntroScene> {
                       c.maxHeight * (c.maxHeight < 650 ? .025 : .10)),
                   child: ConstrainedBox(
                       constraints: BoxConstraints(maxHeight: c.maxHeight * .43),
-                      child: SingleChildScrollView(
+                      child: QuestScreenFit(
                           child: _dialogue(panelWidth, reducedMotion)))),
             IgnorePointer(
                 child: AnimatedOpacity(

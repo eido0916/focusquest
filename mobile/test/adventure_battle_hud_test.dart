@@ -17,6 +17,12 @@ import 'package:focusquest/features/playable_stage/presentation/playable_stage_a
 import 'package:focusquest/features/playable_stage/presentation/playable_stage_audio.dart';
 import 'package:focusquest/features/playable_stage/presentation/playable_stage_page.dart';
 
+void advance(PlayableStageBattle battle, double seconds) {
+  for (var i = 0; i < (seconds * 120).ceil(); i++) {
+    battle.update(1 / 120);
+  }
+}
+
 void main() {
   setUpAll(() async {
     final font = await rootBundle.load('assets/fonts/NotoSerifJP.ttf');
@@ -45,6 +51,8 @@ void main() {
   for (final size in [
     const Size(740, 360),
     const Size(844, 390),
+    const Size(568, 320),
+    const Size(1180, 820),
     const Size(320, 568)
   ]) {
     testWidgets('readable HUD fits $size with buttons below actors',
@@ -58,26 +66,62 @@ void main() {
       await tester.pumpWidget(MaterialApp(
           theme: AppTheme.dark,
           home: Scaffold(
-              body: AdventureBattleHud(
-                  battle: battle,
-                  utilities: const SizedBox(width: 150, height: 44),
-                  auto: false,
-                  onAuto: () {}))));
+              body: MediaQuery(
+                  data: MediaQueryData(
+                      size: size, textScaler: const TextScaler.linear(1.5)),
+                  child: AdventureBattleHud(
+                      battle: battle,
+                      utilities: const SizedBox(width: 150, height: 44))))));
       await tester.pump();
       final buttons =
           tester.getRect(find.byKey(const Key('stage-floating-controls')));
       expect(buttons.top, greaterThan(AdventureStageLayout(size).groundY));
       expect(buttons.right, lessThanOrEqualTo(size.width));
+      expect(buttons.height,
+          closeTo(AdventureStageLayout(size).commandSide, .001));
+      expect(buttons.height, inInclusiveRange(48.0, 80.0));
+      expect(find.text('攻撃'), findsOneWidget);
+      expect(find.text('スキル'), findsOneWidget);
+      final phase = find.text('PHASE 1 / 3');
+      expect(phase, findsOneWidget);
+      expect(tester.getTopLeft(phase).dx, lessThan(24));
+      expect(tester.getTopLeft(phase).dy, lessThan(100));
+      final stage =
+          find.text('STAGE ${battle.stage.number} - ${battle.stage.area}');
+      expect(tester.getTopLeft(stage).dx, tester.getTopLeft(phase).dx);
+      expect(tester.getBottomLeft(stage).dy,
+          lessThan(tester.getTopLeft(phase).dy));
+      expect(find.textContaining('残り'), findsNothing);
+      expect(find.textContaining('秒'), findsNothing);
+      expect(find.textContaining('命中'), findsNothing);
+      for (var charge = 0; charge <= 3; charge++) {
+        battle.charge = charge;
+        await tester.pumpWidget(MaterialApp(
+            theme: AppTheme.dark,
+            home: Scaffold(
+                body: AdventureBattleHud(
+                    battle: battle, utilities: const SizedBox()))));
+        expect(
+            tester
+                .widget<CircularProgressIndicator>(
+                    find.byKey(const Key('stage-skill-charge')))
+                .value,
+            charge / 3);
+      }
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox());
       battle.dispose();
     });
   }
-  for (final size in [const Size(844, 390), const Size(390, 844)]) {
+  for (final size in [
+    const Size(844, 390),
+    const Size(568, 320),
+    const Size(390, 844),
+  ]) {
     testWidgets('boss stage scene keeps enemies above controls at $size',
         (tester) async {
-      tester.view.physicalSize = size;
-      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = size * 3;
+      tester.view.devicePixelRatio = 3;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       final stage = PlayableStageCatalog.stages[3];
@@ -116,6 +160,7 @@ void main() {
       await tester.pump();
       final controls =
           tester.getRect(find.byKey(const Key('stage-floating-controls')));
+      expect(find.text('PHASE 3 / 3'), findsOneWidget);
       for (final enemy in battle.enemies) {
         expect(
             tester.getRect(find.byKey(Key('enemy-hp-${enemy.index}'))).bottom,
@@ -123,24 +168,31 @@ void main() {
       }
       expect(tester.takeException(), isNull);
       if (const bool.fromEnvironment('CAPTURE_STAGE')) {
-        await tester.runAsync(() async {
-          final render = boundary.currentContext!.findRenderObject()!
-              as RenderRepaintBoundary;
-          final image = await render.toImage();
-          final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
-          final file =
-              File('build/adventure-layout/boss-${size.width.toInt()}.png');
-          await file.parent.create(recursive: true);
-          await file.writeAsBytes(bytes!.buffer.asUint8List());
-          image.dispose();
-        });
+        Future<void> capture(String suffix) => tester.runAsync(() async {
+              final render = boundary.currentContext!.findRenderObject()!
+                  as RenderRepaintBoundary;
+              final image = await render.toImage();
+              final bytes =
+                  await image.toByteData(format: ui.ImageByteFormat.png);
+              final file = File(
+                  'build/adventure-layout/boss-${size.width.toInt()}$suffix.png');
+              await file.parent.create(recursive: true);
+              await file.writeAsBytes(bytes!.buffer.asUint8List());
+              image.dispose();
+            });
+        await capture('');
+        if (size.width > size.height) {
+          await tester.tap(find.byKey(const Key('stage-pause')));
+          await tester.pump();
+          await capture('-paused');
+        }
       }
       await tester.pumpWidget(const SizedBox.shrink());
       battle.dispose();
       assets.dispose();
     });
   }
-  testWidgets('reference layout and auto combat use live battle values',
+  testWidgets('reference layout keeps attacks and skills manual',
       (tester) async {
     tester.view.physicalSize = const Size(1672, 941);
     tester.view.devicePixelRatio = 1;
@@ -161,20 +213,11 @@ void main() {
     await tester.pumpWidget(const MaterialApp(home: SizedBox()));
     await tester.runAsync(() async {
       final context = tester.element(find.byType(SizedBox).first);
-      for (final panel in [
-        'identity_panel',
-        'header_banner',
-        'equipment_row'
-      ]) {
-        await precacheImage(AssetImage('$gameUiAssets$panel.png'), context);
-      }
+      await precacheImage(
+          const AssetImage('${gameUiAssets}equipment_row.png'), context);
       for (final name in [
-        'status_panel',
-        'stage_banner',
-        'phase_panel',
         'attack_button',
         'skill_button',
-        'auto_button',
         'utility_button',
         'caption_frame',
         'portrait_frame',
@@ -201,9 +244,11 @@ void main() {
     for (var i = 0; i < 80; i++) {
       await tester.pump(const Duration(milliseconds: 16));
     }
-    expect(find.text('忍者'), findsOneWidget);
-    expect(find.text('Lv. 1'), findsOneWidget);
-    expect(find.text('HP  120 / 120'), findsOneWidget);
+    expect(find.text('PHASE 1 / 3'), findsOneWidget);
+    expect(find.text('忍者'), findsNothing);
+    expect(find.text('Lv. 1'), findsNothing);
+    expect(find.text('HP  120 / 120'), findsNothing);
+    expect(find.byKey(const Key('player-hp')), findsOneWidget);
     await tester.runAsync(() async {
       for (final widget in tester.widgetList<Image>(find.byType(Image))) {
         await precacheImage(
@@ -217,17 +262,35 @@ void main() {
             as RenderRepaintBoundary;
         final image = await render.toImage();
         final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
-        final file = File('../art/adventure_ui_v001/adventure_preview.png');
+        final file = File('build/adventure-layout/adventure-preview.png');
+        await file.parent.create(recursive: true);
         await file.writeAsBytes(bytes!.buffer.asUint8List());
         image.dispose();
       });
     }
-    await tester.tap(find.byKey(const Key('stage-auto')));
+    expect(find.byKey(const Key('stage-auto')), findsNothing);
+    expect(find.textContaining('オート'), findsNothing);
+    advance(battle, 3);
+    for (final enemy in battle.enemies) {
+      enemy.wait = 100;
+    }
+    battle.charge = PlayableStageBattle.chargeNeeded;
+    await tester.pump();
     for (var i = 0; i < 800; i++) {
       await tester.pump(const Duration(milliseconds: 16));
     }
-    expect(battle.attempts, greaterThan(0));
-    expect(battle.skills, greaterThan(0));
+    expect(battle.attempts, 0);
+    expect(battle.skills, 0);
+    expect(battle.charge, PlayableStageBattle.chargeNeeded);
+    await tester.tap(find.byKey(const Key('stage-skill')));
+    await tester.pump();
+    expect(battle.skills, 1);
+    expect(battle.charge, 0);
+    advance(battle, battle.skillDuration + .5);
+    await tester.pump();
+    await tester.tap(find.byKey(const Key('stage-attack')));
+    await tester.pump();
+    expect(battle.attempts, 1);
     battle.pause();
     final attempts = battle.attempts, clock = battle.clock;
     await tester.pump(const Duration(seconds: 2));

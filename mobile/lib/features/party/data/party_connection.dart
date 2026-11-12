@@ -27,6 +27,7 @@ class PartyConnection extends ChangeNotifier {
   Map<String, dynamic>? session;
   Duration clockOffset = Duration.zero;
   Completer<void>? _joined;
+  Completer<void>? _disbanding;
   bool get connected => _socket != null && code != null;
   bool get isHost => connected && hostId == selfId;
   bool get ready => members.any((m) => m.id == selfId && m.ready);
@@ -123,9 +124,21 @@ class PartyConnection extends ChangeNotifier {
       final data = jsonDecode(raw as String) as Map<String, dynamic>;
       if (data['type'] == 'error') {
         error = data['message'] as String;
+        if (_disbanding != null && !_disbanding!.isCompleted) {
+          if (error == '操作を受け付けられませんでした。') {
+            error = 'サーバーが解散操作に対応していません。退出はできます。';
+          }
+          _disbanding!.completeError(StateError(error!));
+        }
         if (_joined != null && !_joined!.isCompleted) {
           _joined!.completeError(StateError(error!));
         }
+      } else if (data['type'] == 'disbanded') {
+        if (_disbanding != null && !_disbanding!.isCompleted) {
+          _disbanding!.complete();
+        }
+        unawaited(_clearMembership());
+        return;
       } else if (data['type'] == 'snapshot') {
         selfId = data['selfId'] as String;
         focusAreaIndex = data['focusAreaIndex'] as int? ?? -1;
@@ -202,19 +215,47 @@ class PartyConnection extends ChangeNotifier {
   }
 
   Future<void> leave() async {
+    try {
+      if (connected) send('leave');
+    } catch (_) {
+      // A failed transport must not trap the user in a local membership.
+    } finally {
+      await _clearMembership();
+    }
+  }
+
+  Future<void> disband() async {
+    if (!isHost) throw StateError('パーティーを解散できるのはリーダーだけです。');
+    if (_disbanding != null) throw StateError('パーティーを解散しています。');
+    final completed = Completer<void>();
+    _disbanding = completed;
+    try {
+      send('disband');
+      await completed.future.timeout(const Duration(seconds: 10),
+          onTimeout: () => throw StateError('解散を確認できませんでした。接続を確認して再試行してください。'));
+    } finally {
+      _disbanding = null;
+    }
+  }
+
+  Future<void> _clearMembership() async {
     final socket = _socket;
-    if (connected) send('leave');
+    final subscription = _subscription;
     _resumeTokens.remove('$serverUrl|$code');
     unawaited(_saveTokens());
     _socket = null;
-    await _subscription?.cancel();
     _subscription = null;
     code = selfId = hostId = null;
     members = const [];
     session = null;
     error = null;
     notifyListeners();
-    await socket?.close();
+    try {
+      await subscription?.cancel().timeout(const Duration(seconds: 2));
+    } catch (_) {}
+    try {
+      await socket?.close().timeout(const Duration(seconds: 2));
+    } catch (_) {}
   }
 
   @override

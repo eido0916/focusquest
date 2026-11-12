@@ -17,12 +17,12 @@ class Reward {
 class RewardService {
   RewardService(this.random);
   final Random random;
-  Reward focus(FocusSession session) {
+  Reward focus(FocusSession session,
+      {required int defeatedEnemies, required int defeatedBosses}) {
     if (session.status != FocusStatus.succeeded) return const Reward();
-    final minutes = session.durationMinutes;
     return Reward(
-        exp: GameBalance.focusExpForSeconds(minutes * 60.0,
-            durationSeconds: minutes * 60.0));
+        exp: GameBalance.focusExpForDefeats(defeatedEnemies, defeatedBosses),
+        defeatedEnemies: defeatedEnemies);
   }
 
   Reward battle(int defeated) {

@@ -1,0 +1,142 @@
+[
+  {
+    "name": "map_01",
+    "match": true
+  },
+  {
+    "name": "map_02",
+    "match": true
+  },
+  {
+    "name": "map_03",
+    "match": true
+  },
+  {
+    "name": "map_04",
+    "match": true
+  },
+  {
+    "name": "map_05",
+    "match": true
+  },
+  {
+    "name": "map_06",
+    "match": true
+  },
+  {
+    "name": "map_07",
+    "match": true
+  },
+  {
+    "name": "map_08",
+    "match": true
+  },
+  {
+    "name": "map_09",
+    "match": true
+  },
+  {
+    "name": "node_available",
+    "match": true
+  },
+  {
+    "name": "node_cleared",
+    "match": true
+  },
+  {
+    "name": "node_locked",
+    "match": true
+  },
+  {
+    "name": "header",
+    "match": true
+  },
+  {
+    "name": "details",
+    "match": true
+  },
+  {
+    "name": "button_gold",
+    "match": true
+  },
+  {
+    "name": "chapter",
+    "match": true
+  },
+  {
+    "name": "teaser",
+    "match": true
+  },
+  {
+    "name": "button_navy",
+    "match": true
+  },
+  {
+    "name": "node_label",
+    "match": true
+  },
+  {
+    "name": "selection_ring",
+    "match": true
+  },
+  {
+    "name": "icon_lock",
+    "match": true
+  },
+  {
+    "name": "icon_flag",
+    "match": true
+  },
+  {
+    "name": "icon_crown",
+    "match": true
+  },
+  {
+    "name": "icon_check",
+    "match": true
+  },
+  {
+    "name": "icon_replay",
+    "match": true
+  },
+  {
+    "name": "icon_chevron",
+    "match": true
+  },
+  {
+    "name": "icon_chevron_dark",
+    "match": true
+  },
+  {
+    "name": "icon_book",
+    "match": true
+  },
+  {
+    "name": "icon_compass",
+    "match": true
+  },
+  {
+    "name": "route_1",
+    "match": true
+  },
+  {
+    "name": "route_2",
+    "match": true
+  },
+  {
+    "name": "route_3",
+    "match": true
+  },
+  {
+    "name": "route",
+    "match": true
+  },
+  {
+    "name": "fog_3",
+    "match": true
+  },
+  {
+    "name": "fog_4",
+    "match": true
+  }
+]

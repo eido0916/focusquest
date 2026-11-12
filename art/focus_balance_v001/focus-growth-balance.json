@@ -1,0 +1,381 @@
+[
+  {
+    "role": "warrior",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1682,
+    "bosses": 1,
+    "exp": 1782,
+    "level": 4,
+    "remainingExp": 432
+  },
+  {
+    "role": "warrior",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1674,
+    "bosses": 1,
+    "exp": 1774,
+    "level": 4,
+    "remainingExp": 424
+  },
+  {
+    "role": "boxer",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1681,
+    "bosses": 1,
+    "exp": 1781,
+    "level": 4,
+    "remainingExp": 431
+  },
+  {
+    "role": "boxer",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1691,
+    "bosses": 1,
+    "exp": 1791,
+    "level": 4,
+    "remainingExp": 441
+  },
+  {
+    "role": "samurai",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1593,
+    "bosses": 1,
+    "exp": 1693,
+    "level": 4,
+    "remainingExp": 343
+  },
+  {
+    "role": "samurai",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1674,
+    "bosses": 1,
+    "exp": 1774,
+    "level": 4,
+    "remainingExp": 424
+  },
+  {
+    "role": "guardian",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1602,
+    "bosses": 1,
+    "exp": 1702,
+    "level": 4,
+    "remainingExp": 352
+  },
+  {
+    "role": "guardian",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1674,
+    "bosses": 1,
+    "exp": 1774,
+    "level": 4,
+    "remainingExp": 424
+  },
+  {
+    "role": "ninja",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1584,
+    "bosses": 1,
+    "exp": 1684,
+    "level": 4,
+    "remainingExp": 334
+  },
+  {
+    "role": "ninja",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1691,
+    "bosses": 1,
+    "exp": 1791,
+    "level": 4,
+    "remainingExp": 441
+  },
+  {
+    "role": "assassin",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1674,
+    "bosses": 1,
+    "exp": 1774,
+    "level": 4,
+    "remainingExp": 424
+  },
+  {
+    "role": "assassin",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1674,
+    "bosses": 1,
+    "exp": 1774,
+    "level": 4,
+    "remainingExp": 424
+  },
+  {
+    "role": "ranger",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1577,
+    "bosses": 1,
+    "exp": 1677,
+    "level": 4,
+    "remainingExp": 327
+  },
+  {
+    "role": "ranger",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1577,
+    "bosses": 1,
+    "exp": 1677,
+    "level": 4,
+    "remainingExp": 327
+  },
+  {
+    "role": "gunner",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1665,
+    "bosses": 1,
+    "exp": 1765,
+    "level": 4,
+    "remainingExp": 415
+  },
+  {
+    "role": "gunner",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1665,
+    "bosses": 1,
+    "exp": 1765,
+    "level": 4,
+    "remainingExp": 415
+  },
+  {
+    "role": "mage",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1630,
+    "bosses": 1,
+    "exp": 1730,
+    "level": 4,
+    "remainingExp": 380
+  },
+  {
+    "role": "mage",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1630,
+    "bosses": 1,
+    "exp": 1730,
+    "level": 4,
+    "remainingExp": 380
+  },
+  {
+    "role": "spellblade",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1665,
+    "bosses": 1,
+    "exp": 1765,
+    "level": 4,
+    "remainingExp": 415
+  },
+  {
+    "role": "spellblade",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1665,
+    "bosses": 1,
+    "exp": 1765,
+    "level": 4,
+    "remainingExp": 415
+  },
+  {
+    "role": "onmyoji",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1665,
+    "bosses": 1,
+    "exp": 1765,
+    "level": 4,
+    "remainingExp": 415
+  },
+  {
+    "role": "onmyoji",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1665,
+    "bosses": 1,
+    "exp": 1765,
+    "level": 4,
+    "remainingExp": 415
+  },
+  {
+    "role": "reaper",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1647,
+    "bosses": 1,
+    "exp": 1747,
+    "level": 4,
+    "remainingExp": 397
+  },
+  {
+    "role": "reaper",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1647,
+    "bosses": 1,
+    "exp": 1747,
+    "level": 4,
+    "remainingExp": 397
+  },
+  {
+    "role": "angel",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1665,
+    "bosses": 1,
+    "exp": 1765,
+    "level": 4,
+    "remainingExp": 415
+  },
+  {
+    "role": "angel",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1665,
+    "bosses": 1,
+    "exp": 1765,
+    "level": 4,
+    "remainingExp": 415
+  },
+  {
+    "role": "devil",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1665,
+    "bosses": 1,
+    "exp": 1765,
+    "level": 4,
+    "remainingExp": 415
+  },
+  {
+    "role": "devil",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1665,
+    "bosses": 1,
+    "exp": 1765,
+    "level": 4,
+    "remainingExp": 415
+  },
+  {
+    "role": "dragon_knight",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1647,
+    "bosses": 1,
+    "exp": 1747,
+    "level": 4,
+    "remainingExp": 397
+  },
+  {
+    "role": "dragon_knight",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1647,
+    "bosses": 1,
+    "exp": 1747,
+    "level": 4,
+    "remainingExp": 397
+  },
+  {
+    "role": "berserker",
+    "sex": "male",
+    "minutes": 30,
+    "normalDefeats": 1674,
+    "bosses": 1,
+    "exp": 1774,
+    "level": 4,
+    "remainingExp": 424
+  },
+  {
+    "role": "berserker",
+    "sex": "female",
+    "minutes": 30,
+    "normalDefeats": 1674,
+    "bosses": 1,
+    "exp": 1774,
+    "level": 4,
+    "remainingExp": 424
+  },
+  {
+    "role": "warrior",
+    "sex": "male",
+    "minutes": 15,
+    "normalDefeats": 1008,
+    "bosses": 0,
+    "exp": 1008,
+    "level": 3
+  },
+  {
+    "role": "warrior",
+    "sex": "male",
+    "minutes": 60,
+    "normalDefeats": 3364,
+    "bosses": 2,
+    "exp": 3564,
+    "level": 6
+  },
+  {
+    "role": "warrior",
+    "sex": "male",
+    "minutes": 180,
+    "normalDefeats": 10092,
+    "bosses": 6,
+    "exp": 10692,
+    "level": 11
+  },
+  {
+    "partyMembers": 1,
+    "minutes": 30,
+    "normalDefeats": 250,
+    "bosses": 1,
+    "exp": 350,
+    "level": 2
+  },
+  {
+    "partyMembers": 2,
+    "minutes": 30,
+    "normalDefeats": 500,
+    "bosses": 1,
+    "exp": 600,
+    "level": 2
+  },
+  {
+    "partyMembers": 3,
+    "minutes": 30,
+    "normalDefeats": 750,
+    "bosses": 1,
+    "exp": 850,
+    "level": 3
+  },
+  {
+    "partyMembers": 4,
+    "minutes": 30,
+    "normalDefeats": 1000,
+    "bosses": 1,
+    "exp": 1100,
+    "level": 3
+  }
+]

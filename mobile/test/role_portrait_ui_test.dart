@@ -9,6 +9,7 @@ import 'package:focusquest/core/game_controller.dart';
 import 'package:focusquest/core/theme/app_theme.dart';
 import 'package:focusquest/data/game_catalog.dart';
 import 'package:focusquest/features/character/presentation/character_screen.dart';
+import 'package:focusquest/features/character/presentation/character_pixel_portrait.dart';
 import 'package:focusquest/features/diagnosis/presentation/job_portrait.dart';
 import 'package:focusquest/features/focus/presentation/focus_screen.dart';
 import 'package:focusquest/features/home/home_screen.dart';
@@ -53,7 +54,12 @@ void main() {
               child: MaterialApp(
                   theme: AppTheme.dark, home: Scaffold(body: entry.value))));
           await tester.pumpAndSettle();
-          {
+          if (entry.key == 'character') {
+            final portrait = tester.widget<CharacterPixelPortrait>(
+                find.byType(CharacterPixelPortrait));
+            expect(portrait.role, role.typeId);
+            expect(portrait.appearance, appearance);
+          } else {
             final portrait =
                 tester.widget<JobPortrait>(find.byType(JobPortrait));
             expect(portrait.typeId, role.typeId);

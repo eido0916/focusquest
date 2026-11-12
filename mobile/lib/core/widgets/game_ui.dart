@@ -32,7 +32,7 @@ class GameArtwork extends StatelessWidget {
             ? 72.0
             : 112.0;
     return LayoutBuilder(builder: (context, bounds) {
-      final scale = math.max(
+      final requiredScale = math.max(
           minimumScale,
           math.max(
               bounds.maxWidth.isFinite
@@ -42,6 +42,10 @@ class GameArtwork extends StatelessWidget {
                   ? (topBorder + bottomBorder + 16) /
                       math.max(1, bounds.maxHeight)
                   : 4.0));
+      // Binary-exact slice coordinates avoid floating-point cropping assertions
+      // at fractional phone widths and when the keyboard resizes the viewport.
+      final scale =
+          math.pow(2, (math.log(requiredScale) / math.ln2).ceil()).toDouble();
       return Image.asset('$gameUiAssets$asset.png',
           scale: scale,
           centerSlice: Rect.fromLTRB(112 / scale, topBorder / scale,

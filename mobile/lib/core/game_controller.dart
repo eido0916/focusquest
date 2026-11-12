@@ -329,16 +329,18 @@ class GameController extends ChangeNotifier {
               targetUsed: evidence.targetUsed);
           if (result == FocusStatus.active) return null;
         }
-        final finished = session.finish(result);
-        final reward = RewardService(random).focus(finished);
-        final defeats = await FocusDefeatCounter.count(
+        final battle = await FocusDefeatCounter.result(
             session, state!.activeCharacter!, now);
+        final reward = RewardService(random).focus(session.finish(result),
+            defeatedEnemies: battle.defeatedCount,
+            defeatedBosses: battle.bossDefeatedCount);
+        final finished = session.finish(result, earnedExp: reward.exp);
         await _save((s) {
           final settled = FocusLedger().settle(s, session.id, result, reward);
           final operation = 'defeats:focus:${session.id}';
           if (s.appliedOperations.contains(operation)) return settled;
           return settled.copyWith(
-              totalDefeats: settled.totalDefeats + defeats,
+              totalDefeats: settled.totalDefeats + battle.defeatedCount,
               appliedOperations: {...settled.appliedOperations, operation});
         });
         await monitor.stopGuard();

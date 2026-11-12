@@ -1,0 +1,254 @@
+[
+  {
+    "name": "home_background",
+    "file": "materials/home_background.png",
+    "width": 1024,
+    "height": 1536,
+    "alpha": false,
+    "source": "home_background",
+    "sha256": "4f7510b5397aff5cec82ae763c663379ed8b85d09563860dd51bc334fcf3fed2"
+  },
+  {
+    "name": "timer_background",
+    "file": "materials/timer_background.png",
+    "width": 1024,
+    "height": 1536,
+    "alpha": false,
+    "source": "timer_background",
+    "sha256": "89f303c11ae87bc67b4a82a41e3f86965476d74ffa4b7d550dda02030940f382"
+  },
+  {
+    "name": "home_stage",
+    "file": "materials/home_stage.png",
+    "width": 1448,
+    "height": 1086,
+    "alpha": false,
+    "source": "home_stage",
+    "sha256": "ad0658ae81ac2b76bd1e3b769f61b9b4325825625969158fbb3600b6df67522c"
+  },
+  {
+    "name": "status_frame",
+    "file": "materials/status_frame.png",
+    "width": 1200,
+    "height": 240,
+    "alpha": true,
+    "source": "wide_blue_frame",
+    "sha256": "b68529d4e5de897cba25d750511b3bfcdd09b0deff0dd280b030fd92ec36176f"
+  },
+  {
+    "name": "ornament_top",
+    "file": "materials/ornament_top.png",
+    "width": 84,
+    "height": 54,
+    "alpha": true,
+    "source": "gold_jewel",
+    "sha256": "a2d0963f0a68d963f2da8958e23cc1e1db56c35da91ccf518fb4ffa2c0ffa4e5"
+  },
+  {
+    "name": "ornament_bottom",
+    "file": "materials/ornament_bottom.png",
+    "width": 84,
+    "height": 54,
+    "alpha": true,
+    "source": "gold_jewel",
+    "sha256": "a2d0963f0a68d963f2da8958e23cc1e1db56c35da91ccf518fb4ffa2c0ffa4e5"
+  },
+  {
+    "name": "metrics_frame",
+    "file": "materials/metrics_frame.png",
+    "width": 1200,
+    "height": 240,
+    "alpha": true,
+    "source": "wide_blue_frame",
+    "sha256": "b68529d4e5de897cba25d750511b3bfcdd09b0deff0dd280b030fd92ec36176f"
+  },
+  {
+    "name": "chapter_frame",
+    "file": "materials/chapter_frame.png",
+    "width": 1200,
+    "height": 240,
+    "alpha": true,
+    "source": "wide_blue_frame",
+    "sha256": "b68529d4e5de897cba25d750511b3bfcdd09b0deff0dd280b030fd92ec36176f"
+  },
+  {
+    "name": "action_frame",
+    "file": "materials/action_frame.png",
+    "width": 1200,
+    "height": 240,
+    "alpha": true,
+    "source": "wide_blue_frame",
+    "sha256": "b68529d4e5de897cba25d750511b3bfcdd09b0deff0dd280b030fd92ec36176f"
+  },
+  {
+    "name": "utility_frame",
+    "file": "materials/utility_frame.png",
+    "width": 1200,
+    "height": 240,
+    "alpha": true,
+    "source": "wide_blue_frame",
+    "sha256": "b68529d4e5de897cba25d750511b3bfcdd09b0deff0dd280b030fd92ec36176f"
+  },
+  {
+    "name": "adventure_frame",
+    "file": "materials/adventure_frame.png",
+    "width": 1200,
+    "height": 240,
+    "alpha": true,
+    "source": "wide_cream_frame",
+    "sha256": "be1089d0ab719b9ff8d10d83aa39b0cd171fd5c68c23a519fa49287059d239b4"
+  },
+  {
+    "name": "timer_frame",
+    "file": "materials/timer_frame.png",
+    "width": 1200,
+    "height": 900,
+    "alpha": true,
+    "source": "timer_panel",
+    "sha256": "5abdb3e338d07218dd94a5b475dd71b23cb2dcdfa9cc5a7225c16ad65d9eb344"
+  },
+  {
+    "name": "record_frame",
+    "file": "materials/record_frame.png",
+    "width": 600,
+    "height": 240,
+    "alpha": true,
+    "source": "record_plaque",
+    "sha256": "5989ffb7b663c6a1d7082ec998db0bddd5cfc97113c28969e1544a0ecf26b7b6"
+  },
+  {
+    "name": "portrait_frame",
+    "file": "materials/portrait_frame.png",
+    "width": 180,
+    "height": 180,
+    "alpha": true,
+    "source": "portrait_frame",
+    "sha256": "57d656ff7fabc7d1ac9848adeb1cf9a4e00e53b27ce94a28f2bff5bf9da5db0c"
+  },
+  {
+    "name": "timer_compass",
+    "file": "materials/timer_compass.png",
+    "width": 600,
+    "height": 600,
+    "alpha": true,
+    "source": "timer_compass",
+    "sha256": "0569b1849c570d3fc8399d3c39933eb74e6dcbc4388857a9b2981a01e49ebb74"
+  },
+  {
+    "name": "icon_compass",
+    "file": "materials/icon_compass.png",
+    "width": 144,
+    "height": 144,
+    "alpha": true,
+    "source": "code-native individual SVG",
+    "sha256": "dec33b20c1c3d7c5334d35a52ca5f4953241368434f4180d1e19c29043fe979b"
+  },
+  {
+    "name": "icon_hourglass",
+    "file": "materials/icon_hourglass.png",
+    "width": 144,
+    "height": 144,
+    "alpha": true,
+    "source": "code-native individual SVG",
+    "sha256": "d3379effc7243198f37328a29eae26d8494f5c4061424f41762f22560d438592"
+  },
+  {
+    "name": "icon_chart",
+    "file": "materials/icon_chart.png",
+    "width": 144,
+    "height": 144,
+    "alpha": true,
+    "source": "code-native individual SVG",
+    "sha256": "2dc09da93991e3ec8d230c7922439b3fcb7a1ac2a8a72d73342c36f882c026ff"
+  },
+  {
+    "name": "icon_map",
+    "file": "materials/icon_map.png",
+    "width": 144,
+    "height": 144,
+    "alpha": true,
+    "source": "code-native individual SVG",
+    "sha256": "ace0dd3eea2f707e7e245f5aabfa581dc2558aeb4c1cab974a3ae61c12e86d69"
+  },
+  {
+    "name": "icon_sound",
+    "file": "materials/icon_sound.png",
+    "width": 144,
+    "height": 144,
+    "alpha": true,
+    "source": "code-native individual SVG",
+    "sha256": "48b02ffd38463ec4e96f1ce4e292f182bfb5a11684f3630afdb3daeddeb028b7"
+  },
+  {
+    "name": "icon_pause",
+    "file": "materials/icon_pause.png",
+    "width": 144,
+    "height": 144,
+    "alpha": true,
+    "source": "code-native individual SVG",
+    "sha256": "53df80ed44984b19ffe999ad875480b22359ed25218dc21fd44a972f0b094c22"
+  },
+  {
+    "name": "icon_swords",
+    "file": "materials/icon_swords.png",
+    "width": 144,
+    "height": 144,
+    "alpha": true,
+    "source": "code-native individual SVG",
+    "sha256": "32c0ce48c5a85cae62e376fad21d5557016fc55f133ac92bfb1445f7eec37ef1"
+  },
+  {
+    "name": "icon_chevron",
+    "file": "materials/icon_chevron.png",
+    "width": 144,
+    "height": 144,
+    "alpha": true,
+    "source": "code-native individual SVG",
+    "sha256": "cc6ee10cc892d32f46d140561d7f7704031255b7370c771f17bd2b0c7ef20bd1"
+  },
+  {
+    "name": "icon_back",
+    "file": "materials/icon_back.png",
+    "width": 144,
+    "height": 144,
+    "alpha": true,
+    "source": "code-native individual SVG",
+    "sha256": "9654becd36a67b63ea08f3851d0f84de0e59957c55a8ce0f59c4558b6c696253"
+  },
+  {
+    "name": "icon_party",
+    "file": "materials/icon_party.png",
+    "width": 144,
+    "height": 144,
+    "alpha": true,
+    "source": "code-native individual SVG",
+    "sha256": "503265bfb6dc8aa6cedd40e2339c73d500f1a08a5ede385fd62bbbb4cce6221e"
+  },
+  {
+    "name": "gauge_track",
+    "file": "materials/gauge_track.png",
+    "width": 600,
+    "height": 40,
+    "alpha": true,
+    "source": "code-native scalable UI material",
+    "sha256": "3ef9218bd39b78bf69b0ae36146096df9e9622e52f4d27c4d6a718d20b81b070"
+  },
+  {
+    "name": "gauge_fill",
+    "file": "materials/gauge_fill.png",
+    "width": 600,
+    "height": 40,
+    "alpha": true,
+    "source": "code-native scalable UI material",
+    "sha256": "a016be2794d42c58c9c6bad263e0c342b8553a1e0507e8c533c58490458d6381"
+  },
+  {
+    "name": "divider",
+    "file": "materials/divider.png",
+    "width": 600,
+    "height": 24,
+    "alpha": true,
+    "source": "code-native scalable UI material",
+    "sha256": "0f3f083a05245d3f1d37bf8c0571f032c4b52bba48fd73f8884b9f0410a14671"
+  }
+]

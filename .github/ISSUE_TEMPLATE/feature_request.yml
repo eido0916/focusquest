@@ -1,0 +1,17 @@
+name: 改善・機能の提案
+description: 使いにくい点や追加したい機能を提案する
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 解決したいこと
+      description: どの場面で、どんな不便がありますか？
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 提案する動作
+      description: 具体的な利用例を記載してください。
+    validations:
+      required: true

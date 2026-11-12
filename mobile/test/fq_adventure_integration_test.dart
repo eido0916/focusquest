@@ -67,8 +67,7 @@ void main() {
     controller.dispose();
   });
 
-  test('FQ growth retains female ranged animation identity',
-      () async {
+  test('FQ growth retains female ranged animation identity', () async {
     final repo = MemoryRepository();
     final controller = GameController(repo);
     await controller.load();
@@ -187,7 +186,7 @@ void main() {
     expect(
         find.descendant(
             of: find.byKey(const Key('select-stage-1')),
-            matching: find.text('Stage 1')),
+            matching: find.text('1')),
         findsOneWidget);
     await tester.pumpWidget(const SizedBox());
     controller.dispose();
@@ -212,7 +211,7 @@ void main() {
     expect(
         find.descendant(
             of: find.byKey(const Key('select-stage-1')),
-            matching: find.text('Stage 1')),
+            matching: find.text('1')),
         findsOneWidget);
     await tester.tap(find.descendant(
         of: find.byType(QuestNavigation), matching: find.text('ホーム')));
@@ -284,8 +283,8 @@ void main() {
         tester.widget<InkWell>(find.byKey(const Key('select-stage-1'))).onTap,
         isNull);
     repo.fail = false;
-    await tester.scrollUntilVisible(
-        find.byKey(const Key('retry-stage-clear')), -150);
+    expect(find.byKey(const Key('retry-stage-clear')).hitTestable(),
+        findsOneWidget);
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const Key('retry-stage-clear')));
     await tester.pumpAndSettle();

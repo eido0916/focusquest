@@ -21,8 +21,7 @@ void main() {
               bottomNavigationBar:
                   QuestNavigation(selected: 0, onSelect: (_) {}))));
       await tester.pump();
-      final active = find.descendant(
-          of: find.byType(QuestNavigation), matching: find.byType(GamePanel));
+      final active = find.byKey(const ValueKey('navigation-0'));
       final frame = tester.getRect(active);
       for (final item in [find.byIcon(Icons.home_rounded), find.text('ホーム')]) {
         final rect = tester.getRect(item);

@@ -167,8 +167,24 @@ class PartyServer {
           return;
         }
         final current = room!;
+        if (current.disbanded) return;
         _expire(current);
         switch (type) {
+          case 'disband':
+            if (id != current.hostId) {
+              error('パーティーを解散できるのはリーダーだけです。');
+              return;
+            }
+            current.disbanded = true;
+            _rooms.remove(current.code);
+            current.tokens.clear();
+            for (final peer in current.peers.values.toList()) {
+              if (peer.readyState == WebSocket.open) {
+                peer.add(jsonEncode({'type': 'disbanded'}));
+                peer.close();
+              }
+            }
+            return;
           case 'leave':
             current.members.remove(id);
             current.tokens.remove(id);
@@ -259,7 +275,7 @@ class PartyServer {
       joinDeadline.cancel();
       _sockets.remove(socket);
       final current = room;
-      if (current == null) return;
+      if (current == null || current.disbanded) return;
       current.peers.remove(id);
       if (current.members.containsKey(id)) {
         current.members[id]!['status'] = 'disconnected';
@@ -276,6 +292,7 @@ class PartyServer {
   }
 
   void _expire(_Room room) {
+    if (room.disbanded) return;
     final now = DateTime.now();
     if (room.emptySince != null &&
         now.difference(room.emptySince!).inMinutes >= 30 &&
@@ -376,6 +393,7 @@ class PartyServer {
 class _Room {
   _Room(this.code);
   final String code;
+  bool disbanded = false;
   String? hostId;
   int minutes = 30;
   int focusAreaIndex = -1;

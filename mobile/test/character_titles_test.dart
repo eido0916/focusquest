@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:focusquest/core/game_controller.dart';
-import 'package:focusquest/core/widgets/role_logo.dart';
+import 'package:focusquest/features/character/presentation/character_pixel_portrait.dart';
 import 'package:focusquest/data/game_catalog.dart';
 import 'package:focusquest/features/character/domain/character.dart';
 import 'package:focusquest/features/character/presentation/character_screen.dart';
@@ -62,7 +62,9 @@ void main() {
             builder: (context, _) =>
                 Scaffold(body: CharacterScreen(controller: controller)))));
     await tester.pumpAndSettle();
-    expect(tester.widget<RoleLogo>(find.byType(RoleLogo)).role, 'warrior');
+    expect(
+        tester.widget<CharacterFaceIcon>(find.byType(CharacterFaceIcon)).role,
+        'warrior');
     await tester.ensureVisible(find.byKey(const ValueKey('change-title')));
     await tester.tap(find.byKey(const ValueKey('change-title')));
     await tester.pumpAndSettle();

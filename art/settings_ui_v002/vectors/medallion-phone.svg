@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88"><defs>
+ <linearGradient id="gold" x2=".25" y2="1"><stop stop-color="#fff0ab"/><stop offset=".32" stop-color="#eab74e"/><stop offset=".55" stop-color="#9c601b"/><stop offset=".75" stop-color="#ffe4a0"/><stop offset="1" stop-color="#c88d2c"/></linearGradient>
+ <linearGradient id="blue" x2=".2" y2="1"><stop stop-color="#063c80"/><stop offset=".45" stop-color="#00295d"/><stop offset="1" stop-color="#001938"/></linearGradient>
+ <linearGradient id="dark" x2="1" y2=".5"><stop stop-color="#102432"/><stop offset=".55" stop-color="#071b29"/><stop offset="1" stop-color="#122735"/></linearGradient>
+ <linearGradient id="coin" x2="1" y2=".4"><stop stop-color="#ffdf87"/><stop offset=".5" stop-color="#f8cd68"/><stop offset="1" stop-color="#dca849"/></linearGradient>
+ <linearGradient id="switch" x2="1" y2="1"><stop stop-color="#ad7c25"/><stop offset=".55" stop-color="#d5a338"/><stop offset="1" stop-color="#f8d77e"/></linearGradient>
+ </defs><circle cx="44" cy="44" r="41" fill="url(#coin)" stroke="#a8792b" stroke-width="3"/><circle cx="44" cy="44" r="38" fill="none" stroke="#ffe9a7" stroke-width="2"/><g transform="translate(8 8)" fill="#07517c" color="#07517c"><rect x="24" y="11" width="24" height="48" rx="5"/><rect x="29" y="18" width="14" height="30" fill="#ffdb7f"/><circle cx="36" cy="54" r="2" fill="#ffdb7f"/></g></svg>

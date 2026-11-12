@@ -9,11 +9,13 @@ class _Client {
       final message = jsonDecode(raw as String) as Map<String, dynamic>;
       if (message['type'] == 'snapshot') snapshot = message;
       if (message['type'] == 'error') error = message['message'] as String;
+      if (message['type'] == 'disbanded') disbanded = true;
     });
   }
   final WebSocket socket;
   Map<String, dynamic>? snapshot;
   String? error;
+  bool disbanded = false;
   void send(String type, [Map<String, dynamic> data = const {}]) =>
       socket.add(jsonEncode({'type': type, ...data}));
 }
@@ -43,9 +45,7 @@ Future<void> main(List<String> args) async {
   final health = endpoint.replace(
       scheme: endpoint.scheme == 'wss' ? 'https' : 'http', path: '/health');
   try {
-    final response = await (await http
-            .getUrl(health))
-        .close();
+    final response = await (await http.getUrl(health)).close();
     _check(response.statusCode == 200, 'Health endpoint must return 200.');
     _check(await utf8.decoder.bind(response).join() == 'ok',
         'Health body must be ok.');
@@ -56,8 +56,7 @@ Future<void> main(List<String> args) async {
       'level': 1
     };
     Future<_Client> connect(String? code) async {
-      final client = _Client(
-          await WebSocket.connect(endpoint.toString()));
+      final client = _Client(await WebSocket.connect(endpoint.toString()));
       clients.add(client);
       client.send(
           code == null ? 'create' : 'join', {'code': code, 'member': member});
@@ -95,12 +94,20 @@ Future<void> main(List<String> args) async {
               other['startedAt'] == session['startedAt'],
           'All players must share the same start timestamp and session ID.');
     }
+    host.send('disband');
+    await _until(() => clients.take(4).every((c) => c.disbanded));
+    final rejected = await connect(code);
+    _check(rejected.error != null && rejected.snapshot == null,
+        'A disbanded code cannot be reused.');
+    final single = await connect(null);
+    single.send('disband');
+    await _until(() => single.disbanded);
     stdout.writeln(
-        'PASS: health, code join, four-player limit, readiness, synchronized start.');
+        'PASS: health, code join, four-player limit, readiness, synchronized start, disband for four and one, old-code invalidation.');
   } finally {
-    for (final client in clients) {
-      await client.socket.close();
-    }
+    await Future.wait(clients.map((client) => client.socket
+        .close()
+        .timeout(const Duration(seconds: 3), onTimeout: () {})));
     http.close(force: true);
     if (local) await server.close();
   }

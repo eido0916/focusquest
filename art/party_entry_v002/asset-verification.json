@@ -1,0 +1,46 @@
+[
+  {
+    "name": "background",
+    "match": true
+  },
+  {
+    "name": "action",
+    "match": true
+  },
+  {
+    "name": "title",
+    "match": true
+  },
+  {
+    "name": "information",
+    "match": true
+  },
+  {
+    "name": "back",
+    "match": true
+  },
+  {
+    "name": "icon-back",
+    "match": true
+  },
+  {
+    "name": "compass",
+    "match": true
+  },
+  {
+    "name": "icon-create",
+    "match": true
+  },
+  {
+    "name": "icon-join",
+    "match": true
+  },
+  {
+    "name": "icon-chevron",
+    "match": true
+  },
+  {
+    "name": "separator",
+    "match": true
+  }
+]

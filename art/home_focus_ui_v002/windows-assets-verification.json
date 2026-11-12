@@ -1,0 +1,114 @@
+[
+  {
+    "Name": "action_frame.png",
+    "Match": true
+  },
+  {
+    "Name": "adventure_frame.png",
+    "Match": true
+  },
+  {
+    "Name": "chapter_frame.png",
+    "Match": true
+  },
+  {
+    "Name": "divider.png",
+    "Match": true
+  },
+  {
+    "Name": "gauge_fill.png",
+    "Match": true
+  },
+  {
+    "Name": "gauge_track.png",
+    "Match": true
+  },
+  {
+    "Name": "home_background.png",
+    "Match": true
+  },
+  {
+    "Name": "home_stage.png",
+    "Match": true
+  },
+  {
+    "Name": "icon_back.png",
+    "Match": true
+  },
+  {
+    "Name": "icon_chart.png",
+    "Match": true
+  },
+  {
+    "Name": "icon_chevron.png",
+    "Match": true
+  },
+  {
+    "Name": "icon_compass.png",
+    "Match": true
+  },
+  {
+    "Name": "icon_hourglass.png",
+    "Match": true
+  },
+  {
+    "Name": "icon_map.png",
+    "Match": true
+  },
+  {
+    "Name": "icon_party.png",
+    "Match": true
+  },
+  {
+    "Name": "icon_pause.png",
+    "Match": true
+  },
+  {
+    "Name": "icon_sound.png",
+    "Match": true
+  },
+  {
+    "Name": "icon_swords.png",
+    "Match": true
+  },
+  {
+    "Name": "metrics_frame.png",
+    "Match": true
+  },
+  {
+    "Name": "ornament_bottom.png",
+    "Match": true
+  },
+  {
+    "Name": "ornament_top.png",
+    "Match": true
+  },
+  {
+    "Name": "portrait_frame.png",
+    "Match": true
+  },
+  {
+    "Name": "record_frame.png",
+    "Match": true
+  },
+  {
+    "Name": "status_frame.png",
+    "Match": true
+  },
+  {
+    "Name": "timer_background.png",
+    "Match": true
+  },
+  {
+    "Name": "timer_compass.png",
+    "Match": true
+  },
+  {
+    "Name": "timer_frame.png",
+    "Match": true
+  },
+  {
+    "Name": "utility_frame.png",
+    "Match": true
+  }
+]

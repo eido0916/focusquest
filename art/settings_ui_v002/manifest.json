@@ -1,0 +1,132 @@
+{
+  "version": "v002",
+  "method": "Individual code-native SVG artwork, rasterized for Flutter; existing castle background reused",
+  "assets": [
+    {
+      "name": "title",
+      "width": 660,
+      "height": 154,
+      "file": "materials/title.png"
+    },
+    {
+      "name": "section",
+      "width": 840,
+      "height": 100,
+      "file": "materials/section.png"
+    },
+    {
+      "name": "panel",
+      "width": 840,
+      "height": 400,
+      "file": "materials/panel.png"
+    },
+    {
+      "name": "button",
+      "width": 260,
+      "height": 88,
+      "file": "materials/button.png"
+    },
+    {
+      "name": "back",
+      "width": 100,
+      "height": 100,
+      "file": "materials/back.png"
+    },
+    {
+      "name": "row",
+      "width": 780,
+      "height": 116,
+      "file": "materials/row.png"
+    },
+    {
+      "name": "notice",
+      "width": 780,
+      "height": 96,
+      "file": "materials/notice.png"
+    },
+    {
+      "name": "icon-phone",
+      "width": 72,
+      "height": 72,
+      "file": "materials/icon-phone.png"
+    },
+    {
+      "name": "medallion-phone",
+      "width": 88,
+      "height": 88,
+      "file": "materials/medallion-phone.png"
+    },
+    {
+      "name": "icon-overlay",
+      "width": 72,
+      "height": 72,
+      "file": "materials/icon-overlay.png"
+    },
+    {
+      "name": "medallion-overlay",
+      "width": 88,
+      "height": 88,
+      "file": "materials/medallion-overlay.png"
+    },
+    {
+      "name": "icon-shield",
+      "width": 72,
+      "height": 72,
+      "file": "materials/icon-shield.png"
+    },
+    {
+      "name": "icon-music",
+      "width": 72,
+      "height": 72,
+      "file": "materials/icon-music.png"
+    },
+    {
+      "name": "icon-sound",
+      "width": 72,
+      "height": 72,
+      "file": "materials/icon-sound.png"
+    },
+    {
+      "name": "icon-cloud",
+      "width": 72,
+      "height": 72,
+      "file": "materials/icon-cloud.png"
+    },
+    {
+      "name": "medallion-cloud",
+      "width": 88,
+      "height": 88,
+      "file": "materials/medallion-cloud.png"
+    },
+    {
+      "name": "icon-warning",
+      "width": 72,
+      "height": 72,
+      "file": "materials/icon-warning.png"
+    },
+    {
+      "name": "icon-back",
+      "width": 72,
+      "height": 72,
+      "file": "materials/icon-back.png"
+    },
+    {
+      "name": "icon-chevron",
+      "width": 72,
+      "height": 72,
+      "file": "materials/icon-chevron.png"
+    },
+    {
+      "name": "toggle-on",
+      "width": 108,
+      "height": 58,
+      "file": "materials/toggle-on.png"
+    },
+    {
+      "name": "toggle-off",
+      "width": 108,
+      "height": 58,
+      "file": "materials/toggle-off.png"
+    }
+  ]
+}

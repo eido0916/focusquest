@@ -30,7 +30,7 @@ enum EnemyPhase { spawn, move, hit, defeat }
 class EnemyData {
   const EnemyData(
     this.id, {
-    this.expReward = 10,
+    this.expReward = GameBalance.focusEnemyExp,
     this.maxHp = 1,
     this.isBoss = false,
   });
@@ -219,7 +219,7 @@ class BattleStateController {
       _focusBoss = RunnerEnemy(
           _spawned++,
           EnemyData(FocusAdventure.bossId(clock, areaIndex: focusAreaIndex),
-              maxHp: 300, expReward: 100, isBoss: true),
+              maxHp: 300, expReward: GameBalance.focusBossExp, isBoss: true),
           x: config.enemyStopX + 24);
       enemies.add(_focusBoss!);
       _bossCycle = cycle;
@@ -237,10 +237,7 @@ class BattleStateController {
   double elapsedSeconds = 0;
   int defeatedCount = 0;
   int gainedExp = 0;
-  int get focusRewardExp => GameBalance.focusExpForSeconds(elapsedSeconds,
-      durationSeconds: durationSeconds);
-  int get focusTotalRewardExp => GameBalance.focusExpForSeconds(durationSeconds,
-      durationSeconds: durationSeconds);
+  int get focusRewardExp => gainedExp;
   int get focusRemainingSeconds =>
       (durationSeconds - elapsedSeconds).clamp(0.0, durationSeconds).ceil();
   int attackSerial = 0;

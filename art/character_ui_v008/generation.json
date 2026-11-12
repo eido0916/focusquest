@@ -1,0 +1,16 @@
+{
+  "mode": "built-in image_gen",
+  "reference": "reference.png",
+  "background": {
+    "source": "C:/Users/eido0/.codex/generated_images/01a187bb-0aa1-7e60-a6c4-d9641539b2ac/exec-66eed766-93cf-4c87-ae11-5815e9c1881f.png",
+    "saved": "originals/castle_courtyard.png",
+    "prompt": "Production BACKGROUND ONLY. The attached image is the exact composition reference. Remove ALL UI frames, labels, panels, navigation, character and sword; reconstruct the scenery behind them. Faithfully reproduce its bright castle terrace scenery. Output portrait 9:16 single continuous finely detailed pixel art background. CRITICAL composition: horizontal terrace FLOOR / hero standing ground at 40% image height from top, NOT 60%. Compress whole scenic vista into UPPER 40%: blue sky, white clouds, mountains in middle, distant white castle blue roofs on RIGHT; ivy stone column with blue/gold banner at LEFT. LOWER 60% consists of pale warm stone ground with tiny greenery at side margins and is mostly hidden by future UI. Reference's floor is at y=260 out of 662 pixels. Camera viewpoint and proportions exactly like screenshot. NO interface, NO characters, NO swords, NO letters. Fine premium Japanese RPG pixel clusters; avoid coarse giant pixel grid. Single unified image with no seams or inset panels."
+  },
+  "male_warrior": {
+    "source": "C:/Users/eido0/.codex/generated_images/01a187bb-0aa1-7e60-a6c4-d9641539b2ac/exec-66f2d3b7-52ca-4fb2-a806-8fb7db04b75d.png",
+    "saved": "originals/warrior.png",
+    "prompt": "Use case: stylized-concept. Create a standalone transparent PNG of the MALE BLOND SWORDSMAN from the second attached screenshot (the ideal 375x662 character UI), reproduce his detailed full body design faithfully: spiky blond hair, youthful face looking right in three-quarter view, rich royal blue cape with gold edging billowing LEFT, white tunic, dark brown leather straps/belt, silver and gold shoulder and knee armor, brown boots, one LONG silver sword in his right hand angled DOWN LEFT to the ground. Relaxed heroic standing stance, feet wide on same baseline, whole figure including sword tip and cape. Extremely faithful to this screenshot's hero silhouette, silver armor and costume, NOT the coarse first screenshot. Detailed finely clustered premium Japanese RPG pixel art with roughly 200-240 pixels tall drawn detail, crisp pixel edges, rich restrained shaded palette. Do NOT reduce to 64x64 or 128x128. Full body asset centered with transparent margin, no background, no floor, no UI, no letters, no frame, no extra figures. This is a STATIC menu portrait, not battle animation."
+  },
+  "remaining_portraits": "../character_pixel_v007/originals/ (31 original drawings; detailed repackaging)",
+  "frames_and_icons": "../../scripts/build-character-ui-v008.cjs (deterministic separate PNG assets)"
+}

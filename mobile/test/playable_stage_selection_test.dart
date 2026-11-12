@@ -1,3 +1,6 @@
+import 'package:focusquest/core/game_controller.dart';
+import 'package:focusquest/data/game_catalog.dart';
+import 'support/memory_repository.dart';
 import 'support/trained_stage_hero.dart';
 import 'package:focusquest/features/playable_stage/presentation/playable_stage_audio.dart';
 import 'dart:io';
@@ -109,7 +112,7 @@ void main() {
     const Size(390, 844),
     const Size(844, 390)
   ]) {
-    testWidgets('selection exposes all 36 stages without overflow at $size',
+    testWidgets('selection exposes current chapter without overflow at $size',
         (tester) async {
       tester.view.physicalSize = size;
       tester.view.devicePixelRatio = 1;
@@ -143,26 +146,7 @@ void main() {
           image.dispose();
         });
       }
-      for (final number in [
-        1,
-        4,
-        5,
-        8,
-        9,
-        12,
-        13,
-        16,
-        17,
-        20,
-        21,
-        24,
-        25,
-        28,
-        29,
-        32,
-        33,
-        36
-      ]) {
+      for (final number in [1, 4]) {
         await tester.scrollUntilVisible(
             find.byKey(Key('select-stage-$number')), 180,
             scrollable: find.byType(Scrollable).first);
@@ -180,9 +164,17 @@ void main() {
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
+    final controller = GameController(MemoryRepository());
+    await controller.load();
+    await controller.onboard(GameCatalog.types[1]!);
+    for (var n = 1; n <= 3; n++) {
+      await controller.recordPlayableClear(n);
+    }
+    addTearDown(controller.dispose);
     await tester.pumpWidget(MaterialApp(
         theme: AppTheme.dark,
         home: PlayableStageSelectionPage(
+            controller: controller,
             assets: assets,
             audioOutput: SilentStageAudioOutput(),
             battleFactory: (stage) => PlayableStageBattle(
@@ -221,7 +213,7 @@ void main() {
     expect(
         find.descendant(
             of: find.byKey(const Key('select-stage-4')),
-            matching: find.text('Stage 4')),
+            matching: find.text('4')),
         findsOneWidget);
     expect(tester.takeException(), isNull);
     // A new stage starts with its own phase, HP and charge.

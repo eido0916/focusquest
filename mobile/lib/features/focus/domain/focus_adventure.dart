@@ -28,6 +28,23 @@ class FocusAdventure {
           {required double durationSeconds}) =>
       elapsedSeconds.clamp(0.0, durationSeconds).toDouble() ~/ cycleSeconds;
 
+  /// Each member defeats one enemy after their original attack has finished.
+  /// Shared by the party HUD and saved rewards, including offline catch-up.
+  static int partyDefeats(double seconds, double durationSeconds,
+      Iterable<List<double>> attackDurations) {
+    final time = seconds.clamp(0.0, durationSeconds);
+    var defeats =
+        completedBossCycles(time.toDouble(), durationSeconds: durationSeconds);
+    for (var wave = 0; wave * 6 < time; wave++) {
+      for (final durations in attackDurations) {
+        final hitAt = wave * 6 + 2 + durations[wave % 4 == 3 ? 1 : 0];
+        if (time >= hitAt &&
+            !bossActive(hitAt, durationSeconds: durationSeconds)) defeats++;
+      }
+    }
+    return defeats;
+  }
+
   static String bossId(double seconds, {int? areaIndex}) => areaIndex != null
       ? PlayableStageCatalog.bossIds[areaIndex < 0 ? 0 : areaIndex]
       : chapter(seconds) == 1

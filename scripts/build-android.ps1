@@ -1,5 +1,11 @@
-param([string]$Flutter = 'C:\src\flutter\bin\flutter.bat', [string]$PartyServerUrl = '', [string]$OutputName = 'FocusQuest-debug.apk')
+param([string]$Flutter = '', [string]$PartyServerUrl = '', [string]$OutputName = 'FocusQuest-debug.apk')
 $ErrorActionPreference = 'Stop'
+if (-not $Flutter) {
+    $fqFlutterCommand = Get-Command flutter -ErrorAction SilentlyContinue
+    if ($fqFlutterCommand) { $Flutter = $fqFlutterCommand.Source }
+    else { $Flutter = Join-Path $env:USERPROFILE 'FocusQuestTools\flutter\bin\flutter.bat' }
+}
+if (-not (Test-Path -LiteralPath $Flutter)) { throw 'Flutter SDK not found. Specify -Flutter with the path to flutter.bat.' }
 $fqRoot = Split-Path -Parent $PSScriptRoot
 $fqSource = Join-Path $fqRoot 'mobile'
 # Flutter 3.24 Windows shader compiler can crash on non-ASCII paths.

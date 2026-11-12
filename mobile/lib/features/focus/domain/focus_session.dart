@@ -15,7 +15,9 @@ class FocusSession {
       this.partyMembers = const [],
       this.partyClockOffsetMs = 0,
       this.focusAreaIndex = -1,
+      this.earnedExp = 0,
       this.adventureStartSeconds = 0});
+  final int earnedExp;
   final List<PartyMember> partyMembers;
   final int partyClockOffsetMs;
   final int focusAreaIndex;
@@ -37,6 +39,7 @@ class FocusSession {
           startedAt:
               startedAt.subtract(Duration(milliseconds: partyClockOffsetMs)),
           durationMinutes: durationMinutes,
+          earnedExp: earnedExp,
           status: status,
           verification: verification,
           targetPackages: targetPackages,
@@ -51,7 +54,8 @@ class FocusSession {
     return difference.isNegative ? Duration.zero : difference;
   }
 
-  FocusSession finish(FocusStatus value) => FocusSession(
+  FocusSession finish(FocusStatus value, {int? earnedExp}) => FocusSession(
+      earnedExp: earnedExp ?? this.earnedExp,
       id: id,
       startedAt: startedAt,
       durationMinutes: durationMinutes,
@@ -64,6 +68,7 @@ class FocusSession {
       adventureStartSeconds: adventureStartSeconds);
   Map<String, dynamic> toJson() => {
         'id': id,
+        'earnedExp': earnedExp,
         'startedAt': startedAt.toUtc().toIso8601String(),
         'durationMinutes': durationMinutes,
         'status': status.name,
@@ -76,6 +81,7 @@ class FocusSession {
       };
   factory FocusSession.fromJson(Map<String, dynamic> json) => FocusSession(
       id: json['id'] as String,
+      earnedExp: json['earnedExp'] as int? ?? 0,
       startedAt: DateTime.parse(json['startedAt'] as String),
       durationMinutes: json['durationMinutes'] as int,
       status: FocusStatus.values.byName(json['status'] as String),

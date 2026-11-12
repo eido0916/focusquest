@@ -47,8 +47,7 @@ void main() {
 
       Future<void> capture(String name) async {
         if (!const bool.fromEnvironment('CAPTURE_DIAGNOSIS')) return;
-        final scrollable = find.byType(Scrollable).first;
-        tester.state<ScrollableState>(scrollable).position.jumpTo(0);
+        // The entire composition is visible without scrolling.
         await tester.pumpAndSettle();
         for (final element in find.byType(Image).evaluate()) {
           await tester.runAsync(
@@ -75,13 +74,19 @@ void main() {
       await capture('identity');
       if (size.width == 800) {
         final nameField = find.byKey(const Key('adventurer-name'));
-        expect(tester.getSize(nameField).width, greaterThan(600));
+        // The app uses phone layout units on a tablet too. Check the rendered
+        // size rather than comparing its internal 390-unit canvas with pixels.
+        final fieldBounds = tester.getRect(nameField);
+        final displayScale =
+            fieldBounds.width / tester.getSize(nameField).width;
+        expect(fieldBounds.width, greaterThan(size.width * .4));
         final voice = find.text('まばゆい光の中から、声が響く。\n「そなたの名と、望む姿を教えておくれ。」');
         final text = tester.widget<Text>(voice);
         expect(
             MediaQuery.textScalerOf(tester.element(voice))
-                .scale(text.style!.fontSize!),
-            greaterThanOrEqualTo(24));
+                    .scale(text.style!.fontSize!) *
+                displayScale,
+            greaterThanOrEqualTo(16));
       }
       await tester.enterText(find.byKey(const Key('adventurer-name')), 'アオイ');
       await tap(find.byKey(const Key('appearance-female')));

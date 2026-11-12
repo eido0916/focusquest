@@ -37,7 +37,8 @@ void main() {
       'assets/images/playable_stage/grassland.png',
       .885,
       [StageOpponent('slime', 'スライム', 112, 8, 4.8, '判定テスト')]);
-  test('a miss resolves once without damage or skill charge', () async {
+  test('a miss resolves once without damage and retains attack charge',
+      () async {
     var rolls = 0;
     final battle = PlayableStageBattle(
         stage: singleStage,
@@ -53,7 +54,7 @@ void main() {
     advance(battle, 1.1);
     expect(battle.enemyHp, 112);
     expect(battle.hits, 0);
-    expect(battle.charge, 0);
+    expect(battle.charge, 1);
     expect(battle.attempts, 1);
     expect(battle.misses, 1);
     expect(rolls, 1);

@@ -135,9 +135,12 @@ void main() {
       addTearDown(b.dispose);
       b.charge = 3;
       b.skill();
-      while (b.projectiles.isEmpty) {
+      for (var tick = 0;
+          tick < 2400 && b.projectiles.isEmpty && b.active;
+          tick++) {
         b.update(1 / 240);
       }
+      expect(b.projectiles, isNotEmpty, reason: '床投げの飛び道具が10秒以内に発生すること');
       final shot = b.projectiles.single;
       expect(shot.kind, ProjectileKind.floor);
       expect(b.target.hp, 1000);
@@ -164,9 +167,12 @@ void main() {
         b.skillReleaseFractions = [24 / 36];
         b.charge = 3;
         b.skill();
-        while (b.projectiles.isEmpty) {
+        for (var tick = 0;
+            tick < 2400 && b.projectiles.isEmpty && b.active;
+            tick++) {
           b.update(1 / 240);
         }
+        expect(b.projectiles, isNotEmpty, reason: '床投げの飛び道具が10秒以内に発生すること');
         final shot = b.projectiles.single;
         final victim = shot.target;
         final initialX = victim.x;

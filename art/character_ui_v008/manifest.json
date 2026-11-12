@@ -1,0 +1,257 @@
+[
+  {
+    "file": "action_row.png",
+    "bytes": 702,
+    "sha256": "4b7561f5c945b223eb4d0da071ac20c0de15fe003e962d946b92946e36e5f544"
+  },
+  {
+    "file": "castle_courtyard.png",
+    "bytes": 4014812,
+    "sha256": "413258bf78939aaf0aa720360fc24a1f0e56ddc53339d30f35ef7d1cfade0a52"
+  },
+  {
+    "file": "certificate_icon.png",
+    "bytes": 144,
+    "sha256": "5f866c5b121e531e66f1fe2bd7d6fd4e586923cd9ba6433284e6614e0444e434"
+  },
+  {
+    "file": "chevron_icon.png",
+    "bytes": 138,
+    "sha256": "63fb31228ac38a4f560ac9cd51bcdd2d8dfbc7b34cec5e4695694b75320fa47e"
+  },
+  {
+    "file": "exp_fill.png",
+    "bytes": 239,
+    "sha256": "ea64373bbd9b04e4b8ca6c7c366b04c7e9e7a70ac91e31b993fe1bc3b234487b"
+  },
+  {
+    "file": "exp_track.png",
+    "bytes": 197,
+    "sha256": "07ced7d708d6934a7755d159848dd9369ce6a856ce84a3780a178c51b6b7af41"
+  },
+  {
+    "file": "header_banner.png",
+    "bytes": 816,
+    "sha256": "f818dca156d007de7833a3063340cb0469e4111e865111be0c1d16a58459b7c9"
+  },
+  {
+    "file": "identity_divider.png",
+    "bytes": 94,
+    "sha256": "e9864a5e7816deab694162a5b67bd3721e6f29541ffa2e9d1fa7c53bb09e6c8c"
+  },
+  {
+    "file": "identity_panel.png",
+    "bytes": 1569,
+    "sha256": "a8970aac646da18673a213801cd73abd63080966d74e3cd513cc7a3da9353695"
+  },
+  {
+    "file": "section_rule.png",
+    "bytes": 148,
+    "sha256": "eff51ba46a9f09657e9d9fe432aa3e71be6af98dddaf5321c2ef2b345203d2a6"
+  },
+  {
+    "file": "standing/female/angel.png",
+    "bytes": 380952,
+    "sha256": "645ba064a58ad882acf5241acb16b8735c79d5f8f62d8784ba80d9d0b86dc06b"
+  },
+  {
+    "file": "standing/female/assassin.png",
+    "bytes": 233678,
+    "sha256": "b82c28ce47bd6d46f7581a2e2d780efe580bb9521d6985a8e0565ad2ba686d68"
+  },
+  {
+    "file": "standing/female/berserker.png",
+    "bytes": 294611,
+    "sha256": "1cb38022294a05a30277956bc276312a196585c5822dbdf24c2872de4bb73941"
+  },
+  {
+    "file": "standing/female/boxer.png",
+    "bytes": 222834,
+    "sha256": "81c06e62e39af77ea359f6b6fe15e03efcbfdd803ecdaba6088d9eabccb2bbc0"
+  },
+  {
+    "file": "standing/female/devil.png",
+    "bytes": 320761,
+    "sha256": "3d05a3db6d3f5b409541ba2cd20da6923f4dafae5aa5dfa1c270e3c893aa395b"
+  },
+  {
+    "file": "standing/female/dragon_knight.png",
+    "bytes": 306226,
+    "sha256": "c4a9fff34d27caf9adcf301f8a103fe28e2d506c5146bc58a7e0e32c91cf8365"
+  },
+  {
+    "file": "standing/female/guardian.png",
+    "bytes": 282396,
+    "sha256": "e0e58a9227edec5948adafe04f19fd56cf8f8d9099de7a7c19ccd9d5c2ec5992"
+  },
+  {
+    "file": "standing/female/gunner.png",
+    "bytes": 249072,
+    "sha256": "c6cfd046159a7db6654e029f5d4201a7099fafa95a26d19abade6dc90fd1cade"
+  },
+  {
+    "file": "standing/female/mage.png",
+    "bytes": 291444,
+    "sha256": "462eaef3b8d97bcac2fe03cc91f283205e85042fdfbff09cd5b86784ac65233d"
+  },
+  {
+    "file": "standing/female/ninja.png",
+    "bytes": 204108,
+    "sha256": "c19f9a79644250cb4f91adcc404b9e97ea2ba25b8f4a1b962c89d1c79ad7cdad"
+  },
+  {
+    "file": "standing/female/onmyoji.png",
+    "bytes": 337063,
+    "sha256": "b1771c7ce497ff4b26f6dfa11b53abc1b4e1475cb37851c7d3a04d6802f77916"
+  },
+  {
+    "file": "standing/female/ranger.png",
+    "bytes": 258564,
+    "sha256": "d7a794deaeccbff19b2ea0e93cf52d05d2a43536658a4bcf4ffdbf0ac0403400"
+  },
+  {
+    "file": "standing/female/reaper.png",
+    "bytes": 308275,
+    "sha256": "a2cd09cf7673f6c73fbcf71e7f68a1a48619bff6516d79545bfa4db1c42f2d33"
+  },
+  {
+    "file": "standing/female/samurai.png",
+    "bytes": 232379,
+    "sha256": "c25d5a6ae0e976a39838738dd03c1447994b9e8d9e2dc782df68c417d402c2b8"
+  },
+  {
+    "file": "standing/female/spellblade.png",
+    "bytes": 253383,
+    "sha256": "e7cace92828589ebba59045d853c2f2bbd669cee2e135c717b66c69048ce2065"
+  },
+  {
+    "file": "standing/female/warrior.png",
+    "bytes": 232661,
+    "sha256": "694f5912fc361ba050a820b0a74f39bce0e2dd4809cc103ca6a67caed55d3dd2"
+  },
+  {
+    "file": "standing/male/angel.png",
+    "bytes": 366554,
+    "sha256": "63d2b7e636210e5892929417f664cfa32b4ba39874403d9547d5ffdc7f654600"
+  },
+  {
+    "file": "standing/male/assassin.png",
+    "bytes": 230130,
+    "sha256": "2ae1683459c3bbdb1da9fcba7c27e2d7932cd52f8e0566b5d9841f59e7f5e83e"
+  },
+  {
+    "file": "standing/male/berserker.png",
+    "bytes": 289518,
+    "sha256": "c3051f6a57124c92b2972ac22d71ff8bd95aef0cb862289f225604f4969cf207"
+  },
+  {
+    "file": "standing/male/boxer.png",
+    "bytes": 208092,
+    "sha256": "c69272c05219aa26a469987b130b8df089b5a1fe5a815c31ea4309125e6fbb73"
+  },
+  {
+    "file": "standing/male/devil.png",
+    "bytes": 284586,
+    "sha256": "4e8a8386cf54c4742c2abc74985a167b3832f5527768c158bc2f0d317596839a"
+  },
+  {
+    "file": "standing/male/dragon_knight.png",
+    "bytes": 254378,
+    "sha256": "398cbc92b44f3b2a93e7a53aea195fe7a39f62c8e4f5ca84456230c10dca3588"
+  },
+  {
+    "file": "standing/male/guardian.png",
+    "bytes": 253546,
+    "sha256": "b3b0629cea900f02ced832e95eafde6719e228530b7ed00dbe619d5a79c3cdcc"
+  },
+  {
+    "file": "standing/male/gunner.png",
+    "bytes": 211995,
+    "sha256": "d89e3240f6583bed8fc299082ad6420f67ced9a2a63451ad82c231cfd2a95d01"
+  },
+  {
+    "file": "standing/male/mage.png",
+    "bytes": 263451,
+    "sha256": "1b8b720e617c792cfc6223533ec09c8f2bfc3866693e9b195fdd94396a7e5cfe"
+  },
+  {
+    "file": "standing/male/ninja.png",
+    "bytes": 232687,
+    "sha256": "c57e9d0c5150c7be3844c95509e95f4b0a4dd0118c2c57ac8919d30e15250804"
+  },
+  {
+    "file": "standing/male/onmyoji.png",
+    "bytes": 289980,
+    "sha256": "80fd47f4f0a4aa68d5a56cabbdaae6e0e11a8b673e3d37720d3731512a4f15bb"
+  },
+  {
+    "file": "standing/male/ranger.png",
+    "bytes": 246654,
+    "sha256": "e0b175ed61dcdf46473c944dfbc074a45dde817ca9464a118949e114f4fc9391"
+  },
+  {
+    "file": "standing/male/reaper.png",
+    "bytes": 297229,
+    "sha256": "b77d065d5f58f4f9eb6c5658a515c63b5414d6f7caca1d05ed11d84af7b16a3b"
+  },
+  {
+    "file": "standing/male/samurai.png",
+    "bytes": 244738,
+    "sha256": "b986e4f09f4921d2a54cea9e2fe2731e2e81268c60b7748e22cfa65c548f57ff"
+  },
+  {
+    "file": "standing/male/spellblade.png",
+    "bytes": 279829,
+    "sha256": "f8bc9919d70bbcbc67c6c10f16c63c7d71149ee0f652e57857037de817ccbd55"
+  },
+  {
+    "file": "standing/male/warrior.png",
+    "bytes": 269584,
+    "sha256": "9e55eb086e5f4b27df4ffcfaa4bfaff98cb859cec6387175ea79efb195603703"
+  },
+  {
+    "file": "stats_parchment.png",
+    "bytes": 9738,
+    "sha256": "ad6781da5cef75a5673ba011386e79d245bbd0c508d14cd1ee9ba963b3ec3885"
+  },
+  {
+    "file": "stat_attack.png",
+    "bytes": 178,
+    "sha256": "c6fe8f64918f2732ceb816fb3772ebdc9594f54036e8df7619802960f06ff583"
+  },
+  {
+    "file": "stat_critical.png",
+    "bytes": 170,
+    "sha256": "3047b01a37561dd1f57559bb277bc169fc18218178ca5e1dcb9ad0d3b8531673"
+  },
+  {
+    "file": "stat_defense.png",
+    "bytes": 162,
+    "sha256": "fbaa2c2045347bbd0a9d0b0c81363d1185bf0d858cb257db7f7127e97481cd6f"
+  },
+  {
+    "file": "stat_hp.png",
+    "bytes": 162,
+    "sha256": "1ea678fd4714700c592c65b094422ad79356daf383dcd908a44ba81b77c8ff1e"
+  },
+  {
+    "file": "stat_row.png",
+    "bytes": 636,
+    "sha256": "911691dcbf5aa752aa7b859a911d3ac0afe899180b91867bbe950311879ab294"
+  },
+  {
+    "file": "stat_speed.png",
+    "bytes": 141,
+    "sha256": "bbdfdf48d1ddca1bd08607d25aa480e95cd984c7f1670b00f686918401939f55"
+  },
+  {
+    "file": "title_icon.png",
+    "bytes": 205,
+    "sha256": "85b18486d7c90a38202200b9b66dd2e71e05dd8fc2d8f801e6ec0900d5ca05d1"
+  },
+  {
+    "file": "value_divider.png",
+    "bytes": 94,
+    "sha256": "e9864a5e7816deab694162a5b67bd3721e6f29541ffa2e9d1fa7c53bb09e6c8c"
+  }
+]

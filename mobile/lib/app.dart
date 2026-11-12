@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'core/game_controller.dart';
 import 'core/theme/app_theme.dart';
 import 'core/widgets/quest_widgets.dart';
+import 'core/widgets/quest_display.dart';
 import 'features/character/presentation/character_screen.dart';
 import 'features/diagnosis/presentation/diagnosis_screen.dart';
 import 'features/focus/presentation/focus_screen.dart';
@@ -17,6 +18,8 @@ class FocusQuestApp extends StatelessWidget {
       title: 'FocusQuest',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.dark,
+      navigatorObservers: [QuestDisplayObserver()],
+      builder: (context, child) => QuestAppViewport(child: child!),
       home: AnimatedBuilder(
           animation: controller,
           builder: (context, _) {
@@ -74,18 +77,11 @@ class _QuestShellState extends State<QuestShell> {
           onNavigate: (tab) => setState(() => _tab = tab)),
       CharacterScreen(controller: controller),
       AdventureScreen(controller: controller),
-      SettingsScreen(controller: controller)
+      SettingsScreen(
+          controller: controller, onBack: () => setState(() => _tab = 0))
     ];
     return Scaffold(
-        body: SafeArea(
-            child: _tab == 1 || _tab == 3
-                ? pages[_tab]
-                : QuestBackdrop(
-                    dim: _tab == 0 ? 0 : .14,
-                    child: Center(
-                        child: ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 640),
-                            child: pages[_tab])))),
+        body: SafeArea(child: pages[_tab]),
         bottomNavigationBar: QuestNavigation(
             selected: _tab, onSelect: (tab) => setState(() => _tab = tab)));
   }
