@@ -79,7 +79,7 @@ class _PartyBattlePageState extends State<PartyBattlePage>
             child: LayoutBuilder(builder: (context, surface) {
               final unit = surface.maxWidth / 960;
               return Stack(fit: StackFit.expand, children: [
-                GameWidget(game: _game),
+                ClipRect(child: GameWidget(game: _game)),
                 if (widget.controller != null)
                   Positioned(
                       top: 0,

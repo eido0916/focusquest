@@ -44,16 +44,19 @@ void main() {
         .setMockMethodCallHandler(SystemChannels.platform, null));
     final battle = PlayableStageBattle();
     addTearDown(battle.dispose);
+    bool? cleared;
     await tester.pumpWidget(MaterialApp(
         home: Builder(
             builder: (context) => Scaffold(
                 body: TextButton(
-                    onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute<void>(
-                            builder: (_) => PlayableStagePage(
-                                battle: battle,
-                                assets: assets,
-                                audioOutput: SilentStageAudioOutput()))),
+                    onPressed: () async {
+                      cleared = await Navigator.of(context).push<bool>(
+                          MaterialPageRoute<bool>(
+                              builder: (_) => PlayableStagePage(
+                                  battle: battle,
+                                  assets: assets,
+                                  audioOutput: SilentStageAudioOutput())));
+                    },
                     child: const Text('select stage'))))));
     await tester.tap(find.text('select stage'));
     await tester.pump();
@@ -61,10 +64,18 @@ void main() {
     expect(orientations, [
       ['DeviceOrientation.landscapeLeft', 'DeviceOrientation.landscapeRight']
     ]);
-    await tester.pageBack();
+    expect(find.byType(BackButton), findsNothing);
+    expect(find.text('ステージから撤退'), findsNothing);
+    await tester.tap(find.byKey(const Key('stage-start')));
+    await tester.pump();
+    await tester.tap(find.byKey(const Key('stage-pause')));
+    await tester.pump();
+    expect(battle.paused, isTrue);
+    await tester.tap(find.text('ステージから撤退'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
     expect(find.text('select stage'), findsOneWidget);
+    expect(cleared, isFalse);
     expect(orientations.last, ['DeviceOrientation.portraitUp']);
   });
 

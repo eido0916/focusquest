@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:ui' as ui;
+import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flame/flame.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,15 @@ import 'package:focusquest/features/focus/domain/focus_session.dart';
 import 'package:focusquest/features/focus/presentation/battle_replay_page.dart';
 import 'package:focusquest/game/runner/battle_state_controller.dart';
 import 'package:focusquest/game/runner/focus_quest_battle_game.dart';
+
+class _StageEdgeProbe extends Component {
+  _StageEdgeProbe() : super(priority: 1000);
+
+  @override
+  void render(Canvas canvas) => canvas.drawRect(
+      const Rect.fromLTWH(940, 250, 40, 40),
+      Paint()..color = const Color(0xffff00ff));
+}
 
 void main() {
   setUp(() {
@@ -27,7 +37,11 @@ void main() {
       await (FontLoader(entry.key)..addFont(Future.value(bytes))).load();
     }
   });
-  for (final size in [const Size(960, 540), const Size(390, 844)]) {
+  for (final size in [
+    const Size(960, 540),
+    const Size(844, 390),
+    const Size(390, 844),
+  ]) {
     testWidgets('battle returns once at the focus deadline in $size',
         (tester) async {
       tester.view.physicalSize = size;
@@ -84,6 +98,36 @@ void main() {
       expect(heroReady, isTrue);
       expect(game.heroLevel, 12);
       expect(game.hud, isNotNull);
+      if (size != const Size(960, 540)) {
+        // A draw crossing the stage edge must leave the black letterbox clean.
+        final probe = _StageEdgeProbe();
+        game.add(probe);
+        await tester.pump(const Duration(milliseconds: 16));
+        await tester.pump(const Duration(milliseconds: 16));
+        final gameBox = tester.renderObject<RenderBox>(find.byWidget(widget));
+        await tester.runAsync(() async {
+          final render = boundary.currentContext!.findRenderObject()!
+              as RenderRepaintBoundary;
+          final image = await render.toImage();
+          try {
+            final bytes = (await image.toByteData())!;
+            List<int> pixelAt(double stageX) {
+              final point = gameBox.localToGlobal(Offset(
+                  stageX * gameBox.size.width / 960, gameBox.size.height / 2));
+              final index =
+                  (point.dy.floor() * image.width + point.dx.floor()) * 4;
+              return List.generate(
+                  4, (channel) => bytes.getUint8(index + channel));
+            }
+
+            expect(pixelAt(950), [255, 0, 255, 255]);
+            expect(pixelAt(970), [0, 0, 0, 255]);
+          } finally {
+            image.dispose();
+          }
+        });
+        probe.removeFromParent();
+      }
       now = now.add(const Duration(seconds: 4));
       for (var i = 0; i < 8; i++) {
         await tester.pump(const Duration(milliseconds: 25));

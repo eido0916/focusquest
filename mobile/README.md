@@ -15,6 +15,8 @@ flutter build apk --debug --target-platform android-arm64
 flutter run
 ```
 
+このPCでAndroidスマートフォンへインストール・起動する場合は、USBデバッグを有効化してPCを許可し、リポジトリのルートから `./scripts/run-android.ps1` を実行します。最新版を再ビルドする場合は `-Build` を追加します。更新は既存データを保持する `adb install -r` を使用します。端末が未接続・未許可の場合は、必要な操作を表示して停止します。
+
 ## 仮設の開発者用ツール
 
 設定画面の「開発者用（仮設）」でアプリのリセットと職業・性別の変更ができます。

@@ -97,7 +97,8 @@ class _BattleReplayPageState extends State<BattleReplayPage>
                     return Stack(fit: StackFit.expand, children: [
                       Image.asset('assets/images/${BackgroundComponent.asset}',
                           fit: BoxFit.cover, filterQuality: FilterQuality.none),
-                      GameWidget(game: _game),
+                      // Sprites enter from beyond the stage's right edge.
+                      ClipRect(child: GameWidget(game: _game)),
                       if (widget.controller != null)
                         Positioned(
                             right: 185 * unit,

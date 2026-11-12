@@ -84,12 +84,19 @@ class PlayableStagePainter extends CustomPainter {
     ..filterQuality = FilterQuality.none
     ..isAntiAlias = false;
 
-  static double baseSpriteSide(Size size, double pixelRatio) {
+  static double baseSpriteSide(Size size, double pixelRatio,
+      {bool rangedEffect = false}) {
+    // The compact HUD leaves room for larger actors. Use whole device pixels
+    // per logical sprite pixel and limit the scale on short or narrow screens.
     final grid = math.max(
         1,
         math
-            .min(size.width * pixelRatio / 300,
-                size.height * pixelRatio * .9 / (64 * 3))
+            .min(
+                size.width * pixelRatio / (rangedEffect ? 300 : 250),
+                size.height *
+                    pixelRatio *
+                    .9 /
+                    (64 * (rangedEffect ? 3 : 2.55)))
             .floor());
     return 64 * grid / pixelRatio;
   }
@@ -184,12 +191,14 @@ class PlayableStagePainter extends CustomPainter {
                 size.height * battle.stage.groundLine + offset.dy * side / 128),
             age: age,
             duration: motion.duration,
-            releases: releases);
+            releases: releases,
+            side: side);
       }
     }
     // Finite slashes use the authored v002 originals at their contact distance.
     // Actual ranged skills must show their flight and impact, including after
     // the casting animation ends, rather than damaging through invisible shots.
+    final rangedSide = baseSpriteSide(size, pixelRatio, rangedEffect: true);
     for (final projectile in battle.projectiles
         .where((shot) => !shot.skill || !battle.skillNeedsApproach)) {
       if (projectile.skill &&
@@ -207,11 +216,12 @@ class PlayableStagePainter extends CustomPainter {
         // The focal body of the authored 1536x256 effect is at source x=256.
         // Shift the complete original to the hit point, preserving its pixels.
         _skillEffect(canvas, size,
-            origin: Offset(projectile.endX / 1280 * size.width - 2 * side,
+            origin: Offset(projectile.endX / 1280 * size.width - 2 * rangedSide,
                 size.height * battle.stage.groundLine),
             age: release + (motion.duration - release) * progress,
             duration: motion.duration,
-            releases: [release]);
+            releases: [release],
+            side: rangedSide);
         continue;
       }
       paintStageProjectile(
@@ -219,7 +229,7 @@ class PlayableStagePainter extends CustomPainter {
           projectile,
           Offset(projectile.x / 1280 * size.width,
               size.height * battle.stage.groundLine - side * projectile.height),
-          side / 64,
+          rangedSide / 64,
           pixelRatio,
           image: assets.effects[projectile.kind == ProjectileKind.floor
               ? 'floor_${battle.stage.floorMaterial}_${projectile.resolved && !projectile.missed ? 3 : 2}'
@@ -282,7 +292,8 @@ class PlayableStagePainter extends CustomPainter {
       {required Offset origin,
       required double age,
       required double duration,
-      required List<double> releases}) {
+      required List<double> releases,
+      required double side}) {
     assets.effect.paint(canvas,
         origin: origin,
         viewport: Offset.zero & size,
@@ -290,7 +301,7 @@ class PlayableStagePainter extends CustomPainter {
         duration: duration,
         releases: releases,
         chargeHeight: 16,
-        logicalPixel: baseSpriteSide(size, pixelRatio) / 64,
+        logicalPixel: side / 64,
         devicePixelRatio: pixelRatio);
   }
 

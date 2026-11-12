@@ -165,12 +165,6 @@ class _PlayableStagePageState extends State<PlayableStagePage>
                       child: SingleChildScrollView(
                           padding: const EdgeInsets.all(18),
                           child: _overlay()))),
-            Positioned(
-                left: 4,
-                top: 4,
-                child: BackButton(
-                    color: const Color(0xffffecc0),
-                    onPressed: () => Navigator.of(context).maybePop())),
           ]))));
 
   Widget _utilities() => Row(mainAxisSize: MainAxisSize.min, children: [
@@ -423,11 +417,11 @@ class _PlayableStagePageState extends State<PlayableStagePage>
                                 : won || lost
                                     ? 'もう一度プレイ'
                                     : '冒険をはじめる')),
-              if (widget.returnToSelection && lost) ...[
+              if (_battle.paused || (widget.returnToSelection && lost)) ...[
                 const SizedBox(height: 8),
                 TextButton(
                     onPressed: _returnToSelection,
-                    child: const Text('ステージ選択へ')),
+                    child: Text(_battle.paused ? 'ステージから撤退' : 'ステージ選択へ')),
               ],
             ])));
   }
